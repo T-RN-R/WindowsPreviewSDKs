@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,12 +8,14 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Devices::Geolocation
 {
@@ -181,64 +183,62 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Geolocation::VisitMonitoringScope>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Geolocation::VisitStateChange>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Geolocation::BasicGeoposition>{ using type = struct_category<double, double, double>; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::CivicAddress>{ L"Windows.Devices.Geolocation.CivicAddress" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeoboundingBox>{ L"Windows.Devices.Geolocation.GeoboundingBox" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geocircle>{ L"Windows.Devices.Geolocation.Geocircle" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geocoordinate>{ L"Windows.Devices.Geolocation.Geocoordinate" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeocoordinateSatelliteData>{ L"Windows.Devices.Geolocation.GeocoordinateSatelliteData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geolocator>{ L"Windows.Devices.Geolocation.Geolocator" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geopath>{ L"Windows.Devices.Geolocation.Geopath" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geopoint>{ L"Windows.Devices.Geolocation.Geopoint" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geoposition>{ L"Windows.Devices.Geolocation.Geoposition" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geovisit>{ L"Windows.Devices.Geolocation.Geovisit" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeovisitMonitor>{ L"Windows.Devices.Geolocation.GeovisitMonitor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeovisitStateChangedEventArgs>{ L"Windows.Devices.Geolocation.GeovisitStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeovisitTriggerDetails>{ L"Windows.Devices.Geolocation.GeovisitTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::PositionChangedEventArgs>{ L"Windows.Devices.Geolocation.PositionChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::StatusChangedEventArgs>{ L"Windows.Devices.Geolocation.StatusChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::VenueData>{ L"Windows.Devices.Geolocation.VenueData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::AltitudeReferenceSystem>{ L"Windows.Devices.Geolocation.AltitudeReferenceSystem" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeolocationAccessStatus>{ L"Windows.Devices.Geolocation.GeolocationAccessStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeoshapeType>{ L"Windows.Devices.Geolocation.GeoshapeType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::PositionAccuracy>{ L"Windows.Devices.Geolocation.PositionAccuracy" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::PositionSource>{ L"Windows.Devices.Geolocation.PositionSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::PositionStatus>{ L"Windows.Devices.Geolocation.PositionStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::VisitMonitoringScope>{ L"Windows.Devices.Geolocation.VisitMonitoringScope" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::VisitStateChange>{ L"Windows.Devices.Geolocation.VisitStateChange" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::BasicGeoposition>{ L"Windows.Devices.Geolocation.BasicGeoposition" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::ICivicAddress>{ L"Windows.Devices.Geolocation.ICivicAddress" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoboundingBox>{ L"Windows.Devices.Geolocation.IGeoboundingBox" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoboundingBoxFactory>{ L"Windows.Devices.Geolocation.IGeoboundingBoxFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoboundingBoxStatics>{ L"Windows.Devices.Geolocation.IGeoboundingBoxStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocircle>{ L"Windows.Devices.Geolocation.IGeocircle" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocircleFactory>{ L"Windows.Devices.Geolocation.IGeocircleFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinate>{ L"Windows.Devices.Geolocation.IGeocoordinate" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinateSatelliteData>{ L"Windows.Devices.Geolocation.IGeocoordinateSatelliteData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinateWithPoint>{ L"Windows.Devices.Geolocation.IGeocoordinateWithPoint" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinateWithPositionData>{ L"Windows.Devices.Geolocation.IGeocoordinateWithPositionData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinateWithPositionSourceTimestamp>{ L"Windows.Devices.Geolocation.IGeocoordinateWithPositionSourceTimestamp" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocator>{ L"Windows.Devices.Geolocation.IGeolocator" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocator2>{ L"Windows.Devices.Geolocation.IGeolocator2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocatorStatics>{ L"Windows.Devices.Geolocation.IGeolocatorStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocatorStatics2>{ L"Windows.Devices.Geolocation.IGeolocatorStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocatorWithScalarAccuracy>{ L"Windows.Devices.Geolocation.IGeolocatorWithScalarAccuracy" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeopath>{ L"Windows.Devices.Geolocation.IGeopath" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeopathFactory>{ L"Windows.Devices.Geolocation.IGeopathFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeopoint>{ L"Windows.Devices.Geolocation.IGeopoint" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeopointFactory>{ L"Windows.Devices.Geolocation.IGeopointFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoposition>{ L"Windows.Devices.Geolocation.IGeoposition" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoposition2>{ L"Windows.Devices.Geolocation.IGeoposition2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoshape>{ L"Windows.Devices.Geolocation.IGeoshape" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisit>{ L"Windows.Devices.Geolocation.IGeovisit" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisitMonitor>{ L"Windows.Devices.Geolocation.IGeovisitMonitor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisitMonitorStatics>{ L"Windows.Devices.Geolocation.IGeovisitMonitorStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisitStateChangedEventArgs>{ L"Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisitTriggerDetails>{ L"Windows.Devices.Geolocation.IGeovisitTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IPositionChangedEventArgs>{ L"Windows.Devices.Geolocation.IPositionChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IStatusChangedEventArgs>{ L"Windows.Devices.Geolocation.IStatusChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IVenueData>{ L"Windows.Devices.Geolocation.IVenueData" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::CivicAddress> = L"Windows.Devices.Geolocation.CivicAddress";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeoboundingBox> = L"Windows.Devices.Geolocation.GeoboundingBox";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geocircle> = L"Windows.Devices.Geolocation.Geocircle";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geocoordinate> = L"Windows.Devices.Geolocation.Geocoordinate";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeocoordinateSatelliteData> = L"Windows.Devices.Geolocation.GeocoordinateSatelliteData";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geolocator> = L"Windows.Devices.Geolocation.Geolocator";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geopath> = L"Windows.Devices.Geolocation.Geopath";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geopoint> = L"Windows.Devices.Geolocation.Geopoint";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geoposition> = L"Windows.Devices.Geolocation.Geoposition";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geovisit> = L"Windows.Devices.Geolocation.Geovisit";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeovisitMonitor> = L"Windows.Devices.Geolocation.GeovisitMonitor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeovisitStateChangedEventArgs> = L"Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeovisitTriggerDetails> = L"Windows.Devices.Geolocation.GeovisitTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::PositionChangedEventArgs> = L"Windows.Devices.Geolocation.PositionChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::StatusChangedEventArgs> = L"Windows.Devices.Geolocation.StatusChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::VenueData> = L"Windows.Devices.Geolocation.VenueData";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::AltitudeReferenceSystem> = L"Windows.Devices.Geolocation.AltitudeReferenceSystem";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeolocationAccessStatus> = L"Windows.Devices.Geolocation.GeolocationAccessStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::GeoshapeType> = L"Windows.Devices.Geolocation.GeoshapeType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::PositionAccuracy> = L"Windows.Devices.Geolocation.PositionAccuracy";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::PositionSource> = L"Windows.Devices.Geolocation.PositionSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::PositionStatus> = L"Windows.Devices.Geolocation.PositionStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::VisitMonitoringScope> = L"Windows.Devices.Geolocation.VisitMonitoringScope";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::VisitStateChange> = L"Windows.Devices.Geolocation.VisitStateChange";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::BasicGeoposition> = L"Windows.Devices.Geolocation.BasicGeoposition";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::ICivicAddress> = L"Windows.Devices.Geolocation.ICivicAddress";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoboundingBox> = L"Windows.Devices.Geolocation.IGeoboundingBox";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoboundingBoxFactory> = L"Windows.Devices.Geolocation.IGeoboundingBoxFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoboundingBoxStatics> = L"Windows.Devices.Geolocation.IGeoboundingBoxStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocircle> = L"Windows.Devices.Geolocation.IGeocircle";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocircleFactory> = L"Windows.Devices.Geolocation.IGeocircleFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinate> = L"Windows.Devices.Geolocation.IGeocoordinate";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinateSatelliteData> = L"Windows.Devices.Geolocation.IGeocoordinateSatelliteData";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinateWithPoint> = L"Windows.Devices.Geolocation.IGeocoordinateWithPoint";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinateWithPositionData> = L"Windows.Devices.Geolocation.IGeocoordinateWithPositionData";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeocoordinateWithPositionSourceTimestamp> = L"Windows.Devices.Geolocation.IGeocoordinateWithPositionSourceTimestamp";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocator> = L"Windows.Devices.Geolocation.IGeolocator";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocator2> = L"Windows.Devices.Geolocation.IGeolocator2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocatorStatics> = L"Windows.Devices.Geolocation.IGeolocatorStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocatorStatics2> = L"Windows.Devices.Geolocation.IGeolocatorStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeolocatorWithScalarAccuracy> = L"Windows.Devices.Geolocation.IGeolocatorWithScalarAccuracy";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeopath> = L"Windows.Devices.Geolocation.IGeopath";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeopathFactory> = L"Windows.Devices.Geolocation.IGeopathFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeopoint> = L"Windows.Devices.Geolocation.IGeopoint";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeopointFactory> = L"Windows.Devices.Geolocation.IGeopointFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoposition> = L"Windows.Devices.Geolocation.IGeoposition";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoposition2> = L"Windows.Devices.Geolocation.IGeoposition2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeoshape> = L"Windows.Devices.Geolocation.IGeoshape";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisit> = L"Windows.Devices.Geolocation.IGeovisit";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisitMonitor> = L"Windows.Devices.Geolocation.IGeovisitMonitor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisitMonitorStatics> = L"Windows.Devices.Geolocation.IGeovisitMonitorStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisitStateChangedEventArgs> = L"Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IGeovisitTriggerDetails> = L"Windows.Devices.Geolocation.IGeovisitTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IPositionChangedEventArgs> = L"Windows.Devices.Geolocation.IPositionChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IStatusChangedEventArgs> = L"Windows.Devices.Geolocation.IStatusChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::IVenueData> = L"Windows.Devices.Geolocation.IVenueData";
     template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::ICivicAddress>{ 0xA8567A1A,0x64F4,0x4D48,{ 0xBC,0xEA,0xF6,0xB0,0x08,0xEC,0xA3,0x4C } };
     template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::IGeoboundingBox>{ 0x0896C80B,0x274F,0x43DA,{ 0x9A,0x06,0xCB,0xFC,0xDA,0xEB,0x4E,0xC2 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::IGeoboundingBoxFactory>{ 0x4DFBA589,0x0411,0x4ABC,{ 0xB3,0xB5,0x5B,0xBC,0xCB,0x57,0xD9,0x8C } };
@@ -562,11 +562,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_ICivicAddress
     {
-        [[nodiscard]] auto Country() const;
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto City() const;
-        [[nodiscard]] auto PostalCode() const;
-        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Country() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) City() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PostalCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::ICivicAddress>
     {
@@ -575,11 +575,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeoboundingBox
     {
-        [[nodiscard]] auto NorthwestCorner() const;
-        [[nodiscard]] auto SoutheastCorner() const;
-        [[nodiscard]] auto Center() const;
-        [[nodiscard]] auto MinAltitude() const;
-        [[nodiscard]] auto MaxAltitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::BasicGeoposition) NorthwestCorner() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::BasicGeoposition) SoutheastCorner() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::BasicGeoposition) Center() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MinAltitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MaxAltitude() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeoboundingBox>
     {
@@ -588,9 +588,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeoboundingBoxFactory
     {
-        auto Create(Windows::Devices::Geolocation::BasicGeoposition const& northwestCorner, Windows::Devices::Geolocation::BasicGeoposition const& southeastCorner) const;
-        auto CreateWithAltitudeReference(Windows::Devices::Geolocation::BasicGeoposition const& northwestCorner, Windows::Devices::Geolocation::BasicGeoposition const& southeastCorner, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem) const;
-        auto CreateWithAltitudeReferenceAndSpatialReference(Windows::Devices::Geolocation::BasicGeoposition const& northwestCorner, Windows::Devices::Geolocation::BasicGeoposition const& southeastCorner, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::GeoboundingBox) Create(Windows::Devices::Geolocation::BasicGeoposition const& northwestCorner, Windows::Devices::Geolocation::BasicGeoposition const& southeastCorner) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::GeoboundingBox) CreateWithAltitudeReference(Windows::Devices::Geolocation::BasicGeoposition const& northwestCorner, Windows::Devices::Geolocation::BasicGeoposition const& southeastCorner, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::GeoboundingBox) CreateWithAltitudeReferenceAndSpatialReference(Windows::Devices::Geolocation::BasicGeoposition const& northwestCorner, Windows::Devices::Geolocation::BasicGeoposition const& southeastCorner, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId) const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeoboundingBoxFactory>
     {
@@ -599,9 +599,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeoboundingBoxStatics
     {
-        auto TryCompute(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions) const;
-        auto TryCompute(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeRefSystem) const;
-        auto TryCompute(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeRefSystem, uint32_t spatialReferenceId) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::GeoboundingBox) TryCompute(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::GeoboundingBox) TryCompute(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeRefSystem) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::GeoboundingBox) TryCompute(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeRefSystem, uint32_t spatialReferenceId) const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeoboundingBoxStatics>
     {
@@ -610,8 +610,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeocircle
     {
-        [[nodiscard]] auto Center() const;
-        [[nodiscard]] auto Radius() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::BasicGeoposition) Center() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Radius() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeocircle>
     {
@@ -620,9 +620,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeocircleFactory
     {
-        auto Create(Windows::Devices::Geolocation::BasicGeoposition const& position, double radius) const;
-        auto CreateWithAltitudeReferenceSystem(Windows::Devices::Geolocation::BasicGeoposition const& position, double radius, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem) const;
-        auto CreateWithAltitudeReferenceSystemAndSpatialReferenceId(Windows::Devices::Geolocation::BasicGeoposition const& position, double radius, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geocircle) Create(Windows::Devices::Geolocation::BasicGeoposition const& position, double radius) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geocircle) CreateWithAltitudeReferenceSystem(Windows::Devices::Geolocation::BasicGeoposition const& position, double radius, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geocircle) CreateWithAltitudeReferenceSystemAndSpatialReferenceId(Windows::Devices::Geolocation::BasicGeoposition const& position, double radius, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId) const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeocircleFactory>
     {
@@ -631,14 +631,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeocoordinate
     {
-        [[nodiscard]] auto Latitude() const;
-        [[nodiscard]] auto Longitude() const;
-        [[nodiscard]] auto Altitude() const;
-        [[nodiscard]] auto Accuracy() const;
-        [[nodiscard]] auto AltitudeAccuracy() const;
-        [[nodiscard]] auto Heading() const;
-        [[nodiscard]] auto Speed() const;
-        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Latitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Longitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) Altitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Accuracy() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) AltitudeAccuracy() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) Heading() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) Speed() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeocoordinate>
     {
@@ -647,9 +647,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeocoordinateSatelliteData
     {
-        [[nodiscard]] auto PositionDilutionOfPrecision() const;
-        [[nodiscard]] auto HorizontalDilutionOfPrecision() const;
-        [[nodiscard]] auto VerticalDilutionOfPrecision() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) PositionDilutionOfPrecision() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) HorizontalDilutionOfPrecision() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) VerticalDilutionOfPrecision() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeocoordinateSatelliteData>
     {
@@ -658,7 +658,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeocoordinateWithPoint
     {
-        [[nodiscard]] auto Point() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopoint) Point() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeocoordinateWithPoint>
     {
@@ -667,8 +667,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeocoordinateWithPositionData
     {
-        [[nodiscard]] auto PositionSource() const;
-        [[nodiscard]] auto SatelliteData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::PositionSource) PositionSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::GeocoordinateSatelliteData) SatelliteData() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeocoordinateWithPositionData>
     {
@@ -677,7 +677,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeocoordinateWithPositionSourceTimestamp
     {
-        [[nodiscard]] auto PositionSourceTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) PositionSourceTimestamp() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeocoordinateWithPositionSourceTimestamp>
     {
@@ -686,23 +686,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeolocator
     {
-        [[nodiscard]] auto DesiredAccuracy() const;
-        auto DesiredAccuracy(Windows::Devices::Geolocation::PositionAccuracy const& value) const;
-        [[nodiscard]] auto MovementThreshold() const;
-        auto MovementThreshold(double value) const;
-        [[nodiscard]] auto ReportInterval() const;
-        auto ReportInterval(uint32_t value) const;
-        [[nodiscard]] auto LocationStatus() const;
-        auto GetGeopositionAsync() const;
-        auto GetGeopositionAsync(Windows::Foundation::TimeSpan const& maximumAge, Windows::Foundation::TimeSpan const& timeout) const;
-        auto PositionChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::Geolocator, Windows::Devices::Geolocation::PositionChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::PositionAccuracy) DesiredAccuracy() const;
+        WINRT_IMPL_AUTO(void) DesiredAccuracy(Windows::Devices::Geolocation::PositionAccuracy const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MovementThreshold() const;
+        WINRT_IMPL_AUTO(void) MovementThreshold(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
+        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::PositionStatus) LocationStatus() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Geolocation::Geoposition>) GetGeopositionAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Geolocation::Geoposition>) GetGeopositionAsync(Windows::Foundation::TimeSpan const& maximumAge, Windows::Foundation::TimeSpan const& timeout) const;
+        WINRT_IMPL_AUTO(winrt::event_token) PositionChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::Geolocator, Windows::Devices::Geolocation::PositionChangedEventArgs> const& handler) const;
         using PositionChanged_revoker = impl::event_revoker<Windows::Devices::Geolocation::IGeolocator, &impl::abi_t<Windows::Devices::Geolocation::IGeolocator>::remove_PositionChanged>;
         [[nodiscard]] PositionChanged_revoker PositionChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::Geolocator, Windows::Devices::Geolocation::PositionChangedEventArgs> const& handler) const;
-        auto PositionChanged(winrt::event_token const& token) const noexcept;
-        auto StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::Geolocator, Windows::Devices::Geolocation::StatusChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PositionChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::Geolocator, Windows::Devices::Geolocation::StatusChangedEventArgs> const& handler) const;
         using StatusChanged_revoker = impl::event_revoker<Windows::Devices::Geolocation::IGeolocator, &impl::abi_t<Windows::Devices::Geolocation::IGeolocator>::remove_StatusChanged>;
         [[nodiscard]] StatusChanged_revoker StatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::Geolocator, Windows::Devices::Geolocation::StatusChangedEventArgs> const& handler) const;
-        auto StatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeolocator>
     {
@@ -711,7 +711,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeolocator2
     {
-        auto AllowFallbackToConsentlessPositions() const;
+        WINRT_IMPL_AUTO(void) AllowFallbackToConsentlessPositions() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeolocator2>
     {
@@ -720,9 +720,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeolocatorStatics
     {
-        auto RequestAccessAsync() const;
-        auto GetGeopositionHistoryAsync(Windows::Foundation::DateTime const& startTime) const;
-        auto GetGeopositionHistoryAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::TimeSpan const& duration) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Geolocation::GeolocationAccessStatus>) RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Geolocation::Geoposition>>) GetGeopositionHistoryAsync(Windows::Foundation::DateTime const& startTime) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Geolocation::Geoposition>>) GetGeopositionHistoryAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::TimeSpan const& duration) const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeolocatorStatics>
     {
@@ -731,9 +731,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeolocatorStatics2
     {
-        [[nodiscard]] auto IsDefaultGeopositionRecommended() const;
-        auto DefaultGeoposition(Windows::Foundation::IReference<Windows::Devices::Geolocation::BasicGeoposition> const& value) const;
-        [[nodiscard]] auto DefaultGeoposition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDefaultGeopositionRecommended() const;
+        WINRT_IMPL_AUTO(void) DefaultGeoposition(Windows::Foundation::IReference<Windows::Devices::Geolocation::BasicGeoposition> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Devices::Geolocation::BasicGeoposition>) DefaultGeoposition() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeolocatorStatics2>
     {
@@ -742,8 +742,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeolocatorWithScalarAccuracy
     {
-        [[nodiscard]] auto DesiredAccuracyInMeters() const;
-        auto DesiredAccuracyInMeters(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) DesiredAccuracyInMeters() const;
+        WINRT_IMPL_AUTO(void) DesiredAccuracyInMeters(Windows::Foundation::IReference<uint32_t> const& value) const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeolocatorWithScalarAccuracy>
     {
@@ -752,7 +752,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeopath
     {
-        [[nodiscard]] auto Positions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Geolocation::BasicGeoposition>) Positions() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeopath>
     {
@@ -761,9 +761,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeopathFactory
     {
-        auto Create(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions) const;
-        auto CreateWithAltitudeReference(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem) const;
-        auto CreateWithAltitudeReferenceAndSpatialReference(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopath) Create(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopath) CreateWithAltitudeReference(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopath) CreateWithAltitudeReferenceAndSpatialReference(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId) const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeopathFactory>
     {
@@ -772,7 +772,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeopoint
     {
-        [[nodiscard]] auto Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::BasicGeoposition) Position() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeopoint>
     {
@@ -781,9 +781,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeopointFactory
     {
-        auto Create(Windows::Devices::Geolocation::BasicGeoposition const& position) const;
-        auto CreateWithAltitudeReferenceSystem(Windows::Devices::Geolocation::BasicGeoposition const& position, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem) const;
-        auto CreateWithAltitudeReferenceSystemAndSpatialReferenceId(Windows::Devices::Geolocation::BasicGeoposition const& position, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopoint) Create(Windows::Devices::Geolocation::BasicGeoposition const& position) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopoint) CreateWithAltitudeReferenceSystem(Windows::Devices::Geolocation::BasicGeoposition const& position, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopoint) CreateWithAltitudeReferenceSystemAndSpatialReferenceId(Windows::Devices::Geolocation::BasicGeoposition const& position, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId) const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeopointFactory>
     {
@@ -792,8 +792,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeoposition
     {
-        [[nodiscard]] auto Coordinate() const;
-        [[nodiscard]] auto CivicAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geocoordinate) Coordinate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::CivicAddress) CivicAddress() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeoposition>
     {
@@ -802,7 +802,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeoposition2
     {
-        [[nodiscard]] auto VenueData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::VenueData) VenueData() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeoposition2>
     {
@@ -811,9 +811,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeoshape
     {
-        [[nodiscard]] auto GeoshapeType() const;
-        [[nodiscard]] auto SpatialReferenceId() const;
-        [[nodiscard]] auto AltitudeReferenceSystem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::GeoshapeType) GeoshapeType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SpatialReferenceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::AltitudeReferenceSystem) AltitudeReferenceSystem() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeoshape>
     {
@@ -822,9 +822,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeovisit
     {
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto StateChange() const;
-        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geoposition) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::VisitStateChange) StateChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeovisit>
     {
@@ -833,13 +833,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeovisitMonitor
     {
-        [[nodiscard]] auto MonitoringScope() const;
-        auto Start(Windows::Devices::Geolocation::VisitMonitoringScope const& value) const;
-        auto Stop() const;
-        auto VisitStateChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::GeovisitMonitor, Windows::Devices::Geolocation::GeovisitStateChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::VisitMonitoringScope) MonitoringScope() const;
+        WINRT_IMPL_AUTO(void) Start(Windows::Devices::Geolocation::VisitMonitoringScope const& value) const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) VisitStateChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::GeovisitMonitor, Windows::Devices::Geolocation::GeovisitStateChangedEventArgs> const& handler) const;
         using VisitStateChanged_revoker = impl::event_revoker<Windows::Devices::Geolocation::IGeovisitMonitor, &impl::abi_t<Windows::Devices::Geolocation::IGeovisitMonitor>::remove_VisitStateChanged>;
         [[nodiscard]] VisitStateChanged_revoker VisitStateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Geolocation::GeovisitMonitor, Windows::Devices::Geolocation::GeovisitStateChangedEventArgs> const& handler) const;
-        auto VisitStateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) VisitStateChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeovisitMonitor>
     {
@@ -848,7 +848,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeovisitMonitorStatics
     {
-        auto GetLastReportAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Geolocation::Geovisit>) GetLastReportAsync() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeovisitMonitorStatics>
     {
@@ -857,7 +857,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeovisitStateChangedEventArgs
     {
-        [[nodiscard]] auto Visit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geovisit) Visit() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeovisitStateChangedEventArgs>
     {
@@ -866,7 +866,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IGeovisitTriggerDetails
     {
-        auto ReadReports() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Geolocation::Geovisit>) ReadReports() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IGeovisitTriggerDetails>
     {
@@ -875,7 +875,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IPositionChangedEventArgs
     {
-        [[nodiscard]] auto Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geoposition) Position() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IPositionChangedEventArgs>
     {
@@ -884,7 +884,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IStatusChangedEventArgs
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::PositionStatus) Status() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IStatusChangedEventArgs>
     {
@@ -893,8 +893,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Geolocation_IVenueData
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Level() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Level() const;
     };
     template <> struct consume<Windows::Devices::Geolocation::IVenueData>
     {

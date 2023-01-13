@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,11 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename K, typename V> struct IMapView;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::Printing
 {
@@ -135,58 +140,56 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails>{ using type = class_category; };
     template <> struct category<Windows::Graphics::Printing::OptionDetails::PrintOptionStates>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::Printing::OptionDetails::PrintOptionType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintBindingOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintBorderingOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCollationOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintColorModeOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCopiesOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCustomItemDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCustomItemListOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCustomTextOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCustomToggleOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintDuplexOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintHolePunchOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintMediaSizeOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintMediaTypeOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintOrientationOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintPageRangeOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintQualityOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintStapleOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionChangedEventArgs>{ L"Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintOptionStates>{ L"Windows.Graphics.Printing.OptionDetails.PrintOptionStates" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintOptionType>{ L"Windows.Graphics.Printing.OptionDetails.PrintOptionType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintBindingOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintBindingOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintBorderingOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintBorderingOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCollationOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCollationOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintColorModeOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintColorModeOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCopiesOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCopiesOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCustomItemDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCustomItemListOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails2>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCustomItemListOptionDetails2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails3>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCustomItemListOptionDetails3" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCustomOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomTextOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCustomTextOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomTextOptionDetails2>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCustomTextOptionDetails2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomToggleOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintCustomToggleOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintDuplexOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintDuplexOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintHolePunchOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintHolePunchOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintItemListOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintItemListOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintMediaSizeOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintMediaSizeOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintMediaTypeOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintMediaTypeOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintNumberOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintNumberOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintOrientationOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintOrientationOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintPageRangeOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintPageRangeOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintQualityOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintQualityOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintStapleOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintStapleOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionChangedEventArgs>{ L"Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails2>{ L"Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetailsStatic>{ L"Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetailsStatic" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTextOptionDetails>{ L"Windows.Graphics.Printing.OptionDetails.IPrintTextOptionDetails" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintBindingOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintBorderingOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCollationOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintColorModeOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCopiesOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCustomItemDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCustomItemListOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCustomTextOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintCustomToggleOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintDuplexOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintHolePunchOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintMediaSizeOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintMediaTypeOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintOrientationOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintPageRangeOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintQualityOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintStapleOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionChangedEventArgs> = L"Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintOptionStates> = L"Windows.Graphics.Printing.OptionDetails.PrintOptionStates";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::PrintOptionType> = L"Windows.Graphics.Printing.OptionDetails.PrintOptionType";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintBindingOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintBindingOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintBorderingOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintBorderingOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCollationOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintCollationOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintColorModeOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintColorModeOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCopiesOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintCopiesOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintCustomItemDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintCustomItemListOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails2> = L"Windows.Graphics.Printing.OptionDetails.IPrintCustomItemListOptionDetails2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails3> = L"Windows.Graphics.Printing.OptionDetails.IPrintCustomItemListOptionDetails3";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintCustomOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomTextOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintCustomTextOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomTextOptionDetails2> = L"Windows.Graphics.Printing.OptionDetails.IPrintCustomTextOptionDetails2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintCustomToggleOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintCustomToggleOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintDuplexOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintDuplexOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintHolePunchOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintHolePunchOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintItemListOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintItemListOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintMediaSizeOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintMediaSizeOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintMediaTypeOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintMediaTypeOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintNumberOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintNumberOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintOrientationOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintOrientationOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintPageRangeOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintPageRangeOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintQualityOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintQualityOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintStapleOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintStapleOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionChangedEventArgs> = L"Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails2> = L"Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetails2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetailsStatic> = L"Windows.Graphics.Printing.OptionDetails.IPrintTaskOptionDetailsStatic";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::OptionDetails::IPrintTextOptionDetails> = L"Windows.Graphics.Printing.OptionDetails.IPrintTextOptionDetails";
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::OptionDetails::IPrintBindingOptionDetails>{ 0xC3F4CC98,0x9564,0x4F16,{ 0xA0,0x55,0xA9,0x8B,0x9A,0x49,0xE9,0xD3 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::OptionDetails::IPrintBorderingOptionDetails>{ 0x4D73BC8F,0xFB53,0x4EB2,{ 0x98,0x5F,0x1D,0x91,0xDE,0x0B,0x76,0x39 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::OptionDetails::IPrintCollationOptionDetails>{ 0xD6ABB166,0xA5A6,0x40DC,{ 0xAC,0xC3,0x73,0x9F,0x28,0xF1,0xE5,0xD3 } };
@@ -507,10 +510,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintBindingOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintBindingOptionDetails>
     {
@@ -519,10 +522,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintBorderingOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintBorderingOptionDetails>
     {
@@ -531,10 +534,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCollationOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCollationOptionDetails>
     {
@@ -543,10 +546,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintColorModeOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintColorModeOptionDetails>
     {
@@ -555,10 +558,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCopiesOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCopiesOptionDetails>
     {
@@ -567,9 +570,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCustomItemDetails
     {
-        [[nodiscard]] auto ItemId() const;
-        auto ItemDisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto ItemDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ItemId() const;
+        WINRT_IMPL_AUTO(void) ItemDisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ItemDisplayName() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemDetails>
     {
@@ -578,7 +581,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCustomItemListOptionDetails
     {
-        auto AddItem(param::hstring const& itemId, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(void) AddItem(param::hstring const& itemId, param::hstring const& displayName) const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails>
     {
@@ -587,7 +590,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCustomItemListOptionDetails2
     {
-        auto AddItem(param::hstring const& itemId, param::hstring const& displayName, param::hstring const& description, Windows::Storage::Streams::IRandomAccessStreamWithContentType const& icon) const;
+        WINRT_IMPL_AUTO(void) AddItem(param::hstring const& itemId, param::hstring const& displayName, param::hstring const& description, Windows::Storage::Streams::IRandomAccessStreamWithContentType const& icon) const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails2>
     {
@@ -596,10 +599,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCustomItemListOptionDetails3
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCustomItemListOptionDetails3>
     {
@@ -608,8 +611,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCustomOptionDetails
     {
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCustomOptionDetails>
     {
@@ -618,8 +621,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCustomTextOptionDetails
     {
-        auto MaxCharacters(uint32_t value) const;
-        [[nodiscard]] auto MaxCharacters() const;
+        WINRT_IMPL_AUTO(void) MaxCharacters(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxCharacters() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCustomTextOptionDetails>
     {
@@ -628,10 +631,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCustomTextOptionDetails2
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCustomTextOptionDetails2>
     {
@@ -640,10 +643,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintCustomToggleOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintCustomToggleOptionDetails>
     {
@@ -652,10 +655,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintDuplexOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintDuplexOptionDetails>
     {
@@ -664,10 +667,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintHolePunchOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintHolePunchOptionDetails>
     {
@@ -676,7 +679,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintItemListOptionDetails
     {
-        [[nodiscard]] auto Items() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::IInspectable>) Items() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintItemListOptionDetails>
     {
@@ -685,10 +688,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintMediaSizeOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintMediaSizeOptionDetails>
     {
@@ -697,10 +700,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintMediaTypeOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintMediaTypeOptionDetails>
     {
@@ -709,8 +712,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintNumberOptionDetails
     {
-        [[nodiscard]] auto MinValue() const;
-        [[nodiscard]] auto MaxValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxValue() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintNumberOptionDetails>
     {
@@ -719,14 +722,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintOptionDetails
     {
-        [[nodiscard]] auto OptionId() const;
-        [[nodiscard]] auto OptionType() const;
-        auto ErrorText(param::hstring const& value) const;
-        [[nodiscard]] auto ErrorText() const;
-        auto State(Windows::Graphics::Printing::OptionDetails::PrintOptionStates const& value) const;
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto Value() const;
-        auto TrySetValue(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OptionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::OptionDetails::PrintOptionType) OptionType() const;
+        WINRT_IMPL_AUTO(void) ErrorText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ErrorText() const;
+        WINRT_IMPL_AUTO(void) State(Windows::Graphics::Printing::OptionDetails::PrintOptionStates const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::OptionDetails::PrintOptionStates) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Value() const;
+        WINRT_IMPL_AUTO(bool) TrySetValue(Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintOptionDetails>
     {
@@ -735,10 +738,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintOrientationOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintOrientationOptionDetails>
     {
@@ -747,10 +750,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintPageRangeOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintPageRangeOptionDetails>
     {
@@ -759,10 +762,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintQualityOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintQualityOptionDetails>
     {
@@ -771,10 +774,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintStapleOptionDetails
     {
-        auto WarningText(param::hstring const& value) const;
-        [[nodiscard]] auto WarningText() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
+        WINRT_IMPL_AUTO(void) WarningText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WarningText() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintStapleOptionDetails>
     {
@@ -783,7 +786,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintTaskOptionChangedEventArgs
     {
-        [[nodiscard]] auto OptionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) OptionId() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionChangedEventArgs>
     {
@@ -792,17 +795,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintTaskOptionDetails
     {
-        [[nodiscard]] auto Options() const;
-        auto CreateItemListOption(param::hstring const& optionId, param::hstring const& displayName) const;
-        auto CreateTextOption(param::hstring const& optionId, param::hstring const& displayName) const;
-        auto OptionChanged(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails, Windows::Graphics::Printing::OptionDetails::PrintTaskOptionChangedEventArgs> const& eventHandler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Graphics::Printing::OptionDetails::IPrintOptionDetails>) Options() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::OptionDetails::PrintCustomItemListOptionDetails) CreateItemListOption(param::hstring const& optionId, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::OptionDetails::PrintCustomTextOptionDetails) CreateTextOption(param::hstring const& optionId, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(winrt::event_token) OptionChanged(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails, Windows::Graphics::Printing::OptionDetails::PrintTaskOptionChangedEventArgs> const& eventHandler) const;
         using OptionChanged_revoker = impl::event_revoker<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails, &impl::abi_t<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails>::remove_OptionChanged>;
         [[nodiscard]] OptionChanged_revoker OptionChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails, Windows::Graphics::Printing::OptionDetails::PrintTaskOptionChangedEventArgs> const& eventHandler) const;
-        auto OptionChanged(winrt::event_token const& eventCookie) const noexcept;
-        auto BeginValidation(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails, Windows::Foundation::IInspectable> const& eventHandler) const;
+        WINRT_IMPL_AUTO(void) OptionChanged(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) BeginValidation(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails, Windows::Foundation::IInspectable> const& eventHandler) const;
         using BeginValidation_revoker = impl::event_revoker<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails, &impl::abi_t<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails>::remove_BeginValidation>;
         [[nodiscard]] BeginValidation_revoker BeginValidation(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails, Windows::Foundation::IInspectable> const& eventHandler) const;
-        auto BeginValidation(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(void) BeginValidation(winrt::event_token const& eventCookie) const noexcept;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails>
     {
@@ -811,7 +814,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintTaskOptionDetails2
     {
-        auto CreateToggleOption(param::hstring const& optionId, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::OptionDetails::PrintCustomToggleOptionDetails) CreateToggleOption(param::hstring const& optionId, param::hstring const& displayName) const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetails2>
     {
@@ -820,7 +823,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintTaskOptionDetailsStatic
     {
-        auto GetFromPrintTaskOptions(Windows::Graphics::Printing::PrintTaskOptions const& printTaskOptions) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::OptionDetails::PrintTaskOptionDetails) GetFromPrintTaskOptions(Windows::Graphics::Printing::PrintTaskOptions const& printTaskOptions) const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintTaskOptionDetailsStatic>
     {
@@ -829,7 +832,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_OptionDetails_IPrintTextOptionDetails
     {
-        [[nodiscard]] auto MaxCharacters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxCharacters() const;
     };
     template <> struct consume<Windows::Graphics::Printing::OptionDetails::IPrintTextOptionDetails>
     {

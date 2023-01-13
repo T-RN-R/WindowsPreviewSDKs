@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,11 +13,16 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Geolocation
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
+    template <typename T> struct IReference;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     template <typename K, typename V> struct IKeyValuePair;
+    template <typename K, typename V> struct IMap;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
@@ -121,31 +126,29 @@ namespace winrt::impl
     template <> struct category<Windows::Storage::FileProperties::ThumbnailOptions>{ using type = enum_category; };
     template <> struct category<Windows::Storage::FileProperties::ThumbnailType>{ using type = enum_category; };
     template <> struct category<Windows::Storage::FileProperties::VideoOrientation>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::BasicProperties>{ L"Windows.Storage.FileProperties.BasicProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::DocumentProperties>{ L"Windows.Storage.FileProperties.DocumentProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::GeotagHelper>{ L"Windows.Storage.FileProperties.GeotagHelper" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::ImageProperties>{ L"Windows.Storage.FileProperties.ImageProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::MusicProperties>{ L"Windows.Storage.FileProperties.MusicProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::StorageItemContentProperties>{ L"Windows.Storage.FileProperties.StorageItemContentProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::StorageItemThumbnail>{ L"Windows.Storage.FileProperties.StorageItemThumbnail" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::VideoProperties>{ L"Windows.Storage.FileProperties.VideoProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::PhotoOrientation>{ L"Windows.Storage.FileProperties.PhotoOrientation" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::PropertyPrefetchOptions>{ L"Windows.Storage.FileProperties.PropertyPrefetchOptions" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::ThumbnailMode>{ L"Windows.Storage.FileProperties.ThumbnailMode" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::ThumbnailOptions>{ L"Windows.Storage.FileProperties.ThumbnailOptions" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::ThumbnailType>{ L"Windows.Storage.FileProperties.ThumbnailType" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::VideoOrientation>{ L"Windows.Storage.FileProperties.VideoOrientation" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IBasicProperties>{ L"Windows.Storage.FileProperties.IBasicProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IDocumentProperties>{ L"Windows.Storage.FileProperties.IDocumentProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IGeotagHelperStatics>{ L"Windows.Storage.FileProperties.IGeotagHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IImageProperties>{ L"Windows.Storage.FileProperties.IImageProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IMusicProperties>{ L"Windows.Storage.FileProperties.IMusicProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IStorageItemContentProperties>{ L"Windows.Storage.FileProperties.IStorageItemContentProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IStorageItemExtraProperties>{ L"Windows.Storage.FileProperties.IStorageItemExtraProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IThumbnailProperties>{ L"Windows.Storage.FileProperties.IThumbnailProperties" };
-    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IVideoProperties>{ L"Windows.Storage.FileProperties.IVideoProperties" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::BasicProperties> = L"Windows.Storage.FileProperties.BasicProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::DocumentProperties> = L"Windows.Storage.FileProperties.DocumentProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::GeotagHelper> = L"Windows.Storage.FileProperties.GeotagHelper";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::ImageProperties> = L"Windows.Storage.FileProperties.ImageProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::MusicProperties> = L"Windows.Storage.FileProperties.MusicProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::StorageItemContentProperties> = L"Windows.Storage.FileProperties.StorageItemContentProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::StorageItemThumbnail> = L"Windows.Storage.FileProperties.StorageItemThumbnail";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::VideoProperties> = L"Windows.Storage.FileProperties.VideoProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::PhotoOrientation> = L"Windows.Storage.FileProperties.PhotoOrientation";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::PropertyPrefetchOptions> = L"Windows.Storage.FileProperties.PropertyPrefetchOptions";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::ThumbnailMode> = L"Windows.Storage.FileProperties.ThumbnailMode";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::ThumbnailOptions> = L"Windows.Storage.FileProperties.ThumbnailOptions";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::ThumbnailType> = L"Windows.Storage.FileProperties.ThumbnailType";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::VideoOrientation> = L"Windows.Storage.FileProperties.VideoOrientation";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IBasicProperties> = L"Windows.Storage.FileProperties.IBasicProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IDocumentProperties> = L"Windows.Storage.FileProperties.IDocumentProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IGeotagHelperStatics> = L"Windows.Storage.FileProperties.IGeotagHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IImageProperties> = L"Windows.Storage.FileProperties.IImageProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IMusicProperties> = L"Windows.Storage.FileProperties.IMusicProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IStorageItemContentProperties> = L"Windows.Storage.FileProperties.IStorageItemContentProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IStorageItemExtraProperties> = L"Windows.Storage.FileProperties.IStorageItemExtraProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IThumbnailProperties> = L"Windows.Storage.FileProperties.IThumbnailProperties";
+    template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IVideoProperties> = L"Windows.Storage.FileProperties.IVideoProperties";
     template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IBasicProperties>{ 0xD05D55DB,0x785E,0x4A66,{ 0xBE,0x02,0x9B,0xEE,0xC5,0x8A,0xEA,0x81 } };
     template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IDocumentProperties>{ 0x7EAB19BC,0x1821,0x4923,{ 0xB4,0xA9,0x0A,0xEA,0x40,0x4D,0x00,0x70 } };
     template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IGeotagHelperStatics>{ 0x41493244,0x2524,0x4655,{ 0x86,0xA6,0xED,0x16,0xF5,0xFC,0x71,0x6B } };
@@ -305,9 +308,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IBasicProperties
     {
-        [[nodiscard]] auto Size() const;
-        [[nodiscard]] auto DateModified() const;
-        [[nodiscard]] auto ItemDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) Size() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) DateModified() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) ItemDate() const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IBasicProperties>
     {
@@ -316,12 +319,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IDocumentProperties
     {
-        [[nodiscard]] auto Author() const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Keywords() const;
-        [[nodiscard]] auto Comment() const;
-        auto Comment(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Author() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Keywords() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Comment() const;
+        WINRT_IMPL_AUTO(void) Comment(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IDocumentProperties>
     {
@@ -330,9 +333,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IGeotagHelperStatics
     {
-        auto GetGeotagAsync(Windows::Storage::IStorageFile const& file) const;
-        auto SetGeotagFromGeolocatorAsync(Windows::Storage::IStorageFile const& file, Windows::Devices::Geolocation::Geolocator const& geolocator) const;
-        auto SetGeotagAsync(Windows::Storage::IStorageFile const& file, Windows::Devices::Geolocation::Geopoint const& geopoint) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Geolocation::Geopoint>) GetGeotagAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetGeotagFromGeolocatorAsync(Windows::Storage::IStorageFile const& file, Windows::Devices::Geolocation::Geolocator const& geolocator) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetGeotagAsync(Windows::Storage::IStorageFile const& file, Windows::Devices::Geolocation::Geopoint const& geopoint) const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IGeotagHelperStatics>
     {
@@ -341,23 +344,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IImageProperties
     {
-        [[nodiscard]] auto Rating() const;
-        auto Rating(uint32_t value) const;
-        [[nodiscard]] auto Keywords() const;
-        [[nodiscard]] auto DateTaken() const;
-        auto DateTaken(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto Width() const;
-        [[nodiscard]] auto Height() const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Latitude() const;
-        [[nodiscard]] auto Longitude() const;
-        [[nodiscard]] auto CameraManufacturer() const;
-        auto CameraManufacturer(param::hstring const& value) const;
-        [[nodiscard]] auto CameraModel() const;
-        auto CameraModel(param::hstring const& value) const;
-        [[nodiscard]] auto Orientation() const;
-        [[nodiscard]] auto PeopleNames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Rating() const;
+        WINRT_IMPL_AUTO(void) Rating(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Keywords() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) DateTaken() const;
+        WINRT_IMPL_AUTO(void) DateTaken(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Width() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) Latitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) Longitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CameraManufacturer() const;
+        WINRT_IMPL_AUTO(void) CameraManufacturer(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CameraModel() const;
+        WINRT_IMPL_AUTO(void) CameraModel(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::FileProperties::PhotoOrientation) Orientation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) PeopleNames() const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IImageProperties>
     {
@@ -366,31 +369,31 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IMusicProperties
     {
-        [[nodiscard]] auto Album() const;
-        auto Album(param::hstring const& value) const;
-        [[nodiscard]] auto Artist() const;
-        auto Artist(param::hstring const& value) const;
-        [[nodiscard]] auto Genre() const;
-        [[nodiscard]] auto TrackNumber() const;
-        auto TrackNumber(uint32_t value) const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Rating() const;
-        auto Rating(uint32_t value) const;
-        [[nodiscard]] auto Duration() const;
-        [[nodiscard]] auto Bitrate() const;
-        [[nodiscard]] auto AlbumArtist() const;
-        auto AlbumArtist(param::hstring const& value) const;
-        [[nodiscard]] auto Composers() const;
-        [[nodiscard]] auto Conductors() const;
-        [[nodiscard]] auto Subtitle() const;
-        auto Subtitle(param::hstring const& value) const;
-        [[nodiscard]] auto Producers() const;
-        [[nodiscard]] auto Publisher() const;
-        auto Publisher(param::hstring const& value) const;
-        [[nodiscard]] auto Writers() const;
-        [[nodiscard]] auto Year() const;
-        auto Year(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Album() const;
+        WINRT_IMPL_AUTO(void) Album(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Artist() const;
+        WINRT_IMPL_AUTO(void) Artist(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Genre() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TrackNumber() const;
+        WINRT_IMPL_AUTO(void) TrackNumber(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Rating() const;
+        WINRT_IMPL_AUTO(void) Rating(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Bitrate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlbumArtist() const;
+        WINRT_IMPL_AUTO(void) AlbumArtist(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Composers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Conductors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subtitle() const;
+        WINRT_IMPL_AUTO(void) Subtitle(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Producers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Publisher() const;
+        WINRT_IMPL_AUTO(void) Publisher(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Writers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Year() const;
+        WINRT_IMPL_AUTO(void) Year(uint32_t value) const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IMusicProperties>
     {
@@ -399,10 +402,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IStorageItemContentProperties
     {
-        auto GetMusicPropertiesAsync() const;
-        auto GetVideoPropertiesAsync() const;
-        auto GetImagePropertiesAsync() const;
-        auto GetDocumentPropertiesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::FileProperties::MusicProperties>) GetMusicPropertiesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::FileProperties::VideoProperties>) GetVideoPropertiesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::FileProperties::ImageProperties>) GetImagePropertiesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::FileProperties::DocumentProperties>) GetDocumentPropertiesAsync() const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IStorageItemContentProperties>
     {
@@ -411,9 +414,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IStorageItemExtraProperties
     {
-        auto RetrievePropertiesAsync(param::async_iterable<hstring> const& propertiesToRetrieve) const;
-        auto SavePropertiesAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, Windows::Foundation::IInspectable>> const& propertiesToSave) const;
-        auto SavePropertiesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IMap<hstring, Windows::Foundation::IInspectable>>) RetrievePropertiesAsync(param::async_iterable<hstring> const& propertiesToRetrieve) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SavePropertiesAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, Windows::Foundation::IInspectable>> const& propertiesToSave) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SavePropertiesAsync() const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IStorageItemExtraProperties>
     {
@@ -422,10 +425,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IThumbnailProperties
     {
-        [[nodiscard]] auto OriginalWidth() const;
-        [[nodiscard]] auto OriginalHeight() const;
-        [[nodiscard]] auto ReturnedSmallerCachedSize() const;
-        [[nodiscard]] auto Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) OriginalWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) OriginalHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ReturnedSmallerCachedSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::FileProperties::ThumbnailType) Type() const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IThumbnailProperties>
     {
@@ -434,27 +437,27 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_FileProperties_IVideoProperties
     {
-        [[nodiscard]] auto Rating() const;
-        auto Rating(uint32_t value) const;
-        [[nodiscard]] auto Keywords() const;
-        [[nodiscard]] auto Width() const;
-        [[nodiscard]] auto Height() const;
-        [[nodiscard]] auto Duration() const;
-        [[nodiscard]] auto Latitude() const;
-        [[nodiscard]] auto Longitude() const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Subtitle() const;
-        auto Subtitle(param::hstring const& value) const;
-        [[nodiscard]] auto Producers() const;
-        [[nodiscard]] auto Publisher() const;
-        auto Publisher(param::hstring const& value) const;
-        [[nodiscard]] auto Writers() const;
-        [[nodiscard]] auto Year() const;
-        auto Year(uint32_t value) const;
-        [[nodiscard]] auto Bitrate() const;
-        [[nodiscard]] auto Directors() const;
-        [[nodiscard]] auto Orientation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Rating() const;
+        WINRT_IMPL_AUTO(void) Rating(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Keywords() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Width() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) Latitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) Longitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subtitle() const;
+        WINRT_IMPL_AUTO(void) Subtitle(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Producers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Publisher() const;
+        WINRT_IMPL_AUTO(void) Publisher(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Writers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Year() const;
+        WINRT_IMPL_AUTO(void) Year(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Bitrate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Directors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::FileProperties::VideoOrientation) Orientation() const;
     };
     template <> struct consume<Windows::Storage::FileProperties::IVideoProperties>
     {

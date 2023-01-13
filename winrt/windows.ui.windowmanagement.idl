@@ -83,7 +83,7 @@ namespace Windows
 
             typedef enum AppWindowTitleBarVisibility AppWindowTitleBarVisibility;
 
-            typedef enum VisibilityChangedDetails VisibilityChangedDetails;
+            typedef enum VisibilityDetails VisibilityDetails;
 
             typedef enum WindowVisibilityState WindowVisibilityState;
 
@@ -96,8 +96,6 @@ namespace Windows
             interface IAppWindowChangedEventArgs;
 
             interface IAppWindowChangedEventArgs2;
-
-            interface IAppWindowChangedEventArgs22;
 
             interface IAppWindowCloseRequestedEventArgs;
 
@@ -281,13 +279,14 @@ namespace Windows
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            enum VisibilityChangedDetails
+            enum VisibilityDetails
             {
-                Unknown        = 0,
-                Visible        = 1,
-                HiddenBySystem = 2,
-                HiddenByApp    = 3,
-                Minimized      = 4
+                Unknown           = 0,
+                Visible           = 1,
+                HiddenBySystem    = 2,
+                HiddenByApp       = 3,
+                MinimizedBySystem = 4,
+                MinimizedByApp    = 5
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
@@ -344,11 +343,10 @@ namespace Windows
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             [exclusiveto(Windows.UI.WindowManagement.AppWindow)]
-            [uuid(06B045F1-FB8D-5587-9D5F-C4927522B14B)]
+            [uuid(27245398-5E04-5269-9E33-5B1E96593C45)]
             interface IAppWindow2 : IInspectable
             {
                 [propget] HRESULT WindowReference([out] [retval] Windows.UI.WindowReference** value);
-                HRESULT TryHide([in] boolean shownInSwitchers);
                 [overload("TryShowAsync")] HRESULT TryShowAsync([in] Windows.UI.WindowManagement.AppWindowShowOptions options, [out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
                 [overload("TryShowAsync")] HRESULT TryShowAsync2([in] Windows.UI.WindowManagement.AppWindowShowOptions options, [in] Windows.UI.WindowReference* anchorWindow, [out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
             }
@@ -374,14 +372,6 @@ namespace Windows
             interface IAppWindowChangedEventArgs2 : IInspectable
             {
                 [propget] HRESULT DidOffsetChange([out] [retval] boolean* value);
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            [exclusiveto(Windows.UI.WindowManagement.AppWindowChangedEventArgs)]
-            [uuid(54D35696-ACFF-5BCD-93E9-49EB5DBC6173)]
-            interface IAppWindowChangedEventArgs22 : IInspectable
-            {
-                [propget] HRESULT VisibilityChangedDetails([out] [retval] Windows.UI.WindowManagement.VisibilityChangedDetails* value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
@@ -639,7 +629,6 @@ namespace Windows
             {
                 [default] interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs;
                 [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs2;
-                [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs22;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]

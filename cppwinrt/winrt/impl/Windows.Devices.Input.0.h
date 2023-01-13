@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,6 +10,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Devices::Input
 {
@@ -95,45 +99,43 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Input::PointerDeviceType>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Input::MouseDelta>{ using type = struct_category<int32_t, int32_t>; };
     template <> struct category<Windows::Devices::Input::PointerDeviceUsage>{ using type = struct_category<uint32_t, uint32_t, int32_t, int32_t, int32_t, int32_t, uint32_t, float>; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::KeyboardCapabilities>{ L"Windows.Devices.Input.KeyboardCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::MouseCapabilities>{ L"Windows.Devices.Input.MouseCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::MouseDevice>{ L"Windows.Devices.Input.MouseDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::MouseEventArgs>{ L"Windows.Devices.Input.MouseEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenButtonListener>{ L"Windows.Devices.Input.PenButtonListener" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenDevice>{ L"Windows.Devices.Input.PenDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenDockListener>{ L"Windows.Devices.Input.PenDockListener" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenDockedEventArgs>{ L"Windows.Devices.Input.PenDockedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenTailButtonClickedEventArgs>{ L"Windows.Devices.Input.PenTailButtonClickedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenTailButtonDoubleClickedEventArgs>{ L"Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenTailButtonLongPressedEventArgs>{ L"Windows.Devices.Input.PenTailButtonLongPressedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenUndockedEventArgs>{ L"Windows.Devices.Input.PenUndockedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PointerDevice>{ L"Windows.Devices.Input.PointerDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::TouchCapabilities>{ L"Windows.Devices.Input.TouchCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PointerDeviceType>{ L"Windows.Devices.Input.PointerDeviceType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::MouseDelta>{ L"Windows.Devices.Input.MouseDelta" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::PointerDeviceUsage>{ L"Windows.Devices.Input.PointerDeviceUsage" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IKeyboardCapabilities>{ L"Windows.Devices.Input.IKeyboardCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IMouseCapabilities>{ L"Windows.Devices.Input.IMouseCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IMouseDevice>{ L"Windows.Devices.Input.IMouseDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IMouseDeviceStatics>{ L"Windows.Devices.Input.IMouseDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IMouseEventArgs>{ L"Windows.Devices.Input.IMouseEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenButtonListener>{ L"Windows.Devices.Input.IPenButtonListener" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenButtonListenerStatics>{ L"Windows.Devices.Input.IPenButtonListenerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDevice>{ L"Windows.Devices.Input.IPenDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDeviceStatics>{ L"Windows.Devices.Input.IPenDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDockListener>{ L"Windows.Devices.Input.IPenDockListener" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDockListenerStatics>{ L"Windows.Devices.Input.IPenDockListenerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDockedEventArgs>{ L"Windows.Devices.Input.IPenDockedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenTailButtonClickedEventArgs>{ L"Windows.Devices.Input.IPenTailButtonClickedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenTailButtonDoubleClickedEventArgs>{ L"Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenTailButtonLongPressedEventArgs>{ L"Windows.Devices.Input.IPenTailButtonLongPressedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenUndockedEventArgs>{ L"Windows.Devices.Input.IPenUndockedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPointerDevice>{ L"Windows.Devices.Input.IPointerDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPointerDevice2>{ L"Windows.Devices.Input.IPointerDevice2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPointerDeviceStatics>{ L"Windows.Devices.Input.IPointerDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Input::ITouchCapabilities>{ L"Windows.Devices.Input.ITouchCapabilities" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::KeyboardCapabilities> = L"Windows.Devices.Input.KeyboardCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::MouseCapabilities> = L"Windows.Devices.Input.MouseCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::MouseDevice> = L"Windows.Devices.Input.MouseDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::MouseEventArgs> = L"Windows.Devices.Input.MouseEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenButtonListener> = L"Windows.Devices.Input.PenButtonListener";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenDevice> = L"Windows.Devices.Input.PenDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenDockListener> = L"Windows.Devices.Input.PenDockListener";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenDockedEventArgs> = L"Windows.Devices.Input.PenDockedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenTailButtonClickedEventArgs> = L"Windows.Devices.Input.PenTailButtonClickedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenTailButtonDoubleClickedEventArgs> = L"Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenTailButtonLongPressedEventArgs> = L"Windows.Devices.Input.PenTailButtonLongPressedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PenUndockedEventArgs> = L"Windows.Devices.Input.PenUndockedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PointerDevice> = L"Windows.Devices.Input.PointerDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::TouchCapabilities> = L"Windows.Devices.Input.TouchCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PointerDeviceType> = L"Windows.Devices.Input.PointerDeviceType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::MouseDelta> = L"Windows.Devices.Input.MouseDelta";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::PointerDeviceUsage> = L"Windows.Devices.Input.PointerDeviceUsage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IKeyboardCapabilities> = L"Windows.Devices.Input.IKeyboardCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IMouseCapabilities> = L"Windows.Devices.Input.IMouseCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IMouseDevice> = L"Windows.Devices.Input.IMouseDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IMouseDeviceStatics> = L"Windows.Devices.Input.IMouseDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IMouseEventArgs> = L"Windows.Devices.Input.IMouseEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenButtonListener> = L"Windows.Devices.Input.IPenButtonListener";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenButtonListenerStatics> = L"Windows.Devices.Input.IPenButtonListenerStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDevice> = L"Windows.Devices.Input.IPenDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDeviceStatics> = L"Windows.Devices.Input.IPenDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDockListener> = L"Windows.Devices.Input.IPenDockListener";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDockListenerStatics> = L"Windows.Devices.Input.IPenDockListenerStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenDockedEventArgs> = L"Windows.Devices.Input.IPenDockedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenTailButtonClickedEventArgs> = L"Windows.Devices.Input.IPenTailButtonClickedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenTailButtonDoubleClickedEventArgs> = L"Windows.Devices.Input.IPenTailButtonDoubleClickedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenTailButtonLongPressedEventArgs> = L"Windows.Devices.Input.IPenTailButtonLongPressedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPenUndockedEventArgs> = L"Windows.Devices.Input.IPenUndockedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPointerDevice> = L"Windows.Devices.Input.IPointerDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPointerDevice2> = L"Windows.Devices.Input.IPointerDevice2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::IPointerDeviceStatics> = L"Windows.Devices.Input.IPointerDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Input::ITouchCapabilities> = L"Windows.Devices.Input.ITouchCapabilities";
     template <> inline constexpr guid guid_v<Windows::Devices::Input::IKeyboardCapabilities>{ 0x3A3F9B56,0x6798,0x4BBC,{ 0x83,0x3E,0x0F,0x34,0xB1,0x7C,0x65,0xFF } };
     template <> inline constexpr guid guid_v<Windows::Devices::Input::IMouseCapabilities>{ 0xBCA5E023,0x7DD9,0x4B6B,{ 0x9A,0x92,0x55,0xD4,0x3C,0xB3,0x8F,0x73 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Input::IMouseDevice>{ 0x88EDF458,0xF2C8,0x49F4,{ 0xBE,0x1F,0xC2,0x56,0xB3,0x88,0xBC,0x11 } };
@@ -332,7 +334,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IKeyboardCapabilities
     {
-        [[nodiscard]] auto KeyboardPresent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) KeyboardPresent() const;
     };
     template <> struct consume<Windows::Devices::Input::IKeyboardCapabilities>
     {
@@ -341,11 +343,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IMouseCapabilities
     {
-        [[nodiscard]] auto MousePresent() const;
-        [[nodiscard]] auto VerticalWheelPresent() const;
-        [[nodiscard]] auto HorizontalWheelPresent() const;
-        [[nodiscard]] auto SwapButtons() const;
-        [[nodiscard]] auto NumberOfButtons() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MousePresent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) VerticalWheelPresent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) HorizontalWheelPresent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SwapButtons() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) NumberOfButtons() const;
     };
     template <> struct consume<Windows::Devices::Input::IMouseCapabilities>
     {
@@ -354,10 +356,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IMouseDevice
     {
-        auto MouseMoved(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::MouseDevice, Windows::Devices::Input::MouseEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) MouseMoved(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::MouseDevice, Windows::Devices::Input::MouseEventArgs> const& handler) const;
         using MouseMoved_revoker = impl::event_revoker<Windows::Devices::Input::IMouseDevice, &impl::abi_t<Windows::Devices::Input::IMouseDevice>::remove_MouseMoved>;
         [[nodiscard]] MouseMoved_revoker MouseMoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Input::MouseDevice, Windows::Devices::Input::MouseEventArgs> const& handler) const;
-        auto MouseMoved(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) MouseMoved(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::Devices::Input::IMouseDevice>
     {
@@ -366,7 +368,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IMouseDeviceStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Input::MouseDevice) GetForCurrentView() const;
     };
     template <> struct consume<Windows::Devices::Input::IMouseDeviceStatics>
     {
@@ -375,7 +377,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IMouseEventArgs
     {
-        [[nodiscard]] auto MouseDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::MouseDelta) MouseDelta() const;
     };
     template <> struct consume<Windows::Devices::Input::IMouseEventArgs>
     {
@@ -384,23 +386,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPenButtonListener
     {
-        auto IsSupported() const;
-        auto IsSupportedChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(bool) IsSupported() const;
+        WINRT_IMPL_AUTO(winrt::event_token) IsSupportedChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Foundation::IInspectable> const& handler) const;
         using IsSupportedChanged_revoker = impl::event_revoker<Windows::Devices::Input::IPenButtonListener, &impl::abi_t<Windows::Devices::Input::IPenButtonListener>::remove_IsSupportedChanged>;
         [[nodiscard]] IsSupportedChanged_revoker IsSupportedChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Foundation::IInspectable> const& handler) const;
-        auto IsSupportedChanged(winrt::event_token const& token) const noexcept;
-        auto TailButtonClicked(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonClickedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) IsSupportedChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TailButtonClicked(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonClickedEventArgs> const& handler) const;
         using TailButtonClicked_revoker = impl::event_revoker<Windows::Devices::Input::IPenButtonListener, &impl::abi_t<Windows::Devices::Input::IPenButtonListener>::remove_TailButtonClicked>;
         [[nodiscard]] TailButtonClicked_revoker TailButtonClicked(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonClickedEventArgs> const& handler) const;
-        auto TailButtonClicked(winrt::event_token const& token) const noexcept;
-        auto TailButtonDoubleClicked(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonDoubleClickedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) TailButtonClicked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TailButtonDoubleClicked(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonDoubleClickedEventArgs> const& handler) const;
         using TailButtonDoubleClicked_revoker = impl::event_revoker<Windows::Devices::Input::IPenButtonListener, &impl::abi_t<Windows::Devices::Input::IPenButtonListener>::remove_TailButtonDoubleClicked>;
         [[nodiscard]] TailButtonDoubleClicked_revoker TailButtonDoubleClicked(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonDoubleClickedEventArgs> const& handler) const;
-        auto TailButtonDoubleClicked(winrt::event_token const& token) const noexcept;
-        auto TailButtonLongPressed(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonLongPressedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) TailButtonDoubleClicked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TailButtonLongPressed(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonLongPressedEventArgs> const& handler) const;
         using TailButtonLongPressed_revoker = impl::event_revoker<Windows::Devices::Input::IPenButtonListener, &impl::abi_t<Windows::Devices::Input::IPenButtonListener>::remove_TailButtonLongPressed>;
         [[nodiscard]] TailButtonLongPressed_revoker TailButtonLongPressed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenButtonListener, Windows::Devices::Input::PenTailButtonLongPressedEventArgs> const& handler) const;
-        auto TailButtonLongPressed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) TailButtonLongPressed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Input::IPenButtonListener>
     {
@@ -409,7 +411,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPenButtonListenerStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Input::PenButtonListener) GetDefault() const;
     };
     template <> struct consume<Windows::Devices::Input::IPenButtonListenerStatics>
     {
@@ -418,7 +420,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPenDevice
     {
-        [[nodiscard]] auto PenId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) PenId() const;
     };
     template <> struct consume<Windows::Devices::Input::IPenDevice>
     {
@@ -427,7 +429,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPenDeviceStatics
     {
-        auto GetFromPointerId(uint32_t pointerId) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Input::PenDevice) GetFromPointerId(uint32_t pointerId) const;
     };
     template <> struct consume<Windows::Devices::Input::IPenDeviceStatics>
     {
@@ -436,19 +438,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPenDockListener
     {
-        auto IsSupported() const;
-        auto IsSupportedChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(bool) IsSupported() const;
+        WINRT_IMPL_AUTO(winrt::event_token) IsSupportedChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Foundation::IInspectable> const& handler) const;
         using IsSupportedChanged_revoker = impl::event_revoker<Windows::Devices::Input::IPenDockListener, &impl::abi_t<Windows::Devices::Input::IPenDockListener>::remove_IsSupportedChanged>;
         [[nodiscard]] IsSupportedChanged_revoker IsSupportedChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Foundation::IInspectable> const& handler) const;
-        auto IsSupportedChanged(winrt::event_token const& token) const noexcept;
-        auto Docked(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Devices::Input::PenDockedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) IsSupportedChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Docked(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Devices::Input::PenDockedEventArgs> const& handler) const;
         using Docked_revoker = impl::event_revoker<Windows::Devices::Input::IPenDockListener, &impl::abi_t<Windows::Devices::Input::IPenDockListener>::remove_Docked>;
         [[nodiscard]] Docked_revoker Docked(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Devices::Input::PenDockedEventArgs> const& handler) const;
-        auto Docked(winrt::event_token const& token) const noexcept;
-        auto Undocked(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Devices::Input::PenUndockedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Docked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Undocked(Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Devices::Input::PenUndockedEventArgs> const& handler) const;
         using Undocked_revoker = impl::event_revoker<Windows::Devices::Input::IPenDockListener, &impl::abi_t<Windows::Devices::Input::IPenDockListener>::remove_Undocked>;
         [[nodiscard]] Undocked_revoker Undocked(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Input::PenDockListener, Windows::Devices::Input::PenUndockedEventArgs> const& handler) const;
-        auto Undocked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Undocked(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Input::IPenDockListener>
     {
@@ -457,7 +459,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPenDockListenerStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Input::PenDockListener) GetDefault() const;
     };
     template <> struct consume<Windows::Devices::Input::IPenDockListenerStatics>
     {
@@ -506,12 +508,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPointerDevice
     {
-        [[nodiscard]] auto PointerDeviceType() const;
-        [[nodiscard]] auto IsIntegrated() const;
-        [[nodiscard]] auto MaxContacts() const;
-        [[nodiscard]] auto PhysicalDeviceRect() const;
-        [[nodiscard]] auto ScreenRect() const;
-        [[nodiscard]] auto SupportedUsages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsIntegrated() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxContacts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) PhysicalDeviceRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) ScreenRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Input::PointerDeviceUsage>) SupportedUsages() const;
     };
     template <> struct consume<Windows::Devices::Input::IPointerDevice>
     {
@@ -520,7 +522,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPointerDevice2
     {
-        [[nodiscard]] auto MaxPointersWithZDistance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxPointersWithZDistance() const;
     };
     template <> struct consume<Windows::Devices::Input::IPointerDevice2>
     {
@@ -529,8 +531,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_IPointerDeviceStatics
     {
-        auto GetPointerDevice(uint32_t pointerId) const;
-        auto GetPointerDevices() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDevice) GetPointerDevice(uint32_t pointerId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Input::PointerDevice>) GetPointerDevices() const;
     };
     template <> struct consume<Windows::Devices::Input::IPointerDeviceStatics>
     {
@@ -539,8 +541,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Input_ITouchCapabilities
     {
-        [[nodiscard]] auto TouchPresent() const;
-        [[nodiscard]] auto Contacts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) TouchPresent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Contacts() const;
     };
     template <> struct consume<Windows::Devices::Input::ITouchCapabilities>
     {

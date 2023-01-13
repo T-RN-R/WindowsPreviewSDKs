@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -53,7 +53,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::WebUI::Core
         WebUICommandBarBitmapIcon(std::nullptr_t) noexcept {}
         WebUICommandBarBitmapIcon(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WebUI::Core::IWebUICommandBarBitmapIcon(ptr, take_ownership_from_abi) {}
         WebUICommandBarBitmapIcon();
-        WebUICommandBarBitmapIcon(Windows::Foundation::Uri const& uri);
+        explicit WebUICommandBarBitmapIcon(Windows::Foundation::Uri const& uri);
     };
     struct __declspec(empty_bases) WebUICommandBarConfirmationButton : Windows::UI::WebUI::Core::IWebUICommandBarConfirmationButton
     {
@@ -82,7 +82,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::WebUI::Core
         WebUICommandBarSymbolIcon(std::nullptr_t) noexcept {}
         WebUICommandBarSymbolIcon(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WebUI::Core::IWebUICommandBarSymbolIcon(ptr, take_ownership_from_abi) {}
         WebUICommandBarSymbolIcon();
-        WebUICommandBarSymbolIcon(param::hstring const& symbol);
+        explicit WebUICommandBarSymbolIcon(param::hstring const& symbol);
     };
 }
 #endif

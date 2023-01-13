@@ -1,13 +1,18 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Globalization_NumberFormatting_0_H
 #define WINRT_Windows_Globalization_NumberFormatting_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename T> struct IReference;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Globalization::NumberFormatting
 {
@@ -85,35 +90,33 @@ namespace winrt::impl
     template <> struct category<Windows::Globalization::NumberFormatting::SignificantDigitsNumberRounder>{ using type = class_category; };
     template <> struct category<Windows::Globalization::NumberFormatting::CurrencyFormatterMode>{ using type = enum_category; };
     template <> struct category<Windows::Globalization::NumberFormatting::RoundingAlgorithm>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::CurrencyFormatter>{ L"Windows.Globalization.NumberFormatting.CurrencyFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::DecimalFormatter>{ L"Windows.Globalization.NumberFormatting.DecimalFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IncrementNumberRounder>{ L"Windows.Globalization.NumberFormatting.IncrementNumberRounder" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::NumeralSystemTranslator>{ L"Windows.Globalization.NumberFormatting.NumeralSystemTranslator" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::PercentFormatter>{ L"Windows.Globalization.NumberFormatting.PercentFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::PermilleFormatter>{ L"Windows.Globalization.NumberFormatting.PermilleFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::SignificantDigitsNumberRounder>{ L"Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::CurrencyFormatterMode>{ L"Windows.Globalization.NumberFormatting.CurrencyFormatterMode" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::RoundingAlgorithm>{ L"Windows.Globalization.NumberFormatting.RoundingAlgorithm" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ICurrencyFormatter>{ L"Windows.Globalization.NumberFormatting.ICurrencyFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ICurrencyFormatter2>{ L"Windows.Globalization.NumberFormatting.ICurrencyFormatter2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ICurrencyFormatterFactory>{ L"Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IDecimalFormatterFactory>{ L"Windows.Globalization.NumberFormatting.IDecimalFormatterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IIncrementNumberRounder>{ L"Windows.Globalization.NumberFormatting.IIncrementNumberRounder" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberFormatter>{ L"Windows.Globalization.NumberFormatting.INumberFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberFormatter2>{ L"Windows.Globalization.NumberFormatting.INumberFormatter2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberFormatterOptions>{ L"Windows.Globalization.NumberFormatting.INumberFormatterOptions" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberParser>{ L"Windows.Globalization.NumberFormatting.INumberParser" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberRounder>{ L"Windows.Globalization.NumberFormatting.INumberRounder" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberRounderOption>{ L"Windows.Globalization.NumberFormatting.INumberRounderOption" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumeralSystemTranslator>{ L"Windows.Globalization.NumberFormatting.INumeralSystemTranslator" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumeralSystemTranslatorFactory>{ L"Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IPercentFormatterFactory>{ L"Windows.Globalization.NumberFormatting.IPercentFormatterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IPermilleFormatterFactory>{ L"Windows.Globalization.NumberFormatting.IPermilleFormatterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ISignedZeroOption>{ L"Windows.Globalization.NumberFormatting.ISignedZeroOption" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ISignificantDigitsNumberRounder>{ L"Windows.Globalization.NumberFormatting.ISignificantDigitsNumberRounder" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ISignificantDigitsOption>{ L"Windows.Globalization.NumberFormatting.ISignificantDigitsOption" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::CurrencyFormatter> = L"Windows.Globalization.NumberFormatting.CurrencyFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::DecimalFormatter> = L"Windows.Globalization.NumberFormatting.DecimalFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IncrementNumberRounder> = L"Windows.Globalization.NumberFormatting.IncrementNumberRounder";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::NumeralSystemTranslator> = L"Windows.Globalization.NumberFormatting.NumeralSystemTranslator";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::PercentFormatter> = L"Windows.Globalization.NumberFormatting.PercentFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::PermilleFormatter> = L"Windows.Globalization.NumberFormatting.PermilleFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::SignificantDigitsNumberRounder> = L"Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::CurrencyFormatterMode> = L"Windows.Globalization.NumberFormatting.CurrencyFormatterMode";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::RoundingAlgorithm> = L"Windows.Globalization.NumberFormatting.RoundingAlgorithm";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ICurrencyFormatter> = L"Windows.Globalization.NumberFormatting.ICurrencyFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ICurrencyFormatter2> = L"Windows.Globalization.NumberFormatting.ICurrencyFormatter2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ICurrencyFormatterFactory> = L"Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IDecimalFormatterFactory> = L"Windows.Globalization.NumberFormatting.IDecimalFormatterFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IIncrementNumberRounder> = L"Windows.Globalization.NumberFormatting.IIncrementNumberRounder";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberFormatter> = L"Windows.Globalization.NumberFormatting.INumberFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberFormatter2> = L"Windows.Globalization.NumberFormatting.INumberFormatter2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberFormatterOptions> = L"Windows.Globalization.NumberFormatting.INumberFormatterOptions";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberParser> = L"Windows.Globalization.NumberFormatting.INumberParser";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberRounder> = L"Windows.Globalization.NumberFormatting.INumberRounder";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumberRounderOption> = L"Windows.Globalization.NumberFormatting.INumberRounderOption";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumeralSystemTranslator> = L"Windows.Globalization.NumberFormatting.INumeralSystemTranslator";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::INumeralSystemTranslatorFactory> = L"Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IPercentFormatterFactory> = L"Windows.Globalization.NumberFormatting.IPercentFormatterFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::IPermilleFormatterFactory> = L"Windows.Globalization.NumberFormatting.IPermilleFormatterFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ISignedZeroOption> = L"Windows.Globalization.NumberFormatting.ISignedZeroOption";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ISignificantDigitsNumberRounder> = L"Windows.Globalization.NumberFormatting.ISignificantDigitsNumberRounder";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumberFormatting::ISignificantDigitsOption> = L"Windows.Globalization.NumberFormatting.ISignificantDigitsOption";
     template <> inline constexpr guid guid_v<Windows::Globalization::NumberFormatting::ICurrencyFormatter>{ 0x11730CA5,0x4B00,0x41B2,{ 0xB3,0x32,0x73,0xB1,0x2A,0x49,0x7D,0x54 } };
     template <> inline constexpr guid guid_v<Windows::Globalization::NumberFormatting::ICurrencyFormatter2>{ 0x072C2F1D,0xE7BA,0x4197,{ 0x92,0x0E,0x24,0x7C,0x92,0xF7,0xDE,0xA6 } };
     template <> inline constexpr guid guid_v<Windows::Globalization::NumberFormatting::ICurrencyFormatterFactory>{ 0x86C7537E,0xB938,0x4AA2,{ 0x84,0xB0,0x2C,0x33,0xDC,0x5B,0x14,0x50 } };
@@ -309,8 +312,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_ICurrencyFormatter
     {
-        [[nodiscard]] auto Currency() const;
-        auto Currency(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Currency() const;
+        WINRT_IMPL_AUTO(void) Currency(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::ICurrencyFormatter>
     {
@@ -319,9 +322,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_ICurrencyFormatter2
     {
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Globalization::NumberFormatting::CurrencyFormatterMode const& value) const;
-        auto ApplyRoundingForCurrency(Windows::Globalization::NumberFormatting::RoundingAlgorithm const& roundingAlgorithm) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::CurrencyFormatterMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Globalization::NumberFormatting::CurrencyFormatterMode const& value) const;
+        WINRT_IMPL_AUTO(void) ApplyRoundingForCurrency(Windows::Globalization::NumberFormatting::RoundingAlgorithm const& roundingAlgorithm) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::ICurrencyFormatter2>
     {
@@ -330,8 +333,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_ICurrencyFormatterFactory
     {
-        auto CreateCurrencyFormatterCode(param::hstring const& currencyCode) const;
-        auto CreateCurrencyFormatterCodeContext(param::hstring const& currencyCode, param::iterable<hstring> const& languages, param::hstring const& geographicRegion) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::CurrencyFormatter) CreateCurrencyFormatterCode(param::hstring const& currencyCode) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::CurrencyFormatter) CreateCurrencyFormatterCodeContext(param::hstring const& currencyCode, param::iterable<hstring> const& languages, param::hstring const& geographicRegion) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::ICurrencyFormatterFactory>
     {
@@ -340,7 +343,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_IDecimalFormatterFactory
     {
-        auto CreateDecimalFormatter(param::iterable<hstring> const& languages, param::hstring const& geographicRegion) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::DecimalFormatter) CreateDecimalFormatter(param::iterable<hstring> const& languages, param::hstring const& geographicRegion) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::IDecimalFormatterFactory>
     {
@@ -349,10 +352,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_IIncrementNumberRounder
     {
-        [[nodiscard]] auto RoundingAlgorithm() const;
-        auto RoundingAlgorithm(Windows::Globalization::NumberFormatting::RoundingAlgorithm const& value) const;
-        [[nodiscard]] auto Increment() const;
-        auto Increment(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::RoundingAlgorithm) RoundingAlgorithm() const;
+        WINRT_IMPL_AUTO(void) RoundingAlgorithm(Windows::Globalization::NumberFormatting::RoundingAlgorithm const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Increment() const;
+        WINRT_IMPL_AUTO(void) Increment(double value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::IIncrementNumberRounder>
     {
@@ -361,9 +364,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_INumberFormatter
     {
-        auto Format(int64_t value) const;
-        auto Format(uint64_t value) const;
-        auto Format(double value) const;
+        WINRT_IMPL_AUTO(hstring) Format(int64_t value) const;
+        WINRT_IMPL_AUTO(hstring) Format(uint64_t value) const;
+        WINRT_IMPL_AUTO(hstring) Format(double value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::INumberFormatter>
     {
@@ -372,9 +375,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_INumberFormatter2
     {
-        auto FormatInt(int64_t value) const;
-        auto FormatUInt(uint64_t value) const;
-        auto FormatDouble(double value) const;
+        WINRT_IMPL_AUTO(hstring) FormatInt(int64_t value) const;
+        WINRT_IMPL_AUTO(hstring) FormatUInt(uint64_t value) const;
+        WINRT_IMPL_AUTO(hstring) FormatDouble(double value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::INumberFormatter2>
     {
@@ -383,20 +386,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_INumberFormatterOptions
     {
-        [[nodiscard]] auto Languages() const;
-        [[nodiscard]] auto GeographicRegion() const;
-        [[nodiscard]] auto IntegerDigits() const;
-        auto IntegerDigits(int32_t value) const;
-        [[nodiscard]] auto FractionDigits() const;
-        auto FractionDigits(int32_t value) const;
-        [[nodiscard]] auto IsGrouped() const;
-        auto IsGrouped(bool value) const;
-        [[nodiscard]] auto IsDecimalPointAlwaysDisplayed() const;
-        auto IsDecimalPointAlwaysDisplayed(bool value) const;
-        [[nodiscard]] auto NumeralSystem() const;
-        auto NumeralSystem(param::hstring const& value) const;
-        [[nodiscard]] auto ResolvedLanguage() const;
-        [[nodiscard]] auto ResolvedGeographicRegion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Languages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GeographicRegion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) IntegerDigits() const;
+        WINRT_IMPL_AUTO(void) IntegerDigits(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FractionDigits() const;
+        WINRT_IMPL_AUTO(void) FractionDigits(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsGrouped() const;
+        WINRT_IMPL_AUTO(void) IsGrouped(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDecimalPointAlwaysDisplayed() const;
+        WINRT_IMPL_AUTO(void) IsDecimalPointAlwaysDisplayed(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NumeralSystem() const;
+        WINRT_IMPL_AUTO(void) NumeralSystem(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedGeographicRegion() const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::INumberFormatterOptions>
     {
@@ -405,9 +408,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_INumberParser
     {
-        auto ParseInt(param::hstring const& text) const;
-        auto ParseUInt(param::hstring const& text) const;
-        auto ParseDouble(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IReference<int64_t>) ParseInt(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ParseUInt(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) ParseDouble(param::hstring const& text) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::INumberParser>
     {
@@ -416,12 +419,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_INumberRounder
     {
-        auto RoundInt32(int32_t value) const;
-        auto RoundUInt32(uint32_t value) const;
-        auto RoundInt64(int64_t value) const;
-        auto RoundUInt64(uint64_t value) const;
-        auto RoundSingle(float value) const;
-        auto RoundDouble(double value) const;
+        WINRT_IMPL_AUTO(int32_t) RoundInt32(int32_t value) const;
+        WINRT_IMPL_AUTO(uint32_t) RoundUInt32(uint32_t value) const;
+        WINRT_IMPL_AUTO(int64_t) RoundInt64(int64_t value) const;
+        WINRT_IMPL_AUTO(uint64_t) RoundUInt64(uint64_t value) const;
+        WINRT_IMPL_AUTO(float) RoundSingle(float value) const;
+        WINRT_IMPL_AUTO(double) RoundDouble(double value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::INumberRounder>
     {
@@ -430,8 +433,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_INumberRounderOption
     {
-        [[nodiscard]] auto NumberRounder() const;
-        auto NumberRounder(Windows::Globalization::NumberFormatting::INumberRounder const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::INumberRounder) NumberRounder() const;
+        WINRT_IMPL_AUTO(void) NumberRounder(Windows::Globalization::NumberFormatting::INumberRounder const& value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::INumberRounderOption>
     {
@@ -440,11 +443,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_INumeralSystemTranslator
     {
-        [[nodiscard]] auto Languages() const;
-        [[nodiscard]] auto ResolvedLanguage() const;
-        [[nodiscard]] auto NumeralSystem() const;
-        auto NumeralSystem(param::hstring const& value) const;
-        auto TranslateNumerals(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Languages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NumeralSystem() const;
+        WINRT_IMPL_AUTO(void) NumeralSystem(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(hstring) TranslateNumerals(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::INumeralSystemTranslator>
     {
@@ -453,7 +456,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_INumeralSystemTranslatorFactory
     {
-        auto Create(param::iterable<hstring> const& languages) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::NumeralSystemTranslator) Create(param::iterable<hstring> const& languages) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::INumeralSystemTranslatorFactory>
     {
@@ -462,7 +465,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_IPercentFormatterFactory
     {
-        auto CreatePercentFormatter(param::iterable<hstring> const& languages, param::hstring const& geographicRegion) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::PercentFormatter) CreatePercentFormatter(param::iterable<hstring> const& languages, param::hstring const& geographicRegion) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::IPercentFormatterFactory>
     {
@@ -471,7 +474,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_IPermilleFormatterFactory
     {
-        auto CreatePermilleFormatter(param::iterable<hstring> const& languages, param::hstring const& geographicRegion) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::PermilleFormatter) CreatePermilleFormatter(param::iterable<hstring> const& languages, param::hstring const& geographicRegion) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::IPermilleFormatterFactory>
     {
@@ -480,8 +483,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_ISignedZeroOption
     {
-        [[nodiscard]] auto IsZeroSigned() const;
-        auto IsZeroSigned(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsZeroSigned() const;
+        WINRT_IMPL_AUTO(void) IsZeroSigned(bool value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::ISignedZeroOption>
     {
@@ -490,10 +493,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_ISignificantDigitsNumberRounder
     {
-        [[nodiscard]] auto RoundingAlgorithm() const;
-        auto RoundingAlgorithm(Windows::Globalization::NumberFormatting::RoundingAlgorithm const& value) const;
-        [[nodiscard]] auto SignificantDigits() const;
-        auto SignificantDigits(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::NumberFormatting::RoundingAlgorithm) RoundingAlgorithm() const;
+        WINRT_IMPL_AUTO(void) RoundingAlgorithm(Windows::Globalization::NumberFormatting::RoundingAlgorithm const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SignificantDigits() const;
+        WINRT_IMPL_AUTO(void) SignificantDigits(uint32_t value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::ISignificantDigitsNumberRounder>
     {
@@ -502,8 +505,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_NumberFormatting_ISignificantDigitsOption
     {
-        [[nodiscard]] auto SignificantDigits() const;
-        auto SignificantDigits(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SignificantDigits() const;
+        WINRT_IMPL_AUTO(void) SignificantDigits(int32_t value) const;
     };
     template <> struct consume<Windows::Globalization::NumberFormatting::ISignificantDigitsOption>
     {

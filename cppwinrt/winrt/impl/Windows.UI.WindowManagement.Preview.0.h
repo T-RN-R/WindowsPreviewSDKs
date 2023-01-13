@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -24,11 +24,9 @@ namespace winrt::impl
     template <> struct category<Windows::UI::WindowManagement::Preview::IWindowManagementPreview>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::Preview::IWindowManagementPreviewStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::Preview::WindowManagementPreview>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::Preview::WindowManagementPreview>{ L"Windows.UI.WindowManagement.Preview.WindowManagementPreview" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::Preview::IWindowManagementPreview>{ L"Windows.UI.WindowManagement.Preview.IWindowManagementPreview" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::Preview::IWindowManagementPreviewStatics>{ L"Windows.UI.WindowManagement.Preview.IWindowManagementPreviewStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::Preview::WindowManagementPreview> = L"Windows.UI.WindowManagement.Preview.WindowManagementPreview";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::Preview::IWindowManagementPreview> = L"Windows.UI.WindowManagement.Preview.IWindowManagementPreview";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::Preview::IWindowManagementPreviewStatics> = L"Windows.UI.WindowManagement.Preview.IWindowManagementPreviewStatics";
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::Preview::IWindowManagementPreview>{ 0x4EF55B0D,0x561D,0x513C,{ 0xA6,0x7C,0x2C,0x02,0xB6,0x9C,0xEF,0x41 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::Preview::IWindowManagementPreviewStatics>{ 0x0F9725C6,0xC004,0x5A23,{ 0x8F,0xD2,0x8D,0x09,0x2C,0xE2,0x70,0x4A } };
     template <> struct default_interface<Windows::UI::WindowManagement::Preview::WindowManagementPreview>{ using type = Windows::UI::WindowManagement::Preview::IWindowManagementPreview; };
@@ -56,7 +54,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_Preview_IWindowManagementPreviewStatics
     {
-        auto SetPreferredMinSize(Windows::UI::WindowManagement::AppWindow const& window, Windows::Foundation::Size const& preferredFrameMinSize) const;
+        WINRT_IMPL_AUTO(void) SetPreferredMinSize(Windows::UI::WindowManagement::AppWindow const& window, Windows::Foundation::Size const& preferredFrameMinSize) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::Preview::IWindowManagementPreviewStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,410 +6,423 @@
 #ifndef WINRT_Windows_Security_Isolation_H
 #define WINRT_Windows_Security_Isolation_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.Security.Isolation.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::Id() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->get_Id(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::StartProcessSilentlyAsync(param::hstring const& hostExePath, param::hstring const& arguments, Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator const& activator) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::StartProcessSilentlyAsync(param::hstring const& hostExePath, param::hstring const& arguments, Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator const& activator) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->StartProcessSilentlyAsync(*(void**)(&hostExePath), *(void**)(&arguments), static_cast<int32_t>(activator), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::StartProcessSilentlyAsync(param::hstring const& hostExePath, param::hstring const& arguments, Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator const& activator, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::StartProcessSilentlyAsync(param::hstring const& hostExePath, param::hstring const& arguments, Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator const& activator, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->StartProcessSilentlyWithTelemetryAsync(*(void**)(&hostExePath), *(void**)(&arguments), static_cast<int32_t>(activator), *(void**)(&telemetryParameters), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::ShareFolderAsync(param::hstring const& hostFolder, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions const& requestOptions) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::ShareFolderAsync(param::hstring const& hostFolder, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions const& requestOptions) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->ShareFolderAsync(*(void**)(&hostFolder), *(void**)(&requestOptions), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::ShareFolderAsync(param::hstring const& hostFolder, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions const& requestOptions, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::ShareFolderAsync(param::hstring const& hostFolder, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions const& requestOptions, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->ShareFolderWithTelemetryAsync(*(void**)(&hostFolder), *(void**)(&requestOptions), *(void**)(&telemetryParameters), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::LaunchFileWithUIAsync(param::hstring const& appExePath, param::hstring const& argumentsTemplate, param::hstring const& filePath) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::LaunchFileWithUIAsync(param::hstring const& appExePath, param::hstring const& argumentsTemplate, param::hstring const& filePath) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->LaunchFileWithUIAsync(*(void**)(&appExePath), *(void**)(&argumentsTemplate), *(void**)(&filePath), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::LaunchFileWithUIAsync(param::hstring const& appExePath, param::hstring const& argumentsTemplate, param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::LaunchFileWithUIAsync(param::hstring const& appExePath, param::hstring const& argumentsTemplate, param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->LaunchFileWithUIAndTelemetryAsync(*(void**)(&appExePath), *(void**)(&argumentsTemplate), *(void**)(&filePath), *(void**)(&telemetryParameters), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::TerminateAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::TerminateAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->TerminateAsync(&operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::TerminateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::TerminateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->TerminateWithTelemetryAsync(*(void**)(&telemetryParameters), &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::RegisterMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::MessageReceivedCallback const& messageReceivedCallback) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::RegisterMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::MessageReceivedCallback const& messageReceivedCallback) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->RegisterMessageReceiver(impl::bind_in(receiverId), *(void**)(&messageReceivedCallback)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::UnregisterMessageReceiver(winrt::guid const& receiverId) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment<D>::UnregisterMessageReceiver(winrt::guid const& receiverId) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->UnregisterMessageReceiver(impl::bind_in(receiverId)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2<D>::GetHostHwnd(uint64_t containerHwnd) const
-    {
-        uint64_t result;
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment2)->GetHostHwnd(containerHwnd, &result));
-        return result;
-    }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2<D>::PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2<D>::PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment2)->PostMessageToReceiverAsync(impl::bind_in(receiverId), *(void**)(&message), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2<D>::PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2<D>::PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment2)->PostMessageToReceiverWithTelemetryAsync(impl::bind_in(receiverId), *(void**)(&message), *(void**)(&telemetryParameters), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult<D>::Status() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult<D>::ExtendedError() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult<D>::ExtendedError() const
     {
-        winrt::hresult value;
+        winrt::hresult value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult<D>::Environment() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironment) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult<D>::Environment() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult)->get_Environment(&value));
         return Windows::Security::Isolation::IsolatedWindowsEnvironment{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory<D>::CreateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions const& options) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult, Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory<D>::CreateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions const& options) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory)->CreateAsync(*(void**)(&options), &operation));
         return Windows::Foundation::IAsyncOperationWithProgress<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult, Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory<D>::CreateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions const& options, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult, Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory<D>::CreateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions const& options, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory)->CreateWithTelemetryAsync(*(void**)(&options), *(void**)(&telemetryParameters), &operation));
         return Windows::Foundation::IAsyncOperationWithProgress<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult, Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory<D>::GetById(param::hstring const& environmentId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironment) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory<D>::GetById(param::hstring const& environmentId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory)->GetById(*(void**)(&environmentId), &result));
         return Windows::Security::Isolation::IsolatedWindowsEnvironment{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory<D>::FindByOwnerId(param::hstring const& environmentOwnerId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Security::Isolation::IsolatedWindowsEnvironment>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory<D>::FindByOwnerId(param::hstring const& environmentOwnerId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory)->FindByOwnerId(*(void**)(&environmentOwnerId), &result));
         return Windows::Foundation::Collections::IVectorView<Windows::Security::Isolation::IsolatedWindowsEnvironment>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile<D>::Id() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile)->get_Id(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile<D>::HostPath() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile<D>::HostPath() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile)->get_HostPath(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile<D>::Close() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile<D>::Close() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile)->Close());
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentHostStatics<D>::IsReady() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentHostStatics<D>::IsReady() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics)->get_IsReady(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentHostStatics<D>::HostErrors() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Security::Isolation::IsolatedWindowsEnvironmentHostError>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentHostStatics<D>::HostErrors() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics)->get_HostErrors(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Security::Isolation::IsolatedWindowsEnvironmentHostError>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentLaunchFileResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileStatus) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentLaunchFileResult<D>::Status() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileStatus value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentLaunchFileResult<D>::ExtendedError() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentLaunchFileResult<D>::ExtendedError() const
     {
-        winrt::hresult value;
+        winrt::hresult value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentLaunchFileResult<D>::File() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentFile) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentLaunchFileResult<D>::File() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult)->get_File(&value));
         return Windows::Security::Isolation::IsolatedWindowsEnvironmentFile{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::EnvironmentOwnerId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::EnvironmentOwnerId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_EnvironmentOwnerId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::EnvironmentOwnerId(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::EnvironmentOwnerId(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_EnvironmentOwnerId(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowedClipboardFormats() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowedClipboardFormats() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_AllowedClipboardFormats(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowedClipboardFormats(Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowedClipboardFormats(Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_AllowedClipboardFormats(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::ClipboardCopyPasteDirections() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::ClipboardCopyPasteDirections() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_ClipboardCopyPasteDirections(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::ClipboardCopyPasteDirections(Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::ClipboardCopyPasteDirections(Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_ClipboardCopyPasteDirections(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AvailablePrinters() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AvailablePrinters() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_AvailablePrinters(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AvailablePrinters(Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AvailablePrinters(Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_AvailablePrinters(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::SharedHostFolderPath() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::SharedHostFolderPath() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_SharedHostFolderPath(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::SharedFolderNameInEnvironment() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::SharedFolderNameInEnvironment() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_SharedFolderNameInEnvironment(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::ShareHostFolderForUntrustedItems(param::hstring const& SharedHostFolderPath, param::hstring const& ShareFolderNameInEnvironment) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::ShareHostFolderForUntrustedItems(param::hstring const& SharedHostFolderPath, param::hstring const& ShareFolderNameInEnvironment) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->ShareHostFolderForUntrustedItems(*(void**)(&SharedHostFolderPath), *(void**)(&ShareFolderNameInEnvironment)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::PersistUserProfile() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::PersistUserProfile() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_PersistUserProfile(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::PersistUserProfile(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::PersistUserProfile(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_PersistUserProfile(value));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowGraphicsHardwareAcceleration() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowGraphicsHardwareAcceleration() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_AllowGraphicsHardwareAcceleration(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowGraphicsHardwareAcceleration(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowGraphicsHardwareAcceleration(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_AllowGraphicsHardwareAcceleration(value));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowCameraAndMicrophoneAccess() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowCameraAndMicrophoneAccess() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->get_AllowCameraAndMicrophoneAccess(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowCameraAndMicrophoneAccess(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowCameraAndMicrophoneAccess(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_AllowCameraAndMicrophoneAccess(value));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ShareableFolders() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ShareableFolders() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData)->get_ShareableFolders(&value));
         return Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ProcessesRunnableAsSystem() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ProcessesRunnableAsSystem() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData)->get_ProcessesRunnableAsSystem(&value));
         return Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ProcessesRunnableAsUser() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ProcessesRunnableAsUser() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData)->get_ProcessesRunnableAsUser(&value));
         return Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ActivationFileExtensions() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ActivationFileExtensions() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData)->get_ActivationFileExtensions(&value));
         return Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationStatus) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationResult<D>::Status() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationStatus value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationResult<D>::ExtendedError() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationResult<D>::ExtendedError() const
     {
-        winrt::hresult value;
+        winrt::hresult value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationStatics<D>::Register(param::hstring const& ownerName, Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationData const& ownerRegistrationData) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationStatics<D>::Register(param::hstring const& ownerName, Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationData const& ownerRegistrationData) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics)->Register(*(void**)(&ownerName), *(void**)(&ownerRegistrationData), &result));
         return Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationStatics<D>::Unregister(param::hstring const& ownerName) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationStatics<D>::Unregister(param::hstring const& ownerName) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics)->Unregister(*(void**)(&ownerName)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult<D>::Status() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult<D>::ExtendedError() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult<D>::ExtendedError() const
     {
-        winrt::hresult value;
+        winrt::hresult value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::State() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::State() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess)->get_State(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::ExitCode() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::ExitCode() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess)->get_ExitCode(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::WaitForExit() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::WaitForExit() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess)->WaitForExit());
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::WaitForExitWithTimeout(uint32_t timeoutMilliseconds) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::WaitForExitWithTimeout(uint32_t timeoutMilliseconds) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess)->WaitForExitWithTimeout(timeoutMilliseconds));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::WaitForExitAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::WaitForExitAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess)->WaitForExitAsync(&operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderRequestOptions<D>::AllowWrite() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderRequestOptions<D>::AllowWrite() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions)->get_AllowWrite(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderRequestOptions<D>::AllowWrite(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderRequestOptions<D>::AllowWrite(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions)->put_AllowWrite(value));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderResult<D>::Status() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderResult<D>::ExtendedError() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderResult<D>::ExtendedError() const
     {
-        winrt::hresult value;
+        winrt::hresult value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentStartProcessResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentStartProcessResult<D>::Status() const
     {
-        Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus value;
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentStartProcessResult<D>::ExtendedError() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentStartProcessResult<D>::ExtendedError() const
     {
-        winrt::hresult value;
+        winrt::hresult value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentStartProcessResult<D>::Process() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentStartProcessResult<D>::Process() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult)->get_Process(&value));
         return Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentTelemetryParameters<D>::CorrelationId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentTelemetryParameters<D>::CorrelationId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters)->get_CorrelationId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentTelemetryParameters<D>::CorrelationId(winrt::guid const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentTelemetryParameters<D>::CorrelationId(winrt::guid const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters)->put_CorrelationId(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics<D>::PostMessageToReceiver(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics<D>::PostMessageToReceiver(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics)->PostMessageToReceiver(impl::bind_in(receiverId), *(void**)(&message)));
     }
-    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics<D>::GetFileId(param::hstring const& filePath) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics<D>::GetFileId(param::hstring const& filePath) const
     {
-        winrt::guid result;
+        winrt::guid result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics)->GetFileId(*(void**)(&filePath), put_abi(result)));
         return result;
     }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2<D>::RegisterHostMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::HostMessageReceivedCallback const& hostMessageReceivedCallback) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2)->RegisterHostMessageReceiver(impl::bind_in(receiverId), *(void**)(&hostMessageReceivedCallback)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2<D>::UnregisteHostMessageReceiver(winrt::guid const& receiverId) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2)->UnregisteHostMessageReceiver(impl::bind_in(receiverId)));
+    }
+    template <typename H> struct delegate<Windows::Security::Isolation::HostMessageReceivedCallback, H> final : implements_delegate<Windows::Security::Isolation::HostMessageReceivedCallback, H>
+    {
+        delegate(H&& handler) : implements_delegate<Windows::Security::Isolation::HostMessageReceivedCallback, H>(std::forward<H>(handler)) {}
+
+        int32_t __stdcall Invoke(winrt::guid receiverId, void* message) noexcept final try
+        {
+            (*this)(*reinterpret_cast<winrt::guid const*>(&receiverId), *reinterpret_cast<Windows::Foundation::Collections::IVectorView<Windows::Foundation::IInspectable> const*>(&message));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
     template <typename H> struct delegate<Windows::Security::Isolation::MessageReceivedCallback, H> final : implements_delegate<Windows::Security::Isolation::MessageReceivedCallback, H>
     {
         delegate(H&& handler) : implements_delegate<Windows::Security::Isolation::MessageReceivedCallback, H>(std::forward<H>(handler)) {}
@@ -517,13 +530,6 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironment2> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironment2>
     {
-        int32_t __stdcall GetHostHwnd(uint64_t containerHwnd, uint64_t* result) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            *result = detach_from<uint64_t>(this->shim().GetHostHwnd(containerHwnd));
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
         int32_t __stdcall PostMessageToReceiverAsync(winrt::guid receiverId, void* message, void** operation) noexcept final try
         {
             clear_abi(operation);
@@ -1068,6 +1074,26 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
 #endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2>
+    {
+        int32_t __stdcall RegisterHostMessageReceiver(winrt::guid receiverId, void* hostMessageReceivedCallback) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().RegisterHostMessageReceiver(*reinterpret_cast<winrt::guid const*>(&receiverId), *reinterpret_cast<Windows::Security::Isolation::HostMessageReceivedCallback const*>(&hostMessageReceivedCallback));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall UnregisteHostMessageReceiver(winrt::guid receiverId) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().UnregisteHostMessageReceiver(*reinterpret_cast<winrt::guid const*>(&receiverId));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
 }
 WINRT_EXPORT namespace winrt::Windows::Security::Isolation
 {
@@ -1220,6 +1246,38 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     {
         return impl::call_factory<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics>([&](IIsolatedWindowsHostMessengerStatics const& f) { return f.GetFileId(filePath); });
     }
+    inline auto IsolatedWindowsHostMessenger::RegisterHostMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::HostMessageReceivedCallback const& hostMessageReceivedCallback)
+    {
+        impl::call_factory<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics2>([&](IIsolatedWindowsHostMessengerStatics2 const& f) { return f.RegisterHostMessageReceiver(receiverId, hostMessageReceivedCallback); });
+    }
+    inline auto IsolatedWindowsHostMessenger::UnregisteHostMessageReceiver(winrt::guid const& receiverId)
+    {
+        impl::call_factory<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics2>([&](IIsolatedWindowsHostMessengerStatics2 const& f) { return f.UnregisteHostMessageReceiver(receiverId); });
+    }
+    template <typename L> HostMessageReceivedCallback::HostMessageReceivedCallback(L handler) :
+        HostMessageReceivedCallback(impl::make_delegate<HostMessageReceivedCallback>(std::forward<L>(handler)))
+    {
+    }
+    template <typename F> HostMessageReceivedCallback::HostMessageReceivedCallback(F* handler) :
+        HostMessageReceivedCallback([=](auto&&... args) { return handler(args...); })
+    {
+    }
+    template <typename O, typename M> HostMessageReceivedCallback::HostMessageReceivedCallback(O* object, M method) :
+        HostMessageReceivedCallback([=](auto&&... args) { return ((*object).*(method))(args...); })
+    {
+    }
+    template <typename O, typename M> HostMessageReceivedCallback::HostMessageReceivedCallback(com_ptr<O>&& object, M method) :
+        HostMessageReceivedCallback([o = std::move(object), method](auto&&... args) { return ((*o).*(method))(args...); })
+    {
+    }
+    template <typename O, typename M> HostMessageReceivedCallback::HostMessageReceivedCallback(weak_ref<O>&& object, M method) :
+        HostMessageReceivedCallback([o = std::move(object), method](auto&&... args) { if (auto s = o.get()) { ((*s).*(method))(args...); } })
+    {
+    }
+    inline auto HostMessageReceivedCallback::operator()(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message) const
+    {
+        check_hresult((*(impl::abi_t<HostMessageReceivedCallback>**)this)->Invoke(impl::bind_in(receiverId), *(void**)(&message)));
+    }
     template <typename L> MessageReceivedCallback::MessageReceivedCallback(L handler) :
         MessageReceivedCallback(impl::make_delegate<MessageReceivedCallback>(std::forward<L>(handler)))
     {
@@ -1266,6 +1324,7 @@ namespace std
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironment> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentFile> : winrt::impl::hash_base {};

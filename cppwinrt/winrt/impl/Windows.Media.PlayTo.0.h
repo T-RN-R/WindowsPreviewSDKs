@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,11 +9,13 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename K, typename V> struct IMapView;
     struct IPropertySet;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
@@ -110,44 +112,42 @@ namespace winrt::impl
     template <> struct category<Windows::Media::PlayTo::VolumeChangeRequestedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Media::PlayTo::PlayToConnectionError>{ using type = enum_category; };
     template <> struct category<Windows::Media::PlayTo::PlayToConnectionState>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::CurrentTimeChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::MuteChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.MuteChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnection>{ L"Windows.Media.PlayTo.PlayToConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionErrorEventArgs>{ L"Windows.Media.PlayTo.PlayToConnectionErrorEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionStateChangedEventArgs>{ L"Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionTransferredEventArgs>{ L"Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToManager>{ L"Windows.Media.PlayTo.PlayToManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToReceiver>{ L"Windows.Media.PlayTo.PlayToReceiver" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSource>{ L"Windows.Media.PlayTo.PlayToSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSourceDeferral>{ L"Windows.Media.PlayTo.PlayToSourceDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSourceRequest>{ L"Windows.Media.PlayTo.PlayToSourceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSourceRequestedEventArgs>{ L"Windows.Media.PlayTo.PlayToSourceRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSourceSelectedEventArgs>{ L"Windows.Media.PlayTo.PlayToSourceSelectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlaybackRateChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::SourceChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.SourceChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::VolumeChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.VolumeChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionError>{ L"Windows.Media.PlayTo.PlayToConnectionError" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionState>{ L"Windows.Media.PlayTo.PlayToConnectionState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::ICurrentTimeChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IMuteChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.IMuteChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToConnection>{ L"Windows.Media.PlayTo.IPlayToConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToConnectionErrorEventArgs>{ L"Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToConnectionStateChangedEventArgs>{ L"Windows.Media.PlayTo.IPlayToConnectionStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToConnectionTransferredEventArgs>{ L"Windows.Media.PlayTo.IPlayToConnectionTransferredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToManager>{ L"Windows.Media.PlayTo.IPlayToManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToManagerStatics>{ L"Windows.Media.PlayTo.IPlayToManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToReceiver>{ L"Windows.Media.PlayTo.IPlayToReceiver" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSource>{ L"Windows.Media.PlayTo.IPlayToSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceDeferral>{ L"Windows.Media.PlayTo.IPlayToSourceDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceRequest>{ L"Windows.Media.PlayTo.IPlayToSourceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceRequestedEventArgs>{ L"Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceSelectedEventArgs>{ L"Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceWithPreferredSourceUri>{ L"Windows.Media.PlayTo.IPlayToSourceWithPreferredSourceUri" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlaybackRateChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::ISourceChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.ISourceChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IVolumeChangeRequestedEventArgs>{ L"Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::CurrentTimeChangeRequestedEventArgs> = L"Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::MuteChangeRequestedEventArgs> = L"Windows.Media.PlayTo.MuteChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnection> = L"Windows.Media.PlayTo.PlayToConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionErrorEventArgs> = L"Windows.Media.PlayTo.PlayToConnectionErrorEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionStateChangedEventArgs> = L"Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionTransferredEventArgs> = L"Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToManager> = L"Windows.Media.PlayTo.PlayToManager";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToReceiver> = L"Windows.Media.PlayTo.PlayToReceiver";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSource> = L"Windows.Media.PlayTo.PlayToSource";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSourceDeferral> = L"Windows.Media.PlayTo.PlayToSourceDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSourceRequest> = L"Windows.Media.PlayTo.PlayToSourceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSourceRequestedEventArgs> = L"Windows.Media.PlayTo.PlayToSourceRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToSourceSelectedEventArgs> = L"Windows.Media.PlayTo.PlayToSourceSelectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlaybackRateChangeRequestedEventArgs> = L"Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::SourceChangeRequestedEventArgs> = L"Windows.Media.PlayTo.SourceChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::VolumeChangeRequestedEventArgs> = L"Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionError> = L"Windows.Media.PlayTo.PlayToConnectionError";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::PlayToConnectionState> = L"Windows.Media.PlayTo.PlayToConnectionState";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::ICurrentTimeChangeRequestedEventArgs> = L"Windows.Media.PlayTo.ICurrentTimeChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IMuteChangeRequestedEventArgs> = L"Windows.Media.PlayTo.IMuteChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToConnection> = L"Windows.Media.PlayTo.IPlayToConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToConnectionErrorEventArgs> = L"Windows.Media.PlayTo.IPlayToConnectionErrorEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToConnectionStateChangedEventArgs> = L"Windows.Media.PlayTo.IPlayToConnectionStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToConnectionTransferredEventArgs> = L"Windows.Media.PlayTo.IPlayToConnectionTransferredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToManager> = L"Windows.Media.PlayTo.IPlayToManager";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToManagerStatics> = L"Windows.Media.PlayTo.IPlayToManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToReceiver> = L"Windows.Media.PlayTo.IPlayToReceiver";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSource> = L"Windows.Media.PlayTo.IPlayToSource";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceDeferral> = L"Windows.Media.PlayTo.IPlayToSourceDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceRequest> = L"Windows.Media.PlayTo.IPlayToSourceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceRequestedEventArgs> = L"Windows.Media.PlayTo.IPlayToSourceRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceSelectedEventArgs> = L"Windows.Media.PlayTo.IPlayToSourceSelectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlayToSourceWithPreferredSourceUri> = L"Windows.Media.PlayTo.IPlayToSourceWithPreferredSourceUri";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlaybackRateChangeRequestedEventArgs> = L"Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::ISourceChangeRequestedEventArgs> = L"Windows.Media.PlayTo.ISourceChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IVolumeChangeRequestedEventArgs> = L"Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs";
     template <> inline constexpr guid guid_v<Windows::Media::PlayTo::ICurrentTimeChangeRequestedEventArgs>{ 0x99711324,0xEDC7,0x4BF5,{ 0x91,0xF6,0x3C,0x86,0x27,0xDB,0x59,0xE5 } };
     template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IMuteChangeRequestedEventArgs>{ 0xE4B4F5F6,0xAF1F,0x4F1E,{ 0xB4,0x37,0x7D,0xA3,0x24,0x00,0xE1,0xD4 } };
     template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnection>{ 0x112FBFC8,0xF235,0x4FDE,{ 0x8D,0x41,0x9B,0xF2,0x7C,0x9E,0x9A,0x40 } };
@@ -386,7 +386,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_ICurrentTimeChangeRequestedEventArgs
     {
-        [[nodiscard]] auto Time() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Time() const;
     };
     template <> struct consume<Windows::Media::PlayTo::ICurrentTimeChangeRequestedEventArgs>
     {
@@ -395,7 +395,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IMuteChangeRequestedEventArgs
     {
-        [[nodiscard]] auto Mute() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Mute() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IMuteChangeRequestedEventArgs>
     {
@@ -404,19 +404,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToConnection
     {
-        [[nodiscard]] auto State() const;
-        auto StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionStateChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToConnectionState) State() const;
+        WINRT_IMPL_AUTO(winrt::event_token) StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionStateChangedEventArgs> const& handler) const;
         using StateChanged_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToConnection, &impl::abi_t<Windows::Media::PlayTo::IPlayToConnection>::remove_StateChanged>;
         [[nodiscard]] StateChanged_revoker StateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionStateChangedEventArgs> const& handler) const;
-        auto StateChanged(winrt::event_token const& token) const noexcept;
-        auto Transferred(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionTransferredEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) StateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Transferred(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionTransferredEventArgs> const& handler) const;
         using Transferred_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToConnection, &impl::abi_t<Windows::Media::PlayTo::IPlayToConnection>::remove_Transferred>;
         [[nodiscard]] Transferred_revoker Transferred(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionTransferredEventArgs> const& handler) const;
-        auto Transferred(winrt::event_token const& token) const noexcept;
-        auto Error(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionErrorEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Transferred(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Error(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionErrorEventArgs> const& handler) const;
         using Error_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToConnection, &impl::abi_t<Windows::Media::PlayTo::IPlayToConnection>::remove_Error>;
         [[nodiscard]] Error_revoker Error(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToConnection, Windows::Media::PlayTo::PlayToConnectionErrorEventArgs> const& handler) const;
-        auto Error(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Error(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToConnection>
     {
@@ -425,8 +425,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToConnectionErrorEventArgs
     {
-        [[nodiscard]] auto Code() const;
-        [[nodiscard]] auto Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToConnectionError) Code() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToConnectionErrorEventArgs>
     {
@@ -435,8 +435,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToConnectionStateChangedEventArgs
     {
-        [[nodiscard]] auto PreviousState() const;
-        [[nodiscard]] auto CurrentState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToConnectionState) PreviousState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToConnectionState) CurrentState() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToConnectionStateChangedEventArgs>
     {
@@ -445,8 +445,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToConnectionTransferredEventArgs
     {
-        [[nodiscard]] auto PreviousSource() const;
-        [[nodiscard]] auto CurrentSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToSource) PreviousSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToSource) CurrentSource() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToConnectionTransferredEventArgs>
     {
@@ -455,16 +455,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToManager
     {
-        auto SourceRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToManager, Windows::Media::PlayTo::PlayToSourceRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToManager, Windows::Media::PlayTo::PlayToSourceRequestedEventArgs> const& handler) const;
         using SourceRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToManager, &impl::abi_t<Windows::Media::PlayTo::IPlayToManager>::remove_SourceRequested>;
         [[nodiscard]] SourceRequested_revoker SourceRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToManager, Windows::Media::PlayTo::PlayToSourceRequestedEventArgs> const& handler) const;
-        auto SourceRequested(winrt::event_token const& token) const noexcept;
-        auto SourceSelected(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToManager, Windows::Media::PlayTo::PlayToSourceSelectedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceSelected(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToManager, Windows::Media::PlayTo::PlayToSourceSelectedEventArgs> const& handler) const;
         using SourceSelected_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToManager, &impl::abi_t<Windows::Media::PlayTo::IPlayToManager>::remove_SourceSelected>;
         [[nodiscard]] SourceSelected_revoker SourceSelected(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToManager, Windows::Media::PlayTo::PlayToSourceSelectedEventArgs> const& handler) const;
-        auto SourceSelected(winrt::event_token const& token) const noexcept;
-        auto DefaultSourceSelection(bool value) const;
-        [[nodiscard]] auto DefaultSourceSelection() const;
+        WINRT_IMPL_AUTO(void) SourceSelected(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) DefaultSourceSelection(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DefaultSourceSelection() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToManager>
     {
@@ -473,8 +473,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToManagerStatics
     {
-        auto GetForCurrentView() const;
-        auto ShowPlayToUI() const;
+        WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToManager) GetForCurrentView() const;
+        WINRT_IMPL_AUTO(void) ShowPlayToUI() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToManagerStatics>
     {
@@ -483,65 +483,65 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToReceiver
     {
-        auto PlayRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) PlayRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
         using PlayRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_PlayRequested>;
         [[nodiscard]] PlayRequested_revoker PlayRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
-        auto PlayRequested(winrt::event_token const& token) const noexcept;
-        auto PauseRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlayRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PauseRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
         using PauseRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_PauseRequested>;
         [[nodiscard]] PauseRequested_revoker PauseRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
-        auto PauseRequested(winrt::event_token const& token) const noexcept;
-        auto SourceChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::SourceChangeRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PauseRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::SourceChangeRequestedEventArgs> const& handler) const;
         using SourceChangeRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_SourceChangeRequested>;
         [[nodiscard]] SourceChangeRequested_revoker SourceChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::SourceChangeRequestedEventArgs> const& handler) const;
-        auto SourceChangeRequested(winrt::event_token const& token) const noexcept;
-        auto PlaybackRateChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::PlaybackRateChangeRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PlaybackRateChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::PlaybackRateChangeRequestedEventArgs> const& handler) const;
         using PlaybackRateChangeRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_PlaybackRateChangeRequested>;
         [[nodiscard]] PlaybackRateChangeRequested_revoker PlaybackRateChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::PlaybackRateChangeRequestedEventArgs> const& handler) const;
-        auto PlaybackRateChangeRequested(winrt::event_token const& token) const noexcept;
-        auto CurrentTimeChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::CurrentTimeChangeRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlaybackRateChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CurrentTimeChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::CurrentTimeChangeRequestedEventArgs> const& handler) const;
         using CurrentTimeChangeRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_CurrentTimeChangeRequested>;
         [[nodiscard]] CurrentTimeChangeRequested_revoker CurrentTimeChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::CurrentTimeChangeRequestedEventArgs> const& handler) const;
-        auto CurrentTimeChangeRequested(winrt::event_token const& token) const noexcept;
-        auto MuteChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::MuteChangeRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CurrentTimeChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) MuteChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::MuteChangeRequestedEventArgs> const& handler) const;
         using MuteChangeRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_MuteChangeRequested>;
         [[nodiscard]] MuteChangeRequested_revoker MuteChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::MuteChangeRequestedEventArgs> const& handler) const;
-        auto MuteChangeRequested(winrt::event_token const& token) const noexcept;
-        auto VolumeChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::VolumeChangeRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) MuteChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) VolumeChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::VolumeChangeRequestedEventArgs> const& handler) const;
         using VolumeChangeRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_VolumeChangeRequested>;
         [[nodiscard]] VolumeChangeRequested_revoker VolumeChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Media::PlayTo::VolumeChangeRequestedEventArgs> const& handler) const;
-        auto VolumeChangeRequested(winrt::event_token const& token) const noexcept;
-        auto TimeUpdateRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) VolumeChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TimeUpdateRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
         using TimeUpdateRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_TimeUpdateRequested>;
         [[nodiscard]] TimeUpdateRequested_revoker TimeUpdateRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
-        auto TimeUpdateRequested(winrt::event_token const& token) const noexcept;
-        auto StopRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) TimeUpdateRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) StopRequested(Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
         using StopRequested_revoker = impl::event_revoker<Windows::Media::PlayTo::IPlayToReceiver, &impl::abi_t<Windows::Media::PlayTo::IPlayToReceiver>::remove_StopRequested>;
         [[nodiscard]] StopRequested_revoker StopRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::PlayTo::PlayToReceiver, Windows::Foundation::IInspectable> const& handler) const;
-        auto StopRequested(winrt::event_token const& token) const noexcept;
-        auto NotifyVolumeChange(double volume, bool mute) const;
-        auto NotifyRateChange(double rate) const;
-        auto NotifyLoadedMetadata() const;
-        auto NotifyTimeUpdate(Windows::Foundation::TimeSpan const& currentTime) const;
-        auto NotifyDurationChange(Windows::Foundation::TimeSpan const& duration) const;
-        auto NotifySeeking() const;
-        auto NotifySeeked() const;
-        auto NotifyPaused() const;
-        auto NotifyPlaying() const;
-        auto NotifyEnded() const;
-        auto NotifyError() const;
-        auto NotifyStopped() const;
-        [[nodiscard]] auto FriendlyName() const;
-        auto FriendlyName(param::hstring const& value) const;
-        auto SupportsImage(bool value) const;
-        [[nodiscard]] auto SupportsImage() const;
-        auto SupportsAudio(bool value) const;
-        [[nodiscard]] auto SupportsAudio() const;
-        auto SupportsVideo(bool value) const;
-        [[nodiscard]] auto SupportsVideo() const;
-        [[nodiscard]] auto Properties() const;
-        auto StartAsync() const;
-        auto StopAsync() const;
+        WINRT_IMPL_AUTO(void) StopRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) NotifyVolumeChange(double volume, bool mute) const;
+        WINRT_IMPL_AUTO(void) NotifyRateChange(double rate) const;
+        WINRT_IMPL_AUTO(void) NotifyLoadedMetadata() const;
+        WINRT_IMPL_AUTO(void) NotifyTimeUpdate(Windows::Foundation::TimeSpan const& currentTime) const;
+        WINRT_IMPL_AUTO(void) NotifyDurationChange(Windows::Foundation::TimeSpan const& duration) const;
+        WINRT_IMPL_AUTO(void) NotifySeeking() const;
+        WINRT_IMPL_AUTO(void) NotifySeeked() const;
+        WINRT_IMPL_AUTO(void) NotifyPaused() const;
+        WINRT_IMPL_AUTO(void) NotifyPlaying() const;
+        WINRT_IMPL_AUTO(void) NotifyEnded() const;
+        WINRT_IMPL_AUTO(void) NotifyError() const;
+        WINRT_IMPL_AUTO(void) NotifyStopped() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FriendlyName() const;
+        WINRT_IMPL_AUTO(void) FriendlyName(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) SupportsImage(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsImage() const;
+        WINRT_IMPL_AUTO(void) SupportsAudio(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsAudio() const;
+        WINRT_IMPL_AUTO(void) SupportsVideo(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsVideo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) Properties() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StartAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StopAsync() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToReceiver>
     {
@@ -550,10 +550,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToSource
     {
-        [[nodiscard]] auto Connection() const;
-        [[nodiscard]] auto Next() const;
-        auto Next(Windows::Media::PlayTo::PlayToSource const& value) const;
-        auto PlayNext() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToConnection) Connection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToSource) Next() const;
+        WINRT_IMPL_AUTO(void) Next(Windows::Media::PlayTo::PlayToSource const& value) const;
+        WINRT_IMPL_AUTO(void) PlayNext() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToSource>
     {
@@ -562,7 +562,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToSourceDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToSourceDeferral>
     {
@@ -571,10 +571,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToSourceRequest
     {
-        [[nodiscard]] auto Deadline() const;
-        auto DisplayErrorString(param::hstring const& errorString) const;
-        auto GetDeferral() const;
-        auto SetSource(Windows::Media::PlayTo::PlayToSource const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Deadline() const;
+        WINRT_IMPL_AUTO(void) DisplayErrorString(param::hstring const& errorString) const;
+        WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToSourceDeferral) GetDeferral() const;
+        WINRT_IMPL_AUTO(void) SetSource(Windows::Media::PlayTo::PlayToSource const& value) const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToSourceRequest>
     {
@@ -583,7 +583,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToSourceRequestedEventArgs
     {
-        [[nodiscard]] auto SourceRequest() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::PlayTo::PlayToSourceRequest) SourceRequest() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToSourceRequestedEventArgs>
     {
@@ -592,11 +592,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToSourceSelectedEventArgs
     {
-        [[nodiscard]] auto FriendlyName() const;
-        [[nodiscard]] auto Icon() const;
-        [[nodiscard]] auto SupportsImage() const;
-        [[nodiscard]] auto SupportsAudio() const;
-        [[nodiscard]] auto SupportsVideo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FriendlyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamWithContentType) Icon() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsImage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsAudio() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsVideo() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToSourceSelectedEventArgs>
     {
@@ -605,8 +605,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlayToSourceWithPreferredSourceUri
     {
-        [[nodiscard]] auto PreferredSourceUri() const;
-        auto PreferredSourceUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) PreferredSourceUri() const;
+        WINRT_IMPL_AUTO(void) PreferredSourceUri(Windows::Foundation::Uri const& value) const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlayToSourceWithPreferredSourceUri>
     {
@@ -615,7 +615,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IPlaybackRateChangeRequestedEventArgs
     {
-        [[nodiscard]] auto Rate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Rate() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IPlaybackRateChangeRequestedEventArgs>
     {
@@ -624,16 +624,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_ISourceChangeRequestedEventArgs
     {
-        [[nodiscard]] auto Stream() const;
-        [[nodiscard]] auto Title() const;
-        [[nodiscard]] auto Author() const;
-        [[nodiscard]] auto Album() const;
-        [[nodiscard]] auto Genre() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto Date() const;
-        [[nodiscard]] auto Thumbnail() const;
-        [[nodiscard]] auto Rating() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamWithContentType) Stream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Author() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Album() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Genre() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) Date() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Thumbnail() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Rating() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::Media::PlayTo::ISourceChangeRequestedEventArgs>
     {
@@ -642,7 +642,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_PlayTo_IVolumeChangeRequestedEventArgs
     {
-        [[nodiscard]] auto Volume() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Volume() const;
     };
     template <> struct consume<Windows::Media::PlayTo::IVolumeChangeRequestedEventArgs>
     {

@@ -32,6 +32,7 @@ Abstract:
 #define WLDP_QUERYDYNAMICCODETRUST_FN       "WldpQueryDynamicCodeTrust"
 #define WLDP_QUERYWINDOWSLOCKDOWNMODE_FN    "WldpQueryWindowsLockdownMode"
 #define WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN "WldpSetWindowsLockdownRestriction"
+#define WLDP_QUERYDEVICESECURITYINFORMATION_FN "WldpQueryDeviceSecurityInformation"
 #define WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN "WldpQueryWindowsLockdownRestriction"
 #define WLDP_ISAPPAPPROVEDBYPOLICY_FN       "WldpIsAppApprovedByPolicy"
 #define WLDP_QUERYPOLICYSETTINGENABLED_FN   "WldpQueryPolicySettingEnabled"
@@ -248,6 +249,18 @@ typedef struct WLDP_HOST_INFORMATION
 } WLDP_HOST_INFORMATION, *PWLDP_HOST_INFORMATION;
 
 //
+//  Device Security Information.
+//
+
+typedef struct WLDP_DEVICE_SECURITY_INFORMATION
+{
+    DWORD UnlockIdSize; // UnlockId size in byte
+    PBYTE UnlockId; // Device specific UnlockId if exists
+    DWORD ManufacturerIDLength; // ManufacturerId string size in byte
+    PWSTR _Field_size_bytes_(ManufacturerIDLength) ManufacturerID; // ManufacturerID on device if exists
+} WLDP_DEVICE_SECURITY_INFORMATION, *PWLDP_DEVICE_SECURITY_INFORMATION;
+
+//
 // Call the library to get the lockdown state relative to the host and script/msi to be used.
 // When called with WLDP_HOST_INFORMATION.szSource = NULL, the generic policy for the host is returned.
 // When called with WLDP_HOST_INFORMATION.dwHostId = WLDP_HOST_ID_GLOBAL, WLDP_HOST_INFORMATION.szSource
@@ -347,6 +360,23 @@ WldpQueryWindowsLockdownMode(
 
 typedef HRESULT(WINAPI *PWLDP_QUERYWINDOWSLOCKDOWNMODE_API)(
     _Out_ PWLDP_WINDOWS_LOCKDOWN_MODE lockdownMode);
+
+//
+// This routine queries Device Security Information
+//
+
+
+STDAPI
+WldpQueryDeviceSecurityInformation(
+    _Outptr_opt_result_buffer_to_(informationLength, *returnLength) PWLDP_DEVICE_SECURITY_INFORMATION information,
+    _In_ DWORD informationLength,
+    _Out_ DWORD* returnLength
+    );
+
+typedef HRESULT(WINAPI* PWLDP_QUERYDEVICESECURITYINFORMATION_API)(
+    _Outptr_opt_result_buffer_to_(informationLength, *returnLength) PWLDP_DEVICE_SECURITY_INFORMATION information,
+    _In_ DWORD informationLength,
+    _Out_ DWORD* returnLength);
 
 //
 // This routine queries CI lock down restriction. 

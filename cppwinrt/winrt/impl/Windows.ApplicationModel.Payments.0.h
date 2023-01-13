@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,6 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
@@ -164,63 +165,61 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Payments::PaymentRequestStatus>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Payments::PaymentShippingType>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Payments::PaymentRequestChangedHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentAddress>{ L"Windows.ApplicationModel.Payments.PaymentAddress" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentCanMakePaymentResult>{ L"Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentCurrencyAmount>{ L"Windows.ApplicationModel.Payments.PaymentCurrencyAmount" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentDetails>{ L"Windows.ApplicationModel.Payments.PaymentDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentDetailsModifier>{ L"Windows.ApplicationModel.Payments.PaymentDetailsModifier" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentItem>{ L"Windows.ApplicationModel.Payments.PaymentItem" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentMediator>{ L"Windows.ApplicationModel.Payments.PaymentMediator" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentMerchantInfo>{ L"Windows.ApplicationModel.Payments.PaymentMerchantInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentMethodData>{ L"Windows.ApplicationModel.Payments.PaymentMethodData" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentOptions>{ L"Windows.ApplicationModel.Payments.PaymentOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequest>{ L"Windows.ApplicationModel.Payments.PaymentRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestChangedArgs>{ L"Windows.ApplicationModel.Payments.PaymentRequestChangedArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestChangedResult>{ L"Windows.ApplicationModel.Payments.PaymentRequestChangedResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestSubmitResult>{ L"Windows.ApplicationModel.Payments.PaymentRequestSubmitResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentResponse>{ L"Windows.ApplicationModel.Payments.PaymentResponse" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentShippingOption>{ L"Windows.ApplicationModel.Payments.PaymentShippingOption" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentToken>{ L"Windows.ApplicationModel.Payments.PaymentToken" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentCanMakePaymentResultStatus>{ L"Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentOptionPresence>{ L"Windows.ApplicationModel.Payments.PaymentOptionPresence" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestChangeKind>{ L"Windows.ApplicationModel.Payments.PaymentRequestChangeKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestCompletionStatus>{ L"Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestStatus>{ L"Windows.ApplicationModel.Payments.PaymentRequestStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentShippingType>{ L"Windows.ApplicationModel.Payments.PaymentShippingType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentAddress>{ L"Windows.ApplicationModel.Payments.IPaymentAddress" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentCanMakePaymentResult>{ L"Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentCanMakePaymentResultFactory>{ L"Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResultFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentCurrencyAmount>{ L"Windows.ApplicationModel.Payments.IPaymentCurrencyAmount" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentCurrencyAmountFactory>{ L"Windows.ApplicationModel.Payments.IPaymentCurrencyAmountFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentDetails>{ L"Windows.ApplicationModel.Payments.IPaymentDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentDetailsFactory>{ L"Windows.ApplicationModel.Payments.IPaymentDetailsFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentDetailsModifier>{ L"Windows.ApplicationModel.Payments.IPaymentDetailsModifier" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentDetailsModifierFactory>{ L"Windows.ApplicationModel.Payments.IPaymentDetailsModifierFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentItem>{ L"Windows.ApplicationModel.Payments.IPaymentItem" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentItemFactory>{ L"Windows.ApplicationModel.Payments.IPaymentItemFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMediator>{ L"Windows.ApplicationModel.Payments.IPaymentMediator" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMediator2>{ L"Windows.ApplicationModel.Payments.IPaymentMediator2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMerchantInfo>{ L"Windows.ApplicationModel.Payments.IPaymentMerchantInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMerchantInfoFactory>{ L"Windows.ApplicationModel.Payments.IPaymentMerchantInfoFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMethodData>{ L"Windows.ApplicationModel.Payments.IPaymentMethodData" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMethodDataFactory>{ L"Windows.ApplicationModel.Payments.IPaymentMethodDataFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentOptions>{ L"Windows.ApplicationModel.Payments.IPaymentOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequest>{ L"Windows.ApplicationModel.Payments.IPaymentRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequest2>{ L"Windows.ApplicationModel.Payments.IPaymentRequest2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestChangedArgs>{ L"Windows.ApplicationModel.Payments.IPaymentRequestChangedArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestChangedResult>{ L"Windows.ApplicationModel.Payments.IPaymentRequestChangedResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestChangedResultFactory>{ L"Windows.ApplicationModel.Payments.IPaymentRequestChangedResultFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestFactory>{ L"Windows.ApplicationModel.Payments.IPaymentRequestFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestFactory2>{ L"Windows.ApplicationModel.Payments.IPaymentRequestFactory2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestSubmitResult>{ L"Windows.ApplicationModel.Payments.IPaymentRequestSubmitResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentResponse>{ L"Windows.ApplicationModel.Payments.IPaymentResponse" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentShippingOption>{ L"Windows.ApplicationModel.Payments.IPaymentShippingOption" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentShippingOptionFactory>{ L"Windows.ApplicationModel.Payments.IPaymentShippingOptionFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentToken>{ L"Windows.ApplicationModel.Payments.IPaymentToken" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentTokenFactory>{ L"Windows.ApplicationModel.Payments.IPaymentTokenFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestChangedHandler>{ L"Windows.ApplicationModel.Payments.PaymentRequestChangedHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentAddress> = L"Windows.ApplicationModel.Payments.PaymentAddress";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentCanMakePaymentResult> = L"Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentCurrencyAmount> = L"Windows.ApplicationModel.Payments.PaymentCurrencyAmount";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentDetails> = L"Windows.ApplicationModel.Payments.PaymentDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentDetailsModifier> = L"Windows.ApplicationModel.Payments.PaymentDetailsModifier";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentItem> = L"Windows.ApplicationModel.Payments.PaymentItem";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentMediator> = L"Windows.ApplicationModel.Payments.PaymentMediator";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentMerchantInfo> = L"Windows.ApplicationModel.Payments.PaymentMerchantInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentMethodData> = L"Windows.ApplicationModel.Payments.PaymentMethodData";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentOptions> = L"Windows.ApplicationModel.Payments.PaymentOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequest> = L"Windows.ApplicationModel.Payments.PaymentRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestChangedArgs> = L"Windows.ApplicationModel.Payments.PaymentRequestChangedArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestChangedResult> = L"Windows.ApplicationModel.Payments.PaymentRequestChangedResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestSubmitResult> = L"Windows.ApplicationModel.Payments.PaymentRequestSubmitResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentResponse> = L"Windows.ApplicationModel.Payments.PaymentResponse";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentShippingOption> = L"Windows.ApplicationModel.Payments.PaymentShippingOption";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentToken> = L"Windows.ApplicationModel.Payments.PaymentToken";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentCanMakePaymentResultStatus> = L"Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentOptionPresence> = L"Windows.ApplicationModel.Payments.PaymentOptionPresence";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestChangeKind> = L"Windows.ApplicationModel.Payments.PaymentRequestChangeKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestCompletionStatus> = L"Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestStatus> = L"Windows.ApplicationModel.Payments.PaymentRequestStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentShippingType> = L"Windows.ApplicationModel.Payments.PaymentShippingType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentAddress> = L"Windows.ApplicationModel.Payments.IPaymentAddress";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentCanMakePaymentResult> = L"Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentCanMakePaymentResultFactory> = L"Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResultFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentCurrencyAmount> = L"Windows.ApplicationModel.Payments.IPaymentCurrencyAmount";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentCurrencyAmountFactory> = L"Windows.ApplicationModel.Payments.IPaymentCurrencyAmountFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentDetails> = L"Windows.ApplicationModel.Payments.IPaymentDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentDetailsFactory> = L"Windows.ApplicationModel.Payments.IPaymentDetailsFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentDetailsModifier> = L"Windows.ApplicationModel.Payments.IPaymentDetailsModifier";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentDetailsModifierFactory> = L"Windows.ApplicationModel.Payments.IPaymentDetailsModifierFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentItem> = L"Windows.ApplicationModel.Payments.IPaymentItem";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentItemFactory> = L"Windows.ApplicationModel.Payments.IPaymentItemFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMediator> = L"Windows.ApplicationModel.Payments.IPaymentMediator";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMediator2> = L"Windows.ApplicationModel.Payments.IPaymentMediator2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMerchantInfo> = L"Windows.ApplicationModel.Payments.IPaymentMerchantInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMerchantInfoFactory> = L"Windows.ApplicationModel.Payments.IPaymentMerchantInfoFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMethodData> = L"Windows.ApplicationModel.Payments.IPaymentMethodData";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentMethodDataFactory> = L"Windows.ApplicationModel.Payments.IPaymentMethodDataFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentOptions> = L"Windows.ApplicationModel.Payments.IPaymentOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequest> = L"Windows.ApplicationModel.Payments.IPaymentRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequest2> = L"Windows.ApplicationModel.Payments.IPaymentRequest2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestChangedArgs> = L"Windows.ApplicationModel.Payments.IPaymentRequestChangedArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestChangedResult> = L"Windows.ApplicationModel.Payments.IPaymentRequestChangedResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestChangedResultFactory> = L"Windows.ApplicationModel.Payments.IPaymentRequestChangedResultFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestFactory> = L"Windows.ApplicationModel.Payments.IPaymentRequestFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestFactory2> = L"Windows.ApplicationModel.Payments.IPaymentRequestFactory2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentRequestSubmitResult> = L"Windows.ApplicationModel.Payments.IPaymentRequestSubmitResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentResponse> = L"Windows.ApplicationModel.Payments.IPaymentResponse";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentShippingOption> = L"Windows.ApplicationModel.Payments.IPaymentShippingOption";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentShippingOptionFactory> = L"Windows.ApplicationModel.Payments.IPaymentShippingOptionFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentToken> = L"Windows.ApplicationModel.Payments.IPaymentToken";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::IPaymentTokenFactory> = L"Windows.ApplicationModel.Payments.IPaymentTokenFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::PaymentRequestChangedHandler> = L"Windows.ApplicationModel.Payments.PaymentRequestChangedHandler";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::IPaymentAddress>{ 0x5F2264E9,0x6F3A,0x4166,{ 0xA0,0x18,0x0A,0x0B,0x06,0xBB,0x32,0xB5 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::IPaymentCanMakePaymentResult>{ 0x7696FE55,0xD5D3,0x4D3D,{ 0xB3,0x45,0x45,0x59,0x17,0x59,0xC5,0x10 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::IPaymentCanMakePaymentResultFactory>{ 0xBBDCAA3E,0x7D49,0x4F69,{ 0xAA,0x53,0x2A,0x0F,0x81,0x64,0xB7,0xC9 } };
@@ -589,29 +588,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentAddress
     {
-        [[nodiscard]] auto Country() const;
-        auto Country(param::hstring const& value) const;
-        [[nodiscard]] auto AddressLines() const;
-        auto AddressLines(param::async_vector_view<hstring> const& value) const;
-        [[nodiscard]] auto Region() const;
-        auto Region(param::hstring const& value) const;
-        [[nodiscard]] auto City() const;
-        auto City(param::hstring const& value) const;
-        [[nodiscard]] auto DependentLocality() const;
-        auto DependentLocality(param::hstring const& value) const;
-        [[nodiscard]] auto PostalCode() const;
-        auto PostalCode(param::hstring const& value) const;
-        [[nodiscard]] auto SortingCode() const;
-        auto SortingCode(param::hstring const& value) const;
-        [[nodiscard]] auto LanguageCode() const;
-        auto LanguageCode(param::hstring const& value) const;
-        [[nodiscard]] auto Organization() const;
-        auto Organization(param::hstring const& value) const;
-        [[nodiscard]] auto Recipient() const;
-        auto Recipient(param::hstring const& value) const;
-        [[nodiscard]] auto PhoneNumber() const;
-        auto PhoneNumber(param::hstring const& value) const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Country() const;
+        WINRT_IMPL_AUTO(void) Country(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) AddressLines() const;
+        WINRT_IMPL_AUTO(void) AddressLines(param::async_vector_view<hstring> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Region() const;
+        WINRT_IMPL_AUTO(void) Region(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) City() const;
+        WINRT_IMPL_AUTO(void) City(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DependentLocality() const;
+        WINRT_IMPL_AUTO(void) DependentLocality(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PostalCode() const;
+        WINRT_IMPL_AUTO(void) PostalCode(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SortingCode() const;
+        WINRT_IMPL_AUTO(void) SortingCode(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LanguageCode() const;
+        WINRT_IMPL_AUTO(void) LanguageCode(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Organization() const;
+        WINRT_IMPL_AUTO(void) Organization(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Recipient() const;
+        WINRT_IMPL_AUTO(void) Recipient(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhoneNumber() const;
+        WINRT_IMPL_AUTO(void) PhoneNumber(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Properties() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentAddress>
     {
@@ -620,7 +619,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentCanMakePaymentResult
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentCanMakePaymentResultStatus) Status() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentCanMakePaymentResult>
     {
@@ -629,7 +628,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentCanMakePaymentResultFactory
     {
-        auto Create(Windows::ApplicationModel::Payments::PaymentCanMakePaymentResultStatus const& value) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentCanMakePaymentResult) Create(Windows::ApplicationModel::Payments::PaymentCanMakePaymentResultStatus const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentCanMakePaymentResultFactory>
     {
@@ -638,12 +637,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentCurrencyAmount
     {
-        [[nodiscard]] auto Currency() const;
-        auto Currency(param::hstring const& value) const;
-        [[nodiscard]] auto CurrencySystem() const;
-        auto CurrencySystem(param::hstring const& value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Currency() const;
+        WINRT_IMPL_AUTO(void) Currency(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CurrencySystem() const;
+        WINRT_IMPL_AUTO(void) CurrencySystem(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
+        WINRT_IMPL_AUTO(void) Value(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentCurrencyAmount>
     {
@@ -652,8 +651,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentCurrencyAmountFactory
     {
-        auto Create(param::hstring const& value, param::hstring const& currency) const;
-        auto CreateWithCurrencySystem(param::hstring const& value, param::hstring const& currency, param::hstring const& currencySystem) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentCurrencyAmount) Create(param::hstring const& value, param::hstring const& currency) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentCurrencyAmount) CreateWithCurrencySystem(param::hstring const& value, param::hstring const& currency, param::hstring const& currencySystem) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentCurrencyAmountFactory>
     {
@@ -662,14 +661,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentDetails
     {
-        [[nodiscard]] auto Total() const;
-        auto Total(Windows::ApplicationModel::Payments::PaymentItem const& value) const;
-        [[nodiscard]] auto DisplayItems() const;
-        auto DisplayItems(param::async_vector_view<Windows::ApplicationModel::Payments::PaymentItem> const& value) const;
-        [[nodiscard]] auto ShippingOptions() const;
-        auto ShippingOptions(param::async_vector_view<Windows::ApplicationModel::Payments::PaymentShippingOption> const& value) const;
-        [[nodiscard]] auto Modifiers() const;
-        auto Modifiers(param::async_vector_view<Windows::ApplicationModel::Payments::PaymentDetailsModifier> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentItem) Total() const;
+        WINRT_IMPL_AUTO(void) Total(Windows::ApplicationModel::Payments::PaymentItem const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Payments::PaymentItem>) DisplayItems() const;
+        WINRT_IMPL_AUTO(void) DisplayItems(param::async_vector_view<Windows::ApplicationModel::Payments::PaymentItem> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Payments::PaymentShippingOption>) ShippingOptions() const;
+        WINRT_IMPL_AUTO(void) ShippingOptions(param::async_vector_view<Windows::ApplicationModel::Payments::PaymentShippingOption> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Payments::PaymentDetailsModifier>) Modifiers() const;
+        WINRT_IMPL_AUTO(void) Modifiers(param::async_vector_view<Windows::ApplicationModel::Payments::PaymentDetailsModifier> const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentDetails>
     {
@@ -678,8 +677,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentDetailsFactory
     {
-        auto Create(Windows::ApplicationModel::Payments::PaymentItem const& total) const;
-        auto CreateWithDisplayItems(Windows::ApplicationModel::Payments::PaymentItem const& total, param::iterable<Windows::ApplicationModel::Payments::PaymentItem> const& displayItems) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentDetails) Create(Windows::ApplicationModel::Payments::PaymentItem const& total) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentDetails) CreateWithDisplayItems(Windows::ApplicationModel::Payments::PaymentItem const& total, param::iterable<Windows::ApplicationModel::Payments::PaymentItem> const& displayItems) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentDetailsFactory>
     {
@@ -688,10 +687,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentDetailsModifier
     {
-        [[nodiscard]] auto JsonData() const;
-        [[nodiscard]] auto SupportedMethodIds() const;
-        [[nodiscard]] auto Total() const;
-        [[nodiscard]] auto AdditionalDisplayItems() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JsonData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) SupportedMethodIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentItem) Total() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Payments::PaymentItem>) AdditionalDisplayItems() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentDetailsModifier>
     {
@@ -700,9 +699,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentDetailsModifierFactory
     {
-        auto Create(param::iterable<hstring> const& supportedMethodIds, Windows::ApplicationModel::Payments::PaymentItem const& total) const;
-        auto CreateWithAdditionalDisplayItems(param::iterable<hstring> const& supportedMethodIds, Windows::ApplicationModel::Payments::PaymentItem const& total, param::iterable<Windows::ApplicationModel::Payments::PaymentItem> const& additionalDisplayItems) const;
-        auto CreateWithAdditionalDisplayItemsAndJsonData(param::iterable<hstring> const& supportedMethodIds, Windows::ApplicationModel::Payments::PaymentItem const& total, param::iterable<Windows::ApplicationModel::Payments::PaymentItem> const& additionalDisplayItems, param::hstring const& jsonData) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentDetailsModifier) Create(param::iterable<hstring> const& supportedMethodIds, Windows::ApplicationModel::Payments::PaymentItem const& total) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentDetailsModifier) CreateWithAdditionalDisplayItems(param::iterable<hstring> const& supportedMethodIds, Windows::ApplicationModel::Payments::PaymentItem const& total, param::iterable<Windows::ApplicationModel::Payments::PaymentItem> const& additionalDisplayItems) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentDetailsModifier) CreateWithAdditionalDisplayItemsAndJsonData(param::iterable<hstring> const& supportedMethodIds, Windows::ApplicationModel::Payments::PaymentItem const& total, param::iterable<Windows::ApplicationModel::Payments::PaymentItem> const& additionalDisplayItems, param::hstring const& jsonData) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentDetailsModifierFactory>
     {
@@ -711,12 +710,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentItem
     {
-        [[nodiscard]] auto Label() const;
-        auto Label(param::hstring const& value) const;
-        [[nodiscard]] auto Amount() const;
-        auto Amount(Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& value) const;
-        [[nodiscard]] auto Pending() const;
-        auto Pending(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Label() const;
+        WINRT_IMPL_AUTO(void) Label(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentCurrencyAmount) Amount() const;
+        WINRT_IMPL_AUTO(void) Amount(Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Pending() const;
+        WINRT_IMPL_AUTO(void) Pending(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentItem>
     {
@@ -725,7 +724,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentItemFactory
     {
-        auto Create(param::hstring const& label, Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& amount) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentItem) Create(param::hstring const& label, Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& amount) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentItemFactory>
     {
@@ -734,9 +733,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentMediator
     {
-        auto GetSupportedMethodIdsAsync() const;
-        auto SubmitPaymentRequestAsync(Windows::ApplicationModel::Payments::PaymentRequest const& paymentRequest) const;
-        auto SubmitPaymentRequestAsync(Windows::ApplicationModel::Payments::PaymentRequest const& paymentRequest, Windows::ApplicationModel::Payments::PaymentRequestChangedHandler const& changeHandler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) GetSupportedMethodIdsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Payments::PaymentRequestSubmitResult>) SubmitPaymentRequestAsync(Windows::ApplicationModel::Payments::PaymentRequest const& paymentRequest) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Payments::PaymentRequestSubmitResult>) SubmitPaymentRequestAsync(Windows::ApplicationModel::Payments::PaymentRequest const& paymentRequest, Windows::ApplicationModel::Payments::PaymentRequestChangedHandler const& changeHandler) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentMediator>
     {
@@ -745,7 +744,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentMediator2
     {
-        auto CanMakePaymentAsync(Windows::ApplicationModel::Payments::PaymentRequest const& paymentRequest) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Payments::PaymentCanMakePaymentResult>) CanMakePaymentAsync(Windows::ApplicationModel::Payments::PaymentRequest const& paymentRequest) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentMediator2>
     {
@@ -754,8 +753,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentMerchantInfo
     {
-        [[nodiscard]] auto PackageFullName() const;
-        [[nodiscard]] auto Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PackageFullName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentMerchantInfo>
     {
@@ -764,7 +763,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentMerchantInfoFactory
     {
-        auto Create(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentMerchantInfo) Create(Windows::Foundation::Uri const& uri) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentMerchantInfoFactory>
     {
@@ -773,8 +772,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentMethodData
     {
-        [[nodiscard]] auto SupportedMethodIds() const;
-        [[nodiscard]] auto JsonData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) SupportedMethodIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JsonData() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentMethodData>
     {
@@ -783,8 +782,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentMethodDataFactory
     {
-        auto Create(param::iterable<hstring> const& supportedMethodIds) const;
-        auto CreateWithJsonData(param::iterable<hstring> const& supportedMethodIds, param::hstring const& jsonData) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentMethodData) Create(param::iterable<hstring> const& supportedMethodIds) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentMethodData) CreateWithJsonData(param::iterable<hstring> const& supportedMethodIds, param::hstring const& jsonData) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentMethodDataFactory>
     {
@@ -793,16 +792,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentOptions
     {
-        [[nodiscard]] auto RequestPayerEmail() const;
-        auto RequestPayerEmail(Windows::ApplicationModel::Payments::PaymentOptionPresence const& value) const;
-        [[nodiscard]] auto RequestPayerName() const;
-        auto RequestPayerName(Windows::ApplicationModel::Payments::PaymentOptionPresence const& value) const;
-        [[nodiscard]] auto RequestPayerPhoneNumber() const;
-        auto RequestPayerPhoneNumber(Windows::ApplicationModel::Payments::PaymentOptionPresence const& value) const;
-        [[nodiscard]] auto RequestShipping() const;
-        auto RequestShipping(bool value) const;
-        [[nodiscard]] auto ShippingType() const;
-        auto ShippingType(Windows::ApplicationModel::Payments::PaymentShippingType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentOptionPresence) RequestPayerEmail() const;
+        WINRT_IMPL_AUTO(void) RequestPayerEmail(Windows::ApplicationModel::Payments::PaymentOptionPresence const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentOptionPresence) RequestPayerName() const;
+        WINRT_IMPL_AUTO(void) RequestPayerName(Windows::ApplicationModel::Payments::PaymentOptionPresence const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentOptionPresence) RequestPayerPhoneNumber() const;
+        WINRT_IMPL_AUTO(void) RequestPayerPhoneNumber(Windows::ApplicationModel::Payments::PaymentOptionPresence const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RequestShipping() const;
+        WINRT_IMPL_AUTO(void) RequestShipping(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentShippingType) ShippingType() const;
+        WINRT_IMPL_AUTO(void) ShippingType(Windows::ApplicationModel::Payments::PaymentShippingType const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentOptions>
     {
@@ -811,10 +810,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentRequest
     {
-        [[nodiscard]] auto MerchantInfo() const;
-        [[nodiscard]] auto Details() const;
-        [[nodiscard]] auto MethodData() const;
-        [[nodiscard]] auto Options() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentMerchantInfo) MerchantInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentDetails) Details() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Payments::PaymentMethodData>) MethodData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentOptions) Options() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentRequest>
     {
@@ -823,7 +822,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentRequest2
     {
-        [[nodiscard]] auto Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentRequest2>
     {
@@ -832,10 +831,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentRequestChangedArgs
     {
-        [[nodiscard]] auto ChangeKind() const;
-        [[nodiscard]] auto ShippingAddress() const;
-        [[nodiscard]] auto SelectedShippingOption() const;
-        auto Acknowledge(Windows::ApplicationModel::Payments::PaymentRequestChangedResult const& changeResult) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequestChangeKind) ChangeKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentAddress) ShippingAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentShippingOption) SelectedShippingOption() const;
+        WINRT_IMPL_AUTO(void) Acknowledge(Windows::ApplicationModel::Payments::PaymentRequestChangedResult const& changeResult) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentRequestChangedArgs>
     {
@@ -844,12 +843,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentRequestChangedResult
     {
-        [[nodiscard]] auto ChangeAcceptedByMerchant() const;
-        auto ChangeAcceptedByMerchant(bool value) const;
-        [[nodiscard]] auto Message() const;
-        auto Message(param::hstring const& value) const;
-        [[nodiscard]] auto UpdatedPaymentDetails() const;
-        auto UpdatedPaymentDetails(Windows::ApplicationModel::Payments::PaymentDetails const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ChangeAcceptedByMerchant() const;
+        WINRT_IMPL_AUTO(void) ChangeAcceptedByMerchant(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
+        WINRT_IMPL_AUTO(void) Message(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentDetails) UpdatedPaymentDetails() const;
+        WINRT_IMPL_AUTO(void) UpdatedPaymentDetails(Windows::ApplicationModel::Payments::PaymentDetails const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentRequestChangedResult>
     {
@@ -858,8 +857,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentRequestChangedResultFactory
     {
-        auto Create(bool changeAcceptedByMerchant) const;
-        auto CreateWithPaymentDetails(bool changeAcceptedByMerchant, Windows::ApplicationModel::Payments::PaymentDetails const& updatedPaymentDetails) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequestChangedResult) Create(bool changeAcceptedByMerchant) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequestChangedResult) CreateWithPaymentDetails(bool changeAcceptedByMerchant, Windows::ApplicationModel::Payments::PaymentDetails const& updatedPaymentDetails) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentRequestChangedResultFactory>
     {
@@ -868,9 +867,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentRequestFactory
     {
-        auto Create(Windows::ApplicationModel::Payments::PaymentDetails const& details, param::iterable<Windows::ApplicationModel::Payments::PaymentMethodData> const& methodData) const;
-        auto CreateWithMerchantInfo(Windows::ApplicationModel::Payments::PaymentDetails const& details, param::iterable<Windows::ApplicationModel::Payments::PaymentMethodData> const& methodData, Windows::ApplicationModel::Payments::PaymentMerchantInfo const& merchantInfo) const;
-        auto CreateWithMerchantInfoAndOptions(Windows::ApplicationModel::Payments::PaymentDetails const& details, param::iterable<Windows::ApplicationModel::Payments::PaymentMethodData> const& methodData, Windows::ApplicationModel::Payments::PaymentMerchantInfo const& merchantInfo, Windows::ApplicationModel::Payments::PaymentOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequest) Create(Windows::ApplicationModel::Payments::PaymentDetails const& details, param::iterable<Windows::ApplicationModel::Payments::PaymentMethodData> const& methodData) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequest) CreateWithMerchantInfo(Windows::ApplicationModel::Payments::PaymentDetails const& details, param::iterable<Windows::ApplicationModel::Payments::PaymentMethodData> const& methodData, Windows::ApplicationModel::Payments::PaymentMerchantInfo const& merchantInfo) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequest) CreateWithMerchantInfoAndOptions(Windows::ApplicationModel::Payments::PaymentDetails const& details, param::iterable<Windows::ApplicationModel::Payments::PaymentMethodData> const& methodData, Windows::ApplicationModel::Payments::PaymentMerchantInfo const& merchantInfo, Windows::ApplicationModel::Payments::PaymentOptions const& options) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentRequestFactory>
     {
@@ -879,7 +878,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentRequestFactory2
     {
-        auto CreateWithMerchantInfoOptionsAndId(Windows::ApplicationModel::Payments::PaymentDetails const& details, param::iterable<Windows::ApplicationModel::Payments::PaymentMethodData> const& methodData, Windows::ApplicationModel::Payments::PaymentMerchantInfo const& merchantInfo, Windows::ApplicationModel::Payments::PaymentOptions const& options, param::hstring const& id) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequest) CreateWithMerchantInfoOptionsAndId(Windows::ApplicationModel::Payments::PaymentDetails const& details, param::iterable<Windows::ApplicationModel::Payments::PaymentMethodData> const& methodData, Windows::ApplicationModel::Payments::PaymentMerchantInfo const& merchantInfo, Windows::ApplicationModel::Payments::PaymentOptions const& options, param::hstring const& id) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentRequestFactory2>
     {
@@ -888,8 +887,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentRequestSubmitResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Response() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequestStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentResponse) Response() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentRequestSubmitResult>
     {
@@ -898,13 +897,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentResponse
     {
-        [[nodiscard]] auto PaymentToken() const;
-        [[nodiscard]] auto ShippingOption() const;
-        [[nodiscard]] auto ShippingAddress() const;
-        [[nodiscard]] auto PayerEmail() const;
-        [[nodiscard]] auto PayerName() const;
-        [[nodiscard]] auto PayerPhoneNumber() const;
-        auto CompleteAsync(Windows::ApplicationModel::Payments::PaymentRequestCompletionStatus const& status) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentToken) PaymentToken() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentShippingOption) ShippingOption() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentAddress) ShippingAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PayerEmail() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PayerName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PayerPhoneNumber() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) CompleteAsync(Windows::ApplicationModel::Payments::PaymentRequestCompletionStatus const& status) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentResponse>
     {
@@ -913,14 +912,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentShippingOption
     {
-        [[nodiscard]] auto Label() const;
-        auto Label(param::hstring const& value) const;
-        [[nodiscard]] auto Amount() const;
-        auto Amount(Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& value) const;
-        [[nodiscard]] auto Tag() const;
-        auto Tag(param::hstring const& value) const;
-        [[nodiscard]] auto IsSelected() const;
-        auto IsSelected(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Label() const;
+        WINRT_IMPL_AUTO(void) Label(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentCurrencyAmount) Amount() const;
+        WINRT_IMPL_AUTO(void) Amount(Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Tag() const;
+        WINRT_IMPL_AUTO(void) Tag(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSelected() const;
+        WINRT_IMPL_AUTO(void) IsSelected(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentShippingOption>
     {
@@ -929,9 +928,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentShippingOptionFactory
     {
-        auto Create(param::hstring const& label, Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& amount) const;
-        auto CreateWithSelected(param::hstring const& label, Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& amount, bool selected) const;
-        auto CreateWithSelectedAndTag(param::hstring const& label, Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& amount, bool selected, param::hstring const& tag) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentShippingOption) Create(param::hstring const& label, Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& amount) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentShippingOption) CreateWithSelected(param::hstring const& label, Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& amount, bool selected) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentShippingOption) CreateWithSelectedAndTag(param::hstring const& label, Windows::ApplicationModel::Payments::PaymentCurrencyAmount const& amount, bool selected, param::hstring const& tag) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentShippingOptionFactory>
     {
@@ -940,8 +939,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentToken
     {
-        [[nodiscard]] auto PaymentMethodId() const;
-        [[nodiscard]] auto JsonDetails() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PaymentMethodId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JsonDetails() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentToken>
     {
@@ -950,8 +949,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_IPaymentTokenFactory
     {
-        auto Create(param::hstring const& paymentMethodId) const;
-        auto CreateWithJsonDetails(param::hstring const& paymentMethodId, param::hstring const& jsonDetails) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentToken) Create(param::hstring const& paymentMethodId) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentToken) CreateWithJsonDetails(param::hstring const& paymentMethodId, param::hstring const& jsonDetails) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::IPaymentTokenFactory>
     {

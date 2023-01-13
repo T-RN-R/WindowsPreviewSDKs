@@ -12593,10 +12593,10 @@ namespace ABI {
                 IVisual3 : public IInspectable
                 {
                 public:
-                    virtual HRESULT STDMETHODCALLTYPE get_IsTransparentForHitTest(
+                    virtual HRESULT STDMETHODCALLTYPE get_IsHitTestVisible(
                         boolean* value
                         ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_IsTransparentForHitTest(
+                    virtual HRESULT STDMETHODCALLTYPE put_IsHitTestVisible(
                         boolean value
                         ) = 0;
                 };
@@ -32521,9 +32521,9 @@ typedef struct __x_ABI_CWindows_CUI_CComposition_CIVisual3Vtbl
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
         TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_IsTransparentForHitTest)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
+    HRESULT (STDMETHODCALLTYPE* get_IsHitTestVisible)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
         boolean* value);
-    HRESULT (STDMETHODCALLTYPE* put_IsTransparentForHitTest)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
+    HRESULT (STDMETHODCALLTYPE* put_IsHitTestVisible)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
         boolean value);
 
     END_INTERFACE
@@ -32554,11 +32554,11 @@ interface __x_ABI_CWindows_CUI_CComposition_CIVisual3
 #define __x_ABI_CWindows_CUI_CComposition_CIVisual3_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_get_IsTransparentForHitTest(This, value) \
-    ((This)->lpVtbl->get_IsTransparentForHitTest(This, value))
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_get_IsHitTestVisible(This, value) \
+    ((This)->lpVtbl->get_IsHitTestVisible(This, value))
 
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_put_IsTransparentForHitTest(This, value) \
-    ((This)->lpVtbl->put_IsTransparentForHitTest(This, value))
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_put_IsHitTestVisible(This, value) \
+    ((This)->lpVtbl->put_IsHitTestVisible(This, value))
 
 #endif /* COBJMACROS */
 

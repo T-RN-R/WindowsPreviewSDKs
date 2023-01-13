@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -23,10 +23,8 @@ namespace winrt::impl
 {
     template <> struct category<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>{ using type = interface_category; };
     template <> struct category<Windows::Media::Core::Preview::SoundLevelBroker>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::Preview::SoundLevelBroker>{ L"Windows.Media.Core.Preview.SoundLevelBroker" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>{ L"Windows.Media.Core.Preview.ISoundLevelBrokerStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Core::Preview::SoundLevelBroker> = L"Windows.Media.Core.Preview.SoundLevelBroker";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::Preview::ISoundLevelBrokerStatics> = L"Windows.Media.Core.Preview.ISoundLevelBrokerStatics";
     template <> inline constexpr guid guid_v<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>{ 0x6A633961,0xDBED,0x464C,{ 0xA0,0x9A,0x33,0x41,0x2F,0x5C,0xAA,0x3F } };
     template <> struct abi<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>
     {
@@ -40,11 +38,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_Preview_ISoundLevelBrokerStatics
     {
-        [[nodiscard]] auto SoundLevel() const;
-        auto SoundLevelChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SoundLevel) SoundLevel() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SoundLevelChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using SoundLevelChanged_revoker = impl::event_revoker<Windows::Media::Core::Preview::ISoundLevelBrokerStatics, &impl::abi_t<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>::remove_SoundLevelChanged>;
         [[nodiscard]] SoundLevelChanged_revoker SoundLevelChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto SoundLevelChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SoundLevelChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,12 +9,19 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Activation
 {
     struct IActivatedEventArgs;
 }
+WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Core
+{
+    struct AppListEntry;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
+    template <typename TResult> struct IAsyncOperation;
+    template <typename T> struct IReference;
     struct Size;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
@@ -22,6 +29,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
@@ -268,100 +277,98 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::StartupTaskState>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::PackageInstallProgress>{ using type = struct_category<uint32_t>; };
     template <> struct category<Windows::ApplicationModel::PackageVersion>{ using type = struct_category<uint16_t, uint16_t, uint16_t, uint16_t>; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppDisplayInfo>{ L"Windows.ApplicationModel.AppDisplayInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppInfo>{ L"Windows.ApplicationModel.AppInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppInstallerInfo>{ L"Windows.ApplicationModel.AppInstallerInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppInstance>{ L"Windows.ApplicationModel.AppInstance" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DesignMode>{ L"Windows.ApplicationModel.DesignMode" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::EnteredBackgroundEventArgs>{ L"Windows.ApplicationModel.EnteredBackgroundEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::FullTrustProcessLauncher>{ L"Windows.ApplicationModel.FullTrustProcessLauncher" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LeavingBackgroundEventArgs>{ L"Windows.ApplicationModel.LeavingBackgroundEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LimitedAccessFeatureRequestResult>{ L"Windows.ApplicationModel.LimitedAccessFeatureRequestResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LimitedAccessFeatures>{ L"Windows.ApplicationModel.LimitedAccessFeatures" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Package>{ L"Windows.ApplicationModel.Package" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalog>{ L"Windows.ApplicationModel.PackageCatalog" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalogAddOptionalPackageResult>{ L"Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalogAddResourcePackageResult>{ L"Windows.ApplicationModel.PackageCatalogAddResourcePackageResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalogRemoveOptionalPackagesResult>{ L"Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalogRemoveResourcePackagesResult>{ L"Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageContentGroup>{ L"Windows.ApplicationModel.PackageContentGroup" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageContentGroupStagingEventArgs>{ L"Windows.ApplicationModel.PackageContentGroupStagingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageId>{ L"Windows.ApplicationModel.PackageId" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageInstallingEventArgs>{ L"Windows.ApplicationModel.PackageInstallingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageStagingEventArgs>{ L"Windows.ApplicationModel.PackageStagingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageStatus>{ L"Windows.ApplicationModel.PackageStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageStatusChangedEventArgs>{ L"Windows.ApplicationModel.PackageStatusChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageUninstallingEventArgs>{ L"Windows.ApplicationModel.PackageUninstallingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageUpdateAvailabilityResult>{ L"Windows.ApplicationModel.PackageUpdateAvailabilityResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageUpdatingEventArgs>{ L"Windows.ApplicationModel.PackageUpdatingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::StartupTask>{ L"Windows.ApplicationModel.StartupTask" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SuspendingDeferral>{ L"Windows.ApplicationModel.SuspendingDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SuspendingEventArgs>{ L"Windows.ApplicationModel.SuspendingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SuspendingOperation>{ L"Windows.ApplicationModel.SuspendingOperation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AddResourcePackageOptions>{ L"Windows.ApplicationModel.AddResourcePackageOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppExecutionContext>{ L"Windows.ApplicationModel.AppExecutionContext" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LimitedAccessFeatureStatus>{ L"Windows.ApplicationModel.LimitedAccessFeatureStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageContentGroupState>{ L"Windows.ApplicationModel.PackageContentGroupState" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageSignatureKind>{ L"Windows.ApplicationModel.PackageSignatureKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageUpdateAvailability>{ L"Windows.ApplicationModel.PackageUpdateAvailability" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::StartupTaskState>{ L"Windows.ApplicationModel.StartupTaskState" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageInstallProgress>{ L"Windows.ApplicationModel.PackageInstallProgress" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageVersion>{ L"Windows.ApplicationModel.PackageVersion" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppDisplayInfo>{ L"Windows.ApplicationModel.IAppDisplayInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo>{ L"Windows.ApplicationModel.IAppInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo2>{ L"Windows.ApplicationModel.IAppInfo2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo3>{ L"Windows.ApplicationModel.IAppInfo3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfoStatics>{ L"Windows.ApplicationModel.IAppInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInstallerInfo>{ L"Windows.ApplicationModel.IAppInstallerInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInstance>{ L"Windows.ApplicationModel.IAppInstance" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInstanceStatics>{ L"Windows.ApplicationModel.IAppInstanceStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IDesignModeStatics>{ L"Windows.ApplicationModel.IDesignModeStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IDesignModeStatics2>{ L"Windows.ApplicationModel.IDesignModeStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IEnteredBackgroundEventArgs>{ L"Windows.ApplicationModel.IEnteredBackgroundEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IFullTrustProcessLauncherStatics>{ L"Windows.ApplicationModel.IFullTrustProcessLauncherStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ILeavingBackgroundEventArgs>{ L"Windows.ApplicationModel.ILeavingBackgroundEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ILimitedAccessFeatureRequestResult>{ L"Windows.ApplicationModel.ILimitedAccessFeatureRequestResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ILimitedAccessFeaturesStatics>{ L"Windows.ApplicationModel.ILimitedAccessFeaturesStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage>{ L"Windows.ApplicationModel.IPackage" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage2>{ L"Windows.ApplicationModel.IPackage2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage3>{ L"Windows.ApplicationModel.IPackage3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage4>{ L"Windows.ApplicationModel.IPackage4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage5>{ L"Windows.ApplicationModel.IPackage5" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage6>{ L"Windows.ApplicationModel.IPackage6" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage7>{ L"Windows.ApplicationModel.IPackage7" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage8>{ L"Windows.ApplicationModel.IPackage8" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage9>{ L"Windows.ApplicationModel.IPackage9" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog>{ L"Windows.ApplicationModel.IPackageCatalog" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog2>{ L"Windows.ApplicationModel.IPackageCatalog2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog3>{ L"Windows.ApplicationModel.IPackageCatalog3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog4>{ L"Windows.ApplicationModel.IPackageCatalog4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogAddOptionalPackageResult>{ L"Windows.ApplicationModel.IPackageCatalogAddOptionalPackageResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogAddResourcePackageResult>{ L"Windows.ApplicationModel.IPackageCatalogAddResourcePackageResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogRemoveOptionalPackagesResult>{ L"Windows.ApplicationModel.IPackageCatalogRemoveOptionalPackagesResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogRemoveResourcePackagesResult>{ L"Windows.ApplicationModel.IPackageCatalogRemoveResourcePackagesResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogStatics>{ L"Windows.ApplicationModel.IPackageCatalogStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageContentGroup>{ L"Windows.ApplicationModel.IPackageContentGroup" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageContentGroupStagingEventArgs>{ L"Windows.ApplicationModel.IPackageContentGroupStagingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageContentGroupStatics>{ L"Windows.ApplicationModel.IPackageContentGroupStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageId>{ L"Windows.ApplicationModel.IPackageId" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageIdWithMetadata>{ L"Windows.ApplicationModel.IPackageIdWithMetadata" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageInstallingEventArgs>{ L"Windows.ApplicationModel.IPackageInstallingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStagingEventArgs>{ L"Windows.ApplicationModel.IPackageStagingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStatics>{ L"Windows.ApplicationModel.IPackageStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStatus>{ L"Windows.ApplicationModel.IPackageStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStatus2>{ L"Windows.ApplicationModel.IPackageStatus2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStatusChangedEventArgs>{ L"Windows.ApplicationModel.IPackageStatusChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageUninstallingEventArgs>{ L"Windows.ApplicationModel.IPackageUninstallingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageUpdateAvailabilityResult>{ L"Windows.ApplicationModel.IPackageUpdateAvailabilityResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageUpdatingEventArgs>{ L"Windows.ApplicationModel.IPackageUpdatingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageWithMetadata>{ L"Windows.ApplicationModel.IPackageWithMetadata" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IStartupTask>{ L"Windows.ApplicationModel.IStartupTask" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IStartupTaskStatics>{ L"Windows.ApplicationModel.IStartupTaskStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ISuspendingDeferral>{ L"Windows.ApplicationModel.ISuspendingDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ISuspendingEventArgs>{ L"Windows.ApplicationModel.ISuspendingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ISuspendingOperation>{ L"Windows.ApplicationModel.ISuspendingOperation" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppDisplayInfo> = L"Windows.ApplicationModel.AppDisplayInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppInfo> = L"Windows.ApplicationModel.AppInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppInstallerInfo> = L"Windows.ApplicationModel.AppInstallerInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppInstance> = L"Windows.ApplicationModel.AppInstance";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DesignMode> = L"Windows.ApplicationModel.DesignMode";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::EnteredBackgroundEventArgs> = L"Windows.ApplicationModel.EnteredBackgroundEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::FullTrustProcessLauncher> = L"Windows.ApplicationModel.FullTrustProcessLauncher";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LeavingBackgroundEventArgs> = L"Windows.ApplicationModel.LeavingBackgroundEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LimitedAccessFeatureRequestResult> = L"Windows.ApplicationModel.LimitedAccessFeatureRequestResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LimitedAccessFeatures> = L"Windows.ApplicationModel.LimitedAccessFeatures";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Package> = L"Windows.ApplicationModel.Package";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalog> = L"Windows.ApplicationModel.PackageCatalog";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalogAddOptionalPackageResult> = L"Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalogAddResourcePackageResult> = L"Windows.ApplicationModel.PackageCatalogAddResourcePackageResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalogRemoveOptionalPackagesResult> = L"Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageCatalogRemoveResourcePackagesResult> = L"Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageContentGroup> = L"Windows.ApplicationModel.PackageContentGroup";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageContentGroupStagingEventArgs> = L"Windows.ApplicationModel.PackageContentGroupStagingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageId> = L"Windows.ApplicationModel.PackageId";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageInstallingEventArgs> = L"Windows.ApplicationModel.PackageInstallingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageStagingEventArgs> = L"Windows.ApplicationModel.PackageStagingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageStatus> = L"Windows.ApplicationModel.PackageStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageStatusChangedEventArgs> = L"Windows.ApplicationModel.PackageStatusChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageUninstallingEventArgs> = L"Windows.ApplicationModel.PackageUninstallingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageUpdateAvailabilityResult> = L"Windows.ApplicationModel.PackageUpdateAvailabilityResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageUpdatingEventArgs> = L"Windows.ApplicationModel.PackageUpdatingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::StartupTask> = L"Windows.ApplicationModel.StartupTask";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SuspendingDeferral> = L"Windows.ApplicationModel.SuspendingDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SuspendingEventArgs> = L"Windows.ApplicationModel.SuspendingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SuspendingOperation> = L"Windows.ApplicationModel.SuspendingOperation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AddResourcePackageOptions> = L"Windows.ApplicationModel.AddResourcePackageOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppExecutionContext> = L"Windows.ApplicationModel.AppExecutionContext";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LimitedAccessFeatureStatus> = L"Windows.ApplicationModel.LimitedAccessFeatureStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageContentGroupState> = L"Windows.ApplicationModel.PackageContentGroupState";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageSignatureKind> = L"Windows.ApplicationModel.PackageSignatureKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageUpdateAvailability> = L"Windows.ApplicationModel.PackageUpdateAvailability";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::StartupTaskState> = L"Windows.ApplicationModel.StartupTaskState";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageInstallProgress> = L"Windows.ApplicationModel.PackageInstallProgress";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::PackageVersion> = L"Windows.ApplicationModel.PackageVersion";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppDisplayInfo> = L"Windows.ApplicationModel.IAppDisplayInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo> = L"Windows.ApplicationModel.IAppInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo2> = L"Windows.ApplicationModel.IAppInfo2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo3> = L"Windows.ApplicationModel.IAppInfo3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfoStatics> = L"Windows.ApplicationModel.IAppInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInstallerInfo> = L"Windows.ApplicationModel.IAppInstallerInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInstance> = L"Windows.ApplicationModel.IAppInstance";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInstanceStatics> = L"Windows.ApplicationModel.IAppInstanceStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IDesignModeStatics> = L"Windows.ApplicationModel.IDesignModeStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IDesignModeStatics2> = L"Windows.ApplicationModel.IDesignModeStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IEnteredBackgroundEventArgs> = L"Windows.ApplicationModel.IEnteredBackgroundEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IFullTrustProcessLauncherStatics> = L"Windows.ApplicationModel.IFullTrustProcessLauncherStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ILeavingBackgroundEventArgs> = L"Windows.ApplicationModel.ILeavingBackgroundEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ILimitedAccessFeatureRequestResult> = L"Windows.ApplicationModel.ILimitedAccessFeatureRequestResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ILimitedAccessFeaturesStatics> = L"Windows.ApplicationModel.ILimitedAccessFeaturesStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage> = L"Windows.ApplicationModel.IPackage";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage2> = L"Windows.ApplicationModel.IPackage2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage3> = L"Windows.ApplicationModel.IPackage3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage4> = L"Windows.ApplicationModel.IPackage4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage5> = L"Windows.ApplicationModel.IPackage5";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage6> = L"Windows.ApplicationModel.IPackage6";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage7> = L"Windows.ApplicationModel.IPackage7";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage8> = L"Windows.ApplicationModel.IPackage8";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage9> = L"Windows.ApplicationModel.IPackage9";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog> = L"Windows.ApplicationModel.IPackageCatalog";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog2> = L"Windows.ApplicationModel.IPackageCatalog2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog3> = L"Windows.ApplicationModel.IPackageCatalog3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog4> = L"Windows.ApplicationModel.IPackageCatalog4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogAddOptionalPackageResult> = L"Windows.ApplicationModel.IPackageCatalogAddOptionalPackageResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogAddResourcePackageResult> = L"Windows.ApplicationModel.IPackageCatalogAddResourcePackageResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogRemoveOptionalPackagesResult> = L"Windows.ApplicationModel.IPackageCatalogRemoveOptionalPackagesResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogRemoveResourcePackagesResult> = L"Windows.ApplicationModel.IPackageCatalogRemoveResourcePackagesResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalogStatics> = L"Windows.ApplicationModel.IPackageCatalogStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageContentGroup> = L"Windows.ApplicationModel.IPackageContentGroup";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageContentGroupStagingEventArgs> = L"Windows.ApplicationModel.IPackageContentGroupStagingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageContentGroupStatics> = L"Windows.ApplicationModel.IPackageContentGroupStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageId> = L"Windows.ApplicationModel.IPackageId";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageIdWithMetadata> = L"Windows.ApplicationModel.IPackageIdWithMetadata";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageInstallingEventArgs> = L"Windows.ApplicationModel.IPackageInstallingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStagingEventArgs> = L"Windows.ApplicationModel.IPackageStagingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStatics> = L"Windows.ApplicationModel.IPackageStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStatus> = L"Windows.ApplicationModel.IPackageStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStatus2> = L"Windows.ApplicationModel.IPackageStatus2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageStatusChangedEventArgs> = L"Windows.ApplicationModel.IPackageStatusChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageUninstallingEventArgs> = L"Windows.ApplicationModel.IPackageUninstallingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageUpdateAvailabilityResult> = L"Windows.ApplicationModel.IPackageUpdateAvailabilityResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageUpdatingEventArgs> = L"Windows.ApplicationModel.IPackageUpdatingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageWithMetadata> = L"Windows.ApplicationModel.IPackageWithMetadata";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IStartupTask> = L"Windows.ApplicationModel.IStartupTask";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IStartupTaskStatics> = L"Windows.ApplicationModel.IStartupTaskStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ISuspendingDeferral> = L"Windows.ApplicationModel.ISuspendingDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ISuspendingEventArgs> = L"Windows.ApplicationModel.ISuspendingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::ISuspendingOperation> = L"Windows.ApplicationModel.ISuspendingOperation";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppDisplayInfo>{ 0x1AEB1103,0xE4D4,0x41AA,{ 0xA4,0xF6,0xC4,0xA2,0x76,0xE7,0x9E,0xAC } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInfo>{ 0xCF7F59B3,0x6A09,0x4DE8,{ 0xA6,0xC0,0x57,0x92,0xD5,0x68,0x80,0xD1 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInfo2>{ 0xBE4B1F5A,0x2098,0x431B,{ 0xBD,0x25,0xB3,0x08,0x78,0x74,0x8D,0x47 } };
@@ -938,9 +945,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppDisplayInfo
     {
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto Description() const;
-        auto GetLogo(Windows::Foundation::Size const& size) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::RandomAccessStreamReference) GetLogo(Windows::Foundation::Size const& size) const;
     };
     template <> struct consume<Windows::ApplicationModel::IAppDisplayInfo>
     {
@@ -949,10 +956,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppInfo
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto AppUserModelId() const;
-        [[nodiscard]] auto DisplayInfo() const;
-        [[nodiscard]] auto PackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppUserModelId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppDisplayInfo) DisplayInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PackageFamilyName() const;
     };
     template <> struct consume<Windows::ApplicationModel::IAppInfo>
     {
@@ -961,7 +968,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppInfo2
     {
-        [[nodiscard]] auto Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
     };
     template <> struct consume<Windows::ApplicationModel::IAppInfo2>
     {
@@ -970,7 +977,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppInfo3
     {
-        [[nodiscard]] auto ExecutionContext() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppExecutionContext) ExecutionContext() const;
     };
     template <> struct consume<Windows::ApplicationModel::IAppInfo3>
     {
@@ -979,9 +986,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppInfoStatics
     {
-        [[nodiscard]] auto Current() const;
-        auto GetFromAppUserModelId(param::hstring const& appUserModelId) const;
-        auto GetFromAppUserModelIdForUser(Windows::System::User const& user, param::hstring const& appUserModelId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInfo) Current() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInfo) GetFromAppUserModelId(param::hstring const& appUserModelId) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInfo) GetFromAppUserModelIdForUser(Windows::System::User const& user, param::hstring const& appUserModelId) const;
     };
     template <> struct consume<Windows::ApplicationModel::IAppInfoStatics>
     {
@@ -990,7 +997,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppInstallerInfo
     {
-        [[nodiscard]] auto Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
     };
     template <> struct consume<Windows::ApplicationModel::IAppInstallerInfo>
     {
@@ -999,9 +1006,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppInstance
     {
-        [[nodiscard]] auto Key() const;
-        [[nodiscard]] auto IsCurrentInstance() const;
-        auto RedirectActivationTo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Key() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCurrentInstance() const;
+        WINRT_IMPL_AUTO(void) RedirectActivationTo() const;
     };
     template <> struct consume<Windows::ApplicationModel::IAppInstance>
     {
@@ -1010,11 +1017,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppInstanceStatics
     {
-        [[nodiscard]] auto RecommendedInstance() const;
-        auto GetActivatedEventArgs() const;
-        auto FindOrRegisterInstanceForKey(param::hstring const& key) const;
-        auto Unregister() const;
-        auto GetInstances() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInstance) RecommendedInstance() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Activation::IActivatedEventArgs) GetActivatedEventArgs() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInstance) FindOrRegisterInstanceForKey(param::hstring const& key) const;
+        WINRT_IMPL_AUTO(void) Unregister() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::AppInstance>) GetInstances() const;
     };
     template <> struct consume<Windows::ApplicationModel::IAppInstanceStatics>
     {
@@ -1023,7 +1030,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IDesignModeStatics
     {
-        [[nodiscard]] auto DesignModeEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DesignModeEnabled() const;
     };
     template <> struct consume<Windows::ApplicationModel::IDesignModeStatics>
     {
@@ -1032,7 +1039,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IDesignModeStatics2
     {
-        [[nodiscard]] auto DesignMode2Enabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DesignMode2Enabled() const;
     };
     template <> struct consume<Windows::ApplicationModel::IDesignModeStatics2>
     {
@@ -1041,7 +1048,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IEnteredBackgroundEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::IEnteredBackgroundEventArgs>
     {
@@ -1050,10 +1057,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IFullTrustProcessLauncherStatics
     {
-        auto LaunchFullTrustProcessForCurrentAppAsync() const;
-        auto LaunchFullTrustProcessForCurrentAppAsync(param::hstring const& parameterGroupId) const;
-        auto LaunchFullTrustProcessForAppAsync(param::hstring const& fullTrustPackageRelativeAppId) const;
-        auto LaunchFullTrustProcessForAppAsync(param::hstring const& fullTrustPackageRelativeAppId, param::hstring const& parameterGroupId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) LaunchFullTrustProcessForCurrentAppAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) LaunchFullTrustProcessForCurrentAppAsync(param::hstring const& parameterGroupId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) LaunchFullTrustProcessForAppAsync(param::hstring const& fullTrustPackageRelativeAppId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) LaunchFullTrustProcessForAppAsync(param::hstring const& fullTrustPackageRelativeAppId, param::hstring const& parameterGroupId) const;
     };
     template <> struct consume<Windows::ApplicationModel::IFullTrustProcessLauncherStatics>
     {
@@ -1062,7 +1069,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_ILeavingBackgroundEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::ILeavingBackgroundEventArgs>
     {
@@ -1071,9 +1078,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_ILimitedAccessFeatureRequestResult
     {
-        [[nodiscard]] auto FeatureId() const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto EstimatedRemovalDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FeatureId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::LimitedAccessFeatureStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) EstimatedRemovalDate() const;
     };
     template <> struct consume<Windows::ApplicationModel::ILimitedAccessFeatureRequestResult>
     {
@@ -1082,7 +1089,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_ILimitedAccessFeaturesStatics
     {
-        auto TryUnlockFeature(param::hstring const& featureId, param::hstring const& token, param::hstring const& attestation) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::LimitedAccessFeatureRequestResult) TryUnlockFeature(param::hstring const& featureId, param::hstring const& token, param::hstring const& attestation) const;
     };
     template <> struct consume<Windows::ApplicationModel::ILimitedAccessFeaturesStatics>
     {
@@ -1091,10 +1098,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto InstalledLocation() const;
-        [[nodiscard]] auto IsFramework() const;
-        [[nodiscard]] auto Dependencies() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::PackageId) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFolder) InstalledLocation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsFramework() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>) Dependencies() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage>
     {
@@ -1103,13 +1110,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage2
     {
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto PublisherDisplayName() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto Logo() const;
-        [[nodiscard]] auto IsResourcePackage() const;
-        [[nodiscard]] auto IsBundle() const;
-        [[nodiscard]] auto IsDevelopmentMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PublisherDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Logo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsResourcePackage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBundle() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDevelopmentMode() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage2>
     {
@@ -1118,9 +1125,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage3
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto InstalledDate() const;
-        auto GetAppListEntriesAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::PackageStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) InstalledDate() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Core::AppListEntry>>) GetAppListEntriesAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage3>
     {
@@ -1129,9 +1136,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage4
     {
-        [[nodiscard]] auto SignatureKind() const;
-        [[nodiscard]] auto IsOptional() const;
-        auto VerifyContentIntegrityAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::PackageSignatureKind) SignatureKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOptional() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) VerifyContentIntegrityAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage4>
     {
@@ -1140,11 +1147,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage5
     {
-        auto GetContentGroupsAsync() const;
-        auto GetContentGroupAsync(param::hstring const& name) const;
-        auto StageContentGroupsAsync(param::async_iterable<hstring> const& names) const;
-        auto StageContentGroupsAsync(param::async_iterable<hstring> const& names, bool moveToHeadOfQueue) const;
-        auto SetInUseAsync(bool inUse) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::ApplicationModel::PackageContentGroup>>) GetContentGroupsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::PackageContentGroup>) GetContentGroupAsync(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::ApplicationModel::PackageContentGroup>>) StageContentGroupsAsync(param::async_iterable<hstring> const& names) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::ApplicationModel::PackageContentGroup>>) StageContentGroupsAsync(param::async_iterable<hstring> const& names, bool moveToHeadOfQueue) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) SetInUseAsync(bool inUse) const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage5>
     {
@@ -1153,8 +1160,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage6
     {
-        auto GetAppInstallerInfo() const;
-        auto CheckUpdateAvailabilityAsync() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInstallerInfo) GetAppInstallerInfo() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::PackageUpdateAvailabilityResult>) CheckUpdateAvailabilityAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage6>
     {
@@ -1163,8 +1170,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage7
     {
-        [[nodiscard]] auto MutableLocation() const;
-        [[nodiscard]] auto EffectiveLocation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFolder) MutableLocation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFolder) EffectiveLocation() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage7>
     {
@@ -1173,18 +1180,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage8
     {
-        [[nodiscard]] auto EffectiveExternalLocation() const;
-        [[nodiscard]] auto MachineExternalLocation() const;
-        [[nodiscard]] auto UserExternalLocation() const;
-        [[nodiscard]] auto InstalledPath() const;
-        [[nodiscard]] auto MutablePath() const;
-        [[nodiscard]] auto EffectivePath() const;
-        [[nodiscard]] auto EffectiveExternalPath() const;
-        [[nodiscard]] auto MachineExternalPath() const;
-        [[nodiscard]] auto UserExternalPath() const;
-        auto GetLogoAsRandomAccessStreamReference(Windows::Foundation::Size const& size) const;
-        auto GetAppListEntries() const;
-        [[nodiscard]] auto IsStub() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFolder) EffectiveExternalLocation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFolder) MachineExternalLocation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFolder) UserExternalLocation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) InstalledPath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MutablePath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EffectivePath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EffectiveExternalPath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MachineExternalPath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserExternalPath() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::RandomAccessStreamReference) GetLogoAsRandomAccessStreamReference(Windows::Foundation::Size const& size) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Core::AppListEntry>) GetAppListEntries() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStub() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage8>
     {
@@ -1193,10 +1200,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackage9
     {
-        auto FindHostRuntimeProviders() const;
-        auto FindHostRuntimeConsumerApps() const;
-        [[nodiscard]] auto IsHostRuntimeProvider() const;
-        [[nodiscard]] auto IsHostRuntimeConsumer() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>) FindHostRuntimeProviders() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>) FindHostRuntimeConsumerApps() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHostRuntimeProvider() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHostRuntimeConsumer() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackage9>
     {
@@ -1205,26 +1212,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalog
     {
-        auto PackageStaging(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageStagingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) PackageStaging(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageStagingEventArgs> const& handler) const;
         using PackageStaging_revoker = impl::event_revoker<Windows::ApplicationModel::IPackageCatalog, &impl::abi_t<Windows::ApplicationModel::IPackageCatalog>::remove_PackageStaging>;
         [[nodiscard]] PackageStaging_revoker PackageStaging(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageStagingEventArgs> const& handler) const;
-        auto PackageStaging(winrt::event_token const& token) const noexcept;
-        auto PackageInstalling(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageInstallingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PackageStaging(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PackageInstalling(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageInstallingEventArgs> const& handler) const;
         using PackageInstalling_revoker = impl::event_revoker<Windows::ApplicationModel::IPackageCatalog, &impl::abi_t<Windows::ApplicationModel::IPackageCatalog>::remove_PackageInstalling>;
         [[nodiscard]] PackageInstalling_revoker PackageInstalling(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageInstallingEventArgs> const& handler) const;
-        auto PackageInstalling(winrt::event_token const& token) const noexcept;
-        auto PackageUpdating(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageUpdatingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PackageInstalling(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PackageUpdating(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageUpdatingEventArgs> const& handler) const;
         using PackageUpdating_revoker = impl::event_revoker<Windows::ApplicationModel::IPackageCatalog, &impl::abi_t<Windows::ApplicationModel::IPackageCatalog>::remove_PackageUpdating>;
         [[nodiscard]] PackageUpdating_revoker PackageUpdating(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageUpdatingEventArgs> const& handler) const;
-        auto PackageUpdating(winrt::event_token const& token) const noexcept;
-        auto PackageUninstalling(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageUninstallingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PackageUpdating(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PackageUninstalling(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageUninstallingEventArgs> const& handler) const;
         using PackageUninstalling_revoker = impl::event_revoker<Windows::ApplicationModel::IPackageCatalog, &impl::abi_t<Windows::ApplicationModel::IPackageCatalog>::remove_PackageUninstalling>;
         [[nodiscard]] PackageUninstalling_revoker PackageUninstalling(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageUninstallingEventArgs> const& handler) const;
-        auto PackageUninstalling(winrt::event_token const& token) const noexcept;
-        auto PackageStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageStatusChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PackageUninstalling(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PackageStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageStatusChangedEventArgs> const& handler) const;
         using PackageStatusChanged_revoker = impl::event_revoker<Windows::ApplicationModel::IPackageCatalog, &impl::abi_t<Windows::ApplicationModel::IPackageCatalog>::remove_PackageStatusChanged>;
         [[nodiscard]] PackageStatusChanged_revoker PackageStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageStatusChangedEventArgs> const& handler) const;
-        auto PackageStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) PackageStatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalog>
     {
@@ -1233,11 +1240,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalog2
     {
-        auto PackageContentGroupStaging(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageContentGroupStagingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) PackageContentGroupStaging(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageContentGroupStagingEventArgs> const& handler) const;
         using PackageContentGroupStaging_revoker = impl::event_revoker<Windows::ApplicationModel::IPackageCatalog2, &impl::abi_t<Windows::ApplicationModel::IPackageCatalog2>::remove_PackageContentGroupStaging>;
         [[nodiscard]] PackageContentGroupStaging_revoker PackageContentGroupStaging(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageContentGroupStagingEventArgs> const& handler) const;
-        auto PackageContentGroupStaging(winrt::event_token const& token) const noexcept;
-        auto AddOptionalPackageAsync(param::hstring const& optionalPackageFamilyName) const;
+        WINRT_IMPL_AUTO(void) PackageContentGroupStaging(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::PackageCatalogAddOptionalPackageResult>) AddOptionalPackageAsync(param::hstring const& optionalPackageFamilyName) const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalog2>
     {
@@ -1246,7 +1253,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalog3
     {
-        auto RemoveOptionalPackagesAsync(param::async_iterable<hstring> const& optionalPackageFamilyNames) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::PackageCatalogRemoveOptionalPackagesResult>) RemoveOptionalPackagesAsync(param::async_iterable<hstring> const& optionalPackageFamilyNames) const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalog3>
     {
@@ -1255,8 +1262,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalog4
     {
-        auto AddResourcePackageAsync(param::hstring const& resourcePackageFamilyName, param::hstring const& resourceID, Windows::ApplicationModel::AddResourcePackageOptions const& options) const;
-        auto RemoveResourcePackagesAsync(param::async_iterable<Windows::ApplicationModel::Package> const& resourcePackages) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::ApplicationModel::PackageCatalogAddResourcePackageResult, Windows::ApplicationModel::PackageInstallProgress>) AddResourcePackageAsync(param::hstring const& resourcePackageFamilyName, param::hstring const& resourceID, Windows::ApplicationModel::AddResourcePackageOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::PackageCatalogRemoveResourcePackagesResult>) RemoveResourcePackagesAsync(param::async_iterable<Windows::ApplicationModel::Package> const& resourcePackages) const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalog4>
     {
@@ -1265,8 +1272,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalogAddOptionalPackageResult
     {
-        [[nodiscard]] auto Package() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalogAddOptionalPackageResult>
     {
@@ -1275,9 +1282,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalogAddResourcePackageResult
     {
-        [[nodiscard]] auto Package() const;
-        [[nodiscard]] auto IsComplete() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsComplete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalogAddResourcePackageResult>
     {
@@ -1286,8 +1293,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalogRemoveOptionalPackagesResult
     {
-        [[nodiscard]] auto PackagesRemoved() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>) PackagesRemoved() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalogRemoveOptionalPackagesResult>
     {
@@ -1296,8 +1303,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalogRemoveResourcePackagesResult
     {
-        [[nodiscard]] auto PackagesRemoved() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>) PackagesRemoved() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalogRemoveResourcePackagesResult>
     {
@@ -1306,8 +1313,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalogStatics
     {
-        auto OpenForCurrentPackage() const;
-        auto OpenForCurrentUser() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::PackageCatalog) OpenForCurrentPackage() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::PackageCatalog) OpenForCurrentUser() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageCatalogStatics>
     {
@@ -1316,10 +1323,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageContentGroup
     {
-        [[nodiscard]] auto Package() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto IsRequired() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::PackageContentGroupState) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRequired() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageContentGroup>
     {
@@ -1328,13 +1335,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageContentGroupStagingEventArgs
     {
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto Package() const;
-        [[nodiscard]] auto Progress() const;
-        [[nodiscard]] auto IsComplete() const;
-        [[nodiscard]] auto ErrorCode() const;
-        [[nodiscard]] auto ContentGroupName() const;
-        [[nodiscard]] auto IsContentGroupRequired() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Progress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsComplete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentGroupName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsContentGroupRequired() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageContentGroupStagingEventArgs>
     {
@@ -1343,7 +1350,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageContentGroupStatics
     {
-        [[nodiscard]] auto RequiredGroupName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RequiredGroupName() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageContentGroupStatics>
     {
@@ -1352,14 +1359,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageId
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Version() const;
-        [[nodiscard]] auto Architecture() const;
-        [[nodiscard]] auto ResourceId() const;
-        [[nodiscard]] auto Publisher() const;
-        [[nodiscard]] auto PublisherId() const;
-        [[nodiscard]] auto FullName() const;
-        [[nodiscard]] auto FamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::PackageVersion) Version() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::ProcessorArchitecture) Architecture() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResourceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Publisher() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PublisherId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FullName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FamilyName() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageId>
     {
@@ -1368,8 +1375,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageIdWithMetadata
     {
-        [[nodiscard]] auto ProductId() const;
-        [[nodiscard]] auto Author() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProductId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Author() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageIdWithMetadata>
     {
@@ -1378,11 +1385,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageInstallingEventArgs
     {
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto Package() const;
-        [[nodiscard]] auto Progress() const;
-        [[nodiscard]] auto IsComplete() const;
-        [[nodiscard]] auto ErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Progress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsComplete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ErrorCode() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageInstallingEventArgs>
     {
@@ -1391,11 +1398,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageStagingEventArgs
     {
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto Package() const;
-        [[nodiscard]] auto Progress() const;
-        [[nodiscard]] auto IsComplete() const;
-        [[nodiscard]] auto ErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Progress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsComplete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ErrorCode() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageStagingEventArgs>
     {
@@ -1404,7 +1411,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageStatics
     {
-        [[nodiscard]] auto Current() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Current() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageStatics>
     {
@@ -1413,18 +1420,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageStatus
     {
-        auto VerifyIsOK() const;
-        [[nodiscard]] auto NotAvailable() const;
-        [[nodiscard]] auto PackageOffline() const;
-        [[nodiscard]] auto DataOffline() const;
-        [[nodiscard]] auto Disabled() const;
-        [[nodiscard]] auto NeedsRemediation() const;
-        [[nodiscard]] auto LicenseIssue() const;
-        [[nodiscard]] auto Modified() const;
-        [[nodiscard]] auto Tampered() const;
-        [[nodiscard]] auto DependencyIssue() const;
-        [[nodiscard]] auto Servicing() const;
-        [[nodiscard]] auto DeploymentInProgress() const;
+        WINRT_IMPL_AUTO(bool) VerifyIsOK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) NotAvailable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PackageOffline() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DataOffline() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Disabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) NeedsRemediation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) LicenseIssue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Modified() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Tampered() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DependencyIssue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Servicing() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DeploymentInProgress() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageStatus>
     {
@@ -1433,7 +1440,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageStatus2
     {
-        [[nodiscard]] auto IsPartiallyStaged() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPartiallyStaged() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageStatus2>
     {
@@ -1442,7 +1449,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageStatusChangedEventArgs
     {
-        [[nodiscard]] auto Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageStatusChangedEventArgs>
     {
@@ -1451,11 +1458,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageUninstallingEventArgs
     {
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto Package() const;
-        [[nodiscard]] auto Progress() const;
-        [[nodiscard]] auto IsComplete() const;
-        [[nodiscard]] auto ErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) Package() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Progress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsComplete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ErrorCode() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageUninstallingEventArgs>
     {
@@ -1464,8 +1471,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageUpdateAvailabilityResult
     {
-        [[nodiscard]] auto Availability() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::PackageUpdateAvailability) Availability() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageUpdateAvailabilityResult>
     {
@@ -1474,12 +1481,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageUpdatingEventArgs
     {
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto SourcePackage() const;
-        [[nodiscard]] auto TargetPackage() const;
-        [[nodiscard]] auto Progress() const;
-        [[nodiscard]] auto IsComplete() const;
-        [[nodiscard]] auto ErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) SourcePackage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) TargetPackage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Progress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsComplete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ErrorCode() const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageUpdatingEventArgs>
     {
@@ -1488,9 +1495,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageWithMetadata
     {
-        [[nodiscard]] auto InstallDate() const;
-        auto GetThumbnailToken() const;
-        auto Launch(param::hstring const& parameters) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) InstallDate() const;
+        WINRT_IMPL_AUTO(hstring) GetThumbnailToken() const;
+        WINRT_IMPL_AUTO(void) Launch(param::hstring const& parameters) const;
     };
     template <> struct consume<Windows::ApplicationModel::IPackageWithMetadata>
     {
@@ -1499,10 +1506,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IStartupTask
     {
-        auto RequestEnableAsync() const;
-        auto Disable() const;
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto TaskId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::StartupTaskState>) RequestEnableAsync() const;
+        WINRT_IMPL_AUTO(void) Disable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::StartupTaskState) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TaskId() const;
     };
     template <> struct consume<Windows::ApplicationModel::IStartupTask>
     {
@@ -1511,8 +1518,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_IStartupTaskStatics
     {
-        auto GetForCurrentPackageAsync() const;
-        auto GetAsync(param::hstring const& taskId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::StartupTask>>) GetForCurrentPackageAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::StartupTask>) GetAsync(param::hstring const& taskId) const;
     };
     template <> struct consume<Windows::ApplicationModel::IStartupTaskStatics>
     {
@@ -1521,7 +1528,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_ISuspendingDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::ISuspendingDeferral>
     {
@@ -1530,7 +1537,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_ISuspendingEventArgs
     {
-        [[nodiscard]] auto SuspendingOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::SuspendingOperation) SuspendingOperation() const;
     };
     template <> struct consume<Windows::ApplicationModel::ISuspendingEventArgs>
     {
@@ -1539,8 +1546,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_ISuspendingOperation
     {
-        auto GetDeferral() const;
-        [[nodiscard]] auto Deadline() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::SuspendingDeferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Deadline() const;
     };
     template <> struct consume<Windows::ApplicationModel::ISuspendingOperation>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,6 +12,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::DataTransfer
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
@@ -75,21 +76,19 @@ namespace winrt::impl
     template <> struct category<Windows::Services::Cortana::CortanaSettings>{ using type = class_category; };
     template <> struct category<Windows::Services::Cortana::CortanaPermission>{ using type = enum_category; };
     template <> struct category<Windows::Services::Cortana::CortanaPermissionsChangeResult>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaActionableInsights>{ L"Windows.Services.Cortana.CortanaActionableInsights" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaActionableInsightsOptions>{ L"Windows.Services.Cortana.CortanaActionableInsightsOptions" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaPermissionsManager>{ L"Windows.Services.Cortana.CortanaPermissionsManager" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaSettings>{ L"Windows.Services.Cortana.CortanaSettings" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaPermission>{ L"Windows.Services.Cortana.CortanaPermission" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaPermissionsChangeResult>{ L"Windows.Services.Cortana.CortanaPermissionsChangeResult" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaActionableInsights>{ L"Windows.Services.Cortana.ICortanaActionableInsights" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaActionableInsightsOptions>{ L"Windows.Services.Cortana.ICortanaActionableInsightsOptions" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaActionableInsightsStatics>{ L"Windows.Services.Cortana.ICortanaActionableInsightsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaPermissionsManager>{ L"Windows.Services.Cortana.ICortanaPermissionsManager" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaPermissionsManagerStatics>{ L"Windows.Services.Cortana.ICortanaPermissionsManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaSettings>{ L"Windows.Services.Cortana.ICortanaSettings" };
-    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaSettingsStatics>{ L"Windows.Services.Cortana.ICortanaSettingsStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaActionableInsights> = L"Windows.Services.Cortana.CortanaActionableInsights";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaActionableInsightsOptions> = L"Windows.Services.Cortana.CortanaActionableInsightsOptions";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaPermissionsManager> = L"Windows.Services.Cortana.CortanaPermissionsManager";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaSettings> = L"Windows.Services.Cortana.CortanaSettings";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaPermission> = L"Windows.Services.Cortana.CortanaPermission";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::CortanaPermissionsChangeResult> = L"Windows.Services.Cortana.CortanaPermissionsChangeResult";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaActionableInsights> = L"Windows.Services.Cortana.ICortanaActionableInsights";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaActionableInsightsOptions> = L"Windows.Services.Cortana.ICortanaActionableInsightsOptions";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaActionableInsightsStatics> = L"Windows.Services.Cortana.ICortanaActionableInsightsStatics";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaPermissionsManager> = L"Windows.Services.Cortana.ICortanaPermissionsManager";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaPermissionsManagerStatics> = L"Windows.Services.Cortana.ICortanaPermissionsManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaSettings> = L"Windows.Services.Cortana.ICortanaSettings";
+    template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaSettingsStatics> = L"Windows.Services.Cortana.ICortanaSettingsStatics";
     template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsights>{ 0x951EC6B1,0xFC83,0x586D,{ 0x8B,0x84,0x24,0x52,0xC8,0x98,0x16,0x25 } };
     template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsightsOptions>{ 0xAAC2BBCF,0x9782,0x5420,{ 0xB8,0x1E,0x7A,0xE5,0x6A,0xF3,0x18,0x15 } };
     template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsightsStatics>{ 0xB5DED412,0x9D2F,0x5CB5,{ 0x9B,0x05,0x35,0x6A,0x0B,0x83,0x6C,0x10 } };
@@ -170,14 +169,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Cortana_ICortanaActionableInsights
     {
-        [[nodiscard]] auto User() const;
-        auto IsAvailableAsync() const;
-        auto ShowInsightsForImageAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& imageStream) const;
-        auto ShowInsightsForImageAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& imageStream, Windows::Services::Cortana::CortanaActionableInsightsOptions const& options) const;
-        auto ShowInsightsForTextAsync(param::hstring const& text) const;
-        auto ShowInsightsForTextAsync(param::hstring const& text, Windows::Services::Cortana::CortanaActionableInsightsOptions const& options) const;
-        auto ShowInsightsAsync(Windows::ApplicationModel::DataTransfer::DataPackage const& datapackage) const;
-        auto ShowInsightsAsync(Windows::ApplicationModel::DataTransfer::DataPackage const& datapackage, Windows::Services::Cortana::CortanaActionableInsightsOptions const& options) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsAvailableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowInsightsForImageAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& imageStream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowInsightsForImageAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& imageStream, Windows::Services::Cortana::CortanaActionableInsightsOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowInsightsForTextAsync(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowInsightsForTextAsync(param::hstring const& text, Windows::Services::Cortana::CortanaActionableInsightsOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowInsightsAsync(Windows::ApplicationModel::DataTransfer::DataPackage const& datapackage) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowInsightsAsync(Windows::ApplicationModel::DataTransfer::DataPackage const& datapackage, Windows::Services::Cortana::CortanaActionableInsightsOptions const& options) const;
     };
     template <> struct consume<Windows::Services::Cortana::ICortanaActionableInsights>
     {
@@ -186,10 +185,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Cortana_ICortanaActionableInsightsOptions
     {
-        [[nodiscard]] auto ContentSourceWebLink() const;
-        auto ContentSourceWebLink(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto SurroundingText() const;
-        auto SurroundingText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ContentSourceWebLink() const;
+        WINRT_IMPL_AUTO(void) ContentSourceWebLink(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SurroundingText() const;
+        WINRT_IMPL_AUTO(void) SurroundingText(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Services::Cortana::ICortanaActionableInsightsOptions>
     {
@@ -198,8 +197,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Cortana_ICortanaActionableInsightsStatics
     {
-        auto GetDefault() const;
-        auto GetForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Services::Cortana::CortanaActionableInsights) GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Services::Cortana::CortanaActionableInsights) GetForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::Services::Cortana::ICortanaActionableInsightsStatics>
     {
@@ -208,10 +207,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Cortana_ICortanaPermissionsManager
     {
-        auto IsSupported() const;
-        auto ArePermissionsGrantedAsync(param::async_iterable<Windows::Services::Cortana::CortanaPermission> const& permissions) const;
-        auto GrantPermissionsAsync(param::async_iterable<Windows::Services::Cortana::CortanaPermission> const& permissions) const;
-        auto RevokePermissionsAsync(param::async_iterable<Windows::Services::Cortana::CortanaPermission> const& permissions) const;
+        WINRT_IMPL_AUTO(bool) IsSupported() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ArePermissionsGrantedAsync(param::async_iterable<Windows::Services::Cortana::CortanaPermission> const& permissions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Cortana::CortanaPermissionsChangeResult>) GrantPermissionsAsync(param::async_iterable<Windows::Services::Cortana::CortanaPermission> const& permissions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Cortana::CortanaPermissionsChangeResult>) RevokePermissionsAsync(param::async_iterable<Windows::Services::Cortana::CortanaPermission> const& permissions) const;
     };
     template <> struct consume<Windows::Services::Cortana::ICortanaPermissionsManager>
     {
@@ -220,7 +219,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Cortana_ICortanaPermissionsManagerStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Services::Cortana::CortanaPermissionsManager) GetDefault() const;
     };
     template <> struct consume<Windows::Services::Cortana::ICortanaPermissionsManagerStatics>
     {
@@ -229,9 +228,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Cortana_ICortanaSettings
     {
-        [[nodiscard]] auto HasUserConsentToVoiceActivation() const;
-        [[nodiscard]] auto IsVoiceActivationEnabled() const;
-        auto IsVoiceActivationEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasUserConsentToVoiceActivation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVoiceActivationEnabled() const;
+        WINRT_IMPL_AUTO(void) IsVoiceActivationEnabled(bool value) const;
     };
     template <> struct consume<Windows::Services::Cortana::ICortanaSettings>
     {
@@ -240,8 +239,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Cortana_ICortanaSettingsStatics
     {
-        auto IsSupported() const;
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(bool) IsSupported() const;
+        WINRT_IMPL_AUTO(Windows::Services::Cortana::CortanaSettings) GetDefault() const;
     };
     template <> struct consume<Windows::Services::Cortana::ICortanaSettingsStatics>
     {

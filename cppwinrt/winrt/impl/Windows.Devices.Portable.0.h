@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -33,13 +33,11 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Portable::ServiceDevice>{ using type = class_category; };
     template <> struct category<Windows::Devices::Portable::StorageDevice>{ using type = class_category; };
     template <> struct category<Windows::Devices::Portable::ServiceDeviceType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Portable::ServiceDevice>{ L"Windows.Devices.Portable.ServiceDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Portable::StorageDevice>{ L"Windows.Devices.Portable.StorageDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Portable::ServiceDeviceType>{ L"Windows.Devices.Portable.ServiceDeviceType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Portable::IServiceDeviceStatics>{ L"Windows.Devices.Portable.IServiceDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Portable::IStorageDeviceStatics>{ L"Windows.Devices.Portable.IStorageDeviceStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Portable::ServiceDevice> = L"Windows.Devices.Portable.ServiceDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Portable::StorageDevice> = L"Windows.Devices.Portable.StorageDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Portable::ServiceDeviceType> = L"Windows.Devices.Portable.ServiceDeviceType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Portable::IServiceDeviceStatics> = L"Windows.Devices.Portable.IServiceDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Portable::IStorageDeviceStatics> = L"Windows.Devices.Portable.IStorageDeviceStatics";
     template <> inline constexpr guid guid_v<Windows::Devices::Portable::IServiceDeviceStatics>{ 0xA88214E1,0x59C7,0x4A20,{ 0xAB,0xA6,0x9F,0x67,0x07,0x93,0x72,0x30 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Portable::IStorageDeviceStatics>{ 0x5ECE44EE,0x1B23,0x4DD2,{ 0x86,0x52,0xBC,0x16,0x4F,0x00,0x31,0x28 } };
     template <> struct abi<Windows::Devices::Portable::IServiceDeviceStatics>
@@ -61,8 +59,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Portable_IServiceDeviceStatics
     {
-        auto GetDeviceSelector(Windows::Devices::Portable::ServiceDeviceType const& serviceType) const;
-        auto GetDeviceSelectorFromServiceId(winrt::guid const& serviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::Devices::Portable::ServiceDeviceType const& serviceType) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromServiceId(winrt::guid const& serviceId) const;
     };
     template <> struct consume<Windows::Devices::Portable::IServiceDeviceStatics>
     {
@@ -71,8 +69,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Portable_IStorageDeviceStatics
     {
-        auto FromId(param::hstring const& deviceId) const;
-        auto GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Storage::StorageFolder) FromId(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
     };
     template <> struct consume<Windows::Devices::Portable::IStorageDeviceStatics>
     {

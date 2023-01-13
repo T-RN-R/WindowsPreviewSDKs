@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,15 +8,24 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
+    template <typename TResult> struct IAsyncOperation;
     struct Rect;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMap;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::DirectX::Direct3D11
 {
     struct IDirect3DSurface;
+}
+WINRT_EXPORT namespace winrt::Windows::Graphics::Imaging
+{
+    struct ImageStream;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::Core
 {
@@ -24,13 +33,19 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
 }
 WINRT_EXPORT namespace winrt::Windows::Media::Effects
 {
+    struct IAudioEffectDefinition;
     struct IVideoCompositorDefinition;
+    struct IVideoEffectDefinition;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::MediaProperties
 {
     struct AudioEncodingProperties;
     struct MediaEncodingProfile;
     struct VideoEncodingProperties;
+}
+WINRT_EXPORT namespace winrt::Windows::Media::Transcoding
+{
+    enum class TranscodeFailureReason : int32_t;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
@@ -96,29 +111,27 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Editing::MediaOverlayLayer>{ using type = class_category; };
     template <> struct category<Windows::Media::Editing::MediaTrimmingPreference>{ using type = enum_category; };
     template <> struct category<Windows::Media::Editing::VideoFramePrecision>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::BackgroundAudioTrack>{ L"Windows.Media.Editing.BackgroundAudioTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::EmbeddedAudioTrack>{ L"Windows.Media.Editing.EmbeddedAudioTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaClip>{ L"Windows.Media.Editing.MediaClip" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaComposition>{ L"Windows.Media.Editing.MediaComposition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaOverlay>{ L"Windows.Media.Editing.MediaOverlay" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaOverlayLayer>{ L"Windows.Media.Editing.MediaOverlayLayer" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaTrimmingPreference>{ L"Windows.Media.Editing.MediaTrimmingPreference" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::VideoFramePrecision>{ L"Windows.Media.Editing.VideoFramePrecision" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IBackgroundAudioTrack>{ L"Windows.Media.Editing.IBackgroundAudioTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IBackgroundAudioTrackStatics>{ L"Windows.Media.Editing.IBackgroundAudioTrackStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IEmbeddedAudioTrack>{ L"Windows.Media.Editing.IEmbeddedAudioTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaClip>{ L"Windows.Media.Editing.IMediaClip" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaClipStatics>{ L"Windows.Media.Editing.IMediaClipStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaClipStatics2>{ L"Windows.Media.Editing.IMediaClipStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaComposition>{ L"Windows.Media.Editing.IMediaComposition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaComposition2>{ L"Windows.Media.Editing.IMediaComposition2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaCompositionStatics>{ L"Windows.Media.Editing.IMediaCompositionStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlay>{ L"Windows.Media.Editing.IMediaOverlay" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayFactory>{ L"Windows.Media.Editing.IMediaOverlayFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayLayer>{ L"Windows.Media.Editing.IMediaOverlayLayer" };
-    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayLayerFactory>{ L"Windows.Media.Editing.IMediaOverlayLayerFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::BackgroundAudioTrack> = L"Windows.Media.Editing.BackgroundAudioTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::EmbeddedAudioTrack> = L"Windows.Media.Editing.EmbeddedAudioTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaClip> = L"Windows.Media.Editing.MediaClip";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaComposition> = L"Windows.Media.Editing.MediaComposition";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaOverlay> = L"Windows.Media.Editing.MediaOverlay";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaOverlayLayer> = L"Windows.Media.Editing.MediaOverlayLayer";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::MediaTrimmingPreference> = L"Windows.Media.Editing.MediaTrimmingPreference";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::VideoFramePrecision> = L"Windows.Media.Editing.VideoFramePrecision";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IBackgroundAudioTrack> = L"Windows.Media.Editing.IBackgroundAudioTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IBackgroundAudioTrackStatics> = L"Windows.Media.Editing.IBackgroundAudioTrackStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IEmbeddedAudioTrack> = L"Windows.Media.Editing.IEmbeddedAudioTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaClip> = L"Windows.Media.Editing.IMediaClip";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaClipStatics> = L"Windows.Media.Editing.IMediaClipStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaClipStatics2> = L"Windows.Media.Editing.IMediaClipStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaComposition> = L"Windows.Media.Editing.IMediaComposition";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaComposition2> = L"Windows.Media.Editing.IMediaComposition2";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaCompositionStatics> = L"Windows.Media.Editing.IMediaCompositionStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlay> = L"Windows.Media.Editing.IMediaOverlay";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayFactory> = L"Windows.Media.Editing.IMediaOverlayFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayLayer> = L"Windows.Media.Editing.IMediaOverlayLayer";
+    template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayLayerFactory> = L"Windows.Media.Editing.IMediaOverlayLayerFactory";
     template <> inline constexpr guid guid_v<Windows::Media::Editing::IBackgroundAudioTrack>{ 0x4B91B3BD,0x9E21,0x4266,{ 0xA9,0xC2,0x67,0xDD,0x01,0x1A,0x23,0x57 } };
     template <> inline constexpr guid guid_v<Windows::Media::Editing::IBackgroundAudioTrackStatics>{ 0xD9B1C0D7,0xD018,0x42A8,{ 0xA5,0x59,0xCB,0x4D,0x9E,0x97,0xE6,0x64 } };
     template <> inline constexpr guid guid_v<Windows::Media::Editing::IEmbeddedAudioTrack>{ 0x55EE5A7A,0x2D30,0x3FBA,{ 0xA1,0x90,0x4F,0x1A,0x64,0x54,0xF8,0x8F } };
@@ -291,20 +304,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IBackgroundAudioTrack
     {
-        [[nodiscard]] auto TrimTimeFromStart() const;
-        auto TrimTimeFromStart(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto TrimTimeFromEnd() const;
-        auto TrimTimeFromEnd(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto OriginalDuration() const;
-        [[nodiscard]] auto TrimmedDuration() const;
-        [[nodiscard]] auto UserData() const;
-        auto Delay(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Delay() const;
-        auto Volume(double value) const;
-        [[nodiscard]] auto Volume() const;
-        auto Clone() const;
-        auto GetAudioEncodingProperties() const;
-        [[nodiscard]] auto AudioEffectDefinitions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TrimTimeFromStart() const;
+        WINRT_IMPL_AUTO(void) TrimTimeFromStart(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TrimTimeFromEnd() const;
+        WINRT_IMPL_AUTO(void) TrimTimeFromEnd(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) OriginalDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TrimmedDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) UserData() const;
+        WINRT_IMPL_AUTO(void) Delay(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Delay() const;
+        WINRT_IMPL_AUTO(void) Volume(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Volume() const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::BackgroundAudioTrack) Clone() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) GetAudioEncodingProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Effects::IAudioEffectDefinition>) AudioEffectDefinitions() const;
     };
     template <> struct consume<Windows::Media::Editing::IBackgroundAudioTrack>
     {
@@ -313,8 +326,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IBackgroundAudioTrackStatics
     {
-        auto CreateFromEmbeddedAudioTrack(Windows::Media::Editing::EmbeddedAudioTrack const& embeddedAudioTrack) const;
-        auto CreateFromFileAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::BackgroundAudioTrack) CreateFromEmbeddedAudioTrack(Windows::Media::Editing::EmbeddedAudioTrack const& embeddedAudioTrack) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Editing::BackgroundAudioTrack>) CreateFromFileAsync(Windows::Storage::IStorageFile const& file) const;
     };
     template <> struct consume<Windows::Media::Editing::IBackgroundAudioTrackStatics>
     {
@@ -323,7 +336,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IEmbeddedAudioTrack
     {
-        auto GetAudioEncodingProperties() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) GetAudioEncodingProperties() const;
     };
     template <> struct consume<Windows::Media::Editing::IEmbeddedAudioTrack>
     {
@@ -332,24 +345,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaClip
     {
-        [[nodiscard]] auto TrimTimeFromStart() const;
-        auto TrimTimeFromStart(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto TrimTimeFromEnd() const;
-        auto TrimTimeFromEnd(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto OriginalDuration() const;
-        [[nodiscard]] auto TrimmedDuration() const;
-        [[nodiscard]] auto UserData() const;
-        auto Clone() const;
-        [[nodiscard]] auto StartTimeInComposition() const;
-        [[nodiscard]] auto EndTimeInComposition() const;
-        [[nodiscard]] auto EmbeddedAudioTracks() const;
-        [[nodiscard]] auto SelectedEmbeddedAudioTrackIndex() const;
-        auto SelectedEmbeddedAudioTrackIndex(uint32_t value) const;
-        auto Volume(double value) const;
-        [[nodiscard]] auto Volume() const;
-        auto GetVideoEncodingProperties() const;
-        [[nodiscard]] auto AudioEffectDefinitions() const;
-        [[nodiscard]] auto VideoEffectDefinitions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TrimTimeFromStart() const;
+        WINRT_IMPL_AUTO(void) TrimTimeFromStart(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TrimTimeFromEnd() const;
+        WINRT_IMPL_AUTO(void) TrimTimeFromEnd(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) OriginalDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TrimmedDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) UserData() const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaClip) Clone() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) StartTimeInComposition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) EndTimeInComposition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Editing::EmbeddedAudioTrack>) EmbeddedAudioTracks() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SelectedEmbeddedAudioTrackIndex() const;
+        WINRT_IMPL_AUTO(void) SelectedEmbeddedAudioTrackIndex(uint32_t value) const;
+        WINRT_IMPL_AUTO(void) Volume(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Volume() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) GetVideoEncodingProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Effects::IAudioEffectDefinition>) AudioEffectDefinitions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Effects::IVideoEffectDefinition>) VideoEffectDefinitions() const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaClip>
     {
@@ -358,9 +371,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaClipStatics
     {
-        auto CreateFromColor(Windows::UI::Color const& color, Windows::Foundation::TimeSpan const& originalDuration) const;
-        auto CreateFromFileAsync(Windows::Storage::IStorageFile const& file) const;
-        auto CreateFromImageFileAsync(Windows::Storage::IStorageFile const& file, Windows::Foundation::TimeSpan const& originalDuration) const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaClip) CreateFromColor(Windows::UI::Color const& color, Windows::Foundation::TimeSpan const& originalDuration) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Editing::MediaClip>) CreateFromFileAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Editing::MediaClip>) CreateFromImageFileAsync(Windows::Storage::IStorageFile const& file, Windows::Foundation::TimeSpan const& originalDuration) const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaClipStatics>
     {
@@ -369,7 +382,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaClipStatics2
     {
-        auto CreateFromSurface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface, Windows::Foundation::TimeSpan const& originalDuration) const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaClip) CreateFromSurface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface, Windows::Foundation::TimeSpan const& originalDuration) const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaClipStatics2>
     {
@@ -378,21 +391,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaComposition
     {
-        [[nodiscard]] auto Duration() const;
-        [[nodiscard]] auto Clips() const;
-        [[nodiscard]] auto BackgroundAudioTracks() const;
-        [[nodiscard]] auto UserData() const;
-        auto Clone() const;
-        auto SaveAsync(Windows::Storage::IStorageFile const& file) const;
-        auto GetThumbnailAsync(Windows::Foundation::TimeSpan const& timeFromStart, int32_t scaledWidth, int32_t scaledHeight, Windows::Media::Editing::VideoFramePrecision const& framePrecision) const;
-        auto GetThumbnailsAsync(param::async_iterable<Windows::Foundation::TimeSpan> const& timesFromStart, int32_t scaledWidth, int32_t scaledHeight, Windows::Media::Editing::VideoFramePrecision const& framePrecision) const;
-        auto RenderToFileAsync(Windows::Storage::IStorageFile const& destination) const;
-        auto RenderToFileAsync(Windows::Storage::IStorageFile const& destination, Windows::Media::Editing::MediaTrimmingPreference const& trimmingPreference) const;
-        auto RenderToFileAsync(Windows::Storage::IStorageFile const& destination, Windows::Media::Editing::MediaTrimmingPreference const& trimmingPreference, Windows::Media::MediaProperties::MediaEncodingProfile const& encodingProfile) const;
-        auto CreateDefaultEncodingProfile() const;
-        auto GenerateMediaStreamSource() const;
-        auto GenerateMediaStreamSource(Windows::Media::MediaProperties::MediaEncodingProfile const& encodingProfile) const;
-        auto GeneratePreviewMediaStreamSource(int32_t scaledWidth, int32_t scaledHeight) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Editing::MediaClip>) Clips() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Editing::BackgroundAudioTrack>) BackgroundAudioTracks() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) UserData() const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaComposition) Clone() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::ImageStream>) GetThumbnailAsync(Windows::Foundation::TimeSpan const& timeFromStart, int32_t scaledWidth, int32_t scaledHeight, Windows::Media::Editing::VideoFramePrecision const& framePrecision) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Graphics::Imaging::ImageStream>>) GetThumbnailsAsync(param::async_iterable<Windows::Foundation::TimeSpan> const& timesFromStart, int32_t scaledWidth, int32_t scaledHeight, Windows::Media::Editing::VideoFramePrecision const& framePrecision) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Media::Transcoding::TranscodeFailureReason, double>) RenderToFileAsync(Windows::Storage::IStorageFile const& destination) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Media::Transcoding::TranscodeFailureReason, double>) RenderToFileAsync(Windows::Storage::IStorageFile const& destination, Windows::Media::Editing::MediaTrimmingPreference const& trimmingPreference) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Media::Transcoding::TranscodeFailureReason, double>) RenderToFileAsync(Windows::Storage::IStorageFile const& destination, Windows::Media::Editing::MediaTrimmingPreference const& trimmingPreference, Windows::Media::MediaProperties::MediaEncodingProfile const& encodingProfile) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateDefaultEncodingProfile() const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSource) GenerateMediaStreamSource() const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSource) GenerateMediaStreamSource(Windows::Media::MediaProperties::MediaEncodingProfile const& encodingProfile) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSource) GeneratePreviewMediaStreamSource(int32_t scaledWidth, int32_t scaledHeight) const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaComposition>
     {
@@ -401,7 +414,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaComposition2
     {
-        [[nodiscard]] auto OverlayLayers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Editing::MediaOverlayLayer>) OverlayLayers() const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaComposition2>
     {
@@ -410,7 +423,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaCompositionStatics
     {
-        auto LoadAsync(Windows::Storage::StorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Editing::MediaComposition>) LoadAsync(Windows::Storage::StorageFile const& file) const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaCompositionStatics>
     {
@@ -419,16 +432,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaOverlay
     {
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Foundation::Rect const& value) const;
-        auto Delay(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Delay() const;
-        [[nodiscard]] auto Opacity() const;
-        auto Opacity(double value) const;
-        auto Clone() const;
-        [[nodiscard]] auto Clip() const;
-        [[nodiscard]] auto AudioEnabled() const;
-        auto AudioEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Foundation::Rect const& value) const;
+        WINRT_IMPL_AUTO(void) Delay(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Delay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Opacity() const;
+        WINRT_IMPL_AUTO(void) Opacity(double value) const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaOverlay) Clone() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Editing::MediaClip) Clip() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AudioEnabled() const;
+        WINRT_IMPL_AUTO(void) AudioEnabled(bool value) const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaOverlay>
     {
@@ -437,8 +450,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaOverlayFactory
     {
-        auto Create(Windows::Media::Editing::MediaClip const& clip) const;
-        auto CreateWithPositionAndOpacity(Windows::Media::Editing::MediaClip const& clip, Windows::Foundation::Rect const& position, double opacity) const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaOverlay) Create(Windows::Media::Editing::MediaClip const& clip) const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaOverlay) CreateWithPositionAndOpacity(Windows::Media::Editing::MediaClip const& clip, Windows::Foundation::Rect const& position, double opacity) const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaOverlayFactory>
     {
@@ -447,9 +460,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaOverlayLayer
     {
-        auto Clone() const;
-        [[nodiscard]] auto Overlays() const;
-        [[nodiscard]] auto CustomCompositorDefinition() const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaOverlayLayer) Clone() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Editing::MediaOverlay>) Overlays() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Effects::IVideoCompositorDefinition) CustomCompositorDefinition() const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaOverlayLayer>
     {
@@ -458,7 +471,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Editing_IMediaOverlayLayerFactory
     {
-        auto CreateWithCompositorDefinition(Windows::Media::Effects::IVideoCompositorDefinition const& compositorDefinition) const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaOverlayLayer) CreateWithCompositorDefinition(Windows::Media::Effects::IVideoCompositorDefinition const& compositorDefinition) const;
     };
     template <> struct consume<Windows::Media::Editing::IMediaOverlayLayerFactory>
     {

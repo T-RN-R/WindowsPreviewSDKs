@@ -1,10 +1,18 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Security_Cryptography_Core_0_H
 #define WINRT_Windows_Security_Cryptography_Core_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+}
 WINRT_EXPORT namespace winrt::Windows::Security::Cryptography::Certificates
 {
     struct Certificate;
@@ -144,59 +152,57 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Cryptography::Core::CryptographicPadding>{ using type = enum_category; };
     template <> struct category<Windows::Security::Cryptography::Core::CryptographicPrivateKeyBlobType>{ using type = enum_category; };
     template <> struct category<Windows::Security::Cryptography::Core::CryptographicPublicKeyBlobType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::AsymmetricAlgorithmNames>{ L"Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::AsymmetricKeyAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicEngine>{ L"Windows.Security.Cryptography.Core.CryptographicEngine" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicHash>{ L"Windows.Security.Cryptography.Core.CryptographicHash" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicKey>{ L"Windows.Security.Cryptography.Core.CryptographicKey" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::EccCurveNames>{ L"Windows.Security.Cryptography.Core.EccCurveNames" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::EncryptedAndAuthenticatedData>{ L"Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::HashAlgorithmNames>{ L"Windows.Security.Cryptography.Core.HashAlgorithmNames" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::HashAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.HashAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::KeyDerivationAlgorithmNames>{ L"Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::KeyDerivationAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::KeyDerivationParameters>{ L"Windows.Security.Cryptography.Core.KeyDerivationParameters" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::MacAlgorithmNames>{ L"Windows.Security.Cryptography.Core.MacAlgorithmNames" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::MacAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.MacAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::PersistedKeyProvider>{ L"Windows.Security.Cryptography.Core.PersistedKeyProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::SymmetricAlgorithmNames>{ L"Windows.Security.Cryptography.Core.SymmetricAlgorithmNames" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::SymmetricKeyAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::Capi1KdfTargetAlgorithm>{ L"Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicPadding>{ L"Windows.Security.Cryptography.Core.CryptographicPadding" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicPrivateKeyBlobType>{ L"Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicPublicKeyBlobType>{ L"Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricAlgorithmNamesStatics>{ L"Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricAlgorithmNamesStatics2>{ L"Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProvider2>{ L"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProviderStatics>{ L"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProviderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ICryptographicEngineStatics>{ L"Windows.Security.Cryptography.Core.ICryptographicEngineStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ICryptographicEngineStatics2>{ L"Windows.Security.Cryptography.Core.ICryptographicEngineStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ICryptographicKey>{ L"Windows.Security.Cryptography.Core.ICryptographicKey" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IEccCurveNamesStatics>{ L"Windows.Security.Cryptography.Core.IEccCurveNamesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IEncryptedAndAuthenticatedData>{ L"Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IHashAlgorithmNamesStatics>{ L"Windows.Security.Cryptography.Core.IHashAlgorithmNamesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IHashAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.IHashAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IHashAlgorithmProviderStatics>{ L"Windows.Security.Cryptography.Core.IHashAlgorithmProviderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IHashComputation>{ L"Windows.Security.Cryptography.Core.IHashComputation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmNamesStatics>{ L"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmNamesStatics2>{ L"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmProviderStatics>{ L"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProviderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationParameters>{ L"Windows.Security.Cryptography.Core.IKeyDerivationParameters" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationParameters2>{ L"Windows.Security.Cryptography.Core.IKeyDerivationParameters2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationParametersStatics>{ L"Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationParametersStatics2>{ L"Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IMacAlgorithmNamesStatics>{ L"Windows.Security.Cryptography.Core.IMacAlgorithmNamesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IMacAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.IMacAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IMacAlgorithmProvider2>{ L"Windows.Security.Cryptography.Core.IMacAlgorithmProvider2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IMacAlgorithmProviderStatics>{ L"Windows.Security.Cryptography.Core.IMacAlgorithmProviderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IPersistedKeyProviderStatics>{ L"Windows.Security.Cryptography.Core.IPersistedKeyProviderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ISymmetricAlgorithmNamesStatics>{ L"Windows.Security.Cryptography.Core.ISymmetricAlgorithmNamesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ISymmetricKeyAlgorithmProvider>{ L"Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ISymmetricKeyAlgorithmProviderStatics>{ L"Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProviderStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::AsymmetricAlgorithmNames> = L"Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::AsymmetricKeyAlgorithmProvider> = L"Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicEngine> = L"Windows.Security.Cryptography.Core.CryptographicEngine";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicHash> = L"Windows.Security.Cryptography.Core.CryptographicHash";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicKey> = L"Windows.Security.Cryptography.Core.CryptographicKey";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::EccCurveNames> = L"Windows.Security.Cryptography.Core.EccCurveNames";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::EncryptedAndAuthenticatedData> = L"Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::HashAlgorithmNames> = L"Windows.Security.Cryptography.Core.HashAlgorithmNames";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::HashAlgorithmProvider> = L"Windows.Security.Cryptography.Core.HashAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::KeyDerivationAlgorithmNames> = L"Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::KeyDerivationAlgorithmProvider> = L"Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::KeyDerivationParameters> = L"Windows.Security.Cryptography.Core.KeyDerivationParameters";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::MacAlgorithmNames> = L"Windows.Security.Cryptography.Core.MacAlgorithmNames";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::MacAlgorithmProvider> = L"Windows.Security.Cryptography.Core.MacAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::PersistedKeyProvider> = L"Windows.Security.Cryptography.Core.PersistedKeyProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::SymmetricAlgorithmNames> = L"Windows.Security.Cryptography.Core.SymmetricAlgorithmNames";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::SymmetricKeyAlgorithmProvider> = L"Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::Capi1KdfTargetAlgorithm> = L"Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicPadding> = L"Windows.Security.Cryptography.Core.CryptographicPadding";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicPrivateKeyBlobType> = L"Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::CryptographicPublicKeyBlobType> = L"Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricAlgorithmNamesStatics> = L"Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricAlgorithmNamesStatics2> = L"Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics2";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProvider> = L"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProvider2> = L"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProvider2";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProviderStatics> = L"Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProviderStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ICryptographicEngineStatics> = L"Windows.Security.Cryptography.Core.ICryptographicEngineStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ICryptographicEngineStatics2> = L"Windows.Security.Cryptography.Core.ICryptographicEngineStatics2";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ICryptographicKey> = L"Windows.Security.Cryptography.Core.ICryptographicKey";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IEccCurveNamesStatics> = L"Windows.Security.Cryptography.Core.IEccCurveNamesStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IEncryptedAndAuthenticatedData> = L"Windows.Security.Cryptography.Core.IEncryptedAndAuthenticatedData";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IHashAlgorithmNamesStatics> = L"Windows.Security.Cryptography.Core.IHashAlgorithmNamesStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IHashAlgorithmProvider> = L"Windows.Security.Cryptography.Core.IHashAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IHashAlgorithmProviderStatics> = L"Windows.Security.Cryptography.Core.IHashAlgorithmProviderStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IHashComputation> = L"Windows.Security.Cryptography.Core.IHashComputation";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmNamesStatics> = L"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmNamesStatics2> = L"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics2";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmProvider> = L"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmProviderStatics> = L"Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProviderStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationParameters> = L"Windows.Security.Cryptography.Core.IKeyDerivationParameters";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationParameters2> = L"Windows.Security.Cryptography.Core.IKeyDerivationParameters2";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationParametersStatics> = L"Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IKeyDerivationParametersStatics2> = L"Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics2";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IMacAlgorithmNamesStatics> = L"Windows.Security.Cryptography.Core.IMacAlgorithmNamesStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IMacAlgorithmProvider> = L"Windows.Security.Cryptography.Core.IMacAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IMacAlgorithmProvider2> = L"Windows.Security.Cryptography.Core.IMacAlgorithmProvider2";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IMacAlgorithmProviderStatics> = L"Windows.Security.Cryptography.Core.IMacAlgorithmProviderStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::IPersistedKeyProviderStatics> = L"Windows.Security.Cryptography.Core.IPersistedKeyProviderStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ISymmetricAlgorithmNamesStatics> = L"Windows.Security.Cryptography.Core.ISymmetricAlgorithmNamesStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ISymmetricKeyAlgorithmProvider> = L"Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Core::ISymmetricKeyAlgorithmProviderStatics> = L"Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProviderStatics";
     template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Core::IAsymmetricAlgorithmNamesStatics>{ 0xCAF6FCE4,0x67C0,0x46AA,{ 0x84,0xF9,0x75,0x2E,0x77,0x44,0x9F,0x9B } };
     template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Core::IAsymmetricAlgorithmNamesStatics2>{ 0xF141C0D6,0x4BFF,0x4F23,{ 0xBA,0x66,0x60,0x45,0xB1,0x37,0xD5,0xDF } };
     template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProvider>{ 0xE8D2FF37,0x6259,0x4E88,{ 0xB7,0xE0,0x94,0x19,0x1F,0xDE,0x69,0x9E } };
@@ -594,24 +600,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IAsymmetricAlgorithmNamesStatics
     {
-        [[nodiscard]] auto RsaPkcs1() const;
-        [[nodiscard]] auto RsaOaepSha1() const;
-        [[nodiscard]] auto RsaOaepSha256() const;
-        [[nodiscard]] auto RsaOaepSha384() const;
-        [[nodiscard]] auto RsaOaepSha512() const;
-        [[nodiscard]] auto EcdsaP256Sha256() const;
-        [[nodiscard]] auto EcdsaP384Sha384() const;
-        [[nodiscard]] auto EcdsaP521Sha512() const;
-        [[nodiscard]] auto DsaSha1() const;
-        [[nodiscard]] auto DsaSha256() const;
-        [[nodiscard]] auto RsaSignPkcs1Sha1() const;
-        [[nodiscard]] auto RsaSignPkcs1Sha256() const;
-        [[nodiscard]] auto RsaSignPkcs1Sha384() const;
-        [[nodiscard]] auto RsaSignPkcs1Sha512() const;
-        [[nodiscard]] auto RsaSignPssSha1() const;
-        [[nodiscard]] auto RsaSignPssSha256() const;
-        [[nodiscard]] auto RsaSignPssSha384() const;
-        [[nodiscard]] auto RsaSignPssSha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaPkcs1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaOaepSha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaOaepSha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaOaepSha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaOaepSha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EcdsaP256Sha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EcdsaP384Sha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EcdsaP521Sha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DsaSha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DsaSha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaSignPkcs1Sha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaSignPkcs1Sha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaSignPkcs1Sha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaSignPkcs1Sha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaSignPssSha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaSignPssSha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaSignPssSha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RsaSignPssSha512() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IAsymmetricAlgorithmNamesStatics>
     {
@@ -620,9 +626,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IAsymmetricAlgorithmNamesStatics2
     {
-        [[nodiscard]] auto EcdsaSha256() const;
-        [[nodiscard]] auto EcdsaSha384() const;
-        [[nodiscard]] auto EcdsaSha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EcdsaSha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EcdsaSha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EcdsaSha512() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IAsymmetricAlgorithmNamesStatics2>
     {
@@ -631,12 +637,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IAsymmetricKeyAlgorithmProvider
     {
-        [[nodiscard]] auto AlgorithmName() const;
-        auto CreateKeyPair(uint32_t keySize) const;
-        auto ImportKeyPair(Windows::Storage::Streams::IBuffer const& keyBlob) const;
-        auto ImportKeyPair(Windows::Storage::Streams::IBuffer const& keyBlob, Windows::Security::Cryptography::Core::CryptographicPrivateKeyBlobType const& BlobType) const;
-        auto ImportPublicKey(Windows::Storage::Streams::IBuffer const& keyBlob) const;
-        auto ImportPublicKey(Windows::Storage::Streams::IBuffer const& keyBlob, Windows::Security::Cryptography::Core::CryptographicPublicKeyBlobType const& BlobType) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlgorithmName() const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) CreateKeyPair(uint32_t keySize) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) ImportKeyPair(Windows::Storage::Streams::IBuffer const& keyBlob) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) ImportKeyPair(Windows::Storage::Streams::IBuffer const& keyBlob, Windows::Security::Cryptography::Core::CryptographicPrivateKeyBlobType const& BlobType) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) ImportPublicKey(Windows::Storage::Streams::IBuffer const& keyBlob) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) ImportPublicKey(Windows::Storage::Streams::IBuffer const& keyBlob, Windows::Security::Cryptography::Core::CryptographicPublicKeyBlobType const& BlobType) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProvider>
     {
@@ -645,8 +651,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IAsymmetricKeyAlgorithmProvider2
     {
-        auto CreateKeyPairWithCurveName(param::hstring const& curveName) const;
-        auto CreateKeyPairWithCurveParameters(array_view<uint8_t const> parameters) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) CreateKeyPairWithCurveName(param::hstring const& curveName) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) CreateKeyPairWithCurveParameters(array_view<uint8_t const> parameters) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProvider2>
     {
@@ -655,7 +661,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IAsymmetricKeyAlgorithmProviderStatics
     {
-        auto OpenAlgorithm(param::hstring const& algorithm) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::AsymmetricKeyAlgorithmProvider) OpenAlgorithm(param::hstring const& algorithm) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IAsymmetricKeyAlgorithmProviderStatics>
     {
@@ -664,13 +670,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_ICryptographicEngineStatics
     {
-        auto Encrypt(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& iv) const;
-        auto Decrypt(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& iv) const;
-        auto EncryptAndAuthenticate(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& nonce, Windows::Storage::Streams::IBuffer const& authenticatedData) const;
-        auto DecryptAndAuthenticate(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& nonce, Windows::Storage::Streams::IBuffer const& authenticationTag, Windows::Storage::Streams::IBuffer const& authenticatedData) const;
-        auto Sign(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data) const;
-        auto VerifySignature(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& signature) const;
-        auto DeriveKeyMaterial(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Security::Cryptography::Core::KeyDerivationParameters const& parameters, uint32_t desiredKeySize) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Encrypt(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& iv) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Decrypt(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& iv) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::EncryptedAndAuthenticatedData) EncryptAndAuthenticate(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& nonce, Windows::Storage::Streams::IBuffer const& authenticatedData) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DecryptAndAuthenticate(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& nonce, Windows::Storage::Streams::IBuffer const& authenticationTag, Windows::Storage::Streams::IBuffer const& authenticatedData) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Sign(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(bool) VerifySignature(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& signature) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DeriveKeyMaterial(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Security::Cryptography::Core::KeyDerivationParameters const& parameters, uint32_t desiredKeySize) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::ICryptographicEngineStatics>
     {
@@ -679,11 +685,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_ICryptographicEngineStatics2
     {
-        auto SignHashedData(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data) const;
-        auto VerifySignatureWithHashInput(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& signature) const;
-        auto DecryptAsync(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& iv) const;
-        auto SignAsync(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data) const;
-        auto SignHashedDataAsync(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) SignHashedData(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(bool) VerifySignatureWithHashInput(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& signature) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) DecryptAsync(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data, Windows::Storage::Streams::IBuffer const& iv) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) SignAsync(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) SignHashedDataAsync(Windows::Security::Cryptography::Core::CryptographicKey const& key, Windows::Storage::Streams::IBuffer const& data) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::ICryptographicEngineStatics2>
     {
@@ -692,11 +698,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_ICryptographicKey
     {
-        [[nodiscard]] auto KeySize() const;
-        auto Export() const;
-        auto Export(Windows::Security::Cryptography::Core::CryptographicPrivateKeyBlobType const& BlobType) const;
-        auto ExportPublicKey() const;
-        auto ExportPublicKey(Windows::Security::Cryptography::Core::CryptographicPublicKeyBlobType const& BlobType) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) KeySize() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Export() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Export(Windows::Security::Cryptography::Core::CryptographicPrivateKeyBlobType const& BlobType) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ExportPublicKey() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ExportPublicKey(Windows::Security::Cryptography::Core::CryptographicPublicKeyBlobType const& BlobType) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::ICryptographicKey>
     {
@@ -705,52 +711,52 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IEccCurveNamesStatics
     {
-        [[nodiscard]] auto BrainpoolP160r1() const;
-        [[nodiscard]] auto BrainpoolP160t1() const;
-        [[nodiscard]] auto BrainpoolP192r1() const;
-        [[nodiscard]] auto BrainpoolP192t1() const;
-        [[nodiscard]] auto BrainpoolP224r1() const;
-        [[nodiscard]] auto BrainpoolP224t1() const;
-        [[nodiscard]] auto BrainpoolP256r1() const;
-        [[nodiscard]] auto BrainpoolP256t1() const;
-        [[nodiscard]] auto BrainpoolP320r1() const;
-        [[nodiscard]] auto BrainpoolP320t1() const;
-        [[nodiscard]] auto BrainpoolP384r1() const;
-        [[nodiscard]] auto BrainpoolP384t1() const;
-        [[nodiscard]] auto BrainpoolP512r1() const;
-        [[nodiscard]] auto BrainpoolP512t1() const;
-        [[nodiscard]] auto Curve25519() const;
-        [[nodiscard]] auto Ec192wapi() const;
-        [[nodiscard]] auto NistP192() const;
-        [[nodiscard]] auto NistP224() const;
-        [[nodiscard]] auto NistP256() const;
-        [[nodiscard]] auto NistP384() const;
-        [[nodiscard]] auto NistP521() const;
-        [[nodiscard]] auto NumsP256t1() const;
-        [[nodiscard]] auto NumsP384t1() const;
-        [[nodiscard]] auto NumsP512t1() const;
-        [[nodiscard]] auto SecP160k1() const;
-        [[nodiscard]] auto SecP160r1() const;
-        [[nodiscard]] auto SecP160r2() const;
-        [[nodiscard]] auto SecP192k1() const;
-        [[nodiscard]] auto SecP192r1() const;
-        [[nodiscard]] auto SecP224k1() const;
-        [[nodiscard]] auto SecP224r1() const;
-        [[nodiscard]] auto SecP256k1() const;
-        [[nodiscard]] auto SecP256r1() const;
-        [[nodiscard]] auto SecP384r1() const;
-        [[nodiscard]] auto SecP521r1() const;
-        [[nodiscard]] auto Wtls7() const;
-        [[nodiscard]] auto Wtls9() const;
-        [[nodiscard]] auto Wtls12() const;
-        [[nodiscard]] auto X962P192v1() const;
-        [[nodiscard]] auto X962P192v2() const;
-        [[nodiscard]] auto X962P192v3() const;
-        [[nodiscard]] auto X962P239v1() const;
-        [[nodiscard]] auto X962P239v2() const;
-        [[nodiscard]] auto X962P239v3() const;
-        [[nodiscard]] auto X962P256v1() const;
-        [[nodiscard]] auto AllEccCurveNames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP160r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP160t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP192r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP192t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP224r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP224t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP256r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP256t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP320r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP320t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP384r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP384t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP512r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BrainpoolP512t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Curve25519() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Ec192wapi() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NistP192() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NistP224() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NistP256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NistP384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NistP521() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NumsP256t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NumsP384t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NumsP512t1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP160k1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP160r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP160r2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP192k1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP192r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP224k1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP224r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP256k1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP256r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP384r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecP521r1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Wtls7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Wtls9() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Wtls12() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) X962P192v1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) X962P192v2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) X962P192v3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) X962P239v1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) X962P239v2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) X962P239v3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) X962P256v1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) AllEccCurveNames() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IEccCurveNamesStatics>
     {
@@ -759,8 +765,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IEncryptedAndAuthenticatedData
     {
-        [[nodiscard]] auto EncryptedData() const;
-        [[nodiscard]] auto AuthenticationTag() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) EncryptedData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) AuthenticationTag() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IEncryptedAndAuthenticatedData>
     {
@@ -769,11 +775,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IHashAlgorithmNamesStatics
     {
-        [[nodiscard]] auto Md5() const;
-        [[nodiscard]] auto Sha1() const;
-        [[nodiscard]] auto Sha256() const;
-        [[nodiscard]] auto Sha384() const;
-        [[nodiscard]] auto Sha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Md5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sha512() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IHashAlgorithmNamesStatics>
     {
@@ -782,10 +788,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IHashAlgorithmProvider
     {
-        [[nodiscard]] auto AlgorithmName() const;
-        [[nodiscard]] auto HashLength() const;
-        auto HashData(Windows::Storage::Streams::IBuffer const& data) const;
-        auto CreateHash() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlgorithmName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) HashLength() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) HashData(Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicHash) CreateHash() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IHashAlgorithmProvider>
     {
@@ -794,7 +800,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IHashAlgorithmProviderStatics
     {
-        auto OpenAlgorithm(param::hstring const& algorithm) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::HashAlgorithmProvider) OpenAlgorithm(param::hstring const& algorithm) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IHashAlgorithmProviderStatics>
     {
@@ -803,8 +809,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IHashComputation
     {
-        auto Append(Windows::Storage::Streams::IBuffer const& data) const;
-        auto GetValueAndReset() const;
+        WINRT_IMPL_AUTO(void) Append(Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) GetValueAndReset() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IHashComputation>
     {
@@ -813,21 +819,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IKeyDerivationAlgorithmNamesStatics
     {
-        [[nodiscard]] auto Pbkdf2Md5() const;
-        [[nodiscard]] auto Pbkdf2Sha1() const;
-        [[nodiscard]] auto Pbkdf2Sha256() const;
-        [[nodiscard]] auto Pbkdf2Sha384() const;
-        [[nodiscard]] auto Pbkdf2Sha512() const;
-        [[nodiscard]] auto Sp800108CtrHmacMd5() const;
-        [[nodiscard]] auto Sp800108CtrHmacSha1() const;
-        [[nodiscard]] auto Sp800108CtrHmacSha256() const;
-        [[nodiscard]] auto Sp800108CtrHmacSha384() const;
-        [[nodiscard]] auto Sp800108CtrHmacSha512() const;
-        [[nodiscard]] auto Sp80056aConcatMd5() const;
-        [[nodiscard]] auto Sp80056aConcatSha1() const;
-        [[nodiscard]] auto Sp80056aConcatSha256() const;
-        [[nodiscard]] auto Sp80056aConcatSha384() const;
-        [[nodiscard]] auto Sp80056aConcatSha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Pbkdf2Md5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Pbkdf2Sha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Pbkdf2Sha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Pbkdf2Sha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Pbkdf2Sha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp800108CtrHmacMd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp800108CtrHmacSha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp800108CtrHmacSha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp800108CtrHmacSha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp800108CtrHmacSha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp80056aConcatMd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp80056aConcatSha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp80056aConcatSha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp80056aConcatSha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sp80056aConcatSha512() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmNamesStatics>
     {
@@ -836,11 +842,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IKeyDerivationAlgorithmNamesStatics2
     {
-        [[nodiscard]] auto CapiKdfMd5() const;
-        [[nodiscard]] auto CapiKdfSha1() const;
-        [[nodiscard]] auto CapiKdfSha256() const;
-        [[nodiscard]] auto CapiKdfSha384() const;
-        [[nodiscard]] auto CapiKdfSha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CapiKdfMd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CapiKdfSha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CapiKdfSha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CapiKdfSha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CapiKdfSha512() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmNamesStatics2>
     {
@@ -849,8 +855,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IKeyDerivationAlgorithmProvider
     {
-        [[nodiscard]] auto AlgorithmName() const;
-        auto CreateKey(Windows::Storage::Streams::IBuffer const& keyMaterial) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlgorithmName() const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) CreateKey(Windows::Storage::Streams::IBuffer const& keyMaterial) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmProvider>
     {
@@ -859,7 +865,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IKeyDerivationAlgorithmProviderStatics
     {
-        auto OpenAlgorithm(param::hstring const& algorithm) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::KeyDerivationAlgorithmProvider) OpenAlgorithm(param::hstring const& algorithm) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IKeyDerivationAlgorithmProviderStatics>
     {
@@ -868,9 +874,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IKeyDerivationParameters
     {
-        [[nodiscard]] auto KdfGenericBinary() const;
-        auto KdfGenericBinary(Windows::Storage::Streams::IBuffer const& value) const;
-        [[nodiscard]] auto IterationCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) KdfGenericBinary() const;
+        WINRT_IMPL_AUTO(void) KdfGenericBinary(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) IterationCount() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IKeyDerivationParameters>
     {
@@ -879,8 +885,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IKeyDerivationParameters2
     {
-        [[nodiscard]] auto Capi1KdfTargetAlgorithm() const;
-        auto Capi1KdfTargetAlgorithm(Windows::Security::Cryptography::Core::Capi1KdfTargetAlgorithm const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::Capi1KdfTargetAlgorithm) Capi1KdfTargetAlgorithm() const;
+        WINRT_IMPL_AUTO(void) Capi1KdfTargetAlgorithm(Windows::Security::Cryptography::Core::Capi1KdfTargetAlgorithm const& value) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IKeyDerivationParameters2>
     {
@@ -889,9 +895,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IKeyDerivationParametersStatics
     {
-        auto BuildForPbkdf2(Windows::Storage::Streams::IBuffer const& pbkdf2Salt, uint32_t iterationCount) const;
-        auto BuildForSP800108(Windows::Storage::Streams::IBuffer const& label, Windows::Storage::Streams::IBuffer const& context) const;
-        auto BuildForSP80056a(Windows::Storage::Streams::IBuffer const& algorithmId, Windows::Storage::Streams::IBuffer const& partyUInfo, Windows::Storage::Streams::IBuffer const& partyVInfo, Windows::Storage::Streams::IBuffer const& suppPubInfo, Windows::Storage::Streams::IBuffer const& suppPrivInfo) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::KeyDerivationParameters) BuildForPbkdf2(Windows::Storage::Streams::IBuffer const& pbkdf2Salt, uint32_t iterationCount) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::KeyDerivationParameters) BuildForSP800108(Windows::Storage::Streams::IBuffer const& label, Windows::Storage::Streams::IBuffer const& context) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::KeyDerivationParameters) BuildForSP80056a(Windows::Storage::Streams::IBuffer const& algorithmId, Windows::Storage::Streams::IBuffer const& partyUInfo, Windows::Storage::Streams::IBuffer const& partyVInfo, Windows::Storage::Streams::IBuffer const& suppPubInfo, Windows::Storage::Streams::IBuffer const& suppPrivInfo) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IKeyDerivationParametersStatics>
     {
@@ -900,7 +906,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IKeyDerivationParametersStatics2
     {
-        auto BuildForCapi1Kdf(Windows::Security::Cryptography::Core::Capi1KdfTargetAlgorithm const& capi1KdfTargetAlgorithm) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::KeyDerivationParameters) BuildForCapi1Kdf(Windows::Security::Cryptography::Core::Capi1KdfTargetAlgorithm const& capi1KdfTargetAlgorithm) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IKeyDerivationParametersStatics2>
     {
@@ -909,12 +915,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IMacAlgorithmNamesStatics
     {
-        [[nodiscard]] auto HmacMd5() const;
-        [[nodiscard]] auto HmacSha1() const;
-        [[nodiscard]] auto HmacSha256() const;
-        [[nodiscard]] auto HmacSha384() const;
-        [[nodiscard]] auto HmacSha512() const;
-        [[nodiscard]] auto AesCmac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HmacMd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HmacSha1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HmacSha256() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HmacSha384() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HmacSha512() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AesCmac() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IMacAlgorithmNamesStatics>
     {
@@ -923,9 +929,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IMacAlgorithmProvider
     {
-        [[nodiscard]] auto AlgorithmName() const;
-        [[nodiscard]] auto MacLength() const;
-        auto CreateKey(Windows::Storage::Streams::IBuffer const& keyMaterial) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlgorithmName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MacLength() const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) CreateKey(Windows::Storage::Streams::IBuffer const& keyMaterial) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IMacAlgorithmProvider>
     {
@@ -934,7 +940,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IMacAlgorithmProvider2
     {
-        auto CreateHash(Windows::Storage::Streams::IBuffer const& keyMaterial) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicHash) CreateHash(Windows::Storage::Streams::IBuffer const& keyMaterial) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IMacAlgorithmProvider2>
     {
@@ -943,7 +949,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IMacAlgorithmProviderStatics
     {
-        auto OpenAlgorithm(param::hstring const& algorithm) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::MacAlgorithmProvider) OpenAlgorithm(param::hstring const& algorithm) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IMacAlgorithmProviderStatics>
     {
@@ -952,8 +958,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_IPersistedKeyProviderStatics
     {
-        auto OpenKeyPairFromCertificateAsync(Windows::Security::Cryptography::Certificates::Certificate const& certificate, param::hstring const& hashAlgorithmName, Windows::Security::Cryptography::Core::CryptographicPadding const& padding) const;
-        auto OpenPublicKeyFromCertificate(Windows::Security::Cryptography::Certificates::Certificate const& certificate, param::hstring const& hashAlgorithmName, Windows::Security::Cryptography::Core::CryptographicPadding const& padding) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Cryptography::Core::CryptographicKey>) OpenKeyPairFromCertificateAsync(Windows::Security::Cryptography::Certificates::Certificate const& certificate, param::hstring const& hashAlgorithmName, Windows::Security::Cryptography::Core::CryptographicPadding const& padding) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) OpenPublicKeyFromCertificate(Windows::Security::Cryptography::Certificates::Certificate const& certificate, param::hstring const& hashAlgorithmName, Windows::Security::Cryptography::Core::CryptographicPadding const& padding) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::IPersistedKeyProviderStatics>
     {
@@ -962,25 +968,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_ISymmetricAlgorithmNamesStatics
     {
-        [[nodiscard]] auto DesCbc() const;
-        [[nodiscard]] auto DesEcb() const;
-        [[nodiscard]] auto TripleDesCbc() const;
-        [[nodiscard]] auto TripleDesEcb() const;
-        [[nodiscard]] auto Rc2Cbc() const;
-        [[nodiscard]] auto Rc2Ecb() const;
-        [[nodiscard]] auto AesCbc() const;
-        [[nodiscard]] auto AesEcb() const;
-        [[nodiscard]] auto AesGcm() const;
-        [[nodiscard]] auto AesCcm() const;
-        [[nodiscard]] auto AesCbcPkcs7() const;
-        [[nodiscard]] auto AesEcbPkcs7() const;
-        [[nodiscard]] auto DesCbcPkcs7() const;
-        [[nodiscard]] auto DesEcbPkcs7() const;
-        [[nodiscard]] auto TripleDesCbcPkcs7() const;
-        [[nodiscard]] auto TripleDesEcbPkcs7() const;
-        [[nodiscard]] auto Rc2CbcPkcs7() const;
-        [[nodiscard]] auto Rc2EcbPkcs7() const;
-        [[nodiscard]] auto Rc4() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DesCbc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DesEcb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TripleDesCbc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TripleDesEcb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Rc2Cbc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Rc2Ecb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AesCbc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AesEcb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AesGcm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AesCcm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AesCbcPkcs7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AesEcbPkcs7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DesCbcPkcs7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DesEcbPkcs7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TripleDesCbcPkcs7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TripleDesEcbPkcs7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Rc2CbcPkcs7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Rc2EcbPkcs7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Rc4() const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::ISymmetricAlgorithmNamesStatics>
     {
@@ -989,9 +995,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_ISymmetricKeyAlgorithmProvider
     {
-        [[nodiscard]] auto AlgorithmName() const;
-        [[nodiscard]] auto BlockLength() const;
-        auto CreateSymmetricKey(Windows::Storage::Streams::IBuffer const& keyMaterial) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlgorithmName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BlockLength() const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::CryptographicKey) CreateSymmetricKey(Windows::Storage::Streams::IBuffer const& keyMaterial) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::ISymmetricKeyAlgorithmProvider>
     {
@@ -1000,7 +1006,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Core_ISymmetricKeyAlgorithmProviderStatics
     {
-        auto OpenAlgorithm(param::hstring const& algorithm) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::Core::SymmetricKeyAlgorithmProvider) OpenAlgorithm(param::hstring const& algorithm) const;
     };
     template <> struct consume<Windows::Security::Cryptography::Core::ISymmetricKeyAlgorithmProviderStatics>
     {

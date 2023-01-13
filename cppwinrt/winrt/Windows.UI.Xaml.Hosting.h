@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_Xaml_Hosting_H
 #define WINRT_Windows_UI_Xaml_Hosting_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.Xaml.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.UI.Composition.2.h"
@@ -17,21 +17,21 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.UI.Xaml.Hosting.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppExitedEventArgs<D>::ExitCode() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Xaml_Hosting_IDesignerAppExitedEventArgs<D>::ExitCode() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppExitedEventArgs)->get_ExitCode(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::AppUserModelId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::AppUserModelId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppManager)->get_AppUserModelId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::DesignerAppExited(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Hosting::DesignerAppManager, Windows::UI::Xaml::Hosting::DesignerAppExitedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::DesignerAppExited(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Hosting::DesignerAppManager, Windows::UI::Xaml::Hosting::DesignerAppExitedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppManager)->add_DesignerAppExited(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -39,77 +39,77 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, DesignerAppExited_revoker>(this, DesignerAppExited(handler));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::DesignerAppExited(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::DesignerAppExited(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppManager)->remove_DesignerAppExited(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::CreateNewViewAsync(Windows::UI::Xaml::Hosting::DesignerAppViewState const& initialViewState, Windows::Foundation::Size const& initialViewSize) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Hosting::DesignerAppView>) consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::CreateNewViewAsync(Windows::UI::Xaml::Hosting::DesignerAppViewState const& initialViewState, Windows::Foundation::Size const& initialViewSize) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppManager)->CreateNewViewAsync(static_cast<int32_t>(initialViewState), impl::bind_in(initialViewSize), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Hosting::DesignerAppView>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::LoadObjectIntoAppAsync(param::hstring const& dllName, winrt::guid const& classId, param::hstring const& initializationData) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Xaml_Hosting_IDesignerAppManager<D>::LoadObjectIntoAppAsync(param::hstring const& dllName, winrt::guid const& classId, param::hstring const& initializationData) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppManager)->LoadObjectIntoAppAsync(*(void**)(&dllName), impl::bind_in(classId), *(void**)(&initializationData), &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppManagerFactory<D>::Create(param::hstring const& appUserModelId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::DesignerAppManager) consume_Windows_UI_Xaml_Hosting_IDesignerAppManagerFactory<D>::Create(param::hstring const& appUserModelId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppManagerFactory)->Create(*(void**)(&appUserModelId), &value));
         return Windows::UI::Xaml::Hosting::DesignerAppManager{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::ApplicationViewId() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::ApplicationViewId() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppView)->get_ApplicationViewId(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::AppUserModelId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::AppUserModelId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppView)->get_AppUserModelId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::ViewState() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::DesignerAppViewState) consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::ViewState() const
     {
-        Windows::UI::Xaml::Hosting::DesignerAppViewState value;
+        Windows::UI::Xaml::Hosting::DesignerAppViewState value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppView)->get_ViewState(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::ViewSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::ViewSize() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppView)->get_ViewSize(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::UpdateViewAsync(Windows::UI::Xaml::Hosting::DesignerAppViewState const& viewState, Windows::Foundation::Size const& viewSize) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Xaml_Hosting_IDesignerAppView<D>::UpdateViewAsync(Windows::UI::Xaml::Hosting::DesignerAppViewState const& viewState, Windows::Foundation::Size const& viewSize) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesignerAppView)->UpdateViewAsync(static_cast<int32_t>(viewState), impl::bind_in(viewSize), &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::Content() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::Content() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource)->get_Content(&value));
         return Windows::UI::Xaml::UIElement{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::Content(Windows::UI::Xaml::UIElement const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::Content(Windows::UI::Xaml::UIElement const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource)->put_Content(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::HasFocus() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::HasFocus() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource)->get_HasFocus(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::TakeFocusRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Hosting::DesktopWindowXamlSource, Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceTakeFocusRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::TakeFocusRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Hosting::DesktopWindowXamlSource, Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceTakeFocusRequestedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource)->add_TakeFocusRequested(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -117,13 +117,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, TakeFocusRequested_revoker>(this, TakeFocusRequested(handler));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::TakeFocusRequested(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::TakeFocusRequested(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource)->remove_TakeFocusRequested(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::GotFocus(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Hosting::DesktopWindowXamlSource, Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceGotFocusEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::GotFocus(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Hosting::DesktopWindowXamlSource, Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceGotFocusEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource)->add_GotFocus(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -131,225 +131,225 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, GotFocus_revoker>(this, GotFocus(handler));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::GotFocus(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::GotFocus(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource)->remove_GotFocus(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::NavigateFocus(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest const& request) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationResult) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSource<D>::NavigateFocus(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest const& request) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource)->NavigateFocus(*(void**)(&request), &result));
         return Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationResult{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSourceFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::DesktopWindowXamlSource) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSourceFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceFactory)->CreateInstance(*(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Hosting::DesktopWindowXamlSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSourceGotFocusEventArgs<D>::Request() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSourceGotFocusEventArgs<D>::Request() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceGotFocusEventArgs)->get_Request(&value));
         return Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSourceTakeFocusRequestedEventArgs<D>::Request() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest) consume_Windows_UI_Xaml_Hosting_IDesktopWindowXamlSourceTakeFocusRequestedEventArgs<D>::Request() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceTakeFocusRequestedEventArgs)->get_Request(&value));
         return Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics<D>::GetElementVisual(Windows::UI::Xaml::UIElement const& element) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics<D>::GetElementVisual(Windows::UI::Xaml::UIElement const& element) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics)->GetElementVisual(*(void**)(&element), &result));
         return Windows::UI::Composition::Visual{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics<D>::GetElementChildVisual(Windows::UI::Xaml::UIElement const& element) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics<D>::GetElementChildVisual(Windows::UI::Xaml::UIElement const& element) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics)->GetElementChildVisual(*(void**)(&element), &result));
         return Windows::UI::Composition::Visual{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics<D>::SetElementChildVisual(Windows::UI::Xaml::UIElement const& element, Windows::UI::Composition::Visual const& visual) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics<D>::SetElementChildVisual(Windows::UI::Xaml::UIElement const& element, Windows::UI::Composition::Visual const& visual) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics)->SetElementChildVisual(*(void**)(&element), *(void**)(&visual)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics<D>::GetScrollViewerManipulationPropertySet(Windows::UI::Xaml::Controls::ScrollViewer const& scrollViewer) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionPropertySet) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics<D>::GetScrollViewerManipulationPropertySet(Windows::UI::Xaml::Controls::ScrollViewer const& scrollViewer) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics)->GetScrollViewerManipulationPropertySet(*(void**)(&scrollViewer), &result));
         return Windows::UI::Composition::CompositionPropertySet{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics2<D>::SetImplicitShowAnimation(Windows::UI::Xaml::UIElement const& element, Windows::UI::Composition::ICompositionAnimationBase const& animation) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics2<D>::SetImplicitShowAnimation(Windows::UI::Xaml::UIElement const& element, Windows::UI::Composition::ICompositionAnimationBase const& animation) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2)->SetImplicitShowAnimation(*(void**)(&element), *(void**)(&animation)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics2<D>::SetImplicitHideAnimation(Windows::UI::Xaml::UIElement const& element, Windows::UI::Composition::ICompositionAnimationBase const& animation) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics2<D>::SetImplicitHideAnimation(Windows::UI::Xaml::UIElement const& element, Windows::UI::Composition::ICompositionAnimationBase const& animation) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2)->SetImplicitHideAnimation(*(void**)(&element), *(void**)(&animation)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics2<D>::SetIsTranslationEnabled(Windows::UI::Xaml::UIElement const& element, bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics2<D>::SetIsTranslationEnabled(Windows::UI::Xaml::UIElement const& element, bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2)->SetIsTranslationEnabled(*(void**)(&element), value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics2<D>::GetPointerPositionPropertySet(Windows::UI::Xaml::UIElement const& targetElement) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionPropertySet) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics2<D>::GetPointerPositionPropertySet(Windows::UI::Xaml::UIElement const& targetElement) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2)->GetPointerPositionPropertySet(*(void**)(&targetElement), &result));
         return Windows::UI::Composition::CompositionPropertySet{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics3<D>::SetAppWindowContent(Windows::UI::WindowManagement::AppWindow const& appWindow, Windows::UI::Xaml::UIElement const& xamlContent) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics3<D>::SetAppWindowContent(Windows::UI::WindowManagement::AppWindow const& appWindow, Windows::UI::Xaml::UIElement const& xamlContent) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics3)->SetAppWindowContent(*(void**)(&appWindow), *(void**)(&xamlContent)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics3<D>::GetAppWindowContent(Windows::UI::WindowManagement::AppWindow const& appWindow) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) consume_Windows_UI_Xaml_Hosting_IElementCompositionPreviewStatics3<D>::GetAppWindowContent(Windows::UI::WindowManagement::AppWindow const& appWindow) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics3)->GetAppWindowContent(*(void**)(&appWindow), &result));
         return Windows::UI::Xaml::UIElement{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IWindowsXamlManagerStatics<D>::InitializeForCurrentThread() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::WindowsXamlManager) consume_Windows_UI_Xaml_Hosting_IWindowsXamlManagerStatics<D>::InitializeForCurrentThread() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IWindowsXamlManagerStatics)->InitializeForCurrentThread(&result));
         return Windows::UI::Xaml::Hosting::WindowsXamlManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequest<D>::Reason() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason) consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequest<D>::Reason() const
     {
-        Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason value;
+        Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequest)->get_Reason(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequest<D>::HintRect() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequest<D>::HintRect() const
     {
-        Windows::Foundation::Rect value;
+        Windows::Foundation::Rect value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequest)->get_HintRect(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequest<D>::CorrelationId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequest<D>::CorrelationId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequest)->get_CorrelationId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequestFactory<D>::CreateInstance(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason const& reason) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest) consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequestFactory<D>::CreateInstance(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason const& reason) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequestFactory)->CreateInstance(static_cast<int32_t>(reason), &value));
         return Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequestFactory<D>::CreateInstanceWithHintRect(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason const& reason, Windows::Foundation::Rect const& hintRect) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest) consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequestFactory<D>::CreateInstanceWithHintRect(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason const& reason, Windows::Foundation::Rect const& hintRect) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequestFactory)->CreateInstanceWithHintRect(static_cast<int32_t>(reason), impl::bind_in(hintRect), &value));
         return Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequestFactory<D>::CreateInstanceWithHintRectAndCorrelationId(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason const& reason, Windows::Foundation::Rect const& hintRect, winrt::guid const& correlationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest) consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationRequestFactory<D>::CreateInstanceWithHintRectAndCorrelationId(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationReason const& reason, Windows::Foundation::Rect const& hintRect, winrt::guid const& correlationId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequestFactory)->CreateInstanceWithHintRectAndCorrelationId(static_cast<int32_t>(reason), impl::bind_in(hintRect), impl::bind_in(correlationId), &value));
         return Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationRequest{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationResult<D>::WasFocusMoved() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationResult<D>::WasFocusMoved() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationResult)->get_WasFocusMoved(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationResultFactory<D>::CreateInstance(bool focusMoved) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationResult) consume_Windows_UI_Xaml_Hosting_IXamlSourceFocusNavigationResultFactory<D>::CreateInstance(bool focusMoved) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationResultFactory)->CreateInstance(focusMoved, &value));
         return Windows::UI::Xaml::Hosting::XamlSourceFocusNavigationResult{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::RootElement() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::RootElement() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->get_RootElement(&value));
         return Windows::UI::Xaml::UIElement{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::RootElement(Windows::UI::Xaml::UIElement const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::RootElement(Windows::UI::Xaml::UIElement const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->put_RootElement(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::ThemeKey() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::ThemeKey() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->get_ThemeKey(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::ThemeKey(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::ThemeKey(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->put_ThemeKey(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::ThemeResourcesXaml() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::ThemeResourcesXaml() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->get_ThemeResourcesXaml(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::ThemeResourcesXaml(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::ThemeResourcesXaml(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->put_ThemeResourcesXaml(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::SetSize(int32_t width, int32_t height) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::SetSize(int32_t width, int32_t height) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->SetSize(width, height));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::Render() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::Render() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->Render());
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::Present() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenter<D>::Present() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenter)->Present());
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterHost<D>::ResolveFileResource(param::hstring const& path) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterHost<D>::ResolveFileResource(param::hstring const& path) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterHost)->ResolveFileResource(*(void**)(&path), &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterHost2<D>::GetGenericXamlFilePath() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterHost2<D>::GetGenericXamlFilePath() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterHost2)->GetGenericXamlFilePath(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterHost3<D>::ResolveDictionaryResource(Windows::UI::Xaml::ResourceDictionary const& dictionary, Windows::Foundation::IInspectable const& dictionaryKey, Windows::Foundation::IInspectable const& suggestedValue) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterHost3<D>::ResolveDictionaryResource(Windows::UI::Xaml::ResourceDictionary const& dictionary, Windows::Foundation::IInspectable const& dictionaryKey, Windows::Foundation::IInspectable const& suggestedValue) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterHost3)->ResolveDictionaryResource(*(void**)(&dictionary), *(void**)(&dictionaryKey), *(void**)(&suggestedValue), &result));
         return Windows::Foundation::IInspectable{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics<D>::CompleteTimelinesAutomatically() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics<D>::CompleteTimelinesAutomatically() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics)->get_CompleteTimelinesAutomatically(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics<D>::CompleteTimelinesAutomatically(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics<D>::CompleteTimelinesAutomatically(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics)->put_CompleteTimelinesAutomatically(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics<D>::SetHost(Windows::UI::Xaml::Hosting::IXamlUIPresenterHost const& host) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics<D>::SetHost(Windows::UI::Xaml::Hosting::IXamlUIPresenterHost const& host) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics)->SetHost(*(void**)(&host)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics<D>::NotifyWindowSizeChanged() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics<D>::NotifyWindowSizeChanged() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics)->NotifyWindowSizeChanged());
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics2<D>::GetFlyoutPlacementTargetInfo(Windows::UI::Xaml::FrameworkElement const& placementTarget, Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode const& preferredPlacement, Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode& targetPreferredPlacement, bool& allowFallbacks) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics2<D>::GetFlyoutPlacementTargetInfo(Windows::UI::Xaml::FrameworkElement const& placementTarget, Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode const& preferredPlacement, Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode& targetPreferredPlacement, bool& allowFallbacks) const
     {
-        Windows::Foundation::Rect returnValue;
+        Windows::Foundation::Rect returnValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics2)->GetFlyoutPlacementTargetInfo(*(void**)(&placementTarget), static_cast<int32_t>(preferredPlacement), reinterpret_cast<int32_t*>(&targetPreferredPlacement), &allowFallbacks, put_abi(returnValue)));
         return returnValue;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics2<D>::GetFlyoutPlacement(Windows::Foundation::Rect const& placementTargetBounds, Windows::Foundation::Size const& controlSize, Windows::Foundation::Size const& minControlSize, Windows::Foundation::Rect const& containerRect, Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode const& targetPreferredPlacement, bool allowFallbacks, Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode& chosenPlacement) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_UI_Xaml_Hosting_IXamlUIPresenterStatics2<D>::GetFlyoutPlacement(Windows::Foundation::Rect const& placementTargetBounds, Windows::Foundation::Size const& controlSize, Windows::Foundation::Size const& minControlSize, Windows::Foundation::Rect const& containerRect, Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode const& targetPreferredPlacement, bool allowFallbacks, Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode& chosenPlacement) const
     {
-        Windows::Foundation::Rect returnValue;
+        Windows::Foundation::Rect returnValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics2)->GetFlyoutPlacement(impl::bind_in(placementTargetBounds), impl::bind_in(controlSize), impl::bind_in(minControlSize), impl::bind_in(containerRect), static_cast<int32_t>(targetPreferredPlacement), allowFallbacks, reinterpret_cast<int32_t*>(&chosenPlacement), put_abi(returnValue)));
         return returnValue;
     }
@@ -1051,7 +1051,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Hosting
     protected:
         DesktopWindowXamlSourceT()
         {
-            impl::call_factory<DesktopWindowXamlSource, IDesktopWindowXamlSourceFactory>([&](IDesktopWindowXamlSourceFactory const& f) { f.CreateInstance(*this, this->m_inner); });
+            impl::call_factory<DesktopWindowXamlSource, IDesktopWindowXamlSourceFactory>([&](IDesktopWindowXamlSourceFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstance(*this, this->m_inner); });
         }
     };
 }

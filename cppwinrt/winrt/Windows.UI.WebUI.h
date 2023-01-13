@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_WebUI_H
 #define WINRT_Windows_UI_WebUI_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.h"
 #include "winrt/impl/Windows.ApplicationModel.2.h"
 #include "winrt/impl/Windows.ApplicationModel.Activation.2.h"
@@ -19,141 +19,141 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.UI.WebUI.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_WebUI_IActivatedDeferral<D>::Complete() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IActivatedDeferral<D>::Complete() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IActivatedDeferral)->Complete());
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IActivatedEventArgsDeferral<D>::ActivatedOperation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WebUI::ActivatedOperation) consume_Windows_UI_WebUI_IActivatedEventArgsDeferral<D>::ActivatedOperation() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IActivatedEventArgsDeferral)->get_ActivatedOperation(&value));
         return Windows::UI::WebUI::ActivatedOperation{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IActivatedOperation<D>::GetDeferral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WebUI::ActivatedDeferral) consume_Windows_UI_WebUI_IActivatedOperation<D>::GetDeferral() const
     {
         void* deferral{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IActivatedOperation)->GetDeferral(&deferral));
         return Windows::UI::WebUI::ActivatedDeferral{ deferral, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::Content() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WebUI::PrintContent) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::Content() const
     {
-        Windows::UI::WebUI::PrintContent value;
+        Windows::UI::WebUI::PrintContent value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_Content(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::Content(Windows::UI::WebUI::PrintContent const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::Content(Windows::UI::WebUI::PrintContent const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->put_Content(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::LeftMargin() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::LeftMargin() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_LeftMargin(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::LeftMargin(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::LeftMargin(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->put_LeftMargin(value));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::TopMargin() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::TopMargin() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_TopMargin(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::TopMargin(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::TopMargin(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->put_TopMargin(value));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::RightMargin() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::RightMargin() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_RightMargin(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::RightMargin(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::RightMargin(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->put_RightMargin(value));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::BottomMargin() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::BottomMargin() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_BottomMargin(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::BottomMargin(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::BottomMargin(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->put_BottomMargin(value));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::EnableHeaderFooter() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::EnableHeaderFooter() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_EnableHeaderFooter(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::EnableHeaderFooter(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::EnableHeaderFooter(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->put_EnableHeaderFooter(value));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::ShrinkToFit() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::ShrinkToFit() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_ShrinkToFit(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::ShrinkToFit(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::ShrinkToFit(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->put_ShrinkToFit(value));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::PercentScale() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::PercentScale() const
     {
-        float pScalePercent;
+        float pScalePercent{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_PercentScale(&pScalePercent));
         return pScalePercent;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::PercentScale(float scalePercent) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::PercentScale(float scalePercent) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->put_PercentScale(scalePercent));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::PageRange() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::PageRange() const
     {
         void* pstrPageRange{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->get_PageRange(&pstrPageRange));
         return hstring{ pstrPageRange, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::TrySetPageRange(param::hstring const& strPageRange) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_WebUI_IHtmlPrintDocumentSource<D>::TrySetPageRange(param::hstring const& strPageRange) const
     {
-        bool pfSuccess;
+        bool pfSuccess{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IHtmlPrintDocumentSource)->TrySetPageRange(*(void**)(&strPageRange), &pfSuccess));
         return pfSuccess;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs<D>::WebUIView() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WebUI::WebUIView) consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs<D>::WebUIView() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::INewWebUIViewCreatedEventArgs)->get_WebUIView(&value));
         return Windows::UI::WebUI::WebUIView{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs<D>::ActivatedEventArgs() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Activation::IActivatedEventArgs) consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs<D>::ActivatedEventArgs() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::INewWebUIViewCreatedEventArgs)->get_ActivatedEventArgs(&value));
         return Windows::ApplicationModel::Activation::IActivatedEventArgs{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs<D>::HasPendingNavigate() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs<D>::HasPendingNavigate() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::INewWebUIViewCreatedEventArgs)->get_HasPendingNavigate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs<D>::GetDeferral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Deferral) consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs<D>::GetDeferral() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::INewWebUIViewCreatedEventArgs)->GetDeferral(&result));
         return Windows::Foundation::Deferral{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Activated(Windows::UI::WebUI::ActivatedEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Activated(Windows::UI::WebUI::ActivatedEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics)->add_Activated(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -161,13 +161,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Activated_revoker>(this, Activated(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Activated(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Activated(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics)->remove_Activated(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Suspending(Windows::UI::WebUI::SuspendingEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Suspending(Windows::UI::WebUI::SuspendingEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics)->add_Suspending(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -175,13 +175,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Suspending_revoker>(this, Suspending(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Suspending(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Suspending(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics)->remove_Suspending(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Resuming(Windows::UI::WebUI::ResumingEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Resuming(Windows::UI::WebUI::ResumingEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics)->add_Resuming(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -189,13 +189,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Resuming_revoker>(this, Resuming(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Resuming(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Resuming(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics)->remove_Resuming(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Navigated(Windows::UI::WebUI::NavigatedEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Navigated(Windows::UI::WebUI::NavigatedEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics)->add_Navigated(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -203,13 +203,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Navigated_revoker>(this, Navigated(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Navigated(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics<D>::Navigated(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics)->remove_Navigated(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::LeavingBackground(Windows::UI::WebUI::LeavingBackgroundEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::LeavingBackground(Windows::UI::WebUI::LeavingBackgroundEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics2)->add_LeavingBackground(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -217,13 +217,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, LeavingBackground_revoker>(this, LeavingBackground(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::LeavingBackground(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::LeavingBackground(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics2)->remove_LeavingBackground(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::EnteredBackground(Windows::UI::WebUI::EnteredBackgroundEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::EnteredBackground(Windows::UI::WebUI::EnteredBackgroundEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics2)->add_EnteredBackground(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -231,29 +231,29 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, EnteredBackground_revoker>(this, EnteredBackground(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::EnteredBackground(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::EnteredBackground(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics2)->remove_EnteredBackground(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::EnablePrelaunch(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics2<D>::EnablePrelaunch(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics2)->EnablePrelaunch(value));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics3<D>::RequestRestartAsync(param::hstring const& launchArguments) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Core::AppRestartFailureReason>) consume_Windows_UI_WebUI_IWebUIActivationStatics3<D>::RequestRestartAsync(param::hstring const& launchArguments) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics3)->RequestRestartAsync(*(void**)(&launchArguments), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Core::AppRestartFailureReason>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics3<D>::RequestRestartForUserAsync(Windows::System::User const& user, param::hstring const& launchArguments) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Core::AppRestartFailureReason>) consume_Windows_UI_WebUI_IWebUIActivationStatics3<D>::RequestRestartForUserAsync(Windows::System::User const& user, param::hstring const& launchArguments) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics3)->RequestRestartForUserAsync(*(void**)(&user), *(void**)(&launchArguments), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Core::AppRestartFailureReason>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics4<D>::NewWebUIViewCreated(Windows::Foundation::EventHandler<Windows::UI::WebUI::NewWebUIViewCreatedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIActivationStatics4<D>::NewWebUIViewCreated(Windows::Foundation::EventHandler<Windows::UI::WebUI::NewWebUIViewCreatedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics4)->add_NewWebUIViewCreated(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -261,13 +261,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, NewWebUIViewCreated_revoker>(this, NewWebUIViewCreated(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics4<D>::NewWebUIViewCreated(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics4<D>::NewWebUIViewCreated(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics4)->remove_NewWebUIViewCreated(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics4<D>::BackgroundActivated(Windows::UI::WebUI::BackgroundActivatedEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIActivationStatics4<D>::BackgroundActivated(Windows::UI::WebUI::BackgroundActivatedEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics4)->add_BackgroundActivated(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -275,51 +275,51 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, BackgroundActivated_revoker>(this, BackgroundActivated(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIActivationStatics4<D>::BackgroundActivated(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIActivationStatics4<D>::BackgroundActivated(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIActivationStatics4)->remove_BackgroundActivated(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIBackgroundTaskInstance<D>::Succeeded() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_WebUI_IWebUIBackgroundTaskInstance<D>::Succeeded() const
     {
-        bool succeeded;
+        bool succeeded{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIBackgroundTaskInstance)->get_Succeeded(&succeeded));
         return succeeded;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIBackgroundTaskInstance<D>::Succeeded(bool succeeded) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIBackgroundTaskInstance<D>::Succeeded(bool succeeded) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIBackgroundTaskInstance)->put_Succeeded(succeeded));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIBackgroundTaskInstanceStatics<D>::Current() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WebUI::IWebUIBackgroundTaskInstance) consume_Windows_UI_WebUI_IWebUIBackgroundTaskInstanceStatics<D>::Current() const
     {
         void* backgroundTaskInstance{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIBackgroundTaskInstanceStatics)->get_Current(&backgroundTaskInstance));
         return Windows::UI::WebUI::IWebUIBackgroundTaskInstance{ backgroundTaskInstance, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUINavigatedDeferral<D>::Complete() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUINavigatedDeferral<D>::Complete() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUINavigatedDeferral)->Complete());
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUINavigatedEventArgs<D>::NavigatedOperation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WebUI::WebUINavigatedOperation) consume_Windows_UI_WebUI_IWebUINavigatedEventArgs<D>::NavigatedOperation() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUINavigatedEventArgs)->get_NavigatedOperation(&value));
         return Windows::UI::WebUI::WebUINavigatedOperation{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUINavigatedOperation<D>::GetDeferral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WebUI::WebUINavigatedDeferral) consume_Windows_UI_WebUI_IWebUINavigatedOperation<D>::GetDeferral() const
     {
         void* deferral{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUINavigatedOperation)->GetDeferral(&deferral));
         return Windows::UI::WebUI::WebUINavigatedDeferral{ deferral, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIView<D>::ApplicationViewId() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_WebUI_IWebUIView<D>::ApplicationViewId() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIView)->get_ApplicationViewId(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIView<D>::Closed(Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIView<D>::Closed(Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIView)->add_Closed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -327,13 +327,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Closed_revoker>(this, Closed(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIView<D>::Closed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIView<D>::Closed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIView)->remove_Closed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIView<D>::Activated(Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::ApplicationModel::Activation::IActivatedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_WebUI_IWebUIView<D>::Activated(Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::ApplicationModel::Activation::IActivatedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIView)->add_Activated(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -341,27 +341,27 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Activated_revoker>(this, Activated(handler));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIView<D>::Activated(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIView<D>::Activated(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIView)->remove_Activated(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIView<D>::IgnoreApplicationContentUriRulesNavigationRestrictions() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_WebUI_IWebUIView<D>::IgnoreApplicationContentUriRulesNavigationRestrictions() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIView)->get_IgnoreApplicationContentUriRulesNavigationRestrictions(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIView<D>::IgnoreApplicationContentUriRulesNavigationRestrictions(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_WebUI_IWebUIView<D>::IgnoreApplicationContentUriRulesNavigationRestrictions(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIView)->put_IgnoreApplicationContentUriRulesNavigationRestrictions(value));
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIViewStatics<D>::CreateAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::WebUI::WebUIView>) consume_Windows_UI_WebUI_IWebUIViewStatics<D>::CreateAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIViewStatics)->CreateAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::UI::WebUI::WebUIView>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WebUI_IWebUIViewStatics<D>::CreateAsync(Windows::Foundation::Uri const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::WebUI::WebUIView>) consume_Windows_UI_WebUI_IWebUIViewStatics<D>::CreateAsync(Windows::Foundation::Uri const& uri) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WebUI::IWebUIViewStatics)->CreateWithUriAsync(*(void**)(&uri), &operation));

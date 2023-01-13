@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -107,7 +107,7 @@ WINRT_EXPORT namespace winrt::Windows::System
         AppUriHandlerHost(std::nullptr_t) noexcept {}
         AppUriHandlerHost(void* ptr, take_ownership_from_abi_t) noexcept : Windows::System::IAppUriHandlerHost(ptr, take_ownership_from_abi) {}
         AppUriHandlerHost();
-        AppUriHandlerHost(param::hstring const& name);
+        explicit AppUriHandlerHost(param::hstring const& name);
     };
     struct __declspec(empty_bases) AppUriHandlerRegistration : Windows::System::IAppUriHandlerRegistration
     {

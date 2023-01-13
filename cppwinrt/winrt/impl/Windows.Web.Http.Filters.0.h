@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,7 +9,13 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     struct EventRegistrationToken;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking::Sockets
 {
@@ -22,6 +28,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Credentials
 WINRT_EXPORT namespace winrt::Windows::Security::Cryptography::Certificates
 {
     struct Certificate;
+    enum class ChainValidationResult : int32_t;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -30,7 +37,9 @@ WINRT_EXPORT namespace winrt::Windows::System
 WINRT_EXPORT namespace winrt::Windows::Web::Http
 {
     struct HttpCookieManager;
+    struct HttpProgress;
     struct HttpRequestMessage;
+    struct HttpResponseMessage;
     enum class HttpVersion : int32_t;
 }
 WINRT_EXPORT namespace winrt::Windows::Web::Http::Filters
@@ -82,23 +91,21 @@ namespace winrt::impl
     template <> struct category<Windows::Web::Http::Filters::HttpCacheReadBehavior>{ using type = enum_category; };
     template <> struct category<Windows::Web::Http::Filters::HttpCacheWriteBehavior>{ using type = enum_category; };
     template <> struct category<Windows::Web::Http::Filters::HttpCookieUsageBehavior>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpBaseProtocolFilter>{ L"Windows.Web.Http.Filters.HttpBaseProtocolFilter" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpCacheControl>{ L"Windows.Web.Http.Filters.HttpCacheControl" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpServerCustomValidationRequestedEventArgs>{ L"Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpCacheReadBehavior>{ L"Windows.Web.Http.Filters.HttpCacheReadBehavior" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpCacheWriteBehavior>{ L"Windows.Web.Http.Filters.HttpCacheWriteBehavior" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpCookieUsageBehavior>{ L"Windows.Web.Http.Filters.HttpCookieUsageBehavior" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter>{ L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter2>{ L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter2" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter3>{ L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter3" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter4>{ L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter4" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter5>{ L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter5" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilterStatics>{ L"Windows.Web.Http.Filters.IHttpBaseProtocolFilterStatics" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpCacheControl>{ L"Windows.Web.Http.Filters.IHttpCacheControl" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpFilter>{ L"Windows.Web.Http.Filters.IHttpFilter" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpServerCustomValidationRequestedEventArgs>{ L"Windows.Web.Http.Filters.IHttpServerCustomValidationRequestedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpBaseProtocolFilter> = L"Windows.Web.Http.Filters.HttpBaseProtocolFilter";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpCacheControl> = L"Windows.Web.Http.Filters.HttpCacheControl";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpServerCustomValidationRequestedEventArgs> = L"Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpCacheReadBehavior> = L"Windows.Web.Http.Filters.HttpCacheReadBehavior";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpCacheWriteBehavior> = L"Windows.Web.Http.Filters.HttpCacheWriteBehavior";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::HttpCookieUsageBehavior> = L"Windows.Web.Http.Filters.HttpCookieUsageBehavior";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter> = L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter2> = L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter2";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter3> = L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter3";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter4> = L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter4";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter5> = L"Windows.Web.Http.Filters.IHttpBaseProtocolFilter5";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilterStatics> = L"Windows.Web.Http.Filters.IHttpBaseProtocolFilterStatics";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpCacheControl> = L"Windows.Web.Http.Filters.IHttpCacheControl";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpFilter> = L"Windows.Web.Http.Filters.IHttpFilter";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpServerCustomValidationRequestedEventArgs> = L"Windows.Web.Http.Filters.IHttpServerCustomValidationRequestedEventArgs";
     template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter>{ 0x71C89B09,0xE131,0x4B54,{ 0xA5,0x3C,0xEB,0x43,0xFF,0x37,0xE9,0xBB } };
     template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter2>{ 0x2EC30013,0x9427,0x4900,{ 0xA0,0x17,0xFA,0x7D,0xA3,0xB5,0xC9,0xAE } };
     template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter3>{ 0xD43F4D4C,0xBD42,0x43AE,{ 0x87,0x17,0xAD,0x2C,0x8F,0x4B,0x29,0x37 } };
@@ -208,25 +215,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpBaseProtocolFilter
     {
-        [[nodiscard]] auto AllowAutoRedirect() const;
-        auto AllowAutoRedirect(bool value) const;
-        [[nodiscard]] auto AllowUI() const;
-        auto AllowUI(bool value) const;
-        [[nodiscard]] auto AutomaticDecompression() const;
-        auto AutomaticDecompression(bool value) const;
-        [[nodiscard]] auto CacheControl() const;
-        [[nodiscard]] auto CookieManager() const;
-        [[nodiscard]] auto ClientCertificate() const;
-        auto ClientCertificate(Windows::Security::Cryptography::Certificates::Certificate const& value) const;
-        [[nodiscard]] auto IgnorableServerCertificateErrors() const;
-        [[nodiscard]] auto MaxConnectionsPerServer() const;
-        auto MaxConnectionsPerServer(uint32_t value) const;
-        [[nodiscard]] auto ProxyCredential() const;
-        auto ProxyCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
-        [[nodiscard]] auto ServerCredential() const;
-        auto ServerCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
-        [[nodiscard]] auto UseProxy() const;
-        auto UseProxy(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowAutoRedirect() const;
+        WINRT_IMPL_AUTO(void) AllowAutoRedirect(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowUI() const;
+        WINRT_IMPL_AUTO(void) AllowUI(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutomaticDecompression() const;
+        WINRT_IMPL_AUTO(void) AutomaticDecompression(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::Filters::HttpCacheControl) CacheControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpCookieManager) CookieManager() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Cryptography::Certificates::Certificate) ClientCertificate() const;
+        WINRT_IMPL_AUTO(void) ClientCertificate(Windows::Security::Cryptography::Certificates::Certificate const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Security::Cryptography::Certificates::ChainValidationResult>) IgnorableServerCertificateErrors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxConnectionsPerServer() const;
+        WINRT_IMPL_AUTO(void) MaxConnectionsPerServer(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::PasswordCredential) ProxyCredential() const;
+        WINRT_IMPL_AUTO(void) ProxyCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::PasswordCredential) ServerCredential() const;
+        WINRT_IMPL_AUTO(void) ServerCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) UseProxy() const;
+        WINRT_IMPL_AUTO(void) UseProxy(bool value) const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpBaseProtocolFilter>
     {
@@ -235,8 +242,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpBaseProtocolFilter2
     {
-        [[nodiscard]] auto MaxVersion() const;
-        auto MaxVersion(Windows::Web::Http::HttpVersion const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpVersion) MaxVersion() const;
+        WINRT_IMPL_AUTO(void) MaxVersion(Windows::Web::Http::HttpVersion const& value) const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpBaseProtocolFilter2>
     {
@@ -245,8 +252,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpBaseProtocolFilter3
     {
-        [[nodiscard]] auto CookieUsageBehavior() const;
-        auto CookieUsageBehavior(Windows::Web::Http::Filters::HttpCookieUsageBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::Filters::HttpCookieUsageBehavior) CookieUsageBehavior() const;
+        WINRT_IMPL_AUTO(void) CookieUsageBehavior(Windows::Web::Http::Filters::HttpCookieUsageBehavior const& value) const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpBaseProtocolFilter3>
     {
@@ -255,11 +262,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpBaseProtocolFilter4
     {
-        auto ServerCustomValidationRequested(Windows::Foundation::TypedEventHandler<Windows::Web::Http::Filters::HttpBaseProtocolFilter, Windows::Web::Http::Filters::HttpServerCustomValidationRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ServerCustomValidationRequested(Windows::Foundation::TypedEventHandler<Windows::Web::Http::Filters::HttpBaseProtocolFilter, Windows::Web::Http::Filters::HttpServerCustomValidationRequestedEventArgs> const& handler) const;
         using ServerCustomValidationRequested_revoker = impl::event_revoker<Windows::Web::Http::Filters::IHttpBaseProtocolFilter4, &impl::abi_t<Windows::Web::Http::Filters::IHttpBaseProtocolFilter4>::remove_ServerCustomValidationRequested>;
         [[nodiscard]] ServerCustomValidationRequested_revoker ServerCustomValidationRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::Http::Filters::HttpBaseProtocolFilter, Windows::Web::Http::Filters::HttpServerCustomValidationRequestedEventArgs> const& handler) const;
-        auto ServerCustomValidationRequested(winrt::event_token const& token) const noexcept;
-        auto ClearAuthenticationCache() const;
+        WINRT_IMPL_AUTO(void) ServerCustomValidationRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ClearAuthenticationCache() const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpBaseProtocolFilter4>
     {
@@ -268,7 +275,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpBaseProtocolFilter5
     {
-        [[nodiscard]] auto User() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpBaseProtocolFilter5>
     {
@@ -277,7 +284,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpBaseProtocolFilterStatics
     {
-        auto CreateForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Web::Http::Filters::HttpBaseProtocolFilter) CreateForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpBaseProtocolFilterStatics>
     {
@@ -286,10 +293,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpCacheControl
     {
-        [[nodiscard]] auto ReadBehavior() const;
-        auto ReadBehavior(Windows::Web::Http::Filters::HttpCacheReadBehavior const& value) const;
-        [[nodiscard]] auto WriteBehavior() const;
-        auto WriteBehavior(Windows::Web::Http::Filters::HttpCacheWriteBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::Filters::HttpCacheReadBehavior) ReadBehavior() const;
+        WINRT_IMPL_AUTO(void) ReadBehavior(Windows::Web::Http::Filters::HttpCacheReadBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::Filters::HttpCacheWriteBehavior) WriteBehavior() const;
+        WINRT_IMPL_AUTO(void) WriteBehavior(Windows::Web::Http::Filters::HttpCacheWriteBehavior const& value) const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpCacheControl>
     {
@@ -298,7 +305,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpFilter
     {
-        auto SendRequestAsync(Windows::Web::Http::HttpRequestMessage const& request) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Http::HttpResponseMessage, Windows::Web::Http::HttpProgress>) SendRequestAsync(Windows::Web::Http::HttpRequestMessage const& request) const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpFilter>
     {
@@ -307,13 +314,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Filters_IHttpServerCustomValidationRequestedEventArgs
     {
-        [[nodiscard]] auto RequestMessage() const;
-        [[nodiscard]] auto ServerCertificate() const;
-        [[nodiscard]] auto ServerCertificateErrorSeverity() const;
-        [[nodiscard]] auto ServerCertificateErrors() const;
-        [[nodiscard]] auto ServerIntermediateCertificates() const;
-        auto Reject() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpRequestMessage) RequestMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Cryptography::Certificates::Certificate) ServerCertificate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Sockets::SocketSslErrorSeverity) ServerCertificateErrorSeverity() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Security::Cryptography::Certificates::ChainValidationResult>) ServerCertificateErrors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Security::Cryptography::Certificates::Certificate>) ServerIntermediateCertificates() const;
+        WINRT_IMPL_AUTO(void) Reject() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Web::Http::Filters::IHttpServerCustomValidationRequestedEventArgs>
     {

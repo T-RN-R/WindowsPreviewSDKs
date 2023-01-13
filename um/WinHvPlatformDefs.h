@@ -189,7 +189,11 @@ typedef union WHV_PROCESSOR_FEATURES1
     {
         UINT64 Reserved1 : 2;
         UINT64 ClZeroSupport : 1;
-        UINT64 Reserved2 : 61;
+        UINT64 Reserved2 : 3;
+        UINT64 NestedVirtSupport : 1;
+        UINT64 PsfdSupport: 1;
+        UINT64 Reserved3 : 2;
+        UINT64 Reserved4 : 54;
     };
 
     UINT64 AsUINT64;

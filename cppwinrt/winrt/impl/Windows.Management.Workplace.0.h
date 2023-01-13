@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -27,14 +27,12 @@ namespace winrt::impl
     template <> struct category<Windows::Management::Workplace::MdmPolicy>{ using type = class_category; };
     template <> struct category<Windows::Management::Workplace::WorkplaceSettings>{ using type = class_category; };
     template <> struct category<Windows::Management::Workplace::MessagingSyncPolicy>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Management::Workplace::MdmPolicy>{ L"Windows.Management.Workplace.MdmPolicy" };
-    template <> inline constexpr auto& name_v<Windows::Management::Workplace::WorkplaceSettings>{ L"Windows.Management.Workplace.WorkplaceSettings" };
-    template <> inline constexpr auto& name_v<Windows::Management::Workplace::MessagingSyncPolicy>{ L"Windows.Management.Workplace.MessagingSyncPolicy" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Management::Workplace::IMdmAllowPolicyStatics>{ L"Windows.Management.Workplace.IMdmAllowPolicyStatics" };
-    template <> inline constexpr auto& name_v<Windows::Management::Workplace::IMdmPolicyStatics2>{ L"Windows.Management.Workplace.IMdmPolicyStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Management::Workplace::IWorkplaceSettingsStatics>{ L"Windows.Management.Workplace.IWorkplaceSettingsStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Management::Workplace::MdmPolicy> = L"Windows.Management.Workplace.MdmPolicy";
+    template <> inline constexpr auto& name_v<Windows::Management::Workplace::WorkplaceSettings> = L"Windows.Management.Workplace.WorkplaceSettings";
+    template <> inline constexpr auto& name_v<Windows::Management::Workplace::MessagingSyncPolicy> = L"Windows.Management.Workplace.MessagingSyncPolicy";
+    template <> inline constexpr auto& name_v<Windows::Management::Workplace::IMdmAllowPolicyStatics> = L"Windows.Management.Workplace.IMdmAllowPolicyStatics";
+    template <> inline constexpr auto& name_v<Windows::Management::Workplace::IMdmPolicyStatics2> = L"Windows.Management.Workplace.IMdmPolicyStatics2";
+    template <> inline constexpr auto& name_v<Windows::Management::Workplace::IWorkplaceSettingsStatics> = L"Windows.Management.Workplace.IWorkplaceSettingsStatics";
     template <> inline constexpr guid guid_v<Windows::Management::Workplace::IMdmAllowPolicyStatics>{ 0xC39709E7,0x741C,0x41F2,{ 0xA4,0xB6,0x31,0x4C,0x31,0x50,0x25,0x86 } };
     template <> inline constexpr guid guid_v<Windows::Management::Workplace::IMdmPolicyStatics2>{ 0xC99C7526,0x03D4,0x49F9,{ 0xA9,0x93,0x43,0xEF,0xCC,0xD2,0x65,0xC4 } };
     template <> inline constexpr guid guid_v<Windows::Management::Workplace::IWorkplaceSettingsStatics>{ 0xE4676FFD,0x2D92,0x4C08,{ 0xBA,0xD4,0xF6,0x59,0x0B,0x54,0xA6,0xD3 } };
@@ -65,10 +63,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Workplace_IMdmAllowPolicyStatics
     {
-        auto IsBrowserAllowed() const;
-        auto IsCameraAllowed() const;
-        auto IsMicrosoftAccountAllowed() const;
-        auto IsStoreAllowed() const;
+        WINRT_IMPL_AUTO(bool) IsBrowserAllowed() const;
+        WINRT_IMPL_AUTO(bool) IsCameraAllowed() const;
+        WINRT_IMPL_AUTO(bool) IsMicrosoftAccountAllowed() const;
+        WINRT_IMPL_AUTO(bool) IsStoreAllowed() const;
     };
     template <> struct consume<Windows::Management::Workplace::IMdmAllowPolicyStatics>
     {
@@ -77,7 +75,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Workplace_IMdmPolicyStatics2
     {
-        auto GetMessagingSyncPolicy() const;
+        WINRT_IMPL_AUTO(Windows::Management::Workplace::MessagingSyncPolicy) GetMessagingSyncPolicy() const;
     };
     template <> struct consume<Windows::Management::Workplace::IMdmPolicyStatics2>
     {
@@ -86,7 +84,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Workplace_IWorkplaceSettingsStatics
     {
-        [[nodiscard]] auto IsMicrosoftAccountOptional() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMicrosoftAccountOptional() const;
     };
     template <> struct consume<Windows::Management::Workplace::IWorkplaceSettingsStatics>
     {

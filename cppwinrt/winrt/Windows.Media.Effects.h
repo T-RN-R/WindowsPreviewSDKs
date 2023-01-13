@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Media_Effects_H
 #define WINRT_Windows_Media_Effects_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Media.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -24,9 +24,9 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Media.Effects.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Media_Effects_IAudioCaptureEffectsManager<D>::AudioCaptureEffectsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioCaptureEffectsManager, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Effects_IAudioCaptureEffectsManager<D>::AudioCaptureEffectsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioCaptureEffectsManager, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioCaptureEffectsManager)->add_AudioCaptureEffectsChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -34,73 +34,73 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, AudioCaptureEffectsChanged_revoker>(this, AudioCaptureEffectsChanged(handler));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioCaptureEffectsManager<D>::AudioCaptureEffectsChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IAudioCaptureEffectsManager<D>::AudioCaptureEffectsChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioCaptureEffectsManager)->remove_AudioCaptureEffectsChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioCaptureEffectsManager<D>::GetAudioCaptureEffects() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Effects::AudioEffect>) consume_Windows_Media_Effects_IAudioCaptureEffectsManager<D>::GetAudioCaptureEffects() const
     {
         void* effects{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioCaptureEffectsManager)->GetAudioCaptureEffects(&effects));
         return Windows::Foundation::Collections::IVectorView<Windows::Media::Effects::AudioEffect>{ effects, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffect<D>::AudioEffectType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::AudioEffectType) consume_Windows_Media_Effects_IAudioEffect<D>::AudioEffectType() const
     {
-        Windows::Media::Effects::AudioEffectType value;
+        Windows::Media::Effects::AudioEffectType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffect)->get_AudioEffectType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffectDefinition<D>::ActivatableClassId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Effects_IAudioEffectDefinition<D>::ActivatableClassId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffectDefinition)->get_ActivatableClassId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffectDefinition<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) consume_Windows_Media_Effects_IAudioEffectDefinition<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffectDefinition)->get_Properties(&value));
         return Windows::Foundation::Collections::IPropertySet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffectDefinitionFactory<D>::Create(param::hstring const& activatableClassId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::AudioEffectDefinition) consume_Windows_Media_Effects_IAudioEffectDefinitionFactory<D>::Create(param::hstring const& activatableClassId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffectDefinitionFactory)->Create(*(void**)(&activatableClassId), &value));
         return Windows::Media::Effects::AudioEffectDefinition{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffectDefinitionFactory<D>::CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::AudioEffectDefinition) consume_Windows_Media_Effects_IAudioEffectDefinitionFactory<D>::CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffectDefinitionFactory)->CreateWithProperties(*(void**)(&activatableClassId), *(void**)(&props), &value));
         return Windows::Media::Effects::AudioEffectDefinition{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffectsManagerStatics<D>::CreateAudioRenderEffectsManager(param::hstring const& deviceId, Windows::Media::Render::AudioRenderCategory const& category) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::AudioRenderEffectsManager) consume_Windows_Media_Effects_IAudioEffectsManagerStatics<D>::CreateAudioRenderEffectsManager(param::hstring const& deviceId, Windows::Media::Render::AudioRenderCategory const& category) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffectsManagerStatics)->CreateAudioRenderEffectsManager(*(void**)(&deviceId), static_cast<int32_t>(category), &value));
         return Windows::Media::Effects::AudioRenderEffectsManager{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffectsManagerStatics<D>::CreateAudioRenderEffectsManager(param::hstring const& deviceId, Windows::Media::Render::AudioRenderCategory const& category, Windows::Media::AudioProcessing const& mode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::AudioRenderEffectsManager) consume_Windows_Media_Effects_IAudioEffectsManagerStatics<D>::CreateAudioRenderEffectsManager(param::hstring const& deviceId, Windows::Media::Render::AudioRenderCategory const& category, Windows::Media::AudioProcessing const& mode) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffectsManagerStatics)->CreateAudioRenderEffectsManagerWithMode(*(void**)(&deviceId), static_cast<int32_t>(category), static_cast<int32_t>(mode), &value));
         return Windows::Media::Effects::AudioRenderEffectsManager{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffectsManagerStatics<D>::CreateAudioCaptureEffectsManager(param::hstring const& deviceId, Windows::Media::Capture::MediaCategory const& category) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::AudioCaptureEffectsManager) consume_Windows_Media_Effects_IAudioEffectsManagerStatics<D>::CreateAudioCaptureEffectsManager(param::hstring const& deviceId, Windows::Media::Capture::MediaCategory const& category) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffectsManagerStatics)->CreateAudioCaptureEffectsManager(*(void**)(&deviceId), static_cast<int32_t>(category), &value));
         return Windows::Media::Effects::AudioCaptureEffectsManager{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioEffectsManagerStatics<D>::CreateAudioCaptureEffectsManager(param::hstring const& deviceId, Windows::Media::Capture::MediaCategory const& category, Windows::Media::AudioProcessing const& mode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::AudioCaptureEffectsManager) consume_Windows_Media_Effects_IAudioEffectsManagerStatics<D>::CreateAudioCaptureEffectsManager(param::hstring const& deviceId, Windows::Media::Capture::MediaCategory const& category, Windows::Media::AudioProcessing const& mode) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioEffectsManagerStatics)->CreateAudioCaptureEffectsManagerWithMode(*(void**)(&deviceId), static_cast<int32_t>(category), static_cast<int32_t>(mode), &value));
         return Windows::Media::Effects::AudioCaptureEffectsManager{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioRenderEffectsManager<D>::AudioRenderEffectsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioRenderEffectsManager, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Effects_IAudioRenderEffectsManager<D>::AudioRenderEffectsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioRenderEffectsManager, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioRenderEffectsManager)->add_AudioRenderEffectsChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -108,331 +108,331 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, AudioRenderEffectsChanged_revoker>(this, AudioRenderEffectsChanged(handler));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioRenderEffectsManager<D>::AudioRenderEffectsChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IAudioRenderEffectsManager<D>::AudioRenderEffectsChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioRenderEffectsManager)->remove_AudioRenderEffectsChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioRenderEffectsManager<D>::GetAudioRenderEffects() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Effects::AudioEffect>) consume_Windows_Media_Effects_IAudioRenderEffectsManager<D>::GetAudioRenderEffects() const
     {
         void* effects{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioRenderEffectsManager)->GetAudioRenderEffects(&effects));
         return Windows::Foundation::Collections::IVectorView<Windows::Media::Effects::AudioEffect>{ effects, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioRenderEffectsManager2<D>::EffectsProviderThumbnail() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamWithContentType) consume_Windows_Media_Effects_IAudioRenderEffectsManager2<D>::EffectsProviderThumbnail() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioRenderEffectsManager2)->get_EffectsProviderThumbnail(&value));
         return Windows::Storage::Streams::IRandomAccessStreamWithContentType{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioRenderEffectsManager2<D>::EffectsProviderSettingsLabel() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Effects_IAudioRenderEffectsManager2<D>::EffectsProviderSettingsLabel() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioRenderEffectsManager2)->get_EffectsProviderSettingsLabel(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IAudioRenderEffectsManager2<D>::ShowSettingsUI() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IAudioRenderEffectsManager2<D>::ShowSettingsUI() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IAudioRenderEffectsManager2)->ShowSettingsUI());
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicAudioEffect<D>::UseInputFrameForOutput() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Effects_IBasicAudioEffect<D>::UseInputFrameForOutput() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicAudioEffect)->get_UseInputFrameForOutput(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicAudioEffect<D>::SupportedEncodingProperties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::MediaProperties::AudioEncodingProperties>) consume_Windows_Media_Effects_IBasicAudioEffect<D>::SupportedEncodingProperties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicAudioEffect)->get_SupportedEncodingProperties(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Media::MediaProperties::AudioEncodingProperties>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicAudioEffect<D>::SetEncodingProperties(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IBasicAudioEffect<D>::SetEncodingProperties(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicAudioEffect)->SetEncodingProperties(*(void**)(&encodingProperties)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicAudioEffect<D>::ProcessFrame(Windows::Media::Effects::ProcessAudioFrameContext const& context) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IBasicAudioEffect<D>::ProcessFrame(Windows::Media::Effects::ProcessAudioFrameContext const& context) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicAudioEffect)->ProcessFrame(*(void**)(&context)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicAudioEffect<D>::Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IBasicAudioEffect<D>::Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicAudioEffect)->Close(static_cast<int32_t>(reason)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicAudioEffect<D>::DiscardQueuedFrames() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IBasicAudioEffect<D>::DiscardQueuedFrames() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicAudioEffect)->DiscardQueuedFrames());
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicVideoEffect<D>::IsReadOnly() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Effects_IBasicVideoEffect<D>::IsReadOnly() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicVideoEffect)->get_IsReadOnly(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicVideoEffect<D>::SupportedMemoryTypes() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::MediaMemoryTypes) consume_Windows_Media_Effects_IBasicVideoEffect<D>::SupportedMemoryTypes() const
     {
-        Windows::Media::Effects::MediaMemoryTypes value;
+        Windows::Media::Effects::MediaMemoryTypes value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicVideoEffect)->get_SupportedMemoryTypes(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicVideoEffect<D>::TimeIndependent() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Effects_IBasicVideoEffect<D>::TimeIndependent() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicVideoEffect)->get_TimeIndependent(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicVideoEffect<D>::SupportedEncodingProperties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::MediaProperties::VideoEncodingProperties>) consume_Windows_Media_Effects_IBasicVideoEffect<D>::SupportedEncodingProperties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicVideoEffect)->get_SupportedEncodingProperties(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Media::MediaProperties::VideoEncodingProperties>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicVideoEffect<D>::SetEncodingProperties(Windows::Media::MediaProperties::VideoEncodingProperties const& encodingProperties, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IBasicVideoEffect<D>::SetEncodingProperties(Windows::Media::MediaProperties::VideoEncodingProperties const& encodingProperties, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicVideoEffect)->SetEncodingProperties(*(void**)(&encodingProperties), *(void**)(&device)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicVideoEffect<D>::ProcessFrame(Windows::Media::Effects::ProcessVideoFrameContext const& context) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IBasicVideoEffect<D>::ProcessFrame(Windows::Media::Effects::ProcessVideoFrameContext const& context) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicVideoEffect)->ProcessFrame(*(void**)(&context)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicVideoEffect<D>::Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IBasicVideoEffect<D>::Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicVideoEffect)->Close(static_cast<int32_t>(reason)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IBasicVideoEffect<D>::DiscardQueuedFrames() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IBasicVideoEffect<D>::DiscardQueuedFrames() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IBasicVideoEffect)->DiscardQueuedFrames());
     }
-    template <typename D> auto consume_Windows_Media_Effects_ICompositeVideoFrameContext<D>::SurfacesToOverlay() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface>) consume_Windows_Media_Effects_ICompositeVideoFrameContext<D>::SurfacesToOverlay() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::ICompositeVideoFrameContext)->get_SurfacesToOverlay(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_ICompositeVideoFrameContext<D>::BackgroundFrame() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::VideoFrame) consume_Windows_Media_Effects_ICompositeVideoFrameContext<D>::BackgroundFrame() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::ICompositeVideoFrameContext)->get_BackgroundFrame(&value));
         return Windows::Media::VideoFrame{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_ICompositeVideoFrameContext<D>::OutputFrame() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::VideoFrame) consume_Windows_Media_Effects_ICompositeVideoFrameContext<D>::OutputFrame() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::ICompositeVideoFrameContext)->get_OutputFrame(&value));
         return Windows::Media::VideoFrame{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_ICompositeVideoFrameContext<D>::GetOverlayForSurface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surfaceToOverlay) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Editing::MediaOverlay) consume_Windows_Media_Effects_ICompositeVideoFrameContext<D>::GetOverlayForSurface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surfaceToOverlay) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::ICompositeVideoFrameContext)->GetOverlayForSurface(*(void**)(&surfaceToOverlay), &value));
         return Windows::Media::Editing::MediaOverlay{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IProcessAudioFrameContext<D>::InputFrame() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::AudioFrame) consume_Windows_Media_Effects_IProcessAudioFrameContext<D>::InputFrame() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IProcessAudioFrameContext)->get_InputFrame(&value));
         return Windows::Media::AudioFrame{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IProcessAudioFrameContext<D>::OutputFrame() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::AudioFrame) consume_Windows_Media_Effects_IProcessAudioFrameContext<D>::OutputFrame() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IProcessAudioFrameContext)->get_OutputFrame(&value));
         return Windows::Media::AudioFrame{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IProcessVideoFrameContext<D>::InputFrame() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::VideoFrame) consume_Windows_Media_Effects_IProcessVideoFrameContext<D>::InputFrame() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IProcessVideoFrameContext)->get_InputFrame(&value));
         return Windows::Media::VideoFrame{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IProcessVideoFrameContext<D>::OutputFrame() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::VideoFrame) consume_Windows_Media_Effects_IProcessVideoFrameContext<D>::OutputFrame() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IProcessVideoFrameContext)->get_OutputFrame(&value));
         return Windows::Media::VideoFrame{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositor<D>::TimeIndependent() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Effects_IVideoCompositor<D>::TimeIndependent() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositor)->get_TimeIndependent(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositor<D>::SetEncodingProperties(Windows::Media::MediaProperties::VideoEncodingProperties const& backgroundProperties, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoCompositor<D>::SetEncodingProperties(Windows::Media::MediaProperties::VideoEncodingProperties const& backgroundProperties, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositor)->SetEncodingProperties(*(void**)(&backgroundProperties), *(void**)(&device)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositor<D>::CompositeFrame(Windows::Media::Effects::CompositeVideoFrameContext const& context) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoCompositor<D>::CompositeFrame(Windows::Media::Effects::CompositeVideoFrameContext const& context) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositor)->CompositeFrame(*(void**)(&context)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositor<D>::Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoCompositor<D>::Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositor)->Close(static_cast<int32_t>(reason)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositor<D>::DiscardQueuedFrames() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoCompositor<D>::DiscardQueuedFrames() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositor)->DiscardQueuedFrames());
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositorDefinition<D>::ActivatableClassId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Effects_IVideoCompositorDefinition<D>::ActivatableClassId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositorDefinition)->get_ActivatableClassId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositorDefinition<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) consume_Windows_Media_Effects_IVideoCompositorDefinition<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositorDefinition)->get_Properties(&value));
         return Windows::Foundation::Collections::IPropertySet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositorDefinitionFactory<D>::Create(param::hstring const& activatableClassId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::VideoCompositorDefinition) consume_Windows_Media_Effects_IVideoCompositorDefinitionFactory<D>::Create(param::hstring const& activatableClassId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositorDefinitionFactory)->Create(*(void**)(&activatableClassId), &value));
         return Windows::Media::Effects::VideoCompositorDefinition{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoCompositorDefinitionFactory<D>::CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::VideoCompositorDefinition) consume_Windows_Media_Effects_IVideoCompositorDefinitionFactory<D>::CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoCompositorDefinitionFactory)->CreateWithProperties(*(void**)(&activatableClassId), *(void**)(&props), &value));
         return Windows::Media::Effects::VideoCompositorDefinition{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoEffectDefinition<D>::ActivatableClassId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Effects_IVideoEffectDefinition<D>::ActivatableClassId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoEffectDefinition)->get_ActivatableClassId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoEffectDefinition<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) consume_Windows_Media_Effects_IVideoEffectDefinition<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoEffectDefinition)->get_Properties(&value));
         return Windows::Foundation::Collections::IPropertySet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoEffectDefinitionFactory<D>::Create(param::hstring const& activatableClassId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::VideoEffectDefinition) consume_Windows_Media_Effects_IVideoEffectDefinitionFactory<D>::Create(param::hstring const& activatableClassId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoEffectDefinitionFactory)->Create(*(void**)(&activatableClassId), &value));
         return Windows::Media::Effects::VideoEffectDefinition{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoEffectDefinitionFactory<D>::CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::VideoEffectDefinition) consume_Windows_Media_Effects_IVideoEffectDefinitionFactory<D>::CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoEffectDefinitionFactory)->CreateWithProperties(*(void**)(&activatableClassId), *(void**)(&props), &value));
         return Windows::Media::Effects::VideoEffectDefinition{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::PaddingColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::PaddingColor() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->get_PaddingColor(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::PaddingColor(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::PaddingColor(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->put_PaddingColor(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::OutputSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::OutputSize() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->get_OutputSize(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::OutputSize(Windows::Foundation::Size const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::OutputSize(Windows::Foundation::Size const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->put_OutputSize(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::CropRectangle() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::CropRectangle() const
     {
-        Windows::Foundation::Rect value;
+        Windows::Foundation::Rect value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->get_CropRectangle(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::CropRectangle(Windows::Foundation::Rect const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::CropRectangle(Windows::Foundation::Rect const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->put_CropRectangle(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::Rotation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRotation) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::Rotation() const
     {
-        Windows::Media::MediaProperties::MediaRotation value;
+        Windows::Media::MediaProperties::MediaRotation value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->get_Rotation(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::Rotation(Windows::Media::MediaProperties::MediaRotation const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::Rotation(Windows::Media::MediaProperties::MediaRotation const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->put_Rotation(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::Mirror() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaMirroringOptions) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::Mirror() const
     {
-        Windows::Media::MediaProperties::MediaMirroringOptions value;
+        Windows::Media::MediaProperties::MediaMirroringOptions value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->get_Mirror(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::Mirror(Windows::Media::MediaProperties::MediaMirroringOptions const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::Mirror(Windows::Media::MediaProperties::MediaMirroringOptions const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->put_Mirror(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::ProcessingAlgorithm(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::ProcessingAlgorithm(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->put_ProcessingAlgorithm(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::ProcessingAlgorithm() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm) consume_Windows_Media_Effects_IVideoTransformEffectDefinition<D>::ProcessingAlgorithm() const
     {
-        Windows::Media::Transcoding::MediaVideoProcessingAlgorithm value;
+        Windows::Media::Transcoding::MediaVideoProcessingAlgorithm value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition)->get_ProcessingAlgorithm(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformEffectDefinition2<D>::SphericalProjection() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Effects::VideoTransformSphericalProjection) consume_Windows_Media_Effects_IVideoTransformEffectDefinition2<D>::SphericalProjection() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformEffectDefinition2)->get_SphericalProjection(&value));
         return Windows::Media::Effects::VideoTransformSphericalProjection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::IsEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::IsEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->get_IsEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::IsEnabled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::IsEnabled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->put_IsEnabled(value));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::FrameFormat() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::MediaProperties::SphericalVideoFrameFormat) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::FrameFormat() const
     {
-        Windows::Media::MediaProperties::SphericalVideoFrameFormat value;
+        Windows::Media::MediaProperties::SphericalVideoFrameFormat value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->get_FrameFormat(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::FrameFormat(Windows::Media::MediaProperties::SphericalVideoFrameFormat const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::FrameFormat(Windows::Media::MediaProperties::SphericalVideoFrameFormat const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->put_FrameFormat(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::ProjectionMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Playback::SphericalVideoProjectionMode) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::ProjectionMode() const
     {
-        Windows::Media::Playback::SphericalVideoProjectionMode value;
+        Windows::Media::Playback::SphericalVideoProjectionMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->get_ProjectionMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::ProjectionMode(Windows::Media::Playback::SphericalVideoProjectionMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::ProjectionMode(Windows::Media::Playback::SphericalVideoProjectionMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->put_ProjectionMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::HorizontalFieldOfViewInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::HorizontalFieldOfViewInDegrees() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->get_HorizontalFieldOfViewInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::HorizontalFieldOfViewInDegrees(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::HorizontalFieldOfViewInDegrees(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->put_HorizontalFieldOfViewInDegrees(value));
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::ViewOrientation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::quaternion) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::ViewOrientation() const
     {
-        Windows::Foundation::Numerics::quaternion value;
+        Windows::Foundation::Numerics::quaternion value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->get_ViewOrientation(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::ViewOrientation(Windows::Foundation::Numerics::quaternion const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Effects_IVideoTransformSphericalProjection<D>::ViewOrientation(Windows::Foundation::Numerics::quaternion const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Effects::IVideoTransformSphericalProjection)->put_ViewOrientation(impl::bind_in(value)));
     }

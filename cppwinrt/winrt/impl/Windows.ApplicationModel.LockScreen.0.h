@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,7 +8,12 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -41,19 +46,17 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::LockScreen::LockScreenInfo>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::LockScreen::LockScreenUnlockingDeferral>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::LockScreen::LockScreenUnlockingEventArgs>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockApplicationHost>{ L"Windows.ApplicationModel.LockScreen.LockApplicationHost" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockScreenBadge>{ L"Windows.ApplicationModel.LockScreen.LockScreenBadge" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockScreenInfo>{ L"Windows.ApplicationModel.LockScreen.LockScreenInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockScreenUnlockingDeferral>{ L"Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockScreenUnlockingEventArgs>{ L"Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockApplicationHost>{ L"Windows.ApplicationModel.LockScreen.ILockApplicationHost" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockApplicationHostStatics>{ L"Windows.ApplicationModel.LockScreen.ILockApplicationHostStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenBadge>{ L"Windows.ApplicationModel.LockScreen.ILockScreenBadge" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenInfo>{ L"Windows.ApplicationModel.LockScreen.ILockScreenInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingDeferral>{ L"Windows.ApplicationModel.LockScreen.ILockScreenUnlockingDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingEventArgs>{ L"Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockApplicationHost> = L"Windows.ApplicationModel.LockScreen.LockApplicationHost";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockScreenBadge> = L"Windows.ApplicationModel.LockScreen.LockScreenBadge";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockScreenInfo> = L"Windows.ApplicationModel.LockScreen.LockScreenInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockScreenUnlockingDeferral> = L"Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::LockScreenUnlockingEventArgs> = L"Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockApplicationHost> = L"Windows.ApplicationModel.LockScreen.ILockApplicationHost";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockApplicationHostStatics> = L"Windows.ApplicationModel.LockScreen.ILockApplicationHostStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenBadge> = L"Windows.ApplicationModel.LockScreen.ILockScreenBadge";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenInfo> = L"Windows.ApplicationModel.LockScreen.ILockScreenInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingDeferral> = L"Windows.ApplicationModel.LockScreen.ILockScreenUnlockingDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingEventArgs> = L"Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockApplicationHost>{ 0x38EE31AD,0xD94F,0x4E7C,{ 0x81,0xFA,0x4F,0x44,0x36,0x50,0x62,0x81 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockApplicationHostStatics>{ 0xF48FAB8E,0x23D7,0x4E63,{ 0x96,0xA1,0x66,0x6F,0xF5,0x2D,0x3B,0x2C } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenBadge>{ 0xE95105D9,0x2BFF,0x4DB0,{ 0x9B,0x4F,0x38,0x24,0x77,0x8B,0x9C,0x9A } };
@@ -128,11 +131,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_LockScreen_ILockApplicationHost
     {
-        auto RequestUnlock() const;
-        auto Unlocking(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockApplicationHost, Windows::ApplicationModel::LockScreen::LockScreenUnlockingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) RequestUnlock() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Unlocking(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockApplicationHost, Windows::ApplicationModel::LockScreen::LockScreenUnlockingEventArgs> const& handler) const;
         using Unlocking_revoker = impl::event_revoker<Windows::ApplicationModel::LockScreen::ILockApplicationHost, &impl::abi_t<Windows::ApplicationModel::LockScreen::ILockApplicationHost>::remove_Unlocking>;
         [[nodiscard]] Unlocking_revoker Unlocking(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockApplicationHost, Windows::ApplicationModel::LockScreen::LockScreenUnlockingEventArgs> const& handler) const;
-        auto Unlocking(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Unlocking(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::LockScreen::ILockApplicationHost>
     {
@@ -141,7 +144,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_LockScreen_ILockApplicationHostStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::LockScreen::LockApplicationHost) GetForCurrentView() const;
     };
     template <> struct consume<Windows::ApplicationModel::LockScreen::ILockApplicationHostStatics>
     {
@@ -150,11 +153,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_LockScreen_ILockScreenBadge
     {
-        [[nodiscard]] auto Logo() const;
-        [[nodiscard]] auto Glyph() const;
-        [[nodiscard]] auto Number() const;
-        [[nodiscard]] auto AutomationName() const;
-        auto LaunchApp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStream) Logo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStream) Glyph() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Number() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AutomationName() const;
+        WINRT_IMPL_AUTO(void) LaunchApp() const;
     };
     template <> struct consume<Windows::ApplicationModel::LockScreen::ILockScreenBadge>
     {
@@ -163,26 +166,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_LockScreen_ILockScreenInfo
     {
-        auto LockScreenImageChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) LockScreenImageChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
         using LockScreenImageChanged_revoker = impl::event_revoker<Windows::ApplicationModel::LockScreen::ILockScreenInfo, &impl::abi_t<Windows::ApplicationModel::LockScreen::ILockScreenInfo>::remove_LockScreenImageChanged>;
         [[nodiscard]] LockScreenImageChanged_revoker LockScreenImageChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
-        auto LockScreenImageChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto LockScreenImage() const;
-        auto BadgesChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) LockScreenImageChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStream) LockScreenImage() const;
+        WINRT_IMPL_AUTO(winrt::event_token) BadgesChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
         using BadgesChanged_revoker = impl::event_revoker<Windows::ApplicationModel::LockScreen::ILockScreenInfo, &impl::abi_t<Windows::ApplicationModel::LockScreen::ILockScreenInfo>::remove_BadgesChanged>;
         [[nodiscard]] BadgesChanged_revoker BadgesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
-        auto BadgesChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Badges() const;
-        auto DetailTextChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) BadgesChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::LockScreen::LockScreenBadge>) Badges() const;
+        WINRT_IMPL_AUTO(winrt::event_token) DetailTextChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
         using DetailTextChanged_revoker = impl::event_revoker<Windows::ApplicationModel::LockScreen::ILockScreenInfo, &impl::abi_t<Windows::ApplicationModel::LockScreen::ILockScreenInfo>::remove_DetailTextChanged>;
         [[nodiscard]] DetailTextChanged_revoker DetailTextChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
-        auto DetailTextChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto DetailText() const;
-        auto AlarmIconChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) DetailTextChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) DetailText() const;
+        WINRT_IMPL_AUTO(winrt::event_token) AlarmIconChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
         using AlarmIconChanged_revoker = impl::event_revoker<Windows::ApplicationModel::LockScreen::ILockScreenInfo, &impl::abi_t<Windows::ApplicationModel::LockScreen::ILockScreenInfo>::remove_AlarmIconChanged>;
         [[nodiscard]] AlarmIconChanged_revoker AlarmIconChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::LockScreen::LockScreenInfo, Windows::Foundation::IInspectable> const& handler) const;
-        auto AlarmIconChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto AlarmIcon() const;
+        WINRT_IMPL_AUTO(void) AlarmIconChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStream) AlarmIcon() const;
     };
     template <> struct consume<Windows::ApplicationModel::LockScreen::ILockScreenInfo>
     {
@@ -191,7 +194,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_LockScreen_ILockScreenUnlockingDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingDeferral>
     {
@@ -200,8 +203,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_LockScreen_ILockScreenUnlockingEventArgs
     {
-        auto GetDeferral() const;
-        [[nodiscard]] auto Deadline() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::LockScreen::LockScreenUnlockingDeferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Deadline() const;
     };
     template <> struct consume<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingEventArgs>
     {

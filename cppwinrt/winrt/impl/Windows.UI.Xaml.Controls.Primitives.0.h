@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -17,6 +17,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename T> struct IVectorView;
     template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
@@ -571,212 +572,210 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Controls::Primitives::ItemsChangedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::Controls::Primitives::ScrollEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::AppBarButtonTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.AppBarButtonTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::AppBarTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.AppBarTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::AppBarToggleButtonTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.AppBarToggleButtonTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ButtonBase>{ L"Windows.UI.Xaml.Controls.Primitives.ButtonBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CalendarPanel>{ L"Windows.UI.Xaml.Controls.Primitives.CalendarPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CalendarViewTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.CalendarViewTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CarouselPanel>{ L"Windows.UI.Xaml.Controls.Primitives.CarouselPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ColorPickerSlider>{ L"Windows.UI.Xaml.Controls.Primitives.ColorPickerSlider" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ColorSpectrum>{ L"Windows.UI.Xaml.Controls.Primitives.ColorSpectrum" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ComboBoxTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ComboBoxTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CommandBarFlyoutCommandBar>{ L"Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBar" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CommandBarFlyoutCommandBarTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBarTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CommandBarTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.CommandBarTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragCompletedEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.DragCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragDeltaEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.DragDeltaEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragStartedEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.DragStartedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutBase>{ L"Windows.UI.Xaml.Controls.Primitives.FlyoutBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutBaseClosingEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutShowOptions>{ L"Windows.UI.Xaml.Controls.Primitives.FlyoutShowOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GeneratorPositionHelper>{ L"Windows.UI.Xaml.Controls.Primitives.GeneratorPositionHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GridViewItemPresenter>{ L"Windows.UI.Xaml.Controls.Primitives.GridViewItemPresenter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GridViewItemTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.GridViewItemTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ItemsChangedEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::JumpListItemBackgroundConverter>{ L"Windows.UI.Xaml.Controls.Primitives.JumpListItemBackgroundConverter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::JumpListItemForegroundConverter>{ L"Windows.UI.Xaml.Controls.Primitives.JumpListItemForegroundConverter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::LayoutInformation>{ L"Windows.UI.Xaml.Controls.Primitives.LayoutInformation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ListViewItemPresenter>{ L"Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ListViewItemTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ListViewItemTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::LoopingSelector>{ L"Windows.UI.Xaml.Controls.Primitives.LoopingSelector" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::LoopingSelectorItem>{ L"Windows.UI.Xaml.Controls.Primitives.LoopingSelectorItem" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::LoopingSelectorPanel>{ L"Windows.UI.Xaml.Controls.Primitives.LoopingSelectorPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::MenuFlyoutItemTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.MenuFlyoutItemTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::MenuFlyoutPresenterTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.MenuFlyoutPresenterTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::NavigationViewItemPresenter>{ L"Windows.UI.Xaml.Controls.Primitives.NavigationViewItemPresenter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::OrientedVirtualizingPanel>{ L"Windows.UI.Xaml.Controls.Primitives.OrientedVirtualizingPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PickerFlyoutBase>{ L"Windows.UI.Xaml.Controls.Primitives.PickerFlyoutBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PivotHeaderItem>{ L"Windows.UI.Xaml.Controls.Primitives.PivotHeaderItem" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PivotHeaderPanel>{ L"Windows.UI.Xaml.Controls.Primitives.PivotHeaderPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PivotPanel>{ L"Windows.UI.Xaml.Controls.Primitives.PivotPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::Popup>{ L"Windows.UI.Xaml.Controls.Primitives.Popup" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ProgressBarTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ProgressBarTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ProgressRingTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ProgressRingTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::RangeBase>{ L"Windows.UI.Xaml.Controls.Primitives.RangeBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::RepeatButton>{ L"Windows.UI.Xaml.Controls.Primitives.RepeatButton" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollBar>{ L"Windows.UI.Xaml.Controls.Primitives.ScrollBar" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.ScrollEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::Selector>{ L"Windows.UI.Xaml.Controls.Primitives.Selector" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SelectorItem>{ L"Windows.UI.Xaml.Controls.Primitives.SelectorItem" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SettingsFlyoutTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.SettingsFlyoutTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SplitViewTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.SplitViewTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::Thumb>{ L"Windows.UI.Xaml.Controls.Primitives.Thumb" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::TickBar>{ L"Windows.UI.Xaml.Controls.Primitives.TickBar" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ToggleButton>{ L"Windows.UI.Xaml.Controls.Primitives.ToggleButton" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ToggleSwitchTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ToggleSwitchTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ToolTipTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ToolTipTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::AnimationDirection>{ L"Windows.UI.Xaml.Controls.Primitives.AnimationDirection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ComponentResourceLocation>{ L"Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::EdgeTransitionLocation>{ L"Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode>{ L"Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutShowMode>{ L"Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GeneratorDirection>{ L"Windows.UI.Xaml.Controls.Primitives.GeneratorDirection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GroupHeaderPlacement>{ L"Windows.UI.Xaml.Controls.Primitives.GroupHeaderPlacement" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ListViewItemPresenterCheckMode>{ L"Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenterCheckMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PlacementMode>{ L"Windows.UI.Xaml.Controls.Primitives.PlacementMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollEventType>{ L"Windows.UI.Xaml.Controls.Primitives.ScrollEventType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollingIndicatorMode>{ L"Windows.UI.Xaml.Controls.Primitives.ScrollingIndicatorMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SliderSnapsTo>{ L"Windows.UI.Xaml.Controls.Primitives.SliderSnapsTo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SnapPointsAlignment>{ L"Windows.UI.Xaml.Controls.Primitives.SnapPointsAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::TickPlacement>{ L"Windows.UI.Xaml.Controls.Primitives.TickPlacement" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GeneratorPosition>{ L"Windows.UI.Xaml.Controls.Primitives.GeneratorPosition" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IAppBarButtonTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IAppBarButtonTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IAppBarTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IAppBarTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IAppBarTemplateSettings2>{ L"Windows.UI.Xaml.Controls.Primitives.IAppBarTemplateSettings2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IAppBarToggleButtonTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IAppBarToggleButtonTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IButtonBase>{ L"Windows.UI.Xaml.Controls.Primitives.IButtonBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IButtonBaseFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IButtonBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IButtonBaseStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IButtonBaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICalendarPanel>{ L"Windows.UI.Xaml.Controls.Primitives.ICalendarPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICalendarViewTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ICalendarViewTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICarouselPanel>{ L"Windows.UI.Xaml.Controls.Primitives.ICarouselPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICarouselPanelFactory>{ L"Windows.UI.Xaml.Controls.Primitives.ICarouselPanelFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorPickerSlider>{ L"Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorPickerSliderFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IColorPickerSliderFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorPickerSliderStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IColorPickerSliderStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorSpectrum>{ L"Windows.UI.Xaml.Controls.Primitives.IColorSpectrum" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorSpectrumFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IColorSpectrumFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorSpectrumStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IColorSpectrumStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IComboBoxTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IComboBoxTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IComboBoxTemplateSettings2>{ L"Windows.UI.Xaml.Controls.Primitives.IComboBoxTemplateSettings2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBar>{ L"Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBar" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBarFactory>{ L"Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBarFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBarTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBarTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings2>{ L"Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings3>{ L"Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings4>{ L"Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragCompletedEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragCompletedEventArgsFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragDeltaEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragDeltaEventArgsFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragStartedEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragStartedEventArgsFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase2>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase3>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase4>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase5>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase5" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase6>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase6" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseClosingEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseClosingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseOverrides>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseOverrides4>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseOverrides4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics2>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics3>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics5>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics5" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics6>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics6" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutShowOptions>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutShowOptionsFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptionsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGeneratorPositionHelper>{ L"Windows.UI.Xaml.Controls.Primitives.IGeneratorPositionHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGeneratorPositionHelperStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IGeneratorPositionHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenter>{ L"Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenterFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenterFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenterStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenterStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGridViewItemTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IGridViewItemTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IItemsChangedEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.IItemsChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IJumpListItemBackgroundConverter>{ L"Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IJumpListItemBackgroundConverterStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverterStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IJumpListItemForegroundConverter>{ L"Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IJumpListItemForegroundConverterStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverterStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILayoutInformation>{ L"Windows.UI.Xaml.Controls.Primitives.ILayoutInformation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILayoutInformationStatics>{ L"Windows.UI.Xaml.Controls.Primitives.ILayoutInformationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILayoutInformationStatics2>{ L"Windows.UI.Xaml.Controls.Primitives.ILayoutInformationStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter>{ L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter2>{ L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter3>{ L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics2>{ L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics3>{ L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IListViewItemTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILoopingSelector>{ L"Windows.UI.Xaml.Controls.Primitives.ILoopingSelector" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILoopingSelectorItem>{ L"Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorItem" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILoopingSelectorPanel>{ L"Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILoopingSelectorStatics>{ L"Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IMenuFlyoutItemTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IMenuFlyoutItemTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IMenuFlyoutPresenterTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IMenuFlyoutPresenterTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenter>{ L"Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenterFactory>{ L"Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenterFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenterStatics>{ L"Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenterStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IOrientedVirtualizingPanel>{ L"Windows.UI.Xaml.Controls.Primitives.IOrientedVirtualizingPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IOrientedVirtualizingPanelFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IOrientedVirtualizingPanelFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBase>{ L"Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseOverrides>{ L"Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBaseOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPivotHeaderItem>{ L"Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPivotHeaderItemFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItemFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPivotHeaderPanel>{ L"Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPivotPanel>{ L"Windows.UI.Xaml.Controls.Primitives.IPivotPanel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopup>{ L"Windows.UI.Xaml.Controls.Primitives.IPopup" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopup2>{ L"Windows.UI.Xaml.Controls.Primitives.IPopup2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopup3>{ L"Windows.UI.Xaml.Controls.Primitives.IPopup3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopupStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IPopupStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopupStatics2>{ L"Windows.UI.Xaml.Controls.Primitives.IPopupStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopupStatics3>{ L"Windows.UI.Xaml.Controls.Primitives.IPopupStatics3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IProgressBarTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IProgressBarTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IProgressRingTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IProgressRingTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBase>{ L"Windows.UI.Xaml.Controls.Primitives.IRangeBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBaseFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IRangeBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBaseOverrides>{ L"Windows.UI.Xaml.Controls.Primitives.IRangeBaseOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBaseStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IRangeBaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBaseValueChangedEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRepeatButton>{ L"Windows.UI.Xaml.Controls.Primitives.IRepeatButton" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRepeatButtonStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IRepeatButtonStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IScrollBar>{ L"Windows.UI.Xaml.Controls.Primitives.IScrollBar" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IScrollBarStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IScrollBarStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IScrollEventArgs>{ L"Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IScrollSnapPointsInfo>{ L"Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelector>{ L"Windows.UI.Xaml.Controls.Primitives.ISelector" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorFactory>{ L"Windows.UI.Xaml.Controls.Primitives.ISelectorFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorItem>{ L"Windows.UI.Xaml.Controls.Primitives.ISelectorItem" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorItemFactory>{ L"Windows.UI.Xaml.Controls.Primitives.ISelectorItemFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorItemStatics>{ L"Windows.UI.Xaml.Controls.Primitives.ISelectorItemStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorStatics>{ L"Windows.UI.Xaml.Controls.Primitives.ISelectorStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISettingsFlyoutTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ISettingsFlyoutTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISplitViewTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.ISplitViewTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IThumb>{ L"Windows.UI.Xaml.Controls.Primitives.IThumb" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IThumbStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IThumbStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ITickBar>{ L"Windows.UI.Xaml.Controls.Primitives.ITickBar" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ITickBarStatics>{ L"Windows.UI.Xaml.Controls.Primitives.ITickBarStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleButton>{ L"Windows.UI.Xaml.Controls.Primitives.IToggleButton" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleButtonFactory>{ L"Windows.UI.Xaml.Controls.Primitives.IToggleButtonFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleButtonOverrides>{ L"Windows.UI.Xaml.Controls.Primitives.IToggleButtonOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleButtonStatics>{ L"Windows.UI.Xaml.Controls.Primitives.IToggleButtonStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleSwitchTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IToggleSwitchTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToolTipTemplateSettings>{ L"Windows.UI.Xaml.Controls.Primitives.IToolTipTemplateSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragCompletedEventHandler>{ L"Windows.UI.Xaml.Controls.Primitives.DragCompletedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragDeltaEventHandler>{ L"Windows.UI.Xaml.Controls.Primitives.DragDeltaEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragStartedEventHandler>{ L"Windows.UI.Xaml.Controls.Primitives.DragStartedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ItemsChangedEventHandler>{ L"Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventHandler>{ L"Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollEventHandler>{ L"Windows.UI.Xaml.Controls.Primitives.ScrollEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::AppBarButtonTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.AppBarButtonTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::AppBarTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.AppBarTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::AppBarToggleButtonTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.AppBarToggleButtonTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ButtonBase> = L"Windows.UI.Xaml.Controls.Primitives.ButtonBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CalendarPanel> = L"Windows.UI.Xaml.Controls.Primitives.CalendarPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CalendarViewTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.CalendarViewTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CarouselPanel> = L"Windows.UI.Xaml.Controls.Primitives.CarouselPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ColorPickerSlider> = L"Windows.UI.Xaml.Controls.Primitives.ColorPickerSlider";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ColorSpectrum> = L"Windows.UI.Xaml.Controls.Primitives.ColorSpectrum";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ComboBoxTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ComboBoxTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CommandBarFlyoutCommandBar> = L"Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBar";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CommandBarFlyoutCommandBarTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBarTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::CommandBarTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.CommandBarTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragCompletedEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.DragCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragDeltaEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.DragDeltaEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragStartedEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.DragStartedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutBase> = L"Windows.UI.Xaml.Controls.Primitives.FlyoutBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutBaseClosingEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutShowOptions> = L"Windows.UI.Xaml.Controls.Primitives.FlyoutShowOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GeneratorPositionHelper> = L"Windows.UI.Xaml.Controls.Primitives.GeneratorPositionHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GridViewItemPresenter> = L"Windows.UI.Xaml.Controls.Primitives.GridViewItemPresenter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GridViewItemTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.GridViewItemTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ItemsChangedEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::JumpListItemBackgroundConverter> = L"Windows.UI.Xaml.Controls.Primitives.JumpListItemBackgroundConverter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::JumpListItemForegroundConverter> = L"Windows.UI.Xaml.Controls.Primitives.JumpListItemForegroundConverter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::LayoutInformation> = L"Windows.UI.Xaml.Controls.Primitives.LayoutInformation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ListViewItemPresenter> = L"Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ListViewItemTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ListViewItemTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::LoopingSelector> = L"Windows.UI.Xaml.Controls.Primitives.LoopingSelector";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::LoopingSelectorItem> = L"Windows.UI.Xaml.Controls.Primitives.LoopingSelectorItem";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::LoopingSelectorPanel> = L"Windows.UI.Xaml.Controls.Primitives.LoopingSelectorPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::MenuFlyoutItemTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.MenuFlyoutItemTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::MenuFlyoutPresenterTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.MenuFlyoutPresenterTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::NavigationViewItemPresenter> = L"Windows.UI.Xaml.Controls.Primitives.NavigationViewItemPresenter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::OrientedVirtualizingPanel> = L"Windows.UI.Xaml.Controls.Primitives.OrientedVirtualizingPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PickerFlyoutBase> = L"Windows.UI.Xaml.Controls.Primitives.PickerFlyoutBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PivotHeaderItem> = L"Windows.UI.Xaml.Controls.Primitives.PivotHeaderItem";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PivotHeaderPanel> = L"Windows.UI.Xaml.Controls.Primitives.PivotHeaderPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PivotPanel> = L"Windows.UI.Xaml.Controls.Primitives.PivotPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::Popup> = L"Windows.UI.Xaml.Controls.Primitives.Popup";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ProgressBarTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ProgressBarTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ProgressRingTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ProgressRingTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::RangeBase> = L"Windows.UI.Xaml.Controls.Primitives.RangeBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::RepeatButton> = L"Windows.UI.Xaml.Controls.Primitives.RepeatButton";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollBar> = L"Windows.UI.Xaml.Controls.Primitives.ScrollBar";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.ScrollEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::Selector> = L"Windows.UI.Xaml.Controls.Primitives.Selector";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SelectorItem> = L"Windows.UI.Xaml.Controls.Primitives.SelectorItem";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SettingsFlyoutTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.SettingsFlyoutTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SplitViewTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.SplitViewTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::Thumb> = L"Windows.UI.Xaml.Controls.Primitives.Thumb";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::TickBar> = L"Windows.UI.Xaml.Controls.Primitives.TickBar";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ToggleButton> = L"Windows.UI.Xaml.Controls.Primitives.ToggleButton";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ToggleSwitchTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ToggleSwitchTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ToolTipTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ToolTipTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::AnimationDirection> = L"Windows.UI.Xaml.Controls.Primitives.AnimationDirection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ComponentResourceLocation> = L"Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::EdgeTransitionLocation> = L"Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode> = L"Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::FlyoutShowMode> = L"Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GeneratorDirection> = L"Windows.UI.Xaml.Controls.Primitives.GeneratorDirection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GroupHeaderPlacement> = L"Windows.UI.Xaml.Controls.Primitives.GroupHeaderPlacement";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ListViewItemPresenterCheckMode> = L"Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenterCheckMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::PlacementMode> = L"Windows.UI.Xaml.Controls.Primitives.PlacementMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollEventType> = L"Windows.UI.Xaml.Controls.Primitives.ScrollEventType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollingIndicatorMode> = L"Windows.UI.Xaml.Controls.Primitives.ScrollingIndicatorMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SliderSnapsTo> = L"Windows.UI.Xaml.Controls.Primitives.SliderSnapsTo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::SnapPointsAlignment> = L"Windows.UI.Xaml.Controls.Primitives.SnapPointsAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::TickPlacement> = L"Windows.UI.Xaml.Controls.Primitives.TickPlacement";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::GeneratorPosition> = L"Windows.UI.Xaml.Controls.Primitives.GeneratorPosition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IAppBarButtonTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IAppBarButtonTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IAppBarTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IAppBarTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IAppBarTemplateSettings2> = L"Windows.UI.Xaml.Controls.Primitives.IAppBarTemplateSettings2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IAppBarToggleButtonTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IAppBarToggleButtonTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IButtonBase> = L"Windows.UI.Xaml.Controls.Primitives.IButtonBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IButtonBaseFactory> = L"Windows.UI.Xaml.Controls.Primitives.IButtonBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IButtonBaseStatics> = L"Windows.UI.Xaml.Controls.Primitives.IButtonBaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICalendarPanel> = L"Windows.UI.Xaml.Controls.Primitives.ICalendarPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICalendarViewTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ICalendarViewTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICarouselPanel> = L"Windows.UI.Xaml.Controls.Primitives.ICarouselPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICarouselPanelFactory> = L"Windows.UI.Xaml.Controls.Primitives.ICarouselPanelFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorPickerSlider> = L"Windows.UI.Xaml.Controls.Primitives.IColorPickerSlider";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorPickerSliderFactory> = L"Windows.UI.Xaml.Controls.Primitives.IColorPickerSliderFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorPickerSliderStatics> = L"Windows.UI.Xaml.Controls.Primitives.IColorPickerSliderStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorSpectrum> = L"Windows.UI.Xaml.Controls.Primitives.IColorSpectrum";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorSpectrumFactory> = L"Windows.UI.Xaml.Controls.Primitives.IColorSpectrumFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IColorSpectrumStatics> = L"Windows.UI.Xaml.Controls.Primitives.IColorSpectrumStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IComboBoxTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IComboBoxTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IComboBoxTemplateSettings2> = L"Windows.UI.Xaml.Controls.Primitives.IComboBoxTemplateSettings2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBar> = L"Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBar";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBarFactory> = L"Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBarFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBarTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ICommandBarFlyoutCommandBarTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings2> = L"Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings3> = L"Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings4> = L"Windows.UI.Xaml.Controls.Primitives.ICommandBarTemplateSettings4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragCompletedEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragCompletedEventArgsFactory> = L"Windows.UI.Xaml.Controls.Primitives.IDragCompletedEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragDeltaEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragDeltaEventArgsFactory> = L"Windows.UI.Xaml.Controls.Primitives.IDragDeltaEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragStartedEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IDragStartedEventArgsFactory> = L"Windows.UI.Xaml.Controls.Primitives.IDragStartedEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase2> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase3> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase4> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase5> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase5";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase6> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBase6";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseClosingEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseClosingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseFactory> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseOverrides> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseOverrides4> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseOverrides4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics2> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics3> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics5> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics5";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics6> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics6";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutShowOptions> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IFlyoutShowOptionsFactory> = L"Windows.UI.Xaml.Controls.Primitives.IFlyoutShowOptionsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGeneratorPositionHelper> = L"Windows.UI.Xaml.Controls.Primitives.IGeneratorPositionHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGeneratorPositionHelperStatics> = L"Windows.UI.Xaml.Controls.Primitives.IGeneratorPositionHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenter> = L"Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenterFactory> = L"Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenterFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenterStatics> = L"Windows.UI.Xaml.Controls.Primitives.IGridViewItemPresenterStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IGridViewItemTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IGridViewItemTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IItemsChangedEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.IItemsChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IJumpListItemBackgroundConverter> = L"Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IJumpListItemBackgroundConverterStatics> = L"Windows.UI.Xaml.Controls.Primitives.IJumpListItemBackgroundConverterStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IJumpListItemForegroundConverter> = L"Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IJumpListItemForegroundConverterStatics> = L"Windows.UI.Xaml.Controls.Primitives.IJumpListItemForegroundConverterStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILayoutInformation> = L"Windows.UI.Xaml.Controls.Primitives.ILayoutInformation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILayoutInformationStatics> = L"Windows.UI.Xaml.Controls.Primitives.ILayoutInformationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILayoutInformationStatics2> = L"Windows.UI.Xaml.Controls.Primitives.ILayoutInformationStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter> = L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter2> = L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter3> = L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenter3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterFactory> = L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics> = L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics2> = L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics3> = L"Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IListViewItemTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IListViewItemTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILoopingSelector> = L"Windows.UI.Xaml.Controls.Primitives.ILoopingSelector";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILoopingSelectorItem> = L"Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorItem";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILoopingSelectorPanel> = L"Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ILoopingSelectorStatics> = L"Windows.UI.Xaml.Controls.Primitives.ILoopingSelectorStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IMenuFlyoutItemTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IMenuFlyoutItemTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IMenuFlyoutPresenterTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IMenuFlyoutPresenterTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenter> = L"Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenterFactory> = L"Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenterFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenterStatics> = L"Windows.UI.Xaml.Controls.Primitives.INavigationViewItemPresenterStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IOrientedVirtualizingPanel> = L"Windows.UI.Xaml.Controls.Primitives.IOrientedVirtualizingPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IOrientedVirtualizingPanelFactory> = L"Windows.UI.Xaml.Controls.Primitives.IOrientedVirtualizingPanelFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBase> = L"Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseFactory> = L"Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseOverrides> = L"Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBaseOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseStatics> = L"Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPivotHeaderItem> = L"Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItem";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPivotHeaderItemFactory> = L"Windows.UI.Xaml.Controls.Primitives.IPivotHeaderItemFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPivotHeaderPanel> = L"Windows.UI.Xaml.Controls.Primitives.IPivotHeaderPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPivotPanel> = L"Windows.UI.Xaml.Controls.Primitives.IPivotPanel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopup> = L"Windows.UI.Xaml.Controls.Primitives.IPopup";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopup2> = L"Windows.UI.Xaml.Controls.Primitives.IPopup2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopup3> = L"Windows.UI.Xaml.Controls.Primitives.IPopup3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopupStatics> = L"Windows.UI.Xaml.Controls.Primitives.IPopupStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopupStatics2> = L"Windows.UI.Xaml.Controls.Primitives.IPopupStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IPopupStatics3> = L"Windows.UI.Xaml.Controls.Primitives.IPopupStatics3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IProgressBarTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IProgressBarTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IProgressRingTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IProgressRingTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBase> = L"Windows.UI.Xaml.Controls.Primitives.IRangeBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBaseFactory> = L"Windows.UI.Xaml.Controls.Primitives.IRangeBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBaseOverrides> = L"Windows.UI.Xaml.Controls.Primitives.IRangeBaseOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBaseStatics> = L"Windows.UI.Xaml.Controls.Primitives.IRangeBaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRangeBaseValueChangedEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.IRangeBaseValueChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRepeatButton> = L"Windows.UI.Xaml.Controls.Primitives.IRepeatButton";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IRepeatButtonStatics> = L"Windows.UI.Xaml.Controls.Primitives.IRepeatButtonStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IScrollBar> = L"Windows.UI.Xaml.Controls.Primitives.IScrollBar";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IScrollBarStatics> = L"Windows.UI.Xaml.Controls.Primitives.IScrollBarStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IScrollEventArgs> = L"Windows.UI.Xaml.Controls.Primitives.IScrollEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IScrollSnapPointsInfo> = L"Windows.UI.Xaml.Controls.Primitives.IScrollSnapPointsInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelector> = L"Windows.UI.Xaml.Controls.Primitives.ISelector";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorFactory> = L"Windows.UI.Xaml.Controls.Primitives.ISelectorFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorItem> = L"Windows.UI.Xaml.Controls.Primitives.ISelectorItem";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorItemFactory> = L"Windows.UI.Xaml.Controls.Primitives.ISelectorItemFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorItemStatics> = L"Windows.UI.Xaml.Controls.Primitives.ISelectorItemStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISelectorStatics> = L"Windows.UI.Xaml.Controls.Primitives.ISelectorStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISettingsFlyoutTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ISettingsFlyoutTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ISplitViewTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.ISplitViewTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IThumb> = L"Windows.UI.Xaml.Controls.Primitives.IThumb";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IThumbStatics> = L"Windows.UI.Xaml.Controls.Primitives.IThumbStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ITickBar> = L"Windows.UI.Xaml.Controls.Primitives.ITickBar";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ITickBarStatics> = L"Windows.UI.Xaml.Controls.Primitives.ITickBarStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleButton> = L"Windows.UI.Xaml.Controls.Primitives.IToggleButton";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleButtonFactory> = L"Windows.UI.Xaml.Controls.Primitives.IToggleButtonFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleButtonOverrides> = L"Windows.UI.Xaml.Controls.Primitives.IToggleButtonOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleButtonStatics> = L"Windows.UI.Xaml.Controls.Primitives.IToggleButtonStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToggleSwitchTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IToggleSwitchTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::IToolTipTemplateSettings> = L"Windows.UI.Xaml.Controls.Primitives.IToolTipTemplateSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragCompletedEventHandler> = L"Windows.UI.Xaml.Controls.Primitives.DragCompletedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragDeltaEventHandler> = L"Windows.UI.Xaml.Controls.Primitives.DragDeltaEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::DragStartedEventHandler> = L"Windows.UI.Xaml.Controls.Primitives.DragStartedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ItemsChangedEventHandler> = L"Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventHandler> = L"Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Controls::Primitives::ScrollEventHandler> = L"Windows.UI.Xaml.Controls.Primitives.ScrollEventHandler";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Controls::Primitives::IAppBarButtonTemplateSettings>{ 0xCBC9B39D,0x0C95,0x4951,{ 0xBF,0xF2,0x13,0x96,0x36,0x91,0xC3,0x66 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Controls::Primitives::IAppBarTemplateSettings>{ 0xBCC2A863,0xEB35,0x423C,{ 0x83,0x89,0xD7,0x82,0x7B,0xE3,0xBF,0x67 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Controls::Primitives::IAppBarTemplateSettings2>{ 0xCBE66259,0x0399,0x5BCC,{ 0xB9,0x25,0x4D,0x5F,0x5C,0x9A,0x45,0x68 } };
@@ -2405,7 +2404,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IAppBarButtonTemplateSettings
     {
-        [[nodiscard]] auto KeyboardAcceleratorTextMinWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KeyboardAcceleratorTextMinWidth() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IAppBarButtonTemplateSettings>
     {
@@ -2414,13 +2413,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IAppBarTemplateSettings
     {
-        [[nodiscard]] auto ClipRect() const;
-        [[nodiscard]] auto CompactVerticalDelta() const;
-        [[nodiscard]] auto CompactRootMargin() const;
-        [[nodiscard]] auto MinimalVerticalDelta() const;
-        [[nodiscard]] auto MinimalRootMargin() const;
-        [[nodiscard]] auto HiddenVerticalDelta() const;
-        [[nodiscard]] auto HiddenRootMargin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) ClipRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CompactVerticalDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) CompactRootMargin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MinimalVerticalDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) MinimalRootMargin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HiddenVerticalDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) HiddenRootMargin() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IAppBarTemplateSettings>
     {
@@ -2429,9 +2428,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IAppBarTemplateSettings2
     {
-        [[nodiscard]] auto NegativeCompactVerticalDelta() const;
-        [[nodiscard]] auto NegativeMinimalVerticalDelta() const;
-        [[nodiscard]] auto NegativeHiddenVerticalDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NegativeCompactVerticalDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NegativeMinimalVerticalDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NegativeHiddenVerticalDelta() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IAppBarTemplateSettings2>
     {
@@ -2440,7 +2439,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IAppBarToggleButtonTemplateSettings
     {
-        [[nodiscard]] auto KeyboardAcceleratorTextMinWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KeyboardAcceleratorTextMinWidth() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IAppBarToggleButtonTemplateSettings>
     {
@@ -2449,18 +2448,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IButtonBase
     {
-        [[nodiscard]] auto ClickMode() const;
-        auto ClickMode(Windows::UI::Xaml::Controls::ClickMode const& value) const;
-        [[nodiscard]] auto IsPointerOver() const;
-        [[nodiscard]] auto IsPressed() const;
-        [[nodiscard]] auto Command() const;
-        auto Command(Windows::UI::Xaml::Input::ICommand const& value) const;
-        [[nodiscard]] auto CommandParameter() const;
-        auto CommandParameter(Windows::Foundation::IInspectable const& value) const;
-        auto Click(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::ClickMode) ClickMode() const;
+        WINRT_IMPL_AUTO(void) ClickMode(Windows::UI::Xaml::Controls::ClickMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPointerOver() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPressed() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::ICommand) Command() const;
+        WINRT_IMPL_AUTO(void) Command(Windows::UI::Xaml::Input::ICommand const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CommandParameter() const;
+        WINRT_IMPL_AUTO(void) CommandParameter(Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Click(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using Click_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IButtonBase, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IButtonBase>::remove_Click>;
         [[nodiscard]] Click_revoker Click(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto Click(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Click(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IButtonBase>
     {
@@ -2469,7 +2468,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IButtonBaseFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::ButtonBase) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IButtonBaseFactory>
     {
@@ -2478,11 +2477,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IButtonBaseStatics
     {
-        [[nodiscard]] auto ClickModeProperty() const;
-        [[nodiscard]] auto IsPointerOverProperty() const;
-        [[nodiscard]] auto IsPressedProperty() const;
-        [[nodiscard]] auto CommandProperty() const;
-        [[nodiscard]] auto CommandParameterProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ClickModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsPointerOverProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsPressedProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CommandProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CommandParameterProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IButtonBaseStatics>
     {
@@ -2499,21 +2498,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICalendarViewTemplateSettings
     {
-        [[nodiscard]] auto MinViewWidth() const;
-        [[nodiscard]] auto HeaderText() const;
-        [[nodiscard]] auto WeekDay1() const;
-        [[nodiscard]] auto WeekDay2() const;
-        [[nodiscard]] auto WeekDay3() const;
-        [[nodiscard]] auto WeekDay4() const;
-        [[nodiscard]] auto WeekDay5() const;
-        [[nodiscard]] auto WeekDay6() const;
-        [[nodiscard]] auto WeekDay7() const;
-        [[nodiscard]] auto HasMoreContentAfter() const;
-        [[nodiscard]] auto HasMoreContentBefore() const;
-        [[nodiscard]] auto HasMoreViews() const;
-        [[nodiscard]] auto ClipRect() const;
-        [[nodiscard]] auto CenterX() const;
-        [[nodiscard]] auto CenterY() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MinViewWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HeaderText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WeekDay1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WeekDay2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WeekDay3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WeekDay4() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WeekDay5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WeekDay6() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WeekDay7() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasMoreContentAfter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasMoreContentBefore() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasMoreViews() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) ClipRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CenterX() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CenterY() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICalendarViewTemplateSettings>
     {
@@ -2522,33 +2521,33 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICarouselPanel
     {
-        [[nodiscard]] auto CanVerticallyScroll() const;
-        auto CanVerticallyScroll(bool value) const;
-        [[nodiscard]] auto CanHorizontallyScroll() const;
-        auto CanHorizontallyScroll(bool value) const;
-        [[nodiscard]] auto ExtentWidth() const;
-        [[nodiscard]] auto ExtentHeight() const;
-        [[nodiscard]] auto ViewportWidth() const;
-        [[nodiscard]] auto ViewportHeight() const;
-        [[nodiscard]] auto HorizontalOffset() const;
-        [[nodiscard]] auto VerticalOffset() const;
-        [[nodiscard]] auto ScrollOwner() const;
-        auto ScrollOwner(Windows::Foundation::IInspectable const& value) const;
-        auto LineUp() const;
-        auto LineDown() const;
-        auto LineLeft() const;
-        auto LineRight() const;
-        auto PageUp() const;
-        auto PageDown() const;
-        auto PageLeft() const;
-        auto PageRight() const;
-        auto MouseWheelUp() const;
-        auto MouseWheelDown() const;
-        auto MouseWheelLeft() const;
-        auto MouseWheelRight() const;
-        auto SetHorizontalOffset(double offset) const;
-        auto SetVerticalOffset(double offset) const;
-        auto MakeVisible(Windows::UI::Xaml::UIElement const& visual, Windows::Foundation::Rect const& rectangle) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanVerticallyScroll() const;
+        WINRT_IMPL_AUTO(void) CanVerticallyScroll(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanHorizontallyScroll() const;
+        WINRT_IMPL_AUTO(void) CanHorizontallyScroll(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExtentWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExtentHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ViewportWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ViewportHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ScrollOwner() const;
+        WINRT_IMPL_AUTO(void) ScrollOwner(Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) LineUp() const;
+        WINRT_IMPL_AUTO(void) LineDown() const;
+        WINRT_IMPL_AUTO(void) LineLeft() const;
+        WINRT_IMPL_AUTO(void) LineRight() const;
+        WINRT_IMPL_AUTO(void) PageUp() const;
+        WINRT_IMPL_AUTO(void) PageDown() const;
+        WINRT_IMPL_AUTO(void) PageLeft() const;
+        WINRT_IMPL_AUTO(void) PageRight() const;
+        WINRT_IMPL_AUTO(void) MouseWheelUp() const;
+        WINRT_IMPL_AUTO(void) MouseWheelDown() const;
+        WINRT_IMPL_AUTO(void) MouseWheelLeft() const;
+        WINRT_IMPL_AUTO(void) MouseWheelRight() const;
+        WINRT_IMPL_AUTO(void) SetHorizontalOffset(double offset) const;
+        WINRT_IMPL_AUTO(void) SetVerticalOffset(double offset) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) MakeVisible(Windows::UI::Xaml::UIElement const& visual, Windows::Foundation::Rect const& rectangle) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICarouselPanel>
     {
@@ -2557,7 +2556,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICarouselPanelFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::CarouselPanel) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICarouselPanelFactory>
     {
@@ -2566,8 +2565,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IColorPickerSlider
     {
-        [[nodiscard]] auto ColorChannel() const;
-        auto ColorChannel(Windows::UI::Xaml::Controls::ColorPickerHsvChannel const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::ColorPickerHsvChannel) ColorChannel() const;
+        WINRT_IMPL_AUTO(void) ColorChannel(Windows::UI::Xaml::Controls::ColorPickerHsvChannel const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IColorPickerSlider>
     {
@@ -2576,7 +2575,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IColorPickerSliderFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::ColorPickerSlider) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IColorPickerSliderFactory>
     {
@@ -2585,7 +2584,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IColorPickerSliderStatics
     {
-        [[nodiscard]] auto ColorChannelProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ColorChannelProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IColorPickerSliderStatics>
     {
@@ -2594,30 +2593,30 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IColorSpectrum
     {
-        [[nodiscard]] auto Color() const;
-        auto Color(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto HsvColor() const;
-        auto HsvColor(Windows::Foundation::Numerics::float4 const& value) const;
-        [[nodiscard]] auto MinHue() const;
-        auto MinHue(int32_t value) const;
-        [[nodiscard]] auto MaxHue() const;
-        auto MaxHue(int32_t value) const;
-        [[nodiscard]] auto MinSaturation() const;
-        auto MinSaturation(int32_t value) const;
-        [[nodiscard]] auto MaxSaturation() const;
-        auto MaxSaturation(int32_t value) const;
-        [[nodiscard]] auto MinValue() const;
-        auto MinValue(int32_t value) const;
-        [[nodiscard]] auto MaxValue() const;
-        auto MaxValue(int32_t value) const;
-        [[nodiscard]] auto Shape() const;
-        auto Shape(Windows::UI::Xaml::Controls::ColorSpectrumShape const& value) const;
-        [[nodiscard]] auto Components() const;
-        auto Components(Windows::UI::Xaml::Controls::ColorSpectrumComponents const& value) const;
-        auto ColorChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::Primitives::ColorSpectrum, Windows::UI::Xaml::Controls::ColorChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Color() const;
+        WINRT_IMPL_AUTO(void) Color(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float4) HsvColor() const;
+        WINRT_IMPL_AUTO(void) HsvColor(Windows::Foundation::Numerics::float4 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MinHue() const;
+        WINRT_IMPL_AUTO(void) MinHue(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxHue() const;
+        WINRT_IMPL_AUTO(void) MaxHue(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MinSaturation() const;
+        WINRT_IMPL_AUTO(void) MinSaturation(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxSaturation() const;
+        WINRT_IMPL_AUTO(void) MaxSaturation(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MinValue() const;
+        WINRT_IMPL_AUTO(void) MinValue(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxValue() const;
+        WINRT_IMPL_AUTO(void) MaxValue(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::ColorSpectrumShape) Shape() const;
+        WINRT_IMPL_AUTO(void) Shape(Windows::UI::Xaml::Controls::ColorSpectrumShape const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::ColorSpectrumComponents) Components() const;
+        WINRT_IMPL_AUTO(void) Components(Windows::UI::Xaml::Controls::ColorSpectrumComponents const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ColorChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::Primitives::ColorSpectrum, Windows::UI::Xaml::Controls::ColorChangedEventArgs> const& handler) const;
         using ColorChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IColorSpectrum, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IColorSpectrum>::remove_ColorChanged>;
         [[nodiscard]] ColorChanged_revoker ColorChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::Primitives::ColorSpectrum, Windows::UI::Xaml::Controls::ColorChangedEventArgs> const& handler) const;
-        auto ColorChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ColorChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IColorSpectrum>
     {
@@ -2626,7 +2625,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IColorSpectrumFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::ColorSpectrum) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IColorSpectrumFactory>
     {
@@ -2635,16 +2634,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IColorSpectrumStatics
     {
-        [[nodiscard]] auto ColorProperty() const;
-        [[nodiscard]] auto HsvColorProperty() const;
-        [[nodiscard]] auto MinHueProperty() const;
-        [[nodiscard]] auto MaxHueProperty() const;
-        [[nodiscard]] auto MinSaturationProperty() const;
-        [[nodiscard]] auto MaxSaturationProperty() const;
-        [[nodiscard]] auto MinValueProperty() const;
-        [[nodiscard]] auto MaxValueProperty() const;
-        [[nodiscard]] auto ShapeProperty() const;
-        [[nodiscard]] auto ComponentsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ColorProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) HsvColorProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MinHueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MaxHueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MinSaturationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MaxSaturationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MinValueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MaxValueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ShapeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ComponentsProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IColorSpectrumStatics>
     {
@@ -2653,10 +2652,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IComboBoxTemplateSettings
     {
-        [[nodiscard]] auto DropDownOpenedHeight() const;
-        [[nodiscard]] auto DropDownClosedHeight() const;
-        [[nodiscard]] auto DropDownOffset() const;
-        [[nodiscard]] auto SelectedItemDirection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DropDownOpenedHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DropDownClosedHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DropDownOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::AnimationDirection) SelectedItemDirection() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IComboBoxTemplateSettings>
     {
@@ -2665,7 +2664,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IComboBoxTemplateSettings2
     {
-        [[nodiscard]] auto DropDownContentMinWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DropDownContentMinWidth() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IComboBoxTemplateSettings2>
     {
@@ -2674,7 +2673,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICommandBarFlyoutCommandBar
     {
-        [[nodiscard]] auto FlyoutTemplateSettings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::CommandBarFlyoutCommandBarTemplateSettings) FlyoutTemplateSettings() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBar>
     {
@@ -2683,7 +2682,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICommandBarFlyoutCommandBarFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::CommandBarFlyoutCommandBar) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBarFactory>
     {
@@ -2692,26 +2691,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICommandBarFlyoutCommandBarTemplateSettings
     {
-        [[nodiscard]] auto OpenAnimationStartPosition() const;
-        [[nodiscard]] auto OpenAnimationEndPosition() const;
-        [[nodiscard]] auto CloseAnimationEndPosition() const;
-        [[nodiscard]] auto CurrentWidth() const;
-        [[nodiscard]] auto ExpandedWidth() const;
-        [[nodiscard]] auto WidthExpansionDelta() const;
-        [[nodiscard]] auto WidthExpansionAnimationStartPosition() const;
-        [[nodiscard]] auto WidthExpansionAnimationEndPosition() const;
-        [[nodiscard]] auto WidthExpansionMoreButtonAnimationStartPosition() const;
-        [[nodiscard]] auto WidthExpansionMoreButtonAnimationEndPosition() const;
-        [[nodiscard]] auto ExpandUpOverflowVerticalPosition() const;
-        [[nodiscard]] auto ExpandDownOverflowVerticalPosition() const;
-        [[nodiscard]] auto ExpandUpAnimationStartPosition() const;
-        [[nodiscard]] auto ExpandUpAnimationEndPosition() const;
-        [[nodiscard]] auto ExpandUpAnimationHoldPosition() const;
-        [[nodiscard]] auto ExpandDownAnimationStartPosition() const;
-        [[nodiscard]] auto ExpandDownAnimationEndPosition() const;
-        [[nodiscard]] auto ExpandDownAnimationHoldPosition() const;
-        [[nodiscard]] auto ContentClipRect() const;
-        [[nodiscard]] auto OverflowContentClipRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OpenAnimationStartPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OpenAnimationEndPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CloseAnimationEndPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CurrentWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandedWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) WidthExpansionDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) WidthExpansionAnimationStartPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) WidthExpansionAnimationEndPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) WidthExpansionMoreButtonAnimationStartPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) WidthExpansionMoreButtonAnimationEndPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandUpOverflowVerticalPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandDownOverflowVerticalPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandUpAnimationStartPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandUpAnimationEndPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandUpAnimationHoldPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandDownAnimationStartPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandDownAnimationEndPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExpandDownAnimationHoldPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) ContentClipRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) OverflowContentClipRect() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICommandBarFlyoutCommandBarTemplateSettings>
     {
@@ -2720,13 +2719,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICommandBarTemplateSettings
     {
-        [[nodiscard]] auto ContentHeight() const;
-        [[nodiscard]] auto OverflowContentClipRect() const;
-        [[nodiscard]] auto OverflowContentMinWidth() const;
-        [[nodiscard]] auto OverflowContentMaxHeight() const;
-        [[nodiscard]] auto OverflowContentHorizontalOffset() const;
-        [[nodiscard]] auto OverflowContentHeight() const;
-        [[nodiscard]] auto NegativeOverflowContentHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ContentHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) OverflowContentClipRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OverflowContentMinWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OverflowContentMaxHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OverflowContentHorizontalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OverflowContentHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NegativeOverflowContentHeight() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings>
     {
@@ -2735,7 +2734,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICommandBarTemplateSettings2
     {
-        [[nodiscard]] auto OverflowContentMaxWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OverflowContentMaxWidth() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings2>
     {
@@ -2744,7 +2743,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICommandBarTemplateSettings3
     {
-        [[nodiscard]] auto EffectiveOverflowButtonVisibility() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Visibility) EffectiveOverflowButtonVisibility() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings3>
     {
@@ -2753,9 +2752,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ICommandBarTemplateSettings4
     {
-        [[nodiscard]] auto OverflowContentCompactYTranslation() const;
-        [[nodiscard]] auto OverflowContentMinimalYTranslation() const;
-        [[nodiscard]] auto OverflowContentHiddenYTranslation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OverflowContentCompactYTranslation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OverflowContentMinimalYTranslation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OverflowContentHiddenYTranslation() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ICommandBarTemplateSettings4>
     {
@@ -2764,9 +2763,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IDragCompletedEventArgs
     {
-        [[nodiscard]] auto HorizontalChange() const;
-        [[nodiscard]] auto VerticalChange() const;
-        [[nodiscard]] auto Canceled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Canceled() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IDragCompletedEventArgs>
     {
@@ -2775,7 +2774,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IDragCompletedEventArgsFactory
     {
-        auto CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(double horizontalChange, double verticalChange, bool canceled, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::DragCompletedEventArgs) CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(double horizontalChange, double verticalChange, bool canceled, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IDragCompletedEventArgsFactory>
     {
@@ -2784,8 +2783,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IDragDeltaEventArgs
     {
-        [[nodiscard]] auto HorizontalChange() const;
-        [[nodiscard]] auto VerticalChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalChange() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IDragDeltaEventArgs>
     {
@@ -2794,7 +2793,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IDragDeltaEventArgsFactory
     {
-        auto CreateInstanceWithHorizontalChangeAndVerticalChange(double horizontalChange, double verticalChange, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::DragDeltaEventArgs) CreateInstanceWithHorizontalChangeAndVerticalChange(double horizontalChange, double verticalChange, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IDragDeltaEventArgsFactory>
     {
@@ -2803,8 +2802,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IDragStartedEventArgs
     {
-        [[nodiscard]] auto HorizontalOffset() const;
-        [[nodiscard]] auto VerticalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalOffset() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IDragStartedEventArgs>
     {
@@ -2813,7 +2812,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IDragStartedEventArgsFactory
     {
-        auto CreateInstanceWithHorizontalOffsetAndVerticalOffset(double horizontalOffset, double verticalOffset, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::DragStartedEventArgs) CreateInstanceWithHorizontalOffsetAndVerticalOffset(double horizontalOffset, double verticalOffset, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IDragStartedEventArgsFactory>
     {
@@ -2822,22 +2821,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBase
     {
-        [[nodiscard]] auto Placement() const;
-        auto Placement(Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode const& value) const;
-        auto Opened(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode) Placement() const;
+        WINRT_IMPL_AUTO(void) Placement(Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Opened(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Opened_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase>::remove_Opened>;
         [[nodiscard]] Opened_revoker Opened(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Opened(winrt::event_token const& token) const noexcept;
-        auto Closed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Opened(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
-        auto Opening(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Opening(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Opening_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase>::remove_Opening>;
         [[nodiscard]] Opening_revoker Opening(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Opening(winrt::event_token const& token) const noexcept;
-        auto ShowAt(Windows::UI::Xaml::FrameworkElement const& placementTarget) const;
-        auto Hide() const;
+        WINRT_IMPL_AUTO(void) Opening(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ShowAt(Windows::UI::Xaml::FrameworkElement const& placementTarget) const;
+        WINRT_IMPL_AUTO(void) Hide() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase>
     {
@@ -2846,19 +2845,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBase2
     {
-        [[nodiscard]] auto Target() const;
-        [[nodiscard]] auto AllowFocusOnInteraction() const;
-        auto AllowFocusOnInteraction(bool value) const;
-        [[nodiscard]] auto LightDismissOverlayMode() const;
-        auto LightDismissOverlayMode(Windows::UI::Xaml::Controls::LightDismissOverlayMode const& value) const;
-        [[nodiscard]] auto AllowFocusWhenDisabled() const;
-        auto AllowFocusWhenDisabled(bool value) const;
-        [[nodiscard]] auto ElementSoundMode() const;
-        auto ElementSoundMode(Windows::UI::Xaml::ElementSoundMode const& value) const;
-        auto Closing(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::Primitives::FlyoutBase, Windows::UI::Xaml::Controls::Primitives::FlyoutBaseClosingEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::FrameworkElement) Target() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowFocusOnInteraction() const;
+        WINRT_IMPL_AUTO(void) AllowFocusOnInteraction(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::LightDismissOverlayMode) LightDismissOverlayMode() const;
+        WINRT_IMPL_AUTO(void) LightDismissOverlayMode(Windows::UI::Xaml::Controls::LightDismissOverlayMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowFocusWhenDisabled() const;
+        WINRT_IMPL_AUTO(void) AllowFocusWhenDisabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ElementSoundMode) ElementSoundMode() const;
+        WINRT_IMPL_AUTO(void) ElementSoundMode(Windows::UI::Xaml::ElementSoundMode const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closing(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::Primitives::FlyoutBase, Windows::UI::Xaml::Controls::Primitives::FlyoutBaseClosingEventArgs> const& handler) const;
         using Closing_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase2, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase2>::remove_Closing>;
         [[nodiscard]] Closing_revoker Closing(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::Primitives::FlyoutBase, Windows::UI::Xaml::Controls::Primitives::FlyoutBaseClosingEventArgs> const& handler) const;
-        auto Closing(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closing(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase2>
     {
@@ -2867,8 +2866,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBase3
     {
-        [[nodiscard]] auto OverlayInputPassThroughElement() const;
-        auto OverlayInputPassThroughElement(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) OverlayInputPassThroughElement() const;
+        WINRT_IMPL_AUTO(void) OverlayInputPassThroughElement(Windows::UI::Xaml::DependencyObject const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase3>
     {
@@ -2877,7 +2876,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBase4
     {
-        auto TryInvokeKeyboardAccelerator(Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) TryInvokeKeyboardAccelerator(Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs const& args) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase4>
     {
@@ -2886,13 +2885,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBase5
     {
-        [[nodiscard]] auto ShowMode() const;
-        auto ShowMode(Windows::UI::Xaml::Controls::Primitives::FlyoutShowMode const& value) const;
-        [[nodiscard]] auto InputDevicePrefersPrimaryCommands() const;
-        [[nodiscard]] auto AreOpenCloseAnimationsEnabled() const;
-        auto AreOpenCloseAnimationsEnabled(bool value) const;
-        [[nodiscard]] auto IsOpen() const;
-        auto ShowAt(Windows::UI::Xaml::DependencyObject const& placementTarget, Windows::UI::Xaml::Controls::Primitives::FlyoutShowOptions const& showOptions) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::FlyoutShowMode) ShowMode() const;
+        WINRT_IMPL_AUTO(void) ShowMode(Windows::UI::Xaml::Controls::Primitives::FlyoutShowMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) InputDevicePrefersPrimaryCommands() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AreOpenCloseAnimationsEnabled() const;
+        WINRT_IMPL_AUTO(void) AreOpenCloseAnimationsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOpen() const;
+        WINRT_IMPL_AUTO(void) ShowAt(Windows::UI::Xaml::DependencyObject const& placementTarget, Windows::UI::Xaml::Controls::Primitives::FlyoutShowOptions const& showOptions) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase5>
     {
@@ -2901,11 +2900,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBase6
     {
-        [[nodiscard]] auto ShouldConstrainToRootBounds() const;
-        auto ShouldConstrainToRootBounds(bool value) const;
-        [[nodiscard]] auto IsConstrainedToRootBounds() const;
-        [[nodiscard]] auto XamlRoot() const;
-        auto XamlRoot(Windows::UI::Xaml::XamlRoot const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShouldConstrainToRootBounds() const;
+        WINRT_IMPL_AUTO(void) ShouldConstrainToRootBounds(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConstrainedToRootBounds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::XamlRoot) XamlRoot() const;
+        WINRT_IMPL_AUTO(void) XamlRoot(Windows::UI::Xaml::XamlRoot const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBase6>
     {
@@ -2914,8 +2913,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseClosingEventArgs
     {
-        [[nodiscard]] auto Cancel() const;
-        auto Cancel(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Cancel() const;
+        WINRT_IMPL_AUTO(void) Cancel(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseClosingEventArgs>
     {
@@ -2924,7 +2923,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::FlyoutBase) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseFactory>
     {
@@ -2933,7 +2932,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseOverrides
     {
-        auto CreatePresenter() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Control) CreatePresenter() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseOverrides>
     {
@@ -2942,7 +2941,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseOverrides4
     {
-        auto OnProcessKeyboardAccelerators(Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnProcessKeyboardAccelerators(Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs const& args) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseOverrides4>
     {
@@ -2951,11 +2950,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseStatics
     {
-        [[nodiscard]] auto PlacementProperty() const;
-        [[nodiscard]] auto AttachedFlyoutProperty() const;
-        auto GetAttachedFlyout(Windows::UI::Xaml::FrameworkElement const& element) const;
-        auto SetAttachedFlyout(Windows::UI::Xaml::FrameworkElement const& element, Windows::UI::Xaml::Controls::Primitives::FlyoutBase const& value) const;
-        auto ShowAttachedFlyout(Windows::UI::Xaml::FrameworkElement const& flyoutOwner) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PlacementProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AttachedFlyoutProperty() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::FlyoutBase) GetAttachedFlyout(Windows::UI::Xaml::FrameworkElement const& element) const;
+        WINRT_IMPL_AUTO(void) SetAttachedFlyout(Windows::UI::Xaml::FrameworkElement const& element, Windows::UI::Xaml::Controls::Primitives::FlyoutBase const& value) const;
+        WINRT_IMPL_AUTO(void) ShowAttachedFlyout(Windows::UI::Xaml::FrameworkElement const& flyoutOwner) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics>
     {
@@ -2964,10 +2963,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseStatics2
     {
-        [[nodiscard]] auto AllowFocusOnInteractionProperty() const;
-        [[nodiscard]] auto LightDismissOverlayModeProperty() const;
-        [[nodiscard]] auto AllowFocusWhenDisabledProperty() const;
-        [[nodiscard]] auto ElementSoundModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AllowFocusOnInteractionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) LightDismissOverlayModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AllowFocusWhenDisabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ElementSoundModeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics2>
     {
@@ -2976,7 +2975,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseStatics3
     {
-        [[nodiscard]] auto OverlayInputPassThroughElementProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OverlayInputPassThroughElementProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics3>
     {
@@ -2985,11 +2984,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseStatics5
     {
-        [[nodiscard]] auto TargetProperty() const;
-        [[nodiscard]] auto ShowModeProperty() const;
-        [[nodiscard]] auto InputDevicePrefersPrimaryCommandsProperty() const;
-        [[nodiscard]] auto AreOpenCloseAnimationsEnabledProperty() const;
-        [[nodiscard]] auto IsOpenProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ShowModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) InputDevicePrefersPrimaryCommandsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AreOpenCloseAnimationsEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsOpenProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics5>
     {
@@ -2998,7 +2997,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutBaseStatics6
     {
-        [[nodiscard]] auto ShouldConstrainToRootBoundsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ShouldConstrainToRootBoundsProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutBaseStatics6>
     {
@@ -3007,14 +3006,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutShowOptions
     {
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
-        [[nodiscard]] auto ExclusionRect() const;
-        auto ExclusionRect(Windows::Foundation::IReference<Windows::Foundation::Rect> const& value) const;
-        [[nodiscard]] auto ShowMode() const;
-        auto ShowMode(Windows::UI::Xaml::Controls::Primitives::FlyoutShowMode const& value) const;
-        [[nodiscard]] auto Placement() const;
-        auto Placement(Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Point>) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Rect>) ExclusionRect() const;
+        WINRT_IMPL_AUTO(void) ExclusionRect(Windows::Foundation::IReference<Windows::Foundation::Rect> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::FlyoutShowMode) ShowMode() const;
+        WINRT_IMPL_AUTO(void) ShowMode(Windows::UI::Xaml::Controls::Primitives::FlyoutShowMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode) Placement() const;
+        WINRT_IMPL_AUTO(void) Placement(Windows::UI::Xaml::Controls::Primitives::FlyoutPlacementMode const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutShowOptions>
     {
@@ -3023,7 +3022,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IFlyoutShowOptionsFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::FlyoutShowOptions) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IFlyoutShowOptionsFactory>
     {
@@ -3040,7 +3039,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IGeneratorPositionHelperStatics
     {
-        auto FromIndexAndOffset(int32_t index, int32_t offset) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::GeneratorPosition) FromIndexAndOffset(int32_t index, int32_t offset) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IGeneratorPositionHelperStatics>
     {
@@ -3049,50 +3048,50 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IGridViewItemPresenter
     {
-        [[nodiscard]] auto SelectionCheckMarkVisualEnabled() const;
-        auto SelectionCheckMarkVisualEnabled(bool value) const;
-        [[nodiscard]] auto CheckHintBrush() const;
-        auto CheckHintBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto CheckSelectingBrush() const;
-        auto CheckSelectingBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto CheckBrush() const;
-        auto CheckBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto DragBackground() const;
-        auto DragBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto DragForeground() const;
-        auto DragForeground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto FocusBorderBrush() const;
-        auto FocusBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto PlaceholderBackground() const;
-        auto PlaceholderBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto PointerOverBackground() const;
-        auto PointerOverBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedBackground() const;
-        auto SelectedBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedForeground() const;
-        auto SelectedForeground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedPointerOverBackground() const;
-        auto SelectedPointerOverBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedPointerOverBorderBrush() const;
-        auto SelectedPointerOverBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedBorderThickness() const;
-        auto SelectedBorderThickness(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto DisabledOpacity() const;
-        auto DisabledOpacity(double value) const;
-        [[nodiscard]] auto DragOpacity() const;
-        auto DragOpacity(double value) const;
-        [[nodiscard]] auto ReorderHintOffset() const;
-        auto ReorderHintOffset(double value) const;
-        [[nodiscard]] auto GridViewItemPresenterHorizontalContentAlignment() const;
-        auto GridViewItemPresenterHorizontalContentAlignment(Windows::UI::Xaml::HorizontalAlignment const& value) const;
-        [[nodiscard]] auto GridViewItemPresenterVerticalContentAlignment() const;
-        auto GridViewItemPresenterVerticalContentAlignment(Windows::UI::Xaml::VerticalAlignment const& value) const;
-        [[nodiscard]] auto GridViewItemPresenterPadding() const;
-        auto GridViewItemPresenterPadding(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto PointerOverBackgroundMargin() const;
-        auto PointerOverBackgroundMargin(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto ContentMargin() const;
-        auto ContentMargin(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SelectionCheckMarkVisualEnabled() const;
+        WINRT_IMPL_AUTO(void) SelectionCheckMarkVisualEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) CheckHintBrush() const;
+        WINRT_IMPL_AUTO(void) CheckHintBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) CheckSelectingBrush() const;
+        WINRT_IMPL_AUTO(void) CheckSelectingBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) CheckBrush() const;
+        WINRT_IMPL_AUTO(void) CheckBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) DragBackground() const;
+        WINRT_IMPL_AUTO(void) DragBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) DragForeground() const;
+        WINRT_IMPL_AUTO(void) DragForeground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) FocusBorderBrush() const;
+        WINRT_IMPL_AUTO(void) FocusBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) PlaceholderBackground() const;
+        WINRT_IMPL_AUTO(void) PlaceholderBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) PointerOverBackground() const;
+        WINRT_IMPL_AUTO(void) PointerOverBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedBackground() const;
+        WINRT_IMPL_AUTO(void) SelectedBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedForeground() const;
+        WINRT_IMPL_AUTO(void) SelectedForeground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedPointerOverBackground() const;
+        WINRT_IMPL_AUTO(void) SelectedPointerOverBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedPointerOverBorderBrush() const;
+        WINRT_IMPL_AUTO(void) SelectedPointerOverBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) SelectedBorderThickness() const;
+        WINRT_IMPL_AUTO(void) SelectedBorderThickness(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DisabledOpacity() const;
+        WINRT_IMPL_AUTO(void) DisabledOpacity(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DragOpacity() const;
+        WINRT_IMPL_AUTO(void) DragOpacity(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ReorderHintOffset() const;
+        WINRT_IMPL_AUTO(void) ReorderHintOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::HorizontalAlignment) GridViewItemPresenterHorizontalContentAlignment() const;
+        WINRT_IMPL_AUTO(void) GridViewItemPresenterHorizontalContentAlignment(Windows::UI::Xaml::HorizontalAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::VerticalAlignment) GridViewItemPresenterVerticalContentAlignment() const;
+        WINRT_IMPL_AUTO(void) GridViewItemPresenterVerticalContentAlignment(Windows::UI::Xaml::VerticalAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) GridViewItemPresenterPadding() const;
+        WINRT_IMPL_AUTO(void) GridViewItemPresenterPadding(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) PointerOverBackgroundMargin() const;
+        WINRT_IMPL_AUTO(void) PointerOverBackgroundMargin(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) ContentMargin() const;
+        WINRT_IMPL_AUTO(void) ContentMargin(Windows::UI::Xaml::Thickness const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenter>
     {
@@ -3101,7 +3100,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IGridViewItemPresenterFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::GridViewItemPresenter) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenterFactory>
     {
@@ -3110,28 +3109,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IGridViewItemPresenterStatics
     {
-        [[nodiscard]] auto SelectionCheckMarkVisualEnabledProperty() const;
-        [[nodiscard]] auto CheckHintBrushProperty() const;
-        [[nodiscard]] auto CheckSelectingBrushProperty() const;
-        [[nodiscard]] auto CheckBrushProperty() const;
-        [[nodiscard]] auto DragBackgroundProperty() const;
-        [[nodiscard]] auto DragForegroundProperty() const;
-        [[nodiscard]] auto FocusBorderBrushProperty() const;
-        [[nodiscard]] auto PlaceholderBackgroundProperty() const;
-        [[nodiscard]] auto PointerOverBackgroundProperty() const;
-        [[nodiscard]] auto SelectedBackgroundProperty() const;
-        [[nodiscard]] auto SelectedForegroundProperty() const;
-        [[nodiscard]] auto SelectedPointerOverBackgroundProperty() const;
-        [[nodiscard]] auto SelectedPointerOverBorderBrushProperty() const;
-        [[nodiscard]] auto SelectedBorderThicknessProperty() const;
-        [[nodiscard]] auto DisabledOpacityProperty() const;
-        [[nodiscard]] auto DragOpacityProperty() const;
-        [[nodiscard]] auto ReorderHintOffsetProperty() const;
-        [[nodiscard]] auto GridViewItemPresenterHorizontalContentAlignmentProperty() const;
-        [[nodiscard]] auto GridViewItemPresenterVerticalContentAlignmentProperty() const;
-        [[nodiscard]] auto GridViewItemPresenterPaddingProperty() const;
-        [[nodiscard]] auto PointerOverBackgroundMarginProperty() const;
-        [[nodiscard]] auto ContentMarginProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectionCheckMarkVisualEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CheckHintBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CheckSelectingBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CheckBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DragBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DragForegroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FocusBorderBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PlaceholderBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PointerOverBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedForegroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedPointerOverBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedPointerOverBorderBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedBorderThicknessProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DisabledOpacityProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DragOpacityProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ReorderHintOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) GridViewItemPresenterHorizontalContentAlignmentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) GridViewItemPresenterVerticalContentAlignmentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) GridViewItemPresenterPaddingProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PointerOverBackgroundMarginProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentMarginProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IGridViewItemPresenterStatics>
     {
@@ -3140,7 +3139,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IGridViewItemTemplateSettings
     {
-        [[nodiscard]] auto DragItemsCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) DragItemsCount() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IGridViewItemTemplateSettings>
     {
@@ -3149,11 +3148,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IItemsChangedEventArgs
     {
-        [[nodiscard]] auto Action() const;
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto OldPosition() const;
-        [[nodiscard]] auto ItemCount() const;
-        [[nodiscard]] auto ItemUICount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Action() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::GeneratorPosition) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::GeneratorPosition) OldPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ItemCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ItemUICount() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IItemsChangedEventArgs>
     {
@@ -3162,10 +3161,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IJumpListItemBackgroundConverter
     {
-        [[nodiscard]] auto Enabled() const;
-        auto Enabled(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto Disabled() const;
-        auto Disabled(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) Enabled() const;
+        WINRT_IMPL_AUTO(void) Enabled(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) Disabled() const;
+        WINRT_IMPL_AUTO(void) Disabled(Windows::UI::Xaml::Media::Brush const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IJumpListItemBackgroundConverter>
     {
@@ -3174,8 +3173,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IJumpListItemBackgroundConverterStatics
     {
-        [[nodiscard]] auto EnabledProperty() const;
-        [[nodiscard]] auto DisabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DisabledProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IJumpListItemBackgroundConverterStatics>
     {
@@ -3184,10 +3183,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IJumpListItemForegroundConverter
     {
-        [[nodiscard]] auto Enabled() const;
-        auto Enabled(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto Disabled() const;
-        auto Disabled(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) Enabled() const;
+        WINRT_IMPL_AUTO(void) Enabled(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) Disabled() const;
+        WINRT_IMPL_AUTO(void) Disabled(Windows::UI::Xaml::Media::Brush const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IJumpListItemForegroundConverter>
     {
@@ -3196,8 +3195,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IJumpListItemForegroundConverterStatics
     {
-        [[nodiscard]] auto EnabledProperty() const;
-        [[nodiscard]] auto DisabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DisabledProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IJumpListItemForegroundConverterStatics>
     {
@@ -3214,8 +3213,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ILayoutInformationStatics
     {
-        auto GetLayoutExceptionElement(Windows::Foundation::IInspectable const& dispatcher) const;
-        auto GetLayoutSlot(Windows::UI::Xaml::FrameworkElement const& element) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) GetLayoutExceptionElement(Windows::Foundation::IInspectable const& dispatcher) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) GetLayoutSlot(Windows::UI::Xaml::FrameworkElement const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ILayoutInformationStatics>
     {
@@ -3224,7 +3223,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ILayoutInformationStatics2
     {
-        auto GetAvailableSize(Windows::UI::Xaml::UIElement const& element) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Size) GetAvailableSize(Windows::UI::Xaml::UIElement const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ILayoutInformationStatics2>
     {
@@ -3233,50 +3232,50 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IListViewItemPresenter
     {
-        [[nodiscard]] auto SelectionCheckMarkVisualEnabled() const;
-        auto SelectionCheckMarkVisualEnabled(bool value) const;
-        [[nodiscard]] auto CheckHintBrush() const;
-        auto CheckHintBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto CheckSelectingBrush() const;
-        auto CheckSelectingBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto CheckBrush() const;
-        auto CheckBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto DragBackground() const;
-        auto DragBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto DragForeground() const;
-        auto DragForeground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto FocusBorderBrush() const;
-        auto FocusBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto PlaceholderBackground() const;
-        auto PlaceholderBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto PointerOverBackground() const;
-        auto PointerOverBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedBackground() const;
-        auto SelectedBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedForeground() const;
-        auto SelectedForeground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedPointerOverBackground() const;
-        auto SelectedPointerOverBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedPointerOverBorderBrush() const;
-        auto SelectedPointerOverBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto SelectedBorderThickness() const;
-        auto SelectedBorderThickness(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto DisabledOpacity() const;
-        auto DisabledOpacity(double value) const;
-        [[nodiscard]] auto DragOpacity() const;
-        auto DragOpacity(double value) const;
-        [[nodiscard]] auto ReorderHintOffset() const;
-        auto ReorderHintOffset(double value) const;
-        [[nodiscard]] auto ListViewItemPresenterHorizontalContentAlignment() const;
-        auto ListViewItemPresenterHorizontalContentAlignment(Windows::UI::Xaml::HorizontalAlignment const& value) const;
-        [[nodiscard]] auto ListViewItemPresenterVerticalContentAlignment() const;
-        auto ListViewItemPresenterVerticalContentAlignment(Windows::UI::Xaml::VerticalAlignment const& value) const;
-        [[nodiscard]] auto ListViewItemPresenterPadding() const;
-        auto ListViewItemPresenterPadding(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto PointerOverBackgroundMargin() const;
-        auto PointerOverBackgroundMargin(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto ContentMargin() const;
-        auto ContentMargin(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SelectionCheckMarkVisualEnabled() const;
+        WINRT_IMPL_AUTO(void) SelectionCheckMarkVisualEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) CheckHintBrush() const;
+        WINRT_IMPL_AUTO(void) CheckHintBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) CheckSelectingBrush() const;
+        WINRT_IMPL_AUTO(void) CheckSelectingBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) CheckBrush() const;
+        WINRT_IMPL_AUTO(void) CheckBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) DragBackground() const;
+        WINRT_IMPL_AUTO(void) DragBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) DragForeground() const;
+        WINRT_IMPL_AUTO(void) DragForeground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) FocusBorderBrush() const;
+        WINRT_IMPL_AUTO(void) FocusBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) PlaceholderBackground() const;
+        WINRT_IMPL_AUTO(void) PlaceholderBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) PointerOverBackground() const;
+        WINRT_IMPL_AUTO(void) PointerOverBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedBackground() const;
+        WINRT_IMPL_AUTO(void) SelectedBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedForeground() const;
+        WINRT_IMPL_AUTO(void) SelectedForeground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedPointerOverBackground() const;
+        WINRT_IMPL_AUTO(void) SelectedPointerOverBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedPointerOverBorderBrush() const;
+        WINRT_IMPL_AUTO(void) SelectedPointerOverBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) SelectedBorderThickness() const;
+        WINRT_IMPL_AUTO(void) SelectedBorderThickness(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DisabledOpacity() const;
+        WINRT_IMPL_AUTO(void) DisabledOpacity(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DragOpacity() const;
+        WINRT_IMPL_AUTO(void) DragOpacity(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ReorderHintOffset() const;
+        WINRT_IMPL_AUTO(void) ReorderHintOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::HorizontalAlignment) ListViewItemPresenterHorizontalContentAlignment() const;
+        WINRT_IMPL_AUTO(void) ListViewItemPresenterHorizontalContentAlignment(Windows::UI::Xaml::HorizontalAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::VerticalAlignment) ListViewItemPresenterVerticalContentAlignment() const;
+        WINRT_IMPL_AUTO(void) ListViewItemPresenterVerticalContentAlignment(Windows::UI::Xaml::VerticalAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) ListViewItemPresenterPadding() const;
+        WINRT_IMPL_AUTO(void) ListViewItemPresenterPadding(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) PointerOverBackgroundMargin() const;
+        WINRT_IMPL_AUTO(void) PointerOverBackgroundMargin(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) ContentMargin() const;
+        WINRT_IMPL_AUTO(void) ContentMargin(Windows::UI::Xaml::Thickness const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter>
     {
@@ -3285,18 +3284,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IListViewItemPresenter2
     {
-        [[nodiscard]] auto SelectedPressedBackground() const;
-        auto SelectedPressedBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto PressedBackground() const;
-        auto PressedBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto CheckBoxBrush() const;
-        auto CheckBoxBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto FocusSecondaryBorderBrush() const;
-        auto FocusSecondaryBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto CheckMode() const;
-        auto CheckMode(Windows::UI::Xaml::Controls::Primitives::ListViewItemPresenterCheckMode const& value) const;
-        [[nodiscard]] auto PointerOverForeground() const;
-        auto PointerOverForeground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) SelectedPressedBackground() const;
+        WINRT_IMPL_AUTO(void) SelectedPressedBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) PressedBackground() const;
+        WINRT_IMPL_AUTO(void) PressedBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) CheckBoxBrush() const;
+        WINRT_IMPL_AUTO(void) CheckBoxBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) FocusSecondaryBorderBrush() const;
+        WINRT_IMPL_AUTO(void) FocusSecondaryBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::ListViewItemPresenterCheckMode) CheckMode() const;
+        WINRT_IMPL_AUTO(void) CheckMode(Windows::UI::Xaml::Controls::Primitives::ListViewItemPresenterCheckMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) PointerOverForeground() const;
+        WINRT_IMPL_AUTO(void) PointerOverForeground(Windows::UI::Xaml::Media::Brush const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter2>
     {
@@ -3305,14 +3304,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IListViewItemPresenter3
     {
-        [[nodiscard]] auto RevealBackground() const;
-        auto RevealBackground(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto RevealBorderBrush() const;
-        auto RevealBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto RevealBorderThickness() const;
-        auto RevealBorderThickness(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto RevealBackgroundShowsAboveContent() const;
-        auto RevealBackgroundShowsAboveContent(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) RevealBackground() const;
+        WINRT_IMPL_AUTO(void) RevealBackground(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) RevealBorderBrush() const;
+        WINRT_IMPL_AUTO(void) RevealBorderBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) RevealBorderThickness() const;
+        WINRT_IMPL_AUTO(void) RevealBorderThickness(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RevealBackgroundShowsAboveContent() const;
+        WINRT_IMPL_AUTO(void) RevealBackgroundShowsAboveContent(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenter3>
     {
@@ -3321,7 +3320,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IListViewItemPresenterFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::ListViewItemPresenter) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterFactory>
     {
@@ -3330,28 +3329,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IListViewItemPresenterStatics
     {
-        [[nodiscard]] auto SelectionCheckMarkVisualEnabledProperty() const;
-        [[nodiscard]] auto CheckHintBrushProperty() const;
-        [[nodiscard]] auto CheckSelectingBrushProperty() const;
-        [[nodiscard]] auto CheckBrushProperty() const;
-        [[nodiscard]] auto DragBackgroundProperty() const;
-        [[nodiscard]] auto DragForegroundProperty() const;
-        [[nodiscard]] auto FocusBorderBrushProperty() const;
-        [[nodiscard]] auto PlaceholderBackgroundProperty() const;
-        [[nodiscard]] auto PointerOverBackgroundProperty() const;
-        [[nodiscard]] auto SelectedBackgroundProperty() const;
-        [[nodiscard]] auto SelectedForegroundProperty() const;
-        [[nodiscard]] auto SelectedPointerOverBackgroundProperty() const;
-        [[nodiscard]] auto SelectedPointerOverBorderBrushProperty() const;
-        [[nodiscard]] auto SelectedBorderThicknessProperty() const;
-        [[nodiscard]] auto DisabledOpacityProperty() const;
-        [[nodiscard]] auto DragOpacityProperty() const;
-        [[nodiscard]] auto ReorderHintOffsetProperty() const;
-        [[nodiscard]] auto ListViewItemPresenterHorizontalContentAlignmentProperty() const;
-        [[nodiscard]] auto ListViewItemPresenterVerticalContentAlignmentProperty() const;
-        [[nodiscard]] auto ListViewItemPresenterPaddingProperty() const;
-        [[nodiscard]] auto PointerOverBackgroundMarginProperty() const;
-        [[nodiscard]] auto ContentMarginProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectionCheckMarkVisualEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CheckHintBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CheckSelectingBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CheckBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DragBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DragForegroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FocusBorderBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PlaceholderBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PointerOverBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedForegroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedPointerOverBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedPointerOverBorderBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedBorderThicknessProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DisabledOpacityProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DragOpacityProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ReorderHintOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ListViewItemPresenterHorizontalContentAlignmentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ListViewItemPresenterVerticalContentAlignmentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ListViewItemPresenterPaddingProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PointerOverBackgroundMarginProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentMarginProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics>
     {
@@ -3360,12 +3359,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IListViewItemPresenterStatics2
     {
-        [[nodiscard]] auto SelectedPressedBackgroundProperty() const;
-        [[nodiscard]] auto PressedBackgroundProperty() const;
-        [[nodiscard]] auto CheckBoxBrushProperty() const;
-        [[nodiscard]] auto FocusSecondaryBorderBrushProperty() const;
-        [[nodiscard]] auto CheckModeProperty() const;
-        [[nodiscard]] auto PointerOverForegroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedPressedBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PressedBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CheckBoxBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FocusSecondaryBorderBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CheckModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PointerOverForegroundProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics2>
     {
@@ -3374,10 +3373,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IListViewItemPresenterStatics3
     {
-        [[nodiscard]] auto RevealBackgroundProperty() const;
-        [[nodiscard]] auto RevealBorderBrushProperty() const;
-        [[nodiscard]] auto RevealBorderThicknessProperty() const;
-        [[nodiscard]] auto RevealBackgroundShowsAboveContentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RevealBackgroundProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RevealBorderBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RevealBorderThicknessProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RevealBackgroundShowsAboveContentProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IListViewItemPresenterStatics3>
     {
@@ -3386,7 +3385,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IListViewItemTemplateSettings
     {
-        [[nodiscard]] auto DragItemsCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) DragItemsCount() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IListViewItemTemplateSettings>
     {
@@ -3395,24 +3394,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ILoopingSelector
     {
-        [[nodiscard]] auto ShouldLoop() const;
-        auto ShouldLoop(bool value) const;
-        [[nodiscard]] auto Items() const;
-        auto Items(param::vector<Windows::Foundation::IInspectable> const& value) const;
-        [[nodiscard]] auto SelectedIndex() const;
-        auto SelectedIndex(int32_t value) const;
-        [[nodiscard]] auto SelectedItem() const;
-        auto SelectedItem(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto ItemWidth() const;
-        auto ItemWidth(int32_t value) const;
-        [[nodiscard]] auto ItemHeight() const;
-        auto ItemHeight(int32_t value) const;
-        [[nodiscard]] auto ItemTemplate() const;
-        auto ItemTemplate(Windows::UI::Xaml::DataTemplate const& value) const;
-        auto SelectionChanged(Windows::UI::Xaml::Controls::SelectionChangedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShouldLoop() const;
+        WINRT_IMPL_AUTO(void) ShouldLoop(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::IInspectable>) Items() const;
+        WINRT_IMPL_AUTO(void) Items(param::vector<Windows::Foundation::IInspectable> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SelectedIndex() const;
+        WINRT_IMPL_AUTO(void) SelectedIndex(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) SelectedItem() const;
+        WINRT_IMPL_AUTO(void) SelectedItem(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ItemWidth() const;
+        WINRT_IMPL_AUTO(void) ItemWidth(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ItemHeight() const;
+        WINRT_IMPL_AUTO(void) ItemHeight(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DataTemplate) ItemTemplate() const;
+        WINRT_IMPL_AUTO(void) ItemTemplate(Windows::UI::Xaml::DataTemplate const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SelectionChanged(Windows::UI::Xaml::Controls::SelectionChangedEventHandler const& handler) const;
         using SelectionChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::ILoopingSelector, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::ILoopingSelector>::remove_SelectionChanged>;
         [[nodiscard]] SelectionChanged_revoker SelectionChanged(auto_revoke_t, Windows::UI::Xaml::Controls::SelectionChangedEventHandler const& handler) const;
-        auto SelectionChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SelectionChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ILoopingSelector>
     {
@@ -3437,13 +3436,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ILoopingSelectorStatics
     {
-        [[nodiscard]] auto ShouldLoopProperty() const;
-        [[nodiscard]] auto ItemsProperty() const;
-        [[nodiscard]] auto SelectedIndexProperty() const;
-        [[nodiscard]] auto SelectedItemProperty() const;
-        [[nodiscard]] auto ItemWidthProperty() const;
-        [[nodiscard]] auto ItemHeightProperty() const;
-        [[nodiscard]] auto ItemTemplateProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ShouldLoopProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ItemsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedIndexProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedItemProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ItemWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ItemHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ItemTemplateProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ILoopingSelectorStatics>
     {
@@ -3452,7 +3451,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IMenuFlyoutItemTemplateSettings
     {
-        [[nodiscard]] auto KeyboardAcceleratorTextMinWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KeyboardAcceleratorTextMinWidth() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IMenuFlyoutItemTemplateSettings>
     {
@@ -3461,7 +3460,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IMenuFlyoutPresenterTemplateSettings
     {
-        [[nodiscard]] auto FlyoutContentMinWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FlyoutContentMinWidth() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IMenuFlyoutPresenterTemplateSettings>
     {
@@ -3470,8 +3469,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_INavigationViewItemPresenter
     {
-        [[nodiscard]] auto Icon() const;
-        auto Icon(Windows::UI::Xaml::Controls::IconElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::IconElement) Icon() const;
+        WINRT_IMPL_AUTO(void) Icon(Windows::UI::Xaml::Controls::IconElement const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenter>
     {
@@ -3480,7 +3479,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_INavigationViewItemPresenterFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::NavigationViewItemPresenter) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenterFactory>
     {
@@ -3489,7 +3488,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_INavigationViewItemPresenterStatics
     {
-        [[nodiscard]] auto IconProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IconProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::INavigationViewItemPresenterStatics>
     {
@@ -3498,33 +3497,33 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IOrientedVirtualizingPanel
     {
-        [[nodiscard]] auto CanVerticallyScroll() const;
-        auto CanVerticallyScroll(bool value) const;
-        [[nodiscard]] auto CanHorizontallyScroll() const;
-        auto CanHorizontallyScroll(bool value) const;
-        [[nodiscard]] auto ExtentWidth() const;
-        [[nodiscard]] auto ExtentHeight() const;
-        [[nodiscard]] auto ViewportWidth() const;
-        [[nodiscard]] auto ViewportHeight() const;
-        [[nodiscard]] auto HorizontalOffset() const;
-        [[nodiscard]] auto VerticalOffset() const;
-        [[nodiscard]] auto ScrollOwner() const;
-        auto ScrollOwner(Windows::Foundation::IInspectable const& value) const;
-        auto LineUp() const;
-        auto LineDown() const;
-        auto LineLeft() const;
-        auto LineRight() const;
-        auto PageUp() const;
-        auto PageDown() const;
-        auto PageLeft() const;
-        auto PageRight() const;
-        auto MouseWheelUp() const;
-        auto MouseWheelDown() const;
-        auto MouseWheelLeft() const;
-        auto MouseWheelRight() const;
-        auto SetHorizontalOffset(double offset) const;
-        auto SetVerticalOffset(double offset) const;
-        auto MakeVisible(Windows::UI::Xaml::UIElement const& visual, Windows::Foundation::Rect const& rectangle) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanVerticallyScroll() const;
+        WINRT_IMPL_AUTO(void) CanVerticallyScroll(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanHorizontallyScroll() const;
+        WINRT_IMPL_AUTO(void) CanHorizontallyScroll(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExtentWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ExtentHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ViewportWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ViewportHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ScrollOwner() const;
+        WINRT_IMPL_AUTO(void) ScrollOwner(Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) LineUp() const;
+        WINRT_IMPL_AUTO(void) LineDown() const;
+        WINRT_IMPL_AUTO(void) LineLeft() const;
+        WINRT_IMPL_AUTO(void) LineRight() const;
+        WINRT_IMPL_AUTO(void) PageUp() const;
+        WINRT_IMPL_AUTO(void) PageDown() const;
+        WINRT_IMPL_AUTO(void) PageLeft() const;
+        WINRT_IMPL_AUTO(void) PageRight() const;
+        WINRT_IMPL_AUTO(void) MouseWheelUp() const;
+        WINRT_IMPL_AUTO(void) MouseWheelDown() const;
+        WINRT_IMPL_AUTO(void) MouseWheelLeft() const;
+        WINRT_IMPL_AUTO(void) MouseWheelRight() const;
+        WINRT_IMPL_AUTO(void) SetHorizontalOffset(double offset) const;
+        WINRT_IMPL_AUTO(void) SetVerticalOffset(double offset) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) MakeVisible(Windows::UI::Xaml::UIElement const& visual, Windows::Foundation::Rect const& rectangle) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IOrientedVirtualizingPanel>
     {
@@ -3549,7 +3548,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPickerFlyoutBaseFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::PickerFlyoutBase) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseFactory>
     {
@@ -3558,8 +3557,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPickerFlyoutBaseOverrides
     {
-        auto OnConfirmed() const;
-        auto ShouldShowConfirmationButtons() const;
+        WINRT_IMPL_AUTO(void) OnConfirmed() const;
+        WINRT_IMPL_AUTO(bool) ShouldShowConfirmationButtons() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseOverrides>
     {
@@ -3568,9 +3567,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPickerFlyoutBaseStatics
     {
-        [[nodiscard]] auto TitleProperty() const;
-        auto GetTitle(Windows::UI::Xaml::DependencyObject const& element) const;
-        auto SetTitle(Windows::UI::Xaml::DependencyObject const& element, param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TitleProperty() const;
+        WINRT_IMPL_AUTO(hstring) GetTitle(Windows::UI::Xaml::DependencyObject const& element) const;
+        WINRT_IMPL_AUTO(void) SetTitle(Windows::UI::Xaml::DependencyObject const& element, param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPickerFlyoutBaseStatics>
     {
@@ -3587,7 +3586,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPivotHeaderItemFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::PivotHeaderItem) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPivotHeaderItemFactory>
     {
@@ -3612,26 +3611,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPopup
     {
-        [[nodiscard]] auto Child() const;
-        auto Child(Windows::UI::Xaml::UIElement const& value) const;
-        [[nodiscard]] auto IsOpen() const;
-        auto IsOpen(bool value) const;
-        [[nodiscard]] auto HorizontalOffset() const;
-        auto HorizontalOffset(double value) const;
-        [[nodiscard]] auto VerticalOffset() const;
-        auto VerticalOffset(double value) const;
-        [[nodiscard]] auto ChildTransitions() const;
-        auto ChildTransitions(Windows::UI::Xaml::Media::Animation::TransitionCollection const& value) const;
-        [[nodiscard]] auto IsLightDismissEnabled() const;
-        auto IsLightDismissEnabled(bool value) const;
-        auto Opened(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Child() const;
+        WINRT_IMPL_AUTO(void) Child(Windows::UI::Xaml::UIElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOpen() const;
+        WINRT_IMPL_AUTO(void) IsOpen(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) HorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalOffset() const;
+        WINRT_IMPL_AUTO(void) VerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::TransitionCollection) ChildTransitions() const;
+        WINRT_IMPL_AUTO(void) ChildTransitions(Windows::UI::Xaml::Media::Animation::TransitionCollection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLightDismissEnabled() const;
+        WINRT_IMPL_AUTO(void) IsLightDismissEnabled(bool value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Opened(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Opened_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IPopup, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IPopup>::remove_Opened>;
         [[nodiscard]] Opened_revoker Opened(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Opened(winrt::event_token const& token) const noexcept;
-        auto Closed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Opened(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IPopup, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IPopup>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPopup>
     {
@@ -3640,8 +3639,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPopup2
     {
-        [[nodiscard]] auto LightDismissOverlayMode() const;
-        auto LightDismissOverlayMode(Windows::UI::Xaml::Controls::LightDismissOverlayMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::LightDismissOverlayMode) LightDismissOverlayMode() const;
+        WINRT_IMPL_AUTO(void) LightDismissOverlayMode(Windows::UI::Xaml::Controls::LightDismissOverlayMode const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPopup2>
     {
@@ -3650,9 +3649,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPopup3
     {
-        [[nodiscard]] auto ShouldConstrainToRootBounds() const;
-        auto ShouldConstrainToRootBounds(bool value) const;
-        [[nodiscard]] auto IsConstrainedToRootBounds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShouldConstrainToRootBounds() const;
+        WINRT_IMPL_AUTO(void) ShouldConstrainToRootBounds(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConstrainedToRootBounds() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPopup3>
     {
@@ -3661,12 +3660,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPopupStatics
     {
-        [[nodiscard]] auto ChildProperty() const;
-        [[nodiscard]] auto IsOpenProperty() const;
-        [[nodiscard]] auto HorizontalOffsetProperty() const;
-        [[nodiscard]] auto VerticalOffsetProperty() const;
-        [[nodiscard]] auto ChildTransitionsProperty() const;
-        [[nodiscard]] auto IsLightDismissEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ChildProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsOpenProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) HorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) VerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ChildTransitionsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsLightDismissEnabledProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPopupStatics>
     {
@@ -3675,7 +3674,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPopupStatics2
     {
-        [[nodiscard]] auto LightDismissOverlayModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) LightDismissOverlayModeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPopupStatics2>
     {
@@ -3684,7 +3683,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IPopupStatics3
     {
-        [[nodiscard]] auto ShouldConstrainToRootBoundsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ShouldConstrainToRootBoundsProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IPopupStatics3>
     {
@@ -3693,13 +3692,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IProgressBarTemplateSettings
     {
-        [[nodiscard]] auto EllipseDiameter() const;
-        [[nodiscard]] auto EllipseOffset() const;
-        [[nodiscard]] auto EllipseAnimationWellPosition() const;
-        [[nodiscard]] auto EllipseAnimationEndPosition() const;
-        [[nodiscard]] auto ContainerAnimationStartPosition() const;
-        [[nodiscard]] auto ContainerAnimationEndPosition() const;
-        [[nodiscard]] auto IndicatorLengthDelta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) EllipseDiameter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) EllipseOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) EllipseAnimationWellPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) EllipseAnimationEndPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ContainerAnimationStartPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ContainerAnimationEndPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) IndicatorLengthDelta() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IProgressBarTemplateSettings>
     {
@@ -3708,9 +3707,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IProgressRingTemplateSettings
     {
-        [[nodiscard]] auto EllipseDiameter() const;
-        [[nodiscard]] auto EllipseOffset() const;
-        [[nodiscard]] auto MaxSideLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) EllipseDiameter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) EllipseOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MaxSideLength() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IProgressRingTemplateSettings>
     {
@@ -3719,20 +3718,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IRangeBase
     {
-        [[nodiscard]] auto Minimum() const;
-        auto Minimum(double value) const;
-        [[nodiscard]] auto Maximum() const;
-        auto Maximum(double value) const;
-        [[nodiscard]] auto SmallChange() const;
-        auto SmallChange(double value) const;
-        [[nodiscard]] auto LargeChange() const;
-        auto LargeChange(double value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(double value) const;
-        auto ValueChanged(Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Minimum() const;
+        WINRT_IMPL_AUTO(void) Minimum(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Maximum() const;
+        WINRT_IMPL_AUTO(void) Maximum(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) SmallChange() const;
+        WINRT_IMPL_AUTO(void) SmallChange(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) LargeChange() const;
+        WINRT_IMPL_AUTO(void) LargeChange(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Value() const;
+        WINRT_IMPL_AUTO(void) Value(double value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ValueChanged(Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventHandler const& handler) const;
         using ValueChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IRangeBase, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IRangeBase>::remove_ValueChanged>;
         [[nodiscard]] ValueChanged_revoker ValueChanged(auto_revoke_t, Windows::UI::Xaml::Controls::Primitives::RangeBaseValueChangedEventHandler const& handler) const;
-        auto ValueChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ValueChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IRangeBase>
     {
@@ -3741,7 +3740,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IRangeBaseFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::RangeBase) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IRangeBaseFactory>
     {
@@ -3750,9 +3749,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IRangeBaseOverrides
     {
-        auto OnMinimumChanged(double oldMinimum, double newMinimum) const;
-        auto OnMaximumChanged(double oldMaximum, double newMaximum) const;
-        auto OnValueChanged(double oldValue, double newValue) const;
+        WINRT_IMPL_AUTO(void) OnMinimumChanged(double oldMinimum, double newMinimum) const;
+        WINRT_IMPL_AUTO(void) OnMaximumChanged(double oldMaximum, double newMaximum) const;
+        WINRT_IMPL_AUTO(void) OnValueChanged(double oldValue, double newValue) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IRangeBaseOverrides>
     {
@@ -3761,11 +3760,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IRangeBaseStatics
     {
-        [[nodiscard]] auto MinimumProperty() const;
-        [[nodiscard]] auto MaximumProperty() const;
-        [[nodiscard]] auto SmallChangeProperty() const;
-        [[nodiscard]] auto LargeChangeProperty() const;
-        [[nodiscard]] auto ValueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MinimumProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MaximumProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SmallChangeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) LargeChangeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ValueProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IRangeBaseStatics>
     {
@@ -3774,8 +3773,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IRangeBaseValueChangedEventArgs
     {
-        [[nodiscard]] auto OldValue() const;
-        [[nodiscard]] auto NewValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OldValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NewValue() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IRangeBaseValueChangedEventArgs>
     {
@@ -3784,10 +3783,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IRepeatButton
     {
-        [[nodiscard]] auto Delay() const;
-        auto Delay(int32_t value) const;
-        [[nodiscard]] auto Interval() const;
-        auto Interval(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Delay() const;
+        WINRT_IMPL_AUTO(void) Delay(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Interval() const;
+        WINRT_IMPL_AUTO(void) Interval(int32_t value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IRepeatButton>
     {
@@ -3796,8 +3795,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IRepeatButtonStatics
     {
-        [[nodiscard]] auto DelayProperty() const;
-        [[nodiscard]] auto IntervalProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DelayProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IntervalProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IRepeatButtonStatics>
     {
@@ -3806,16 +3805,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IScrollBar
     {
-        [[nodiscard]] auto Orientation() const;
-        auto Orientation(Windows::UI::Xaml::Controls::Orientation const& value) const;
-        [[nodiscard]] auto ViewportSize() const;
-        auto ViewportSize(double value) const;
-        [[nodiscard]] auto IndicatorMode() const;
-        auto IndicatorMode(Windows::UI::Xaml::Controls::Primitives::ScrollingIndicatorMode const& value) const;
-        auto Scroll(Windows::UI::Xaml::Controls::Primitives::ScrollEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Orientation) Orientation() const;
+        WINRT_IMPL_AUTO(void) Orientation(Windows::UI::Xaml::Controls::Orientation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ViewportSize() const;
+        WINRT_IMPL_AUTO(void) ViewportSize(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::ScrollingIndicatorMode) IndicatorMode() const;
+        WINRT_IMPL_AUTO(void) IndicatorMode(Windows::UI::Xaml::Controls::Primitives::ScrollingIndicatorMode const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Scroll(Windows::UI::Xaml::Controls::Primitives::ScrollEventHandler const& handler) const;
         using Scroll_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IScrollBar, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IScrollBar>::remove_Scroll>;
         [[nodiscard]] Scroll_revoker Scroll(auto_revoke_t, Windows::UI::Xaml::Controls::Primitives::ScrollEventHandler const& handler) const;
-        auto Scroll(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Scroll(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IScrollBar>
     {
@@ -3824,9 +3823,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IScrollBarStatics
     {
-        [[nodiscard]] auto OrientationProperty() const;
-        [[nodiscard]] auto ViewportSizeProperty() const;
-        [[nodiscard]] auto IndicatorModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OrientationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ViewportSizeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IndicatorModeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IScrollBarStatics>
     {
@@ -3835,8 +3834,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IScrollEventArgs
     {
-        [[nodiscard]] auto NewValue() const;
-        [[nodiscard]] auto ScrollEventType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NewValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::ScrollEventType) ScrollEventType() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IScrollEventArgs>
     {
@@ -3845,18 +3844,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IScrollSnapPointsInfo
     {
-        [[nodiscard]] auto AreHorizontalSnapPointsRegular() const;
-        [[nodiscard]] auto AreVerticalSnapPointsRegular() const;
-        auto HorizontalSnapPointsChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AreHorizontalSnapPointsRegular() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AreVerticalSnapPointsRegular() const;
+        WINRT_IMPL_AUTO(winrt::event_token) HorizontalSnapPointsChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using HorizontalSnapPointsChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IScrollSnapPointsInfo, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IScrollSnapPointsInfo>::remove_HorizontalSnapPointsChanged>;
         [[nodiscard]] HorizontalSnapPointsChanged_revoker HorizontalSnapPointsChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto HorizontalSnapPointsChanged(winrt::event_token const& token) const noexcept;
-        auto VerticalSnapPointsChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) HorizontalSnapPointsChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) VerticalSnapPointsChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using VerticalSnapPointsChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IScrollSnapPointsInfo, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IScrollSnapPointsInfo>::remove_VerticalSnapPointsChanged>;
         [[nodiscard]] VerticalSnapPointsChanged_revoker VerticalSnapPointsChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto VerticalSnapPointsChanged(winrt::event_token const& token) const noexcept;
-        auto GetIrregularSnapPoints(Windows::UI::Xaml::Controls::Orientation const& orientation, Windows::UI::Xaml::Controls::Primitives::SnapPointsAlignment const& alignment) const;
-        auto GetRegularSnapPoints(Windows::UI::Xaml::Controls::Orientation const& orientation, Windows::UI::Xaml::Controls::Primitives::SnapPointsAlignment const& alignment, float& offset) const;
+        WINRT_IMPL_AUTO(void) VerticalSnapPointsChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<float>) GetIrregularSnapPoints(Windows::UI::Xaml::Controls::Orientation const& orientation, Windows::UI::Xaml::Controls::Primitives::SnapPointsAlignment const& alignment) const;
+        WINRT_IMPL_AUTO(float) GetRegularSnapPoints(Windows::UI::Xaml::Controls::Orientation const& orientation, Windows::UI::Xaml::Controls::Primitives::SnapPointsAlignment const& alignment, float& offset) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IScrollSnapPointsInfo>
     {
@@ -3865,20 +3864,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ISelector
     {
-        [[nodiscard]] auto SelectedIndex() const;
-        auto SelectedIndex(int32_t value) const;
-        [[nodiscard]] auto SelectedItem() const;
-        auto SelectedItem(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto SelectedValue() const;
-        auto SelectedValue(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto SelectedValuePath() const;
-        auto SelectedValuePath(param::hstring const& value) const;
-        [[nodiscard]] auto IsSynchronizedWithCurrentItem() const;
-        auto IsSynchronizedWithCurrentItem(Windows::Foundation::IReference<bool> const& value) const;
-        auto SelectionChanged(Windows::UI::Xaml::Controls::SelectionChangedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SelectedIndex() const;
+        WINRT_IMPL_AUTO(void) SelectedIndex(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) SelectedItem() const;
+        WINRT_IMPL_AUTO(void) SelectedItem(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) SelectedValue() const;
+        WINRT_IMPL_AUTO(void) SelectedValue(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SelectedValuePath() const;
+        WINRT_IMPL_AUTO(void) SelectedValuePath(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) IsSynchronizedWithCurrentItem() const;
+        WINRT_IMPL_AUTO(void) IsSynchronizedWithCurrentItem(Windows::Foundation::IReference<bool> const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SelectionChanged(Windows::UI::Xaml::Controls::SelectionChangedEventHandler const& handler) const;
         using SelectionChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::ISelector, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::ISelector>::remove_SelectionChanged>;
         [[nodiscard]] SelectionChanged_revoker SelectionChanged(auto_revoke_t, Windows::UI::Xaml::Controls::SelectionChangedEventHandler const& handler) const;
-        auto SelectionChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SelectionChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ISelector>
     {
@@ -3895,8 +3894,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ISelectorItem
     {
-        [[nodiscard]] auto IsSelected() const;
-        auto IsSelected(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSelected() const;
+        WINRT_IMPL_AUTO(void) IsSelected(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ISelectorItem>
     {
@@ -3905,7 +3904,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ISelectorItemFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::SelectorItem) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ISelectorItemFactory>
     {
@@ -3914,7 +3913,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ISelectorItemStatics
     {
-        [[nodiscard]] auto IsSelectedProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsSelectedProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ISelectorItemStatics>
     {
@@ -3923,12 +3922,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ISelectorStatics
     {
-        [[nodiscard]] auto SelectedIndexProperty() const;
-        [[nodiscard]] auto SelectedItemProperty() const;
-        [[nodiscard]] auto SelectedValueProperty() const;
-        [[nodiscard]] auto SelectedValuePathProperty() const;
-        [[nodiscard]] auto IsSynchronizedWithCurrentItemProperty() const;
-        auto GetIsSelectionActive(Windows::UI::Xaml::DependencyObject const& element) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedIndexProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedItemProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedValueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SelectedValuePathProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsSynchronizedWithCurrentItemProperty() const;
+        WINRT_IMPL_AUTO(bool) GetIsSelectionActive(Windows::UI::Xaml::DependencyObject const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ISelectorStatics>
     {
@@ -3937,12 +3936,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ISettingsFlyoutTemplateSettings
     {
-        [[nodiscard]] auto HeaderBackground() const;
-        [[nodiscard]] auto HeaderForeground() const;
-        [[nodiscard]] auto BorderBrush() const;
-        [[nodiscard]] auto BorderThickness() const;
-        [[nodiscard]] auto IconSource() const;
-        [[nodiscard]] auto ContentTransitions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) HeaderBackground() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) HeaderForeground() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) BorderBrush() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) BorderThickness() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::ImageSource) IconSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::TransitionCollection) ContentTransitions() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ISettingsFlyoutTemplateSettings>
     {
@@ -3951,12 +3950,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ISplitViewTemplateSettings
     {
-        [[nodiscard]] auto OpenPaneLength() const;
-        [[nodiscard]] auto NegativeOpenPaneLength() const;
-        [[nodiscard]] auto OpenPaneLengthMinusCompactLength() const;
-        [[nodiscard]] auto NegativeOpenPaneLengthMinusCompactLength() const;
-        [[nodiscard]] auto OpenPaneGridLength() const;
-        [[nodiscard]] auto CompactPaneGridLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OpenPaneLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NegativeOpenPaneLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OpenPaneLengthMinusCompactLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NegativeOpenPaneLengthMinusCompactLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::GridLength) OpenPaneGridLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::GridLength) CompactPaneGridLength() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ISplitViewTemplateSettings>
     {
@@ -3965,20 +3964,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IThumb
     {
-        [[nodiscard]] auto IsDragging() const;
-        auto DragStarted(Windows::UI::Xaml::Controls::Primitives::DragStartedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDragging() const;
+        WINRT_IMPL_AUTO(winrt::event_token) DragStarted(Windows::UI::Xaml::Controls::Primitives::DragStartedEventHandler const& handler) const;
         using DragStarted_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IThumb, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IThumb>::remove_DragStarted>;
         [[nodiscard]] DragStarted_revoker DragStarted(auto_revoke_t, Windows::UI::Xaml::Controls::Primitives::DragStartedEventHandler const& handler) const;
-        auto DragStarted(winrt::event_token const& token) const noexcept;
-        auto DragDelta(Windows::UI::Xaml::Controls::Primitives::DragDeltaEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) DragStarted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DragDelta(Windows::UI::Xaml::Controls::Primitives::DragDeltaEventHandler const& handler) const;
         using DragDelta_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IThumb, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IThumb>::remove_DragDelta>;
         [[nodiscard]] DragDelta_revoker DragDelta(auto_revoke_t, Windows::UI::Xaml::Controls::Primitives::DragDeltaEventHandler const& handler) const;
-        auto DragDelta(winrt::event_token const& token) const noexcept;
-        auto DragCompleted(Windows::UI::Xaml::Controls::Primitives::DragCompletedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) DragDelta(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DragCompleted(Windows::UI::Xaml::Controls::Primitives::DragCompletedEventHandler const& handler) const;
         using DragCompleted_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IThumb, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IThumb>::remove_DragCompleted>;
         [[nodiscard]] DragCompleted_revoker DragCompleted(auto_revoke_t, Windows::UI::Xaml::Controls::Primitives::DragCompletedEventHandler const& handler) const;
-        auto DragCompleted(winrt::event_token const& token) const noexcept;
-        auto CancelDrag() const;
+        WINRT_IMPL_AUTO(void) DragCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) CancelDrag() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IThumb>
     {
@@ -3987,7 +3986,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IThumbStatics
     {
-        [[nodiscard]] auto IsDraggingProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsDraggingProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IThumbStatics>
     {
@@ -3996,8 +3995,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ITickBar
     {
-        [[nodiscard]] auto Fill() const;
-        auto Fill(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) Fill() const;
+        WINRT_IMPL_AUTO(void) Fill(Windows::UI::Xaml::Media::Brush const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ITickBar>
     {
@@ -4006,7 +4005,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_ITickBarStatics
     {
-        [[nodiscard]] auto FillProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FillProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::ITickBarStatics>
     {
@@ -4015,22 +4014,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IToggleButton
     {
-        [[nodiscard]] auto IsChecked() const;
-        auto IsChecked(Windows::Foundation::IReference<bool> const& value) const;
-        [[nodiscard]] auto IsThreeState() const;
-        auto IsThreeState(bool value) const;
-        auto Checked(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) IsChecked() const;
+        WINRT_IMPL_AUTO(void) IsChecked(Windows::Foundation::IReference<bool> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsThreeState() const;
+        WINRT_IMPL_AUTO(void) IsThreeState(bool value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Checked(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using Checked_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IToggleButton, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IToggleButton>::remove_Checked>;
         [[nodiscard]] Checked_revoker Checked(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto Checked(winrt::event_token const& token) const noexcept;
-        auto Unchecked(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Checked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Unchecked(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using Unchecked_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IToggleButton, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IToggleButton>::remove_Unchecked>;
         [[nodiscard]] Unchecked_revoker Unchecked(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto Unchecked(winrt::event_token const& token) const noexcept;
-        auto Indeterminate(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Unchecked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Indeterminate(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using Indeterminate_revoker = impl::event_revoker<Windows::UI::Xaml::Controls::Primitives::IToggleButton, &impl::abi_t<Windows::UI::Xaml::Controls::Primitives::IToggleButton>::remove_Indeterminate>;
         [[nodiscard]] Indeterminate_revoker Indeterminate(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto Indeterminate(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Indeterminate(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IToggleButton>
     {
@@ -4039,7 +4038,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IToggleButtonFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::ToggleButton) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IToggleButtonFactory>
     {
@@ -4048,7 +4047,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IToggleButtonOverrides
     {
-        auto OnToggle() const;
+        WINRT_IMPL_AUTO(void) OnToggle() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IToggleButtonOverrides>
     {
@@ -4057,8 +4056,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IToggleButtonStatics
     {
-        [[nodiscard]] auto IsCheckedProperty() const;
-        [[nodiscard]] auto IsThreeStateProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsCheckedProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsThreeStateProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IToggleButtonStatics>
     {
@@ -4067,14 +4066,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IToggleSwitchTemplateSettings
     {
-        [[nodiscard]] auto KnobCurrentToOnOffset() const;
-        [[nodiscard]] auto KnobCurrentToOffOffset() const;
-        [[nodiscard]] auto KnobOnToOffOffset() const;
-        [[nodiscard]] auto KnobOffToOnOffset() const;
-        [[nodiscard]] auto CurtainCurrentToOnOffset() const;
-        [[nodiscard]] auto CurtainCurrentToOffOffset() const;
-        [[nodiscard]] auto CurtainOnToOffOffset() const;
-        [[nodiscard]] auto CurtainOffToOnOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KnobCurrentToOnOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KnobCurrentToOffOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KnobOnToOffOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KnobOffToOnOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CurtainCurrentToOnOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CurtainCurrentToOffOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CurtainOnToOffOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CurtainOffToOnOffset() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IToggleSwitchTemplateSettings>
     {
@@ -4083,8 +4082,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Controls_Primitives_IToolTipTemplateSettings
     {
-        [[nodiscard]] auto FromHorizontalOffset() const;
-        [[nodiscard]] auto FromVerticalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromHorizontalOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromVerticalOffset() const;
     };
     template <> struct consume<Windows::UI::Xaml::Controls::Primitives::IToolTipTemplateSettings>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -58,7 +58,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Preview::Injection
         InjectedInputGamepadInfo(std::nullptr_t) noexcept {}
         InjectedInputGamepadInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Preview::Injection::IInjectedInputGamepadInfo(ptr, take_ownership_from_abi) {}
         InjectedInputGamepadInfo();
-        InjectedInputGamepadInfo(Windows::Gaming::Input::GamepadReading const& reading);
+        explicit InjectedInputGamepadInfo(Windows::Gaming::Input::GamepadReading const& reading);
     };
     struct __declspec(empty_bases) InjectedInputKeyboardInfo : Windows::UI::Input::Preview::Injection::IInjectedInputKeyboardInfo
     {

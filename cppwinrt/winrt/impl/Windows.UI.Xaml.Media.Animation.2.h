@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -855,8 +855,8 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media::Animation
         D const& shim() const noexcept { return *static_cast<const D*>(this); }
     public:
         using INavigationTransitionInfoOverrides = winrt::Windows::UI::Xaml::Media::Animation::INavigationTransitionInfoOverrides;
-        auto GetNavigationStateCore() const;
-        auto SetNavigationStateCore(param::hstring const& navigationState) const;
+        WINRT_IMPL_AUTO(hstring) GetNavigationStateCore() const;
+        WINRT_IMPL_AUTO(void) SetNavigationStateCore(param::hstring const& navigationState) const;
     };
 }
 #endif

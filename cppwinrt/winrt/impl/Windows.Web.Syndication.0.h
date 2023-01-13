@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -11,7 +11,12 @@ WINRT_EXPORT namespace winrt::Windows::Data::Xml::Dom
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Security::Credentials
 {
@@ -123,48 +128,46 @@ namespace winrt::impl
     template <> struct category<Windows::Web::Syndication::SyndicationTextType>{ using type = enum_category; };
     template <> struct category<Windows::Web::Syndication::RetrievalProgress>{ using type = struct_category<uint32_t, uint32_t>; };
     template <> struct category<Windows::Web::Syndication::TransferProgress>{ using type = struct_category<uint32_t, uint32_t, uint32_t, uint32_t>; };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationAttribute>{ L"Windows.Web.Syndication.SyndicationAttribute" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationCategory>{ L"Windows.Web.Syndication.SyndicationCategory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationClient>{ L"Windows.Web.Syndication.SyndicationClient" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationContent>{ L"Windows.Web.Syndication.SyndicationContent" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationError>{ L"Windows.Web.Syndication.SyndicationError" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationFeed>{ L"Windows.Web.Syndication.SyndicationFeed" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationGenerator>{ L"Windows.Web.Syndication.SyndicationGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationItem>{ L"Windows.Web.Syndication.SyndicationItem" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationLink>{ L"Windows.Web.Syndication.SyndicationLink" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationNode>{ L"Windows.Web.Syndication.SyndicationNode" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationPerson>{ L"Windows.Web.Syndication.SyndicationPerson" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationText>{ L"Windows.Web.Syndication.SyndicationText" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationErrorStatus>{ L"Windows.Web.Syndication.SyndicationErrorStatus" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationFormat>{ L"Windows.Web.Syndication.SyndicationFormat" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationTextType>{ L"Windows.Web.Syndication.SyndicationTextType" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::RetrievalProgress>{ L"Windows.Web.Syndication.RetrievalProgress" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::TransferProgress>{ L"Windows.Web.Syndication.TransferProgress" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationAttribute>{ L"Windows.Web.Syndication.ISyndicationAttribute" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationAttributeFactory>{ L"Windows.Web.Syndication.ISyndicationAttributeFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationCategory>{ L"Windows.Web.Syndication.ISyndicationCategory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationCategoryFactory>{ L"Windows.Web.Syndication.ISyndicationCategoryFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationClient>{ L"Windows.Web.Syndication.ISyndicationClient" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationClientFactory>{ L"Windows.Web.Syndication.ISyndicationClientFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationContent>{ L"Windows.Web.Syndication.ISyndicationContent" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationContentFactory>{ L"Windows.Web.Syndication.ISyndicationContentFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationErrorStatics>{ L"Windows.Web.Syndication.ISyndicationErrorStatics" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationFeed>{ L"Windows.Web.Syndication.ISyndicationFeed" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationFeedFactory>{ L"Windows.Web.Syndication.ISyndicationFeedFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationGenerator>{ L"Windows.Web.Syndication.ISyndicationGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationGeneratorFactory>{ L"Windows.Web.Syndication.ISyndicationGeneratorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationItem>{ L"Windows.Web.Syndication.ISyndicationItem" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationItemFactory>{ L"Windows.Web.Syndication.ISyndicationItemFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationLink>{ L"Windows.Web.Syndication.ISyndicationLink" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationLinkFactory>{ L"Windows.Web.Syndication.ISyndicationLinkFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationNode>{ L"Windows.Web.Syndication.ISyndicationNode" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationNodeFactory>{ L"Windows.Web.Syndication.ISyndicationNodeFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationPerson>{ L"Windows.Web.Syndication.ISyndicationPerson" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationPersonFactory>{ L"Windows.Web.Syndication.ISyndicationPersonFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationText>{ L"Windows.Web.Syndication.ISyndicationText" };
-    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationTextFactory>{ L"Windows.Web.Syndication.ISyndicationTextFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationAttribute> = L"Windows.Web.Syndication.SyndicationAttribute";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationCategory> = L"Windows.Web.Syndication.SyndicationCategory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationClient> = L"Windows.Web.Syndication.SyndicationClient";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationContent> = L"Windows.Web.Syndication.SyndicationContent";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationError> = L"Windows.Web.Syndication.SyndicationError";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationFeed> = L"Windows.Web.Syndication.SyndicationFeed";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationGenerator> = L"Windows.Web.Syndication.SyndicationGenerator";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationItem> = L"Windows.Web.Syndication.SyndicationItem";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationLink> = L"Windows.Web.Syndication.SyndicationLink";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationNode> = L"Windows.Web.Syndication.SyndicationNode";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationPerson> = L"Windows.Web.Syndication.SyndicationPerson";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationText> = L"Windows.Web.Syndication.SyndicationText";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationErrorStatus> = L"Windows.Web.Syndication.SyndicationErrorStatus";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationFormat> = L"Windows.Web.Syndication.SyndicationFormat";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::SyndicationTextType> = L"Windows.Web.Syndication.SyndicationTextType";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::RetrievalProgress> = L"Windows.Web.Syndication.RetrievalProgress";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::TransferProgress> = L"Windows.Web.Syndication.TransferProgress";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationAttribute> = L"Windows.Web.Syndication.ISyndicationAttribute";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationAttributeFactory> = L"Windows.Web.Syndication.ISyndicationAttributeFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationCategory> = L"Windows.Web.Syndication.ISyndicationCategory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationCategoryFactory> = L"Windows.Web.Syndication.ISyndicationCategoryFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationClient> = L"Windows.Web.Syndication.ISyndicationClient";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationClientFactory> = L"Windows.Web.Syndication.ISyndicationClientFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationContent> = L"Windows.Web.Syndication.ISyndicationContent";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationContentFactory> = L"Windows.Web.Syndication.ISyndicationContentFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationErrorStatics> = L"Windows.Web.Syndication.ISyndicationErrorStatics";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationFeed> = L"Windows.Web.Syndication.ISyndicationFeed";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationFeedFactory> = L"Windows.Web.Syndication.ISyndicationFeedFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationGenerator> = L"Windows.Web.Syndication.ISyndicationGenerator";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationGeneratorFactory> = L"Windows.Web.Syndication.ISyndicationGeneratorFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationItem> = L"Windows.Web.Syndication.ISyndicationItem";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationItemFactory> = L"Windows.Web.Syndication.ISyndicationItemFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationLink> = L"Windows.Web.Syndication.ISyndicationLink";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationLinkFactory> = L"Windows.Web.Syndication.ISyndicationLinkFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationNode> = L"Windows.Web.Syndication.ISyndicationNode";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationNodeFactory> = L"Windows.Web.Syndication.ISyndicationNodeFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationPerson> = L"Windows.Web.Syndication.ISyndicationPerson";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationPersonFactory> = L"Windows.Web.Syndication.ISyndicationPersonFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationText> = L"Windows.Web.Syndication.ISyndicationText";
+    template <> inline constexpr auto& name_v<Windows::Web::Syndication::ISyndicationTextFactory> = L"Windows.Web.Syndication.ISyndicationTextFactory";
     template <> inline constexpr guid guid_v<Windows::Web::Syndication::ISyndicationAttribute>{ 0x71E8F969,0x526E,0x4001,{ 0x9A,0x91,0xE8,0x4F,0x83,0x16,0x1A,0xB1 } };
     template <> inline constexpr guid guid_v<Windows::Web::Syndication::ISyndicationAttributeFactory>{ 0x624F1599,0xED3E,0x420F,{ 0xBE,0x86,0x64,0x04,0x14,0x88,0x6E,0x4B } };
     template <> inline constexpr guid guid_v<Windows::Web::Syndication::ISyndicationCategory>{ 0x8715626F,0x0CBA,0x4A7F,{ 0x89,0xFF,0xEC,0xB5,0x28,0x14,0x23,0xB6 } };
@@ -482,12 +485,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationAttribute
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Namespace() const;
-        auto Namespace(param::hstring const& value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Namespace() const;
+        WINRT_IMPL_AUTO(void) Namespace(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
+        WINRT_IMPL_AUTO(void) Value(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationAttribute>
     {
@@ -496,7 +499,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationAttributeFactory
     {
-        auto CreateSyndicationAttribute(param::hstring const& attributeName, param::hstring const& attributeNamespace, param::hstring const& attributeValue) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationAttribute) CreateSyndicationAttribute(param::hstring const& attributeName, param::hstring const& attributeNamespace, param::hstring const& attributeValue) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationAttributeFactory>
     {
@@ -505,12 +508,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationCategory
     {
-        [[nodiscard]] auto Label() const;
-        auto Label(param::hstring const& value) const;
-        [[nodiscard]] auto Scheme() const;
-        auto Scheme(param::hstring const& value) const;
-        [[nodiscard]] auto Term() const;
-        auto Term(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Label() const;
+        WINRT_IMPL_AUTO(void) Label(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Scheme() const;
+        WINRT_IMPL_AUTO(void) Scheme(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Term() const;
+        WINRT_IMPL_AUTO(void) Term(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationCategory>
     {
@@ -519,8 +522,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationCategoryFactory
     {
-        auto CreateSyndicationCategory(param::hstring const& term) const;
-        auto CreateSyndicationCategoryEx(param::hstring const& term, param::hstring const& scheme, param::hstring const& label) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationCategory) CreateSyndicationCategory(param::hstring const& term) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationCategory) CreateSyndicationCategoryEx(param::hstring const& term, param::hstring const& scheme, param::hstring const& label) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationCategoryFactory>
     {
@@ -529,18 +532,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationClient
     {
-        [[nodiscard]] auto ServerCredential() const;
-        auto ServerCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
-        [[nodiscard]] auto ProxyCredential() const;
-        auto ProxyCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
-        [[nodiscard]] auto MaxResponseBufferSize() const;
-        auto MaxResponseBufferSize(uint32_t value) const;
-        [[nodiscard]] auto Timeout() const;
-        auto Timeout(uint32_t value) const;
-        [[nodiscard]] auto BypassCacheOnRetrieve() const;
-        auto BypassCacheOnRetrieve(bool value) const;
-        auto SetRequestHeader(param::hstring const& name, param::hstring const& value) const;
-        auto RetrieveFeedAsync(Windows::Foundation::Uri const& uri) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::PasswordCredential) ServerCredential() const;
+        WINRT_IMPL_AUTO(void) ServerCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::PasswordCredential) ProxyCredential() const;
+        WINRT_IMPL_AUTO(void) ProxyCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxResponseBufferSize() const;
+        WINRT_IMPL_AUTO(void) MaxResponseBufferSize(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Timeout() const;
+        WINRT_IMPL_AUTO(void) Timeout(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) BypassCacheOnRetrieve() const;
+        WINRT_IMPL_AUTO(void) BypassCacheOnRetrieve(bool value) const;
+        WINRT_IMPL_AUTO(void) SetRequestHeader(param::hstring const& name, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationFeed, Windows::Web::Syndication::RetrievalProgress>) RetrieveFeedAsync(Windows::Foundation::Uri const& uri) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationClient>
     {
@@ -549,7 +552,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationClientFactory
     {
-        auto CreateSyndicationClient(Windows::Security::Credentials::PasswordCredential const& serverCredential) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationClient) CreateSyndicationClient(Windows::Security::Credentials::PasswordCredential const& serverCredential) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationClientFactory>
     {
@@ -558,8 +561,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationContent
     {
-        [[nodiscard]] auto SourceUri() const;
-        auto SourceUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) SourceUri() const;
+        WINRT_IMPL_AUTO(void) SourceUri(Windows::Foundation::Uri const& value) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationContent>
     {
@@ -568,8 +571,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationContentFactory
     {
-        auto CreateSyndicationContent(param::hstring const& text, Windows::Web::Syndication::SyndicationTextType const& type) const;
-        auto CreateSyndicationContentWithSourceUri(Windows::Foundation::Uri const& sourceUri) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationContent) CreateSyndicationContent(param::hstring const& text, Windows::Web::Syndication::SyndicationTextType const& type) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationContent) CreateSyndicationContentWithSourceUri(Windows::Foundation::Uri const& sourceUri) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationContentFactory>
     {
@@ -578,7 +581,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationErrorStatics
     {
-        auto GetStatus(int32_t hresult) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationErrorStatus) GetStatus(int32_t hresult) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationErrorStatics>
     {
@@ -587,34 +590,34 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationFeed
     {
-        [[nodiscard]] auto Authors() const;
-        [[nodiscard]] auto Categories() const;
-        [[nodiscard]] auto Contributors() const;
-        [[nodiscard]] auto Generator() const;
-        auto Generator(Windows::Web::Syndication::SyndicationGenerator const& value) const;
-        [[nodiscard]] auto IconUri() const;
-        auto IconUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto Id() const;
-        auto Id(param::hstring const& value) const;
-        [[nodiscard]] auto Items() const;
-        [[nodiscard]] auto LastUpdatedTime() const;
-        auto LastUpdatedTime(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto Links() const;
-        [[nodiscard]] auto ImageUri() const;
-        auto ImageUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto Rights() const;
-        auto Rights(Windows::Web::Syndication::ISyndicationText const& value) const;
-        [[nodiscard]] auto Subtitle() const;
-        auto Subtitle(Windows::Web::Syndication::ISyndicationText const& value) const;
-        [[nodiscard]] auto Title() const;
-        auto Title(Windows::Web::Syndication::ISyndicationText const& value) const;
-        [[nodiscard]] auto FirstUri() const;
-        [[nodiscard]] auto LastUri() const;
-        [[nodiscard]] auto NextUri() const;
-        [[nodiscard]] auto PreviousUri() const;
-        [[nodiscard]] auto SourceFormat() const;
-        auto Load(param::hstring const& feed) const;
-        auto LoadFromXml(Windows::Data::Xml::Dom::XmlDocument const& feedDocument) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationPerson>) Authors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationCategory>) Categories() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationPerson>) Contributors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationGenerator) Generator() const;
+        WINRT_IMPL_AUTO(void) Generator(Windows::Web::Syndication::SyndicationGenerator const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) IconUri() const;
+        WINRT_IMPL_AUTO(void) IconUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(void) Id(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationItem>) Items() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastUpdatedTime() const;
+        WINRT_IMPL_AUTO(void) LastUpdatedTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationLink>) Links() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ImageUri() const;
+        WINRT_IMPL_AUTO(void) ImageUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) Rights() const;
+        WINRT_IMPL_AUTO(void) Rights(Windows::Web::Syndication::ISyndicationText const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) Subtitle() const;
+        WINRT_IMPL_AUTO(void) Subtitle(Windows::Web::Syndication::ISyndicationText const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) Title() const;
+        WINRT_IMPL_AUTO(void) Title(Windows::Web::Syndication::ISyndicationText const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) FirstUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) LastUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) NextUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) PreviousUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationFormat) SourceFormat() const;
+        WINRT_IMPL_AUTO(void) Load(param::hstring const& feed) const;
+        WINRT_IMPL_AUTO(void) LoadFromXml(Windows::Data::Xml::Dom::XmlDocument const& feedDocument) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationFeed>
     {
@@ -623,7 +626,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationFeedFactory
     {
-        auto CreateSyndicationFeed(param::hstring const& title, param::hstring const& subtitle, Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationFeed) CreateSyndicationFeed(param::hstring const& title, param::hstring const& subtitle, Windows::Foundation::Uri const& uri) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationFeedFactory>
     {
@@ -632,12 +635,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationGenerator
     {
-        [[nodiscard]] auto Text() const;
-        auto Text(param::hstring const& value) const;
-        [[nodiscard]] auto Uri() const;
-        auto Uri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto Version() const;
-        auto Version(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        WINRT_IMPL_AUTO(void) Text(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Version() const;
+        WINRT_IMPL_AUTO(void) Version(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationGenerator>
     {
@@ -646,7 +649,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationGeneratorFactory
     {
-        auto CreateSyndicationGenerator(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationGenerator) CreateSyndicationGenerator(param::hstring const& text) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationGeneratorFactory>
     {
@@ -655,34 +658,34 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationItem
     {
-        [[nodiscard]] auto Authors() const;
-        [[nodiscard]] auto Categories() const;
-        [[nodiscard]] auto Contributors() const;
-        [[nodiscard]] auto Content() const;
-        auto Content(Windows::Web::Syndication::SyndicationContent const& value) const;
-        [[nodiscard]] auto Id() const;
-        auto Id(param::hstring const& value) const;
-        [[nodiscard]] auto LastUpdatedTime() const;
-        auto LastUpdatedTime(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto Links() const;
-        [[nodiscard]] auto PublishedDate() const;
-        auto PublishedDate(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto Rights() const;
-        auto Rights(Windows::Web::Syndication::ISyndicationText const& value) const;
-        [[nodiscard]] auto Source() const;
-        auto Source(Windows::Web::Syndication::SyndicationFeed const& value) const;
-        [[nodiscard]] auto Summary() const;
-        auto Summary(Windows::Web::Syndication::ISyndicationText const& value) const;
-        [[nodiscard]] auto Title() const;
-        auto Title(Windows::Web::Syndication::ISyndicationText const& value) const;
-        [[nodiscard]] auto CommentsUri() const;
-        auto CommentsUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto EditUri() const;
-        [[nodiscard]] auto EditMediaUri() const;
-        [[nodiscard]] auto ETag() const;
-        [[nodiscard]] auto ItemUri() const;
-        auto Load(param::hstring const& item) const;
-        auto LoadFromXml(Windows::Data::Xml::Dom::XmlDocument const& itemDocument) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationPerson>) Authors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationCategory>) Categories() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationPerson>) Contributors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationContent) Content() const;
+        WINRT_IMPL_AUTO(void) Content(Windows::Web::Syndication::SyndicationContent const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(void) Id(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastUpdatedTime() const;
+        WINRT_IMPL_AUTO(void) LastUpdatedTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationLink>) Links() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) PublishedDate() const;
+        WINRT_IMPL_AUTO(void) PublishedDate(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) Rights() const;
+        WINRT_IMPL_AUTO(void) Rights(Windows::Web::Syndication::ISyndicationText const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationFeed) Source() const;
+        WINRT_IMPL_AUTO(void) Source(Windows::Web::Syndication::SyndicationFeed const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) Summary() const;
+        WINRT_IMPL_AUTO(void) Summary(Windows::Web::Syndication::ISyndicationText const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) Title() const;
+        WINRT_IMPL_AUTO(void) Title(Windows::Web::Syndication::ISyndicationText const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) CommentsUri() const;
+        WINRT_IMPL_AUTO(void) CommentsUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) EditUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) EditMediaUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ETag() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ItemUri() const;
+        WINRT_IMPL_AUTO(void) Load(param::hstring const& item) const;
+        WINRT_IMPL_AUTO(void) LoadFromXml(Windows::Data::Xml::Dom::XmlDocument const& itemDocument) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationItem>
     {
@@ -691,7 +694,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationItemFactory
     {
-        auto CreateSyndicationItem(param::hstring const& title, Windows::Web::Syndication::SyndicationContent const& content, Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationItem) CreateSyndicationItem(param::hstring const& title, Windows::Web::Syndication::SyndicationContent const& content, Windows::Foundation::Uri const& uri) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationItemFactory>
     {
@@ -700,18 +703,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationLink
     {
-        [[nodiscard]] auto Length() const;
-        auto Length(uint32_t value) const;
-        [[nodiscard]] auto MediaType() const;
-        auto MediaType(param::hstring const& value) const;
-        [[nodiscard]] auto Relationship() const;
-        auto Relationship(param::hstring const& value) const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Uri() const;
-        auto Uri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto ResourceLanguage() const;
-        auto ResourceLanguage(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Length() const;
+        WINRT_IMPL_AUTO(void) Length(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MediaType() const;
+        WINRT_IMPL_AUTO(void) MediaType(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Relationship() const;
+        WINRT_IMPL_AUTO(void) Relationship(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResourceLanguage() const;
+        WINRT_IMPL_AUTO(void) ResourceLanguage(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationLink>
     {
@@ -720,8 +723,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationLinkFactory
     {
-        auto CreateSyndicationLink(Windows::Foundation::Uri const& uri) const;
-        auto CreateSyndicationLinkEx(Windows::Foundation::Uri const& uri, param::hstring const& relationship, param::hstring const& title, param::hstring const& mediaType, uint32_t length) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationLink) CreateSyndicationLink(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationLink) CreateSyndicationLinkEx(Windows::Foundation::Uri const& uri, param::hstring const& relationship, param::hstring const& title, param::hstring const& mediaType, uint32_t length) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationLinkFactory>
     {
@@ -730,19 +733,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationNode
     {
-        [[nodiscard]] auto NodeName() const;
-        auto NodeName(param::hstring const& value) const;
-        [[nodiscard]] auto NodeNamespace() const;
-        auto NodeNamespace(param::hstring const& value) const;
-        [[nodiscard]] auto NodeValue() const;
-        auto NodeValue(param::hstring const& value) const;
-        [[nodiscard]] auto Language() const;
-        auto Language(param::hstring const& value) const;
-        [[nodiscard]] auto BaseUri() const;
-        auto BaseUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto AttributeExtensions() const;
-        [[nodiscard]] auto ElementExtensions() const;
-        auto GetXmlDocument(Windows::Web::Syndication::SyndicationFormat const& format) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NodeName() const;
+        WINRT_IMPL_AUTO(void) NodeName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NodeNamespace() const;
+        WINRT_IMPL_AUTO(void) NodeNamespace(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NodeValue() const;
+        WINRT_IMPL_AUTO(void) NodeValue(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
+        WINRT_IMPL_AUTO(void) Language(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) BaseUri() const;
+        WINRT_IMPL_AUTO(void) BaseUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::SyndicationAttribute>) AttributeExtensions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Syndication::ISyndicationNode>) ElementExtensions() const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) GetXmlDocument(Windows::Web::Syndication::SyndicationFormat const& format) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationNode>
     {
@@ -751,7 +754,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationNodeFactory
     {
-        auto CreateSyndicationNode(param::hstring const& nodeName, param::hstring const& nodeNamespace, param::hstring const& nodeValue) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationNode) CreateSyndicationNode(param::hstring const& nodeName, param::hstring const& nodeNamespace, param::hstring const& nodeValue) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationNodeFactory>
     {
@@ -760,12 +763,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationPerson
     {
-        [[nodiscard]] auto Email() const;
-        auto Email(param::hstring const& value) const;
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Uri() const;
-        auto Uri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Email() const;
+        WINRT_IMPL_AUTO(void) Email(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& value) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationPerson>
     {
@@ -774,8 +777,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationPersonFactory
     {
-        auto CreateSyndicationPerson(param::hstring const& name) const;
-        auto CreateSyndicationPersonEx(param::hstring const& name, param::hstring const& email, Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationPerson) CreateSyndicationPerson(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationPerson) CreateSyndicationPersonEx(param::hstring const& name, param::hstring const& email, Windows::Foundation::Uri const& uri) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationPersonFactory>
     {
@@ -784,12 +787,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationText
     {
-        [[nodiscard]] auto Text() const;
-        auto Text(param::hstring const& value) const;
-        [[nodiscard]] auto Type() const;
-        auto Type(param::hstring const& value) const;
-        [[nodiscard]] auto Xml() const;
-        auto Xml(Windows::Data::Xml::Dom::XmlDocument const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        WINRT_IMPL_AUTO(void) Text(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Type() const;
+        WINRT_IMPL_AUTO(void) Type(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) Xml() const;
+        WINRT_IMPL_AUTO(void) Xml(Windows::Data::Xml::Dom::XmlDocument const& value) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationText>
     {
@@ -798,8 +801,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Syndication_ISyndicationTextFactory
     {
-        auto CreateSyndicationText(param::hstring const& text) const;
-        auto CreateSyndicationTextEx(param::hstring const& text, Windows::Web::Syndication::SyndicationTextType const& type) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationText) CreateSyndicationText(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::Web::Syndication::SyndicationText) CreateSyndicationTextEx(param::hstring const& text, Windows::Web::Syndication::SyndicationTextType const& type) const;
     };
     template <> struct consume<Windows::Web::Syndication::ISyndicationTextFactory>
     {

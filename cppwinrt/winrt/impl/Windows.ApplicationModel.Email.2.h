@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -216,7 +216,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Email
         EmailQueryOptions(std::nullptr_t) noexcept {}
         EmailQueryOptions(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::Email::IEmailQueryOptions(ptr, take_ownership_from_abi) {}
         EmailQueryOptions();
-        EmailQueryOptions(param::hstring const& text);
+        explicit EmailQueryOptions(param::hstring const& text);
         EmailQueryOptions(param::hstring const& text, Windows::ApplicationModel::Email::EmailQuerySearchFields const& fields);
     };
     struct __declspec(empty_bases) EmailQueryTextSearch : Windows::ApplicationModel::Email::IEmailQueryTextSearch
@@ -229,7 +229,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Email
         EmailRecipient(std::nullptr_t) noexcept {}
         EmailRecipient(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::Email::IEmailRecipient(ptr, take_ownership_from_abi) {}
         EmailRecipient();
-        EmailRecipient(param::hstring const& address);
+        explicit EmailRecipient(param::hstring const& address);
         EmailRecipient(param::hstring const& address, param::hstring const& name);
     };
     struct __declspec(empty_bases) EmailRecipientResolutionResult : Windows::ApplicationModel::Email::IEmailRecipientResolutionResult,

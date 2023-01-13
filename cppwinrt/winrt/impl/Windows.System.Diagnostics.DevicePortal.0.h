@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,6 +14,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct Deferral;
     struct EventRegistrationToken;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking::Sockets
 {
@@ -60,18 +64,16 @@ namespace winrt::impl
     template <> struct category<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionRequestReceivedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedReason>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection>{ L"Windows.System.Diagnostics.DevicePortal.DevicePortalConnection" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedEventArgs>{ L"Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionRequestReceivedEventArgs>{ L"Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedReason>{ L"Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection>{ L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionClosedEventArgs>{ L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionRequestReceivedEventArgs>{ L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionStatics>{ L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnection>{ L"Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnection" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnectionRequestReceivedEventArgs>{ L"Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnectionRequestReceivedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection> = L"Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedEventArgs> = L"Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionRequestReceivedEventArgs> = L"Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedReason> = L"Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnection";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionClosedEventArgs> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionRequestReceivedEventArgs> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionRequestReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionStatics> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnection> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnection";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnectionRequestReceivedEventArgs> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnectionRequestReceivedEventArgs";
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection>{ 0x0F447F51,0x1198,0x4DA1,{ 0x8D,0x54,0xBD,0xEF,0x39,0x3E,0x09,0xB6 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionClosedEventArgs>{ 0xFCF70E38,0x7032,0x428C,{ 0x9F,0x50,0x94,0x5C,0x15,0xA9,0xF0,0xCB } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionRequestReceivedEventArgs>{ 0x64DAE045,0x6FDA,0x4459,{ 0x9E,0xBD,0xEC,0xCE,0x22,0xE3,0x85,0x59 } };
@@ -136,14 +138,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_DevicePortal_IDevicePortalConnection
     {
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection, Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection, Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedEventArgs> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection, &impl::abi_t<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection, Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedEventArgs> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
-        auto RequestReceived(Windows::Foundation::TypedEventHandler<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection, Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionRequestReceivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) RequestReceived(Windows::Foundation::TypedEventHandler<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection, Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionRequestReceivedEventArgs> const& handler) const;
         using RequestReceived_revoker = impl::event_revoker<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection, &impl::abi_t<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection>::remove_RequestReceived>;
         [[nodiscard]] RequestReceived_revoker RequestReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection, Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionRequestReceivedEventArgs> const& handler) const;
-        auto RequestReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) RequestReceived(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection>
     {
@@ -152,7 +154,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_DevicePortal_IDevicePortalConnectionClosedEventArgs
     {
-        [[nodiscard]] auto Reason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedReason) Reason() const;
     };
     template <> struct consume<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionClosedEventArgs>
     {
@@ -161,8 +163,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_DevicePortal_IDevicePortalConnectionRequestReceivedEventArgs
     {
-        [[nodiscard]] auto RequestMessage() const;
-        [[nodiscard]] auto ResponseMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpRequestMessage) RequestMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpResponseMessage) ResponseMessage() const;
     };
     template <> struct consume<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionRequestReceivedEventArgs>
     {
@@ -171,7 +173,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_DevicePortal_IDevicePortalConnectionStatics
     {
-        auto GetForAppServiceConnection(Windows::ApplicationModel::AppService::AppServiceConnection const& appServiceConnection) const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::DevicePortal::DevicePortalConnection) GetForAppServiceConnection(Windows::ApplicationModel::AppService::AppServiceConnection const& appServiceConnection) const;
     };
     template <> struct consume<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionStatics>
     {
@@ -180,11 +182,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_DevicePortal_IDevicePortalWebSocketConnection
     {
-        auto GetServerMessageWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request) const;
-        auto GetServerMessageWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request, Windows::Networking::Sockets::SocketMessageType const& messageType, param::hstring const& protocol) const;
-        auto GetServerMessageWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request, Windows::Networking::Sockets::SocketMessageType const& messageType, param::hstring const& protocol, uint32_t outboundBufferSizeInBytes, uint32_t maxMessageSize, Windows::Networking::Sockets::MessageWebSocketReceiveMode const& receiveMode) const;
-        auto GetServerStreamWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request) const;
-        auto GetServerStreamWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request, param::hstring const& protocol, uint32_t outboundBufferSizeInBytes, bool noDelay) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Sockets::ServerMessageWebSocket) GetServerMessageWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Sockets::ServerMessageWebSocket) GetServerMessageWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request, Windows::Networking::Sockets::SocketMessageType const& messageType, param::hstring const& protocol) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Sockets::ServerMessageWebSocket) GetServerMessageWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request, Windows::Networking::Sockets::SocketMessageType const& messageType, param::hstring const& protocol, uint32_t outboundBufferSizeInBytes, uint32_t maxMessageSize, Windows::Networking::Sockets::MessageWebSocketReceiveMode const& receiveMode) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Sockets::ServerStreamWebSocket) GetServerStreamWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Sockets::ServerStreamWebSocket) GetServerStreamWebSocketForRequest(Windows::Web::Http::HttpRequestMessage const& request, param::hstring const& protocol, uint32_t outboundBufferSizeInBytes, bool noDelay) const;
     };
     template <> struct consume<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnection>
     {
@@ -193,9 +195,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_DevicePortal_IDevicePortalWebSocketConnectionRequestReceivedEventArgs
     {
-        [[nodiscard]] auto IsWebSocketUpgradeRequest() const;
-        [[nodiscard]] auto WebSocketProtocolsRequested() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsWebSocketUpgradeRequest() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) WebSocketProtocolsRequested() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnectionRequestReceivedEventArgs>
     {

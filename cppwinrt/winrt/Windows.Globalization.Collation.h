@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,31 +6,31 @@
 #ifndef WINRT_Windows_Globalization_Collation_H
 #define WINRT_Windows_Globalization_Collation_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Globalization.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.Globalization.Collation.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Globalization_Collation_ICharacterGrouping<D>::First() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Globalization_Collation_ICharacterGrouping<D>::First() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Globalization::Collation::ICharacterGrouping)->get_First(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Globalization_Collation_ICharacterGrouping<D>::Label() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Globalization_Collation_ICharacterGrouping<D>::Label() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Globalization::Collation::ICharacterGrouping)->get_Label(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Globalization_Collation_ICharacterGroupings<D>::Lookup(param::hstring const& text) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Globalization_Collation_ICharacterGroupings<D>::Lookup(param::hstring const& text) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Globalization::Collation::ICharacterGroupings)->Lookup(*(void**)(&text), &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Globalization_Collation_ICharacterGroupingsFactory<D>::Create(param::hstring const& language) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Globalization::Collation::CharacterGroupings) consume_Windows_Globalization_Collation_ICharacterGroupingsFactory<D>::Create(param::hstring const& language) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Globalization::Collation::ICharacterGroupingsFactory)->Create(*(void**)(&language), &result));

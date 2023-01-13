@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,182 +6,182 @@
 #ifndef WINRT_Windows_Devices_SerialCommunication_H
 #define WINRT_Windows_Devices_SerialCommunication_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Devices.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Storage.Streams.2.h"
 #include "winrt/impl/Windows.Devices.SerialCommunication.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_IErrorReceivedEventArgs<D>::Error() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialError) consume_Windows_Devices_SerialCommunication_IErrorReceivedEventArgs<D>::Error() const
     {
-        Windows::Devices::SerialCommunication::SerialError value;
+        Windows::Devices::SerialCommunication::SerialError value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::IErrorReceivedEventArgs)->get_Error(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_IPinChangedEventArgs<D>::PinChange() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialPinChange) consume_Windows_Devices_SerialCommunication_IPinChangedEventArgs<D>::PinChange() const
     {
-        Windows::Devices::SerialCommunication::SerialPinChange value;
+        Windows::Devices::SerialCommunication::SerialPinChange value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::IPinChangedEventArgs)->get_PinChange(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BaudRate() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BaudRate() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_BaudRate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BaudRate(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BaudRate(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_BaudRate(value));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BreakSignalState() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BreakSignalState() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_BreakSignalState(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BreakSignalState(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BreakSignalState(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_BreakSignalState(value));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BytesReceived() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::BytesReceived() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_BytesReceived(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::CarrierDetectState() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::CarrierDetectState() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_CarrierDetectState(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ClearToSendState() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ClearToSendState() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_ClearToSendState(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::DataBits() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::DataBits() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_DataBits(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::DataBits(uint16_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::DataBits(uint16_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_DataBits(value));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::DataSetReadyState() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::DataSetReadyState() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_DataSetReadyState(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::Handshake() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialHandshake) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::Handshake() const
     {
-        Windows::Devices::SerialCommunication::SerialHandshake value;
+        Windows::Devices::SerialCommunication::SerialHandshake value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_Handshake(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::Handshake(Windows::Devices::SerialCommunication::SerialHandshake const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::Handshake(Windows::Devices::SerialCommunication::SerialHandshake const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_Handshake(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::IsDataTerminalReadyEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::IsDataTerminalReadyEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_IsDataTerminalReadyEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::IsDataTerminalReadyEnabled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::IsDataTerminalReadyEnabled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_IsDataTerminalReadyEnabled(value));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::IsRequestToSendEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::IsRequestToSendEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_IsRequestToSendEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::IsRequestToSendEnabled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::IsRequestToSendEnabled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_IsRequestToSendEnabled(value));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::Parity() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialParity) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::Parity() const
     {
-        Windows::Devices::SerialCommunication::SerialParity value;
+        Windows::Devices::SerialCommunication::SerialParity value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_Parity(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::Parity(Windows::Devices::SerialCommunication::SerialParity const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::Parity(Windows::Devices::SerialCommunication::SerialParity const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_Parity(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::PortName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::PortName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_PortName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ReadTimeout() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ReadTimeout() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_ReadTimeout(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ReadTimeout(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ReadTimeout(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_ReadTimeout(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::StopBits() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialStopBitCount) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::StopBits() const
     {
-        Windows::Devices::SerialCommunication::SerialStopBitCount value;
+        Windows::Devices::SerialCommunication::SerialStopBitCount value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_StopBits(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::StopBits(Windows::Devices::SerialCommunication::SerialStopBitCount const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::StopBits(Windows::Devices::SerialCommunication::SerialStopBitCount const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_StopBits(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::UsbVendorId() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::UsbVendorId() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_UsbVendorId(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::UsbProductId() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::UsbProductId() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_UsbProductId(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::WriteTimeout() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::WriteTimeout() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_WriteTimeout(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::WriteTimeout(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::WriteTimeout(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->put_WriteTimeout(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::InputStream() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::InputStream() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_InputStream(&value));
         return Windows::Storage::Streams::IInputStream{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::OutputStream() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::OutputStream() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->get_OutputStream(&value));
         return Windows::Storage::Streams::IOutputStream{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ErrorReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::ErrorReceivedEventArgs> const& reportHandler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ErrorReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::ErrorReceivedEventArgs> const& reportHandler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->add_ErrorReceived(*(void**)(&reportHandler), put_abi(token)));
         return token;
     }
@@ -189,13 +189,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ErrorReceived_revoker>(this, ErrorReceived(reportHandler));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ErrorReceived(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::ErrorReceived(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->remove_ErrorReceived(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::PinChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::PinChangedEventArgs> const& reportHandler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::PinChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::PinChangedEventArgs> const& reportHandler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->add_PinChanged(*(void**)(&reportHandler), put_abi(token)));
         return token;
     }
@@ -203,29 +203,29 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PinChanged_revoker>(this, PinChanged(reportHandler));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::PinChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_SerialCommunication_ISerialDevice<D>::PinChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDevice)->remove_PinChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics<D>::GetDeviceSelector() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDeviceStatics)->GetDeviceSelector(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics<D>::GetDeviceSelector(param::hstring const& portName) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics<D>::GetDeviceSelector(param::hstring const& portName) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDeviceStatics)->GetDeviceSelectorFromPortName(*(void**)(&portName), &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics<D>::GetDeviceSelectorFromUsbVidPid(uint16_t vendorId, uint16_t productId) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics<D>::GetDeviceSelectorFromUsbVidPid(uint16_t vendorId, uint16_t productId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDeviceStatics)->GetDeviceSelectorFromUsbVidPid(vendorId, productId, &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::SerialCommunication::SerialDevice>) consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::SerialCommunication::ISerialDeviceStatics)->FromIdAsync(*(void**)(&deviceId), &result));

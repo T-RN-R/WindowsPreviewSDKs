@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,62 +6,62 @@
 #ifndef WINRT_Windows_ApplicationModel_Resources_H
 #define WINRT_Windows_ApplicationModel_Resources_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.ApplicationModel.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.UI.2.h"
 #include "winrt/impl/Windows.ApplicationModel.Resources.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoader<D>::GetString(param::hstring const& resource) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Resources_IResourceLoader<D>::GetString(param::hstring const& resource) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoader)->GetString(*(void**)(&resource), &value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoader2<D>::GetStringForUri(Windows::Foundation::Uri const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Resources_IResourceLoader2<D>::GetStringForUri(Windows::Foundation::Uri const& uri) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoader2)->GetStringForUri(*(void**)(&uri), &value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoaderFactory<D>::CreateResourceLoaderByName(param::hstring const& name) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::ResourceLoader) consume_Windows_ApplicationModel_Resources_IResourceLoaderFactory<D>::CreateResourceLoaderByName(param::hstring const& name) const
     {
         void* loader{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoaderFactory)->CreateResourceLoaderByName(*(void**)(&name), &loader));
         return Windows::ApplicationModel::Resources::ResourceLoader{ loader, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics<D>::GetStringForReference(Windows::Foundation::Uri const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics<D>::GetStringForReference(Windows::Foundation::Uri const& uri) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoaderStatics)->GetStringForReference(*(void**)(&uri), &value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics2<D>::GetForCurrentView() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::ResourceLoader) consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics2<D>::GetForCurrentView() const
     {
         void* loader{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoaderStatics2)->GetForCurrentView(&loader));
         return Windows::ApplicationModel::Resources::ResourceLoader{ loader, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics2<D>::GetForCurrentView(param::hstring const& name) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::ResourceLoader) consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics2<D>::GetForCurrentView(param::hstring const& name) const
     {
         void* loader{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoaderStatics2)->GetForCurrentViewWithName(*(void**)(&name), &loader));
         return Windows::ApplicationModel::Resources::ResourceLoader{ loader, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics2<D>::GetForViewIndependentUse() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::ResourceLoader) consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics2<D>::GetForViewIndependentUse() const
     {
         void* loader{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoaderStatics2)->GetForViewIndependentUse(&loader));
         return Windows::ApplicationModel::Resources::ResourceLoader{ loader, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics2<D>::GetForViewIndependentUse(param::hstring const& name) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::ResourceLoader) consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics2<D>::GetForViewIndependentUse(param::hstring const& name) const
     {
         void* loader{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoaderStatics2)->GetForViewIndependentUseWithName(*(void**)(&name), &loader));
         return Windows::ApplicationModel::Resources::ResourceLoader{ loader, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics3<D>::GetForUIContext(Windows::UI::UIContext const& context) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::ResourceLoader) consume_Windows_ApplicationModel_Resources_IResourceLoaderStatics3<D>::GetForUIContext(Windows::UI::UIContext const& context) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Resources::IResourceLoaderStatics3)->GetForUIContext(*(void**)(&context), &result));

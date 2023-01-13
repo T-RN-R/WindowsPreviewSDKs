@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Networking_Proximity_H
 #define WINRT_Windows_Networking_Proximity_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Networking.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -16,79 +16,79 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Networking.Proximity.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Networking_Proximity_IConnectionRequestedEventArgs<D>::PeerInformation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerInformation) consume_Windows_Networking_Proximity_IConnectionRequestedEventArgs<D>::PeerInformation() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IConnectionRequestedEventArgs)->get_PeerInformation(&value));
         return Windows::Networking::Proximity::PeerInformation{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowBluetooth() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowBluetooth() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->get_AllowBluetooth(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowBluetooth(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowBluetooth(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->put_AllowBluetooth(value));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowInfrastructure() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowInfrastructure() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->get_AllowInfrastructure(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowInfrastructure(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowInfrastructure(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->put_AllowInfrastructure(value));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowWiFiDirect() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowWiFiDirect() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->get_AllowWiFiDirect(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowWiFiDirect(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AllowWiFiDirect(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->put_AllowWiFiDirect(value));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::DisplayName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::DisplayName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->get_DisplayName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::DisplayName(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::DisplayName(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->put_DisplayName(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::SupportedDiscoveryTypes() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerDiscoveryTypes) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::SupportedDiscoveryTypes() const
     {
-        Windows::Networking::Proximity::PeerDiscoveryTypes value;
+        Windows::Networking::Proximity::PeerDiscoveryTypes value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->get_SupportedDiscoveryTypes(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AlternateIdentities() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::AlternateIdentities() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->get_AlternateIdentities(&value));
         return Windows::Foundation::Collections::IMap<hstring, hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::Start() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::Start() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->Start());
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::Start(param::hstring const& peerMessage) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::Start(param::hstring const& peerMessage) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->StartWithMessage(*(void**)(&peerMessage)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::Stop() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::Stop() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->Stop());
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::TriggeredConnectionStateChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::TriggeredConnectionStateChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::TriggeredConnectionStateChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::TriggeredConnectionStateChangedEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->add_TriggeredConnectionStateChanged(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -96,13 +96,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, TriggeredConnectionStateChanged_revoker>(this, TriggeredConnectionStateChanged(handler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::TriggeredConnectionStateChanged(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::TriggeredConnectionStateChanged(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->remove_TriggeredConnectionStateChanged(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::ConnectionRequested(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::ConnectionRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::ConnectionRequested(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::ConnectionRequestedEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->add_ConnectionRequested(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -110,81 +110,81 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ConnectionRequested_revoker>(this, ConnectionRequested(handler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::ConnectionRequested(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::ConnectionRequested(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->remove_ConnectionRequested(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::FindAllPeersAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Proximity::PeerInformation>>) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::FindAllPeersAsync() const
     {
         void* asyncOp{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->FindAllPeersAsync(&asyncOp));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Proximity::PeerInformation>>{ asyncOp, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::ConnectAsync(Windows::Networking::Proximity::PeerInformation const& peerInformation) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Sockets::StreamSocket>) consume_Windows_Networking_Proximity_IPeerFinderStatics<D>::ConnectAsync(Windows::Networking::Proximity::PeerInformation const& peerInformation) const
     {
         void* asyncOp{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics)->ConnectAsync(*(void**)(&peerInformation), &asyncOp));
         return Windows::Foundation::IAsyncOperation<Windows::Networking::Sockets::StreamSocket>{ asyncOp, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::Role() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerRole) consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::Role() const
     {
-        Windows::Networking::Proximity::PeerRole value;
+        Windows::Networking::Proximity::PeerRole value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics2)->get_Role(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::Role(Windows::Networking::Proximity::PeerRole const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::Role(Windows::Networking::Proximity::PeerRole const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics2)->put_Role(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::DiscoveryData() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::DiscoveryData() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics2)->get_DiscoveryData(&value));
         return Windows::Storage::Streams::IBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::DiscoveryData(Windows::Storage::Streams::IBuffer const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::DiscoveryData(Windows::Storage::Streams::IBuffer const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics2)->put_DiscoveryData(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::CreateWatcher() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerWatcher) consume_Windows_Networking_Proximity_IPeerFinderStatics2<D>::CreateWatcher() const
     {
         void* watcher{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerFinderStatics2)->CreateWatcher(&watcher));
         return Windows::Networking::Proximity::PeerWatcher{ watcher, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerInformation<D>::DisplayName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Proximity_IPeerInformation<D>::DisplayName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerInformation)->get_DisplayName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerInformation3<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Proximity_IPeerInformation3<D>::Id() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerInformation3)->get_Id(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerInformation3<D>::DiscoveryData() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) consume_Windows_Networking_Proximity_IPeerInformation3<D>::DiscoveryData() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerInformation3)->get_DiscoveryData(&value));
         return Windows::Storage::Streams::IBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerInformationWithHostAndService<D>::HostName() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::HostName) consume_Windows_Networking_Proximity_IPeerInformationWithHostAndService<D>::HostName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerInformationWithHostAndService)->get_HostName(&value));
         return Windows::Networking::HostName{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerInformationWithHostAndService<D>::ServiceName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Proximity_IPeerInformationWithHostAndService<D>::ServiceName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerInformationWithHostAndService)->get_ServiceName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Added(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Added(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->add_Added(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -192,13 +192,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Added_revoker>(this, Added(handler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Added(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Added(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->remove_Added(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Removed(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Removed(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->add_Removed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -206,13 +206,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Removed_revoker>(this, Removed(handler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Removed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Removed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->remove_Removed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Updated(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Updated(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->add_Updated(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -220,13 +220,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Updated_revoker>(this, Updated(handler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Updated(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Updated(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->remove_Updated(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IPeerWatcher<D>::EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->add_EnumerationCompleted(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -234,13 +234,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, EnumerationCompleted_revoker>(this, EnumerationCompleted(handler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::EnumerationCompleted(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerWatcher<D>::EnumerationCompleted(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->remove_EnumerationCompleted(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Stopped(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Stopped(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->add_Stopped(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -248,77 +248,77 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Stopped_revoker>(this, Stopped(handler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Stopped(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Stopped(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->remove_Stopped(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerWatcherStatus) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Status() const
     {
-        Windows::Networking::Proximity::PeerWatcherStatus status;
+        Windows::Networking::Proximity::PeerWatcherStatus status{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->get_Status(reinterpret_cast<int32_t*>(&status)));
         return status;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Start() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Start() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->Start());
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IPeerWatcher<D>::Stop() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IPeerWatcher<D>::Stop() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IPeerWatcher)->Stop());
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::SubscribeForMessage(param::hstring const& messageType, Windows::Networking::Proximity::MessageReceivedHandler const& messageReceivedHandler) const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::SubscribeForMessage(param::hstring const& messageType, Windows::Networking::Proximity::MessageReceivedHandler const& messageReceivedHandler) const
     {
-        int64_t subscriptionId;
+        int64_t subscriptionId{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->SubscribeForMessage(*(void**)(&messageType), *(void**)(&messageReceivedHandler), &subscriptionId));
         return subscriptionId;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishMessage(param::hstring const& messageType, param::hstring const& message) const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishMessage(param::hstring const& messageType, param::hstring const& message) const
     {
-        int64_t messageId;
+        int64_t messageId{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->PublishMessage(*(void**)(&messageType), *(void**)(&message), &messageId));
         return messageId;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishMessage(param::hstring const& messageType, param::hstring const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishMessage(param::hstring const& messageType, param::hstring const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const
     {
-        int64_t messageId;
+        int64_t messageId{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->PublishMessageWithCallback(*(void**)(&messageType), *(void**)(&message), *(void**)(&messageTransmittedHandler), &messageId));
         return messageId;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishBinaryMessage(param::hstring const& messageType, Windows::Storage::Streams::IBuffer const& message) const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishBinaryMessage(param::hstring const& messageType, Windows::Storage::Streams::IBuffer const& message) const
     {
-        int64_t messageId;
+        int64_t messageId{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->PublishBinaryMessage(*(void**)(&messageType), *(void**)(&message), &messageId));
         return messageId;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishBinaryMessage(param::hstring const& messageType, Windows::Storage::Streams::IBuffer const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishBinaryMessage(param::hstring const& messageType, Windows::Storage::Streams::IBuffer const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const
     {
-        int64_t messageId;
+        int64_t messageId{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->PublishBinaryMessageWithCallback(*(void**)(&messageType), *(void**)(&message), *(void**)(&messageTransmittedHandler), &messageId));
         return messageId;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishUriMessage(Windows::Foundation::Uri const& message) const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishUriMessage(Windows::Foundation::Uri const& message) const
     {
-        int64_t messageId;
+        int64_t messageId{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->PublishUriMessage(*(void**)(&message), &messageId));
         return messageId;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishUriMessage(Windows::Foundation::Uri const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::PublishUriMessage(Windows::Foundation::Uri const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const
     {
-        int64_t messageId;
+        int64_t messageId{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->PublishUriMessageWithCallback(*(void**)(&message), *(void**)(&messageTransmittedHandler), &messageId));
         return messageId;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::StopSubscribingForMessage(int64_t subscriptionId) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IProximityDevice<D>::StopSubscribingForMessage(int64_t subscriptionId) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->StopSubscribingForMessage(subscriptionId));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::StopPublishingMessage(int64_t messageId) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IProximityDevice<D>::StopPublishingMessage(int64_t messageId) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->StopPublishingMessage(messageId));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceArrived(Windows::Networking::Proximity::DeviceArrivedEventHandler const& arrivedHandler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceArrived(Windows::Networking::Proximity::DeviceArrivedEventHandler const& arrivedHandler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->add_DeviceArrived(*(void**)(&arrivedHandler), put_abi(cookie)));
         return cookie;
     }
@@ -326,13 +326,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, DeviceArrived_revoker>(this, DeviceArrived(arrivedHandler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceArrived(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceArrived(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->remove_DeviceArrived(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceDeparted(Windows::Networking::Proximity::DeviceDepartedEventHandler const& departedHandler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceDeparted(Windows::Networking::Proximity::DeviceDepartedEventHandler const& departedHandler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->add_DeviceDeparted(*(void**)(&departedHandler), put_abi(cookie)));
         return cookie;
     }
@@ -340,83 +340,83 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, DeviceDeparted_revoker>(this, DeviceDeparted(departedHandler));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceDeparted(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceDeparted(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->remove_DeviceDeparted(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::MaxMessageBytes() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::MaxMessageBytes() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->get_MaxMessageBytes(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::BitsPerSecond() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Proximity_IProximityDevice<D>::BitsPerSecond() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->get_BitsPerSecond(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Proximity_IProximityDevice<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDevice)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDeviceStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Proximity_IProximityDeviceStatics<D>::GetDeviceSelector() const
     {
         void* selector{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDeviceStatics)->GetDeviceSelector(&selector));
         return hstring{ selector, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDeviceStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Proximity::ProximityDevice) consume_Windows_Networking_Proximity_IProximityDeviceStatics<D>::GetDefault() const
     {
         void* proximityDevice{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDeviceStatics)->GetDefault(&proximityDevice));
         return Windows::Networking::Proximity::ProximityDevice{ proximityDevice, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityDeviceStatics<D>::FromId(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Proximity::ProximityDevice) consume_Windows_Networking_Proximity_IProximityDeviceStatics<D>::FromId(param::hstring const& deviceId) const
     {
         void* proximityDevice{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityDeviceStatics)->FromId(*(void**)(&deviceId), &proximityDevice));
         return Windows::Networking::Proximity::ProximityDevice{ proximityDevice, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityMessage<D>::MessageType() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Proximity_IProximityMessage<D>::MessageType() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityMessage)->get_MessageType(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityMessage<D>::SubscriptionId() const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Networking_Proximity_IProximityMessage<D>::SubscriptionId() const
     {
-        int64_t value;
+        int64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityMessage)->get_SubscriptionId(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityMessage<D>::Data() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) consume_Windows_Networking_Proximity_IProximityMessage<D>::Data() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityMessage)->get_Data(&value));
         return Windows::Storage::Streams::IBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_IProximityMessage<D>::DataAsString() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Proximity_IProximityMessage<D>::DataAsString() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::IProximityMessage)->get_DataAsString(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_ITriggeredConnectionStateChangedEventArgs<D>::State() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Proximity::TriggeredConnectState) consume_Windows_Networking_Proximity_ITriggeredConnectionStateChangedEventArgs<D>::State() const
     {
-        Windows::Networking::Proximity::TriggeredConnectState value;
+        Windows::Networking::Proximity::TriggeredConnectState value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::ITriggeredConnectionStateChangedEventArgs)->get_State(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_ITriggeredConnectionStateChangedEventArgs<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Networking_Proximity_ITriggeredConnectionStateChangedEventArgs<D>::Id() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::ITriggeredConnectionStateChangedEventArgs)->get_Id(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Proximity_ITriggeredConnectionStateChangedEventArgs<D>::Socket() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Sockets::StreamSocket) consume_Windows_Networking_Proximity_ITriggeredConnectionStateChangedEventArgs<D>::Socket() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Proximity::ITriggeredConnectionStateChangedEventArgs)->get_Socket(&value));

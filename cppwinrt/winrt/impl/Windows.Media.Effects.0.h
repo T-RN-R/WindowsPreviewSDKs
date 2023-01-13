@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -15,6 +15,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     struct IPropertySet;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {
@@ -172,43 +173,41 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Effects::AudioEffectType>{ using type = enum_category; };
     template <> struct category<Windows::Media::Effects::MediaEffectClosedReason>{ using type = enum_category; };
     template <> struct category<Windows::Media::Effects::MediaMemoryTypes>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioCaptureEffectsManager>{ L"Windows.Media.Effects.AudioCaptureEffectsManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioEffect>{ L"Windows.Media.Effects.AudioEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioEffectDefinition>{ L"Windows.Media.Effects.AudioEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioEffectsManager>{ L"Windows.Media.Effects.AudioEffectsManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioRenderEffectsManager>{ L"Windows.Media.Effects.AudioRenderEffectsManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::CompositeVideoFrameContext>{ L"Windows.Media.Effects.CompositeVideoFrameContext" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::ProcessAudioFrameContext>{ L"Windows.Media.Effects.ProcessAudioFrameContext" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::ProcessVideoFrameContext>{ L"Windows.Media.Effects.ProcessVideoFrameContext" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::VideoCompositorDefinition>{ L"Windows.Media.Effects.VideoCompositorDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::VideoEffectDefinition>{ L"Windows.Media.Effects.VideoEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::VideoTransformEffectDefinition>{ L"Windows.Media.Effects.VideoTransformEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::VideoTransformSphericalProjection>{ L"Windows.Media.Effects.VideoTransformSphericalProjection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioEffectType>{ L"Windows.Media.Effects.AudioEffectType" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::MediaEffectClosedReason>{ L"Windows.Media.Effects.MediaEffectClosedReason" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::MediaMemoryTypes>{ L"Windows.Media.Effects.MediaMemoryTypes" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioCaptureEffectsManager>{ L"Windows.Media.Effects.IAudioCaptureEffectsManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioEffect>{ L"Windows.Media.Effects.IAudioEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioEffectDefinition>{ L"Windows.Media.Effects.IAudioEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioEffectDefinitionFactory>{ L"Windows.Media.Effects.IAudioEffectDefinitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioEffectsManagerStatics>{ L"Windows.Media.Effects.IAudioEffectsManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioRenderEffectsManager>{ L"Windows.Media.Effects.IAudioRenderEffectsManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioRenderEffectsManager2>{ L"Windows.Media.Effects.IAudioRenderEffectsManager2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IBasicAudioEffect>{ L"Windows.Media.Effects.IBasicAudioEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IBasicVideoEffect>{ L"Windows.Media.Effects.IBasicVideoEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::ICompositeVideoFrameContext>{ L"Windows.Media.Effects.ICompositeVideoFrameContext" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IProcessAudioFrameContext>{ L"Windows.Media.Effects.IProcessAudioFrameContext" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IProcessVideoFrameContext>{ L"Windows.Media.Effects.IProcessVideoFrameContext" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoCompositor>{ L"Windows.Media.Effects.IVideoCompositor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoCompositorDefinition>{ L"Windows.Media.Effects.IVideoCompositorDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoCompositorDefinitionFactory>{ L"Windows.Media.Effects.IVideoCompositorDefinitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoEffectDefinition>{ L"Windows.Media.Effects.IVideoEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoEffectDefinitionFactory>{ L"Windows.Media.Effects.IVideoEffectDefinitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoTransformEffectDefinition>{ L"Windows.Media.Effects.IVideoTransformEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoTransformEffectDefinition2>{ L"Windows.Media.Effects.IVideoTransformEffectDefinition2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoTransformSphericalProjection>{ L"Windows.Media.Effects.IVideoTransformSphericalProjection" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioCaptureEffectsManager> = L"Windows.Media.Effects.AudioCaptureEffectsManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioEffect> = L"Windows.Media.Effects.AudioEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioEffectDefinition> = L"Windows.Media.Effects.AudioEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioEffectsManager> = L"Windows.Media.Effects.AudioEffectsManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioRenderEffectsManager> = L"Windows.Media.Effects.AudioRenderEffectsManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::CompositeVideoFrameContext> = L"Windows.Media.Effects.CompositeVideoFrameContext";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::ProcessAudioFrameContext> = L"Windows.Media.Effects.ProcessAudioFrameContext";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::ProcessVideoFrameContext> = L"Windows.Media.Effects.ProcessVideoFrameContext";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::VideoCompositorDefinition> = L"Windows.Media.Effects.VideoCompositorDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::VideoEffectDefinition> = L"Windows.Media.Effects.VideoEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::VideoTransformEffectDefinition> = L"Windows.Media.Effects.VideoTransformEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::VideoTransformSphericalProjection> = L"Windows.Media.Effects.VideoTransformSphericalProjection";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::AudioEffectType> = L"Windows.Media.Effects.AudioEffectType";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::MediaEffectClosedReason> = L"Windows.Media.Effects.MediaEffectClosedReason";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::MediaMemoryTypes> = L"Windows.Media.Effects.MediaMemoryTypes";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioCaptureEffectsManager> = L"Windows.Media.Effects.IAudioCaptureEffectsManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioEffect> = L"Windows.Media.Effects.IAudioEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioEffectDefinition> = L"Windows.Media.Effects.IAudioEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioEffectDefinitionFactory> = L"Windows.Media.Effects.IAudioEffectDefinitionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioEffectsManagerStatics> = L"Windows.Media.Effects.IAudioEffectsManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioRenderEffectsManager> = L"Windows.Media.Effects.IAudioRenderEffectsManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IAudioRenderEffectsManager2> = L"Windows.Media.Effects.IAudioRenderEffectsManager2";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IBasicAudioEffect> = L"Windows.Media.Effects.IBasicAudioEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IBasicVideoEffect> = L"Windows.Media.Effects.IBasicVideoEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::ICompositeVideoFrameContext> = L"Windows.Media.Effects.ICompositeVideoFrameContext";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IProcessAudioFrameContext> = L"Windows.Media.Effects.IProcessAudioFrameContext";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IProcessVideoFrameContext> = L"Windows.Media.Effects.IProcessVideoFrameContext";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoCompositor> = L"Windows.Media.Effects.IVideoCompositor";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoCompositorDefinition> = L"Windows.Media.Effects.IVideoCompositorDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoCompositorDefinitionFactory> = L"Windows.Media.Effects.IVideoCompositorDefinitionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoEffectDefinition> = L"Windows.Media.Effects.IVideoEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoEffectDefinitionFactory> = L"Windows.Media.Effects.IVideoEffectDefinitionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoTransformEffectDefinition> = L"Windows.Media.Effects.IVideoTransformEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoTransformEffectDefinition2> = L"Windows.Media.Effects.IVideoTransformEffectDefinition2";
+    template <> inline constexpr auto& name_v<Windows::Media::Effects::IVideoTransformSphericalProjection> = L"Windows.Media.Effects.IVideoTransformSphericalProjection";
     template <> inline constexpr guid guid_v<Windows::Media::Effects::IAudioCaptureEffectsManager>{ 0x8F85C271,0x038D,0x4393,{ 0x82,0x98,0x54,0x01,0x10,0x60,0x8E,0xEF } };
     template <> inline constexpr guid guid_v<Windows::Media::Effects::IAudioEffect>{ 0x34AAFA51,0x9207,0x4055,{ 0xBE,0x93,0x6E,0x57,0x34,0xA8,0x6A,0xE4 } };
     template <> inline constexpr guid guid_v<Windows::Media::Effects::IAudioEffectDefinition>{ 0xE4D7F974,0x7D80,0x4F73,{ 0x90,0x89,0xE3,0x1C,0x9D,0xB9,0xC2,0x94 } };
@@ -439,11 +438,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IAudioCaptureEffectsManager
     {
-        auto AudioCaptureEffectsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioCaptureEffectsManager, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) AudioCaptureEffectsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioCaptureEffectsManager, Windows::Foundation::IInspectable> const& handler) const;
         using AudioCaptureEffectsChanged_revoker = impl::event_revoker<Windows::Media::Effects::IAudioCaptureEffectsManager, &impl::abi_t<Windows::Media::Effects::IAudioCaptureEffectsManager>::remove_AudioCaptureEffectsChanged>;
         [[nodiscard]] AudioCaptureEffectsChanged_revoker AudioCaptureEffectsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioCaptureEffectsManager, Windows::Foundation::IInspectable> const& handler) const;
-        auto AudioCaptureEffectsChanged(winrt::event_token const& token) const noexcept;
-        auto GetAudioCaptureEffects() const;
+        WINRT_IMPL_AUTO(void) AudioCaptureEffectsChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Effects::AudioEffect>) GetAudioCaptureEffects() const;
     };
     template <> struct consume<Windows::Media::Effects::IAudioCaptureEffectsManager>
     {
@@ -452,7 +451,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IAudioEffect
     {
-        [[nodiscard]] auto AudioEffectType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Effects::AudioEffectType) AudioEffectType() const;
     };
     template <> struct consume<Windows::Media::Effects::IAudioEffect>
     {
@@ -461,8 +460,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IAudioEffectDefinition
     {
-        [[nodiscard]] auto ActivatableClassId() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ActivatableClassId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) Properties() const;
     };
     template <> struct consume<Windows::Media::Effects::IAudioEffectDefinition>
     {
@@ -471,8 +470,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IAudioEffectDefinitionFactory
     {
-        auto Create(param::hstring const& activatableClassId) const;
-        auto CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::AudioEffectDefinition) Create(param::hstring const& activatableClassId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::AudioEffectDefinition) CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const;
     };
     template <> struct consume<Windows::Media::Effects::IAudioEffectDefinitionFactory>
     {
@@ -481,10 +480,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IAudioEffectsManagerStatics
     {
-        auto CreateAudioRenderEffectsManager(param::hstring const& deviceId, Windows::Media::Render::AudioRenderCategory const& category) const;
-        auto CreateAudioRenderEffectsManager(param::hstring const& deviceId, Windows::Media::Render::AudioRenderCategory const& category, Windows::Media::AudioProcessing const& mode) const;
-        auto CreateAudioCaptureEffectsManager(param::hstring const& deviceId, Windows::Media::Capture::MediaCategory const& category) const;
-        auto CreateAudioCaptureEffectsManager(param::hstring const& deviceId, Windows::Media::Capture::MediaCategory const& category, Windows::Media::AudioProcessing const& mode) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::AudioRenderEffectsManager) CreateAudioRenderEffectsManager(param::hstring const& deviceId, Windows::Media::Render::AudioRenderCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::AudioRenderEffectsManager) CreateAudioRenderEffectsManager(param::hstring const& deviceId, Windows::Media::Render::AudioRenderCategory const& category, Windows::Media::AudioProcessing const& mode) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::AudioCaptureEffectsManager) CreateAudioCaptureEffectsManager(param::hstring const& deviceId, Windows::Media::Capture::MediaCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::AudioCaptureEffectsManager) CreateAudioCaptureEffectsManager(param::hstring const& deviceId, Windows::Media::Capture::MediaCategory const& category, Windows::Media::AudioProcessing const& mode) const;
     };
     template <> struct consume<Windows::Media::Effects::IAudioEffectsManagerStatics>
     {
@@ -493,11 +492,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IAudioRenderEffectsManager
     {
-        auto AudioRenderEffectsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioRenderEffectsManager, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) AudioRenderEffectsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioRenderEffectsManager, Windows::Foundation::IInspectable> const& handler) const;
         using AudioRenderEffectsChanged_revoker = impl::event_revoker<Windows::Media::Effects::IAudioRenderEffectsManager, &impl::abi_t<Windows::Media::Effects::IAudioRenderEffectsManager>::remove_AudioRenderEffectsChanged>;
         [[nodiscard]] AudioRenderEffectsChanged_revoker AudioRenderEffectsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Effects::AudioRenderEffectsManager, Windows::Foundation::IInspectable> const& handler) const;
-        auto AudioRenderEffectsChanged(winrt::event_token const& token) const noexcept;
-        auto GetAudioRenderEffects() const;
+        WINRT_IMPL_AUTO(void) AudioRenderEffectsChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Effects::AudioEffect>) GetAudioRenderEffects() const;
     };
     template <> struct consume<Windows::Media::Effects::IAudioRenderEffectsManager>
     {
@@ -506,9 +505,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IAudioRenderEffectsManager2
     {
-        [[nodiscard]] auto EffectsProviderThumbnail() const;
-        [[nodiscard]] auto EffectsProviderSettingsLabel() const;
-        auto ShowSettingsUI() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamWithContentType) EffectsProviderThumbnail() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EffectsProviderSettingsLabel() const;
+        WINRT_IMPL_AUTO(void) ShowSettingsUI() const;
     };
     template <> struct consume<Windows::Media::Effects::IAudioRenderEffectsManager2>
     {
@@ -517,12 +516,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IBasicAudioEffect
     {
-        [[nodiscard]] auto UseInputFrameForOutput() const;
-        [[nodiscard]] auto SupportedEncodingProperties() const;
-        auto SetEncodingProperties(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
-        auto ProcessFrame(Windows::Media::Effects::ProcessAudioFrameContext const& context) const;
-        auto Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const;
-        auto DiscardQueuedFrames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) UseInputFrameForOutput() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::MediaProperties::AudioEncodingProperties>) SupportedEncodingProperties() const;
+        WINRT_IMPL_AUTO(void) SetEncodingProperties(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
+        WINRT_IMPL_AUTO(void) ProcessFrame(Windows::Media::Effects::ProcessAudioFrameContext const& context) const;
+        WINRT_IMPL_AUTO(void) Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const;
+        WINRT_IMPL_AUTO(void) DiscardQueuedFrames() const;
     };
     template <> struct consume<Windows::Media::Effects::IBasicAudioEffect>
     {
@@ -531,14 +530,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IBasicVideoEffect
     {
-        [[nodiscard]] auto IsReadOnly() const;
-        [[nodiscard]] auto SupportedMemoryTypes() const;
-        [[nodiscard]] auto TimeIndependent() const;
-        [[nodiscard]] auto SupportedEncodingProperties() const;
-        auto SetEncodingProperties(Windows::Media::MediaProperties::VideoEncodingProperties const& encodingProperties, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const;
-        auto ProcessFrame(Windows::Media::Effects::ProcessVideoFrameContext const& context) const;
-        auto Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const;
-        auto DiscardQueuedFrames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReadOnly() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Effects::MediaMemoryTypes) SupportedMemoryTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) TimeIndependent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::MediaProperties::VideoEncodingProperties>) SupportedEncodingProperties() const;
+        WINRT_IMPL_AUTO(void) SetEncodingProperties(Windows::Media::MediaProperties::VideoEncodingProperties const& encodingProperties, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const;
+        WINRT_IMPL_AUTO(void) ProcessFrame(Windows::Media::Effects::ProcessVideoFrameContext const& context) const;
+        WINRT_IMPL_AUTO(void) Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const;
+        WINRT_IMPL_AUTO(void) DiscardQueuedFrames() const;
     };
     template <> struct consume<Windows::Media::Effects::IBasicVideoEffect>
     {
@@ -547,10 +546,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_ICompositeVideoFrameContext
     {
-        [[nodiscard]] auto SurfacesToOverlay() const;
-        [[nodiscard]] auto BackgroundFrame() const;
-        [[nodiscard]] auto OutputFrame() const;
-        auto GetOverlayForSurface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surfaceToOverlay) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface>) SurfacesToOverlay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoFrame) BackgroundFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoFrame) OutputFrame() const;
+        WINRT_IMPL_AUTO(Windows::Media::Editing::MediaOverlay) GetOverlayForSurface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surfaceToOverlay) const;
     };
     template <> struct consume<Windows::Media::Effects::ICompositeVideoFrameContext>
     {
@@ -559,8 +558,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IProcessAudioFrameContext
     {
-        [[nodiscard]] auto InputFrame() const;
-        [[nodiscard]] auto OutputFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::AudioFrame) InputFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::AudioFrame) OutputFrame() const;
     };
     template <> struct consume<Windows::Media::Effects::IProcessAudioFrameContext>
     {
@@ -569,8 +568,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IProcessVideoFrameContext
     {
-        [[nodiscard]] auto InputFrame() const;
-        [[nodiscard]] auto OutputFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoFrame) InputFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoFrame) OutputFrame() const;
     };
     template <> struct consume<Windows::Media::Effects::IProcessVideoFrameContext>
     {
@@ -579,11 +578,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IVideoCompositor
     {
-        [[nodiscard]] auto TimeIndependent() const;
-        auto SetEncodingProperties(Windows::Media::MediaProperties::VideoEncodingProperties const& backgroundProperties, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const;
-        auto CompositeFrame(Windows::Media::Effects::CompositeVideoFrameContext const& context) const;
-        auto Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const;
-        auto DiscardQueuedFrames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) TimeIndependent() const;
+        WINRT_IMPL_AUTO(void) SetEncodingProperties(Windows::Media::MediaProperties::VideoEncodingProperties const& backgroundProperties, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const;
+        WINRT_IMPL_AUTO(void) CompositeFrame(Windows::Media::Effects::CompositeVideoFrameContext const& context) const;
+        WINRT_IMPL_AUTO(void) Close(Windows::Media::Effects::MediaEffectClosedReason const& reason) const;
+        WINRT_IMPL_AUTO(void) DiscardQueuedFrames() const;
     };
     template <> struct consume<Windows::Media::Effects::IVideoCompositor>
     {
@@ -592,8 +591,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IVideoCompositorDefinition
     {
-        [[nodiscard]] auto ActivatableClassId() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ActivatableClassId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) Properties() const;
     };
     template <> struct consume<Windows::Media::Effects::IVideoCompositorDefinition>
     {
@@ -602,8 +601,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IVideoCompositorDefinitionFactory
     {
-        auto Create(param::hstring const& activatableClassId) const;
-        auto CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::VideoCompositorDefinition) Create(param::hstring const& activatableClassId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::VideoCompositorDefinition) CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const;
     };
     template <> struct consume<Windows::Media::Effects::IVideoCompositorDefinitionFactory>
     {
@@ -612,8 +611,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IVideoEffectDefinition
     {
-        [[nodiscard]] auto ActivatableClassId() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ActivatableClassId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) Properties() const;
     };
     template <> struct consume<Windows::Media::Effects::IVideoEffectDefinition>
     {
@@ -622,8 +621,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IVideoEffectDefinitionFactory
     {
-        auto Create(param::hstring const& activatableClassId) const;
-        auto CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::VideoEffectDefinition) Create(param::hstring const& activatableClassId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Effects::VideoEffectDefinition) CreateWithProperties(param::hstring const& activatableClassId, Windows::Foundation::Collections::IPropertySet const& props) const;
     };
     template <> struct consume<Windows::Media::Effects::IVideoEffectDefinitionFactory>
     {
@@ -632,18 +631,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IVideoTransformEffectDefinition
     {
-        [[nodiscard]] auto PaddingColor() const;
-        auto PaddingColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto OutputSize() const;
-        auto OutputSize(Windows::Foundation::Size const& value) const;
-        [[nodiscard]] auto CropRectangle() const;
-        auto CropRectangle(Windows::Foundation::Rect const& value) const;
-        [[nodiscard]] auto Rotation() const;
-        auto Rotation(Windows::Media::MediaProperties::MediaRotation const& value) const;
-        [[nodiscard]] auto Mirror() const;
-        auto Mirror(Windows::Media::MediaProperties::MediaMirroringOptions const& value) const;
-        auto ProcessingAlgorithm(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm const& value) const;
-        [[nodiscard]] auto ProcessingAlgorithm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) PaddingColor() const;
+        WINRT_IMPL_AUTO(void) PaddingColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) OutputSize() const;
+        WINRT_IMPL_AUTO(void) OutputSize(Windows::Foundation::Size const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) CropRectangle() const;
+        WINRT_IMPL_AUTO(void) CropRectangle(Windows::Foundation::Rect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRotation) Rotation() const;
+        WINRT_IMPL_AUTO(void) Rotation(Windows::Media::MediaProperties::MediaRotation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaMirroringOptions) Mirror() const;
+        WINRT_IMPL_AUTO(void) Mirror(Windows::Media::MediaProperties::MediaMirroringOptions const& value) const;
+        WINRT_IMPL_AUTO(void) ProcessingAlgorithm(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm) ProcessingAlgorithm() const;
     };
     template <> struct consume<Windows::Media::Effects::IVideoTransformEffectDefinition>
     {
@@ -652,7 +651,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IVideoTransformEffectDefinition2
     {
-        [[nodiscard]] auto SphericalProjection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Effects::VideoTransformSphericalProjection) SphericalProjection() const;
     };
     template <> struct consume<Windows::Media::Effects::IVideoTransformEffectDefinition2>
     {
@@ -661,16 +660,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Effects_IVideoTransformSphericalProjection
     {
-        [[nodiscard]] auto IsEnabled() const;
-        auto IsEnabled(bool value) const;
-        [[nodiscard]] auto FrameFormat() const;
-        auto FrameFormat(Windows::Media::MediaProperties::SphericalVideoFrameFormat const& value) const;
-        [[nodiscard]] auto ProjectionMode() const;
-        auto ProjectionMode(Windows::Media::Playback::SphericalVideoProjectionMode const& value) const;
-        [[nodiscard]] auto HorizontalFieldOfViewInDegrees() const;
-        auto HorizontalFieldOfViewInDegrees(double value) const;
-        [[nodiscard]] auto ViewOrientation() const;
-        auto ViewOrientation(Windows::Foundation::Numerics::quaternion const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) IsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::SphericalVideoFrameFormat) FrameFormat() const;
+        WINRT_IMPL_AUTO(void) FrameFormat(Windows::Media::MediaProperties::SphericalVideoFrameFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Playback::SphericalVideoProjectionMode) ProjectionMode() const;
+        WINRT_IMPL_AUTO(void) ProjectionMode(Windows::Media::Playback::SphericalVideoProjectionMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalFieldOfViewInDegrees() const;
+        WINRT_IMPL_AUTO(void) HorizontalFieldOfViewInDegrees(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::quaternion) ViewOrientation() const;
+        WINRT_IMPL_AUTO(void) ViewOrientation(Windows::Foundation::Numerics::quaternion const& value) const;
     };
     template <> struct consume<Windows::Media::Effects::IVideoTransformSphericalProjection>
     {

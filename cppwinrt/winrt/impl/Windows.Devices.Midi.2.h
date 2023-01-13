@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -88,13 +88,13 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Midi
     {
         MidiSongPositionPointerMessage(std::nullptr_t) noexcept {}
         MidiSongPositionPointerMessage(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Midi::IMidiSongPositionPointerMessage(ptr, take_ownership_from_abi) {}
-        MidiSongPositionPointerMessage(uint16_t beats);
+        explicit MidiSongPositionPointerMessage(uint16_t beats);
     };
     struct __declspec(empty_bases) MidiSongSelectMessage : Windows::Devices::Midi::IMidiSongSelectMessage
     {
         MidiSongSelectMessage(std::nullptr_t) noexcept {}
         MidiSongSelectMessage(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Midi::IMidiSongSelectMessage(ptr, take_ownership_from_abi) {}
-        MidiSongSelectMessage(uint8_t song);
+        explicit MidiSongSelectMessage(uint8_t song);
     };
     struct __declspec(empty_bases) MidiStartMessage : Windows::Devices::Midi::IMidiMessage
     {
@@ -120,7 +120,7 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Midi
     {
         MidiSystemExclusiveMessage(std::nullptr_t) noexcept {}
         MidiSystemExclusiveMessage(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Midi::IMidiMessage(ptr, take_ownership_from_abi) {}
-        MidiSystemExclusiveMessage(Windows::Storage::Streams::IBuffer const& rawData);
+        explicit MidiSystemExclusiveMessage(Windows::Storage::Streams::IBuffer const& rawData);
     };
     struct __declspec(empty_bases) MidiSystemResetMessage : Windows::Devices::Midi::IMidiMessage
     {

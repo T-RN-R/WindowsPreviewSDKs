@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,12 +7,14 @@
 #define WINRT_Windows_Gaming_XboxLive_Storage_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     template <typename K, typename V> struct IMapView;
     struct IPropertySet;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -92,32 +94,30 @@ namespace winrt::impl
     template <> struct category<Windows::Gaming::XboxLive::Storage::GameSaveProvider>{ using type = class_category; };
     template <> struct category<Windows::Gaming::XboxLive::Storage::GameSaveProviderGetResult>{ using type = class_category; };
     template <> struct category<Windows::Gaming::XboxLive::Storage::GameSaveErrorStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveBlobGetResult>{ L"Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfo>{ L"Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfoGetResult>{ L"Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfoQuery>{ L"Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveContainer>{ L"Windows.Gaming.XboxLive.Storage.GameSaveContainer" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfo>{ L"Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfoGetResult>{ L"Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfoQuery>{ L"Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveOperationResult>{ L"Windows.Gaming.XboxLive.Storage.GameSaveOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveProvider>{ L"Windows.Gaming.XboxLive.Storage.GameSaveProvider" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveProviderGetResult>{ L"Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveErrorStatus>{ L"Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobGetResult>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveBlobGetResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfo>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfo" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoGetResult>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoGetResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoQuery>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoQuery" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainer>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveContainer" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfo>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfo" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoGetResult>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoGetResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoQuery>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoQuery" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveOperationResult>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProvider>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveProvider" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderGetResult>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveProviderGetResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderStatics>{ L"Windows.Gaming.XboxLive.Storage.IGameSaveProviderStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveBlobGetResult> = L"Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfo> = L"Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfoGetResult> = L"Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfoQuery> = L"Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveContainer> = L"Windows.Gaming.XboxLive.Storage.GameSaveContainer";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfo> = L"Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfoGetResult> = L"Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfoQuery> = L"Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveOperationResult> = L"Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveProvider> = L"Windows.Gaming.XboxLive.Storage.GameSaveProvider";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveProviderGetResult> = L"Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::GameSaveErrorStatus> = L"Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobGetResult> = L"Windows.Gaming.XboxLive.Storage.IGameSaveBlobGetResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfo> = L"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfo";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoGetResult> = L"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoGetResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoQuery> = L"Windows.Gaming.XboxLive.Storage.IGameSaveBlobInfoQuery";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainer> = L"Windows.Gaming.XboxLive.Storage.IGameSaveContainer";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfo> = L"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfo";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoGetResult> = L"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoGetResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoQuery> = L"Windows.Gaming.XboxLive.Storage.IGameSaveContainerInfoQuery";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveOperationResult> = L"Windows.Gaming.XboxLive.Storage.IGameSaveOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProvider> = L"Windows.Gaming.XboxLive.Storage.IGameSaveProvider";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderGetResult> = L"Windows.Gaming.XboxLive.Storage.IGameSaveProviderGetResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderStatics> = L"Windows.Gaming.XboxLive.Storage.IGameSaveProviderStatics";
     template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobGetResult>{ 0x917281E0,0x7201,0x4953,{ 0xAA,0x2C,0x40,0x08,0xF0,0x3A,0xEF,0x45 } };
     template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfo>{ 0xADD38034,0xBAF0,0x4645,{ 0xB6,0xD0,0x46,0xED,0xAF,0xFB,0x3C,0x2B } };
     template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoGetResult>{ 0xC7578582,0x3697,0x42BF,{ 0x98,0x9C,0x66,0x5D,0x92,0x3B,0x52,0x31 } };
@@ -254,8 +254,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveBlobGetResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveErrorStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Storage::Streams::IBuffer>) Value() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveBlobGetResult>
     {
@@ -264,8 +264,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveBlobInfo
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Size() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Size() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfo>
     {
@@ -274,8 +274,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveBlobInfoGetResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveErrorStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfo>) Value() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoGetResult>
     {
@@ -284,9 +284,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveBlobInfoQuery
     {
-        auto GetBlobInfoAsync() const;
-        auto GetBlobInfoAsync(uint32_t startIndex, uint32_t maxNumberOfItems) const;
-        auto GetItemCountAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfoGetResult>) GetBlobInfoAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfoGetResult>) GetBlobInfoAsync(uint32_t startIndex, uint32_t maxNumberOfItems) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint32_t>) GetItemCountAsync() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoQuery>
     {
@@ -295,13 +295,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveContainer
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Provider() const;
-        auto SubmitUpdatesAsync(param::async_map_view<hstring, Windows::Storage::Streams::IBuffer> const& blobsToWrite, param::async_iterable<hstring> const& blobsToDelete, param::hstring const& displayName) const;
-        auto ReadAsync(param::async_map_view<hstring, Windows::Storage::Streams::IBuffer> const& blobsToRead) const;
-        auto GetAsync(param::async_iterable<hstring> const& blobsToRead) const;
-        auto SubmitPropertySetUpdatesAsync(Windows::Foundation::Collections::IPropertySet const& blobsToWrite, param::async_iterable<hstring> const& blobsToDelete, param::hstring const& displayName) const;
-        auto CreateBlobInfoQuery(param::hstring const& blobNamePrefix) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveProvider) Provider() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveOperationResult>) SubmitUpdatesAsync(param::async_map_view<hstring, Windows::Storage::Streams::IBuffer> const& blobsToWrite, param::async_iterable<hstring> const& blobsToDelete, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveOperationResult>) ReadAsync(param::async_map_view<hstring, Windows::Storage::Streams::IBuffer> const& blobsToRead) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveBlobGetResult>) GetAsync(param::async_iterable<hstring> const& blobsToRead) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveOperationResult>) SubmitPropertySetUpdatesAsync(Windows::Foundation::Collections::IPropertySet const& blobsToWrite, param::async_iterable<hstring> const& blobsToDelete, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveBlobInfoQuery) CreateBlobInfoQuery(param::hstring const& blobNamePrefix) const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveContainer>
     {
@@ -310,11 +310,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveContainerInfo
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto TotalSize() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto LastModifiedTime() const;
-        [[nodiscard]] auto NeedsSync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) TotalSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastModifiedTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) NeedsSync() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfo>
     {
@@ -323,8 +323,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveContainerInfoGetResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveErrorStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfo>) Value() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoGetResult>
     {
@@ -333,9 +333,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveContainerInfoQuery
     {
-        auto GetContainerInfoAsync() const;
-        auto GetContainerInfoAsync(uint32_t startIndex, uint32_t maxNumberOfItems) const;
-        auto GetItemCountAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfoGetResult>) GetContainerInfoAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveContainerInfoGetResult>) GetContainerInfoAsync(uint32_t startIndex, uint32_t maxNumberOfItems) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint32_t>) GetItemCountAsync() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoQuery>
     {
@@ -344,7 +344,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveOperationResult
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveErrorStatus) Status() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveOperationResult>
     {
@@ -353,13 +353,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveProvider
     {
-        [[nodiscard]] auto User() const;
-        auto CreateContainer(param::hstring const& name) const;
-        auto DeleteContainerAsync(param::hstring const& name) const;
-        auto CreateContainerInfoQuery() const;
-        auto CreateContainerInfoQuery(param::hstring const& containerNamePrefix) const;
-        auto GetRemainingBytesInQuotaAsync() const;
-        [[nodiscard]] auto ContainersChangedSinceLastSync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
+        WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveContainer) CreateContainer(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveOperationResult>) DeleteContainerAsync(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveContainerInfoQuery) CreateContainerInfoQuery() const;
+        WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveContainerInfoQuery) CreateContainerInfoQuery(param::hstring const& containerNamePrefix) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<int64_t>) GetRemainingBytesInQuotaAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) ContainersChangedSinceLastSync() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveProvider>
     {
@@ -368,8 +368,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveProviderGetResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveErrorStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::XboxLive::Storage::GameSaveProvider) Value() const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveProviderGetResult>
     {
@@ -378,8 +378,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_XboxLive_Storage_IGameSaveProviderStatics
     {
-        auto GetForUserAsync(Windows::System::User const& user, param::hstring const& serviceConfigId) const;
-        auto GetSyncOnDemandForUserAsync(Windows::System::User const& user, param::hstring const& serviceConfigId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveProviderGetResult>) GetForUserAsync(Windows::System::User const& user, param::hstring const& serviceConfigId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::XboxLive::Storage::GameSaveProviderGetResult>) GetSyncOnDemandForUserAsync(Windows::System::User const& user, param::hstring const& serviceConfigId) const;
     };
     template <> struct consume<Windows::Gaming::XboxLive::Storage::IGameSaveProviderStatics>
     {

@@ -1,10 +1,14 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Management_Update_0_H
 #define WINRT_Windows_Management_Update_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     struct ValueSet;
@@ -24,13 +28,11 @@ namespace winrt::impl
     template <> struct category<Windows::Management::Update::IPreviewBuildsState>{ using type = interface_category; };
     template <> struct category<Windows::Management::Update::PreviewBuildsManager>{ using type = class_category; };
     template <> struct category<Windows::Management::Update::PreviewBuildsState>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Management::Update::PreviewBuildsManager>{ L"Windows.Management.Update.PreviewBuildsManager" };
-    template <> inline constexpr auto& name_v<Windows::Management::Update::PreviewBuildsState>{ L"Windows.Management.Update.PreviewBuildsState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsManager>{ L"Windows.Management.Update.IPreviewBuildsManager" };
-    template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsManagerStatics>{ L"Windows.Management.Update.IPreviewBuildsManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsState>{ L"Windows.Management.Update.IPreviewBuildsState" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Management::Update::PreviewBuildsManager> = L"Windows.Management.Update.PreviewBuildsManager";
+    template <> inline constexpr auto& name_v<Windows::Management::Update::PreviewBuildsState> = L"Windows.Management.Update.PreviewBuildsState";
+    template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsManager> = L"Windows.Management.Update.IPreviewBuildsManager";
+    template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsManagerStatics> = L"Windows.Management.Update.IPreviewBuildsManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsState> = L"Windows.Management.Update.IPreviewBuildsState";
     template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsManager>{ 0xFA07DD61,0x7E4F,0x59F7,{ 0x7C,0x9F,0xDE,0xF9,0x05,0x1C,0x5F,0x62 } };
     template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsManagerStatics>{ 0x3E422887,0xB112,0x5A70,{ 0x7D,0xA1,0x97,0xD7,0x8D,0x32,0xAA,0x29 } };
     template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsState>{ 0xA2F2903E,0xB223,0x5F63,{ 0x75,0x46,0x3E,0x8E,0xAC,0x07,0x0A,0x2E } };
@@ -64,10 +66,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Update_IPreviewBuildsManager
     {
-        [[nodiscard]] auto ArePreviewBuildsAllowed() const;
-        auto ArePreviewBuildsAllowed(bool value) const;
-        auto GetCurrentState() const;
-        auto SyncAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ArePreviewBuildsAllowed() const;
+        WINRT_IMPL_AUTO(void) ArePreviewBuildsAllowed(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Management::Update::PreviewBuildsState) GetCurrentState() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) SyncAsync() const;
     };
     template <> struct consume<Windows::Management::Update::IPreviewBuildsManager>
     {
@@ -76,8 +78,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Update_IPreviewBuildsManagerStatics
     {
-        auto GetDefault() const;
-        auto IsSupported() const;
+        WINRT_IMPL_AUTO(Windows::Management::Update::PreviewBuildsManager) GetDefault() const;
+        WINRT_IMPL_AUTO(bool) IsSupported() const;
     };
     template <> struct consume<Windows::Management::Update::IPreviewBuildsManagerStatics>
     {
@@ -86,7 +88,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Update_IPreviewBuildsState
     {
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Properties() const;
     };
     template <> struct consume<Windows::Management::Update::IPreviewBuildsState>
     {

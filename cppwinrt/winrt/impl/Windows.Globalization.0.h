@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -11,6 +11,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -122,51 +124,49 @@ namespace winrt::impl
     template <> struct category<Windows::Globalization::NumeralSystemIdentifiers>{ using type = class_category; };
     template <> struct category<Windows::Globalization::DayOfWeek>{ using type = enum_category; };
     template <> struct category<Windows::Globalization::LanguageLayoutDirection>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ApplicationLanguages>{ L"Windows.Globalization.ApplicationLanguages" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::Calendar>{ L"Windows.Globalization.Calendar" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::CalendarIdentifiers>{ L"Windows.Globalization.CalendarIdentifiers" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ClockIdentifiers>{ L"Windows.Globalization.ClockIdentifiers" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::CurrencyAmount>{ L"Windows.Globalization.CurrencyAmount" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::CurrencyIdentifiers>{ L"Windows.Globalization.CurrencyIdentifiers" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::GeographicRegion>{ L"Windows.Globalization.GeographicRegion" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::JapanesePhoneme>{ L"Windows.Globalization.JapanesePhoneme" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::JapanesePhoneticAnalyzer>{ L"Windows.Globalization.JapanesePhoneticAnalyzer" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::Language>{ L"Windows.Globalization.Language" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::NumeralSystemIdentifiers>{ L"Windows.Globalization.NumeralSystemIdentifiers" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DayOfWeek>{ L"Windows.Globalization.DayOfWeek" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::LanguageLayoutDirection>{ L"Windows.Globalization.LanguageLayoutDirection" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Globalization::IApplicationLanguagesStatics>{ L"Windows.Globalization.IApplicationLanguagesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::IApplicationLanguagesStatics2>{ L"Windows.Globalization.IApplicationLanguagesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendar>{ L"Windows.Globalization.ICalendar" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarFactory>{ L"Windows.Globalization.ICalendarFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarFactory2>{ L"Windows.Globalization.ICalendarFactory2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarIdentifiersStatics>{ L"Windows.Globalization.ICalendarIdentifiersStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarIdentifiersStatics2>{ L"Windows.Globalization.ICalendarIdentifiersStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarIdentifiersStatics3>{ L"Windows.Globalization.ICalendarIdentifiersStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::IClockIdentifiersStatics>{ L"Windows.Globalization.IClockIdentifiersStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyAmount>{ L"Windows.Globalization.ICurrencyAmount" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyAmountFactory>{ L"Windows.Globalization.ICurrencyAmountFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyIdentifiersStatics>{ L"Windows.Globalization.ICurrencyIdentifiersStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyIdentifiersStatics2>{ L"Windows.Globalization.ICurrencyIdentifiersStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyIdentifiersStatics3>{ L"Windows.Globalization.ICurrencyIdentifiersStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::IGeographicRegion>{ L"Windows.Globalization.IGeographicRegion" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::IGeographicRegionFactory>{ L"Windows.Globalization.IGeographicRegionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::IGeographicRegionStatics>{ L"Windows.Globalization.IGeographicRegionStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::IJapanesePhoneme>{ L"Windows.Globalization.IJapanesePhoneme" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::IJapanesePhoneticAnalyzerStatics>{ L"Windows.Globalization.IJapanesePhoneticAnalyzerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguage>{ L"Windows.Globalization.ILanguage" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguage2>{ L"Windows.Globalization.ILanguage2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguage3>{ L"Windows.Globalization.ILanguage3" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageExtensionSubtags>{ L"Windows.Globalization.ILanguageExtensionSubtags" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageFactory>{ L"Windows.Globalization.ILanguageFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageStatics>{ L"Windows.Globalization.ILanguageStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageStatics2>{ L"Windows.Globalization.ILanguageStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageStatics3>{ L"Windows.Globalization.ILanguageStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::INumeralSystemIdentifiersStatics>{ L"Windows.Globalization.INumeralSystemIdentifiersStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::INumeralSystemIdentifiersStatics2>{ L"Windows.Globalization.INumeralSystemIdentifiersStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::ITimeZoneOnCalendar>{ L"Windows.Globalization.ITimeZoneOnCalendar" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Globalization::ApplicationLanguages> = L"Windows.Globalization.ApplicationLanguages";
+    template <> inline constexpr auto& name_v<Windows::Globalization::Calendar> = L"Windows.Globalization.Calendar";
+    template <> inline constexpr auto& name_v<Windows::Globalization::CalendarIdentifiers> = L"Windows.Globalization.CalendarIdentifiers";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ClockIdentifiers> = L"Windows.Globalization.ClockIdentifiers";
+    template <> inline constexpr auto& name_v<Windows::Globalization::CurrencyAmount> = L"Windows.Globalization.CurrencyAmount";
+    template <> inline constexpr auto& name_v<Windows::Globalization::CurrencyIdentifiers> = L"Windows.Globalization.CurrencyIdentifiers";
+    template <> inline constexpr auto& name_v<Windows::Globalization::GeographicRegion> = L"Windows.Globalization.GeographicRegion";
+    template <> inline constexpr auto& name_v<Windows::Globalization::JapanesePhoneme> = L"Windows.Globalization.JapanesePhoneme";
+    template <> inline constexpr auto& name_v<Windows::Globalization::JapanesePhoneticAnalyzer> = L"Windows.Globalization.JapanesePhoneticAnalyzer";
+    template <> inline constexpr auto& name_v<Windows::Globalization::Language> = L"Windows.Globalization.Language";
+    template <> inline constexpr auto& name_v<Windows::Globalization::NumeralSystemIdentifiers> = L"Windows.Globalization.NumeralSystemIdentifiers";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DayOfWeek> = L"Windows.Globalization.DayOfWeek";
+    template <> inline constexpr auto& name_v<Windows::Globalization::LanguageLayoutDirection> = L"Windows.Globalization.LanguageLayoutDirection";
+    template <> inline constexpr auto& name_v<Windows::Globalization::IApplicationLanguagesStatics> = L"Windows.Globalization.IApplicationLanguagesStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::IApplicationLanguagesStatics2> = L"Windows.Globalization.IApplicationLanguagesStatics2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendar> = L"Windows.Globalization.ICalendar";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarFactory> = L"Windows.Globalization.ICalendarFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarFactory2> = L"Windows.Globalization.ICalendarFactory2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarIdentifiersStatics> = L"Windows.Globalization.ICalendarIdentifiersStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarIdentifiersStatics2> = L"Windows.Globalization.ICalendarIdentifiersStatics2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICalendarIdentifiersStatics3> = L"Windows.Globalization.ICalendarIdentifiersStatics3";
+    template <> inline constexpr auto& name_v<Windows::Globalization::IClockIdentifiersStatics> = L"Windows.Globalization.IClockIdentifiersStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyAmount> = L"Windows.Globalization.ICurrencyAmount";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyAmountFactory> = L"Windows.Globalization.ICurrencyAmountFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyIdentifiersStatics> = L"Windows.Globalization.ICurrencyIdentifiersStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyIdentifiersStatics2> = L"Windows.Globalization.ICurrencyIdentifiersStatics2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ICurrencyIdentifiersStatics3> = L"Windows.Globalization.ICurrencyIdentifiersStatics3";
+    template <> inline constexpr auto& name_v<Windows::Globalization::IGeographicRegion> = L"Windows.Globalization.IGeographicRegion";
+    template <> inline constexpr auto& name_v<Windows::Globalization::IGeographicRegionFactory> = L"Windows.Globalization.IGeographicRegionFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::IGeographicRegionStatics> = L"Windows.Globalization.IGeographicRegionStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::IJapanesePhoneme> = L"Windows.Globalization.IJapanesePhoneme";
+    template <> inline constexpr auto& name_v<Windows::Globalization::IJapanesePhoneticAnalyzerStatics> = L"Windows.Globalization.IJapanesePhoneticAnalyzerStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguage> = L"Windows.Globalization.ILanguage";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguage2> = L"Windows.Globalization.ILanguage2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguage3> = L"Windows.Globalization.ILanguage3";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageExtensionSubtags> = L"Windows.Globalization.ILanguageExtensionSubtags";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageFactory> = L"Windows.Globalization.ILanguageFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageStatics> = L"Windows.Globalization.ILanguageStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageStatics2> = L"Windows.Globalization.ILanguageStatics2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ILanguageStatics3> = L"Windows.Globalization.ILanguageStatics3";
+    template <> inline constexpr auto& name_v<Windows::Globalization::INumeralSystemIdentifiersStatics> = L"Windows.Globalization.INumeralSystemIdentifiersStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::INumeralSystemIdentifiersStatics2> = L"Windows.Globalization.INumeralSystemIdentifiersStatics2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::ITimeZoneOnCalendar> = L"Windows.Globalization.ITimeZoneOnCalendar";
     template <> inline constexpr guid guid_v<Windows::Globalization::IApplicationLanguagesStatics>{ 0x75B40847,0x0A4C,0x4A92,{ 0x95,0x65,0xFD,0x63,0xC9,0x5F,0x7A,0xED } };
     template <> inline constexpr guid guid_v<Windows::Globalization::IApplicationLanguagesStatics2>{ 0x1DF0DE4F,0x072B,0x4D7B,{ 0x8F,0x06,0xCB,0x2D,0xB4,0x0F,0x2B,0xB5 } };
     template <> inline constexpr guid guid_v<Windows::Globalization::ICalendar>{ 0xCA30221D,0x86D9,0x40FB,{ 0xA2,0x6B,0xD4,0x4E,0xB7,0xCF,0x08,0xEA } };
@@ -751,10 +751,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_IApplicationLanguagesStatics
     {
-        [[nodiscard]] auto PrimaryLanguageOverride() const;
-        auto PrimaryLanguageOverride(param::hstring const& value) const;
-        [[nodiscard]] auto Languages() const;
-        [[nodiscard]] auto ManifestLanguages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PrimaryLanguageOverride() const;
+        WINRT_IMPL_AUTO(void) PrimaryLanguageOverride(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Languages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) ManifestLanguages() const;
     };
     template <> struct consume<Windows::Globalization::IApplicationLanguagesStatics>
     {
@@ -763,7 +763,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_IApplicationLanguagesStatics2
     {
-        auto GetLanguagesForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) GetLanguagesForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::Globalization::IApplicationLanguagesStatics2>
     {
@@ -772,104 +772,104 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICalendar
     {
-        auto Clone() const;
-        auto SetToMin() const;
-        auto SetToMax() const;
-        [[nodiscard]] auto Languages() const;
-        [[nodiscard]] auto NumeralSystem() const;
-        auto NumeralSystem(param::hstring const& value) const;
-        auto GetCalendarSystem() const;
-        auto ChangeCalendarSystem(param::hstring const& value) const;
-        auto GetClock() const;
-        auto ChangeClock(param::hstring const& value) const;
-        auto GetDateTime() const;
-        auto SetDateTime(Windows::Foundation::DateTime const& value) const;
-        auto SetToNow() const;
-        [[nodiscard]] auto FirstEra() const;
-        [[nodiscard]] auto LastEra() const;
-        [[nodiscard]] auto NumberOfEras() const;
-        [[nodiscard]] auto Era() const;
-        auto Era(int32_t value) const;
-        auto AddEras(int32_t eras) const;
-        auto EraAsString() const;
-        auto EraAsString(int32_t idealLength) const;
-        [[nodiscard]] auto FirstYearInThisEra() const;
-        [[nodiscard]] auto LastYearInThisEra() const;
-        [[nodiscard]] auto NumberOfYearsInThisEra() const;
-        [[nodiscard]] auto Year() const;
-        auto Year(int32_t value) const;
-        auto AddYears(int32_t years) const;
-        auto YearAsString() const;
-        auto YearAsTruncatedString(int32_t remainingDigits) const;
-        auto YearAsPaddedString(int32_t minDigits) const;
-        [[nodiscard]] auto FirstMonthInThisYear() const;
-        [[nodiscard]] auto LastMonthInThisYear() const;
-        [[nodiscard]] auto NumberOfMonthsInThisYear() const;
-        [[nodiscard]] auto Month() const;
-        auto Month(int32_t value) const;
-        auto AddMonths(int32_t months) const;
-        auto MonthAsString() const;
-        auto MonthAsString(int32_t idealLength) const;
-        auto MonthAsSoloString() const;
-        auto MonthAsSoloString(int32_t idealLength) const;
-        auto MonthAsNumericString() const;
-        auto MonthAsPaddedNumericString(int32_t minDigits) const;
-        auto AddWeeks(int32_t weeks) const;
-        [[nodiscard]] auto FirstDayInThisMonth() const;
-        [[nodiscard]] auto LastDayInThisMonth() const;
-        [[nodiscard]] auto NumberOfDaysInThisMonth() const;
-        [[nodiscard]] auto Day() const;
-        auto Day(int32_t value) const;
-        auto AddDays(int32_t days) const;
-        auto DayAsString() const;
-        auto DayAsPaddedString(int32_t minDigits) const;
-        [[nodiscard]] auto DayOfWeek() const;
-        auto DayOfWeekAsString() const;
-        auto DayOfWeekAsString(int32_t idealLength) const;
-        auto DayOfWeekAsSoloString() const;
-        auto DayOfWeekAsSoloString(int32_t idealLength) const;
-        [[nodiscard]] auto FirstPeriodInThisDay() const;
-        [[nodiscard]] auto LastPeriodInThisDay() const;
-        [[nodiscard]] auto NumberOfPeriodsInThisDay() const;
-        [[nodiscard]] auto Period() const;
-        auto Period(int32_t value) const;
-        auto AddPeriods(int32_t periods) const;
-        auto PeriodAsString() const;
-        auto PeriodAsString(int32_t idealLength) const;
-        [[nodiscard]] auto FirstHourInThisPeriod() const;
-        [[nodiscard]] auto LastHourInThisPeriod() const;
-        [[nodiscard]] auto NumberOfHoursInThisPeriod() const;
-        [[nodiscard]] auto Hour() const;
-        auto Hour(int32_t value) const;
-        auto AddHours(int32_t hours) const;
-        auto HourAsString() const;
-        auto HourAsPaddedString(int32_t minDigits) const;
-        [[nodiscard]] auto Minute() const;
-        auto Minute(int32_t value) const;
-        auto AddMinutes(int32_t minutes) const;
-        auto MinuteAsString() const;
-        auto MinuteAsPaddedString(int32_t minDigits) const;
-        [[nodiscard]] auto Second() const;
-        auto Second(int32_t value) const;
-        auto AddSeconds(int32_t seconds) const;
-        auto SecondAsString() const;
-        auto SecondAsPaddedString(int32_t minDigits) const;
-        [[nodiscard]] auto Nanosecond() const;
-        auto Nanosecond(int32_t value) const;
-        auto AddNanoseconds(int32_t nanoseconds) const;
-        auto NanosecondAsString() const;
-        auto NanosecondAsPaddedString(int32_t minDigits) const;
-        auto Compare(Windows::Globalization::Calendar const& other) const;
-        auto CompareDateTime(Windows::Foundation::DateTime const& other) const;
-        auto CopyTo(Windows::Globalization::Calendar const& other) const;
-        [[nodiscard]] auto FirstMinuteInThisHour() const;
-        [[nodiscard]] auto LastMinuteInThisHour() const;
-        [[nodiscard]] auto NumberOfMinutesInThisHour() const;
-        [[nodiscard]] auto FirstSecondInThisMinute() const;
-        [[nodiscard]] auto LastSecondInThisMinute() const;
-        [[nodiscard]] auto NumberOfSecondsInThisMinute() const;
-        [[nodiscard]] auto ResolvedLanguage() const;
-        [[nodiscard]] auto IsDaylightSavingTime() const;
+        WINRT_IMPL_AUTO(Windows::Globalization::Calendar) Clone() const;
+        WINRT_IMPL_AUTO(void) SetToMin() const;
+        WINRT_IMPL_AUTO(void) SetToMax() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Languages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NumeralSystem() const;
+        WINRT_IMPL_AUTO(void) NumeralSystem(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(hstring) GetCalendarSystem() const;
+        WINRT_IMPL_AUTO(void) ChangeCalendarSystem(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(hstring) GetClock() const;
+        WINRT_IMPL_AUTO(void) ChangeClock(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::DateTime) GetDateTime() const;
+        WINRT_IMPL_AUTO(void) SetDateTime(Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(void) SetToNow() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstEra() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastEra() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NumberOfEras() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Era() const;
+        WINRT_IMPL_AUTO(void) Era(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddEras(int32_t eras) const;
+        WINRT_IMPL_AUTO(hstring) EraAsString() const;
+        WINRT_IMPL_AUTO(hstring) EraAsString(int32_t idealLength) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstYearInThisEra() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastYearInThisEra() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NumberOfYearsInThisEra() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Year() const;
+        WINRT_IMPL_AUTO(void) Year(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddYears(int32_t years) const;
+        WINRT_IMPL_AUTO(hstring) YearAsString() const;
+        WINRT_IMPL_AUTO(hstring) YearAsTruncatedString(int32_t remainingDigits) const;
+        WINRT_IMPL_AUTO(hstring) YearAsPaddedString(int32_t minDigits) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstMonthInThisYear() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastMonthInThisYear() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NumberOfMonthsInThisYear() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Month() const;
+        WINRT_IMPL_AUTO(void) Month(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddMonths(int32_t months) const;
+        WINRT_IMPL_AUTO(hstring) MonthAsString() const;
+        WINRT_IMPL_AUTO(hstring) MonthAsString(int32_t idealLength) const;
+        WINRT_IMPL_AUTO(hstring) MonthAsSoloString() const;
+        WINRT_IMPL_AUTO(hstring) MonthAsSoloString(int32_t idealLength) const;
+        WINRT_IMPL_AUTO(hstring) MonthAsNumericString() const;
+        WINRT_IMPL_AUTO(hstring) MonthAsPaddedNumericString(int32_t minDigits) const;
+        WINRT_IMPL_AUTO(void) AddWeeks(int32_t weeks) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstDayInThisMonth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastDayInThisMonth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NumberOfDaysInThisMonth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Day() const;
+        WINRT_IMPL_AUTO(void) Day(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddDays(int32_t days) const;
+        WINRT_IMPL_AUTO(hstring) DayAsString() const;
+        WINRT_IMPL_AUTO(hstring) DayAsPaddedString(int32_t minDigits) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DayOfWeek) DayOfWeek() const;
+        WINRT_IMPL_AUTO(hstring) DayOfWeekAsString() const;
+        WINRT_IMPL_AUTO(hstring) DayOfWeekAsString(int32_t idealLength) const;
+        WINRT_IMPL_AUTO(hstring) DayOfWeekAsSoloString() const;
+        WINRT_IMPL_AUTO(hstring) DayOfWeekAsSoloString(int32_t idealLength) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstPeriodInThisDay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastPeriodInThisDay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NumberOfPeriodsInThisDay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Period() const;
+        WINRT_IMPL_AUTO(void) Period(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddPeriods(int32_t periods) const;
+        WINRT_IMPL_AUTO(hstring) PeriodAsString() const;
+        WINRT_IMPL_AUTO(hstring) PeriodAsString(int32_t idealLength) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstHourInThisPeriod() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastHourInThisPeriod() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NumberOfHoursInThisPeriod() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Hour() const;
+        WINRT_IMPL_AUTO(void) Hour(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddHours(int32_t hours) const;
+        WINRT_IMPL_AUTO(hstring) HourAsString() const;
+        WINRT_IMPL_AUTO(hstring) HourAsPaddedString(int32_t minDigits) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Minute() const;
+        WINRT_IMPL_AUTO(void) Minute(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddMinutes(int32_t minutes) const;
+        WINRT_IMPL_AUTO(hstring) MinuteAsString() const;
+        WINRT_IMPL_AUTO(hstring) MinuteAsPaddedString(int32_t minDigits) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Second() const;
+        WINRT_IMPL_AUTO(void) Second(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddSeconds(int32_t seconds) const;
+        WINRT_IMPL_AUTO(hstring) SecondAsString() const;
+        WINRT_IMPL_AUTO(hstring) SecondAsPaddedString(int32_t minDigits) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Nanosecond() const;
+        WINRT_IMPL_AUTO(void) Nanosecond(int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddNanoseconds(int32_t nanoseconds) const;
+        WINRT_IMPL_AUTO(hstring) NanosecondAsString() const;
+        WINRT_IMPL_AUTO(hstring) NanosecondAsPaddedString(int32_t minDigits) const;
+        WINRT_IMPL_AUTO(int32_t) Compare(Windows::Globalization::Calendar const& other) const;
+        WINRT_IMPL_AUTO(int32_t) CompareDateTime(Windows::Foundation::DateTime const& other) const;
+        WINRT_IMPL_AUTO(void) CopyTo(Windows::Globalization::Calendar const& other) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstMinuteInThisHour() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastMinuteInThisHour() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NumberOfMinutesInThisHour() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstSecondInThisMinute() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastSecondInThisMinute() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NumberOfSecondsInThisMinute() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDaylightSavingTime() const;
     };
     template <> struct consume<Windows::Globalization::ICalendar>
     {
@@ -878,8 +878,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICalendarFactory
     {
-        auto CreateCalendarDefaultCalendarAndClock(param::iterable<hstring> const& languages) const;
-        auto CreateCalendar(param::iterable<hstring> const& languages, param::hstring const& calendar, param::hstring const& clock) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::Calendar) CreateCalendarDefaultCalendarAndClock(param::iterable<hstring> const& languages) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::Calendar) CreateCalendar(param::iterable<hstring> const& languages, param::hstring const& calendar, param::hstring const& clock) const;
     };
     template <> struct consume<Windows::Globalization::ICalendarFactory>
     {
@@ -888,7 +888,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICalendarFactory2
     {
-        auto CreateCalendarWithTimeZone(param::iterable<hstring> const& languages, param::hstring const& calendar, param::hstring const& clock, param::hstring const& timeZoneId) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::Calendar) CreateCalendarWithTimeZone(param::iterable<hstring> const& languages, param::hstring const& calendar, param::hstring const& clock, param::hstring const& timeZoneId) const;
     };
     template <> struct consume<Windows::Globalization::ICalendarFactory2>
     {
@@ -897,15 +897,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICalendarIdentifiersStatics
     {
-        [[nodiscard]] auto Gregorian() const;
-        [[nodiscard]] auto Hebrew() const;
-        [[nodiscard]] auto Hijri() const;
-        [[nodiscard]] auto Japanese() const;
-        [[nodiscard]] auto Julian() const;
-        [[nodiscard]] auto Korean() const;
-        [[nodiscard]] auto Taiwan() const;
-        [[nodiscard]] auto Thai() const;
-        [[nodiscard]] auto UmAlQura() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Gregorian() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Hebrew() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Hijri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Japanese() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Julian() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Korean() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Taiwan() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Thai() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UmAlQura() const;
     };
     template <> struct consume<Windows::Globalization::ICalendarIdentifiersStatics>
     {
@@ -914,7 +914,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICalendarIdentifiersStatics2
     {
-        [[nodiscard]] auto Persian() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Persian() const;
     };
     template <> struct consume<Windows::Globalization::ICalendarIdentifiersStatics2>
     {
@@ -923,11 +923,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICalendarIdentifiersStatics3
     {
-        [[nodiscard]] auto ChineseLunar() const;
-        [[nodiscard]] auto JapaneseLunar() const;
-        [[nodiscard]] auto KoreanLunar() const;
-        [[nodiscard]] auto TaiwanLunar() const;
-        [[nodiscard]] auto VietnameseLunar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ChineseLunar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JapaneseLunar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KoreanLunar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TaiwanLunar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VietnameseLunar() const;
     };
     template <> struct consume<Windows::Globalization::ICalendarIdentifiersStatics3>
     {
@@ -936,8 +936,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_IClockIdentifiersStatics
     {
-        [[nodiscard]] auto TwelveHour() const;
-        [[nodiscard]] auto TwentyFourHour() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TwelveHour() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TwentyFourHour() const;
     };
     template <> struct consume<Windows::Globalization::IClockIdentifiersStatics>
     {
@@ -946,8 +946,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICurrencyAmount
     {
-        [[nodiscard]] auto Amount() const;
-        [[nodiscard]] auto Currency() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Amount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Currency() const;
     };
     template <> struct consume<Windows::Globalization::ICurrencyAmount>
     {
@@ -956,7 +956,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICurrencyAmountFactory
     {
-        auto Create(param::hstring const& amount, param::hstring const& currency) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::CurrencyAmount) Create(param::hstring const& amount, param::hstring const& currency) const;
     };
     template <> struct consume<Windows::Globalization::ICurrencyAmountFactory>
     {
@@ -965,163 +965,163 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICurrencyIdentifiersStatics
     {
-        [[nodiscard]] auto AED() const;
-        [[nodiscard]] auto AFN() const;
-        [[nodiscard]] auto ALL() const;
-        [[nodiscard]] auto AMD() const;
-        [[nodiscard]] auto ANG() const;
-        [[nodiscard]] auto AOA() const;
-        [[nodiscard]] auto ARS() const;
-        [[nodiscard]] auto AUD() const;
-        [[nodiscard]] auto AWG() const;
-        [[nodiscard]] auto AZN() const;
-        [[nodiscard]] auto BAM() const;
-        [[nodiscard]] auto BBD() const;
-        [[nodiscard]] auto BDT() const;
-        [[nodiscard]] auto BGN() const;
-        [[nodiscard]] auto BHD() const;
-        [[nodiscard]] auto BIF() const;
-        [[nodiscard]] auto BMD() const;
-        [[nodiscard]] auto BND() const;
-        [[nodiscard]] auto BOB() const;
-        [[nodiscard]] auto BRL() const;
-        [[nodiscard]] auto BSD() const;
-        [[nodiscard]] auto BTN() const;
-        [[nodiscard]] auto BWP() const;
-        [[nodiscard]] auto BYR() const;
-        [[nodiscard]] auto BZD() const;
-        [[nodiscard]] auto CAD() const;
-        [[nodiscard]] auto CDF() const;
-        [[nodiscard]] auto CHF() const;
-        [[nodiscard]] auto CLP() const;
-        [[nodiscard]] auto CNY() const;
-        [[nodiscard]] auto COP() const;
-        [[nodiscard]] auto CRC() const;
-        [[nodiscard]] auto CUP() const;
-        [[nodiscard]] auto CVE() const;
-        [[nodiscard]] auto CZK() const;
-        [[nodiscard]] auto DJF() const;
-        [[nodiscard]] auto DKK() const;
-        [[nodiscard]] auto DOP() const;
-        [[nodiscard]] auto DZD() const;
-        [[nodiscard]] auto EGP() const;
-        [[nodiscard]] auto ERN() const;
-        [[nodiscard]] auto ETB() const;
-        [[nodiscard]] auto EUR() const;
-        [[nodiscard]] auto FJD() const;
-        [[nodiscard]] auto FKP() const;
-        [[nodiscard]] auto GBP() const;
-        [[nodiscard]] auto GEL() const;
-        [[nodiscard]] auto GHS() const;
-        [[nodiscard]] auto GIP() const;
-        [[nodiscard]] auto GMD() const;
-        [[nodiscard]] auto GNF() const;
-        [[nodiscard]] auto GTQ() const;
-        [[nodiscard]] auto GYD() const;
-        [[nodiscard]] auto HKD() const;
-        [[nodiscard]] auto HNL() const;
-        [[nodiscard]] auto HRK() const;
-        [[nodiscard]] auto HTG() const;
-        [[nodiscard]] auto HUF() const;
-        [[nodiscard]] auto IDR() const;
-        [[nodiscard]] auto ILS() const;
-        [[nodiscard]] auto INR() const;
-        [[nodiscard]] auto IQD() const;
-        [[nodiscard]] auto IRR() const;
-        [[nodiscard]] auto ISK() const;
-        [[nodiscard]] auto JMD() const;
-        [[nodiscard]] auto JOD() const;
-        [[nodiscard]] auto JPY() const;
-        [[nodiscard]] auto KES() const;
-        [[nodiscard]] auto KGS() const;
-        [[nodiscard]] auto KHR() const;
-        [[nodiscard]] auto KMF() const;
-        [[nodiscard]] auto KPW() const;
-        [[nodiscard]] auto KRW() const;
-        [[nodiscard]] auto KWD() const;
-        [[nodiscard]] auto KYD() const;
-        [[nodiscard]] auto KZT() const;
-        [[nodiscard]] auto LAK() const;
-        [[nodiscard]] auto LBP() const;
-        [[nodiscard]] auto LKR() const;
-        [[nodiscard]] auto LRD() const;
-        [[nodiscard]] auto LSL() const;
-        [[nodiscard]] auto LTL() const;
-        [[nodiscard]] auto LVL() const;
-        [[nodiscard]] auto LYD() const;
-        [[nodiscard]] auto MAD() const;
-        [[nodiscard]] auto MDL() const;
-        [[nodiscard]] auto MGA() const;
-        [[nodiscard]] auto MKD() const;
-        [[nodiscard]] auto MMK() const;
-        [[nodiscard]] auto MNT() const;
-        [[nodiscard]] auto MOP() const;
-        [[nodiscard]] auto MRO() const;
-        [[nodiscard]] auto MUR() const;
-        [[nodiscard]] auto MVR() const;
-        [[nodiscard]] auto MWK() const;
-        [[nodiscard]] auto MXN() const;
-        [[nodiscard]] auto MYR() const;
-        [[nodiscard]] auto MZN() const;
-        [[nodiscard]] auto NAD() const;
-        [[nodiscard]] auto NGN() const;
-        [[nodiscard]] auto NIO() const;
-        [[nodiscard]] auto NOK() const;
-        [[nodiscard]] auto NPR() const;
-        [[nodiscard]] auto NZD() const;
-        [[nodiscard]] auto OMR() const;
-        [[nodiscard]] auto PAB() const;
-        [[nodiscard]] auto PEN() const;
-        [[nodiscard]] auto PGK() const;
-        [[nodiscard]] auto PHP() const;
-        [[nodiscard]] auto PKR() const;
-        [[nodiscard]] auto PLN() const;
-        [[nodiscard]] auto PYG() const;
-        [[nodiscard]] auto QAR() const;
-        [[nodiscard]] auto RON() const;
-        [[nodiscard]] auto RSD() const;
-        [[nodiscard]] auto RUB() const;
-        [[nodiscard]] auto RWF() const;
-        [[nodiscard]] auto SAR() const;
-        [[nodiscard]] auto SBD() const;
-        [[nodiscard]] auto SCR() const;
-        [[nodiscard]] auto SDG() const;
-        [[nodiscard]] auto SEK() const;
-        [[nodiscard]] auto SGD() const;
-        [[nodiscard]] auto SHP() const;
-        [[nodiscard]] auto SLL() const;
-        [[nodiscard]] auto SOS() const;
-        [[nodiscard]] auto SRD() const;
-        [[nodiscard]] auto STD() const;
-        [[nodiscard]] auto SYP() const;
-        [[nodiscard]] auto SZL() const;
-        [[nodiscard]] auto THB() const;
-        [[nodiscard]] auto TJS() const;
-        [[nodiscard]] auto TMT() const;
-        [[nodiscard]] auto TND() const;
-        [[nodiscard]] auto TOP() const;
-        [[nodiscard]] auto TRY() const;
-        [[nodiscard]] auto TTD() const;
-        [[nodiscard]] auto TWD() const;
-        [[nodiscard]] auto TZS() const;
-        [[nodiscard]] auto UAH() const;
-        [[nodiscard]] auto UGX() const;
-        [[nodiscard]] auto USD() const;
-        [[nodiscard]] auto UYU() const;
-        [[nodiscard]] auto UZS() const;
-        [[nodiscard]] auto VEF() const;
-        [[nodiscard]] auto VND() const;
-        [[nodiscard]] auto VUV() const;
-        [[nodiscard]] auto WST() const;
-        [[nodiscard]] auto XAF() const;
-        [[nodiscard]] auto XCD() const;
-        [[nodiscard]] auto XOF() const;
-        [[nodiscard]] auto XPF() const;
-        [[nodiscard]] auto XXX() const;
-        [[nodiscard]] auto YER() const;
-        [[nodiscard]] auto ZAR() const;
-        [[nodiscard]] auto ZMW() const;
-        [[nodiscard]] auto ZWL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AED() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AFN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ALL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AMD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ANG() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AOA() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ARS() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AUD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AWG() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AZN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BAM() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BBD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BDT() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BGN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BHD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BIF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BMD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BND() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BOB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BRL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BSD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BTN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BWP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BYR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BZD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CAD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CDF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CHF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CLP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CNY() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) COP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CRC() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CUP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CVE() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CZK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DJF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DKK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DOP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DZD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EGP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ERN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ETB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EUR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FJD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FKP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GBP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GEL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GHS() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GIP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GMD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GNF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GTQ() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GYD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HKD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HNL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HRK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HTG() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HUF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IDR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ILS() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) INR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IQD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IRR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ISK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JMD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JOD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JPY() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KES() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KGS() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KHR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KMF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KPW() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KRW() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KWD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KYD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KZT() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LAK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LBP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LKR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LRD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LSL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LTL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LVL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LYD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MAD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MDL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MGA() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MKD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MMK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MNT() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MOP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MRO() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MUR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MVR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MWK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MXN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MYR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MZN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NAD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NGN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NIO() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NOK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NPR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NZD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OMR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PAB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PEN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PGK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PHP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PKR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PLN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PYG() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) QAR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RON() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RSD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RUB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RWF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SAR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SBD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SCR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SDG() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SEK() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SGD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SHP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SLL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SOS() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SRD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) STD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SYP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SZL() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) THB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TJS() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TMT() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TND() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TOP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TRY() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TTD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TWD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TZS() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UAH() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UGX() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) USD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UYU() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UZS() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VEF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VND() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VUV() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WST() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XAF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XCD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XOF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XPF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XXX() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) YER() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ZAR() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ZMW() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ZWL() const;
     };
     template <> struct consume<Windows::Globalization::ICurrencyIdentifiersStatics>
     {
@@ -1130,7 +1130,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICurrencyIdentifiersStatics2
     {
-        [[nodiscard]] auto BYN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BYN() const;
     };
     template <> struct consume<Windows::Globalization::ICurrencyIdentifiersStatics2>
     {
@@ -1139,10 +1139,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ICurrencyIdentifiersStatics3
     {
-        [[nodiscard]] auto MRU() const;
-        [[nodiscard]] auto SSP() const;
-        [[nodiscard]] auto STN() const;
-        [[nodiscard]] auto VES() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MRU() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SSP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) STN() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VES() const;
     };
     template <> struct consume<Windows::Globalization::ICurrencyIdentifiersStatics3>
     {
@@ -1151,13 +1151,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_IGeographicRegion
     {
-        [[nodiscard]] auto Code() const;
-        [[nodiscard]] auto CodeTwoLetter() const;
-        [[nodiscard]] auto CodeThreeLetter() const;
-        [[nodiscard]] auto CodeThreeDigit() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto NativeName() const;
-        [[nodiscard]] auto CurrenciesInUse() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Code() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CodeTwoLetter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CodeThreeLetter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CodeThreeDigit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NativeName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) CurrenciesInUse() const;
     };
     template <> struct consume<Windows::Globalization::IGeographicRegion>
     {
@@ -1166,7 +1166,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_IGeographicRegionFactory
     {
-        auto CreateGeographicRegion(param::hstring const& geographicRegionCode) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::GeographicRegion) CreateGeographicRegion(param::hstring const& geographicRegionCode) const;
     };
     template <> struct consume<Windows::Globalization::IGeographicRegionFactory>
     {
@@ -1175,7 +1175,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_IGeographicRegionStatics
     {
-        auto IsSupported(param::hstring const& geographicRegionCode) const;
+        WINRT_IMPL_AUTO(bool) IsSupported(param::hstring const& geographicRegionCode) const;
     };
     template <> struct consume<Windows::Globalization::IGeographicRegionStatics>
     {
@@ -1184,9 +1184,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_IJapanesePhoneme
     {
-        [[nodiscard]] auto DisplayText() const;
-        [[nodiscard]] auto YomiText() const;
-        [[nodiscard]] auto IsPhraseStart() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) YomiText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPhraseStart() const;
     };
     template <> struct consume<Windows::Globalization::IJapanesePhoneme>
     {
@@ -1195,8 +1195,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_IJapanesePhoneticAnalyzerStatics
     {
-        auto GetWords(param::hstring const& input) const;
-        auto GetWords(param::hstring const& input, bool monoRuby) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Globalization::JapanesePhoneme>) GetWords(param::hstring const& input) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Globalization::JapanesePhoneme>) GetWords(param::hstring const& input, bool monoRuby) const;
     };
     template <> struct consume<Windows::Globalization::IJapanesePhoneticAnalyzerStatics>
     {
@@ -1205,10 +1205,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ILanguage
     {
-        [[nodiscard]] auto LanguageTag() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto NativeName() const;
-        [[nodiscard]] auto Script() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LanguageTag() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NativeName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Script() const;
     };
     template <> struct consume<Windows::Globalization::ILanguage>
     {
@@ -1217,7 +1217,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ILanguage2
     {
-        [[nodiscard]] auto LayoutDirection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::LanguageLayoutDirection) LayoutDirection() const;
     };
     template <> struct consume<Windows::Globalization::ILanguage2>
     {
@@ -1226,7 +1226,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ILanguage3
     {
-        [[nodiscard]] auto AbbreviatedName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AbbreviatedName() const;
     };
     template <> struct consume<Windows::Globalization::ILanguage3>
     {
@@ -1235,7 +1235,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ILanguageExtensionSubtags
     {
-        auto GetExtensionSubtags(param::hstring const& singleton) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) GetExtensionSubtags(param::hstring const& singleton) const;
     };
     template <> struct consume<Windows::Globalization::ILanguageExtensionSubtags>
     {
@@ -1244,7 +1244,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ILanguageFactory
     {
-        auto CreateLanguage(param::hstring const& languageTag) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::Language) CreateLanguage(param::hstring const& languageTag) const;
     };
     template <> struct consume<Windows::Globalization::ILanguageFactory>
     {
@@ -1253,8 +1253,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ILanguageStatics
     {
-        auto IsWellFormed(param::hstring const& languageTag) const;
-        [[nodiscard]] auto CurrentInputMethodLanguageTag() const;
+        WINRT_IMPL_AUTO(bool) IsWellFormed(param::hstring const& languageTag) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CurrentInputMethodLanguageTag() const;
     };
     template <> struct consume<Windows::Globalization::ILanguageStatics>
     {
@@ -1263,7 +1263,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ILanguageStatics2
     {
-        auto TrySetInputMethodLanguageTag(param::hstring const& languageTag) const;
+        WINRT_IMPL_AUTO(bool) TrySetInputMethodLanguageTag(param::hstring const& languageTag) const;
     };
     template <> struct consume<Windows::Globalization::ILanguageStatics2>
     {
@@ -1272,7 +1272,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ILanguageStatics3
     {
-        auto GetMuiCompatibleLanguageListFromLanguageTags(param::iterable<hstring> const& languageTags) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) GetMuiCompatibleLanguageListFromLanguageTags(param::iterable<hstring> const& languageTags) const;
     };
     template <> struct consume<Windows::Globalization::ILanguageStatics3>
     {
@@ -1281,42 +1281,42 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_INumeralSystemIdentifiersStatics
     {
-        [[nodiscard]] auto Arab() const;
-        [[nodiscard]] auto ArabExt() const;
-        [[nodiscard]] auto Bali() const;
-        [[nodiscard]] auto Beng() const;
-        [[nodiscard]] auto Cham() const;
-        [[nodiscard]] auto Deva() const;
-        [[nodiscard]] auto FullWide() const;
-        [[nodiscard]] auto Gujr() const;
-        [[nodiscard]] auto Guru() const;
-        [[nodiscard]] auto HaniDec() const;
-        [[nodiscard]] auto Java() const;
-        [[nodiscard]] auto Kali() const;
-        [[nodiscard]] auto Khmr() const;
-        [[nodiscard]] auto Knda() const;
-        [[nodiscard]] auto Lana() const;
-        [[nodiscard]] auto LanaTham() const;
-        [[nodiscard]] auto Laoo() const;
-        [[nodiscard]] auto Latn() const;
-        [[nodiscard]] auto Lepc() const;
-        [[nodiscard]] auto Limb() const;
-        [[nodiscard]] auto Mlym() const;
-        [[nodiscard]] auto Mong() const;
-        [[nodiscard]] auto Mtei() const;
-        [[nodiscard]] auto Mymr() const;
-        [[nodiscard]] auto MymrShan() const;
-        [[nodiscard]] auto Nkoo() const;
-        [[nodiscard]] auto Olck() const;
-        [[nodiscard]] auto Orya() const;
-        [[nodiscard]] auto Saur() const;
-        [[nodiscard]] auto Sund() const;
-        [[nodiscard]] auto Talu() const;
-        [[nodiscard]] auto TamlDec() const;
-        [[nodiscard]] auto Telu() const;
-        [[nodiscard]] auto Thai() const;
-        [[nodiscard]] auto Tibt() const;
-        [[nodiscard]] auto Vaii() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Arab() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ArabExt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Bali() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Beng() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Cham() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Deva() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FullWide() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Gujr() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Guru() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HaniDec() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Java() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Kali() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Khmr() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Knda() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Lana() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LanaTham() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Laoo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Latn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Lepc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Limb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mlym() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mong() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mtei() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mymr() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MymrShan() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Nkoo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Olck() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Orya() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Saur() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sund() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Talu() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TamlDec() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Telu() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Thai() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Tibt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Vaii() const;
     };
     template <> struct consume<Windows::Globalization::INumeralSystemIdentifiersStatics>
     {
@@ -1325,18 +1325,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_INumeralSystemIdentifiersStatics2
     {
-        [[nodiscard]] auto Brah() const;
-        [[nodiscard]] auto Osma() const;
-        [[nodiscard]] auto MathBold() const;
-        [[nodiscard]] auto MathDbl() const;
-        [[nodiscard]] auto MathSans() const;
-        [[nodiscard]] auto MathSanb() const;
-        [[nodiscard]] auto MathMono() const;
-        [[nodiscard]] auto ZmthBold() const;
-        [[nodiscard]] auto ZmthDbl() const;
-        [[nodiscard]] auto ZmthSans() const;
-        [[nodiscard]] auto ZmthSanb() const;
-        [[nodiscard]] auto ZmthMono() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Brah() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Osma() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MathBold() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MathDbl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MathSans() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MathSanb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MathMono() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ZmthBold() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ZmthDbl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ZmthSans() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ZmthSanb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ZmthMono() const;
     };
     template <> struct consume<Windows::Globalization::INumeralSystemIdentifiersStatics2>
     {
@@ -1345,10 +1345,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_ITimeZoneOnCalendar
     {
-        auto GetTimeZone() const;
-        auto ChangeTimeZone(param::hstring const& timeZoneId) const;
-        auto TimeZoneAsString() const;
-        auto TimeZoneAsString(int32_t idealLength) const;
+        WINRT_IMPL_AUTO(hstring) GetTimeZone() const;
+        WINRT_IMPL_AUTO(void) ChangeTimeZone(param::hstring const& timeZoneId) const;
+        WINRT_IMPL_AUTO(hstring) TimeZoneAsString() const;
+        WINRT_IMPL_AUTO(hstring) TimeZoneAsString(int32_t idealLength) const;
     };
     template <> struct consume<Windows::Globalization::ITimeZoneOnCalendar>
     {

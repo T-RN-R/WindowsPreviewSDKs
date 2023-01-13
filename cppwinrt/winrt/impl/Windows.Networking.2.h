@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -20,7 +20,7 @@ WINRT_EXPORT namespace winrt::Windows::Networking
     {
         HostName(std::nullptr_t) noexcept {}
         HostName(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Networking::IHostName(ptr, take_ownership_from_abi) {}
-        HostName(param::hstring const& hostName);
+        explicit HostName(param::hstring const& hostName);
         static auto Compare(param::hstring const& value1, param::hstring const& value2);
     };
 }

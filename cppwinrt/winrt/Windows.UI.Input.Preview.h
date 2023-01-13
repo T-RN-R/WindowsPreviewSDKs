@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,14 +6,14 @@
 #ifndef WINRT_Windows_UI_Input_Preview_H
 #define WINRT_Windows_UI_Input_Preview_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.Input.h"
 #include "winrt/impl/Windows.UI.Input.2.h"
 #include "winrt/impl/Windows.UI.WindowManagement.2.h"
 #include "winrt/impl/Windows.UI.Input.Preview.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Input_Preview_IInputActivationListenerPreviewStatics<D>::CreateForApplicationWindow(Windows::UI::WindowManagement::AppWindow const& window) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Input::InputActivationListener) consume_Windows_UI_Input_Preview_IInputActivationListenerPreviewStatics<D>::CreateForApplicationWindow(Windows::UI::WindowManagement::AppWindow const& window) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Preview::IInputActivationListenerPreviewStatics)->CreateForApplicationWindow(*(void**)(&window), &result));

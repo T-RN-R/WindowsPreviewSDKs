@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,6 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
@@ -76,20 +77,18 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::SerialCommunication::SerialParity>{ using type = enum_category; };
     template <> struct category<Windows::Devices::SerialCommunication::SerialPinChange>{ using type = enum_category; };
     template <> struct category<Windows::Devices::SerialCommunication::SerialStopBitCount>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::ErrorReceivedEventArgs>{ L"Windows.Devices.SerialCommunication.ErrorReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::PinChangedEventArgs>{ L"Windows.Devices.SerialCommunication.PinChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialDevice>{ L"Windows.Devices.SerialCommunication.SerialDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialError>{ L"Windows.Devices.SerialCommunication.SerialError" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialHandshake>{ L"Windows.Devices.SerialCommunication.SerialHandshake" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialParity>{ L"Windows.Devices.SerialCommunication.SerialParity" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialPinChange>{ L"Windows.Devices.SerialCommunication.SerialPinChange" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialStopBitCount>{ L"Windows.Devices.SerialCommunication.SerialStopBitCount" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::IErrorReceivedEventArgs>{ L"Windows.Devices.SerialCommunication.IErrorReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::IPinChangedEventArgs>{ L"Windows.Devices.SerialCommunication.IPinChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::ISerialDevice>{ L"Windows.Devices.SerialCommunication.ISerialDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::ISerialDeviceStatics>{ L"Windows.Devices.SerialCommunication.ISerialDeviceStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::ErrorReceivedEventArgs> = L"Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::PinChangedEventArgs> = L"Windows.Devices.SerialCommunication.PinChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialDevice> = L"Windows.Devices.SerialCommunication.SerialDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialError> = L"Windows.Devices.SerialCommunication.SerialError";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialHandshake> = L"Windows.Devices.SerialCommunication.SerialHandshake";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialParity> = L"Windows.Devices.SerialCommunication.SerialParity";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialPinChange> = L"Windows.Devices.SerialCommunication.SerialPinChange";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::SerialStopBitCount> = L"Windows.Devices.SerialCommunication.SerialStopBitCount";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::IErrorReceivedEventArgs> = L"Windows.Devices.SerialCommunication.IErrorReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::IPinChangedEventArgs> = L"Windows.Devices.SerialCommunication.IPinChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::ISerialDevice> = L"Windows.Devices.SerialCommunication.ISerialDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::ISerialDeviceStatics> = L"Windows.Devices.SerialCommunication.ISerialDeviceStatics";
     template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::IErrorReceivedEventArgs>{ 0xFCC6BF59,0x1283,0x4D8A,{ 0xBF,0xDF,0x56,0x6B,0x33,0xDD,0xB2,0x8F } };
     template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::IPinChangedEventArgs>{ 0xA2BF1DB0,0xFC9C,0x4607,{ 0x93,0xD0,0xFA,0x5E,0x83,0x43,0xEE,0x22 } };
     template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::ISerialDevice>{ 0xE187CCC6,0x2210,0x414F,{ 0xB6,0x5A,0xF5,0x55,0x3A,0x03,0x37,0x2A } };
@@ -163,7 +162,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_SerialCommunication_IErrorReceivedEventArgs
     {
-        [[nodiscard]] auto Error() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialError) Error() const;
     };
     template <> struct consume<Windows::Devices::SerialCommunication::IErrorReceivedEventArgs>
     {
@@ -172,7 +171,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_SerialCommunication_IPinChangedEventArgs
     {
-        [[nodiscard]] auto PinChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialPinChange) PinChange() const;
     };
     template <> struct consume<Windows::Devices::SerialCommunication::IPinChangedEventArgs>
     {
@@ -181,43 +180,43 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_SerialCommunication_ISerialDevice
     {
-        [[nodiscard]] auto BaudRate() const;
-        auto BaudRate(uint32_t value) const;
-        [[nodiscard]] auto BreakSignalState() const;
-        auto BreakSignalState(bool value) const;
-        [[nodiscard]] auto BytesReceived() const;
-        [[nodiscard]] auto CarrierDetectState() const;
-        [[nodiscard]] auto ClearToSendState() const;
-        [[nodiscard]] auto DataBits() const;
-        auto DataBits(uint16_t value) const;
-        [[nodiscard]] auto DataSetReadyState() const;
-        [[nodiscard]] auto Handshake() const;
-        auto Handshake(Windows::Devices::SerialCommunication::SerialHandshake const& value) const;
-        [[nodiscard]] auto IsDataTerminalReadyEnabled() const;
-        auto IsDataTerminalReadyEnabled(bool value) const;
-        [[nodiscard]] auto IsRequestToSendEnabled() const;
-        auto IsRequestToSendEnabled(bool value) const;
-        [[nodiscard]] auto Parity() const;
-        auto Parity(Windows::Devices::SerialCommunication::SerialParity const& value) const;
-        [[nodiscard]] auto PortName() const;
-        [[nodiscard]] auto ReadTimeout() const;
-        auto ReadTimeout(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto StopBits() const;
-        auto StopBits(Windows::Devices::SerialCommunication::SerialStopBitCount const& value) const;
-        [[nodiscard]] auto UsbVendorId() const;
-        [[nodiscard]] auto UsbProductId() const;
-        [[nodiscard]] auto WriteTimeout() const;
-        auto WriteTimeout(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto InputStream() const;
-        [[nodiscard]] auto OutputStream() const;
-        auto ErrorReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::ErrorReceivedEventArgs> const& reportHandler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BaudRate() const;
+        WINRT_IMPL_AUTO(void) BaudRate(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) BreakSignalState() const;
+        WINRT_IMPL_AUTO(void) BreakSignalState(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BytesReceived() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CarrierDetectState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ClearToSendState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) DataBits() const;
+        WINRT_IMPL_AUTO(void) DataBits(uint16_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DataSetReadyState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialHandshake) Handshake() const;
+        WINRT_IMPL_AUTO(void) Handshake(Windows::Devices::SerialCommunication::SerialHandshake const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDataTerminalReadyEnabled() const;
+        WINRT_IMPL_AUTO(void) IsDataTerminalReadyEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRequestToSendEnabled() const;
+        WINRT_IMPL_AUTO(void) IsRequestToSendEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialParity) Parity() const;
+        WINRT_IMPL_AUTO(void) Parity(Windows::Devices::SerialCommunication::SerialParity const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PortName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) ReadTimeout() const;
+        WINRT_IMPL_AUTO(void) ReadTimeout(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::SerialCommunication::SerialStopBitCount) StopBits() const;
+        WINRT_IMPL_AUTO(void) StopBits(Windows::Devices::SerialCommunication::SerialStopBitCount const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) UsbVendorId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) UsbProductId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) WriteTimeout() const;
+        WINRT_IMPL_AUTO(void) WriteTimeout(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) InputStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) OutputStream() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ErrorReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::ErrorReceivedEventArgs> const& reportHandler) const;
         using ErrorReceived_revoker = impl::event_revoker<Windows::Devices::SerialCommunication::ISerialDevice, &impl::abi_t<Windows::Devices::SerialCommunication::ISerialDevice>::remove_ErrorReceived>;
         [[nodiscard]] ErrorReceived_revoker ErrorReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::ErrorReceivedEventArgs> const& reportHandler) const;
-        auto ErrorReceived(winrt::event_token const& token) const noexcept;
-        auto PinChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::PinChangedEventArgs> const& reportHandler) const;
+        WINRT_IMPL_AUTO(void) ErrorReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PinChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::PinChangedEventArgs> const& reportHandler) const;
         using PinChanged_revoker = impl::event_revoker<Windows::Devices::SerialCommunication::ISerialDevice, &impl::abi_t<Windows::Devices::SerialCommunication::ISerialDevice>::remove_PinChanged>;
         [[nodiscard]] PinChanged_revoker PinChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::SerialCommunication::SerialDevice, Windows::Devices::SerialCommunication::PinChangedEventArgs> const& reportHandler) const;
-        auto PinChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) PinChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::SerialCommunication::ISerialDevice>
     {
@@ -226,10 +225,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_SerialCommunication_ISerialDeviceStatics
     {
-        auto GetDeviceSelector() const;
-        auto GetDeviceSelector(param::hstring const& portName) const;
-        auto GetDeviceSelectorFromUsbVidPid(uint16_t vendorId, uint16_t productId) const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(param::hstring const& portName) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromUsbVidPid(uint16_t vendorId, uint16_t productId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::SerialCommunication::SerialDevice>) FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Devices::SerialCommunication::ISerialDeviceStatics>
     {

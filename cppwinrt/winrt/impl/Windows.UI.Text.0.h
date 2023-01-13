@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -446,55 +446,53 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Text::UnderlineType>{ using type = enum_category; };
     template <> struct category<Windows::UI::Text::VerticalCharacterAlignment>{ using type = enum_category; };
     template <> struct category<Windows::UI::Text::FontWeight>{ using type = struct_category<uint16_t>; };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ContentLinkInfo>{ L"Windows.UI.Text.ContentLinkInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::FontWeights>{ L"Windows.UI.Text.FontWeights" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::RichEditTextDocument>{ L"Windows.UI.Text.RichEditTextDocument" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::RichEditTextRange>{ L"Windows.UI.Text.RichEditTextRange" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::TextConstants>{ L"Windows.UI.Text.TextConstants" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::CaretType>{ L"Windows.UI.Text.CaretType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::FindOptions>{ L"Windows.UI.Text.FindOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::FontStretch>{ L"Windows.UI.Text.FontStretch" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::FontStyle>{ L"Windows.UI.Text.FontStyle" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::FormatEffect>{ L"Windows.UI.Text.FormatEffect" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::HorizontalCharacterAlignment>{ L"Windows.UI.Text.HorizontalCharacterAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::LetterCase>{ L"Windows.UI.Text.LetterCase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::LineSpacingRule>{ L"Windows.UI.Text.LineSpacingRule" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::LinkType>{ L"Windows.UI.Text.LinkType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::MarkerAlignment>{ L"Windows.UI.Text.MarkerAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::MarkerStyle>{ L"Windows.UI.Text.MarkerStyle" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::MarkerType>{ L"Windows.UI.Text.MarkerType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ParagraphAlignment>{ L"Windows.UI.Text.ParagraphAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ParagraphStyle>{ L"Windows.UI.Text.ParagraphStyle" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::PointOptions>{ L"Windows.UI.Text.PointOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::RangeGravity>{ L"Windows.UI.Text.RangeGravity" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::RichEditMathMode>{ L"Windows.UI.Text.RichEditMathMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::SelectionOptions>{ L"Windows.UI.Text.SelectionOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::SelectionType>{ L"Windows.UI.Text.SelectionType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::TabAlignment>{ L"Windows.UI.Text.TabAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::TabLeader>{ L"Windows.UI.Text.TabLeader" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::TextDecorations>{ L"Windows.UI.Text.TextDecorations" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::TextGetOptions>{ L"Windows.UI.Text.TextGetOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::TextRangeUnit>{ L"Windows.UI.Text.TextRangeUnit" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::TextScript>{ L"Windows.UI.Text.TextScript" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::TextSetOptions>{ L"Windows.UI.Text.TextSetOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::UnderlineType>{ L"Windows.UI.Text.UnderlineType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::VerticalCharacterAlignment>{ L"Windows.UI.Text.VerticalCharacterAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::FontWeight>{ L"Windows.UI.Text.FontWeight" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Text::IContentLinkInfo>{ L"Windows.UI.Text.IContentLinkInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::IFontWeights>{ L"Windows.UI.Text.IFontWeights" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::IFontWeightsStatics>{ L"Windows.UI.Text.IFontWeightsStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::IRichEditTextRange>{ L"Windows.UI.Text.IRichEditTextRange" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextCharacterFormat>{ L"Windows.UI.Text.ITextCharacterFormat" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextConstantsStatics>{ L"Windows.UI.Text.ITextConstantsStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextDocument>{ L"Windows.UI.Text.ITextDocument" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextDocument2>{ L"Windows.UI.Text.ITextDocument2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextDocument3>{ L"Windows.UI.Text.ITextDocument3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextDocument4>{ L"Windows.UI.Text.ITextDocument4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextParagraphFormat>{ L"Windows.UI.Text.ITextParagraphFormat" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextRange>{ L"Windows.UI.Text.ITextRange" };
-    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextSelection>{ L"Windows.UI.Text.ITextSelection" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ContentLinkInfo> = L"Windows.UI.Text.ContentLinkInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::FontWeights> = L"Windows.UI.Text.FontWeights";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::RichEditTextDocument> = L"Windows.UI.Text.RichEditTextDocument";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::RichEditTextRange> = L"Windows.UI.Text.RichEditTextRange";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::TextConstants> = L"Windows.UI.Text.TextConstants";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::CaretType> = L"Windows.UI.Text.CaretType";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::FindOptions> = L"Windows.UI.Text.FindOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::FontStretch> = L"Windows.UI.Text.FontStretch";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::FontStyle> = L"Windows.UI.Text.FontStyle";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::FormatEffect> = L"Windows.UI.Text.FormatEffect";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::HorizontalCharacterAlignment> = L"Windows.UI.Text.HorizontalCharacterAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::LetterCase> = L"Windows.UI.Text.LetterCase";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::LineSpacingRule> = L"Windows.UI.Text.LineSpacingRule";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::LinkType> = L"Windows.UI.Text.LinkType";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::MarkerAlignment> = L"Windows.UI.Text.MarkerAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::MarkerStyle> = L"Windows.UI.Text.MarkerStyle";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::MarkerType> = L"Windows.UI.Text.MarkerType";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ParagraphAlignment> = L"Windows.UI.Text.ParagraphAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ParagraphStyle> = L"Windows.UI.Text.ParagraphStyle";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::PointOptions> = L"Windows.UI.Text.PointOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::RangeGravity> = L"Windows.UI.Text.RangeGravity";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::RichEditMathMode> = L"Windows.UI.Text.RichEditMathMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::SelectionOptions> = L"Windows.UI.Text.SelectionOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::SelectionType> = L"Windows.UI.Text.SelectionType";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::TabAlignment> = L"Windows.UI.Text.TabAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::TabLeader> = L"Windows.UI.Text.TabLeader";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::TextDecorations> = L"Windows.UI.Text.TextDecorations";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::TextGetOptions> = L"Windows.UI.Text.TextGetOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::TextRangeUnit> = L"Windows.UI.Text.TextRangeUnit";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::TextScript> = L"Windows.UI.Text.TextScript";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::TextSetOptions> = L"Windows.UI.Text.TextSetOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::UnderlineType> = L"Windows.UI.Text.UnderlineType";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::VerticalCharacterAlignment> = L"Windows.UI.Text.VerticalCharacterAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::FontWeight> = L"Windows.UI.Text.FontWeight";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::IContentLinkInfo> = L"Windows.UI.Text.IContentLinkInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::IFontWeights> = L"Windows.UI.Text.IFontWeights";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::IFontWeightsStatics> = L"Windows.UI.Text.IFontWeightsStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::IRichEditTextRange> = L"Windows.UI.Text.IRichEditTextRange";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextCharacterFormat> = L"Windows.UI.Text.ITextCharacterFormat";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextConstantsStatics> = L"Windows.UI.Text.ITextConstantsStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextDocument> = L"Windows.UI.Text.ITextDocument";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextDocument2> = L"Windows.UI.Text.ITextDocument2";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextDocument3> = L"Windows.UI.Text.ITextDocument3";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextDocument4> = L"Windows.UI.Text.ITextDocument4";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextParagraphFormat> = L"Windows.UI.Text.ITextParagraphFormat";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextRange> = L"Windows.UI.Text.ITextRange";
+    template <> inline constexpr auto& name_v<Windows::UI::Text::ITextSelection> = L"Windows.UI.Text.ITextSelection";
     template <> inline constexpr guid guid_v<Windows::UI::Text::IContentLinkInfo>{ 0x1ED52525,0x1C5F,0x48CB,{ 0xB3,0x35,0x78,0xB5,0x0A,0x2E,0xE6,0x42 } };
     template <> inline constexpr guid guid_v<Windows::UI::Text::IFontWeights>{ 0x7880A444,0x01AB,0x4997,{ 0x85,0x17,0xDF,0x82,0x2A,0x0C,0x45,0xF1 } };
     template <> inline constexpr guid guid_v<Windows::UI::Text::IFontWeightsStatics>{ 0xB3B579D5,0x1BA9,0x48EB,{ 0x9D,0xAD,0xC0,0x95,0xE8,0xC2,0x3B,0xA3 } };
@@ -819,16 +817,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_IContentLinkInfo
     {
-        [[nodiscard]] auto Id() const;
-        auto Id(uint32_t value) const;
-        [[nodiscard]] auto DisplayText() const;
-        auto DisplayText(param::hstring const& value) const;
-        [[nodiscard]] auto SecondaryText() const;
-        auto SecondaryText(param::hstring const& value) const;
-        [[nodiscard]] auto Uri() const;
-        auto Uri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto LinkContentKind() const;
-        auto LinkContentKind(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        WINRT_IMPL_AUTO(void) Id(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayText() const;
+        WINRT_IMPL_AUTO(void) DisplayText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SecondaryText() const;
+        WINRT_IMPL_AUTO(void) SecondaryText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LinkContentKind() const;
+        WINRT_IMPL_AUTO(void) LinkContentKind(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Text::IContentLinkInfo>
     {
@@ -845,17 +843,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_IFontWeightsStatics
     {
-        [[nodiscard]] auto Black() const;
-        [[nodiscard]] auto Bold() const;
-        [[nodiscard]] auto ExtraBlack() const;
-        [[nodiscard]] auto ExtraBold() const;
-        [[nodiscard]] auto ExtraLight() const;
-        [[nodiscard]] auto Light() const;
-        [[nodiscard]] auto Medium() const;
-        [[nodiscard]] auto Normal() const;
-        [[nodiscard]] auto SemiBold() const;
-        [[nodiscard]] auto SemiLight() const;
-        [[nodiscard]] auto Thin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) Black() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) Bold() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) ExtraBlack() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) ExtraBold() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) ExtraLight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) Light() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) Medium() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) Normal() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) SemiBold() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) SemiLight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontWeight) Thin() const;
     };
     template <> struct consume<Windows::UI::Text::IFontWeightsStatics>
     {
@@ -864,8 +862,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_IRichEditTextRange
     {
-        [[nodiscard]] auto ContentLinkInfo() const;
-        auto ContentLinkInfo(Windows::UI::Text::ContentLinkInfo const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::ContentLinkInfo) ContentLinkInfo() const;
+        WINRT_IMPL_AUTO(void) ContentLinkInfo(Windows::UI::Text::ContentLinkInfo const& value) const;
     };
     template <> struct consume<Windows::UI::Text::IRichEditTextRange>
     {
@@ -874,56 +872,56 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextCharacterFormat
     {
-        [[nodiscard]] auto AllCaps() const;
-        auto AllCaps(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto BackgroundColor() const;
-        auto BackgroundColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto Bold() const;
-        auto Bold(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto FontStretch() const;
-        auto FontStretch(Windows::UI::Text::FontStretch const& value) const;
-        [[nodiscard]] auto FontStyle() const;
-        auto FontStyle(Windows::UI::Text::FontStyle const& value) const;
-        [[nodiscard]] auto ForegroundColor() const;
-        auto ForegroundColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto Hidden() const;
-        auto Hidden(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto Italic() const;
-        auto Italic(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto Kerning() const;
-        auto Kerning(float value) const;
-        [[nodiscard]] auto LanguageTag() const;
-        auto LanguageTag(param::hstring const& value) const;
-        [[nodiscard]] auto LinkType() const;
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Outline() const;
-        auto Outline(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto Position() const;
-        auto Position(float value) const;
-        [[nodiscard]] auto ProtectedText() const;
-        auto ProtectedText(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto Size() const;
-        auto Size(float value) const;
-        [[nodiscard]] auto SmallCaps() const;
-        auto SmallCaps(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto Spacing() const;
-        auto Spacing(float value) const;
-        [[nodiscard]] auto Strikethrough() const;
-        auto Strikethrough(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto Subscript() const;
-        auto Subscript(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto Superscript() const;
-        auto Superscript(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto TextScript() const;
-        auto TextScript(Windows::UI::Text::TextScript const& value) const;
-        [[nodiscard]] auto Underline() const;
-        auto Underline(Windows::UI::Text::UnderlineType const& value) const;
-        [[nodiscard]] auto Weight() const;
-        auto Weight(int32_t value) const;
-        auto SetClone(Windows::UI::Text::ITextCharacterFormat const& value) const;
-        auto GetClone() const;
-        auto IsEqual(Windows::UI::Text::ITextCharacterFormat const& format) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) AllCaps() const;
+        WINRT_IMPL_AUTO(void) AllCaps(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) BackgroundColor() const;
+        WINRT_IMPL_AUTO(void) BackgroundColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) Bold() const;
+        WINRT_IMPL_AUTO(void) Bold(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontStretch) FontStretch() const;
+        WINRT_IMPL_AUTO(void) FontStretch(Windows::UI::Text::FontStretch const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontStyle) FontStyle() const;
+        WINRT_IMPL_AUTO(void) FontStyle(Windows::UI::Text::FontStyle const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) ForegroundColor() const;
+        WINRT_IMPL_AUTO(void) ForegroundColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) Hidden() const;
+        WINRT_IMPL_AUTO(void) Hidden(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) Italic() const;
+        WINRT_IMPL_AUTO(void) Italic(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Kerning() const;
+        WINRT_IMPL_AUTO(void) Kerning(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LanguageTag() const;
+        WINRT_IMPL_AUTO(void) LanguageTag(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::LinkType) LinkType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) Outline() const;
+        WINRT_IMPL_AUTO(void) Outline(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Position() const;
+        WINRT_IMPL_AUTO(void) Position(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) ProtectedText() const;
+        WINRT_IMPL_AUTO(void) ProtectedText(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Size() const;
+        WINRT_IMPL_AUTO(void) Size(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) SmallCaps() const;
+        WINRT_IMPL_AUTO(void) SmallCaps(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Spacing() const;
+        WINRT_IMPL_AUTO(void) Spacing(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) Strikethrough() const;
+        WINRT_IMPL_AUTO(void) Strikethrough(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) Subscript() const;
+        WINRT_IMPL_AUTO(void) Subscript(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) Superscript() const;
+        WINRT_IMPL_AUTO(void) Superscript(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::TextScript) TextScript() const;
+        WINRT_IMPL_AUTO(void) TextScript(Windows::UI::Text::TextScript const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::UnderlineType) Underline() const;
+        WINRT_IMPL_AUTO(void) Underline(Windows::UI::Text::UnderlineType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Weight() const;
+        WINRT_IMPL_AUTO(void) Weight(int32_t value) const;
+        WINRT_IMPL_AUTO(void) SetClone(Windows::UI::Text::ITextCharacterFormat const& value) const;
+        WINRT_IMPL_AUTO(Windows::UI::Text::ITextCharacterFormat) GetClone() const;
+        WINRT_IMPL_AUTO(bool) IsEqual(Windows::UI::Text::ITextCharacterFormat const& format) const;
     };
     template <> struct consume<Windows::UI::Text::ITextCharacterFormat>
     {
@@ -932,14 +930,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextConstantsStatics
     {
-        [[nodiscard]] auto AutoColor() const;
-        [[nodiscard]] auto MinUnitCount() const;
-        [[nodiscard]] auto MaxUnitCount() const;
-        [[nodiscard]] auto UndefinedColor() const;
-        [[nodiscard]] auto UndefinedFloatValue() const;
-        [[nodiscard]] auto UndefinedInt32Value() const;
-        [[nodiscard]] auto UndefinedFontStretch() const;
-        [[nodiscard]] auto UndefinedFontStyle() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) AutoColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MinUnitCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxUnitCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) UndefinedColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) UndefinedFloatValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) UndefinedInt32Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontStretch) UndefinedFontStretch() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FontStyle) UndefinedFontStyle() const;
     };
     template <> struct consume<Windows::UI::Text::ITextConstantsStatics>
     {
@@ -948,33 +946,33 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextDocument
     {
-        [[nodiscard]] auto CaretType() const;
-        auto CaretType(Windows::UI::Text::CaretType const& value) const;
-        [[nodiscard]] auto DefaultTabStop() const;
-        auto DefaultTabStop(float value) const;
-        [[nodiscard]] auto Selection() const;
-        [[nodiscard]] auto UndoLimit() const;
-        auto UndoLimit(uint32_t value) const;
-        auto CanCopy() const;
-        auto CanPaste() const;
-        auto CanRedo() const;
-        auto CanUndo() const;
-        auto ApplyDisplayUpdates() const;
-        auto BatchDisplayUpdates() const;
-        auto BeginUndoGroup() const;
-        auto EndUndoGroup() const;
-        auto GetDefaultCharacterFormat() const;
-        auto GetDefaultParagraphFormat() const;
-        auto GetRange(int32_t startPosition, int32_t endPosition) const;
-        auto GetRangeFromPoint(Windows::Foundation::Point const& point, Windows::UI::Text::PointOptions const& options) const;
-        auto GetText(Windows::UI::Text::TextGetOptions const& options, hstring& value) const;
-        auto LoadFromStream(Windows::UI::Text::TextSetOptions const& options, Windows::Storage::Streams::IRandomAccessStream const& value) const;
-        auto Redo() const;
-        auto SaveToStream(Windows::UI::Text::TextGetOptions const& options, Windows::Storage::Streams::IRandomAccessStream const& value) const;
-        auto SetDefaultCharacterFormat(Windows::UI::Text::ITextCharacterFormat const& value) const;
-        auto SetDefaultParagraphFormat(Windows::UI::Text::ITextParagraphFormat const& value) const;
-        auto SetText(Windows::UI::Text::TextSetOptions const& options, param::hstring const& value) const;
-        auto Undo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::CaretType) CaretType() const;
+        WINRT_IMPL_AUTO(void) CaretType(Windows::UI::Text::CaretType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) DefaultTabStop() const;
+        WINRT_IMPL_AUTO(void) DefaultTabStop(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::ITextSelection) Selection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UndoLimit() const;
+        WINRT_IMPL_AUTO(void) UndoLimit(uint32_t value) const;
+        WINRT_IMPL_AUTO(bool) CanCopy() const;
+        WINRT_IMPL_AUTO(bool) CanPaste() const;
+        WINRT_IMPL_AUTO(bool) CanRedo() const;
+        WINRT_IMPL_AUTO(bool) CanUndo() const;
+        WINRT_IMPL_AUTO(int32_t) ApplyDisplayUpdates() const;
+        WINRT_IMPL_AUTO(int32_t) BatchDisplayUpdates() const;
+        WINRT_IMPL_AUTO(void) BeginUndoGroup() const;
+        WINRT_IMPL_AUTO(void) EndUndoGroup() const;
+        WINRT_IMPL_AUTO(Windows::UI::Text::ITextCharacterFormat) GetDefaultCharacterFormat() const;
+        WINRT_IMPL_AUTO(Windows::UI::Text::ITextParagraphFormat) GetDefaultParagraphFormat() const;
+        WINRT_IMPL_AUTO(Windows::UI::Text::ITextRange) GetRange(int32_t startPosition, int32_t endPosition) const;
+        WINRT_IMPL_AUTO(Windows::UI::Text::ITextRange) GetRangeFromPoint(Windows::Foundation::Point const& point, Windows::UI::Text::PointOptions const& options) const;
+        WINRT_IMPL_AUTO(void) GetText(Windows::UI::Text::TextGetOptions const& options, hstring& value) const;
+        WINRT_IMPL_AUTO(void) LoadFromStream(Windows::UI::Text::TextSetOptions const& options, Windows::Storage::Streams::IRandomAccessStream const& value) const;
+        WINRT_IMPL_AUTO(void) Redo() const;
+        WINRT_IMPL_AUTO(void) SaveToStream(Windows::UI::Text::TextGetOptions const& options, Windows::Storage::Streams::IRandomAccessStream const& value) const;
+        WINRT_IMPL_AUTO(void) SetDefaultCharacterFormat(Windows::UI::Text::ITextCharacterFormat const& value) const;
+        WINRT_IMPL_AUTO(void) SetDefaultParagraphFormat(Windows::UI::Text::ITextParagraphFormat const& value) const;
+        WINRT_IMPL_AUTO(void) SetText(Windows::UI::Text::TextSetOptions const& options, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) Undo() const;
     };
     template <> struct consume<Windows::UI::Text::ITextDocument>
     {
@@ -983,10 +981,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextDocument2
     {
-        [[nodiscard]] auto AlignmentIncludesTrailingWhitespace() const;
-        auto AlignmentIncludesTrailingWhitespace(bool value) const;
-        [[nodiscard]] auto IgnoreTrailingCharacterSpacing() const;
-        auto IgnoreTrailingCharacterSpacing(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AlignmentIncludesTrailingWhitespace() const;
+        WINRT_IMPL_AUTO(void) AlignmentIncludesTrailingWhitespace(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IgnoreTrailingCharacterSpacing() const;
+        WINRT_IMPL_AUTO(void) IgnoreTrailingCharacterSpacing(bool value) const;
     };
     template <> struct consume<Windows::UI::Text::ITextDocument2>
     {
@@ -995,7 +993,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextDocument3
     {
-        auto ClearUndoRedoHistory() const;
+        WINRT_IMPL_AUTO(void) ClearUndoRedoHistory() const;
     };
     template <> struct consume<Windows::UI::Text::ITextDocument3>
     {
@@ -1004,9 +1002,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextDocument4
     {
-        auto SetMath(param::hstring const& value) const;
-        auto GetMath(hstring& value) const;
-        auto SetMathMode(Windows::UI::Text::RichEditMathMode const& mode) const;
+        WINRT_IMPL_AUTO(void) SetMath(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) GetMath(hstring& value) const;
+        WINRT_IMPL_AUTO(void) SetMathMode(Windows::UI::Text::RichEditMathMode const& mode) const;
     };
     template <> struct consume<Windows::UI::Text::ITextDocument4>
     {
@@ -1015,54 +1013,54 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextParagraphFormat
     {
-        [[nodiscard]] auto Alignment() const;
-        auto Alignment(Windows::UI::Text::ParagraphAlignment const& value) const;
-        [[nodiscard]] auto FirstLineIndent() const;
-        [[nodiscard]] auto KeepTogether() const;
-        auto KeepTogether(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto KeepWithNext() const;
-        auto KeepWithNext(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto LeftIndent() const;
-        [[nodiscard]] auto LineSpacing() const;
-        [[nodiscard]] auto LineSpacingRule() const;
-        [[nodiscard]] auto ListAlignment() const;
-        auto ListAlignment(Windows::UI::Text::MarkerAlignment const& value) const;
-        [[nodiscard]] auto ListLevelIndex() const;
-        auto ListLevelIndex(int32_t value) const;
-        [[nodiscard]] auto ListStart() const;
-        auto ListStart(int32_t value) const;
-        [[nodiscard]] auto ListStyle() const;
-        auto ListStyle(Windows::UI::Text::MarkerStyle const& value) const;
-        [[nodiscard]] auto ListTab() const;
-        auto ListTab(float value) const;
-        [[nodiscard]] auto ListType() const;
-        auto ListType(Windows::UI::Text::MarkerType const& value) const;
-        [[nodiscard]] auto NoLineNumber() const;
-        auto NoLineNumber(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto PageBreakBefore() const;
-        auto PageBreakBefore(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto RightIndent() const;
-        auto RightIndent(float value) const;
-        [[nodiscard]] auto RightToLeft() const;
-        auto RightToLeft(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto Style() const;
-        auto Style(Windows::UI::Text::ParagraphStyle const& value) const;
-        [[nodiscard]] auto SpaceAfter() const;
-        auto SpaceAfter(float value) const;
-        [[nodiscard]] auto SpaceBefore() const;
-        auto SpaceBefore(float value) const;
-        [[nodiscard]] auto WidowControl() const;
-        auto WidowControl(Windows::UI::Text::FormatEffect const& value) const;
-        [[nodiscard]] auto TabCount() const;
-        auto AddTab(float position, Windows::UI::Text::TabAlignment const& align, Windows::UI::Text::TabLeader const& leader) const;
-        auto ClearAllTabs() const;
-        auto DeleteTab(float position) const;
-        auto GetClone() const;
-        auto GetTab(int32_t index, float& position, Windows::UI::Text::TabAlignment& align, Windows::UI::Text::TabLeader& leader) const;
-        auto IsEqual(Windows::UI::Text::ITextParagraphFormat const& format) const;
-        auto SetClone(Windows::UI::Text::ITextParagraphFormat const& format) const;
-        auto SetIndents(float start, float left, float right) const;
-        auto SetLineSpacing(Windows::UI::Text::LineSpacingRule const& rule, float spacing) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::ParagraphAlignment) Alignment() const;
+        WINRT_IMPL_AUTO(void) Alignment(Windows::UI::Text::ParagraphAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) FirstLineIndent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) KeepTogether() const;
+        WINRT_IMPL_AUTO(void) KeepTogether(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) KeepWithNext() const;
+        WINRT_IMPL_AUTO(void) KeepWithNext(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) LeftIndent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) LineSpacing() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::LineSpacingRule) LineSpacingRule() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::MarkerAlignment) ListAlignment() const;
+        WINRT_IMPL_AUTO(void) ListAlignment(Windows::UI::Text::MarkerAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ListLevelIndex() const;
+        WINRT_IMPL_AUTO(void) ListLevelIndex(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ListStart() const;
+        WINRT_IMPL_AUTO(void) ListStart(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::MarkerStyle) ListStyle() const;
+        WINRT_IMPL_AUTO(void) ListStyle(Windows::UI::Text::MarkerStyle const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) ListTab() const;
+        WINRT_IMPL_AUTO(void) ListTab(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::MarkerType) ListType() const;
+        WINRT_IMPL_AUTO(void) ListType(Windows::UI::Text::MarkerType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) NoLineNumber() const;
+        WINRT_IMPL_AUTO(void) NoLineNumber(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) PageBreakBefore() const;
+        WINRT_IMPL_AUTO(void) PageBreakBefore(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) RightIndent() const;
+        WINRT_IMPL_AUTO(void) RightIndent(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) RightToLeft() const;
+        WINRT_IMPL_AUTO(void) RightToLeft(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::ParagraphStyle) Style() const;
+        WINRT_IMPL_AUTO(void) Style(Windows::UI::Text::ParagraphStyle const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) SpaceAfter() const;
+        WINRT_IMPL_AUTO(void) SpaceAfter(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) SpaceBefore() const;
+        WINRT_IMPL_AUTO(void) SpaceBefore(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::FormatEffect) WidowControl() const;
+        WINRT_IMPL_AUTO(void) WidowControl(Windows::UI::Text::FormatEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) TabCount() const;
+        WINRT_IMPL_AUTO(void) AddTab(float position, Windows::UI::Text::TabAlignment const& align, Windows::UI::Text::TabLeader const& leader) const;
+        WINRT_IMPL_AUTO(void) ClearAllTabs() const;
+        WINRT_IMPL_AUTO(void) DeleteTab(float position) const;
+        WINRT_IMPL_AUTO(Windows::UI::Text::ITextParagraphFormat) GetClone() const;
+        WINRT_IMPL_AUTO(void) GetTab(int32_t index, float& position, Windows::UI::Text::TabAlignment& align, Windows::UI::Text::TabLeader& leader) const;
+        WINRT_IMPL_AUTO(bool) IsEqual(Windows::UI::Text::ITextParagraphFormat const& format) const;
+        WINRT_IMPL_AUTO(void) SetClone(Windows::UI::Text::ITextParagraphFormat const& format) const;
+        WINRT_IMPL_AUTO(void) SetIndents(float start, float left, float right) const;
+        WINRT_IMPL_AUTO(void) SetLineSpacing(Windows::UI::Text::LineSpacingRule const& rule, float spacing) const;
     };
     template <> struct consume<Windows::UI::Text::ITextParagraphFormat>
     {
@@ -1071,58 +1069,58 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextRange
     {
-        [[nodiscard]] auto Character() const;
-        auto Character(char16_t value) const;
-        [[nodiscard]] auto CharacterFormat() const;
-        auto CharacterFormat(Windows::UI::Text::ITextCharacterFormat const& value) const;
-        [[nodiscard]] auto FormattedText() const;
-        auto FormattedText(Windows::UI::Text::ITextRange const& value) const;
-        [[nodiscard]] auto EndPosition() const;
-        auto EndPosition(int32_t value) const;
-        [[nodiscard]] auto Gravity() const;
-        auto Gravity(Windows::UI::Text::RangeGravity const& value) const;
-        [[nodiscard]] auto Length() const;
-        [[nodiscard]] auto Link() const;
-        auto Link(param::hstring const& value) const;
-        [[nodiscard]] auto ParagraphFormat() const;
-        auto ParagraphFormat(Windows::UI::Text::ITextParagraphFormat const& value) const;
-        [[nodiscard]] auto StartPosition() const;
-        auto StartPosition(int32_t value) const;
-        [[nodiscard]] auto StoryLength() const;
-        [[nodiscard]] auto Text() const;
-        auto Text(param::hstring const& value) const;
-        auto CanPaste(int32_t format) const;
-        auto ChangeCase(Windows::UI::Text::LetterCase const& value) const;
-        auto Collapse(bool value) const;
-        auto Copy() const;
-        auto Cut() const;
-        auto Delete(Windows::UI::Text::TextRangeUnit const& unit, int32_t count) const;
-        auto EndOf(Windows::UI::Text::TextRangeUnit const& unit, bool extend) const;
-        auto Expand(Windows::UI::Text::TextRangeUnit const& unit) const;
-        auto FindText(param::hstring const& value, int32_t scanLength, Windows::UI::Text::FindOptions const& options) const;
-        auto GetCharacterUtf32(uint32_t& value, int32_t offset) const;
-        auto GetClone() const;
-        auto GetIndex(Windows::UI::Text::TextRangeUnit const& unit) const;
-        auto GetPoint(Windows::UI::Text::HorizontalCharacterAlignment const& horizontalAlign, Windows::UI::Text::VerticalCharacterAlignment const& verticalAlign, Windows::UI::Text::PointOptions const& options, Windows::Foundation::Point& point) const;
-        auto GetRect(Windows::UI::Text::PointOptions const& options, Windows::Foundation::Rect& rect, int32_t& hit) const;
-        auto GetText(Windows::UI::Text::TextGetOptions const& options, hstring& value) const;
-        auto GetTextViaStream(Windows::UI::Text::TextGetOptions const& options, Windows::Storage::Streams::IRandomAccessStream const& value) const;
-        auto InRange(Windows::UI::Text::ITextRange const& range) const;
-        auto InsertImage(int32_t width, int32_t height, int32_t ascent, Windows::UI::Text::VerticalCharacterAlignment const& verticalAlign, param::hstring const& alternateText, Windows::Storage::Streams::IRandomAccessStream const& value) const;
-        auto InStory(Windows::UI::Text::ITextRange const& range) const;
-        auto IsEqual(Windows::UI::Text::ITextRange const& range) const;
-        auto Move(Windows::UI::Text::TextRangeUnit const& unit, int32_t count) const;
-        auto MoveEnd(Windows::UI::Text::TextRangeUnit const& unit, int32_t count) const;
-        auto MoveStart(Windows::UI::Text::TextRangeUnit const& unit, int32_t count) const;
-        auto Paste(int32_t format) const;
-        auto ScrollIntoView(Windows::UI::Text::PointOptions const& value) const;
-        auto MatchSelection() const;
-        auto SetIndex(Windows::UI::Text::TextRangeUnit const& unit, int32_t index, bool extend) const;
-        auto SetPoint(Windows::Foundation::Point const& point, Windows::UI::Text::PointOptions const& options, bool extend) const;
-        auto SetRange(int32_t startPosition, int32_t endPosition) const;
-        auto SetText(Windows::UI::Text::TextSetOptions const& options, param::hstring const& value) const;
-        auto SetTextViaStream(Windows::UI::Text::TextSetOptions const& options, Windows::Storage::Streams::IRandomAccessStream const& value) const;
-        auto StartOf(Windows::UI::Text::TextRangeUnit const& unit, bool extend) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(char16_t) Character() const;
+        WINRT_IMPL_AUTO(void) Character(char16_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::ITextCharacterFormat) CharacterFormat() const;
+        WINRT_IMPL_AUTO(void) CharacterFormat(Windows::UI::Text::ITextCharacterFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::ITextRange) FormattedText() const;
+        WINRT_IMPL_AUTO(void) FormattedText(Windows::UI::Text::ITextRange const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) EndPosition() const;
+        WINRT_IMPL_AUTO(void) EndPosition(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::RangeGravity) Gravity() const;
+        WINRT_IMPL_AUTO(void) Gravity(Windows::UI::Text::RangeGravity const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Length() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Link() const;
+        WINRT_IMPL_AUTO(void) Link(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::ITextParagraphFormat) ParagraphFormat() const;
+        WINRT_IMPL_AUTO(void) ParagraphFormat(Windows::UI::Text::ITextParagraphFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) StartPosition() const;
+        WINRT_IMPL_AUTO(void) StartPosition(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) StoryLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        WINRT_IMPL_AUTO(void) Text(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(bool) CanPaste(int32_t format) const;
+        WINRT_IMPL_AUTO(void) ChangeCase(Windows::UI::Text::LetterCase const& value) const;
+        WINRT_IMPL_AUTO(void) Collapse(bool value) const;
+        WINRT_IMPL_AUTO(void) Copy() const;
+        WINRT_IMPL_AUTO(void) Cut() const;
+        WINRT_IMPL_AUTO(int32_t) Delete(Windows::UI::Text::TextRangeUnit const& unit, int32_t count) const;
+        WINRT_IMPL_AUTO(int32_t) EndOf(Windows::UI::Text::TextRangeUnit const& unit, bool extend) const;
+        WINRT_IMPL_AUTO(int32_t) Expand(Windows::UI::Text::TextRangeUnit const& unit) const;
+        WINRT_IMPL_AUTO(int32_t) FindText(param::hstring const& value, int32_t scanLength, Windows::UI::Text::FindOptions const& options) const;
+        WINRT_IMPL_AUTO(void) GetCharacterUtf32(uint32_t& value, int32_t offset) const;
+        WINRT_IMPL_AUTO(Windows::UI::Text::ITextRange) GetClone() const;
+        WINRT_IMPL_AUTO(int32_t) GetIndex(Windows::UI::Text::TextRangeUnit const& unit) const;
+        WINRT_IMPL_AUTO(void) GetPoint(Windows::UI::Text::HorizontalCharacterAlignment const& horizontalAlign, Windows::UI::Text::VerticalCharacterAlignment const& verticalAlign, Windows::UI::Text::PointOptions const& options, Windows::Foundation::Point& point) const;
+        WINRT_IMPL_AUTO(void) GetRect(Windows::UI::Text::PointOptions const& options, Windows::Foundation::Rect& rect, int32_t& hit) const;
+        WINRT_IMPL_AUTO(void) GetText(Windows::UI::Text::TextGetOptions const& options, hstring& value) const;
+        WINRT_IMPL_AUTO(void) GetTextViaStream(Windows::UI::Text::TextGetOptions const& options, Windows::Storage::Streams::IRandomAccessStream const& value) const;
+        WINRT_IMPL_AUTO(bool) InRange(Windows::UI::Text::ITextRange const& range) const;
+        WINRT_IMPL_AUTO(void) InsertImage(int32_t width, int32_t height, int32_t ascent, Windows::UI::Text::VerticalCharacterAlignment const& verticalAlign, param::hstring const& alternateText, Windows::Storage::Streams::IRandomAccessStream const& value) const;
+        WINRT_IMPL_AUTO(bool) InStory(Windows::UI::Text::ITextRange const& range) const;
+        WINRT_IMPL_AUTO(bool) IsEqual(Windows::UI::Text::ITextRange const& range) const;
+        WINRT_IMPL_AUTO(int32_t) Move(Windows::UI::Text::TextRangeUnit const& unit, int32_t count) const;
+        WINRT_IMPL_AUTO(int32_t) MoveEnd(Windows::UI::Text::TextRangeUnit const& unit, int32_t count) const;
+        WINRT_IMPL_AUTO(int32_t) MoveStart(Windows::UI::Text::TextRangeUnit const& unit, int32_t count) const;
+        WINRT_IMPL_AUTO(void) Paste(int32_t format) const;
+        WINRT_IMPL_AUTO(void) ScrollIntoView(Windows::UI::Text::PointOptions const& value) const;
+        WINRT_IMPL_AUTO(void) MatchSelection() const;
+        WINRT_IMPL_AUTO(void) SetIndex(Windows::UI::Text::TextRangeUnit const& unit, int32_t index, bool extend) const;
+        WINRT_IMPL_AUTO(void) SetPoint(Windows::Foundation::Point const& point, Windows::UI::Text::PointOptions const& options, bool extend) const;
+        WINRT_IMPL_AUTO(void) SetRange(int32_t startPosition, int32_t endPosition) const;
+        WINRT_IMPL_AUTO(void) SetText(Windows::UI::Text::TextSetOptions const& options, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) SetTextViaStream(Windows::UI::Text::TextSetOptions const& options, Windows::Storage::Streams::IRandomAccessStream const& value) const;
+        WINRT_IMPL_AUTO(int32_t) StartOf(Windows::UI::Text::TextRangeUnit const& unit, bool extend) const;
     };
     template <> struct consume<Windows::UI::Text::ITextRange>
     {
@@ -1131,16 +1129,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Text_ITextSelection
     {
-        [[nodiscard]] auto Options() const;
-        auto Options(Windows::UI::Text::SelectionOptions const& value) const;
-        [[nodiscard]] auto Type() const;
-        auto EndKey(Windows::UI::Text::TextRangeUnit const& unit, bool extend) const;
-        auto HomeKey(Windows::UI::Text::TextRangeUnit const& unit, bool extend) const;
-        auto MoveDown(Windows::UI::Text::TextRangeUnit const& unit, int32_t count, bool extend) const;
-        auto MoveLeft(Windows::UI::Text::TextRangeUnit const& unit, int32_t count, bool extend) const;
-        auto MoveRight(Windows::UI::Text::TextRangeUnit const& unit, int32_t count, bool extend) const;
-        auto MoveUp(Windows::UI::Text::TextRangeUnit const& unit, int32_t count, bool extend) const;
-        auto TypeText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::SelectionOptions) Options() const;
+        WINRT_IMPL_AUTO(void) Options(Windows::UI::Text::SelectionOptions const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::SelectionType) Type() const;
+        WINRT_IMPL_AUTO(int32_t) EndKey(Windows::UI::Text::TextRangeUnit const& unit, bool extend) const;
+        WINRT_IMPL_AUTO(int32_t) HomeKey(Windows::UI::Text::TextRangeUnit const& unit, bool extend) const;
+        WINRT_IMPL_AUTO(int32_t) MoveDown(Windows::UI::Text::TextRangeUnit const& unit, int32_t count, bool extend) const;
+        WINRT_IMPL_AUTO(int32_t) MoveLeft(Windows::UI::Text::TextRangeUnit const& unit, int32_t count, bool extend) const;
+        WINRT_IMPL_AUTO(int32_t) MoveRight(Windows::UI::Text::TextRangeUnit const& unit, int32_t count, bool extend) const;
+        WINRT_IMPL_AUTO(int32_t) MoveUp(Windows::UI::Text::TextRangeUnit const& unit, int32_t count, bool extend) const;
+        WINRT_IMPL_AUTO(void) TypeText(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Text::ITextSelection>
     {

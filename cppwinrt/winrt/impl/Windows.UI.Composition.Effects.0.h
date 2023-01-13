@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -26,12 +26,10 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::Effects::ISceneLightingEffect2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::Effects::SceneLightingEffect>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::Effects::SceneLightingEffectReflectanceModel>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::SceneLightingEffect>{ L"Windows.UI.Composition.Effects.SceneLightingEffect" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::SceneLightingEffectReflectanceModel>{ L"Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::ISceneLightingEffect>{ L"Windows.UI.Composition.Effects.ISceneLightingEffect" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::ISceneLightingEffect2>{ L"Windows.UI.Composition.Effects.ISceneLightingEffect2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::SceneLightingEffect> = L"Windows.UI.Composition.Effects.SceneLightingEffect";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::SceneLightingEffectReflectanceModel> = L"Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::ISceneLightingEffect> = L"Windows.UI.Composition.Effects.ISceneLightingEffect";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::ISceneLightingEffect2> = L"Windows.UI.Composition.Effects.ISceneLightingEffect2";
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Effects::ISceneLightingEffect>{ 0x91BB5E52,0x95D1,0x4F8B,{ 0x9A,0x5A,0x64,0x08,0xB2,0x4B,0x8C,0x6A } };
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Effects::ISceneLightingEffect2>{ 0x9E270E81,0x72F0,0x4C5C,{ 0x95,0xF8,0x8A,0x6E,0x00,0x24,0xF4,0x09 } };
     template <> struct default_interface<Windows::UI::Composition::Effects::SceneLightingEffect>{ using type = Windows::UI::Composition::Effects::ISceneLightingEffect; };
@@ -62,16 +60,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Effects_ISceneLightingEffect
     {
-        [[nodiscard]] auto AmbientAmount() const;
-        auto AmbientAmount(float value) const;
-        [[nodiscard]] auto DiffuseAmount() const;
-        auto DiffuseAmount(float value) const;
-        [[nodiscard]] auto NormalMapSource() const;
-        auto NormalMapSource(Windows::Graphics::Effects::IGraphicsEffectSource const& value) const;
-        [[nodiscard]] auto SpecularAmount() const;
-        auto SpecularAmount(float value) const;
-        [[nodiscard]] auto SpecularShine() const;
-        auto SpecularShine(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) AmbientAmount() const;
+        WINRT_IMPL_AUTO(void) AmbientAmount(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) DiffuseAmount() const;
+        WINRT_IMPL_AUTO(void) DiffuseAmount(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Effects::IGraphicsEffectSource) NormalMapSource() const;
+        WINRT_IMPL_AUTO(void) NormalMapSource(Windows::Graphics::Effects::IGraphicsEffectSource const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) SpecularAmount() const;
+        WINRT_IMPL_AUTO(void) SpecularAmount(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) SpecularShine() const;
+        WINRT_IMPL_AUTO(void) SpecularShine(float value) const;
     };
     template <> struct consume<Windows::UI::Composition::Effects::ISceneLightingEffect>
     {
@@ -80,8 +78,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Effects_ISceneLightingEffect2
     {
-        [[nodiscard]] auto ReflectanceModel() const;
-        auto ReflectanceModel(Windows::UI::Composition::Effects::SceneLightingEffectReflectanceModel const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Effects::SceneLightingEffectReflectanceModel) ReflectanceModel() const;
+        WINRT_IMPL_AUTO(void) ReflectanceModel(Windows::UI::Composition::Effects::SceneLightingEffectReflectanceModel const& value) const;
     };
     template <> struct consume<Windows::UI::Composition::Effects::ISceneLightingEffect2>
     {

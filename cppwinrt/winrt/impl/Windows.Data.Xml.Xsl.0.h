@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -23,12 +23,10 @@ namespace winrt::impl
     template <> struct category<Windows::Data::Xml::Xsl::IXsltProcessor2>{ using type = interface_category; };
     template <> struct category<Windows::Data::Xml::Xsl::IXsltProcessorFactory>{ using type = interface_category; };
     template <> struct category<Windows::Data::Xml::Xsl::XsltProcessor>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Xsl::XsltProcessor>{ L"Windows.Data.Xml.Xsl.XsltProcessor" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Xsl::IXsltProcessor>{ L"Windows.Data.Xml.Xsl.IXsltProcessor" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Xsl::IXsltProcessor2>{ L"Windows.Data.Xml.Xsl.IXsltProcessor2" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Xsl::IXsltProcessorFactory>{ L"Windows.Data.Xml.Xsl.IXsltProcessorFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Xsl::XsltProcessor> = L"Windows.Data.Xml.Xsl.XsltProcessor";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Xsl::IXsltProcessor> = L"Windows.Data.Xml.Xsl.IXsltProcessor";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Xsl::IXsltProcessor2> = L"Windows.Data.Xml.Xsl.IXsltProcessor2";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Xsl::IXsltProcessorFactory> = L"Windows.Data.Xml.Xsl.IXsltProcessorFactory";
     template <> inline constexpr guid guid_v<Windows::Data::Xml::Xsl::IXsltProcessor>{ 0x7B64703F,0x550C,0x48C6,{ 0xA9,0x0F,0x93,0xA5,0xB9,0x64,0x51,0x8F } };
     template <> inline constexpr guid guid_v<Windows::Data::Xml::Xsl::IXsltProcessor2>{ 0x8DA45C56,0x97A5,0x44CB,{ 0xA8,0xBE,0x27,0xD8,0x62,0x80,0xC7,0x0A } };
     template <> inline constexpr guid guid_v<Windows::Data::Xml::Xsl::IXsltProcessorFactory>{ 0x274146C0,0x9A51,0x4663,{ 0xBF,0x30,0x0E,0xF7,0x42,0x14,0x6F,0x20 } };
@@ -57,7 +55,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Xsl_IXsltProcessor
     {
-        auto TransformToString(Windows::Data::Xml::Dom::IXmlNode const& inputNode) const;
+        WINRT_IMPL_AUTO(hstring) TransformToString(Windows::Data::Xml::Dom::IXmlNode const& inputNode) const;
     };
     template <> struct consume<Windows::Data::Xml::Xsl::IXsltProcessor>
     {
@@ -66,7 +64,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Xsl_IXsltProcessor2
     {
-        auto TransformToDocument(Windows::Data::Xml::Dom::IXmlNode const& inputNode) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) TransformToDocument(Windows::Data::Xml::Dom::IXmlNode const& inputNode) const;
     };
     template <> struct consume<Windows::Data::Xml::Xsl::IXsltProcessor2>
     {
@@ -75,7 +73,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Xsl_IXsltProcessorFactory
     {
-        auto CreateInstance(Windows::Data::Xml::Dom::XmlDocument const& document) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Xsl::XsltProcessor) CreateInstance(Windows::Data::Xml::Dom::XmlDocument const& document) const;
     };
     template <> struct consume<Windows::Data::Xml::Xsl::IXsltProcessorFactory>
     {

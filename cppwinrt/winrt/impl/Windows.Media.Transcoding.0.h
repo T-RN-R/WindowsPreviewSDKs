@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,6 +7,8 @@
 #define WINRT_Windows_Media_Transcoding_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TProgress> struct IAsyncActionWithProgress;
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
@@ -57,15 +59,13 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Transcoding::PrepareTranscodeResult>{ using type = class_category; };
     template <> struct category<Windows::Media::Transcoding::MediaVideoProcessingAlgorithm>{ using type = enum_category; };
     template <> struct category<Windows::Media::Transcoding::TranscodeFailureReason>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::MediaTranscoder>{ L"Windows.Media.Transcoding.MediaTranscoder" };
-    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::PrepareTranscodeResult>{ L"Windows.Media.Transcoding.PrepareTranscodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::MediaVideoProcessingAlgorithm>{ L"Windows.Media.Transcoding.MediaVideoProcessingAlgorithm" };
-    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::TranscodeFailureReason>{ L"Windows.Media.Transcoding.TranscodeFailureReason" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::IMediaTranscoder>{ L"Windows.Media.Transcoding.IMediaTranscoder" };
-    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::IMediaTranscoder2>{ L"Windows.Media.Transcoding.IMediaTranscoder2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::IPrepareTranscodeResult>{ L"Windows.Media.Transcoding.IPrepareTranscodeResult" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::MediaTranscoder> = L"Windows.Media.Transcoding.MediaTranscoder";
+    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::PrepareTranscodeResult> = L"Windows.Media.Transcoding.PrepareTranscodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::MediaVideoProcessingAlgorithm> = L"Windows.Media.Transcoding.MediaVideoProcessingAlgorithm";
+    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::TranscodeFailureReason> = L"Windows.Media.Transcoding.TranscodeFailureReason";
+    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::IMediaTranscoder> = L"Windows.Media.Transcoding.IMediaTranscoder";
+    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::IMediaTranscoder2> = L"Windows.Media.Transcoding.IMediaTranscoder2";
+    template <> inline constexpr auto& name_v<Windows::Media::Transcoding::IPrepareTranscodeResult> = L"Windows.Media.Transcoding.IPrepareTranscodeResult";
     template <> inline constexpr guid guid_v<Windows::Media::Transcoding::IMediaTranscoder>{ 0x190C99D2,0xA0AA,0x4D34,{ 0x86,0xBC,0xEE,0xD1,0xB1,0x2C,0x2F,0x5B } };
     template <> inline constexpr guid guid_v<Windows::Media::Transcoding::IMediaTranscoder2>{ 0x40531D74,0x35E0,0x4F04,{ 0x85,0x74,0xCA,0x8B,0xC4,0xE5,0xA0,0x82 } };
     template <> inline constexpr guid guid_v<Windows::Media::Transcoding::IPrepareTranscodeResult>{ 0x05F25DCE,0x994F,0x4A34,{ 0x9D,0x68,0x97,0xCC,0xCE,0x17,0x30,0xD6 } };
@@ -113,21 +113,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Transcoding_IMediaTranscoder
     {
-        auto TrimStartTime(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto TrimStartTime() const;
-        auto TrimStopTime(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto TrimStopTime() const;
-        auto AlwaysReencode(bool value) const;
-        [[nodiscard]] auto AlwaysReencode() const;
-        auto HardwareAccelerationEnabled(bool value) const;
-        [[nodiscard]] auto HardwareAccelerationEnabled() const;
-        auto AddAudioEffect(param::hstring const& activatableClassId) const;
-        auto AddAudioEffect(param::hstring const& activatableClassId, bool effectRequired, Windows::Foundation::Collections::IPropertySet const& configuration) const;
-        auto AddVideoEffect(param::hstring const& activatableClassId) const;
-        auto AddVideoEffect(param::hstring const& activatableClassId, bool effectRequired, Windows::Foundation::Collections::IPropertySet const& configuration) const;
-        auto ClearEffects() const;
-        auto PrepareFileTranscodeAsync(Windows::Storage::IStorageFile const& source, Windows::Storage::IStorageFile const& destination, Windows::Media::MediaProperties::MediaEncodingProfile const& profile) const;
-        auto PrepareStreamTranscodeAsync(Windows::Storage::Streams::IRandomAccessStream const& source, Windows::Storage::Streams::IRandomAccessStream const& destination, Windows::Media::MediaProperties::MediaEncodingProfile const& profile) const;
+        WINRT_IMPL_AUTO(void) TrimStartTime(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TrimStartTime() const;
+        WINRT_IMPL_AUTO(void) TrimStopTime(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TrimStopTime() const;
+        WINRT_IMPL_AUTO(void) AlwaysReencode(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AlwaysReencode() const;
+        WINRT_IMPL_AUTO(void) HardwareAccelerationEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HardwareAccelerationEnabled() const;
+        WINRT_IMPL_AUTO(void) AddAudioEffect(param::hstring const& activatableClassId) const;
+        WINRT_IMPL_AUTO(void) AddAudioEffect(param::hstring const& activatableClassId, bool effectRequired, Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) AddVideoEffect(param::hstring const& activatableClassId) const;
+        WINRT_IMPL_AUTO(void) AddVideoEffect(param::hstring const& activatableClassId, bool effectRequired, Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) ClearEffects() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Transcoding::PrepareTranscodeResult>) PrepareFileTranscodeAsync(Windows::Storage::IStorageFile const& source, Windows::Storage::IStorageFile const& destination, Windows::Media::MediaProperties::MediaEncodingProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Transcoding::PrepareTranscodeResult>) PrepareStreamTranscodeAsync(Windows::Storage::Streams::IRandomAccessStream const& source, Windows::Storage::Streams::IRandomAccessStream const& destination, Windows::Media::MediaProperties::MediaEncodingProfile const& profile) const;
     };
     template <> struct consume<Windows::Media::Transcoding::IMediaTranscoder>
     {
@@ -136,9 +136,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Transcoding_IMediaTranscoder2
     {
-        auto PrepareMediaStreamSourceTranscodeAsync(Windows::Media::Core::IMediaSource const& source, Windows::Storage::Streams::IRandomAccessStream const& destination, Windows::Media::MediaProperties::MediaEncodingProfile const& profile) const;
-        auto VideoProcessingAlgorithm(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm const& value) const;
-        [[nodiscard]] auto VideoProcessingAlgorithm() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Transcoding::PrepareTranscodeResult>) PrepareMediaStreamSourceTranscodeAsync(Windows::Media::Core::IMediaSource const& source, Windows::Storage::Streams::IRandomAccessStream const& destination, Windows::Media::MediaProperties::MediaEncodingProfile const& profile) const;
+        WINRT_IMPL_AUTO(void) VideoProcessingAlgorithm(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Transcoding::MediaVideoProcessingAlgorithm) VideoProcessingAlgorithm() const;
     };
     template <> struct consume<Windows::Media::Transcoding::IMediaTranscoder2>
     {
@@ -147,9 +147,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Transcoding_IPrepareTranscodeResult
     {
-        [[nodiscard]] auto CanTranscode() const;
-        [[nodiscard]] auto FailureReason() const;
-        auto TranscodeAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanTranscode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Transcoding::TranscodeFailureReason) FailureReason() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<double>) TranscodeAsync() const;
     };
     template <> struct consume<Windows::Media::Transcoding::IPrepareTranscodeResult>
     {

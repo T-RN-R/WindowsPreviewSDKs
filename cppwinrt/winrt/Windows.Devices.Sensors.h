@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Devices_Sensors_H
 #define WINRT_Windows_Devices_Sensors_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Devices.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -14,31 +14,31 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Devices.Sensors.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::AccelerometerReading) consume_Windows_Devices_Sensors_IAccelerometer<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::AccelerometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IAccelerometer<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAccelerometer<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IAccelerometer<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Accelerometer, Windows::Devices::Sensors::AccelerometerReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IAccelerometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Accelerometer, Windows::Devices::Sensors::AccelerometerReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -46,13 +46,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAccelerometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer<D>::Shaken(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Accelerometer, Windows::Devices::Sensors::AccelerometerShakenEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IAccelerometer<D>::Shaken(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Accelerometer, Windows::Devices::Sensors::AccelerometerShakenEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer)->add_Shaken(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -60,195 +60,195 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Shaken_revoker>(this, Shaken(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer<D>::Shaken(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAccelerometer<D>::Shaken(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer)->remove_Shaken(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAccelerometer2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer2)->put_ReadingTransform(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer2<D>::ReadingTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Display::DisplayOrientations) consume_Windows_Devices_Sensors_IAccelerometer2<D>::ReadingTransform() const
     {
-        Windows::Graphics::Display::DisplayOrientations value;
+        Windows::Graphics::Display::DisplayOrientations value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer2)->get_ReadingTransform(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer3<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAccelerometer3<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer3)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer3<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IAccelerometer3<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer3)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer3<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IAccelerometer3<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer3)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer4<D>::ReadingType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::AccelerometerReadingType) consume_Windows_Devices_Sensors_IAccelerometer4<D>::ReadingType() const
     {
-        Windows::Devices::Sensors::AccelerometerReadingType type;
+        Windows::Devices::Sensors::AccelerometerReadingType type{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer4)->get_ReadingType(reinterpret_cast<int32_t*>(&type)));
         return type;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometer5<D>::ReportThreshold() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::AccelerometerDataThreshold) consume_Windows_Devices_Sensors_IAccelerometer5<D>::ReportThreshold() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometer5)->get_ReportThreshold(&value));
         return Windows::Devices::Sensors::AccelerometerDataThreshold{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::XAxisInGForce() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::XAxisInGForce() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerDataThreshold)->get_XAxisInGForce(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::XAxisInGForce(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::XAxisInGForce(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerDataThreshold)->put_XAxisInGForce(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::YAxisInGForce() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::YAxisInGForce() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerDataThreshold)->get_YAxisInGForce(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::YAxisInGForce(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::YAxisInGForce(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerDataThreshold)->put_YAxisInGForce(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::ZAxisInGForce() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::ZAxisInGForce() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerDataThreshold)->get_ZAxisInGForce(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::ZAxisInGForce(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAccelerometerDataThreshold<D>::ZAxisInGForce(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerDataThreshold)->put_ZAxisInGForce(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerDeviceId<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IAccelerometerDeviceId<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerDeviceId)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IAccelerometerReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerReading<D>::AccelerationX() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IAccelerometerReading<D>::AccelerationX() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerReading)->get_AccelerationX(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerReading<D>::AccelerationY() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IAccelerometerReading<D>::AccelerationY() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerReading)->get_AccelerationY(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerReading<D>::AccelerationZ() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IAccelerometerReading<D>::AccelerationZ() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerReading)->get_AccelerationZ(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_IAccelerometerReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_IAccelerometerReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::AccelerometerReading) consume_Windows_Devices_Sensors_IAccelerometerReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::AccelerometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerShakenEventArgs<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IAccelerometerShakenEventArgs<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerShakenEventArgs)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Accelerometer) consume_Windows_Devices_Sensors_IAccelerometerStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::Accelerometer{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerStatics2<D>::GetDefault(Windows::Devices::Sensors::AccelerometerReadingType const& readingType) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Accelerometer) consume_Windows_Devices_Sensors_IAccelerometerStatics2<D>::GetDefault(Windows::Devices::Sensors::AccelerometerReadingType const& readingType) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerStatics2)->GetDefaultWithAccelerometerReadingType(static_cast<int32_t>(readingType), &result));
         return Windows::Devices::Sensors::Accelerometer{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerStatics3<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Accelerometer>) consume_Windows_Devices_Sensors_IAccelerometerStatics3<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerStatics3)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Accelerometer>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAccelerometerStatics3<D>::GetDeviceSelector(Windows::Devices::Sensors::AccelerometerReadingType const& readingType) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IAccelerometerStatics3<D>::GetDeviceSelector(Windows::Devices::Sensors::AccelerometerReadingType const& readingType) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAccelerometerStatics3)->GetDeviceSelector(static_cast<int32_t>(readingType), &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensor<D>::GetCurrentReadingAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::ActivitySensorReading>) consume_Windows_Devices_Sensors_IActivitySensor<D>::GetCurrentReadingAsync() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensor)->GetCurrentReadingAsync(&result));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::ActivitySensorReading>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensor<D>::SubscribedActivities() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Devices::Sensors::ActivityType>) consume_Windows_Devices_Sensors_IActivitySensor<D>::SubscribedActivities() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensor)->get_SubscribedActivities(&value));
         return Windows::Foundation::Collections::IVector<Windows::Devices::Sensors::ActivityType>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensor<D>::PowerInMilliwatts() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IActivitySensor<D>::PowerInMilliwatts() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensor)->get_PowerInMilliwatts(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensor<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IActivitySensor<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensor)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensor<D>::SupportedActivities() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivityType>) consume_Windows_Devices_Sensors_IActivitySensor<D>::SupportedActivities() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensor)->get_SupportedActivities(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivityType>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensor<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IActivitySensor<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensor)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::ActivitySensor, Windows::Devices::Sensors::ActivitySensorReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IActivitySensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::ActivitySensor, Windows::Devices::Sensors::ActivitySensorReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensor)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -256,107 +256,107 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IActivitySensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensor)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IActivitySensorReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorReading<D>::Activity() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ActivityType) consume_Windows_Devices_Sensors_IActivitySensorReading<D>::Activity() const
     {
-        Windows::Devices::Sensors::ActivityType value;
+        Windows::Devices::Sensors::ActivityType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorReading)->get_Activity(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorReading<D>::Confidence() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ActivitySensorReadingConfidence) consume_Windows_Devices_Sensors_IActivitySensorReading<D>::Confidence() const
     {
-        Windows::Devices::Sensors::ActivitySensorReadingConfidence value;
+        Windows::Devices::Sensors::ActivitySensorReadingConfidence value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorReading)->get_Confidence(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorReadingChangeReport<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ActivitySensorReading) consume_Windows_Devices_Sensors_IActivitySensorReadingChangeReport<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorReadingChangeReport)->get_Reading(&value));
         return Windows::Devices::Sensors::ActivitySensorReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ActivitySensorReading) consume_Windows_Devices_Sensors_IActivitySensorReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::ActivitySensorReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::GetDefaultAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::ActivitySensor>) consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::GetDefaultAsync() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorStatics)->GetDefaultAsync(&result));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::ActivitySensor>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::GetDeviceSelector() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorStatics)->GetDeviceSelector(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::ActivitySensor>) consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorStatics)->FromIdAsync(*(void**)(&deviceId), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::ActivitySensor>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::GetSystemHistoryAsync(Windows::Foundation::DateTime const& fromTime) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivitySensorReading>>) consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::GetSystemHistoryAsync(Windows::Foundation::DateTime const& fromTime) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorStatics)->GetSystemHistoryAsync(impl::bind_in(fromTime), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivitySensorReading>>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::GetSystemHistoryAsync(Windows::Foundation::DateTime const& fromTime, Windows::Foundation::TimeSpan const& duration) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivitySensorReading>>) consume_Windows_Devices_Sensors_IActivitySensorStatics<D>::GetSystemHistoryAsync(Windows::Foundation::DateTime const& fromTime, Windows::Foundation::TimeSpan const& duration) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorStatics)->GetSystemHistoryWithDurationAsync(impl::bind_in(fromTime), impl::bind_in(duration), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivitySensorReading>>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IActivitySensorTriggerDetails<D>::ReadReports() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivitySensorReadingChangeReport>) consume_Windows_Devices_Sensors_IActivitySensorTriggerDetails<D>::ReadReports() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IActivitySensorTriggerDetails)->ReadReports(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivitySensorReadingChangeReport>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::AltimeterReading) consume_Windows_Devices_Sensors_IAltimeter<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::AltimeterReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IAltimeter<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IAltimeter<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAltimeter<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IAltimeter<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Altimeter, Windows::Devices::Sensors::AltimeterReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IAltimeter<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Altimeter, Windows::Devices::Sensors::AltimeterReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -364,93 +364,93 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAltimeter<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter2<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IAltimeter2<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter2)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter2<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IAltimeter2<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter2)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeter2<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IAltimeter2<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeter2)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeterReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IAltimeterReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeterReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeterReading<D>::AltitudeChangeInMeters() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IAltimeterReading<D>::AltitudeChangeInMeters() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeterReading)->get_AltitudeChangeInMeters(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeterReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_IAltimeterReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeterReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeterReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_IAltimeterReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeterReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeterReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::AltimeterReading) consume_Windows_Devices_Sensors_IAltimeterReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeterReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::AltimeterReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IAltimeterStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Altimeter) consume_Windows_Devices_Sensors_IAltimeterStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IAltimeterStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::Altimeter{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::BarometerReading) consume_Windows_Devices_Sensors_IBarometer<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::BarometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IBarometer<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IBarometer<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IBarometer<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IBarometer<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Barometer, Windows::Devices::Sensors::BarometerReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IBarometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Barometer, Windows::Devices::Sensors::BarometerReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -458,115 +458,115 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IBarometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer2<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IBarometer2<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer2)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer2<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IBarometer2<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer2)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer2<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IBarometer2<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer2)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometer3<D>::ReportThreshold() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::BarometerDataThreshold) consume_Windows_Devices_Sensors_IBarometer3<D>::ReportThreshold() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometer3)->get_ReportThreshold(&value));
         return Windows::Devices::Sensors::BarometerDataThreshold{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerDataThreshold<D>::Hectopascals() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IBarometerDataThreshold<D>::Hectopascals() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerDataThreshold)->get_Hectopascals(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerDataThreshold<D>::Hectopascals(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IBarometerDataThreshold<D>::Hectopascals(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerDataThreshold)->put_Hectopascals(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IBarometerReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerReading<D>::StationPressureInHectopascals() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IBarometerReading<D>::StationPressureInHectopascals() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerReading)->get_StationPressureInHectopascals(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_IBarometerReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_IBarometerReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::BarometerReading) consume_Windows_Devices_Sensors_IBarometerReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::BarometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Barometer) consume_Windows_Devices_Sensors_IBarometerStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::Barometer{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Barometer>) consume_Windows_Devices_Sensors_IBarometerStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerStatics2)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Barometer>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IBarometerStatics2<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IBarometerStatics2<D>::GetDeviceSelector() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IBarometerStatics2)->GetDeviceSelector(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::CompassReading) consume_Windows_Devices_Sensors_ICompass<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::CompassReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_ICompass<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ICompass<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_ICompass<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Compass, Windows::Devices::Sensors::CompassReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_ICompass<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Compass, Windows::Devices::Sensors::CompassReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -574,143 +574,143 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ICompass<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ICompass2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass2)->put_ReadingTransform(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass2<D>::ReadingTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Display::DisplayOrientations) consume_Windows_Devices_Sensors_ICompass2<D>::ReadingTransform() const
     {
-        Windows::Graphics::Display::DisplayOrientations value;
+        Windows::Graphics::Display::DisplayOrientations value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass2)->get_ReadingTransform(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass3<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ICompass3<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass3)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass3<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_ICompass3<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass3)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass3<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_ICompass3<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass3)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompass4<D>::ReportThreshold() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::CompassDataThreshold) consume_Windows_Devices_Sensors_ICompass4<D>::ReportThreshold() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompass4)->get_ReportThreshold(&value));
         return Windows::Devices::Sensors::CompassDataThreshold{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassDataThreshold<D>::Degrees() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_ICompassDataThreshold<D>::Degrees() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassDataThreshold)->get_Degrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassDataThreshold<D>::Degrees(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ICompassDataThreshold<D>::Degrees(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassDataThreshold)->put_Degrees(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassDeviceId<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_ICompassDeviceId<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassDeviceId)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_ICompassReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassReading<D>::HeadingMagneticNorth() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_ICompassReading<D>::HeadingMagneticNorth() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassReading)->get_HeadingMagneticNorth(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassReading<D>::HeadingTrueNorth() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) consume_Windows_Devices_Sensors_ICompassReading<D>::HeadingTrueNorth() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassReading)->get_HeadingTrueNorth(&value));
         return Windows::Foundation::IReference<double>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_ICompassReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_ICompassReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::CompassReading) consume_Windows_Devices_Sensors_ICompassReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::CompassReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassReadingHeadingAccuracy<D>::HeadingAccuracy() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::MagnetometerAccuracy) consume_Windows_Devices_Sensors_ICompassReadingHeadingAccuracy<D>::HeadingAccuracy() const
     {
-        Windows::Devices::Sensors::MagnetometerAccuracy value;
+        Windows::Devices::Sensors::MagnetometerAccuracy value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassReadingHeadingAccuracy)->get_HeadingAccuracy(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Compass) consume_Windows_Devices_Sensors_ICompassStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::Compass{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassStatics2<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_ICompassStatics2<D>::GetDeviceSelector() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassStatics2)->GetDeviceSelector(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ICompassStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Compass>) consume_Windows_Devices_Sensors_ICompassStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ICompassStatics2)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Compass>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::GyrometerReading) consume_Windows_Devices_Sensors_IGyrometer<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::GyrometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IGyrometer<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IGyrometer<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IGyrometer<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Gyrometer, Windows::Devices::Sensors::GyrometerReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IGyrometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Gyrometer, Windows::Devices::Sensors::GyrometerReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -718,187 +718,187 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IGyrometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IGyrometer2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer2)->put_ReadingTransform(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer2<D>::ReadingTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Display::DisplayOrientations) consume_Windows_Devices_Sensors_IGyrometer2<D>::ReadingTransform() const
     {
-        Windows::Graphics::Display::DisplayOrientations value;
+        Windows::Graphics::Display::DisplayOrientations value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer2)->get_ReadingTransform(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer3<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IGyrometer3<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer3)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer3<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IGyrometer3<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer3)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer3<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IGyrometer3<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer3)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometer4<D>::ReportThreshold() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::GyrometerDataThreshold) consume_Windows_Devices_Sensors_IGyrometer4<D>::ReportThreshold() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometer4)->get_ReportThreshold(&value));
         return Windows::Devices::Sensors::GyrometerDataThreshold{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::XAxisInDegreesPerSecond() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::XAxisInDegreesPerSecond() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerDataThreshold)->get_XAxisInDegreesPerSecond(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::XAxisInDegreesPerSecond(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::XAxisInDegreesPerSecond(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerDataThreshold)->put_XAxisInDegreesPerSecond(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::YAxisInDegreesPerSecond() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::YAxisInDegreesPerSecond() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerDataThreshold)->get_YAxisInDegreesPerSecond(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::YAxisInDegreesPerSecond(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::YAxisInDegreesPerSecond(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerDataThreshold)->put_YAxisInDegreesPerSecond(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::ZAxisInDegreesPerSecond() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::ZAxisInDegreesPerSecond() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerDataThreshold)->get_ZAxisInDegreesPerSecond(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::ZAxisInDegreesPerSecond(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IGyrometerDataThreshold<D>::ZAxisInDegreesPerSecond(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerDataThreshold)->put_ZAxisInDegreesPerSecond(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerDeviceId<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IGyrometerDeviceId<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerDeviceId)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IGyrometerReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerReading<D>::AngularVelocityX() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IGyrometerReading<D>::AngularVelocityX() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerReading)->get_AngularVelocityX(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerReading<D>::AngularVelocityY() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IGyrometerReading<D>::AngularVelocityY() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerReading)->get_AngularVelocityY(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerReading<D>::AngularVelocityZ() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IGyrometerReading<D>::AngularVelocityZ() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerReading)->get_AngularVelocityZ(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_IGyrometerReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_IGyrometerReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::GyrometerReading) consume_Windows_Devices_Sensors_IGyrometerReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::GyrometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Gyrometer) consume_Windows_Devices_Sensors_IGyrometerStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::Gyrometer{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerStatics2<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IGyrometerStatics2<D>::GetDeviceSelector() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerStatics2)->GetDeviceSelector(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IGyrometerStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Gyrometer>) consume_Windows_Devices_Sensors_IGyrometerStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IGyrometerStatics2)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Gyrometer>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IHingeAngleReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleReading<D>::AngleInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IHingeAngleReading<D>::AngleInDegrees() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleReading)->get_AngleInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleReading<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_IHingeAngleReading<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleReading)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::GetCurrentReadingAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::HingeAngleReading>) consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::GetCurrentReadingAsync() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensor)->GetCurrentReadingAsync(&value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::HingeAngleReading>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensor)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::MinReportThresholdInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::MinReportThresholdInDegrees() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensor)->get_MinReportThresholdInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::ReportThresholdInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::ReportThresholdInDegrees() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensor)->get_ReportThresholdInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::ReportThresholdInDegrees(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::ReportThresholdInDegrees(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensor)->put_ReportThresholdInDegrees(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::HingeAngleSensor, Windows::Devices::Sensors::HingeAngleSensorReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::HingeAngleSensor, Windows::Devices::Sensors::HingeAngleSensorReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensor)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -906,65 +906,65 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IHingeAngleSensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensor)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensorReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::HingeAngleReading) consume_Windows_Devices_Sensors_IHingeAngleSensorReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensorReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::HingeAngleReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensorStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IHingeAngleSensorStatics<D>::GetDeviceSelector() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensorStatics)->GetDeviceSelector(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensorStatics<D>::GetDefaultAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::HingeAngleSensor>) consume_Windows_Devices_Sensors_IHingeAngleSensorStatics<D>::GetDefaultAsync() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensorStatics)->GetDefaultAsync(&result));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::HingeAngleSensor>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensorStatics<D>::GetRelatedToAdjacentPanelsAsync(param::hstring const& firstPanelId, param::hstring const& secondPanelId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::HingeAngleSensor>) consume_Windows_Devices_Sensors_IHingeAngleSensorStatics<D>::GetRelatedToAdjacentPanelsAsync(param::hstring const& firstPanelId, param::hstring const& secondPanelId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensorStatics)->GetRelatedToAdjacentPanelsAsync(*(void**)(&firstPanelId), *(void**)(&secondPanelId), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::HingeAngleSensor>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IHingeAngleSensorStatics<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::HingeAngleSensor>) consume_Windows_Devices_Sensors_IHingeAngleSensorStatics<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IHingeAngleSensorStatics)->FromIdAsync(*(void**)(&deviceId), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::HingeAngleSensor>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::InclinometerReading) consume_Windows_Devices_Sensors_IInclinometer<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::InclinometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IInclinometer<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IInclinometer<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IInclinometer<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Inclinometer, Windows::Devices::Sensors::InclinometerReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IInclinometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Inclinometer, Windows::Devices::Sensors::InclinometerReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -972,187 +972,187 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IInclinometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IInclinometer2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer2)->put_ReadingTransform(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer2<D>::ReadingTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Display::DisplayOrientations) consume_Windows_Devices_Sensors_IInclinometer2<D>::ReadingTransform() const
     {
-        Windows::Graphics::Display::DisplayOrientations value;
+        Windows::Graphics::Display::DisplayOrientations value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer2)->get_ReadingTransform(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer2<D>::ReadingType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::SensorReadingType) consume_Windows_Devices_Sensors_IInclinometer2<D>::ReadingType() const
     {
-        Windows::Devices::Sensors::SensorReadingType type;
+        Windows::Devices::Sensors::SensorReadingType type{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer2)->get_ReadingType(reinterpret_cast<int32_t*>(&type)));
         return type;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer3<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IInclinometer3<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer3)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer3<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IInclinometer3<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer3)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer3<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IInclinometer3<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer3)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometer4<D>::ReportThreshold() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::InclinometerDataThreshold) consume_Windows_Devices_Sensors_IInclinometer4<D>::ReportThreshold() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometer4)->get_ReportThreshold(&value));
         return Windows::Devices::Sensors::InclinometerDataThreshold{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::PitchInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::PitchInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerDataThreshold)->get_PitchInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::PitchInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::PitchInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerDataThreshold)->put_PitchInDegrees(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::RollInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::RollInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerDataThreshold)->get_RollInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::RollInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::RollInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerDataThreshold)->put_RollInDegrees(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::YawInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::YawInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerDataThreshold)->get_YawInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::YawInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IInclinometerDataThreshold<D>::YawInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerDataThreshold)->put_YawInDegrees(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerDeviceId<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IInclinometerDeviceId<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerDeviceId)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IInclinometerReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerReading<D>::PitchDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IInclinometerReading<D>::PitchDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerReading)->get_PitchDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerReading<D>::RollDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IInclinometerReading<D>::RollDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerReading)->get_RollDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerReading<D>::YawDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IInclinometerReading<D>::YawDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerReading)->get_YawDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_IInclinometerReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_IInclinometerReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::InclinometerReading) consume_Windows_Devices_Sensors_IInclinometerReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::InclinometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerReadingYawAccuracy<D>::YawAccuracy() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::MagnetometerAccuracy) consume_Windows_Devices_Sensors_IInclinometerReadingYawAccuracy<D>::YawAccuracy() const
     {
-        Windows::Devices::Sensors::MagnetometerAccuracy value;
+        Windows::Devices::Sensors::MagnetometerAccuracy value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerReadingYawAccuracy)->get_YawAccuracy(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Inclinometer) consume_Windows_Devices_Sensors_IInclinometerStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::Inclinometer{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerStatics2<D>::GetDefaultForRelativeReadings() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Inclinometer) consume_Windows_Devices_Sensors_IInclinometerStatics2<D>::GetDefaultForRelativeReadings() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerStatics2)->GetDefaultForRelativeReadings(&result));
         return Windows::Devices::Sensors::Inclinometer{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerStatics3<D>::GetDefault(Windows::Devices::Sensors::SensorReadingType const& sensorReadingtype) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Inclinometer) consume_Windows_Devices_Sensors_IInclinometerStatics3<D>::GetDefault(Windows::Devices::Sensors::SensorReadingType const& sensorReadingtype) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerStatics3)->GetDefaultWithSensorReadingType(static_cast<int32_t>(sensorReadingtype), &result));
         return Windows::Devices::Sensors::Inclinometer{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerStatics4<D>::GetDeviceSelector(Windows::Devices::Sensors::SensorReadingType const& readingType) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IInclinometerStatics4<D>::GetDeviceSelector(Windows::Devices::Sensors::SensorReadingType const& readingType) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerStatics4)->GetDeviceSelector(static_cast<int32_t>(readingType), &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IInclinometerStatics4<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Inclinometer>) consume_Windows_Devices_Sensors_IInclinometerStatics4<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IInclinometerStatics4)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Inclinometer>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::LightSensorReading) consume_Windows_Devices_Sensors_ILightSensor<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::LightSensorReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_ILightSensor<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ILightSensor<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_ILightSensor<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::LightSensor, Windows::Devices::Sensors::LightSensorReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_ILightSensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::LightSensor, Windows::Devices::Sensors::LightSensorReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1160,131 +1160,131 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ILightSensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor2<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ILightSensor2<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor2)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor2<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_ILightSensor2<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor2)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor2<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_ILightSensor2<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor2)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensor3<D>::ReportThreshold() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::LightSensorDataThreshold) consume_Windows_Devices_Sensors_ILightSensor3<D>::ReportThreshold() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensor3)->get_ReportThreshold(&value));
         return Windows::Devices::Sensors::LightSensorDataThreshold{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorDataThreshold<D>::LuxPercentage() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ILightSensorDataThreshold<D>::LuxPercentage() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorDataThreshold)->get_LuxPercentage(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorDataThreshold<D>::LuxPercentage(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ILightSensorDataThreshold<D>::LuxPercentage(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorDataThreshold)->put_LuxPercentage(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorDataThreshold<D>::AbsoluteLux() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ILightSensorDataThreshold<D>::AbsoluteLux() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorDataThreshold)->get_AbsoluteLux(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorDataThreshold<D>::AbsoluteLux(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ILightSensorDataThreshold<D>::AbsoluteLux(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorDataThreshold)->put_AbsoluteLux(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorDeviceId<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_ILightSensorDeviceId<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorDeviceId)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_ILightSensorReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorReading<D>::IlluminanceInLux() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ILightSensorReading<D>::IlluminanceInLux() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorReading)->get_IlluminanceInLux(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_ILightSensorReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_ILightSensorReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::LightSensorReading) consume_Windows_Devices_Sensors_ILightSensorReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::LightSensorReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::LightSensor) consume_Windows_Devices_Sensors_ILightSensorStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::LightSensor{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorStatics2<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_ILightSensorStatics2<D>::GetDeviceSelector() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorStatics2)->GetDeviceSelector(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ILightSensorStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::LightSensor>) consume_Windows_Devices_Sensors_ILightSensorStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ILightSensorStatics2)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::LightSensor>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::MagnetometerReading) consume_Windows_Devices_Sensors_IMagnetometer<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::MagnetometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IMagnetometer<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IMagnetometer<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IMagnetometer<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Magnetometer, Windows::Devices::Sensors::MagnetometerReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IMagnetometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Magnetometer, Windows::Devices::Sensors::MagnetometerReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1292,169 +1292,169 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IMagnetometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IMagnetometer2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer2)->put_ReadingTransform(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer2<D>::ReadingTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Display::DisplayOrientations) consume_Windows_Devices_Sensors_IMagnetometer2<D>::ReadingTransform() const
     {
-        Windows::Graphics::Display::DisplayOrientations value;
+        Windows::Graphics::Display::DisplayOrientations value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer2)->get_ReadingTransform(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer3<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IMagnetometer3<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer3)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer3<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IMagnetometer3<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer3)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer3<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IMagnetometer3<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer3)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometer4<D>::ReportThreshold() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::MagnetometerDataThreshold) consume_Windows_Devices_Sensors_IMagnetometer4<D>::ReportThreshold() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometer4)->get_ReportThreshold(&value));
         return Windows::Devices::Sensors::MagnetometerDataThreshold{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::XAxisMicroteslas() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::XAxisMicroteslas() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerDataThreshold)->get_XAxisMicroteslas(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::XAxisMicroteslas(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::XAxisMicroteslas(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerDataThreshold)->put_XAxisMicroteslas(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::YAxisMicroteslas() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::YAxisMicroteslas() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerDataThreshold)->get_YAxisMicroteslas(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::YAxisMicroteslas(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::YAxisMicroteslas(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerDataThreshold)->put_YAxisMicroteslas(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::ZAxisMicroteslas() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::ZAxisMicroteslas() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerDataThreshold)->get_ZAxisMicroteslas(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::ZAxisMicroteslas(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IMagnetometerDataThreshold<D>::ZAxisMicroteslas(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerDataThreshold)->put_ZAxisMicroteslas(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerDeviceId<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IMagnetometerDeviceId<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerDeviceId)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IMagnetometerReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerReading<D>::MagneticFieldX() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IMagnetometerReading<D>::MagneticFieldX() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerReading)->get_MagneticFieldX(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerReading<D>::MagneticFieldY() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IMagnetometerReading<D>::MagneticFieldY() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerReading)->get_MagneticFieldY(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerReading<D>::MagneticFieldZ() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_IMagnetometerReading<D>::MagneticFieldZ() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerReading)->get_MagneticFieldZ(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerReading<D>::DirectionalAccuracy() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::MagnetometerAccuracy) consume_Windows_Devices_Sensors_IMagnetometerReading<D>::DirectionalAccuracy() const
     {
-        Windows::Devices::Sensors::MagnetometerAccuracy value;
+        Windows::Devices::Sensors::MagnetometerAccuracy value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerReading)->get_DirectionalAccuracy(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_IMagnetometerReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_IMagnetometerReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::MagnetometerReading) consume_Windows_Devices_Sensors_IMagnetometerReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::MagnetometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::Magnetometer) consume_Windows_Devices_Sensors_IMagnetometerStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::Magnetometer{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerStatics2<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IMagnetometerStatics2<D>::GetDeviceSelector() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerStatics2)->GetDeviceSelector(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IMagnetometerStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Magnetometer>) consume_Windows_Devices_Sensors_IMagnetometerStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IMagnetometerStatics2)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Magnetometer>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::OrientationSensorReading) consume_Windows_Devices_Sensors_IOrientationSensor<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::OrientationSensorReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IOrientationSensor<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IOrientationSensor<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IOrientationSensor<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::OrientationSensor, Windows::Devices::Sensors::OrientationSensorReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IOrientationSensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::OrientationSensor, Windows::Devices::Sensors::OrientationSensorReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1462,163 +1462,163 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IOrientationSensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IOrientationSensor2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor2)->put_ReadingTransform(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor2<D>::ReadingTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Display::DisplayOrientations) consume_Windows_Devices_Sensors_IOrientationSensor2<D>::ReadingTransform() const
     {
-        Windows::Graphics::Display::DisplayOrientations value;
+        Windows::Graphics::Display::DisplayOrientations value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor2)->get_ReadingTransform(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor2<D>::ReadingType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::SensorReadingType) consume_Windows_Devices_Sensors_IOrientationSensor2<D>::ReadingType() const
     {
-        Windows::Devices::Sensors::SensorReadingType type;
+        Windows::Devices::Sensors::SensorReadingType type{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor2)->get_ReadingType(reinterpret_cast<int32_t*>(&type)));
         return type;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor3<D>::ReportLatency(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IOrientationSensor3<D>::ReportLatency(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor3)->put_ReportLatency(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor3<D>::ReportLatency() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IOrientationSensor3<D>::ReportLatency() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor3)->get_ReportLatency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensor3<D>::MaxBatchSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IOrientationSensor3<D>::MaxBatchSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensor3)->get_MaxBatchSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorDeviceId<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IOrientationSensorDeviceId<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorDeviceId)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IOrientationSensorReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorReading<D>::RotationMatrix() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::SensorRotationMatrix) consume_Windows_Devices_Sensors_IOrientationSensorReading<D>::RotationMatrix() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorReading)->get_RotationMatrix(&value));
         return Windows::Devices::Sensors::SensorRotationMatrix{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorReading<D>::Quaternion() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::SensorQuaternion) consume_Windows_Devices_Sensors_IOrientationSensorReading<D>::Quaternion() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorReading)->get_Quaternion(&value));
         return Windows::Devices::Sensors::SensorQuaternion{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorReading2<D>::PerformanceCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_Devices_Sensors_IOrientationSensorReading2<D>::PerformanceCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorReading2)->get_PerformanceCount(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorReading2<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) consume_Windows_Devices_Sensors_IOrientationSensorReading2<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorReading2)->get_Properties(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::OrientationSensorReading) consume_Windows_Devices_Sensors_IOrientationSensorReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::OrientationSensorReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorReadingYawAccuracy<D>::YawAccuracy() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::MagnetometerAccuracy) consume_Windows_Devices_Sensors_IOrientationSensorReadingYawAccuracy<D>::YawAccuracy() const
     {
-        Windows::Devices::Sensors::MagnetometerAccuracy value;
+        Windows::Devices::Sensors::MagnetometerAccuracy value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorReadingYawAccuracy)->get_YawAccuracy(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::OrientationSensor) consume_Windows_Devices_Sensors_IOrientationSensorStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::OrientationSensor{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorStatics2<D>::GetDefaultForRelativeReadings() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::OrientationSensor) consume_Windows_Devices_Sensors_IOrientationSensorStatics2<D>::GetDefaultForRelativeReadings() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorStatics2)->GetDefaultForRelativeReadings(&result));
         return Windows::Devices::Sensors::OrientationSensor{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorStatics3<D>::GetDefault(Windows::Devices::Sensors::SensorReadingType const& sensorReadingtype) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::OrientationSensor) consume_Windows_Devices_Sensors_IOrientationSensorStatics3<D>::GetDefault(Windows::Devices::Sensors::SensorReadingType const& sensorReadingtype) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorStatics3)->GetDefaultWithSensorReadingType(static_cast<int32_t>(sensorReadingtype), &result));
         return Windows::Devices::Sensors::OrientationSensor{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorStatics3<D>::GetDefault(Windows::Devices::Sensors::SensorReadingType const& sensorReadingType, Windows::Devices::Sensors::SensorOptimizationGoal const& optimizationGoal) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::OrientationSensor) consume_Windows_Devices_Sensors_IOrientationSensorStatics3<D>::GetDefault(Windows::Devices::Sensors::SensorReadingType const& sensorReadingType, Windows::Devices::Sensors::SensorOptimizationGoal const& optimizationGoal) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorStatics3)->GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal(static_cast<int32_t>(sensorReadingType), static_cast<int32_t>(optimizationGoal), &result));
         return Windows::Devices::Sensors::OrientationSensor{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorStatics4<D>::GetDeviceSelector(Windows::Devices::Sensors::SensorReadingType const& readingType) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IOrientationSensorStatics4<D>::GetDeviceSelector(Windows::Devices::Sensors::SensorReadingType const& readingType) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorStatics4)->GetDeviceSelector(static_cast<int32_t>(readingType), &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorStatics4<D>::GetDeviceSelector(Windows::Devices::Sensors::SensorReadingType const& readingType, Windows::Devices::Sensors::SensorOptimizationGoal const& optimizationGoal) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IOrientationSensorStatics4<D>::GetDeviceSelector(Windows::Devices::Sensors::SensorReadingType const& readingType, Windows::Devices::Sensors::SensorOptimizationGoal const& optimizationGoal) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorStatics4)->GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal(static_cast<int32_t>(readingType), static_cast<int32_t>(optimizationGoal), &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IOrientationSensorStatics4<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::OrientationSensor>) consume_Windows_Devices_Sensors_IOrientationSensorStatics4<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IOrientationSensorStatics4)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::OrientationSensor>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometer<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IPedometer<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometer)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometer<D>::PowerInMilliwatts() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Sensors_IPedometer<D>::PowerInMilliwatts() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometer)->get_PowerInMilliwatts(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometer<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IPedometer<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometer)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometer<D>::ReportInterval(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IPedometer<D>::ReportInterval(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometer)->put_ReportInterval(value));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometer<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Sensors_IPedometer<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometer)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Pedometer, Windows::Devices::Sensors::PedometerReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IPedometer<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Pedometer, Windows::Devices::Sensors::PedometerReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometer)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1626,115 +1626,115 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IPedometer<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometer)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometer2<D>::GetCurrentReadings() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<Windows::Devices::Sensors::PedometerStepKind, Windows::Devices::Sensors::PedometerReading>) consume_Windows_Devices_Sensors_IPedometer2<D>::GetCurrentReadings() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometer2)->GetCurrentReadings(&value));
         return Windows::Foundation::Collections::IMapView<Windows::Devices::Sensors::PedometerStepKind, Windows::Devices::Sensors::PedometerReading>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerDataThresholdFactory<D>::Create(Windows::Devices::Sensors::Pedometer const& sensor, int32_t stepGoal) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::PedometerDataThreshold) consume_Windows_Devices_Sensors_IPedometerDataThresholdFactory<D>::Create(Windows::Devices::Sensors::Pedometer const& sensor, int32_t stepGoal) const
     {
         void* threshold{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerDataThresholdFactory)->Create(*(void**)(&sensor), stepGoal, &threshold));
         return Windows::Devices::Sensors::PedometerDataThreshold{ threshold, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerReading<D>::StepKind() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::PedometerStepKind) consume_Windows_Devices_Sensors_IPedometerReading<D>::StepKind() const
     {
-        Windows::Devices::Sensors::PedometerStepKind value;
+        Windows::Devices::Sensors::PedometerStepKind value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerReading)->get_StepKind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerReading<D>::CumulativeSteps() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_Devices_Sensors_IPedometerReading<D>::CumulativeSteps() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerReading)->get_CumulativeSteps(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IPedometerReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerReading<D>::CumulativeStepsDuration() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Devices_Sensors_IPedometerReading<D>::CumulativeStepsDuration() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerReading)->get_CumulativeStepsDuration(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::PedometerReading) consume_Windows_Devices_Sensors_IPedometerReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::PedometerReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerStatics<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Pedometer>) consume_Windows_Devices_Sensors_IPedometerStatics<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerStatics)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Pedometer>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerStatics<D>::GetDefaultAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Pedometer>) consume_Windows_Devices_Sensors_IPedometerStatics<D>::GetDefaultAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerStatics)->GetDefaultAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Pedometer>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IPedometerStatics<D>::GetDeviceSelector() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerStatics)->GetDeviceSelector(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerStatics<D>::GetSystemHistoryAsync(Windows::Foundation::DateTime const& fromTime) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::PedometerReading>>) consume_Windows_Devices_Sensors_IPedometerStatics<D>::GetSystemHistoryAsync(Windows::Foundation::DateTime const& fromTime) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerStatics)->GetSystemHistoryAsync(impl::bind_in(fromTime), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::PedometerReading>>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerStatics<D>::GetSystemHistoryAsync(Windows::Foundation::DateTime const& fromTime, Windows::Foundation::TimeSpan const& duration) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::PedometerReading>>) consume_Windows_Devices_Sensors_IPedometerStatics<D>::GetSystemHistoryAsync(Windows::Foundation::DateTime const& fromTime, Windows::Foundation::TimeSpan const& duration) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerStatics)->GetSystemHistoryWithDurationAsync(impl::bind_in(fromTime), impl::bind_in(duration), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::PedometerReading>>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IPedometerStatics2<D>::GetReadingsFromTriggerDetails(Windows::Devices::Sensors::SensorDataThresholdTriggerDetails const& triggerDetails) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::PedometerReading>) consume_Windows_Devices_Sensors_IPedometerStatics2<D>::GetReadingsFromTriggerDetails(Windows::Devices::Sensors::SensorDataThresholdTriggerDetails const& triggerDetails) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IPedometerStatics2)->GetReadingsFromTriggerDetails(*(void**)(&triggerDetails), &result));
         return Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::PedometerReading>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensor<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IProximitySensor<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensor)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensor<D>::MaxDistanceInMillimeters() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) consume_Windows_Devices_Sensors_IProximitySensor<D>::MaxDistanceInMillimeters() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensor)->get_MaxDistanceInMillimeters(&value));
         return Windows::Foundation::IReference<uint32_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensor<D>::MinDistanceInMillimeters() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) consume_Windows_Devices_Sensors_IProximitySensor<D>::MinDistanceInMillimeters() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensor)->get_MinDistanceInMillimeters(&value));
         return Windows::Foundation::IReference<uint32_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensor<D>::GetCurrentReading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ProximitySensorReading) consume_Windows_Devices_Sensors_IProximitySensor<D>::GetCurrentReading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensor)->GetCurrentReading(&value));
         return Windows::Devices::Sensors::ProximitySensorReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::ProximitySensor, Windows::Devices::Sensors::ProximitySensorReadingChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_IProximitySensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::ProximitySensor, Windows::Devices::Sensors::ProximitySensorReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensor)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1742,163 +1742,163 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_IProximitySensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensor)->remove_ReadingChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensor<D>::CreateDisplayOnOffController() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ProximitySensorDisplayOnOffController) consume_Windows_Devices_Sensors_IProximitySensor<D>::CreateDisplayOnOffController() const
     {
         void* controller{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensor)->CreateDisplayOnOffController(&controller));
         return Windows::Devices::Sensors::ProximitySensorDisplayOnOffController{ controller, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensorDataThresholdFactory<D>::Create(Windows::Devices::Sensors::ProximitySensor const& sensor) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ProximitySensorDataThreshold) consume_Windows_Devices_Sensors_IProximitySensorDataThresholdFactory<D>::Create(Windows::Devices::Sensors::ProximitySensor const& sensor) const
     {
         void* threshold{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensorDataThresholdFactory)->Create(*(void**)(&sensor), &threshold));
         return Windows::Devices::Sensors::ProximitySensorDataThreshold{ threshold, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensorReading<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_IProximitySensorReading<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensorReading)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensorReading<D>::IsDetected() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_Sensors_IProximitySensorReading<D>::IsDetected() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensorReading)->get_IsDetected(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensorReading<D>::DistanceInMillimeters() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) consume_Windows_Devices_Sensors_IProximitySensorReading<D>::DistanceInMillimeters() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensorReading)->get_DistanceInMillimeters(&value));
         return Windows::Foundation::IReference<uint32_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensorReadingChangedEventArgs<D>::Reading() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ProximitySensorReading) consume_Windows_Devices_Sensors_IProximitySensorReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensorReadingChangedEventArgs)->get_Reading(&value));
         return Windows::Devices::Sensors::ProximitySensorReading{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensorStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_IProximitySensorStatics<D>::GetDeviceSelector() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensorStatics)->GetDeviceSelector(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensorStatics<D>::FromId(param::hstring const& sensorId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::ProximitySensor) consume_Windows_Devices_Sensors_IProximitySensorStatics<D>::FromId(param::hstring const& sensorId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensorStatics)->FromId(*(void**)(&sensorId), &result));
         return Windows::Devices::Sensors::ProximitySensor{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_IProximitySensorStatics2<D>::GetReadingsFromTriggerDetails(Windows::Devices::Sensors::SensorDataThresholdTriggerDetails const& triggerDetails) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ProximitySensorReading>) consume_Windows_Devices_Sensors_IProximitySensorStatics2<D>::GetReadingsFromTriggerDetails(Windows::Devices::Sensors::SensorDataThresholdTriggerDetails const& triggerDetails) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::IProximitySensorStatics2)->GetReadingsFromTriggerDetails(*(void**)(&triggerDetails), &result));
         return Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ProximitySensorReading>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorDataThresholdTriggerDetails<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_ISensorDataThresholdTriggerDetails<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorDataThresholdTriggerDetails)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorDataThresholdTriggerDetails<D>::SensorType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::SensorType) consume_Windows_Devices_Sensors_ISensorDataThresholdTriggerDetails<D>::SensorType() const
     {
-        Windows::Devices::Sensors::SensorType value;
+        Windows::Devices::Sensors::SensorType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorDataThresholdTriggerDetails)->get_SensorType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorQuaternion<D>::W() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorQuaternion<D>::W() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorQuaternion)->get_W(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorQuaternion<D>::X() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorQuaternion<D>::X() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorQuaternion)->get_X(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorQuaternion<D>::Y() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorQuaternion<D>::Y() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorQuaternion)->get_Y(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorQuaternion<D>::Z() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorQuaternion<D>::Z() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorQuaternion)->get_Z(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M11() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M11() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M11(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M12() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M12() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M12(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M13() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M13() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M13(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M21() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M21() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M21(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M22() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M22() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M22(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M23() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M23() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M23(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M31() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M31() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M31(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M32() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M32() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M32(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M33() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Devices_Sensors_ISensorRotationMatrix<D>::M33() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISensorRotationMatrix)->get_M33(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensor<D>::GetCurrentOrientation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::SimpleOrientation) consume_Windows_Devices_Sensors_ISimpleOrientationSensor<D>::GetCurrentOrientation() const
     {
-        Windows::Devices::Sensors::SimpleOrientation value;
+        Windows::Devices::Sensors::SimpleOrientation value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensor)->GetCurrentOrientation(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensor<D>::OrientationChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::SimpleOrientationSensor, Windows::Devices::Sensors::SimpleOrientationSensorOrientationChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Sensors_ISimpleOrientationSensor<D>::OrientationChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::SimpleOrientationSensor, Windows::Devices::Sensors::SimpleOrientationSensorOrientationChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensor)->add_OrientationChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1906,51 +1906,51 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, OrientationChanged_revoker>(this, OrientationChanged(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensor<D>::OrientationChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ISimpleOrientationSensor<D>::OrientationChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensor)->remove_OrientationChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensor2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Sensors_ISimpleOrientationSensor2<D>::ReadingTransform(Windows::Graphics::Display::DisplayOrientations const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensor2)->put_ReadingTransform(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensor2<D>::ReadingTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Display::DisplayOrientations) consume_Windows_Devices_Sensors_ISimpleOrientationSensor2<D>::ReadingTransform() const
     {
-        Windows::Graphics::Display::DisplayOrientations value;
+        Windows::Graphics::Display::DisplayOrientations value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensor2)->get_ReadingTransform(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensorDeviceId<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_ISimpleOrientationSensorDeviceId<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensorDeviceId)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensorOrientationChangedEventArgs<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_Sensors_ISimpleOrientationSensorOrientationChangedEventArgs<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensorOrientationChangedEventArgs)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensorOrientationChangedEventArgs<D>::Orientation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::SimpleOrientation) consume_Windows_Devices_Sensors_ISimpleOrientationSensorOrientationChangedEventArgs<D>::Orientation() const
     {
-        Windows::Devices::Sensors::SimpleOrientation value;
+        Windows::Devices::Sensors::SimpleOrientation value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensorOrientationChangedEventArgs)->get_Orientation(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensorStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Sensors::SimpleOrientationSensor) consume_Windows_Devices_Sensors_ISimpleOrientationSensorStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensorStatics)->GetDefault(&result));
         return Windows::Devices::Sensors::SimpleOrientationSensor{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensorStatics2<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Sensors_ISimpleOrientationSensorStatics2<D>::GetDeviceSelector() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensorStatics2)->GetDeviceSelector(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_ISimpleOrientationSensorStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::SimpleOrientationSensor>) consume_Windows_Devices_Sensors_ISimpleOrientationSensorStatics2<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::ISimpleOrientationSensorStatics2)->FromIdAsync(*(void**)(&deviceId), &result));

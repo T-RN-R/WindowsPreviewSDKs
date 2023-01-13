@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,6 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Rect;
     struct Size;
 }
@@ -54,18 +55,16 @@ namespace winrt::impl
     template <> struct category<Windows::Data::Pdf::PdfPageDimensions>{ using type = class_category; };
     template <> struct category<Windows::Data::Pdf::PdfPageRenderOptions>{ using type = class_category; };
     template <> struct category<Windows::Data::Pdf::PdfPageRotation>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfDocument>{ L"Windows.Data.Pdf.PdfDocument" };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfPage>{ L"Windows.Data.Pdf.PdfPage" };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfPageDimensions>{ L"Windows.Data.Pdf.PdfPageDimensions" };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfPageRenderOptions>{ L"Windows.Data.Pdf.PdfPageRenderOptions" };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfPageRotation>{ L"Windows.Data.Pdf.PdfPageRotation" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfDocument>{ L"Windows.Data.Pdf.IPdfDocument" };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfDocumentStatics>{ L"Windows.Data.Pdf.IPdfDocumentStatics" };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPage>{ L"Windows.Data.Pdf.IPdfPage" };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPageDimensions>{ L"Windows.Data.Pdf.IPdfPageDimensions" };
-    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPageRenderOptions>{ L"Windows.Data.Pdf.IPdfPageRenderOptions" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfDocument> = L"Windows.Data.Pdf.PdfDocument";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfPage> = L"Windows.Data.Pdf.PdfPage";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfPageDimensions> = L"Windows.Data.Pdf.PdfPageDimensions";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfPageRenderOptions> = L"Windows.Data.Pdf.PdfPageRenderOptions";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::PdfPageRotation> = L"Windows.Data.Pdf.PdfPageRotation";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfDocument> = L"Windows.Data.Pdf.IPdfDocument";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfDocumentStatics> = L"Windows.Data.Pdf.IPdfDocumentStatics";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPage> = L"Windows.Data.Pdf.IPdfPage";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPageDimensions> = L"Windows.Data.Pdf.IPdfPageDimensions";
+    template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPageRenderOptions> = L"Windows.Data.Pdf.IPdfPageRenderOptions";
     template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfDocument>{ 0xAC7EBEDD,0x80FA,0x4089,{ 0x84,0x6E,0x81,0xB7,0x7F,0xF5,0xA8,0x6C } };
     template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfDocumentStatics>{ 0x433A0B5F,0xC007,0x4788,{ 0x90,0xF2,0x08,0x14,0x3D,0x92,0x25,0x99 } };
     template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfPage>{ 0x9DB4B0C8,0x5320,0x4CFC,{ 0xAD,0x76,0x49,0x3F,0xDA,0xD0,0xE5,0x94 } };
@@ -140,9 +139,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Pdf_IPdfDocument
     {
-        auto GetPage(uint32_t pageIndex) const;
-        [[nodiscard]] auto PageCount() const;
-        [[nodiscard]] auto IsPasswordProtected() const;
+        WINRT_IMPL_AUTO(Windows::Data::Pdf::PdfPage) GetPage(uint32_t pageIndex) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PageCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPasswordProtected() const;
     };
     template <> struct consume<Windows::Data::Pdf::IPdfDocument>
     {
@@ -151,10 +150,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Pdf_IPdfDocumentStatics
     {
-        auto LoadFromFileAsync(Windows::Storage::IStorageFile const& file) const;
-        auto LoadFromFileAsync(Windows::Storage::IStorageFile const& file, param::hstring const& password) const;
-        auto LoadFromStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& inputStream) const;
-        auto LoadFromStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& inputStream, param::hstring const& password) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Data::Pdf::PdfDocument>) LoadFromFileAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Data::Pdf::PdfDocument>) LoadFromFileAsync(Windows::Storage::IStorageFile const& file, param::hstring const& password) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Data::Pdf::PdfDocument>) LoadFromStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& inputStream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Data::Pdf::PdfDocument>) LoadFromStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& inputStream, param::hstring const& password) const;
     };
     template <> struct consume<Windows::Data::Pdf::IPdfDocumentStatics>
     {
@@ -163,14 +162,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Pdf_IPdfPage
     {
-        auto RenderToStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& outputStream) const;
-        auto RenderToStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& outputStream, Windows::Data::Pdf::PdfPageRenderOptions const& options) const;
-        auto PreparePageAsync() const;
-        [[nodiscard]] auto Index() const;
-        [[nodiscard]] auto Size() const;
-        [[nodiscard]] auto Dimensions() const;
-        [[nodiscard]] auto Rotation() const;
-        [[nodiscard]] auto PreferredZoom() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RenderToStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& outputStream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RenderToStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& outputStream, Windows::Data::Pdf::PdfPageRenderOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) PreparePageAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Index() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) Size() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Pdf::PdfPageDimensions) Dimensions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Pdf::PdfPageRotation) Rotation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) PreferredZoom() const;
     };
     template <> struct consume<Windows::Data::Pdf::IPdfPage>
     {
@@ -179,11 +178,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Pdf_IPdfPageDimensions
     {
-        [[nodiscard]] auto MediaBox() const;
-        [[nodiscard]] auto CropBox() const;
-        [[nodiscard]] auto BleedBox() const;
-        [[nodiscard]] auto TrimBox() const;
-        [[nodiscard]] auto ArtBox() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) MediaBox() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) CropBox() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) BleedBox() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) TrimBox() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) ArtBox() const;
     };
     template <> struct consume<Windows::Data::Pdf::IPdfPageDimensions>
     {
@@ -192,18 +191,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Pdf_IPdfPageRenderOptions
     {
-        [[nodiscard]] auto SourceRect() const;
-        auto SourceRect(Windows::Foundation::Rect const& value) const;
-        [[nodiscard]] auto DestinationWidth() const;
-        auto DestinationWidth(uint32_t value) const;
-        [[nodiscard]] auto DestinationHeight() const;
-        auto DestinationHeight(uint32_t value) const;
-        [[nodiscard]] auto BackgroundColor() const;
-        auto BackgroundColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto IsIgnoringHighContrast() const;
-        auto IsIgnoringHighContrast(bool value) const;
-        [[nodiscard]] auto BitmapEncoderId() const;
-        auto BitmapEncoderId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) SourceRect() const;
+        WINRT_IMPL_AUTO(void) SourceRect(Windows::Foundation::Rect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DestinationWidth() const;
+        WINRT_IMPL_AUTO(void) DestinationWidth(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DestinationHeight() const;
+        WINRT_IMPL_AUTO(void) DestinationHeight(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) BackgroundColor() const;
+        WINRT_IMPL_AUTO(void) BackgroundColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsIgnoringHighContrast() const;
+        WINRT_IMPL_AUTO(void) IsIgnoringHighContrast(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) BitmapEncoderId() const;
+        WINRT_IMPL_AUTO(void) BitmapEncoderId(winrt::guid const& value) const;
     };
     template <> struct consume<Windows::Data::Pdf::IPdfPageRenderOptions>
     {

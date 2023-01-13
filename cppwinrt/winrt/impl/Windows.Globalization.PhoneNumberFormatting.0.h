@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -65,19 +65,17 @@ namespace winrt::impl
     template <> struct category<Windows::Globalization::PhoneNumberFormatting::PhoneNumberMatchResult>{ using type = enum_category; };
     template <> struct category<Windows::Globalization::PhoneNumberFormatting::PhoneNumberParseResult>{ using type = enum_category; };
     template <> struct category<Windows::Globalization::PhoneNumberFormatting::PredictedPhoneNumberKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormatter>{ L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo>{ L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormat>{ L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberMatchResult>{ L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberParseResult>{ L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PredictedPhoneNumberKind>{ L"Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatter>{ L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatterStatics>{ L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatterStatics" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfo>{ L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoFactory>{ L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoStatics>{ L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormatter> = L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo> = L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormat> = L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberMatchResult> = L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PhoneNumberParseResult> = L"Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::PredictedPhoneNumberKind> = L"Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatter> = L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatterStatics> = L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatterStatics";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfo> = L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoFactory> = L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoStatics> = L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoStatics";
     template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatter>{ 0x1556B49E,0xBAD4,0x4B4A,{ 0x90,0x0D,0x44,0x07,0xAD,0xB7,0xC9,0x81 } };
     template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatterStatics>{ 0x5CA6F931,0x84D9,0x414B,{ 0xAB,0x4E,0xA0,0x55,0x2C,0x87,0x86,0x02 } };
     template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfo>{ 0x1C7CE4DD,0xC8B4,0x4EA3,{ 0x9A,0xEF,0xB3,0x42,0xE2,0xC5,0xB4,0x17 } };
@@ -138,11 +136,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_PhoneNumberFormatting_IPhoneNumberFormatter
     {
-        auto Format(Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo const& number) const;
-        auto Format(Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo const& number, Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormat const& numberFormat) const;
-        auto FormatPartialString(param::hstring const& number) const;
-        auto FormatString(param::hstring const& number) const;
-        auto FormatStringWithLeftToRightMarkers(param::hstring const& number) const;
+        WINRT_IMPL_AUTO(hstring) Format(Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo const& number) const;
+        WINRT_IMPL_AUTO(hstring) Format(Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo const& number, Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormat const& numberFormat) const;
+        WINRT_IMPL_AUTO(hstring) FormatPartialString(param::hstring const& number) const;
+        WINRT_IMPL_AUTO(hstring) FormatString(param::hstring const& number) const;
+        WINRT_IMPL_AUTO(hstring) FormatStringWithLeftToRightMarkers(param::hstring const& number) const;
     };
     template <> struct consume<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatter>
     {
@@ -151,10 +149,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_PhoneNumberFormatting_IPhoneNumberFormatterStatics
     {
-        auto TryCreate(param::hstring const& regionCode, Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormatter& phoneNumber) const;
-        auto GetCountryCodeForRegion(param::hstring const& regionCode) const;
-        auto GetNationalDirectDialingPrefixForRegion(param::hstring const& regionCode, bool stripNonDigit) const;
-        auto WrapWithLeftToRightMarkers(param::hstring const& number) const;
+        WINRT_IMPL_AUTO(void) TryCreate(param::hstring const& regionCode, Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormatter& phoneNumber) const;
+        WINRT_IMPL_AUTO(int32_t) GetCountryCodeForRegion(param::hstring const& regionCode) const;
+        WINRT_IMPL_AUTO(hstring) GetNationalDirectDialingPrefixForRegion(param::hstring const& regionCode, bool stripNonDigit) const;
+        WINRT_IMPL_AUTO(hstring) WrapWithLeftToRightMarkers(param::hstring const& number) const;
     };
     template <> struct consume<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatterStatics>
     {
@@ -163,14 +161,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_PhoneNumberFormatting_IPhoneNumberInfo
     {
-        [[nodiscard]] auto CountryCode() const;
-        [[nodiscard]] auto PhoneNumber() const;
-        auto GetLengthOfGeographicalAreaCode() const;
-        auto GetNationalSignificantNumber() const;
-        auto GetLengthOfNationalDestinationCode() const;
-        auto PredictNumberKind() const;
-        auto GetGeographicRegionCode() const;
-        auto CheckNumberMatch(Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo const& otherNumber) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) CountryCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhoneNumber() const;
+        WINRT_IMPL_AUTO(int32_t) GetLengthOfGeographicalAreaCode() const;
+        WINRT_IMPL_AUTO(hstring) GetNationalSignificantNumber() const;
+        WINRT_IMPL_AUTO(int32_t) GetLengthOfNationalDestinationCode() const;
+        WINRT_IMPL_AUTO(Windows::Globalization::PhoneNumberFormatting::PredictedPhoneNumberKind) PredictNumberKind() const;
+        WINRT_IMPL_AUTO(hstring) GetGeographicRegionCode() const;
+        WINRT_IMPL_AUTO(Windows::Globalization::PhoneNumberFormatting::PhoneNumberMatchResult) CheckNumberMatch(Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo const& otherNumber) const;
     };
     template <> struct consume<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfo>
     {
@@ -179,7 +177,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_PhoneNumberFormatting_IPhoneNumberInfoFactory
     {
-        auto Create(param::hstring const& number) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo) Create(param::hstring const& number) const;
     };
     template <> struct consume<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoFactory>
     {
@@ -188,8 +186,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_PhoneNumberFormatting_IPhoneNumberInfoStatics
     {
-        auto TryParse(param::hstring const& input, Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo& phoneNumber) const;
-        auto TryParse(param::hstring const& input, param::hstring const& regionCode, Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo& phoneNumber) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::PhoneNumberFormatting::PhoneNumberParseResult) TryParse(param::hstring const& input, Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo& phoneNumber) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::PhoneNumberFormatting::PhoneNumberParseResult) TryParse(param::hstring const& input, param::hstring const& regionCode, Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo& phoneNumber) const;
     };
     template <> struct consume<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoStatics>
     {

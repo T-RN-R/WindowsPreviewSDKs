@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -106,7 +106,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Authentication::Web::Provider
     {
         WebProviderTokenResponse(std::nullptr_t) noexcept {}
         WebProviderTokenResponse(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Authentication::Web::Provider::IWebProviderTokenResponse(ptr, take_ownership_from_abi) {}
-        WebProviderTokenResponse(Windows::Security::Authentication::Web::Core::WebTokenResponse const& webTokenResponse);
+        explicit WebProviderTokenResponse(Windows::Security::Authentication::Web::Core::WebTokenResponse const& webTokenResponse);
     };
 }
 #endif

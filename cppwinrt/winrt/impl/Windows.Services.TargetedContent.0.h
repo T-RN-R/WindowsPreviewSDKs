@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,8 +10,16 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct Deferral;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename K, typename V> struct IMapView;
+    template <typename K, typename V> struct IMap;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -136,42 +144,40 @@ namespace winrt::impl
     template <> struct category<Windows::Services::TargetedContent::TargetedContentInteraction>{ using type = enum_category; };
     template <> struct category<Windows::Services::TargetedContent::TargetedContentObjectKind>{ using type = enum_category; };
     template <> struct category<Windows::Services::TargetedContent::TargetedContentValueKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentAction>{ L"Windows.Services.TargetedContent.TargetedContentAction" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentAvailabilityChangedEventArgs>{ L"Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentChangedEventArgs>{ L"Windows.Services.TargetedContent.TargetedContentChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentCollection>{ L"Windows.Services.TargetedContent.TargetedContentCollection" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentContainer>{ L"Windows.Services.TargetedContent.TargetedContentContainer" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentFile>{ L"Windows.Services.TargetedContent.TargetedContentFile" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentImage>{ L"Windows.Services.TargetedContent.TargetedContentImage" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentItem>{ L"Windows.Services.TargetedContent.TargetedContentItem" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentItemState>{ L"Windows.Services.TargetedContent.TargetedContentItemState" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentObject>{ L"Windows.Services.TargetedContent.TargetedContentObject" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentStateChangedEventArgs>{ L"Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentSubscription>{ L"Windows.Services.TargetedContent.TargetedContentSubscription" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentSubscriptionOptions>{ L"Windows.Services.TargetedContent.TargetedContentSubscriptionOptions" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentValue>{ L"Windows.Services.TargetedContent.TargetedContentValue" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentAppInstallationState>{ L"Windows.Services.TargetedContent.TargetedContentAppInstallationState" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentAvailability>{ L"Windows.Services.TargetedContent.TargetedContentAvailability" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentInteraction>{ L"Windows.Services.TargetedContent.TargetedContentInteraction" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentObjectKind>{ L"Windows.Services.TargetedContent.TargetedContentObjectKind" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentValueKind>{ L"Windows.Services.TargetedContent.TargetedContentValueKind" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentAction>{ L"Windows.Services.TargetedContent.ITargetedContentAction" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentAvailabilityChangedEventArgs>{ L"Windows.Services.TargetedContent.ITargetedContentAvailabilityChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentChangedEventArgs>{ L"Windows.Services.TargetedContent.ITargetedContentChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentCollection>{ L"Windows.Services.TargetedContent.ITargetedContentCollection" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentContainer>{ L"Windows.Services.TargetedContent.ITargetedContentContainer" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentContainerStatics>{ L"Windows.Services.TargetedContent.ITargetedContentContainerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentImage>{ L"Windows.Services.TargetedContent.ITargetedContentImage" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentItem>{ L"Windows.Services.TargetedContent.ITargetedContentItem" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentItemState>{ L"Windows.Services.TargetedContent.ITargetedContentItemState" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentObject>{ L"Windows.Services.TargetedContent.ITargetedContentObject" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentStateChangedEventArgs>{ L"Windows.Services.TargetedContent.ITargetedContentStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentSubscription>{ L"Windows.Services.TargetedContent.ITargetedContentSubscription" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionOptions>{ L"Windows.Services.TargetedContent.ITargetedContentSubscriptionOptions" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionStatics>{ L"Windows.Services.TargetedContent.ITargetedContentSubscriptionStatics" };
-    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentValue>{ L"Windows.Services.TargetedContent.ITargetedContentValue" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentAction> = L"Windows.Services.TargetedContent.TargetedContentAction";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentAvailabilityChangedEventArgs> = L"Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentChangedEventArgs> = L"Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentCollection> = L"Windows.Services.TargetedContent.TargetedContentCollection";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentContainer> = L"Windows.Services.TargetedContent.TargetedContentContainer";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentFile> = L"Windows.Services.TargetedContent.TargetedContentFile";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentImage> = L"Windows.Services.TargetedContent.TargetedContentImage";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentItem> = L"Windows.Services.TargetedContent.TargetedContentItem";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentItemState> = L"Windows.Services.TargetedContent.TargetedContentItemState";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentObject> = L"Windows.Services.TargetedContent.TargetedContentObject";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentStateChangedEventArgs> = L"Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentSubscription> = L"Windows.Services.TargetedContent.TargetedContentSubscription";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentSubscriptionOptions> = L"Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentValue> = L"Windows.Services.TargetedContent.TargetedContentValue";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentAppInstallationState> = L"Windows.Services.TargetedContent.TargetedContentAppInstallationState";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentAvailability> = L"Windows.Services.TargetedContent.TargetedContentAvailability";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentInteraction> = L"Windows.Services.TargetedContent.TargetedContentInteraction";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentObjectKind> = L"Windows.Services.TargetedContent.TargetedContentObjectKind";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::TargetedContentValueKind> = L"Windows.Services.TargetedContent.TargetedContentValueKind";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentAction> = L"Windows.Services.TargetedContent.ITargetedContentAction";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentAvailabilityChangedEventArgs> = L"Windows.Services.TargetedContent.ITargetedContentAvailabilityChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentChangedEventArgs> = L"Windows.Services.TargetedContent.ITargetedContentChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentCollection> = L"Windows.Services.TargetedContent.ITargetedContentCollection";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentContainer> = L"Windows.Services.TargetedContent.ITargetedContentContainer";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentContainerStatics> = L"Windows.Services.TargetedContent.ITargetedContentContainerStatics";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentImage> = L"Windows.Services.TargetedContent.ITargetedContentImage";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentItem> = L"Windows.Services.TargetedContent.ITargetedContentItem";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentItemState> = L"Windows.Services.TargetedContent.ITargetedContentItemState";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentObject> = L"Windows.Services.TargetedContent.ITargetedContentObject";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentStateChangedEventArgs> = L"Windows.Services.TargetedContent.ITargetedContentStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentSubscription> = L"Windows.Services.TargetedContent.ITargetedContentSubscription";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionOptions> = L"Windows.Services.TargetedContent.ITargetedContentSubscriptionOptions";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionStatics> = L"Windows.Services.TargetedContent.ITargetedContentSubscriptionStatics";
+    template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentValue> = L"Windows.Services.TargetedContent.ITargetedContentValue";
     template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentAction>{ 0xD75B691E,0x6CD6,0x4CA0,{ 0x9D,0x8F,0x47,0x28,0xB0,0xB7,0xE6,0xB6 } };
     template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentAvailabilityChangedEventArgs>{ 0xE0F59D26,0x5927,0x4450,{ 0x96,0x5C,0x1C,0xEB,0x7B,0xEC,0xDE,0x65 } };
     template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentChangedEventArgs>{ 0x99D488C9,0x587E,0x4586,{ 0x8E,0xF7,0xB5,0x4C,0xA9,0x45,0x3A,0x16 } };
@@ -358,7 +364,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentAction
     {
-        auto InvokeAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) InvokeAsync() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentAction>
     {
@@ -367,7 +373,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentAvailabilityChangedEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentAvailabilityChangedEventArgs>
     {
@@ -376,8 +382,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentChangedEventArgs
     {
-        auto GetDeferral() const;
-        [[nodiscard]] auto HasPreviousContentExpired() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasPreviousContentExpired() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentChangedEventArgs>
     {
@@ -386,13 +392,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentCollection
     {
-        [[nodiscard]] auto Id() const;
-        auto ReportInteraction(Windows::Services::TargetedContent::TargetedContentInteraction const& interaction) const;
-        auto ReportCustomInteraction(param::hstring const& customInteractionName) const;
-        [[nodiscard]] auto Path() const;
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto Collections() const;
-        [[nodiscard]] auto Items() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(void) ReportInteraction(Windows::Services::TargetedContent::TargetedContentInteraction const& interaction) const;
+        WINRT_IMPL_AUTO(void) ReportCustomInteraction(param::hstring const& customInteractionName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Path() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Services::TargetedContent::TargetedContentValue>) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::TargetedContent::TargetedContentCollection>) Collections() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::TargetedContent::TargetedContentItem>) Items() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentCollection>
     {
@@ -401,11 +407,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentContainer
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto Availability() const;
-        [[nodiscard]] auto Content() const;
-        auto SelectSingleObject(param::hstring const& path) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentAvailability) Availability() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentCollection) Content() const;
+        WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentObject) SelectSingleObject(param::hstring const& path) const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentContainer>
     {
@@ -414,7 +420,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentContainerStatics
     {
-        auto GetAsync(param::hstring const& contentId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::TargetedContent::TargetedContentContainer>) GetAsync(param::hstring const& contentId) const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentContainerStatics>
     {
@@ -423,8 +429,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentImage
     {
-        [[nodiscard]] auto Height() const;
-        [[nodiscard]] auto Width() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Width() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentImage>
     {
@@ -433,12 +439,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentItem
     {
-        [[nodiscard]] auto Path() const;
-        auto ReportInteraction(Windows::Services::TargetedContent::TargetedContentInteraction const& interaction) const;
-        auto ReportCustomInteraction(param::hstring const& customInteractionName) const;
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto Collections() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Path() const;
+        WINRT_IMPL_AUTO(void) ReportInteraction(Windows::Services::TargetedContent::TargetedContentInteraction const& interaction) const;
+        WINRT_IMPL_AUTO(void) ReportCustomInteraction(param::hstring const& customInteractionName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentItemState) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Services::TargetedContent::TargetedContentValue>) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::TargetedContent::TargetedContentCollection>) Collections() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentItem>
     {
@@ -447,8 +453,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentItemState
     {
-        [[nodiscard]] auto ShouldDisplay() const;
-        [[nodiscard]] auto AppInstallationState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShouldDisplay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentAppInstallationState) AppInstallationState() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentItemState>
     {
@@ -457,10 +463,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentObject
     {
-        [[nodiscard]] auto ObjectKind() const;
-        [[nodiscard]] auto Collection() const;
-        [[nodiscard]] auto Item() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentObjectKind) ObjectKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentCollection) Collection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentItem) Item() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentValue) Value() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentObject>
     {
@@ -469,7 +475,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentStateChangedEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentStateChangedEventArgs>
     {
@@ -478,20 +484,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentSubscription
     {
-        [[nodiscard]] auto Id() const;
-        auto GetContentContainerAsync() const;
-        auto ContentChanged(Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::TargetedContent::TargetedContentContainer>) GetContentContainerAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ContentChanged(Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentChangedEventArgs> const& handler) const;
         using ContentChanged_revoker = impl::event_revoker<Windows::Services::TargetedContent::ITargetedContentSubscription, &impl::abi_t<Windows::Services::TargetedContent::ITargetedContentSubscription>::remove_ContentChanged>;
         [[nodiscard]] ContentChanged_revoker ContentChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentChangedEventArgs> const& handler) const;
-        auto ContentChanged(winrt::event_token const& cookie) const noexcept;
-        auto AvailabilityChanged(Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentAvailabilityChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ContentChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AvailabilityChanged(Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentAvailabilityChangedEventArgs> const& handler) const;
         using AvailabilityChanged_revoker = impl::event_revoker<Windows::Services::TargetedContent::ITargetedContentSubscription, &impl::abi_t<Windows::Services::TargetedContent::ITargetedContentSubscription>::remove_AvailabilityChanged>;
         [[nodiscard]] AvailabilityChanged_revoker AvailabilityChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentAvailabilityChangedEventArgs> const& handler) const;
-        auto AvailabilityChanged(winrt::event_token const& cookie) const noexcept;
-        auto StateChanged(Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentStateChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AvailabilityChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) StateChanged(Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentStateChangedEventArgs> const& handler) const;
         using StateChanged_revoker = impl::event_revoker<Windows::Services::TargetedContent::ITargetedContentSubscription, &impl::abi_t<Windows::Services::TargetedContent::ITargetedContentSubscription>::remove_StateChanged>;
         [[nodiscard]] StateChanged_revoker StateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Services::TargetedContent::TargetedContentSubscription, Windows::Services::TargetedContent::TargetedContentStateChangedEventArgs> const& handler) const;
-        auto StateChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) StateChanged(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentSubscription>
     {
@@ -500,12 +506,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentSubscriptionOptions
     {
-        [[nodiscard]] auto SubscriptionId() const;
-        [[nodiscard]] auto AllowPartialContentAvailability() const;
-        auto AllowPartialContentAvailability(bool value) const;
-        [[nodiscard]] auto CloudQueryParameters() const;
-        [[nodiscard]] auto LocalFilters() const;
-        auto Update() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SubscriptionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowPartialContentAvailability() const;
+        WINRT_IMPL_AUTO(void) AllowPartialContentAvailability(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) CloudQueryParameters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) LocalFilters() const;
+        WINRT_IMPL_AUTO(void) Update() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentSubscriptionOptions>
     {
@@ -514,8 +520,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentSubscriptionStatics
     {
-        auto GetAsync(param::hstring const& subscriptionId) const;
-        auto GetOptions(param::hstring const& subscriptionId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::TargetedContent::TargetedContentSubscription>) GetAsync(param::hstring const& subscriptionId) const;
+        WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentSubscriptionOptions) GetOptions(param::hstring const& subscriptionId) const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentSubscriptionStatics>
     {
@@ -524,22 +530,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_TargetedContent_ITargetedContentValue
     {
-        [[nodiscard]] auto ValueKind() const;
-        [[nodiscard]] auto Path() const;
-        [[nodiscard]] auto String() const;
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Number() const;
-        [[nodiscard]] auto Boolean() const;
-        [[nodiscard]] auto File() const;
-        [[nodiscard]] auto ImageFile() const;
-        [[nodiscard]] auto Action() const;
-        [[nodiscard]] auto Strings() const;
-        [[nodiscard]] auto Uris() const;
-        [[nodiscard]] auto Numbers() const;
-        [[nodiscard]] auto Booleans() const;
-        [[nodiscard]] auto Files() const;
-        [[nodiscard]] auto ImageFiles() const;
-        [[nodiscard]] auto Actions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentValueKind) ValueKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Path() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) String() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Number() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Boolean() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentFile) File() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentImage) ImageFile() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::TargetedContent::TargetedContentAction) Action() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Strings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::Uri>) Uris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<double>) Numbers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<bool>) Booleans() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::TargetedContent::TargetedContentFile>) Files() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::TargetedContent::TargetedContentImage>) ImageFiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::TargetedContent::TargetedContentAction>) Actions() const;
     };
     template <> struct consume<Windows::Services::TargetedContent::ITargetedContentValue>
     {

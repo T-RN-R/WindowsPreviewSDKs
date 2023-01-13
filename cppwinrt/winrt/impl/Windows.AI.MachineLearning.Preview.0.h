@@ -1,12 +1,18 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_AI_MachineLearning_Preview_0_H
 #define WINRT_Windows_AI_MachineLearning_Preview_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMapView;
     template <typename K, typename V> struct IMap;
     struct IPropertySet;
 }
@@ -110,33 +116,31 @@ namespace winrt::impl
     template <> struct category<Windows::AI::MachineLearning::Preview::FeatureElementKindPreview>{ using type = enum_category; };
     template <> struct category<Windows::AI::MachineLearning::Preview::LearningModelDeviceKindPreview>{ using type = enum_category; };
     template <> struct category<Windows::AI::MachineLearning::Preview::LearningModelFeatureKindPreview>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ImageVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::InferencingOptionsPreview>{ L"Windows.AI.MachineLearning.Preview.InferencingOptionsPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelBindingPreview>{ L"Windows.AI.MachineLearning.Preview.LearningModelBindingPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelDescriptionPreview>{ L"Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelEvaluationResultPreview>{ L"Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelPreview>{ L"Windows.AI.MachineLearning.Preview.LearningModelPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::MapVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::SequenceVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::TensorVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::FeatureElementKindPreview>{ L"Windows.AI.MachineLearning.Preview.FeatureElementKindPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelDeviceKindPreview>{ L"Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelFeatureKindPreview>{ L"Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::IImageVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.IImageVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::IInferencingOptionsPreview>{ L"Windows.AI.MachineLearning.Preview.IInferencingOptionsPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreview>{ L"Windows.AI.MachineLearning.Preview.ILearningModelBindingPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreviewFactory>{ L"Windows.AI.MachineLearning.Preview.ILearningModelBindingPreviewFactory" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelDescriptionPreview>{ L"Windows.AI.MachineLearning.Preview.ILearningModelDescriptionPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelEvaluationResultPreview>{ L"Windows.AI.MachineLearning.Preview.ILearningModelEvaluationResultPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelPreview>{ L"Windows.AI.MachineLearning.Preview.ILearningModelPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelPreviewStatics>{ L"Windows.AI.MachineLearning.Preview.ILearningModelPreviewStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::IMapVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.IMapVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ISequenceVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.ISequenceVariableDescriptorPreview" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ITensorVariableDescriptorPreview>{ L"Windows.AI.MachineLearning.Preview.ITensorVariableDescriptorPreview" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ImageVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::InferencingOptionsPreview> = L"Windows.AI.MachineLearning.Preview.InferencingOptionsPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelBindingPreview> = L"Windows.AI.MachineLearning.Preview.LearningModelBindingPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelDescriptionPreview> = L"Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelEvaluationResultPreview> = L"Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelPreview> = L"Windows.AI.MachineLearning.Preview.LearningModelPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::MapVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::SequenceVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::TensorVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::FeatureElementKindPreview> = L"Windows.AI.MachineLearning.Preview.FeatureElementKindPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelDeviceKindPreview> = L"Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::LearningModelFeatureKindPreview> = L"Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::IImageVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.IImageVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::IInferencingOptionsPreview> = L"Windows.AI.MachineLearning.Preview.IInferencingOptionsPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreview> = L"Windows.AI.MachineLearning.Preview.ILearningModelBindingPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreviewFactory> = L"Windows.AI.MachineLearning.Preview.ILearningModelBindingPreviewFactory";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelDescriptionPreview> = L"Windows.AI.MachineLearning.Preview.ILearningModelDescriptionPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelEvaluationResultPreview> = L"Windows.AI.MachineLearning.Preview.ILearningModelEvaluationResultPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelPreview> = L"Windows.AI.MachineLearning.Preview.ILearningModelPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelPreviewStatics> = L"Windows.AI.MachineLearning.Preview.ILearningModelPreviewStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.ILearningModelVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::IMapVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.IMapVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ISequenceVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.ISequenceVariableDescriptorPreview";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ITensorVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.ITensorVariableDescriptorPreview";
     template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::IImageVariableDescriptorPreview>{ 0x7AE1FA72,0x029E,0x4DC5,{ 0xA2,0xF8,0x5F,0xB7,0x63,0x15,0x41,0x50 } };
     template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::IInferencingOptionsPreview>{ 0x47BC8205,0x4D36,0x47A9,{ 0x8F,0x68,0xFF,0xCB,0x33,0x9D,0xD0,0xFC } };
     template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreview>{ 0x93C901E8,0x6C78,0x4B4F,{ 0xAE,0xC1,0xA6,0xBB,0x9E,0x69,0x16,0x24 } };
@@ -279,9 +283,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_IImageVariableDescriptorPreview
     {
-        [[nodiscard]] auto BitmapPixelFormat() const;
-        [[nodiscard]] auto Width() const;
-        [[nodiscard]] auto Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapPixelFormat) BitmapPixelFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Width() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Height() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::IImageVariableDescriptorPreview>
     {
@@ -290,16 +294,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_IInferencingOptionsPreview
     {
-        [[nodiscard]] auto PreferredDeviceKind() const;
-        auto PreferredDeviceKind(Windows::AI::MachineLearning::Preview::LearningModelDeviceKindPreview const& value) const;
-        [[nodiscard]] auto IsTracingEnabled() const;
-        auto IsTracingEnabled(bool value) const;
-        [[nodiscard]] auto MaxBatchSize() const;
-        auto MaxBatchSize(int32_t value) const;
-        [[nodiscard]] auto MinimizeMemoryAllocation() const;
-        auto MinimizeMemoryAllocation(bool value) const;
-        [[nodiscard]] auto ReclaimMemoryAfterEvaluation() const;
-        auto ReclaimMemoryAfterEvaluation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::LearningModelDeviceKindPreview) PreferredDeviceKind() const;
+        WINRT_IMPL_AUTO(void) PreferredDeviceKind(Windows::AI::MachineLearning::Preview::LearningModelDeviceKindPreview const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTracingEnabled() const;
+        WINRT_IMPL_AUTO(void) IsTracingEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxBatchSize() const;
+        WINRT_IMPL_AUTO(void) MaxBatchSize(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) MinimizeMemoryAllocation() const;
+        WINRT_IMPL_AUTO(void) MinimizeMemoryAllocation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ReclaimMemoryAfterEvaluation() const;
+        WINRT_IMPL_AUTO(void) ReclaimMemoryAfterEvaluation(bool value) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::IInferencingOptionsPreview>
     {
@@ -308,9 +312,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ILearningModelBindingPreview
     {
-        auto Bind(param::hstring const& name, Windows::Foundation::IInspectable const& value) const;
-        auto Bind(param::hstring const& name, Windows::Foundation::IInspectable const& value, Windows::Foundation::Collections::IPropertySet const& metadata) const;
-        auto Clear() const;
+        WINRT_IMPL_AUTO(void) Bind(param::hstring const& name, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) Bind(param::hstring const& name, Windows::Foundation::IInspectable const& value, Windows::Foundation::Collections::IPropertySet const& metadata) const;
+        WINRT_IMPL_AUTO(void) Clear() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreview>
     {
@@ -319,7 +323,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ILearningModelBindingPreviewFactory
     {
-        auto CreateFromModel(Windows::AI::MachineLearning::Preview::LearningModelPreview const& model) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::LearningModelBindingPreview) CreateFromModel(Windows::AI::MachineLearning::Preview::LearningModelPreview const& model) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreviewFactory>
     {
@@ -328,14 +332,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ILearningModelDescriptionPreview
     {
-        [[nodiscard]] auto Author() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Domain() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto Version() const;
-        [[nodiscard]] auto Metadata() const;
-        [[nodiscard]] auto InputFeatures() const;
-        [[nodiscard]] auto OutputFeatures() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Author() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Domain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) Version() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, hstring>) Metadata() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview>) InputFeatures() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview>) OutputFeatures() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ILearningModelDescriptionPreview>
     {
@@ -344,8 +348,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ILearningModelEvaluationResultPreview
     {
-        [[nodiscard]] auto CorrelationId() const;
-        [[nodiscard]] auto Outputs() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CorrelationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Outputs() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ILearningModelEvaluationResultPreview>
     {
@@ -354,11 +358,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ILearningModelPreview
     {
-        auto EvaluateAsync(Windows::AI::MachineLearning::Preview::LearningModelBindingPreview const& binding, param::hstring const& correlationId) const;
-        auto EvaluateFeaturesAsync(param::map<hstring, Windows::Foundation::IInspectable> const& features, param::hstring const& correlationId) const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto InferencingOptions() const;
-        auto InferencingOptions(Windows::AI::MachineLearning::Preview::InferencingOptionsPreview const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::Preview::LearningModelEvaluationResultPreview>) EvaluateAsync(Windows::AI::MachineLearning::Preview::LearningModelBindingPreview const& binding, param::hstring const& correlationId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::Preview::LearningModelEvaluationResultPreview>) EvaluateFeaturesAsync(param::map<hstring, Windows::Foundation::IInspectable> const& features, param::hstring const& correlationId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::LearningModelDescriptionPreview) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::InferencingOptionsPreview) InferencingOptions() const;
+        WINRT_IMPL_AUTO(void) InferencingOptions(Windows::AI::MachineLearning::Preview::InferencingOptionsPreview const& value) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ILearningModelPreview>
     {
@@ -367,8 +371,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ILearningModelPreviewStatics
     {
-        auto LoadModelFromStorageFileAsync(Windows::Storage::IStorageFile const& modelFile) const;
-        auto LoadModelFromStreamAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::Preview::LearningModelPreview>) LoadModelFromStorageFileAsync(Windows::Storage::IStorageFile const& modelFile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::Preview::LearningModelPreview>) LoadModelFromStreamAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ILearningModelPreviewStatics>
     {
@@ -377,10 +381,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ILearningModelVariableDescriptorPreview
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto ModelFeatureKind() const;
-        [[nodiscard]] auto IsRequired() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::LearningModelFeatureKindPreview) ModelFeatureKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRequired() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview>
     {
@@ -389,10 +393,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_IMapVariableDescriptorPreview
     {
-        [[nodiscard]] auto KeyKind() const;
-        [[nodiscard]] auto ValidStringKeys() const;
-        [[nodiscard]] auto ValidIntegerKeys() const;
-        [[nodiscard]] auto Fields() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::FeatureElementKindPreview) KeyKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<hstring>) ValidStringKeys() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<int64_t>) ValidIntegerKeys() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview) Fields() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::IMapVariableDescriptorPreview>
     {
@@ -401,7 +405,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ISequenceVariableDescriptorPreview
     {
-        [[nodiscard]] auto ElementType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview) ElementType() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ISequenceVariableDescriptorPreview>
     {
@@ -410,8 +414,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_Preview_ITensorVariableDescriptorPreview
     {
-        [[nodiscard]] auto DataType() const;
-        [[nodiscard]] auto Shape() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::Preview::FeatureElementKindPreview) DataType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<int64_t>) Shape() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::Preview::ITensorVariableDescriptorPreview>
     {

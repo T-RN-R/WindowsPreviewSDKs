@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,13 +6,13 @@
 #ifndef WINRT_Windows_Management_Core_H
 #define WINRT_Windows_Management_Core_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Management.h"
 #include "winrt/impl/Windows.Storage.2.h"
 #include "winrt/impl/Windows.Management.Core.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Management_Core_IApplicationDataManagerStatics<D>::CreateForPackageFamily(param::hstring const& packageFamilyName) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::ApplicationData) consume_Windows_Management_Core_IApplicationDataManagerStatics<D>::CreateForPackageFamily(param::hstring const& packageFamilyName) const
     {
         void* applicationData{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Management::Core::IApplicationDataManagerStatics)->CreateForPackageFamily(*(void**)(&packageFamilyName), &applicationData));

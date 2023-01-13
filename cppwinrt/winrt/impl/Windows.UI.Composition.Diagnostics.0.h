@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -38,14 +38,12 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::Diagnostics::CompositionDebugHeatMaps>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::Diagnostics::CompositionDebugSettings>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::Diagnostics::CompositionDebugOverdrawContentKinds>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::CompositionDebugHeatMaps>{ L"Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::CompositionDebugSettings>{ L"Windows.UI.Composition.Diagnostics.CompositionDebugSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::CompositionDebugOverdrawContentKinds>{ L"Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps>{ L"Windows.UI.Composition.Diagnostics.ICompositionDebugHeatMaps" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettings>{ L"Windows.UI.Composition.Diagnostics.ICompositionDebugSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettingsStatics>{ L"Windows.UI.Composition.Diagnostics.ICompositionDebugSettingsStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::CompositionDebugHeatMaps> = L"Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::CompositionDebugSettings> = L"Windows.UI.Composition.Diagnostics.CompositionDebugSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::CompositionDebugOverdrawContentKinds> = L"Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps> = L"Windows.UI.Composition.Diagnostics.ICompositionDebugHeatMaps";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettings> = L"Windows.UI.Composition.Diagnostics.ICompositionDebugSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettingsStatics> = L"Windows.UI.Composition.Diagnostics.ICompositionDebugSettingsStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps>{ 0xE49C90AC,0x2FF3,0x5805,{ 0x71,0x8C,0xB7,0x25,0xEE,0x07,0x65,0x0F } };
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettings>{ 0x2831987E,0x1D82,0x4D38,{ 0xB7,0xB7,0xEF,0xD1,0x1C,0x7B,0xC3,0xD1 } };
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettingsStatics>{ 0x64EC1F1E,0x6AF8,0x4AF8,{ 0xB8,0x14,0xC8,0x70,0xFD,0x5A,0x95,0x05 } };
@@ -78,10 +76,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Diagnostics_ICompositionDebugHeatMaps
     {
-        auto Hide(Windows::UI::Composition::Visual const& subtree) const;
-        auto ShowMemoryUsage(Windows::UI::Composition::Visual const& subtree) const;
-        auto ShowOverdraw(Windows::UI::Composition::Visual const& subtree, Windows::UI::Composition::Diagnostics::CompositionDebugOverdrawContentKinds const& contentKinds) const;
-        auto ShowRedraw(Windows::UI::Composition::Visual const& subtree) const;
+        WINRT_IMPL_AUTO(void) Hide(Windows::UI::Composition::Visual const& subtree) const;
+        WINRT_IMPL_AUTO(void) ShowMemoryUsage(Windows::UI::Composition::Visual const& subtree) const;
+        WINRT_IMPL_AUTO(void) ShowOverdraw(Windows::UI::Composition::Visual const& subtree, Windows::UI::Composition::Diagnostics::CompositionDebugOverdrawContentKinds const& contentKinds) const;
+        WINRT_IMPL_AUTO(void) ShowRedraw(Windows::UI::Composition::Visual const& subtree) const;
     };
     template <> struct consume<Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps>
     {
@@ -90,7 +88,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Diagnostics_ICompositionDebugSettings
     {
-        [[nodiscard]] auto HeatMaps() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Diagnostics::CompositionDebugHeatMaps) HeatMaps() const;
     };
     template <> struct consume<Windows::UI::Composition::Diagnostics::ICompositionDebugSettings>
     {
@@ -99,7 +97,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Diagnostics_ICompositionDebugSettingsStatics
     {
-        auto TryGetSettings(Windows::UI::Composition::Compositor const& compositor) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Diagnostics::CompositionDebugSettings) TryGetSettings(Windows::UI::Composition::Compositor const& compositor) const;
     };
     template <> struct consume<Windows::UI::Composition::Diagnostics::ICompositionDebugSettingsStatics>
     {

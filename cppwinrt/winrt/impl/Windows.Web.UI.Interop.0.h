@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,8 +8,13 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -73,23 +78,21 @@ namespace winrt::impl
     template <> struct category<Windows::Web::UI::Interop::WebViewControlAcceleratorKeyRoutingStage>{ using type = enum_category; };
     template <> struct category<Windows::Web::UI::Interop::WebViewControlMoveFocusReason>{ using type = enum_category; };
     template <> struct category<Windows::Web::UI::Interop::WebViewControlProcessCapabilityState>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControl>{ L"Windows.Web.UI.Interop.WebViewControl" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlAcceleratorKeyPressedEventArgs>{ L"Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlMoveFocusRequestedEventArgs>{ L"Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlProcess>{ L"Windows.Web.UI.Interop.WebViewControlProcess" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlProcessOptions>{ L"Windows.Web.UI.Interop.WebViewControlProcessOptions" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlAcceleratorKeyRoutingStage>{ L"Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlMoveFocusReason>{ L"Windows.Web.UI.Interop.WebViewControlMoveFocusReason" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlProcessCapabilityState>{ L"Windows.Web.UI.Interop.WebViewControlProcessCapabilityState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlAcceleratorKeyPressedEventArgs>{ L"Windows.Web.UI.Interop.IWebViewControlAcceleratorKeyPressedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlMoveFocusRequestedEventArgs>{ L"Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlProcess>{ L"Windows.Web.UI.Interop.IWebViewControlProcess" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlProcessFactory>{ L"Windows.Web.UI.Interop.IWebViewControlProcessFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlProcessOptions>{ L"Windows.Web.UI.Interop.IWebViewControlProcessOptions" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlSite>{ L"Windows.Web.UI.Interop.IWebViewControlSite" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlSite2>{ L"Windows.Web.UI.Interop.IWebViewControlSite2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControl> = L"Windows.Web.UI.Interop.WebViewControl";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlAcceleratorKeyPressedEventArgs> = L"Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlMoveFocusRequestedEventArgs> = L"Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlProcess> = L"Windows.Web.UI.Interop.WebViewControlProcess";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlProcessOptions> = L"Windows.Web.UI.Interop.WebViewControlProcessOptions";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlAcceleratorKeyRoutingStage> = L"Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlMoveFocusReason> = L"Windows.Web.UI.Interop.WebViewControlMoveFocusReason";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::WebViewControlProcessCapabilityState> = L"Windows.Web.UI.Interop.WebViewControlProcessCapabilityState";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlAcceleratorKeyPressedEventArgs> = L"Windows.Web.UI.Interop.IWebViewControlAcceleratorKeyPressedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlMoveFocusRequestedEventArgs> = L"Windows.Web.UI.Interop.IWebViewControlMoveFocusRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlProcess> = L"Windows.Web.UI.Interop.IWebViewControlProcess";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlProcessFactory> = L"Windows.Web.UI.Interop.IWebViewControlProcessFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlProcessOptions> = L"Windows.Web.UI.Interop.IWebViewControlProcessOptions";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlSite> = L"Windows.Web.UI.Interop.IWebViewControlSite";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlSite2> = L"Windows.Web.UI.Interop.IWebViewControlSite2";
     template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlAcceleratorKeyPressedEventArgs>{ 0x77A2A53E,0x7C74,0x437D,{ 0xA2,0x90,0x3A,0xC0,0xD8,0xCD,0x56,0x55 } };
     template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlMoveFocusRequestedEventArgs>{ 0x6B2A340D,0x4BD0,0x405E,{ 0xB7,0xC1,0x1E,0x72,0xA4,0x92,0xF4,0x46 } };
     template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlProcess>{ 0x02C723EC,0x98D6,0x424A,{ 0xB6,0x3E,0xC6,0x13,0x6C,0x36,0xA0,0xF2 } };
@@ -184,12 +187,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_Interop_IWebViewControlAcceleratorKeyPressedEventArgs
     {
-        [[nodiscard]] auto EventType() const;
-        [[nodiscard]] auto VirtualKey() const;
-        [[nodiscard]] auto KeyStatus() const;
-        [[nodiscard]] auto RoutingStage() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CoreAcceleratorKeyEventType) EventType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::VirtualKey) VirtualKey() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CorePhysicalKeyStatus) KeyStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::Interop::WebViewControlAcceleratorKeyRoutingStage) RoutingStage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::Web::UI::Interop::IWebViewControlAcceleratorKeyPressedEventArgs>
     {
@@ -198,7 +201,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_Interop_IWebViewControlMoveFocusRequestedEventArgs
     {
-        [[nodiscard]] auto Reason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::Interop::WebViewControlMoveFocusReason) Reason() const;
     };
     template <> struct consume<Windows::Web::UI::Interop::IWebViewControlMoveFocusRequestedEventArgs>
     {
@@ -207,16 +210,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_Interop_IWebViewControlProcess
     {
-        [[nodiscard]] auto ProcessId() const;
-        [[nodiscard]] auto EnterpriseId() const;
-        [[nodiscard]] auto IsPrivateNetworkClientServerCapabilityEnabled() const;
-        auto CreateWebViewControlAsync(int64_t hostWindowHandle, Windows::Foundation::Rect const& bounds) const;
-        auto GetWebViewControls() const;
-        auto Terminate() const;
-        auto ProcessExited(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControlProcess, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ProcessId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnterpriseId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPrivateNetworkClientServerCapabilityEnabled() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Web::UI::Interop::WebViewControl>) CreateWebViewControlAsync(int64_t hostWindowHandle, Windows::Foundation::Rect const& bounds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::UI::Interop::WebViewControl>) GetWebViewControls() const;
+        WINRT_IMPL_AUTO(void) Terminate() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ProcessExited(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControlProcess, Windows::Foundation::IInspectable> const& handler) const;
         using ProcessExited_revoker = impl::event_revoker<Windows::Web::UI::Interop::IWebViewControlProcess, &impl::abi_t<Windows::Web::UI::Interop::IWebViewControlProcess>::remove_ProcessExited>;
         [[nodiscard]] ProcessExited_revoker ProcessExited(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControlProcess, Windows::Foundation::IInspectable> const& handler) const;
-        auto ProcessExited(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ProcessExited(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Web::UI::Interop::IWebViewControlProcess>
     {
@@ -225,7 +228,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_Interop_IWebViewControlProcessFactory
     {
-        auto CreateWithOptions(Windows::Web::UI::Interop::WebViewControlProcessOptions const& processOptions) const;
+        WINRT_IMPL_AUTO(Windows::Web::UI::Interop::WebViewControlProcess) CreateWithOptions(Windows::Web::UI::Interop::WebViewControlProcessOptions const& processOptions) const;
     };
     template <> struct consume<Windows::Web::UI::Interop::IWebViewControlProcessFactory>
     {
@@ -234,10 +237,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_Interop_IWebViewControlProcessOptions
     {
-        auto EnterpriseId(param::hstring const& value) const;
-        [[nodiscard]] auto EnterpriseId() const;
-        auto PrivateNetworkClientServerCapability(Windows::Web::UI::Interop::WebViewControlProcessCapabilityState const& value) const;
-        [[nodiscard]] auto PrivateNetworkClientServerCapability() const;
+        WINRT_IMPL_AUTO(void) EnterpriseId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnterpriseId() const;
+        WINRT_IMPL_AUTO(void) PrivateNetworkClientServerCapability(Windows::Web::UI::Interop::WebViewControlProcessCapabilityState const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::Interop::WebViewControlProcessCapabilityState) PrivateNetworkClientServerCapability() const;
     };
     template <> struct consume<Windows::Web::UI::Interop::IWebViewControlProcessOptions>
     {
@@ -246,23 +249,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_Interop_IWebViewControlSite
     {
-        [[nodiscard]] auto Process() const;
-        auto Scale(double value) const;
-        [[nodiscard]] auto Scale() const;
-        auto Bounds(Windows::Foundation::Rect const& value) const;
-        [[nodiscard]] auto Bounds() const;
-        auto IsVisible(bool value) const;
-        [[nodiscard]] auto IsVisible() const;
-        auto Close() const;
-        auto MoveFocus(Windows::Web::UI::Interop::WebViewControlMoveFocusReason const& reason) const;
-        auto MoveFocusRequested(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Web::UI::Interop::WebViewControlMoveFocusRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::Interop::WebViewControlProcess) Process() const;
+        WINRT_IMPL_AUTO(void) Scale(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Scale() const;
+        WINRT_IMPL_AUTO(void) Bounds(Windows::Foundation::Rect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) Bounds() const;
+        WINRT_IMPL_AUTO(void) IsVisible(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVisible() const;
+        WINRT_IMPL_AUTO(void) Close() const;
+        WINRT_IMPL_AUTO(void) MoveFocus(Windows::Web::UI::Interop::WebViewControlMoveFocusReason const& reason) const;
+        WINRT_IMPL_AUTO(winrt::event_token) MoveFocusRequested(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Web::UI::Interop::WebViewControlMoveFocusRequestedEventArgs> const& handler) const;
         using MoveFocusRequested_revoker = impl::event_revoker<Windows::Web::UI::Interop::IWebViewControlSite, &impl::abi_t<Windows::Web::UI::Interop::IWebViewControlSite>::remove_MoveFocusRequested>;
         [[nodiscard]] MoveFocusRequested_revoker MoveFocusRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Web::UI::Interop::WebViewControlMoveFocusRequestedEventArgs> const& handler) const;
-        auto MoveFocusRequested(winrt::event_token const& token) const noexcept;
-        auto AcceleratorKeyPressed(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Web::UI::Interop::WebViewControlAcceleratorKeyPressedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) MoveFocusRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AcceleratorKeyPressed(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Web::UI::Interop::WebViewControlAcceleratorKeyPressedEventArgs> const& handler) const;
         using AcceleratorKeyPressed_revoker = impl::event_revoker<Windows::Web::UI::Interop::IWebViewControlSite, &impl::abi_t<Windows::Web::UI::Interop::IWebViewControlSite>::remove_AcceleratorKeyPressed>;
         [[nodiscard]] AcceleratorKeyPressed_revoker AcceleratorKeyPressed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Web::UI::Interop::WebViewControlAcceleratorKeyPressedEventArgs> const& handler) const;
-        auto AcceleratorKeyPressed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) AcceleratorKeyPressed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Web::UI::Interop::IWebViewControlSite>
     {
@@ -271,14 +274,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_Interop_IWebViewControlSite2
     {
-        auto GotFocus(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) GotFocus(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Foundation::IInspectable> const& handler) const;
         using GotFocus_revoker = impl::event_revoker<Windows::Web::UI::Interop::IWebViewControlSite2, &impl::abi_t<Windows::Web::UI::Interop::IWebViewControlSite2>::remove_GotFocus>;
         [[nodiscard]] GotFocus_revoker GotFocus(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Foundation::IInspectable> const& handler) const;
-        auto GotFocus(winrt::event_token const& token) const noexcept;
-        auto LostFocus(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) GotFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LostFocus(Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Foundation::IInspectable> const& handler) const;
         using LostFocus_revoker = impl::event_revoker<Windows::Web::UI::Interop::IWebViewControlSite2, &impl::abi_t<Windows::Web::UI::Interop::IWebViewControlSite2>::remove_LostFocus>;
         [[nodiscard]] LostFocus_revoker LostFocus(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::Interop::WebViewControl, Windows::Foundation::IInspectable> const& handler) const;
-        auto LostFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) LostFocus(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Web::UI::Interop::IWebViewControlSite2>
     {

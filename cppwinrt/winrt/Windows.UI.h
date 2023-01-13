@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,894 +6,894 @@
 #ifndef WINRT_Windows_UI_H
 #define WINRT_Windows_UI_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.UI.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_IColorHelperStatics<D>::FromArgb(uint8_t a, uint8_t r, uint8_t g, uint8_t b) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorHelperStatics<D>::FromArgb(uint8_t a, uint8_t r, uint8_t g, uint8_t b) const
     {
-        Windows::UI::Color returnValue;
+        Windows::UI::Color returnValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorHelperStatics)->FromArgb(a, r, g, b, put_abi(returnValue)));
         return returnValue;
     }
-    template <typename D> auto consume_Windows_UI_IColorHelperStatics2<D>::ToDisplayName(Windows::UI::Color const& color) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_IColorHelperStatics2<D>::ToDisplayName(Windows::UI::Color const& color) const
     {
         void* returnValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorHelperStatics2)->ToDisplayName(impl::bind_in(color), &returnValue));
         return hstring{ returnValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::AliceBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::AliceBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_AliceBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::AntiqueWhite() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::AntiqueWhite() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_AntiqueWhite(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Aqua() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Aqua() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Aqua(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Aquamarine() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Aquamarine() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Aquamarine(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Azure() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Azure() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Azure(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Beige() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Beige() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Beige(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Bisque() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Bisque() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Bisque(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Black() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Black() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Black(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::BlanchedAlmond() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::BlanchedAlmond() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_BlanchedAlmond(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Blue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Blue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Blue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::BlueViolet() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::BlueViolet() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_BlueViolet(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Brown() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Brown() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Brown(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::BurlyWood() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::BurlyWood() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_BurlyWood(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::CadetBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::CadetBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_CadetBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Chartreuse() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Chartreuse() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Chartreuse(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Chocolate() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Chocolate() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Chocolate(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Coral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Coral() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Coral(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::CornflowerBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::CornflowerBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_CornflowerBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Cornsilk() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Cornsilk() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Cornsilk(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Crimson() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Crimson() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Crimson(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Cyan() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Cyan() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Cyan(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkCyan() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkCyan() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkCyan(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkGoldenrod() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkGoldenrod() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkGoldenrod(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkGray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkGray() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkGray(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkKhaki() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkKhaki() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkKhaki(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkMagenta() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkMagenta() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkMagenta(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkOliveGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkOliveGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkOliveGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkOrange() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkOrange() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkOrange(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkOrchid() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkOrchid() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkOrchid(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkRed() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkRed() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkRed(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkSalmon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkSalmon() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkSalmon(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkSeaGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkSeaGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkSeaGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkSlateBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkSlateBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkSlateBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkSlateGray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkSlateGray() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkSlateGray(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkTurquoise() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkTurquoise() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkTurquoise(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DarkViolet() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DarkViolet() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DarkViolet(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DeepPink() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DeepPink() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DeepPink(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DeepSkyBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DeepSkyBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DeepSkyBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DimGray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DimGray() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DimGray(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::DodgerBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::DodgerBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_DodgerBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Firebrick() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Firebrick() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Firebrick(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::FloralWhite() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::FloralWhite() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_FloralWhite(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::ForestGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::ForestGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_ForestGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Fuchsia() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Fuchsia() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Fuchsia(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Gainsboro() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Gainsboro() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Gainsboro(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::GhostWhite() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::GhostWhite() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_GhostWhite(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Gold() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Gold() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Gold(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Goldenrod() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Goldenrod() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Goldenrod(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Gray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Gray() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Gray(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Green() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Green() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Green(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::GreenYellow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::GreenYellow() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_GreenYellow(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Honeydew() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Honeydew() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Honeydew(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::HotPink() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::HotPink() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_HotPink(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::IndianRed() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::IndianRed() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_IndianRed(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Indigo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Indigo() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Indigo(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Ivory() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Ivory() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Ivory(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Khaki() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Khaki() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Khaki(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Lavender() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Lavender() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Lavender(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LavenderBlush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LavenderBlush() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LavenderBlush(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LawnGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LawnGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LawnGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LemonChiffon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LemonChiffon() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LemonChiffon(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightCoral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightCoral() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightCoral(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightCyan() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightCyan() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightCyan(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightGoldenrodYellow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightGoldenrodYellow() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightGoldenrodYellow(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightGray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightGray() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightGray(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightPink() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightPink() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightPink(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightSalmon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightSalmon() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightSalmon(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightSeaGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightSeaGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightSeaGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightSkyBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightSkyBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightSkyBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightSlateGray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightSlateGray() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightSlateGray(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightSteelBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightSteelBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightSteelBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LightYellow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LightYellow() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LightYellow(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Lime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Lime() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Lime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::LimeGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::LimeGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_LimeGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Linen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Linen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Linen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Magenta() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Magenta() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Magenta(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Maroon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Maroon() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Maroon(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumAquamarine() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumAquamarine() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumAquamarine(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumOrchid() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumOrchid() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumOrchid(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumPurple() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumPurple() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumPurple(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumSeaGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumSeaGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumSeaGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumSlateBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumSlateBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumSlateBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumSpringGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumSpringGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumSpringGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumTurquoise() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumTurquoise() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumTurquoise(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MediumVioletRed() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MediumVioletRed() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MediumVioletRed(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MidnightBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MidnightBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MidnightBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MintCream() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MintCream() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MintCream(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::MistyRose() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::MistyRose() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_MistyRose(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Moccasin() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Moccasin() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Moccasin(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::NavajoWhite() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::NavajoWhite() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_NavajoWhite(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Navy() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Navy() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Navy(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::OldLace() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::OldLace() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_OldLace(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Olive() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Olive() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Olive(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::OliveDrab() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::OliveDrab() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_OliveDrab(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Orange() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Orange() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Orange(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::OrangeRed() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::OrangeRed() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_OrangeRed(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Orchid() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Orchid() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Orchid(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::PaleGoldenrod() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::PaleGoldenrod() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_PaleGoldenrod(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::PaleGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::PaleGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_PaleGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::PaleTurquoise() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::PaleTurquoise() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_PaleTurquoise(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::PaleVioletRed() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::PaleVioletRed() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_PaleVioletRed(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::PapayaWhip() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::PapayaWhip() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_PapayaWhip(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::PeachPuff() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::PeachPuff() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_PeachPuff(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Peru() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Peru() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Peru(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Pink() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Pink() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Pink(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Plum() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Plum() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Plum(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::PowderBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::PowderBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_PowderBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Purple() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Purple() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Purple(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Red() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Red() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Red(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::RosyBrown() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::RosyBrown() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_RosyBrown(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::RoyalBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::RoyalBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_RoyalBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SaddleBrown() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SaddleBrown() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SaddleBrown(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Salmon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Salmon() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Salmon(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SandyBrown() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SandyBrown() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SandyBrown(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SeaGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SeaGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SeaGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SeaShell() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SeaShell() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SeaShell(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Sienna() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Sienna() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Sienna(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Silver() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Silver() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Silver(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SkyBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SkyBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SkyBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SlateBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SlateBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SlateBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SlateGray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SlateGray() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SlateGray(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Snow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Snow() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Snow(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SpringGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SpringGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SpringGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::SteelBlue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::SteelBlue() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_SteelBlue(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Tan() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Tan() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Tan(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Teal() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Teal() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Teal(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Thistle() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Thistle() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Thistle(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Tomato() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Tomato() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Tomato(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Transparent() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Transparent() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Transparent(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Turquoise() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Turquoise() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Turquoise(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Violet() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Violet() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Violet(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Wheat() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Wheat() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Wheat(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::White() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::White() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_White(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::WhiteSmoke() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::WhiteSmoke() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_WhiteSmoke(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::Yellow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::Yellow() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_Yellow(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IColorsStatics<D>::YellowGreen() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_IColorsStatics<D>::YellowGreen() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IColorsStatics)->get_YellowGreen(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IUIContentRoot<D>::UIContext() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::UIContext) consume_Windows_UI_IUIContentRoot<D>::UIContext() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IUIContentRoot)->get_UIContext(&value));
         return Windows::UI::UIContext{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_IWindowReference<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WindowReferenceId) consume_Windows_UI_IWindowReference<D>::Id() const
     {
-        Windows::UI::WindowReferenceId value;
+        Windows::UI::WindowReferenceId value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IWindowReference)->get_Id(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_IWindowReferenceStatics<D>::FindAllTopLevelWindows() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::WindowReference>) consume_Windows_UI_IWindowReferenceStatics<D>::FindAllTopLevelWindows() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IWindowReferenceStatics)->FindAllTopLevelWindows(&result));
         return Windows::Foundation::Collections::IVectorView<Windows::UI::WindowReference>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_IWindowReferenceStatics<D>::GetForWindow(uint64_t hwnd) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WindowReference) consume_Windows_UI_IWindowReferenceStatics<D>::GetForWindow(uint64_t hwnd) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IWindowReferenceStatics)->GetForWindow(hwnd, &result));
         return Windows::UI::WindowReference{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_IWindowReferenceStatics<D>::GetWindowReference(Windows::UI::WindowReferenceId const& id) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WindowReference) consume_Windows_UI_IWindowReferenceStatics<D>::GetWindowReference(Windows::UI::WindowReferenceId const& id) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IWindowReferenceStatics)->GetWindowReference(impl::bind_in(id), &result));

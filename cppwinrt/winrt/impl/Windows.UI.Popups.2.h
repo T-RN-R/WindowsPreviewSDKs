@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -23,7 +23,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Popups
     {
         MessageDialog(std::nullptr_t) noexcept {}
         MessageDialog(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Popups::IMessageDialog(ptr, take_ownership_from_abi) {}
-        MessageDialog(param::hstring const& content);
+        explicit MessageDialog(param::hstring const& content);
         MessageDialog(param::hstring const& content, param::hstring const& title);
     };
     struct __declspec(empty_bases) PopupMenu : Windows::UI::Popups::IPopupMenu
@@ -37,7 +37,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Popups
         UICommand(std::nullptr_t) noexcept {}
         UICommand(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Popups::IUICommand(ptr, take_ownership_from_abi) {}
         UICommand();
-        UICommand(param::hstring const& label);
+        explicit UICommand(param::hstring const& label);
         UICommand(param::hstring const& label, Windows::UI::Popups::UICommandInvokedHandler const& action);
         UICommand(param::hstring const& label, Windows::UI::Popups::UICommandInvokedHandler const& action, Windows::Foundation::IInspectable const& commandId);
     };

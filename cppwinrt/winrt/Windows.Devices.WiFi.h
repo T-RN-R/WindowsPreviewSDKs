@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Devices_WiFi_H
 #define WINRT_Windows_Devices_WiFi_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Devices.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -15,27 +15,27 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Devices.WiFi.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::NetworkAdapter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkAdapter) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::NetworkAdapter() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->get_NetworkAdapter(&value));
         return Windows::Networking::Connectivity::NetworkAdapter{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::ScanAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::ScanAsync() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->ScanAsync(&value));
         return Windows::Foundation::IAsyncAction{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::NetworkReport() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::WiFi::WiFiNetworkReport) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::NetworkReport() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->get_NetworkReport(&value));
         return Windows::Devices::WiFi::WiFiNetworkReport{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::AvailableNetworksChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFi::WiFiAdapter, Windows::Foundation::IInspectable> const& args) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::AvailableNetworksChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFi::WiFiAdapter, Windows::Foundation::IInspectable> const& args) const
     {
-        winrt::event_token eventCookie;
+        winrt::event_token eventCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->add_AvailableNetworksChanged(*(void**)(&args), put_abi(eventCookie)));
         return eventCookie;
     }
@@ -43,159 +43,159 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, AvailableNetworksChanged_revoker>(this, AvailableNetworksChanged(args));
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::AvailableNetworksChanged(winrt::event_token const& eventCookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::AvailableNetworksChanged(winrt::event_token const& eventCookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->remove_AvailableNetworksChanged(impl::bind_in(eventCookie)));
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::ConnectAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork, Windows::Devices::WiFi::WiFiReconnectionKind const& reconnectionKind) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiConnectionResult>) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::ConnectAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork, Windows::Devices::WiFi::WiFiReconnectionKind const& reconnectionKind) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->ConnectAsync(*(void**)(&availableNetwork), static_cast<int32_t>(reconnectionKind), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiConnectionResult>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::ConnectAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork, Windows::Devices::WiFi::WiFiReconnectionKind const& reconnectionKind, Windows::Security::Credentials::PasswordCredential const& passwordCredential) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiConnectionResult>) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::ConnectAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork, Windows::Devices::WiFi::WiFiReconnectionKind const& reconnectionKind, Windows::Security::Credentials::PasswordCredential const& passwordCredential) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->ConnectWithPasswordCredentialAsync(*(void**)(&availableNetwork), static_cast<int32_t>(reconnectionKind), *(void**)(&passwordCredential), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiConnectionResult>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::ConnectAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork, Windows::Devices::WiFi::WiFiReconnectionKind const& reconnectionKind, Windows::Security::Credentials::PasswordCredential const& passwordCredential, param::hstring const& ssid) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiConnectionResult>) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::ConnectAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork, Windows::Devices::WiFi::WiFiReconnectionKind const& reconnectionKind, Windows::Security::Credentials::PasswordCredential const& passwordCredential, param::hstring const& ssid) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->ConnectWithPasswordCredentialAndSsidAsync(*(void**)(&availableNetwork), static_cast<int32_t>(reconnectionKind), *(void**)(&passwordCredential), *(void**)(&ssid), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiConnectionResult>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter<D>::Disconnect() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_WiFi_IWiFiAdapter<D>::Disconnect() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter)->Disconnect());
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter2<D>::GetWpsConfigurationAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiWpsConfigurationResult>) consume_Windows_Devices_WiFi_IWiFiAdapter2<D>::GetWpsConfigurationAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter2)->GetWpsConfigurationAsync(*(void**)(&availableNetwork), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiWpsConfigurationResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapter2<D>::ConnectAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork, Windows::Devices::WiFi::WiFiReconnectionKind const& reconnectionKind, Windows::Security::Credentials::PasswordCredential const& passwordCredential, param::hstring const& ssid, Windows::Devices::WiFi::WiFiConnectionMethod const& connectionMethod) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiConnectionResult>) consume_Windows_Devices_WiFi_IWiFiAdapter2<D>::ConnectAsync(Windows::Devices::WiFi::WiFiAvailableNetwork const& availableNetwork, Windows::Devices::WiFi::WiFiReconnectionKind const& reconnectionKind, Windows::Security::Credentials::PasswordCredential const& passwordCredential, param::hstring const& ssid, Windows::Devices::WiFi::WiFiConnectionMethod const& connectionMethod) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapter2)->ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync(*(void**)(&availableNetwork), static_cast<int32_t>(reconnectionKind), *(void**)(&passwordCredential), *(void**)(&ssid), static_cast<int32_t>(connectionMethod), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiConnectionResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapterStatics<D>::FindAllAdaptersAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::WiFi::WiFiAdapter>>) consume_Windows_Devices_WiFi_IWiFiAdapterStatics<D>::FindAllAdaptersAsync() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapterStatics)->FindAllAdaptersAsync(&value));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::WiFi::WiFiAdapter>>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapterStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_WiFi_IWiFiAdapterStatics<D>::GetDeviceSelector() const
     {
         void* deviceSelector{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapterStatics)->GetDeviceSelector(&deviceSelector));
         return hstring{ deviceSelector, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapterStatics<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiAdapter>) consume_Windows_Devices_WiFi_IWiFiAdapterStatics<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* asyncOp{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapterStatics)->FromIdAsync(*(void**)(&deviceId), &asyncOp));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiAdapter>{ asyncOp, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAdapterStatics<D>::RequestAccessAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiAccessStatus>) consume_Windows_Devices_WiFi_IWiFiAdapterStatics<D>::RequestAccessAsync() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAdapterStatics)->RequestAccessAsync(&value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::WiFi::WiFiAccessStatus>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::Uptime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::Uptime() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_Uptime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::Ssid() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::Ssid() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_Ssid(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::Bssid() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::Bssid() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_Bssid(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::ChannelCenterFrequencyInKilohertz() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::ChannelCenterFrequencyInKilohertz() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_ChannelCenterFrequencyInKilohertz(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::NetworkRssiInDecibelMilliwatts() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::NetworkRssiInDecibelMilliwatts() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_NetworkRssiInDecibelMilliwatts(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::SignalBars() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::SignalBars() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_SignalBars(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::NetworkKind() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::WiFi::WiFiNetworkKind) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::NetworkKind() const
     {
-        Windows::Devices::WiFi::WiFiNetworkKind value;
+        Windows::Devices::WiFi::WiFiNetworkKind value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_NetworkKind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::PhyKind() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::WiFi::WiFiPhyKind) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::PhyKind() const
     {
-        Windows::Devices::WiFi::WiFiPhyKind value;
+        Windows::Devices::WiFi::WiFiPhyKind value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_PhyKind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::SecuritySettings() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkSecuritySettings) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::SecuritySettings() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_SecuritySettings(&value));
         return Windows::Networking::Connectivity::NetworkSecuritySettings{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::BeaconInterval() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::BeaconInterval() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_BeaconInterval(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::IsWiFiDirect() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_WiFi_IWiFiAvailableNetwork<D>::IsWiFiDirect() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiAvailableNetwork)->get_IsWiFiDirect(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiConnectionResult<D>::ConnectionStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::WiFi::WiFiConnectionStatus) consume_Windows_Devices_WiFi_IWiFiConnectionResult<D>::ConnectionStatus() const
     {
-        Windows::Devices::WiFi::WiFiConnectionStatus value;
+        Windows::Devices::WiFi::WiFiConnectionStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiConnectionResult)->get_ConnectionStatus(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiNetworkReport<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Devices_WiFi_IWiFiNetworkReport<D>::Timestamp() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiNetworkReport)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiNetworkReport<D>::AvailableNetworks() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::WiFi::WiFiAvailableNetwork>) consume_Windows_Devices_WiFi_IWiFiNetworkReport<D>::AvailableNetworks() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiNetworkReport)->get_AvailableNetworks(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Devices::WiFi::WiFiAvailableNetwork>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiWpsConfigurationResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::WiFi::WiFiWpsConfigurationStatus) consume_Windows_Devices_WiFi_IWiFiWpsConfigurationResult<D>::Status() const
     {
-        Windows::Devices::WiFi::WiFiWpsConfigurationStatus value;
+        Windows::Devices::WiFi::WiFiWpsConfigurationStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiWpsConfigurationResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_WiFi_IWiFiWpsConfigurationResult<D>::SupportedWpsKinds() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::WiFi::WiFiWpsKind>) consume_Windows_Devices_WiFi_IWiFiWpsConfigurationResult<D>::SupportedWpsKinds() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::WiFi::IWiFiWpsConfigurationResult)->get_SupportedWpsKinds(&value));

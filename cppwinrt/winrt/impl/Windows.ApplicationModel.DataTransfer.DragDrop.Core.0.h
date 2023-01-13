@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -19,6 +19,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Point;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
@@ -65,23 +66,21 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIOverride>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDropOperationTargetRequestedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIContentMode>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragDropManager>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragOperation>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIOverride>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDropOperationTargetRequestedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIContentMode>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManagerStatics>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo2>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation2>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragUIOverride>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragUIOverride" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTarget>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTargetRequestedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragDropManager> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragOperation> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIOverride> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDropOperationTargetRequestedEventArgs> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIContentMode> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManagerStatics> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo2> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragInfo2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation2> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragOperation2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragUIOverride> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragUIOverride";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTarget> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTargetRequestedEventArgs> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager>{ 0x7D56D344,0x8464,0x4FAF,{ 0xAA,0x49,0x37,0xEA,0x6E,0x2D,0x7B,0xD1 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManagerStatics>{ 0x9542FDCA,0xDA12,0x4C1C,{ 0x8D,0x06,0x04,0x1D,0xB2,0x97,0x33,0xC3 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo>{ 0x48353A8B,0xCB50,0x464E,{ 0x95,0x75,0xCD,0x4E,0x3A,0x7A,0xB0,0x28 } };
@@ -187,12 +186,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDragDropManager
     {
-        auto TargetRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragDropManager, Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDropOperationTargetRequestedEventArgs> const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) TargetRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragDropManager, Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDropOperationTargetRequestedEventArgs> const& value) const;
         using TargetRequested_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager, &impl::abi_t<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager>::remove_TargetRequested>;
         [[nodiscard]] TargetRequested_revoker TargetRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragDropManager, Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDropOperationTargetRequestedEventArgs> const& value) const;
-        auto TargetRequested(winrt::event_token const& value) const noexcept;
-        [[nodiscard]] auto AreConcurrentOperationsEnabled() const;
-        auto AreConcurrentOperationsEnabled(bool value) const;
+        WINRT_IMPL_AUTO(void) TargetRequested(winrt::event_token const& value) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AreConcurrentOperationsEnabled() const;
+        WINRT_IMPL_AUTO(void) AreConcurrentOperationsEnabled(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager>
     {
@@ -201,7 +200,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDragDropManagerStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragDropManager) GetForCurrentView() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManagerStatics>
     {
@@ -210,9 +209,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDragInfo
     {
-        [[nodiscard]] auto Data() const;
-        [[nodiscard]] auto Modifiers() const;
-        [[nodiscard]] auto Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageView) Data() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DragDrop::DragDropModifiers) Modifiers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Position() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo>
     {
@@ -221,7 +220,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDragInfo2
     {
-        [[nodiscard]] auto AllowedOperations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) AllowedOperations() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo2>
     {
@@ -230,13 +229,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDragOperation
     {
-        [[nodiscard]] auto Data() const;
-        auto SetPointerId(uint32_t pointerId) const;
-        auto SetDragUIContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
-        auto SetDragUIContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap, Windows::Foundation::Point const& anchorPoint) const;
-        [[nodiscard]] auto DragUIContentMode() const;
-        auto DragUIContentMode(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIContentMode const& value) const;
-        auto StartAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackage) Data() const;
+        WINRT_IMPL_AUTO(void) SetPointerId(uint32_t pointerId) const;
+        WINRT_IMPL_AUTO(void) SetDragUIContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
+        WINRT_IMPL_AUTO(void) SetDragUIContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap, Windows::Foundation::Point const& anchorPoint) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIContentMode) DragUIContentMode() const;
+        WINRT_IMPL_AUTO(void) DragUIContentMode(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIContentMode const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::DataTransfer::DataPackageOperation>) StartAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation>
     {
@@ -245,8 +244,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDragOperation2
     {
-        [[nodiscard]] auto AllowedOperations() const;
-        auto AllowedOperations(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) AllowedOperations() const;
+        WINRT_IMPL_AUTO(void) AllowedOperations(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation2>
     {
@@ -255,17 +254,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDragUIOverride
     {
-        auto SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
-        auto SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap, Windows::Foundation::Point const& anchorPoint) const;
-        [[nodiscard]] auto IsContentVisible() const;
-        auto IsContentVisible(bool value) const;
-        [[nodiscard]] auto Caption() const;
-        auto Caption(param::hstring const& value) const;
-        [[nodiscard]] auto IsCaptionVisible() const;
-        auto IsCaptionVisible(bool value) const;
-        [[nodiscard]] auto IsGlyphVisible() const;
-        auto IsGlyphVisible(bool value) const;
-        auto Clear() const;
+        WINRT_IMPL_AUTO(void) SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
+        WINRT_IMPL_AUTO(void) SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap, Windows::Foundation::Point const& anchorPoint) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsContentVisible() const;
+        WINRT_IMPL_AUTO(void) IsContentVisible(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Caption() const;
+        WINRT_IMPL_AUTO(void) Caption(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCaptionVisible() const;
+        WINRT_IMPL_AUTO(void) IsCaptionVisible(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsGlyphVisible() const;
+        WINRT_IMPL_AUTO(void) IsGlyphVisible(bool value) const;
+        WINRT_IMPL_AUTO(void) Clear() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragUIOverride>
     {
@@ -274,10 +273,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDropOperationTarget
     {
-        auto EnterAsync(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo const& dragInfo, Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIOverride const& dragUIOverride) const;
-        auto OverAsync(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo const& dragInfo, Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIOverride const& dragUIOverride) const;
-        auto LeaveAsync(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo const& dragInfo) const;
-        auto DropAsync(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo const& dragInfo) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::DataTransfer::DataPackageOperation>) EnterAsync(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo const& dragInfo, Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIOverride const& dragUIOverride) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::DataTransfer::DataPackageOperation>) OverAsync(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo const& dragInfo, Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragUIOverride const& dragUIOverride) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) LeaveAsync(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo const& dragInfo) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::DataTransfer::DataPackageOperation>) DropAsync(Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo const& dragInfo) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTarget>
     {
@@ -286,7 +285,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_DragDrop_Core_ICoreDropOperationTargetRequestedEventArgs
     {
-        auto SetTarget(Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTarget const& target) const;
+        WINRT_IMPL_AUTO(void) SetTarget(Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTarget const& target) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTargetRequestedEventArgs>
     {

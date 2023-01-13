@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -578,258 +578,256 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Media::Animation::SlideNavigationTransitionEffect>{ using type = enum_category; };
     template <> struct category<Windows::UI::Xaml::Media::Animation::KeyTime>{ using type = struct_category<Windows::Foundation::TimeSpan>; };
     template <> struct category<Windows::UI::Xaml::Media::Animation::RepeatBehavior>{ using type = struct_category<double, Windows::Foundation::TimeSpan, Windows::UI::Xaml::Media::Animation::RepeatBehaviorType>; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::AddDeleteThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::BackEase>{ L"Windows.UI.Xaml.Media.Animation.BackEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::BasicConnectedAnimationConfiguration>{ L"Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::BeginStoryboard>{ L"Windows.UI.Xaml.Media.Animation.BeginStoryboard" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::BounceEase>{ L"Windows.UI.Xaml.Media.Animation.BounceEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::CircleEase>{ L"Windows.UI.Xaml.Media.Animation.CircleEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ColorAnimation>{ L"Windows.UI.Xaml.Media.Animation.ColorAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ColorAnimationUsingKeyFrames>{ L"Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.ColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ColorKeyFrameCollection>{ L"Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::CommonNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ConnectedAnimation>{ L"Windows.UI.Xaml.Media.Animation.ConnectedAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ConnectedAnimationConfiguration>{ L"Windows.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ConnectedAnimationService>{ L"Windows.UI.Xaml.Media.Animation.ConnectedAnimationService" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ContentThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.ContentThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ContinuumNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::CubicEase>{ L"Windows.UI.Xaml.Media.Animation.CubicEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DirectConnectedAnimationConfiguration>{ L"Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DiscreteColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DiscreteDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DiscreteObjectKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DiscretePointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DoubleAnimation>{ L"Windows.UI.Xaml.Media.Animation.DoubleAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DoubleAnimationUsingKeyFrames>{ L"Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.DoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DoubleKeyFrameCollection>{ L"Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DragItemThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DragOverThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DrillInNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DrillInThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DrillOutThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DropTargetItemThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingFunctionBase>{ L"Windows.UI.Xaml.Media.Animation.EasingFunctionBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingPointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EdgeUIThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ElasticEase>{ L"Windows.UI.Xaml.Media.Animation.ElasticEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EntranceNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EntranceThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.EntranceThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ExponentialEase>{ L"Windows.UI.Xaml.Media.Animation.ExponentialEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::FadeInThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::FadeOutThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::GravityConnectedAnimationConfiguration>{ L"Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::KeySpline>{ L"Windows.UI.Xaml.Media.Animation.KeySpline" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::KeyTimeHelper>{ L"Windows.UI.Xaml.Media.Animation.KeyTimeHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::LinearColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::LinearDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::LinearPointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::NavigationThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.NavigationThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::NavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ObjectAnimationUsingKeyFrames>{ L"Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ObjectKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.ObjectKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ObjectKeyFrameCollection>{ L"Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PaneThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.PaneThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointAnimation>{ L"Windows.UI.Xaml.Media.Animation.PointAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointAnimationUsingKeyFrames>{ L"Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.PointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointKeyFrameCollection>{ L"Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointerDownThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointerUpThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PopInThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.PopInThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PopOutThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PopupThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.PopupThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PowerEase>{ L"Windows.UI.Xaml.Media.Animation.PowerEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::QuadraticEase>{ L"Windows.UI.Xaml.Media.Animation.QuadraticEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::QuarticEase>{ L"Windows.UI.Xaml.Media.Animation.QuarticEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::QuinticEase>{ L"Windows.UI.Xaml.Media.Animation.QuinticEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ReorderThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.ReorderThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepeatBehaviorHelper>{ L"Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepositionThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepositionThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.RepositionThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SineEase>{ L"Windows.UI.Xaml.Media.Animation.SineEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SlideNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplineColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplineDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplinePointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplitCloseThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplitOpenThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::Storyboard>{ L"Windows.UI.Xaml.Media.Animation.Storyboard" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SuppressNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SwipeBackThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SwipeHintThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::Timeline>{ L"Windows.UI.Xaml.Media.Animation.Timeline" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::TimelineCollection>{ L"Windows.UI.Xaml.Media.Animation.TimelineCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::Transition>{ L"Windows.UI.Xaml.Media.Animation.Transition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::TransitionCollection>{ L"Windows.UI.Xaml.Media.Animation.TransitionCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ClockState>{ L"Windows.UI.Xaml.Media.Animation.ClockState" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ConnectedAnimationComponent>{ L"Windows.UI.Xaml.Media.Animation.ConnectedAnimationComponent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingMode>{ L"Windows.UI.Xaml.Media.Animation.EasingMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::FillBehavior>{ L"Windows.UI.Xaml.Media.Animation.FillBehavior" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepeatBehaviorType>{ L"Windows.UI.Xaml.Media.Animation.RepeatBehaviorType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SlideNavigationTransitionEffect>{ L"Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionEffect" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::KeyTime>{ L"Windows.UI.Xaml.Media.Animation.KeyTime" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepeatBehavior>{ L"Windows.UI.Xaml.Media.Animation.RepeatBehavior" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IAddDeleteThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBackEase>{ L"Windows.UI.Xaml.Media.Animation.IBackEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBackEaseStatics>{ L"Windows.UI.Xaml.Media.Animation.IBackEaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBasicConnectedAnimationConfiguration>{ L"Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBasicConnectedAnimationConfigurationFactory>{ L"Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfigurationFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBeginStoryboard>{ L"Windows.UI.Xaml.Media.Animation.IBeginStoryboard" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBeginStoryboardStatics>{ L"Windows.UI.Xaml.Media.Animation.IBeginStoryboardStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBounceEase>{ L"Windows.UI.Xaml.Media.Animation.IBounceEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBounceEaseStatics>{ L"Windows.UI.Xaml.Media.Animation.IBounceEaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ICircleEase>{ L"Windows.UI.Xaml.Media.Animation.ICircleEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorAnimation>{ L"Windows.UI.Xaml.Media.Animation.IColorAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IColorAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorAnimationUsingKeyFrames>{ L"Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorAnimationUsingKeyFramesStatics>{ L"Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFramesStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorKeyFrameFactory>{ L"Windows.UI.Xaml.Media.Animation.IColorKeyFrameFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.IColorKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ICommonNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ICommonNavigationTransitionInfoStatics>{ L"Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimation>{ L"Windows.UI.Xaml.Media.Animation.IConnectedAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimation2>{ L"Windows.UI.Xaml.Media.Animation.IConnectedAnimation2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimation3>{ L"Windows.UI.Xaml.Media.Animation.IConnectedAnimation3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimationConfiguration>{ L"Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimationConfigurationFactory>{ L"Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfigurationFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimationService>{ L"Windows.UI.Xaml.Media.Animation.IConnectedAnimationService" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimationServiceStatics>{ L"Windows.UI.Xaml.Media.Animation.IConnectedAnimationServiceStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IContentThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.IContentThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IContentThemeTransitionStatics>{ L"Windows.UI.Xaml.Media.Animation.IContentThemeTransitionStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IContinuumNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IContinuumNavigationTransitionInfoStatics>{ L"Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ICubicEase>{ L"Windows.UI.Xaml.Media.Animation.ICubicEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDirectConnectedAnimationConfiguration>{ L"Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDirectConnectedAnimationConfigurationFactory>{ L"Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfigurationFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDiscreteColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDiscreteDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDiscreteObjectKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDiscretePointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleAnimation>{ L"Windows.UI.Xaml.Media.Animation.IDoubleAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IDoubleAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleAnimationUsingKeyFrames>{ L"Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleAnimationUsingKeyFramesStatics>{ L"Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFramesStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrameFactory>{ L"Windows.UI.Xaml.Media.Animation.IDoubleKeyFrameFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.IDoubleKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDragItemThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDragItemThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDragOverThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDragOverThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillInNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillInThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillInThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillOutThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillOutThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDropTargetItemThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDropTargetItemThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingColorKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingDoubleKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingFunctionBase>{ L"Windows.UI.Xaml.Media.Animation.IEasingFunctionBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingFunctionBaseFactory>{ L"Windows.UI.Xaml.Media.Animation.IEasingFunctionBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingFunctionBaseStatics>{ L"Windows.UI.Xaml.Media.Animation.IEasingFunctionBaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingPointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingPointKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEdgeUIThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEdgeUIThemeTransitionStatics>{ L"Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransitionStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IElasticEase>{ L"Windows.UI.Xaml.Media.Animation.IElasticEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IElasticEaseStatics>{ L"Windows.UI.Xaml.Media.Animation.IElasticEaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEntranceNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEntranceNavigationTransitionInfoStatics>{ L"Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEntranceThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEntranceThemeTransitionStatics>{ L"Windows.UI.Xaml.Media.Animation.IEntranceThemeTransitionStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IExponentialEase>{ L"Windows.UI.Xaml.Media.Animation.IExponentialEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IExponentialEaseStatics>{ L"Windows.UI.Xaml.Media.Animation.IExponentialEaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IFadeInThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IFadeInThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IFadeOutThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IFadeOutThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IGravityConnectedAnimationConfiguration>{ L"Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IGravityConnectedAnimationConfiguration2>{ L"Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IGravityConnectedAnimationConfigurationFactory>{ L"Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfigurationFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IKeySpline>{ L"Windows.UI.Xaml.Media.Animation.IKeySpline" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IKeyTimeHelper>{ L"Windows.UI.Xaml.Media.Animation.IKeyTimeHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IKeyTimeHelperStatics>{ L"Windows.UI.Xaml.Media.Animation.IKeyTimeHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ILinearColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ILinearDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ILinearPointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.INavigationThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationThemeTransitionStatics>{ L"Windows.UI.Xaml.Media.Animation.INavigationThemeTransitionStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationTransitionInfoFactory>{ L"Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationTransitionInfoOverrides>{ L"Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectAnimationUsingKeyFrames>{ L"Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectAnimationUsingKeyFramesStatics>{ L"Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFramesStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IObjectKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectKeyFrameFactory>{ L"Windows.UI.Xaml.Media.Animation.IObjectKeyFrameFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.IObjectKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPaneThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.IPaneThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPaneThemeTransitionStatics>{ L"Windows.UI.Xaml.Media.Animation.IPaneThemeTransitionStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointAnimation>{ L"Windows.UI.Xaml.Media.Animation.IPointAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IPointAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointAnimationUsingKeyFrames>{ L"Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointAnimationUsingKeyFramesStatics>{ L"Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFramesStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.IPointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointKeyFrameFactory>{ L"Windows.UI.Xaml.Media.Animation.IPointKeyFrameFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.IPointKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointerDownThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointerDownThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointerUpThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointerUpThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopInThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopInThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IPopInThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopOutThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopOutThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopupThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.IPopupThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopupThemeTransitionStatics>{ L"Windows.UI.Xaml.Media.Animation.IPopupThemeTransitionStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPowerEase>{ L"Windows.UI.Xaml.Media.Animation.IPowerEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPowerEaseStatics>{ L"Windows.UI.Xaml.Media.Animation.IPowerEaseStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IQuadraticEase>{ L"Windows.UI.Xaml.Media.Animation.IQuadraticEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IQuarticEase>{ L"Windows.UI.Xaml.Media.Animation.IQuarticEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IQuinticEase>{ L"Windows.UI.Xaml.Media.Animation.IQuinticEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IReorderThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.IReorderThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepeatBehaviorHelper>{ L"Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepeatBehaviorHelperStatics>{ L"Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeTransition>{ L"Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeTransition2>{ L"Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeTransitionStatics2>{ L"Windows.UI.Xaml.Media.Animation.IRepositionThemeTransitionStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISineEase>{ L"Windows.UI.Xaml.Media.Animation.ISineEase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISlideNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISlideNavigationTransitionInfo2>{ L"Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISlideNavigationTransitionInfoStatics2>{ L"Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfoStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplineColorKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplineColorKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplineDoubleKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplineDoubleKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplinePointKeyFrame>{ L"Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplinePointKeyFrameStatics>{ L"Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrameStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplitCloseThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplitCloseThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplitOpenThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplitOpenThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IStoryboard>{ L"Windows.UI.Xaml.Media.Animation.IStoryboard" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IStoryboardStatics>{ L"Windows.UI.Xaml.Media.Animation.IStoryboardStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISuppressNavigationTransitionInfo>{ L"Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISwipeBackThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISwipeBackThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISwipeHintThemeAnimation>{ L"Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISwipeHintThemeAnimationStatics>{ L"Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITimeline>{ L"Windows.UI.Xaml.Media.Animation.ITimeline" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITimelineFactory>{ L"Windows.UI.Xaml.Media.Animation.ITimelineFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITimelineStatics>{ L"Windows.UI.Xaml.Media.Animation.ITimelineStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITransition>{ L"Windows.UI.Xaml.Media.Animation.ITransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITransitionFactory>{ L"Windows.UI.Xaml.Media.Animation.ITransitionFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::AddDeleteThemeTransition> = L"Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::BackEase> = L"Windows.UI.Xaml.Media.Animation.BackEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::BasicConnectedAnimationConfiguration> = L"Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::BeginStoryboard> = L"Windows.UI.Xaml.Media.Animation.BeginStoryboard";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::BounceEase> = L"Windows.UI.Xaml.Media.Animation.BounceEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::CircleEase> = L"Windows.UI.Xaml.Media.Animation.CircleEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ColorAnimation> = L"Windows.UI.Xaml.Media.Animation.ColorAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ColorAnimationUsingKeyFrames> = L"Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.ColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ColorKeyFrameCollection> = L"Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::CommonNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ConnectedAnimation> = L"Windows.UI.Xaml.Media.Animation.ConnectedAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ConnectedAnimationConfiguration> = L"Windows.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ConnectedAnimationService> = L"Windows.UI.Xaml.Media.Animation.ConnectedAnimationService";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ContentThemeTransition> = L"Windows.UI.Xaml.Media.Animation.ContentThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ContinuumNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::CubicEase> = L"Windows.UI.Xaml.Media.Animation.CubicEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DirectConnectedAnimationConfiguration> = L"Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DiscreteColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DiscreteDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DiscreteObjectKeyFrame> = L"Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DiscretePointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DoubleAnimation> = L"Windows.UI.Xaml.Media.Animation.DoubleAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DoubleAnimationUsingKeyFrames> = L"Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.DoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DoubleKeyFrameCollection> = L"Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DragItemThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DragOverThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DrillInNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DrillInThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DrillOutThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::DropTargetItemThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingFunctionBase> = L"Windows.UI.Xaml.Media.Animation.EasingFunctionBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingPointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EdgeUIThemeTransition> = L"Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ElasticEase> = L"Windows.UI.Xaml.Media.Animation.ElasticEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EntranceNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EntranceThemeTransition> = L"Windows.UI.Xaml.Media.Animation.EntranceThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ExponentialEase> = L"Windows.UI.Xaml.Media.Animation.ExponentialEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::FadeInThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::FadeOutThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::GravityConnectedAnimationConfiguration> = L"Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::KeySpline> = L"Windows.UI.Xaml.Media.Animation.KeySpline";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::KeyTimeHelper> = L"Windows.UI.Xaml.Media.Animation.KeyTimeHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::LinearColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::LinearDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::LinearPointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::NavigationThemeTransition> = L"Windows.UI.Xaml.Media.Animation.NavigationThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::NavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ObjectAnimationUsingKeyFrames> = L"Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ObjectKeyFrame> = L"Windows.UI.Xaml.Media.Animation.ObjectKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ObjectKeyFrameCollection> = L"Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PaneThemeTransition> = L"Windows.UI.Xaml.Media.Animation.PaneThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointAnimation> = L"Windows.UI.Xaml.Media.Animation.PointAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointAnimationUsingKeyFrames> = L"Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.PointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointKeyFrameCollection> = L"Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointerDownThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PointerUpThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PopInThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.PopInThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PopOutThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PopupThemeTransition> = L"Windows.UI.Xaml.Media.Animation.PopupThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::PowerEase> = L"Windows.UI.Xaml.Media.Animation.PowerEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::QuadraticEase> = L"Windows.UI.Xaml.Media.Animation.QuadraticEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::QuarticEase> = L"Windows.UI.Xaml.Media.Animation.QuarticEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::QuinticEase> = L"Windows.UI.Xaml.Media.Animation.QuinticEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ReorderThemeTransition> = L"Windows.UI.Xaml.Media.Animation.ReorderThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepeatBehaviorHelper> = L"Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepositionThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepositionThemeTransition> = L"Windows.UI.Xaml.Media.Animation.RepositionThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SineEase> = L"Windows.UI.Xaml.Media.Animation.SineEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SlideNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplineColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplineDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplinePointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplitCloseThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SplitOpenThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::Storyboard> = L"Windows.UI.Xaml.Media.Animation.Storyboard";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SuppressNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SwipeBackThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SwipeHintThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::Timeline> = L"Windows.UI.Xaml.Media.Animation.Timeline";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::TimelineCollection> = L"Windows.UI.Xaml.Media.Animation.TimelineCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::Transition> = L"Windows.UI.Xaml.Media.Animation.Transition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::TransitionCollection> = L"Windows.UI.Xaml.Media.Animation.TransitionCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ClockState> = L"Windows.UI.Xaml.Media.Animation.ClockState";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ConnectedAnimationComponent> = L"Windows.UI.Xaml.Media.Animation.ConnectedAnimationComponent";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::EasingMode> = L"Windows.UI.Xaml.Media.Animation.EasingMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::FillBehavior> = L"Windows.UI.Xaml.Media.Animation.FillBehavior";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepeatBehaviorType> = L"Windows.UI.Xaml.Media.Animation.RepeatBehaviorType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::SlideNavigationTransitionEffect> = L"Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionEffect";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::KeyTime> = L"Windows.UI.Xaml.Media.Animation.KeyTime";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::RepeatBehavior> = L"Windows.UI.Xaml.Media.Animation.RepeatBehavior";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IAddDeleteThemeTransition> = L"Windows.UI.Xaml.Media.Animation.IAddDeleteThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBackEase> = L"Windows.UI.Xaml.Media.Animation.IBackEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBackEaseStatics> = L"Windows.UI.Xaml.Media.Animation.IBackEaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBasicConnectedAnimationConfiguration> = L"Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBasicConnectedAnimationConfigurationFactory> = L"Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfigurationFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBeginStoryboard> = L"Windows.UI.Xaml.Media.Animation.IBeginStoryboard";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBeginStoryboardStatics> = L"Windows.UI.Xaml.Media.Animation.IBeginStoryboardStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBounceEase> = L"Windows.UI.Xaml.Media.Animation.IBounceEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IBounceEaseStatics> = L"Windows.UI.Xaml.Media.Animation.IBounceEaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ICircleEase> = L"Windows.UI.Xaml.Media.Animation.ICircleEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorAnimation> = L"Windows.UI.Xaml.Media.Animation.IColorAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IColorAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorAnimationUsingKeyFrames> = L"Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFrames";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorAnimationUsingKeyFramesStatics> = L"Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFramesStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorKeyFrameFactory> = L"Windows.UI.Xaml.Media.Animation.IColorKeyFrameFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IColorKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.IColorKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ICommonNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ICommonNavigationTransitionInfoStatics> = L"Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimation> = L"Windows.UI.Xaml.Media.Animation.IConnectedAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimation2> = L"Windows.UI.Xaml.Media.Animation.IConnectedAnimation2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimation3> = L"Windows.UI.Xaml.Media.Animation.IConnectedAnimation3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimationConfiguration> = L"Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimationConfigurationFactory> = L"Windows.UI.Xaml.Media.Animation.IConnectedAnimationConfigurationFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimationService> = L"Windows.UI.Xaml.Media.Animation.IConnectedAnimationService";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IConnectedAnimationServiceStatics> = L"Windows.UI.Xaml.Media.Animation.IConnectedAnimationServiceStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IContentThemeTransition> = L"Windows.UI.Xaml.Media.Animation.IContentThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IContentThemeTransitionStatics> = L"Windows.UI.Xaml.Media.Animation.IContentThemeTransitionStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IContinuumNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IContinuumNavigationTransitionInfoStatics> = L"Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ICubicEase> = L"Windows.UI.Xaml.Media.Animation.ICubicEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDirectConnectedAnimationConfiguration> = L"Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDirectConnectedAnimationConfigurationFactory> = L"Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfigurationFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDiscreteColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IDiscreteColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDiscreteDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IDiscreteDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDiscreteObjectKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IDiscreteObjectKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDiscretePointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IDiscretePointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleAnimation> = L"Windows.UI.Xaml.Media.Animation.IDoubleAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IDoubleAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleAnimationUsingKeyFrames> = L"Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFrames";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleAnimationUsingKeyFramesStatics> = L"Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFramesStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrameFactory> = L"Windows.UI.Xaml.Media.Animation.IDoubleKeyFrameFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.IDoubleKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDragItemThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDragItemThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDragOverThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDragOverThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillInNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.IDrillInNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillInThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillInThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillOutThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDrillOutThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDropTargetItemThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IDropTargetItemThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingColorKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingDoubleKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingFunctionBase> = L"Windows.UI.Xaml.Media.Animation.IEasingFunctionBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingFunctionBaseFactory> = L"Windows.UI.Xaml.Media.Animation.IEasingFunctionBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingFunctionBaseStatics> = L"Windows.UI.Xaml.Media.Animation.IEasingFunctionBaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingPointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEasingPointKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEdgeUIThemeTransition> = L"Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEdgeUIThemeTransitionStatics> = L"Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransitionStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IElasticEase> = L"Windows.UI.Xaml.Media.Animation.IElasticEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IElasticEaseStatics> = L"Windows.UI.Xaml.Media.Animation.IElasticEaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEntranceNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEntranceNavigationTransitionInfoStatics> = L"Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEntranceThemeTransition> = L"Windows.UI.Xaml.Media.Animation.IEntranceThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IEntranceThemeTransitionStatics> = L"Windows.UI.Xaml.Media.Animation.IEntranceThemeTransitionStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IExponentialEase> = L"Windows.UI.Xaml.Media.Animation.IExponentialEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IExponentialEaseStatics> = L"Windows.UI.Xaml.Media.Animation.IExponentialEaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IFadeInThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IFadeInThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IFadeOutThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IFadeOutThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IGravityConnectedAnimationConfiguration> = L"Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IGravityConnectedAnimationConfiguration2> = L"Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfiguration2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IGravityConnectedAnimationConfigurationFactory> = L"Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfigurationFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IKeySpline> = L"Windows.UI.Xaml.Media.Animation.IKeySpline";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IKeyTimeHelper> = L"Windows.UI.Xaml.Media.Animation.IKeyTimeHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IKeyTimeHelperStatics> = L"Windows.UI.Xaml.Media.Animation.IKeyTimeHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ILinearColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.ILinearColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ILinearDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.ILinearDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ILinearPointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.ILinearPointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationThemeTransition> = L"Windows.UI.Xaml.Media.Animation.INavigationThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationThemeTransitionStatics> = L"Windows.UI.Xaml.Media.Animation.INavigationThemeTransitionStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.INavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationTransitionInfoFactory> = L"Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::INavigationTransitionInfoOverrides> = L"Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectAnimationUsingKeyFrames> = L"Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFrames";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectAnimationUsingKeyFramesStatics> = L"Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFramesStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IObjectKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectKeyFrameFactory> = L"Windows.UI.Xaml.Media.Animation.IObjectKeyFrameFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IObjectKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.IObjectKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPaneThemeTransition> = L"Windows.UI.Xaml.Media.Animation.IPaneThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPaneThemeTransitionStatics> = L"Windows.UI.Xaml.Media.Animation.IPaneThemeTransitionStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointAnimation> = L"Windows.UI.Xaml.Media.Animation.IPointAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IPointAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointAnimationUsingKeyFrames> = L"Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFrames";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointAnimationUsingKeyFramesStatics> = L"Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFramesStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.IPointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointKeyFrameFactory> = L"Windows.UI.Xaml.Media.Animation.IPointKeyFrameFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.IPointKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointerDownThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointerDownThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointerUpThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPointerUpThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopInThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IPopInThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopInThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IPopInThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopOutThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopOutThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopupThemeTransition> = L"Windows.UI.Xaml.Media.Animation.IPopupThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPopupThemeTransitionStatics> = L"Windows.UI.Xaml.Media.Animation.IPopupThemeTransitionStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPowerEase> = L"Windows.UI.Xaml.Media.Animation.IPowerEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IPowerEaseStatics> = L"Windows.UI.Xaml.Media.Animation.IPowerEaseStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IQuadraticEase> = L"Windows.UI.Xaml.Media.Animation.IQuadraticEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IQuarticEase> = L"Windows.UI.Xaml.Media.Animation.IQuarticEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IQuinticEase> = L"Windows.UI.Xaml.Media.Animation.IQuinticEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IReorderThemeTransition> = L"Windows.UI.Xaml.Media.Animation.IReorderThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepeatBehaviorHelper> = L"Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepeatBehaviorHelperStatics> = L"Windows.UI.Xaml.Media.Animation.IRepeatBehaviorHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeTransition> = L"Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeTransition2> = L"Windows.UI.Xaml.Media.Animation.IRepositionThemeTransition2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IRepositionThemeTransitionStatics2> = L"Windows.UI.Xaml.Media.Animation.IRepositionThemeTransitionStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISineEase> = L"Windows.UI.Xaml.Media.Animation.ISineEase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISlideNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISlideNavigationTransitionInfo2> = L"Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfo2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISlideNavigationTransitionInfoStatics2> = L"Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfoStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplineColorKeyFrame> = L"Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplineColorKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplineDoubleKeyFrame> = L"Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplineDoubleKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplinePointKeyFrame> = L"Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplinePointKeyFrameStatics> = L"Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrameStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplitCloseThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplitCloseThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplitOpenThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISplitOpenThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IStoryboard> = L"Windows.UI.Xaml.Media.Animation.IStoryboard";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::IStoryboardStatics> = L"Windows.UI.Xaml.Media.Animation.IStoryboardStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISuppressNavigationTransitionInfo> = L"Windows.UI.Xaml.Media.Animation.ISuppressNavigationTransitionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISwipeBackThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISwipeBackThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISwipeHintThemeAnimation> = L"Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ISwipeHintThemeAnimationStatics> = L"Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITimeline> = L"Windows.UI.Xaml.Media.Animation.ITimeline";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITimelineFactory> = L"Windows.UI.Xaml.Media.Animation.ITimelineFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITimelineStatics> = L"Windows.UI.Xaml.Media.Animation.ITimelineStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITransition> = L"Windows.UI.Xaml.Media.Animation.ITransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Animation::ITransitionFactory> = L"Windows.UI.Xaml.Media.Animation.ITransitionFactory";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Animation::IAddDeleteThemeTransition>{ 0xADEC852E,0x4424,0x4DAB,{ 0x99,0xC1,0x3A,0x04,0xE3,0x6A,0x3C,0x48 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Animation::IBackEase>{ 0xE47796E7,0xF805,0x4A8F,{ 0x81,0xC9,0x38,0xE6,0x47,0x2C,0xAA,0x94 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Animation::IBackEaseStatics>{ 0x3C70A2FF,0xA0A0,0x4786,{ 0x92,0x6C,0x22,0x32,0x1F,0x8F,0x25,0xB7 } };
@@ -2437,8 +2435,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IBackEase
     {
-        [[nodiscard]] auto Amplitude() const;
-        auto Amplitude(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Amplitude() const;
+        WINRT_IMPL_AUTO(void) Amplitude(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IBackEase>
     {
@@ -2447,7 +2445,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IBackEaseStatics
     {
-        [[nodiscard]] auto AmplitudeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AmplitudeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IBackEaseStatics>
     {
@@ -2464,7 +2462,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IBasicConnectedAnimationConfigurationFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::BasicConnectedAnimationConfiguration) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IBasicConnectedAnimationConfigurationFactory>
     {
@@ -2473,8 +2471,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IBeginStoryboard
     {
-        [[nodiscard]] auto Storyboard() const;
-        auto Storyboard(Windows::UI::Xaml::Media::Animation::Storyboard const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::Storyboard) Storyboard() const;
+        WINRT_IMPL_AUTO(void) Storyboard(Windows::UI::Xaml::Media::Animation::Storyboard const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IBeginStoryboard>
     {
@@ -2483,7 +2481,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IBeginStoryboardStatics
     {
-        [[nodiscard]] auto StoryboardProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StoryboardProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IBeginStoryboardStatics>
     {
@@ -2492,10 +2490,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IBounceEase
     {
-        [[nodiscard]] auto Bounces() const;
-        auto Bounces(int32_t value) const;
-        [[nodiscard]] auto Bounciness() const;
-        auto Bounciness(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Bounces() const;
+        WINRT_IMPL_AUTO(void) Bounces(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Bounciness() const;
+        WINRT_IMPL_AUTO(void) Bounciness(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IBounceEase>
     {
@@ -2504,8 +2502,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IBounceEaseStatics
     {
-        [[nodiscard]] auto BouncesProperty() const;
-        [[nodiscard]] auto BouncinessProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) BouncesProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) BouncinessProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IBounceEaseStatics>
     {
@@ -2522,16 +2520,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IColorAnimation
     {
-        [[nodiscard]] auto From() const;
-        auto From(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto To() const;
-        auto To(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto By() const;
-        auto By(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto EasingFunction() const;
-        auto EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
-        [[nodiscard]] auto EnableDependentAnimation() const;
-        auto EnableDependentAnimation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) From() const;
+        WINRT_IMPL_AUTO(void) From(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) To() const;
+        WINRT_IMPL_AUTO(void) To(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) By() const;
+        WINRT_IMPL_AUTO(void) By(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::EasingFunctionBase) EasingFunction() const;
+        WINRT_IMPL_AUTO(void) EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableDependentAnimation() const;
+        WINRT_IMPL_AUTO(void) EnableDependentAnimation(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IColorAnimation>
     {
@@ -2540,11 +2538,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IColorAnimationStatics
     {
-        [[nodiscard]] auto FromProperty() const;
-        [[nodiscard]] auto ToProperty() const;
-        [[nodiscard]] auto ByProperty() const;
-        [[nodiscard]] auto EasingFunctionProperty() const;
-        [[nodiscard]] auto EnableDependentAnimationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ToProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ByProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EasingFunctionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnableDependentAnimationProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IColorAnimationStatics>
     {
@@ -2553,9 +2551,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IColorAnimationUsingKeyFrames
     {
-        [[nodiscard]] auto KeyFrames() const;
-        [[nodiscard]] auto EnableDependentAnimation() const;
-        auto EnableDependentAnimation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ColorKeyFrameCollection) KeyFrames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableDependentAnimation() const;
+        WINRT_IMPL_AUTO(void) EnableDependentAnimation(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IColorAnimationUsingKeyFrames>
     {
@@ -2564,7 +2562,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IColorAnimationUsingKeyFramesStatics
     {
-        [[nodiscard]] auto EnableDependentAnimationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnableDependentAnimationProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IColorAnimationUsingKeyFramesStatics>
     {
@@ -2573,10 +2571,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IColorKeyFrame
     {
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto KeyTime() const;
-        auto KeyTime(Windows::UI::Xaml::Media::Animation::KeyTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::KeyTime) KeyTime() const;
+        WINRT_IMPL_AUTO(void) KeyTime(Windows::UI::Xaml::Media::Animation::KeyTime const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IColorKeyFrame>
     {
@@ -2585,7 +2583,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IColorKeyFrameFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ColorKeyFrame) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IColorKeyFrameFactory>
     {
@@ -2594,8 +2592,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IColorKeyFrameStatics
     {
-        [[nodiscard]] auto ValueProperty() const;
-        [[nodiscard]] auto KeyTimeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ValueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyTimeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IColorKeyFrameStatics>
     {
@@ -2604,8 +2602,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ICommonNavigationTransitionInfo
     {
-        [[nodiscard]] auto IsStaggeringEnabled() const;
-        auto IsStaggeringEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStaggeringEnabled() const;
+        WINRT_IMPL_AUTO(void) IsStaggeringEnabled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ICommonNavigationTransitionInfo>
     {
@@ -2614,10 +2612,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ICommonNavigationTransitionInfoStatics
     {
-        [[nodiscard]] auto IsStaggeringEnabledProperty() const;
-        [[nodiscard]] auto IsStaggerElementProperty() const;
-        auto GetIsStaggerElement(Windows::UI::Xaml::UIElement const& element) const;
-        auto SetIsStaggerElement(Windows::UI::Xaml::UIElement const& element, bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsStaggeringEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsStaggerElementProperty() const;
+        WINRT_IMPL_AUTO(bool) GetIsStaggerElement(Windows::UI::Xaml::UIElement const& element) const;
+        WINRT_IMPL_AUTO(void) SetIsStaggerElement(Windows::UI::Xaml::UIElement const& element, bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ICommonNavigationTransitionInfoStatics>
     {
@@ -2626,12 +2624,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IConnectedAnimation
     {
-        auto Completed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Animation::ConnectedAnimation, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Completed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Animation::ConnectedAnimation, Windows::Foundation::IInspectable> const& handler) const;
         using Completed_revoker = impl::event_revoker<Windows::UI::Xaml::Media::Animation::IConnectedAnimation, &impl::abi_t<Windows::UI::Xaml::Media::Animation::IConnectedAnimation>::remove_Completed>;
         [[nodiscard]] Completed_revoker Completed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Animation::ConnectedAnimation, Windows::Foundation::IInspectable> const& handler) const;
-        auto Completed(winrt::event_token const& token) const noexcept;
-        auto TryStart(Windows::UI::Xaml::UIElement const& destination) const;
-        auto Cancel() const;
+        WINRT_IMPL_AUTO(void) Completed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(bool) TryStart(Windows::UI::Xaml::UIElement const& destination) const;
+        WINRT_IMPL_AUTO(void) Cancel() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IConnectedAnimation>
     {
@@ -2640,10 +2638,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IConnectedAnimation2
     {
-        [[nodiscard]] auto IsScaleAnimationEnabled() const;
-        auto IsScaleAnimationEnabled(bool value) const;
-        auto TryStart(Windows::UI::Xaml::UIElement const& destination, param::iterable<Windows::UI::Xaml::UIElement> const& coordinatedElements) const;
-        auto SetAnimationComponent(Windows::UI::Xaml::Media::Animation::ConnectedAnimationComponent const& component, Windows::UI::Composition::ICompositionAnimationBase const& animation) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsScaleAnimationEnabled() const;
+        WINRT_IMPL_AUTO(void) IsScaleAnimationEnabled(bool value) const;
+        WINRT_IMPL_AUTO(bool) TryStart(Windows::UI::Xaml::UIElement const& destination, param::iterable<Windows::UI::Xaml::UIElement> const& coordinatedElements) const;
+        WINRT_IMPL_AUTO(void) SetAnimationComponent(Windows::UI::Xaml::Media::Animation::ConnectedAnimationComponent const& component, Windows::UI::Composition::ICompositionAnimationBase const& animation) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IConnectedAnimation2>
     {
@@ -2652,8 +2650,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IConnectedAnimation3
     {
-        [[nodiscard]] auto Configuration() const;
-        auto Configuration(Windows::UI::Xaml::Media::Animation::ConnectedAnimationConfiguration const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ConnectedAnimationConfiguration) Configuration() const;
+        WINRT_IMPL_AUTO(void) Configuration(Windows::UI::Xaml::Media::Animation::ConnectedAnimationConfiguration const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IConnectedAnimation3>
     {
@@ -2678,12 +2676,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IConnectedAnimationService
     {
-        [[nodiscard]] auto DefaultDuration() const;
-        auto DefaultDuration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto DefaultEasingFunction() const;
-        auto DefaultEasingFunction(Windows::UI::Composition::CompositionEasingFunction const& value) const;
-        auto PrepareToAnimate(param::hstring const& key, Windows::UI::Xaml::UIElement const& source) const;
-        auto GetAnimation(param::hstring const& key) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) DefaultDuration() const;
+        WINRT_IMPL_AUTO(void) DefaultDuration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunction) DefaultEasingFunction() const;
+        WINRT_IMPL_AUTO(void) DefaultEasingFunction(Windows::UI::Composition::CompositionEasingFunction const& value) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ConnectedAnimation) PrepareToAnimate(param::hstring const& key, Windows::UI::Xaml::UIElement const& source) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ConnectedAnimation) GetAnimation(param::hstring const& key) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IConnectedAnimationService>
     {
@@ -2692,7 +2690,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IConnectedAnimationServiceStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ConnectedAnimationService) GetForCurrentView() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IConnectedAnimationServiceStatics>
     {
@@ -2701,10 +2699,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IContentThemeTransition
     {
-        [[nodiscard]] auto HorizontalOffset() const;
-        auto HorizontalOffset(double value) const;
-        [[nodiscard]] auto VerticalOffset() const;
-        auto VerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) HorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalOffset() const;
+        WINRT_IMPL_AUTO(void) VerticalOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IContentThemeTransition>
     {
@@ -2713,8 +2711,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IContentThemeTransitionStatics
     {
-        [[nodiscard]] auto HorizontalOffsetProperty() const;
-        [[nodiscard]] auto VerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) HorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) VerticalOffsetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IContentThemeTransitionStatics>
     {
@@ -2723,8 +2721,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IContinuumNavigationTransitionInfo
     {
-        [[nodiscard]] auto ExitElement() const;
-        auto ExitElement(Windows::UI::Xaml::UIElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) ExitElement() const;
+        WINRT_IMPL_AUTO(void) ExitElement(Windows::UI::Xaml::UIElement const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IContinuumNavigationTransitionInfo>
     {
@@ -2733,16 +2731,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IContinuumNavigationTransitionInfoStatics
     {
-        [[nodiscard]] auto ExitElementProperty() const;
-        [[nodiscard]] auto IsEntranceElementProperty() const;
-        auto GetIsEntranceElement(Windows::UI::Xaml::UIElement const& element) const;
-        auto SetIsEntranceElement(Windows::UI::Xaml::UIElement const& element, bool value) const;
-        [[nodiscard]] auto IsExitElementProperty() const;
-        auto GetIsExitElement(Windows::UI::Xaml::UIElement const& element) const;
-        auto SetIsExitElement(Windows::UI::Xaml::UIElement const& element, bool value) const;
-        [[nodiscard]] auto ExitElementContainerProperty() const;
-        auto GetExitElementContainer(Windows::UI::Xaml::Controls::ListViewBase const& element) const;
-        auto SetExitElementContainer(Windows::UI::Xaml::Controls::ListViewBase const& element, bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExitElementProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsEntranceElementProperty() const;
+        WINRT_IMPL_AUTO(bool) GetIsEntranceElement(Windows::UI::Xaml::UIElement const& element) const;
+        WINRT_IMPL_AUTO(void) SetIsEntranceElement(Windows::UI::Xaml::UIElement const& element, bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsExitElementProperty() const;
+        WINRT_IMPL_AUTO(bool) GetIsExitElement(Windows::UI::Xaml::UIElement const& element) const;
+        WINRT_IMPL_AUTO(void) SetIsExitElement(Windows::UI::Xaml::UIElement const& element, bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExitElementContainerProperty() const;
+        WINRT_IMPL_AUTO(bool) GetExitElementContainer(Windows::UI::Xaml::Controls::ListViewBase const& element) const;
+        WINRT_IMPL_AUTO(void) SetExitElementContainer(Windows::UI::Xaml::Controls::ListViewBase const& element, bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IContinuumNavigationTransitionInfoStatics>
     {
@@ -2767,7 +2765,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDirectConnectedAnimationConfigurationFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::DirectConnectedAnimationConfiguration) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDirectConnectedAnimationConfigurationFactory>
     {
@@ -2808,16 +2806,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDoubleAnimation
     {
-        [[nodiscard]] auto From() const;
-        auto From(Windows::Foundation::IReference<double> const& value) const;
-        [[nodiscard]] auto To() const;
-        auto To(Windows::Foundation::IReference<double> const& value) const;
-        [[nodiscard]] auto By() const;
-        auto By(Windows::Foundation::IReference<double> const& value) const;
-        [[nodiscard]] auto EasingFunction() const;
-        auto EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
-        [[nodiscard]] auto EnableDependentAnimation() const;
-        auto EnableDependentAnimation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) From() const;
+        WINRT_IMPL_AUTO(void) From(Windows::Foundation::IReference<double> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) To() const;
+        WINRT_IMPL_AUTO(void) To(Windows::Foundation::IReference<double> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) By() const;
+        WINRT_IMPL_AUTO(void) By(Windows::Foundation::IReference<double> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::EasingFunctionBase) EasingFunction() const;
+        WINRT_IMPL_AUTO(void) EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableDependentAnimation() const;
+        WINRT_IMPL_AUTO(void) EnableDependentAnimation(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDoubleAnimation>
     {
@@ -2826,11 +2824,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDoubleAnimationStatics
     {
-        [[nodiscard]] auto FromProperty() const;
-        [[nodiscard]] auto ToProperty() const;
-        [[nodiscard]] auto ByProperty() const;
-        [[nodiscard]] auto EasingFunctionProperty() const;
-        [[nodiscard]] auto EnableDependentAnimationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ToProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ByProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EasingFunctionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnableDependentAnimationProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDoubleAnimationStatics>
     {
@@ -2839,9 +2837,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDoubleAnimationUsingKeyFrames
     {
-        [[nodiscard]] auto KeyFrames() const;
-        [[nodiscard]] auto EnableDependentAnimation() const;
-        auto EnableDependentAnimation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::DoubleKeyFrameCollection) KeyFrames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableDependentAnimation() const;
+        WINRT_IMPL_AUTO(void) EnableDependentAnimation(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDoubleAnimationUsingKeyFrames>
     {
@@ -2850,7 +2848,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDoubleAnimationUsingKeyFramesStatics
     {
-        [[nodiscard]] auto EnableDependentAnimationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnableDependentAnimationProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDoubleAnimationUsingKeyFramesStatics>
     {
@@ -2859,10 +2857,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDoubleKeyFrame
     {
-        [[nodiscard]] auto Value() const;
-        auto Value(double value) const;
-        [[nodiscard]] auto KeyTime() const;
-        auto KeyTime(Windows::UI::Xaml::Media::Animation::KeyTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Value() const;
+        WINRT_IMPL_AUTO(void) Value(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::KeyTime) KeyTime() const;
+        WINRT_IMPL_AUTO(void) KeyTime(Windows::UI::Xaml::Media::Animation::KeyTime const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrame>
     {
@@ -2871,7 +2869,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDoubleKeyFrameFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::DoubleKeyFrame) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrameFactory>
     {
@@ -2880,8 +2878,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDoubleKeyFrameStatics
     {
-        [[nodiscard]] auto ValueProperty() const;
-        [[nodiscard]] auto KeyTimeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ValueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyTimeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDoubleKeyFrameStatics>
     {
@@ -2890,8 +2888,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDragItemThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDragItemThemeAnimation>
     {
@@ -2900,7 +2898,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDragItemThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDragItemThemeAnimationStatics>
     {
@@ -2909,12 +2907,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDragOverThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
-        [[nodiscard]] auto ToOffset() const;
-        auto ToOffset(double value) const;
-        [[nodiscard]] auto Direction() const;
-        auto Direction(Windows::UI::Xaml::Controls::Primitives::AnimationDirection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ToOffset() const;
+        WINRT_IMPL_AUTO(void) ToOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::AnimationDirection) Direction() const;
+        WINRT_IMPL_AUTO(void) Direction(Windows::UI::Xaml::Controls::Primitives::AnimationDirection const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDragOverThemeAnimation>
     {
@@ -2923,9 +2921,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDragOverThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
-        [[nodiscard]] auto ToOffsetProperty() const;
-        [[nodiscard]] auto DirectionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ToOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DirectionProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDragOverThemeAnimationStatics>
     {
@@ -2942,14 +2940,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDrillInThemeAnimation
     {
-        [[nodiscard]] auto EntranceTargetName() const;
-        auto EntranceTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto EntranceTarget() const;
-        auto EntranceTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto ExitTargetName() const;
-        auto ExitTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto ExitTarget() const;
-        auto ExitTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EntranceTargetName() const;
+        WINRT_IMPL_AUTO(void) EntranceTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) EntranceTarget() const;
+        WINRT_IMPL_AUTO(void) EntranceTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ExitTargetName() const;
+        WINRT_IMPL_AUTO(void) ExitTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) ExitTarget() const;
+        WINRT_IMPL_AUTO(void) ExitTarget(Windows::UI::Xaml::DependencyObject const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDrillInThemeAnimation>
     {
@@ -2958,10 +2956,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDrillInThemeAnimationStatics
     {
-        [[nodiscard]] auto EntranceTargetNameProperty() const;
-        [[nodiscard]] auto EntranceTargetProperty() const;
-        [[nodiscard]] auto ExitTargetNameProperty() const;
-        [[nodiscard]] auto ExitTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EntranceTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EntranceTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExitTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExitTargetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDrillInThemeAnimationStatics>
     {
@@ -2970,14 +2968,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDrillOutThemeAnimation
     {
-        [[nodiscard]] auto EntranceTargetName() const;
-        auto EntranceTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto EntranceTarget() const;
-        auto EntranceTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto ExitTargetName() const;
-        auto ExitTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto ExitTarget() const;
-        auto ExitTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EntranceTargetName() const;
+        WINRT_IMPL_AUTO(void) EntranceTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) EntranceTarget() const;
+        WINRT_IMPL_AUTO(void) EntranceTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ExitTargetName() const;
+        WINRT_IMPL_AUTO(void) ExitTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) ExitTarget() const;
+        WINRT_IMPL_AUTO(void) ExitTarget(Windows::UI::Xaml::DependencyObject const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDrillOutThemeAnimation>
     {
@@ -2986,10 +2984,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDrillOutThemeAnimationStatics
     {
-        [[nodiscard]] auto EntranceTargetNameProperty() const;
-        [[nodiscard]] auto EntranceTargetProperty() const;
-        [[nodiscard]] auto ExitTargetNameProperty() const;
-        [[nodiscard]] auto ExitTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EntranceTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EntranceTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExitTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExitTargetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDrillOutThemeAnimationStatics>
     {
@@ -2998,8 +2996,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDropTargetItemThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDropTargetItemThemeAnimation>
     {
@@ -3008,7 +3006,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IDropTargetItemThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IDropTargetItemThemeAnimationStatics>
     {
@@ -3017,8 +3015,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEasingColorKeyFrame
     {
-        [[nodiscard]] auto EasingFunction() const;
-        auto EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::EasingFunctionBase) EasingFunction() const;
+        WINRT_IMPL_AUTO(void) EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEasingColorKeyFrame>
     {
@@ -3027,7 +3025,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEasingColorKeyFrameStatics
     {
-        [[nodiscard]] auto EasingFunctionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EasingFunctionProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEasingColorKeyFrameStatics>
     {
@@ -3036,8 +3034,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEasingDoubleKeyFrame
     {
-        [[nodiscard]] auto EasingFunction() const;
-        auto EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::EasingFunctionBase) EasingFunction() const;
+        WINRT_IMPL_AUTO(void) EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEasingDoubleKeyFrame>
     {
@@ -3046,7 +3044,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEasingDoubleKeyFrameStatics
     {
-        [[nodiscard]] auto EasingFunctionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EasingFunctionProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEasingDoubleKeyFrameStatics>
     {
@@ -3055,9 +3053,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEasingFunctionBase
     {
-        [[nodiscard]] auto EasingMode() const;
-        auto EasingMode(Windows::UI::Xaml::Media::Animation::EasingMode const& value) const;
-        auto Ease(double normalizedTime) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::EasingMode) EasingMode() const;
+        WINRT_IMPL_AUTO(void) EasingMode(Windows::UI::Xaml::Media::Animation::EasingMode const& value) const;
+        WINRT_IMPL_AUTO(double) Ease(double normalizedTime) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEasingFunctionBase>
     {
@@ -3074,7 +3072,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEasingFunctionBaseStatics
     {
-        [[nodiscard]] auto EasingModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EasingModeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEasingFunctionBaseStatics>
     {
@@ -3083,8 +3081,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEasingPointKeyFrame
     {
-        [[nodiscard]] auto EasingFunction() const;
-        auto EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::EasingFunctionBase) EasingFunction() const;
+        WINRT_IMPL_AUTO(void) EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEasingPointKeyFrame>
     {
@@ -3093,7 +3091,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEasingPointKeyFrameStatics
     {
-        [[nodiscard]] auto EasingFunctionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EasingFunctionProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEasingPointKeyFrameStatics>
     {
@@ -3102,8 +3100,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEdgeUIThemeTransition
     {
-        [[nodiscard]] auto Edge() const;
-        auto Edge(Windows::UI::Xaml::Controls::Primitives::EdgeTransitionLocation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::EdgeTransitionLocation) Edge() const;
+        WINRT_IMPL_AUTO(void) Edge(Windows::UI::Xaml::Controls::Primitives::EdgeTransitionLocation const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEdgeUIThemeTransition>
     {
@@ -3112,7 +3110,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEdgeUIThemeTransitionStatics
     {
-        [[nodiscard]] auto EdgeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EdgeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEdgeUIThemeTransitionStatics>
     {
@@ -3121,10 +3119,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IElasticEase
     {
-        [[nodiscard]] auto Oscillations() const;
-        auto Oscillations(int32_t value) const;
-        [[nodiscard]] auto Springiness() const;
-        auto Springiness(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Oscillations() const;
+        WINRT_IMPL_AUTO(void) Oscillations(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Springiness() const;
+        WINRT_IMPL_AUTO(void) Springiness(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IElasticEase>
     {
@@ -3133,8 +3131,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IElasticEaseStatics
     {
-        [[nodiscard]] auto OscillationsProperty() const;
-        [[nodiscard]] auto SpringinessProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OscillationsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SpringinessProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IElasticEaseStatics>
     {
@@ -3151,9 +3149,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEntranceNavigationTransitionInfoStatics
     {
-        [[nodiscard]] auto IsTargetElementProperty() const;
-        auto GetIsTargetElement(Windows::UI::Xaml::UIElement const& element) const;
-        auto SetIsTargetElement(Windows::UI::Xaml::UIElement const& element, bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsTargetElementProperty() const;
+        WINRT_IMPL_AUTO(bool) GetIsTargetElement(Windows::UI::Xaml::UIElement const& element) const;
+        WINRT_IMPL_AUTO(void) SetIsTargetElement(Windows::UI::Xaml::UIElement const& element, bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEntranceNavigationTransitionInfoStatics>
     {
@@ -3162,12 +3160,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEntranceThemeTransition
     {
-        [[nodiscard]] auto FromHorizontalOffset() const;
-        auto FromHorizontalOffset(double value) const;
-        [[nodiscard]] auto FromVerticalOffset() const;
-        auto FromVerticalOffset(double value) const;
-        [[nodiscard]] auto IsStaggeringEnabled() const;
-        auto IsStaggeringEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromHorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) FromHorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromVerticalOffset() const;
+        WINRT_IMPL_AUTO(void) FromVerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStaggeringEnabled() const;
+        WINRT_IMPL_AUTO(void) IsStaggeringEnabled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEntranceThemeTransition>
     {
@@ -3176,9 +3174,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IEntranceThemeTransitionStatics
     {
-        [[nodiscard]] auto FromHorizontalOffsetProperty() const;
-        [[nodiscard]] auto FromVerticalOffsetProperty() const;
-        [[nodiscard]] auto IsStaggeringEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromHorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromVerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsStaggeringEnabledProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IEntranceThemeTransitionStatics>
     {
@@ -3187,8 +3185,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IExponentialEase
     {
-        [[nodiscard]] auto Exponent() const;
-        auto Exponent(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Exponent() const;
+        WINRT_IMPL_AUTO(void) Exponent(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IExponentialEase>
     {
@@ -3197,7 +3195,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IExponentialEaseStatics
     {
-        [[nodiscard]] auto ExponentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExponentProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IExponentialEaseStatics>
     {
@@ -3206,8 +3204,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IFadeInThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IFadeInThemeAnimation>
     {
@@ -3216,7 +3214,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IFadeInThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IFadeInThemeAnimationStatics>
     {
@@ -3225,8 +3223,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IFadeOutThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IFadeOutThemeAnimation>
     {
@@ -3235,7 +3233,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IFadeOutThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IFadeOutThemeAnimationStatics>
     {
@@ -3252,8 +3250,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IGravityConnectedAnimationConfiguration2
     {
-        [[nodiscard]] auto IsShadowEnabled() const;
-        auto IsShadowEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsShadowEnabled() const;
+        WINRT_IMPL_AUTO(void) IsShadowEnabled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IGravityConnectedAnimationConfiguration2>
     {
@@ -3262,7 +3260,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IGravityConnectedAnimationConfigurationFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::GravityConnectedAnimationConfiguration) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IGravityConnectedAnimationConfigurationFactory>
     {
@@ -3271,10 +3269,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IKeySpline
     {
-        [[nodiscard]] auto ControlPoint1() const;
-        auto ControlPoint1(Windows::Foundation::Point const& value) const;
-        [[nodiscard]] auto ControlPoint2() const;
-        auto ControlPoint2(Windows::Foundation::Point const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) ControlPoint1() const;
+        WINRT_IMPL_AUTO(void) ControlPoint1(Windows::Foundation::Point const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) ControlPoint2() const;
+        WINRT_IMPL_AUTO(void) ControlPoint2(Windows::Foundation::Point const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IKeySpline>
     {
@@ -3291,7 +3289,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IKeyTimeHelperStatics
     {
-        auto FromTimeSpan(Windows::Foundation::TimeSpan const& timeSpan) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::KeyTime) FromTimeSpan(Windows::Foundation::TimeSpan const& timeSpan) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IKeyTimeHelperStatics>
     {
@@ -3324,8 +3322,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_INavigationThemeTransition
     {
-        [[nodiscard]] auto DefaultNavigationTransitionInfo() const;
-        auto DefaultNavigationTransitionInfo(Windows::UI::Xaml::Media::Animation::NavigationTransitionInfo const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::NavigationTransitionInfo) DefaultNavigationTransitionInfo() const;
+        WINRT_IMPL_AUTO(void) DefaultNavigationTransitionInfo(Windows::UI::Xaml::Media::Animation::NavigationTransitionInfo const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::INavigationThemeTransition>
     {
@@ -3334,7 +3332,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_INavigationThemeTransitionStatics
     {
-        [[nodiscard]] auto DefaultNavigationTransitionInfoProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DefaultNavigationTransitionInfoProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::INavigationThemeTransitionStatics>
     {
@@ -3351,7 +3349,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_INavigationTransitionInfoFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::NavigationTransitionInfo) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::INavigationTransitionInfoFactory>
     {
@@ -3360,8 +3358,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_INavigationTransitionInfoOverrides
     {
-        auto GetNavigationStateCore() const;
-        auto SetNavigationStateCore(param::hstring const& navigationState) const;
+        WINRT_IMPL_AUTO(hstring) GetNavigationStateCore() const;
+        WINRT_IMPL_AUTO(void) SetNavigationStateCore(param::hstring const& navigationState) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::INavigationTransitionInfoOverrides>
     {
@@ -3370,9 +3368,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IObjectAnimationUsingKeyFrames
     {
-        [[nodiscard]] auto KeyFrames() const;
-        [[nodiscard]] auto EnableDependentAnimation() const;
-        auto EnableDependentAnimation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ObjectKeyFrameCollection) KeyFrames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableDependentAnimation() const;
+        WINRT_IMPL_AUTO(void) EnableDependentAnimation(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IObjectAnimationUsingKeyFrames>
     {
@@ -3381,7 +3379,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IObjectAnimationUsingKeyFramesStatics
     {
-        [[nodiscard]] auto EnableDependentAnimationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnableDependentAnimationProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IObjectAnimationUsingKeyFramesStatics>
     {
@@ -3390,10 +3388,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IObjectKeyFrame
     {
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto KeyTime() const;
-        auto KeyTime(Windows::UI::Xaml::Media::Animation::KeyTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::KeyTime) KeyTime() const;
+        WINRT_IMPL_AUTO(void) KeyTime(Windows::UI::Xaml::Media::Animation::KeyTime const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IObjectKeyFrame>
     {
@@ -3402,7 +3400,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IObjectKeyFrameFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ObjectKeyFrame) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IObjectKeyFrameFactory>
     {
@@ -3411,8 +3409,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IObjectKeyFrameStatics
     {
-        [[nodiscard]] auto ValueProperty() const;
-        [[nodiscard]] auto KeyTimeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ValueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyTimeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IObjectKeyFrameStatics>
     {
@@ -3421,8 +3419,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPaneThemeTransition
     {
-        [[nodiscard]] auto Edge() const;
-        auto Edge(Windows::UI::Xaml::Controls::Primitives::EdgeTransitionLocation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::EdgeTransitionLocation) Edge() const;
+        WINRT_IMPL_AUTO(void) Edge(Windows::UI::Xaml::Controls::Primitives::EdgeTransitionLocation const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPaneThemeTransition>
     {
@@ -3431,7 +3429,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPaneThemeTransitionStatics
     {
-        [[nodiscard]] auto EdgeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EdgeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPaneThemeTransitionStatics>
     {
@@ -3440,16 +3438,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointAnimation
     {
-        [[nodiscard]] auto From() const;
-        auto From(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
-        [[nodiscard]] auto To() const;
-        auto To(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
-        [[nodiscard]] auto By() const;
-        auto By(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
-        [[nodiscard]] auto EasingFunction() const;
-        auto EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
-        [[nodiscard]] auto EnableDependentAnimation() const;
-        auto EnableDependentAnimation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Point>) From() const;
+        WINRT_IMPL_AUTO(void) From(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Point>) To() const;
+        WINRT_IMPL_AUTO(void) To(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Point>) By() const;
+        WINRT_IMPL_AUTO(void) By(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::EasingFunctionBase) EasingFunction() const;
+        WINRT_IMPL_AUTO(void) EasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableDependentAnimation() const;
+        WINRT_IMPL_AUTO(void) EnableDependentAnimation(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointAnimation>
     {
@@ -3458,11 +3456,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointAnimationStatics
     {
-        [[nodiscard]] auto FromProperty() const;
-        [[nodiscard]] auto ToProperty() const;
-        [[nodiscard]] auto ByProperty() const;
-        [[nodiscard]] auto EasingFunctionProperty() const;
-        [[nodiscard]] auto EnableDependentAnimationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ToProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ByProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EasingFunctionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnableDependentAnimationProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointAnimationStatics>
     {
@@ -3471,9 +3469,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointAnimationUsingKeyFrames
     {
-        [[nodiscard]] auto KeyFrames() const;
-        [[nodiscard]] auto EnableDependentAnimation() const;
-        auto EnableDependentAnimation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::PointKeyFrameCollection) KeyFrames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableDependentAnimation() const;
+        WINRT_IMPL_AUTO(void) EnableDependentAnimation(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointAnimationUsingKeyFrames>
     {
@@ -3482,7 +3480,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointAnimationUsingKeyFramesStatics
     {
-        [[nodiscard]] auto EnableDependentAnimationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EnableDependentAnimationProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointAnimationUsingKeyFramesStatics>
     {
@@ -3491,10 +3489,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointKeyFrame
     {
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::Foundation::Point const& value) const;
-        [[nodiscard]] auto KeyTime() const;
-        auto KeyTime(Windows::UI::Xaml::Media::Animation::KeyTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Foundation::Point const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::KeyTime) KeyTime() const;
+        WINRT_IMPL_AUTO(void) KeyTime(Windows::UI::Xaml::Media::Animation::KeyTime const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointKeyFrame>
     {
@@ -3503,7 +3501,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointKeyFrameFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::PointKeyFrame) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointKeyFrameFactory>
     {
@@ -3512,8 +3510,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointKeyFrameStatics
     {
-        [[nodiscard]] auto ValueProperty() const;
-        [[nodiscard]] auto KeyTimeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ValueProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyTimeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointKeyFrameStatics>
     {
@@ -3522,8 +3520,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointerDownThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointerDownThemeAnimation>
     {
@@ -3532,7 +3530,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointerDownThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointerDownThemeAnimationStatics>
     {
@@ -3541,8 +3539,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointerUpThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointerUpThemeAnimation>
     {
@@ -3551,7 +3549,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPointerUpThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPointerUpThemeAnimationStatics>
     {
@@ -3560,12 +3558,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPopInThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
-        [[nodiscard]] auto FromHorizontalOffset() const;
-        auto FromHorizontalOffset(double value) const;
-        [[nodiscard]] auto FromVerticalOffset() const;
-        auto FromVerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromHorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) FromHorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromVerticalOffset() const;
+        WINRT_IMPL_AUTO(void) FromVerticalOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPopInThemeAnimation>
     {
@@ -3574,9 +3572,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPopInThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
-        [[nodiscard]] auto FromHorizontalOffsetProperty() const;
-        [[nodiscard]] auto FromVerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromHorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromVerticalOffsetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPopInThemeAnimationStatics>
     {
@@ -3585,8 +3583,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPopOutThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPopOutThemeAnimation>
     {
@@ -3595,7 +3593,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPopOutThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPopOutThemeAnimationStatics>
     {
@@ -3604,10 +3602,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPopupThemeTransition
     {
-        [[nodiscard]] auto FromHorizontalOffset() const;
-        auto FromHorizontalOffset(double value) const;
-        [[nodiscard]] auto FromVerticalOffset() const;
-        auto FromVerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromHorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) FromHorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromVerticalOffset() const;
+        WINRT_IMPL_AUTO(void) FromVerticalOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPopupThemeTransition>
     {
@@ -3616,8 +3614,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPopupThemeTransitionStatics
     {
-        [[nodiscard]] auto FromHorizontalOffsetProperty() const;
-        [[nodiscard]] auto FromVerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromHorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromVerticalOffsetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPopupThemeTransitionStatics>
     {
@@ -3626,8 +3624,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPowerEase
     {
-        [[nodiscard]] auto Power() const;
-        auto Power(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Power() const;
+        WINRT_IMPL_AUTO(void) Power(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPowerEase>
     {
@@ -3636,7 +3634,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IPowerEaseStatics
     {
-        [[nodiscard]] auto PowerProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PowerProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IPowerEaseStatics>
     {
@@ -3685,12 +3683,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IRepeatBehaviorHelperStatics
     {
-        [[nodiscard]] auto Forever() const;
-        auto FromCount(double count) const;
-        auto FromDuration(Windows::Foundation::TimeSpan const& duration) const;
-        auto GetHasCount(Windows::UI::Xaml::Media::Animation::RepeatBehavior const& target) const;
-        auto GetHasDuration(Windows::UI::Xaml::Media::Animation::RepeatBehavior const& target) const;
-        auto Equals(Windows::UI::Xaml::Media::Animation::RepeatBehavior const& target, Windows::UI::Xaml::Media::Animation::RepeatBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::RepeatBehavior) Forever() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::RepeatBehavior) FromCount(double count) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::RepeatBehavior) FromDuration(Windows::Foundation::TimeSpan const& duration) const;
+        WINRT_IMPL_AUTO(bool) GetHasCount(Windows::UI::Xaml::Media::Animation::RepeatBehavior const& target) const;
+        WINRT_IMPL_AUTO(bool) GetHasDuration(Windows::UI::Xaml::Media::Animation::RepeatBehavior const& target) const;
+        WINRT_IMPL_AUTO(bool) Equals(Windows::UI::Xaml::Media::Animation::RepeatBehavior const& target, Windows::UI::Xaml::Media::Animation::RepeatBehavior const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IRepeatBehaviorHelperStatics>
     {
@@ -3699,12 +3697,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IRepositionThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
-        [[nodiscard]] auto FromHorizontalOffset() const;
-        auto FromHorizontalOffset(double value) const;
-        [[nodiscard]] auto FromVerticalOffset() const;
-        auto FromVerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromHorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) FromHorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromVerticalOffset() const;
+        WINRT_IMPL_AUTO(void) FromVerticalOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IRepositionThemeAnimation>
     {
@@ -3713,9 +3711,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IRepositionThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
-        [[nodiscard]] auto FromHorizontalOffsetProperty() const;
-        [[nodiscard]] auto FromVerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromHorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromVerticalOffsetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IRepositionThemeAnimationStatics>
     {
@@ -3732,8 +3730,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IRepositionThemeTransition2
     {
-        [[nodiscard]] auto IsStaggeringEnabled() const;
-        auto IsStaggeringEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStaggeringEnabled() const;
+        WINRT_IMPL_AUTO(void) IsStaggeringEnabled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IRepositionThemeTransition2>
     {
@@ -3742,7 +3740,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IRepositionThemeTransitionStatics2
     {
-        [[nodiscard]] auto IsStaggeringEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsStaggeringEnabledProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IRepositionThemeTransitionStatics2>
     {
@@ -3767,8 +3765,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISlideNavigationTransitionInfo2
     {
-        [[nodiscard]] auto Effect() const;
-        auto Effect(Windows::UI::Xaml::Media::Animation::SlideNavigationTransitionEffect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::SlideNavigationTransitionEffect) Effect() const;
+        WINRT_IMPL_AUTO(void) Effect(Windows::UI::Xaml::Media::Animation::SlideNavigationTransitionEffect const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISlideNavigationTransitionInfo2>
     {
@@ -3777,7 +3775,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISlideNavigationTransitionInfoStatics2
     {
-        [[nodiscard]] auto EffectProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) EffectProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISlideNavigationTransitionInfoStatics2>
     {
@@ -3786,8 +3784,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplineColorKeyFrame
     {
-        [[nodiscard]] auto KeySpline() const;
-        auto KeySpline(Windows::UI::Xaml::Media::Animation::KeySpline const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::KeySpline) KeySpline() const;
+        WINRT_IMPL_AUTO(void) KeySpline(Windows::UI::Xaml::Media::Animation::KeySpline const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplineColorKeyFrame>
     {
@@ -3796,7 +3794,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplineColorKeyFrameStatics
     {
-        [[nodiscard]] auto KeySplineProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeySplineProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplineColorKeyFrameStatics>
     {
@@ -3805,8 +3803,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplineDoubleKeyFrame
     {
-        [[nodiscard]] auto KeySpline() const;
-        auto KeySpline(Windows::UI::Xaml::Media::Animation::KeySpline const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::KeySpline) KeySpline() const;
+        WINRT_IMPL_AUTO(void) KeySpline(Windows::UI::Xaml::Media::Animation::KeySpline const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplineDoubleKeyFrame>
     {
@@ -3815,7 +3813,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplineDoubleKeyFrameStatics
     {
-        [[nodiscard]] auto KeySplineProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeySplineProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplineDoubleKeyFrameStatics>
     {
@@ -3824,8 +3822,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplinePointKeyFrame
     {
-        [[nodiscard]] auto KeySpline() const;
-        auto KeySpline(Windows::UI::Xaml::Media::Animation::KeySpline const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::KeySpline) KeySpline() const;
+        WINRT_IMPL_AUTO(void) KeySpline(Windows::UI::Xaml::Media::Animation::KeySpline const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplinePointKeyFrame>
     {
@@ -3834,7 +3832,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplinePointKeyFrameStatics
     {
-        [[nodiscard]] auto KeySplineProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeySplineProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplinePointKeyFrameStatics>
     {
@@ -3843,28 +3841,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplitCloseThemeAnimation
     {
-        [[nodiscard]] auto OpenedTargetName() const;
-        auto OpenedTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto OpenedTarget() const;
-        auto OpenedTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto ClosedTargetName() const;
-        auto ClosedTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto ClosedTarget() const;
-        auto ClosedTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto ContentTargetName() const;
-        auto ContentTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto ContentTarget() const;
-        auto ContentTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto OpenedLength() const;
-        auto OpenedLength(double value) const;
-        [[nodiscard]] auto ClosedLength() const;
-        auto ClosedLength(double value) const;
-        [[nodiscard]] auto OffsetFromCenter() const;
-        auto OffsetFromCenter(double value) const;
-        [[nodiscard]] auto ContentTranslationDirection() const;
-        auto ContentTranslationDirection(Windows::UI::Xaml::Controls::Primitives::AnimationDirection const& value) const;
-        [[nodiscard]] auto ContentTranslationOffset() const;
-        auto ContentTranslationOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OpenedTargetName() const;
+        WINRT_IMPL_AUTO(void) OpenedTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) OpenedTarget() const;
+        WINRT_IMPL_AUTO(void) OpenedTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ClosedTargetName() const;
+        WINRT_IMPL_AUTO(void) ClosedTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) ClosedTarget() const;
+        WINRT_IMPL_AUTO(void) ClosedTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentTargetName() const;
+        WINRT_IMPL_AUTO(void) ContentTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) ContentTarget() const;
+        WINRT_IMPL_AUTO(void) ContentTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OpenedLength() const;
+        WINRT_IMPL_AUTO(void) OpenedLength(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ClosedLength() const;
+        WINRT_IMPL_AUTO(void) ClosedLength(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OffsetFromCenter() const;
+        WINRT_IMPL_AUTO(void) OffsetFromCenter(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::AnimationDirection) ContentTranslationDirection() const;
+        WINRT_IMPL_AUTO(void) ContentTranslationDirection(Windows::UI::Xaml::Controls::Primitives::AnimationDirection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ContentTranslationOffset() const;
+        WINRT_IMPL_AUTO(void) ContentTranslationOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplitCloseThemeAnimation>
     {
@@ -3873,17 +3871,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplitCloseThemeAnimationStatics
     {
-        [[nodiscard]] auto OpenedTargetNameProperty() const;
-        [[nodiscard]] auto OpenedTargetProperty() const;
-        [[nodiscard]] auto ClosedTargetNameProperty() const;
-        [[nodiscard]] auto ClosedTargetProperty() const;
-        [[nodiscard]] auto ContentTargetNameProperty() const;
-        [[nodiscard]] auto ContentTargetProperty() const;
-        [[nodiscard]] auto OpenedLengthProperty() const;
-        [[nodiscard]] auto ClosedLengthProperty() const;
-        [[nodiscard]] auto OffsetFromCenterProperty() const;
-        [[nodiscard]] auto ContentTranslationDirectionProperty() const;
-        [[nodiscard]] auto ContentTranslationOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OpenedTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OpenedTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ClosedTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ClosedTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OpenedLengthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ClosedLengthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OffsetFromCenterProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentTranslationDirectionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentTranslationOffsetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplitCloseThemeAnimationStatics>
     {
@@ -3892,28 +3890,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplitOpenThemeAnimation
     {
-        [[nodiscard]] auto OpenedTargetName() const;
-        auto OpenedTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto OpenedTarget() const;
-        auto OpenedTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto ClosedTargetName() const;
-        auto ClosedTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto ClosedTarget() const;
-        auto ClosedTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto ContentTargetName() const;
-        auto ContentTargetName(param::hstring const& value) const;
-        [[nodiscard]] auto ContentTarget() const;
-        auto ContentTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto OpenedLength() const;
-        auto OpenedLength(double value) const;
-        [[nodiscard]] auto ClosedLength() const;
-        auto ClosedLength(double value) const;
-        [[nodiscard]] auto OffsetFromCenter() const;
-        auto OffsetFromCenter(double value) const;
-        [[nodiscard]] auto ContentTranslationDirection() const;
-        auto ContentTranslationDirection(Windows::UI::Xaml::Controls::Primitives::AnimationDirection const& value) const;
-        [[nodiscard]] auto ContentTranslationOffset() const;
-        auto ContentTranslationOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OpenedTargetName() const;
+        WINRT_IMPL_AUTO(void) OpenedTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) OpenedTarget() const;
+        WINRT_IMPL_AUTO(void) OpenedTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ClosedTargetName() const;
+        WINRT_IMPL_AUTO(void) ClosedTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) ClosedTarget() const;
+        WINRT_IMPL_AUTO(void) ClosedTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentTargetName() const;
+        WINRT_IMPL_AUTO(void) ContentTargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) ContentTarget() const;
+        WINRT_IMPL_AUTO(void) ContentTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OpenedLength() const;
+        WINRT_IMPL_AUTO(void) OpenedLength(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ClosedLength() const;
+        WINRT_IMPL_AUTO(void) ClosedLength(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OffsetFromCenter() const;
+        WINRT_IMPL_AUTO(void) OffsetFromCenter(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::AnimationDirection) ContentTranslationDirection() const;
+        WINRT_IMPL_AUTO(void) ContentTranslationDirection(Windows::UI::Xaml::Controls::Primitives::AnimationDirection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ContentTranslationOffset() const;
+        WINRT_IMPL_AUTO(void) ContentTranslationOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplitOpenThemeAnimation>
     {
@@ -3922,17 +3920,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISplitOpenThemeAnimationStatics
     {
-        [[nodiscard]] auto OpenedTargetNameProperty() const;
-        [[nodiscard]] auto OpenedTargetProperty() const;
-        [[nodiscard]] auto ClosedTargetNameProperty() const;
-        [[nodiscard]] auto ClosedTargetProperty() const;
-        [[nodiscard]] auto ContentTargetNameProperty() const;
-        [[nodiscard]] auto ContentTargetProperty() const;
-        [[nodiscard]] auto OpenedLengthProperty() const;
-        [[nodiscard]] auto ClosedLengthProperty() const;
-        [[nodiscard]] auto OffsetFromCenterProperty() const;
-        [[nodiscard]] auto ContentTranslationDirectionProperty() const;
-        [[nodiscard]] auto ContentTranslationOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OpenedTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OpenedTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ClosedTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ClosedTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentTargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OpenedLengthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ClosedLengthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OffsetFromCenterProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentTranslationDirectionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContentTranslationOffsetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISplitOpenThemeAnimationStatics>
     {
@@ -3941,16 +3939,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IStoryboard
     {
-        [[nodiscard]] auto Children() const;
-        auto Seek(Windows::Foundation::TimeSpan const& offset) const;
-        auto Stop() const;
-        auto Begin() const;
-        auto Pause() const;
-        auto Resume() const;
-        auto GetCurrentState() const;
-        auto GetCurrentTime() const;
-        auto SeekAlignedToLastTick(Windows::Foundation::TimeSpan const& offset) const;
-        auto SkipToFill() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::TimelineCollection) Children() const;
+        WINRT_IMPL_AUTO(void) Seek(Windows::Foundation::TimeSpan const& offset) const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(void) Begin() const;
+        WINRT_IMPL_AUTO(void) Pause() const;
+        WINRT_IMPL_AUTO(void) Resume() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::ClockState) GetCurrentState() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) GetCurrentTime() const;
+        WINRT_IMPL_AUTO(void) SeekAlignedToLastTick(Windows::Foundation::TimeSpan const& offset) const;
+        WINRT_IMPL_AUTO(void) SkipToFill() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IStoryboard>
     {
@@ -3959,13 +3957,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_IStoryboardStatics
     {
-        [[nodiscard]] auto TargetPropertyProperty() const;
-        auto GetTargetProperty(Windows::UI::Xaml::Media::Animation::Timeline const& element) const;
-        auto SetTargetProperty(Windows::UI::Xaml::Media::Animation::Timeline const& element, param::hstring const& path) const;
-        [[nodiscard]] auto TargetNameProperty() const;
-        auto GetTargetName(Windows::UI::Xaml::Media::Animation::Timeline const& element) const;
-        auto SetTargetName(Windows::UI::Xaml::Media::Animation::Timeline const& element, param::hstring const& name) const;
-        auto SetTarget(Windows::UI::Xaml::Media::Animation::Timeline const& timeline, Windows::UI::Xaml::DependencyObject const& target) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetPropertyProperty() const;
+        WINRT_IMPL_AUTO(hstring) GetTargetProperty(Windows::UI::Xaml::Media::Animation::Timeline const& element) const;
+        WINRT_IMPL_AUTO(void) SetTargetProperty(Windows::UI::Xaml::Media::Animation::Timeline const& element, param::hstring const& path) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
+        WINRT_IMPL_AUTO(hstring) GetTargetName(Windows::UI::Xaml::Media::Animation::Timeline const& element) const;
+        WINRT_IMPL_AUTO(void) SetTargetName(Windows::UI::Xaml::Media::Animation::Timeline const& element, param::hstring const& name) const;
+        WINRT_IMPL_AUTO(void) SetTarget(Windows::UI::Xaml::Media::Animation::Timeline const& timeline, Windows::UI::Xaml::DependencyObject const& target) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::IStoryboardStatics>
     {
@@ -3982,12 +3980,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISwipeBackThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
-        [[nodiscard]] auto FromHorizontalOffset() const;
-        auto FromHorizontalOffset(double value) const;
-        [[nodiscard]] auto FromVerticalOffset() const;
-        auto FromVerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromHorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) FromHorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FromVerticalOffset() const;
+        WINRT_IMPL_AUTO(void) FromVerticalOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISwipeBackThemeAnimation>
     {
@@ -3996,9 +3994,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISwipeBackThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
-        [[nodiscard]] auto FromHorizontalOffsetProperty() const;
-        [[nodiscard]] auto FromVerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromHorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FromVerticalOffsetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISwipeBackThemeAnimationStatics>
     {
@@ -4007,12 +4005,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISwipeHintThemeAnimation
     {
-        [[nodiscard]] auto TargetName() const;
-        auto TargetName(param::hstring const& value) const;
-        [[nodiscard]] auto ToHorizontalOffset() const;
-        auto ToHorizontalOffset(double value) const;
-        [[nodiscard]] auto ToVerticalOffset() const;
-        auto ToVerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetName() const;
+        WINRT_IMPL_AUTO(void) TargetName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ToHorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) ToHorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ToVerticalOffset() const;
+        WINRT_IMPL_AUTO(void) ToVerticalOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISwipeHintThemeAnimation>
     {
@@ -4021,9 +4019,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ISwipeHintThemeAnimationStatics
     {
-        [[nodiscard]] auto TargetNameProperty() const;
-        [[nodiscard]] auto ToHorizontalOffsetProperty() const;
-        [[nodiscard]] auto ToVerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TargetNameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ToHorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ToVerticalOffsetProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ISwipeHintThemeAnimationStatics>
     {
@@ -4032,22 +4030,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ITimeline
     {
-        [[nodiscard]] auto AutoReverse() const;
-        auto AutoReverse(bool value) const;
-        [[nodiscard]] auto BeginTime() const;
-        auto BeginTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::UI::Xaml::Duration const& value) const;
-        [[nodiscard]] auto SpeedRatio() const;
-        auto SpeedRatio(double value) const;
-        [[nodiscard]] auto FillBehavior() const;
-        auto FillBehavior(Windows::UI::Xaml::Media::Animation::FillBehavior const& value) const;
-        [[nodiscard]] auto RepeatBehavior() const;
-        auto RepeatBehavior(Windows::UI::Xaml::Media::Animation::RepeatBehavior const& value) const;
-        auto Completed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoReverse() const;
+        WINRT_IMPL_AUTO(void) AutoReverse(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) BeginTime() const;
+        WINRT_IMPL_AUTO(void) BeginTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Duration) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::UI::Xaml::Duration const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) SpeedRatio() const;
+        WINRT_IMPL_AUTO(void) SpeedRatio(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::FillBehavior) FillBehavior() const;
+        WINRT_IMPL_AUTO(void) FillBehavior(Windows::UI::Xaml::Media::Animation::FillBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::RepeatBehavior) RepeatBehavior() const;
+        WINRT_IMPL_AUTO(void) RepeatBehavior(Windows::UI::Xaml::Media::Animation::RepeatBehavior const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Completed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Completed_revoker = impl::event_revoker<Windows::UI::Xaml::Media::Animation::ITimeline, &impl::abi_t<Windows::UI::Xaml::Media::Animation::ITimeline>::remove_Completed>;
         [[nodiscard]] Completed_revoker Completed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Completed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Completed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ITimeline>
     {
@@ -4056,7 +4054,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ITimelineFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::Timeline) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ITimelineFactory>
     {
@@ -4065,14 +4063,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Animation_ITimelineStatics
     {
-        [[nodiscard]] auto AllowDependentAnimations() const;
-        auto AllowDependentAnimations(bool value) const;
-        [[nodiscard]] auto AutoReverseProperty() const;
-        [[nodiscard]] auto BeginTimeProperty() const;
-        [[nodiscard]] auto DurationProperty() const;
-        [[nodiscard]] auto SpeedRatioProperty() const;
-        [[nodiscard]] auto FillBehaviorProperty() const;
-        [[nodiscard]] auto RepeatBehaviorProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowDependentAnimations() const;
+        WINRT_IMPL_AUTO(void) AllowDependentAnimations(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AutoReverseProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) BeginTimeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DurationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SpeedRatioProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FillBehaviorProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RepeatBehaviorProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Animation::ITimelineStatics>
     {

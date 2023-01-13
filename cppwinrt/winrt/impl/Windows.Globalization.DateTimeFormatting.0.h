@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -11,6 +11,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Globalization::DateTimeFormatting
 {
@@ -76,20 +77,18 @@ namespace winrt::impl
     template <> struct category<Windows::Globalization::DateTimeFormatting::MonthFormat>{ using type = enum_category; };
     template <> struct category<Windows::Globalization::DateTimeFormatting::SecondFormat>{ using type = enum_category; };
     template <> struct category<Windows::Globalization::DateTimeFormatting::YearFormat>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::DateTimeFormatter>{ L"Windows.Globalization.DateTimeFormatting.DateTimeFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::DayFormat>{ L"Windows.Globalization.DateTimeFormatting.DayFormat" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::DayOfWeekFormat>{ L"Windows.Globalization.DateTimeFormatting.DayOfWeekFormat" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::HourFormat>{ L"Windows.Globalization.DateTimeFormatting.HourFormat" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::MinuteFormat>{ L"Windows.Globalization.DateTimeFormatting.MinuteFormat" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::MonthFormat>{ L"Windows.Globalization.DateTimeFormatting.MonthFormat" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::SecondFormat>{ L"Windows.Globalization.DateTimeFormatting.SecondFormat" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::YearFormat>{ L"Windows.Globalization.DateTimeFormatting.YearFormat" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter>{ L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter2>{ L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter2" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterFactory>{ L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterStatics>{ L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::DateTimeFormatter> = L"Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::DayFormat> = L"Windows.Globalization.DateTimeFormatting.DayFormat";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::DayOfWeekFormat> = L"Windows.Globalization.DateTimeFormatting.DayOfWeekFormat";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::HourFormat> = L"Windows.Globalization.DateTimeFormatting.HourFormat";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::MinuteFormat> = L"Windows.Globalization.DateTimeFormatting.MinuteFormat";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::MonthFormat> = L"Windows.Globalization.DateTimeFormatting.MonthFormat";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::SecondFormat> = L"Windows.Globalization.DateTimeFormatting.SecondFormat";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::YearFormat> = L"Windows.Globalization.DateTimeFormatting.YearFormat";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter> = L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter2> = L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter2";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterFactory> = L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory";
+    template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterStatics> = L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterStatics";
     template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter>{ 0x95EECA10,0x73E0,0x4E4B,{ 0xA1,0x83,0x3D,0x6A,0xD0,0xBA,0x35,0xEC } };
     template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter2>{ 0x27C91A86,0xBDAA,0x4FD0,{ 0x9E,0x36,0x67,0x1D,0x5A,0xA5,0xEE,0x03 } };
     template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterFactory>{ 0xEC8D8A53,0x1A2E,0x412D,{ 0x88,0x15,0x3B,0x74,0x5F,0xB1,0xA2,0xA0 } };
@@ -152,24 +151,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_DateTimeFormatting_IDateTimeFormatter
     {
-        [[nodiscard]] auto Languages() const;
-        [[nodiscard]] auto GeographicRegion() const;
-        [[nodiscard]] auto Calendar() const;
-        [[nodiscard]] auto Clock() const;
-        [[nodiscard]] auto NumeralSystem() const;
-        auto NumeralSystem(param::hstring const& value) const;
-        [[nodiscard]] auto Patterns() const;
-        [[nodiscard]] auto Template() const;
-        auto Format(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto IncludeYear() const;
-        [[nodiscard]] auto IncludeMonth() const;
-        [[nodiscard]] auto IncludeDayOfWeek() const;
-        [[nodiscard]] auto IncludeDay() const;
-        [[nodiscard]] auto IncludeHour() const;
-        [[nodiscard]] auto IncludeMinute() const;
-        [[nodiscard]] auto IncludeSecond() const;
-        [[nodiscard]] auto ResolvedLanguage() const;
-        [[nodiscard]] auto ResolvedGeographicRegion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Languages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GeographicRegion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Calendar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Clock() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NumeralSystem() const;
+        WINRT_IMPL_AUTO(void) NumeralSystem(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Patterns() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Template() const;
+        WINRT_IMPL_AUTO(hstring) Format(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::YearFormat) IncludeYear() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::MonthFormat) IncludeMonth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DayOfWeekFormat) IncludeDayOfWeek() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DayFormat) IncludeDay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::HourFormat) IncludeHour() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::MinuteFormat) IncludeMinute() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::SecondFormat) IncludeSecond() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedGeographicRegion() const;
     };
     template <> struct consume<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter>
     {
@@ -178,7 +177,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_DateTimeFormatting_IDateTimeFormatter2
     {
-        auto Format(Windows::Foundation::DateTime const& datetime, param::hstring const& timeZoneId) const;
+        WINRT_IMPL_AUTO(hstring) Format(Windows::Foundation::DateTime const& datetime, param::hstring const& timeZoneId) const;
     };
     template <> struct consume<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter2>
     {
@@ -187,13 +186,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_DateTimeFormatting_IDateTimeFormatterFactory
     {
-        auto CreateDateTimeFormatter(param::hstring const& formatTemplate) const;
-        auto CreateDateTimeFormatterLanguages(param::hstring const& formatTemplate, param::iterable<hstring> const& languages) const;
-        auto CreateDateTimeFormatterContext(param::hstring const& formatTemplate, param::iterable<hstring> const& languages, param::hstring const& geographicRegion, param::hstring const& calendar, param::hstring const& clock) const;
-        auto CreateDateTimeFormatterDate(Windows::Globalization::DateTimeFormatting::YearFormat const& yearFormat, Windows::Globalization::DateTimeFormatting::MonthFormat const& monthFormat, Windows::Globalization::DateTimeFormatting::DayFormat const& dayFormat, Windows::Globalization::DateTimeFormatting::DayOfWeekFormat const& dayOfWeekFormat) const;
-        auto CreateDateTimeFormatterTime(Windows::Globalization::DateTimeFormatting::HourFormat const& hourFormat, Windows::Globalization::DateTimeFormatting::MinuteFormat const& minuteFormat, Windows::Globalization::DateTimeFormatting::SecondFormat const& secondFormat) const;
-        auto CreateDateTimeFormatterDateTimeLanguages(Windows::Globalization::DateTimeFormatting::YearFormat const& yearFormat, Windows::Globalization::DateTimeFormatting::MonthFormat const& monthFormat, Windows::Globalization::DateTimeFormatting::DayFormat const& dayFormat, Windows::Globalization::DateTimeFormatting::DayOfWeekFormat const& dayOfWeekFormat, Windows::Globalization::DateTimeFormatting::HourFormat const& hourFormat, Windows::Globalization::DateTimeFormatting::MinuteFormat const& minuteFormat, Windows::Globalization::DateTimeFormatting::SecondFormat const& secondFormat, param::iterable<hstring> const& languages) const;
-        auto CreateDateTimeFormatterDateTimeContext(Windows::Globalization::DateTimeFormatting::YearFormat const& yearFormat, Windows::Globalization::DateTimeFormatting::MonthFormat const& monthFormat, Windows::Globalization::DateTimeFormatting::DayFormat const& dayFormat, Windows::Globalization::DateTimeFormatting::DayOfWeekFormat const& dayOfWeekFormat, Windows::Globalization::DateTimeFormatting::HourFormat const& hourFormat, Windows::Globalization::DateTimeFormatting::MinuteFormat const& minuteFormat, Windows::Globalization::DateTimeFormatting::SecondFormat const& secondFormat, param::iterable<hstring> const& languages, param::hstring const& geographicRegion, param::hstring const& calendar, param::hstring const& clock) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) CreateDateTimeFormatter(param::hstring const& formatTemplate) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) CreateDateTimeFormatterLanguages(param::hstring const& formatTemplate, param::iterable<hstring> const& languages) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) CreateDateTimeFormatterContext(param::hstring const& formatTemplate, param::iterable<hstring> const& languages, param::hstring const& geographicRegion, param::hstring const& calendar, param::hstring const& clock) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) CreateDateTimeFormatterDate(Windows::Globalization::DateTimeFormatting::YearFormat const& yearFormat, Windows::Globalization::DateTimeFormatting::MonthFormat const& monthFormat, Windows::Globalization::DateTimeFormatting::DayFormat const& dayFormat, Windows::Globalization::DateTimeFormatting::DayOfWeekFormat const& dayOfWeekFormat) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) CreateDateTimeFormatterTime(Windows::Globalization::DateTimeFormatting::HourFormat const& hourFormat, Windows::Globalization::DateTimeFormatting::MinuteFormat const& minuteFormat, Windows::Globalization::DateTimeFormatting::SecondFormat const& secondFormat) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) CreateDateTimeFormatterDateTimeLanguages(Windows::Globalization::DateTimeFormatting::YearFormat const& yearFormat, Windows::Globalization::DateTimeFormatting::MonthFormat const& monthFormat, Windows::Globalization::DateTimeFormatting::DayFormat const& dayFormat, Windows::Globalization::DateTimeFormatting::DayOfWeekFormat const& dayOfWeekFormat, Windows::Globalization::DateTimeFormatting::HourFormat const& hourFormat, Windows::Globalization::DateTimeFormatting::MinuteFormat const& minuteFormat, Windows::Globalization::DateTimeFormatting::SecondFormat const& secondFormat, param::iterable<hstring> const& languages) const;
+        WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) CreateDateTimeFormatterDateTimeContext(Windows::Globalization::DateTimeFormatting::YearFormat const& yearFormat, Windows::Globalization::DateTimeFormatting::MonthFormat const& monthFormat, Windows::Globalization::DateTimeFormatting::DayFormat const& dayFormat, Windows::Globalization::DateTimeFormatting::DayOfWeekFormat const& dayOfWeekFormat, Windows::Globalization::DateTimeFormatting::HourFormat const& hourFormat, Windows::Globalization::DateTimeFormatting::MinuteFormat const& minuteFormat, Windows::Globalization::DateTimeFormatting::SecondFormat const& secondFormat, param::iterable<hstring> const& languages, param::hstring const& geographicRegion, param::hstring const& calendar, param::hstring const& clock) const;
     };
     template <> struct consume<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterFactory>
     {
@@ -202,10 +201,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Globalization_DateTimeFormatting_IDateTimeFormatterStatics
     {
-        [[nodiscard]] auto LongDate() const;
-        [[nodiscard]] auto LongTime() const;
-        [[nodiscard]] auto ShortDate() const;
-        [[nodiscard]] auto ShortTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) LongDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) LongTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) ShortDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DateTimeFormatting::DateTimeFormatter) ShortTime() const;
     };
     template <> struct consume<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterStatics>
     {

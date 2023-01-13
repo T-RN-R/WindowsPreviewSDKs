@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,7 +12,9 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename T> struct IIterable;
     template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Xaml
 {
@@ -880,305 +882,303 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Automation::Peers::AutomationStructureChangeType>{ using type = enum_category; };
     template <> struct category<Windows::UI::Xaml::Automation::Peers::PatternInterface>{ using type = enum_category; };
     template <> struct category<Windows::UI::Xaml::Automation::Peers::RawElementProviderRuntimeId>{ using type = struct_category<uint32_t, uint32_t>; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AppBarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.AppBarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AppBarButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.AppBarButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AppBarToggleButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.AppBarToggleButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutoSuggestBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.AutoSuggestBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.AutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationPeerAnnotation>{ L"Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ButtonBaseAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ButtonBaseAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::CalendarDatePickerAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.CalendarDatePickerAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::CaptureElementAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.CaptureElementAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::CheckBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.CheckBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ColorPickerSliderAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ColorPickerSliderAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ColorSpectrumAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ColorSpectrumAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ComboBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ComboBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ComboBoxItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ComboBoxItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ComboBoxItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ComboBoxItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::DatePickerAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.DatePickerAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::DatePickerFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.DatePickerFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FlipViewAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.FlipViewAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FlipViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.FlipViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FlipViewItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.FlipViewItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.FlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FrameworkElementAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GridViewAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.GridViewAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GridViewHeaderItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.GridViewHeaderItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GridViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.GridViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GridViewItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.GridViewItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GroupItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.GroupItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::HubAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.HubAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::HubSectionAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.HubSectionAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::HyperlinkButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.HyperlinkButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ImageAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ImageAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::InkToolbarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.InkToolbarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ItemsControlAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ItemsControlAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListBoxItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListBoxItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListBoxItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListBoxItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListPickerFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListPickerFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListViewAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewBaseAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListViewBaseAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewBaseHeaderItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListViewBaseHeaderItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewHeaderItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListViewHeaderItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ListViewItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::LoopingSelectorAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.LoopingSelectorAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::LoopingSelectorItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::LoopingSelectorItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MapControlAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.MapControlAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MediaElementAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.MediaElementAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MediaPlayerElementAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.MediaPlayerElementAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MediaTransportControlsAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.MediaTransportControlsAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MenuBarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.MenuBarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MenuBarItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.MenuBarItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MenuFlyoutItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.MenuFlyoutItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MenuFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.MenuFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::NavigationViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.NavigationViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PasswordBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.PasswordBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PersonPictureAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.PersonPictureAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PickerFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.PickerFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PivotAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.PivotAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PivotItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.PivotItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PivotItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.PivotItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ProgressBarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ProgressBarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ProgressRingAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ProgressRingAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RadioButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.RadioButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RangeBaseAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.RangeBaseAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RatingControlAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.RatingControlAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RepeatButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.RepeatButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RichEditBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.RichEditBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RichTextBlockAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.RichTextBlockAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RichTextBlockOverflowAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.RichTextBlockOverflowAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ScrollBarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ScrollBarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ScrollViewerAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ScrollViewerAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SearchBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.SearchBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SelectorAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.SelectorAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SelectorItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.SelectorItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SemanticZoomAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.SemanticZoomAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SettingsFlyoutAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.SettingsFlyoutAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SliderAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.SliderAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TextBlockAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.TextBlockAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TextBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.TextBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ThumbAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ThumbAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TimePickerAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.TimePickerAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TimePickerFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.TimePickerFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ToggleButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ToggleButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ToggleMenuFlyoutItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ToggleMenuFlyoutItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ToggleSwitchAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ToggleSwitchAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TreeViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.TreeViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TreeViewListAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.TreeViewListAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AccessibilityView>{ L"Windows.UI.Xaml.Automation.Peers.AccessibilityView" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationControlType>{ L"Windows.UI.Xaml.Automation.Peers.AutomationControlType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationEvents>{ L"Windows.UI.Xaml.Automation.Peers.AutomationEvents" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationHeadingLevel>{ L"Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationLandmarkType>{ L"Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationLiveSetting>{ L"Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationNavigationDirection>{ L"Windows.UI.Xaml.Automation.Peers.AutomationNavigationDirection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationNotificationKind>{ L"Windows.UI.Xaml.Automation.Peers.AutomationNotificationKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationNotificationProcessing>{ L"Windows.UI.Xaml.Automation.Peers.AutomationNotificationProcessing" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationOrientation>{ L"Windows.UI.Xaml.Automation.Peers.AutomationOrientation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationStructureChangeType>{ L"Windows.UI.Xaml.Automation.Peers.AutomationStructureChangeType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PatternInterface>{ L"Windows.UI.Xaml.Automation.Peers.PatternInterface" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RawElementProviderRuntimeId>{ L"Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarButtonAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarToggleButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarToggleButtonAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutoSuggestBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutoSuggestBoxAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer2>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer3>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer4>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer5>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer5" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer6>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer6" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer7>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer7" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer8>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer8" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer9>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer9" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotation>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotationFactory>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotationFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotationStatics>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides2>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides3>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides4>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides5>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides5" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides6>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides6" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides8>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides8" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides9>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides9" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerProtected>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerProtected" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerStatics>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerStatics3>{ L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerStatics3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IButtonAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IButtonBaseAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IButtonBaseAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IButtonBaseAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IButtonBaseAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICalendarDatePickerAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICalendarDatePickerAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICaptureElementAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ICaptureElementAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICaptureElementAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ICaptureElementAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICheckBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ICheckBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICheckBoxAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ICheckBoxAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IColorPickerSliderAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IColorPickerSliderAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IColorPickerSliderAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IColorPickerSliderAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IColorSpectrumAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IColorSpectrumAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IColorSpectrumAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IColorSpectrumAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IComboBoxItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IComboBoxItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxItemDataAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IDatePickerAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IDatePickerAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IDatePickerFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IDatePickerFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IFlipViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IFlipViewItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IFlipViewItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewItemDataAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IFlipViewItemDataAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlyoutPresenterAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeerStatics>{ L"Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewHeaderItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewHeaderItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IGridViewItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewItemDataAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IGridViewItemDataAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGroupItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IGroupItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGroupItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IGroupItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHubAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IHubAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHubAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IHubAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHubSectionAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHubSectionAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHyperlinkButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHyperlinkButtonAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IImageAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IImageAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IImageAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IImageAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IInkToolbarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IInkToolbarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeer2>{ L"Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeerOverrides2>{ L"Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeerOverrides2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListBoxItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListBoxItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListBoxItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxItemDataAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListBoxItemDataAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListPickerFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListPickerFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListViewAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListViewAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewBaseAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewBaseAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewBaseHeaderItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListViewBaseHeaderItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewBaseHeaderItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListViewBaseHeaderItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewHeaderItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewHeaderItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListViewItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IListViewItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewItemDataAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IListViewItemDataAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ILoopingSelectorAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ILoopingSelectorAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ILoopingSelectorItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ILoopingSelectorItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ILoopingSelectorItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ILoopingSelectorItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMapControlAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IMapControlAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaElementAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaElementAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaPlayerElementAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaPlayerElementAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaTransportControlsAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaTransportControlsAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuBarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IMenuBarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuBarAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IMenuBarAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuBarItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IMenuBarItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuBarItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IMenuBarItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutPresenterAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::INavigationViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::INavigationViewItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPasswordBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IPasswordBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPasswordBoxAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IPasswordBoxAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPersonPictureAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IPersonPictureAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPersonPictureAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IPersonPictureAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPickerFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IPickerFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IPivotAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IPivotAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IPivotItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IPivotItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotItemDataAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IPivotItemDataAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotItemDataAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IPivotItemDataAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IProgressBarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IProgressBarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IProgressBarAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IProgressBarAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IProgressRingAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IProgressRingAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IProgressRingAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IProgressRingAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRadioButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRadioButtonAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRangeBaseAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IRangeBaseAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRangeBaseAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IRangeBaseAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRatingControlAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRatingControlAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRepeatButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRepeatButtonAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichEditBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IRichEditBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichEditBoxAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IRichEditBoxAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichTextBlockAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IRichTextBlockAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichTextBlockAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IRichTextBlockAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichTextBlockOverflowAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IRichTextBlockOverflowAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichTextBlockOverflowAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IRichTextBlockOverflowAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IScrollBarAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IScrollBarAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IScrollBarAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IScrollBarAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IScrollViewerAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IScrollViewerAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISearchBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ISearchBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISearchBoxAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ISearchBoxAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISelectorAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISelectorAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISelectorItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISelectorItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISemanticZoomAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ISemanticZoomAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISemanticZoomAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ISemanticZoomAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISettingsFlyoutAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ISettingsFlyoutAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISettingsFlyoutAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ISettingsFlyoutAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISliderAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ISliderAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISliderAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ISliderAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITextBlockAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITextBlockAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITextBoxAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITextBoxAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IThumbAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IThumbAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITimePickerAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITimePickerAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITimePickerFlyoutPresenterAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ITimePickerFlyoutPresenterAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleButtonAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IToggleButtonAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleButtonAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IToggleButtonAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleMenuFlyoutItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleMenuFlyoutItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleSwitchAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.IToggleSwitchAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleSwitchAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.IToggleSwitchAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITreeViewItemAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITreeViewItemAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITreeViewListAutomationPeer>{ L"Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITreeViewListAutomationPeerFactory>{ L"Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeerFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AppBarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.AppBarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AppBarButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.AppBarButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AppBarToggleButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.AppBarToggleButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutoSuggestBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.AutoSuggestBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.AutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationPeerAnnotation> = L"Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ButtonBaseAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ButtonBaseAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::CalendarDatePickerAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.CalendarDatePickerAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::CaptureElementAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.CaptureElementAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::CheckBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.CheckBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ColorPickerSliderAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ColorPickerSliderAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ColorSpectrumAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ColorSpectrumAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ComboBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ComboBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ComboBoxItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ComboBoxItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ComboBoxItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ComboBoxItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::DatePickerAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.DatePickerAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::DatePickerFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.DatePickerFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FlipViewAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.FlipViewAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FlipViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.FlipViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FlipViewItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.FlipViewItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.FlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::FrameworkElementAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GridViewAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.GridViewAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GridViewHeaderItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.GridViewHeaderItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GridViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.GridViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GridViewItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.GridViewItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::GroupItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.GroupItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::HubAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.HubAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::HubSectionAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.HubSectionAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::HyperlinkButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.HyperlinkButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ImageAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ImageAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::InkToolbarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.InkToolbarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ItemsControlAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ItemsControlAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListBoxItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListBoxItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListBoxItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListBoxItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListPickerFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListPickerFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListViewAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewBaseAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListViewBaseAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewBaseHeaderItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListViewBaseHeaderItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewHeaderItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListViewHeaderItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ListViewItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ListViewItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::LoopingSelectorAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.LoopingSelectorAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::LoopingSelectorItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::LoopingSelectorItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MapControlAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.MapControlAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MediaElementAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.MediaElementAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MediaPlayerElementAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.MediaPlayerElementAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MediaTransportControlsAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.MediaTransportControlsAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MenuBarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.MenuBarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MenuBarItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.MenuBarItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MenuFlyoutItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.MenuFlyoutItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::MenuFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.MenuFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::NavigationViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.NavigationViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PasswordBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.PasswordBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PersonPictureAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.PersonPictureAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PickerFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.PickerFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PivotAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.PivotAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PivotItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.PivotItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PivotItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.PivotItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ProgressBarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ProgressBarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ProgressRingAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ProgressRingAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RadioButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.RadioButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RangeBaseAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.RangeBaseAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RatingControlAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.RatingControlAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RepeatButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.RepeatButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RichEditBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.RichEditBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RichTextBlockAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.RichTextBlockAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RichTextBlockOverflowAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.RichTextBlockOverflowAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ScrollBarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ScrollBarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ScrollViewerAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ScrollViewerAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SearchBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.SearchBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SelectorAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.SelectorAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SelectorItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.SelectorItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SemanticZoomAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.SemanticZoomAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SettingsFlyoutAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.SettingsFlyoutAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::SliderAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.SliderAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TextBlockAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.TextBlockAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TextBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.TextBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ThumbAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ThumbAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TimePickerAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.TimePickerAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TimePickerFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.TimePickerFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ToggleButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ToggleButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ToggleMenuFlyoutItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ToggleMenuFlyoutItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ToggleSwitchAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ToggleSwitchAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TreeViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.TreeViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::TreeViewListAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.TreeViewListAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AccessibilityView> = L"Windows.UI.Xaml.Automation.Peers.AccessibilityView";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationControlType> = L"Windows.UI.Xaml.Automation.Peers.AutomationControlType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationEvents> = L"Windows.UI.Xaml.Automation.Peers.AutomationEvents";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationHeadingLevel> = L"Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationLandmarkType> = L"Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationLiveSetting> = L"Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationNavigationDirection> = L"Windows.UI.Xaml.Automation.Peers.AutomationNavigationDirection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationNotificationKind> = L"Windows.UI.Xaml.Automation.Peers.AutomationNotificationKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationNotificationProcessing> = L"Windows.UI.Xaml.Automation.Peers.AutomationNotificationProcessing";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationOrientation> = L"Windows.UI.Xaml.Automation.Peers.AutomationOrientation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::AutomationStructureChangeType> = L"Windows.UI.Xaml.Automation.Peers.AutomationStructureChangeType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::PatternInterface> = L"Windows.UI.Xaml.Automation.Peers.PatternInterface";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::RawElementProviderRuntimeId> = L"Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarButtonAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IAppBarButtonAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarToggleButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAppBarToggleButtonAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IAppBarToggleButtonAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutoSuggestBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutoSuggestBoxAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IAutoSuggestBoxAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer2> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer3> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer4> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer5> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer5";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer6> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer6";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer7> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer7";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer8> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer8";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeer9> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeer9";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotation> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotationFactory> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotationFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotationStatics> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerAnnotationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides2> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides3> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides4> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides5> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides5";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides6> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides6";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides8> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides8";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides9> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides9";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerProtected> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerProtected";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerStatics> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IAutomationPeerStatics3> = L"Windows.UI.Xaml.Automation.Peers.IAutomationPeerStatics3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IButtonAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IButtonAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IButtonBaseAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IButtonBaseAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IButtonBaseAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IButtonBaseAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICalendarDatePickerAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICalendarDatePickerAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ICalendarDatePickerAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICaptureElementAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ICaptureElementAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICaptureElementAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ICaptureElementAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICheckBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ICheckBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ICheckBoxAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ICheckBoxAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IColorPickerSliderAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IColorPickerSliderAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IColorPickerSliderAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IColorPickerSliderAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IColorSpectrumAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IColorSpectrumAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IColorSpectrumAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IColorSpectrumAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IComboBoxAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IComboBoxItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IComboBoxItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IComboBoxItemDataAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IComboBoxItemDataAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IDatePickerAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IDatePickerAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IDatePickerAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IDatePickerFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IDatePickerFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IFlipViewAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IFlipViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IFlipViewItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IFlipViewItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlipViewItemDataAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IFlipViewItemDataAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFlyoutPresenterAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IFlyoutPresenterAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeerStatics> = L"Windows.UI.Xaml.Automation.Peers.IFrameworkElementAutomationPeerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IGridViewAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewHeaderItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewHeaderItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IGridViewHeaderItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IGridViewItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IGridViewItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGridViewItemDataAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IGridViewItemDataAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGroupItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IGroupItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IGroupItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IGroupItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHubAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IHubAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHubAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IHubAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHubSectionAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHubSectionAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IHubSectionAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHyperlinkButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IHyperlinkButtonAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IHyperlinkButtonAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IImageAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IImageAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IImageAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IImageAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IInkToolbarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IInkToolbarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeer2> = L"Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeer2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeerOverrides2> = L"Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeerOverrides2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListBoxAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListBoxItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListBoxItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListBoxItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListBoxItemDataAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListBoxItemDataAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListPickerFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListPickerFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListViewAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListViewAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewBaseAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewBaseAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListViewBaseAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewBaseHeaderItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListViewBaseHeaderItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewBaseHeaderItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListViewBaseHeaderItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewHeaderItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewHeaderItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListViewHeaderItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListViewItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IListViewItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IListViewItemDataAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IListViewItemDataAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ILoopingSelectorAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ILoopingSelectorAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ILoopingSelectorItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ILoopingSelectorItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ILoopingSelectorItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ILoopingSelectorItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMapControlAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IMapControlAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaElementAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaElementAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IMediaElementAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaPlayerElementAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaPlayerElementAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IMediaPlayerElementAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaTransportControlsAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMediaTransportControlsAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IMediaTransportControlsAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuBarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IMenuBarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuBarAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IMenuBarAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuBarItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IMenuBarItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuBarItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IMenuBarItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IMenuFlyoutItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutPresenterAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IMenuFlyoutPresenterAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::INavigationViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::INavigationViewItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.INavigationViewItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPasswordBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IPasswordBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPasswordBoxAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IPasswordBoxAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPersonPictureAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IPersonPictureAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPersonPictureAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IPersonPictureAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPickerFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IPickerFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IPivotAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IPivotAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IPivotItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IPivotItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotItemDataAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IPivotItemDataAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IPivotItemDataAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IPivotItemDataAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IProgressBarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IProgressBarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IProgressBarAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IProgressBarAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IProgressRingAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IProgressRingAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IProgressRingAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IProgressRingAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRadioButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRadioButtonAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IRadioButtonAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRangeBaseAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IRangeBaseAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRangeBaseAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IRangeBaseAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRatingControlAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRatingControlAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IRatingControlAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRepeatButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRepeatButtonAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IRepeatButtonAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichEditBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IRichEditBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichEditBoxAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IRichEditBoxAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichTextBlockAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IRichTextBlockAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichTextBlockAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IRichTextBlockAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichTextBlockOverflowAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IRichTextBlockOverflowAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IRichTextBlockOverflowAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IRichTextBlockOverflowAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IScrollBarAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IScrollBarAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IScrollBarAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IScrollBarAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IScrollViewerAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IScrollViewerAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IScrollViewerAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISearchBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ISearchBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISearchBoxAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ISearchBoxAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISelectorAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISelectorAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ISelectorAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISelectorItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISelectorItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ISelectorItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISemanticZoomAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ISemanticZoomAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISemanticZoomAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ISemanticZoomAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISettingsFlyoutAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ISettingsFlyoutAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISettingsFlyoutAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ISettingsFlyoutAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISliderAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ISliderAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ISliderAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ISliderAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITextBlockAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITextBlockAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ITextBlockAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITextBoxAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITextBoxAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ITextBoxAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IThumbAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IThumbAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IThumbAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITimePickerAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITimePickerAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ITimePickerAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITimePickerFlyoutPresenterAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ITimePickerFlyoutPresenterAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleButtonAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IToggleButtonAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleButtonAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IToggleButtonAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleMenuFlyoutItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleMenuFlyoutItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IToggleMenuFlyoutItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleSwitchAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.IToggleSwitchAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::IToggleSwitchAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.IToggleSwitchAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITreeViewItemAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITreeViewItemAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ITreeViewItemAutomationPeerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITreeViewListAutomationPeer> = L"Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Automation::Peers::ITreeViewListAutomationPeerFactory> = L"Windows.UI.Xaml.Automation.Peers.ITreeViewListAutomationPeerFactory";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Automation::Peers::IAppBarAutomationPeer>{ 0x8B4ACFEB,0x89FA,0x4F13,{ 0x84,0xBE,0x35,0xCA,0x5B,0x7C,0x95,0x90 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Automation::Peers::IAppBarAutomationPeerFactory>{ 0x8360F4E2,0xE396,0x4517,{ 0xAF,0x5D,0xF4,0xCF,0x34,0xC5,0x4E,0xDF } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Automation::Peers::IAppBarButtonAutomationPeer>{ 0x443262B2,0x4F6D,0x4B76,{ 0x9D,0x2E,0x3E,0xFF,0x77,0x7E,0x88,0x64 } };
@@ -2838,7 +2838,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAppBarAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::AppBar const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AppBarAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::AppBar const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAppBarAutomationPeerFactory>
     {
@@ -2855,7 +2855,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAppBarButtonAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::AppBarButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AppBarButtonAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::AppBarButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAppBarButtonAutomationPeerFactory>
     {
@@ -2872,7 +2872,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAppBarToggleButtonAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::AppBarToggleButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AppBarToggleButtonAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::AppBarToggleButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAppBarToggleButtonAutomationPeerFactory>
     {
@@ -2889,7 +2889,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutoSuggestBoxAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::AutoSuggestBox const& owner) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutoSuggestBoxAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::AutoSuggestBox const& owner) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutoSuggestBoxAutomationPeerFactory>
     {
@@ -2898,39 +2898,39 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeer
     {
-        [[nodiscard]] auto EventsSource() const;
-        auto EventsSource(Windows::UI::Xaml::Automation::Peers::AutomationPeer const& value) const;
-        auto GetPattern(Windows::UI::Xaml::Automation::Peers::PatternInterface const& patternInterface) const;
-        auto RaiseAutomationEvent(Windows::UI::Xaml::Automation::Peers::AutomationEvents const& eventId) const;
-        auto RaisePropertyChangedEvent(Windows::UI::Xaml::Automation::AutomationProperty const& automationProperty, Windows::Foundation::IInspectable const& oldValue, Windows::Foundation::IInspectable const& newValue) const;
-        auto GetAcceleratorKey() const;
-        auto GetAccessKey() const;
-        auto GetAutomationControlType() const;
-        auto GetAutomationId() const;
-        auto GetBoundingRectangle() const;
-        auto GetChildren() const;
-        auto GetClassName() const;
-        auto GetClickablePoint() const;
-        auto GetHelpText() const;
-        auto GetItemStatus() const;
-        auto GetItemType() const;
-        auto GetLabeledBy() const;
-        auto GetLocalizedControlType() const;
-        auto GetName() const;
-        auto GetOrientation() const;
-        auto HasKeyboardFocus() const;
-        auto IsContentElement() const;
-        auto IsControlElement() const;
-        auto IsEnabled() const;
-        auto IsKeyboardFocusable() const;
-        auto IsOffscreen() const;
-        auto IsPassword() const;
-        auto IsRequiredForForm() const;
-        auto SetFocus() const;
-        auto GetParent() const;
-        auto InvalidatePeer() const;
-        auto GetPeerFromPoint(Windows::Foundation::Point const& point) const;
-        auto GetLiveSetting() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) EventsSource() const;
+        WINRT_IMPL_AUTO(void) EventsSource(Windows::UI::Xaml::Automation::Peers::AutomationPeer const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetPattern(Windows::UI::Xaml::Automation::Peers::PatternInterface const& patternInterface) const;
+        WINRT_IMPL_AUTO(void) RaiseAutomationEvent(Windows::UI::Xaml::Automation::Peers::AutomationEvents const& eventId) const;
+        WINRT_IMPL_AUTO(void) RaisePropertyChangedEvent(Windows::UI::Xaml::Automation::AutomationProperty const& automationProperty, Windows::Foundation::IInspectable const& oldValue, Windows::Foundation::IInspectable const& newValue) const;
+        WINRT_IMPL_AUTO(hstring) GetAcceleratorKey() const;
+        WINRT_IMPL_AUTO(hstring) GetAccessKey() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationControlType) GetAutomationControlType() const;
+        WINRT_IMPL_AUTO(hstring) GetAutomationId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) GetBoundingRectangle() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::Automation::Peers::AutomationPeer>) GetChildren() const;
+        WINRT_IMPL_AUTO(hstring) GetClassName() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetClickablePoint() const;
+        WINRT_IMPL_AUTO(hstring) GetHelpText() const;
+        WINRT_IMPL_AUTO(hstring) GetItemStatus() const;
+        WINRT_IMPL_AUTO(hstring) GetItemType() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) GetLabeledBy() const;
+        WINRT_IMPL_AUTO(hstring) GetLocalizedControlType() const;
+        WINRT_IMPL_AUTO(hstring) GetName() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationOrientation) GetOrientation() const;
+        WINRT_IMPL_AUTO(bool) HasKeyboardFocus() const;
+        WINRT_IMPL_AUTO(bool) IsContentElement() const;
+        WINRT_IMPL_AUTO(bool) IsControlElement() const;
+        WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(bool) IsKeyboardFocusable() const;
+        WINRT_IMPL_AUTO(bool) IsOffscreen() const;
+        WINRT_IMPL_AUTO(bool) IsPassword() const;
+        WINRT_IMPL_AUTO(bool) IsRequiredForForm() const;
+        WINRT_IMPL_AUTO(void) SetFocus() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) GetParent() const;
+        WINRT_IMPL_AUTO(void) InvalidatePeer() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) GetPeerFromPoint(Windows::Foundation::Point const& point) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationLiveSetting) GetLiveSetting() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeer>
     {
@@ -2947,18 +2947,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeer3
     {
-        auto Navigate(Windows::UI::Xaml::Automation::Peers::AutomationNavigationDirection const& direction) const;
-        auto GetElementFromPoint(Windows::Foundation::Point const& pointInWindowCoordinates) const;
-        auto GetFocusedElement() const;
-        auto ShowContextMenu() const;
-        auto GetControlledPeers() const;
-        auto GetAnnotations() const;
-        auto SetParent(Windows::UI::Xaml::Automation::Peers::AutomationPeer const& peer) const;
-        auto RaiseTextEditTextChangedEvent(Windows::UI::Xaml::Automation::AutomationTextEditChangeType const& automationTextEditChangeType, param::vector_view<hstring> const& changedData) const;
-        auto GetPositionInSet() const;
-        auto GetSizeOfSet() const;
-        auto GetLevel() const;
-        auto RaiseStructureChangedEvent(Windows::UI::Xaml::Automation::Peers::AutomationStructureChangeType const& structureChangeType, Windows::UI::Xaml::Automation::Peers::AutomationPeer const& child) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Navigate(Windows::UI::Xaml::Automation::Peers::AutomationNavigationDirection const& direction) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetElementFromPoint(Windows::Foundation::Point const& pointInWindowCoordinates) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetFocusedElement() const;
+        WINRT_IMPL_AUTO(void) ShowContextMenu() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Xaml::Automation::Peers::AutomationPeer>) GetControlledPeers() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::Automation::Peers::AutomationPeerAnnotation>) GetAnnotations() const;
+        WINRT_IMPL_AUTO(void) SetParent(Windows::UI::Xaml::Automation::Peers::AutomationPeer const& peer) const;
+        WINRT_IMPL_AUTO(void) RaiseTextEditTextChangedEvent(Windows::UI::Xaml::Automation::AutomationTextEditChangeType const& automationTextEditChangeType, param::vector_view<hstring> const& changedData) const;
+        WINRT_IMPL_AUTO(int32_t) GetPositionInSet() const;
+        WINRT_IMPL_AUTO(int32_t) GetSizeOfSet() const;
+        WINRT_IMPL_AUTO(int32_t) GetLevel() const;
+        WINRT_IMPL_AUTO(void) RaiseStructureChangedEvent(Windows::UI::Xaml::Automation::Peers::AutomationStructureChangeType const& structureChangeType, Windows::UI::Xaml::Automation::Peers::AutomationPeer const& child) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeer3>
     {
@@ -2967,8 +2967,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeer4
     {
-        auto GetLandmarkType() const;
-        auto GetLocalizedLandmarkType() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationLandmarkType) GetLandmarkType() const;
+        WINRT_IMPL_AUTO(hstring) GetLocalizedLandmarkType() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeer4>
     {
@@ -2977,9 +2977,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeer5
     {
-        auto IsPeripheral() const;
-        auto IsDataValidForForm() const;
-        auto GetFullDescription() const;
+        WINRT_IMPL_AUTO(bool) IsPeripheral() const;
+        WINRT_IMPL_AUTO(bool) IsDataValidForForm() const;
+        WINRT_IMPL_AUTO(hstring) GetFullDescription() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeer5>
     {
@@ -2988,7 +2988,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeer6
     {
-        auto GetCulture() const;
+        WINRT_IMPL_AUTO(int32_t) GetCulture() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeer6>
     {
@@ -2997,7 +2997,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeer7
     {
-        auto RaiseNotificationEvent(Windows::UI::Xaml::Automation::Peers::AutomationNotificationKind const& notificationKind, Windows::UI::Xaml::Automation::Peers::AutomationNotificationProcessing const& notificationProcessing, param::hstring const& displayString, param::hstring const& activityId) const;
+        WINRT_IMPL_AUTO(void) RaiseNotificationEvent(Windows::UI::Xaml::Automation::Peers::AutomationNotificationKind const& notificationKind, Windows::UI::Xaml::Automation::Peers::AutomationNotificationProcessing const& notificationProcessing, param::hstring const& displayString, param::hstring const& activityId) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeer7>
     {
@@ -3006,7 +3006,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeer8
     {
-        auto GetHeadingLevel() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationHeadingLevel) GetHeadingLevel() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeer8>
     {
@@ -3015,7 +3015,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeer9
     {
-        auto IsDialog() const;
+        WINRT_IMPL_AUTO(bool) IsDialog() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeer9>
     {
@@ -3024,10 +3024,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerAnnotation
     {
-        [[nodiscard]] auto Type() const;
-        auto Type(Windows::UI::Xaml::Automation::AnnotationType const& value) const;
-        [[nodiscard]] auto Peer() const;
-        auto Peer(Windows::UI::Xaml::Automation::Peers::AutomationPeer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::AnnotationType) Type() const;
+        WINRT_IMPL_AUTO(void) Type(Windows::UI::Xaml::Automation::AnnotationType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) Peer() const;
+        WINRT_IMPL_AUTO(void) Peer(Windows::UI::Xaml::Automation::Peers::AutomationPeer const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotation>
     {
@@ -3036,8 +3036,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerAnnotationFactory
     {
-        auto CreateInstance(Windows::UI::Xaml::Automation::AnnotationType const& type) const;
-        auto CreateWithPeerParameter(Windows::UI::Xaml::Automation::AnnotationType const& type, Windows::UI::Xaml::Automation::Peers::AutomationPeer const& peer) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeerAnnotation) CreateInstance(Windows::UI::Xaml::Automation::AnnotationType const& type) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeerAnnotation) CreateWithPeerParameter(Windows::UI::Xaml::Automation::AnnotationType const& type, Windows::UI::Xaml::Automation::Peers::AutomationPeer const& peer) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotationFactory>
     {
@@ -3046,8 +3046,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerAnnotationStatics
     {
-        [[nodiscard]] auto TypeProperty() const;
-        [[nodiscard]] auto PeerProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TypeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PeerProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerAnnotationStatics>
     {
@@ -3056,7 +3056,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerFactory>
     {
@@ -3065,33 +3065,33 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerOverrides
     {
-        auto GetPatternCore(Windows::UI::Xaml::Automation::Peers::PatternInterface const& patternInterface) const;
-        auto GetAcceleratorKeyCore() const;
-        auto GetAccessKeyCore() const;
-        auto GetAutomationControlTypeCore() const;
-        auto GetAutomationIdCore() const;
-        auto GetBoundingRectangleCore() const;
-        auto GetChildrenCore() const;
-        auto GetClassNameCore() const;
-        auto GetClickablePointCore() const;
-        auto GetHelpTextCore() const;
-        auto GetItemStatusCore() const;
-        auto GetItemTypeCore() const;
-        auto GetLabeledByCore() const;
-        auto GetLocalizedControlTypeCore() const;
-        auto GetNameCore() const;
-        auto GetOrientationCore() const;
-        auto HasKeyboardFocusCore() const;
-        auto IsContentElementCore() const;
-        auto IsControlElementCore() const;
-        auto IsEnabledCore() const;
-        auto IsKeyboardFocusableCore() const;
-        auto IsOffscreenCore() const;
-        auto IsPasswordCore() const;
-        auto IsRequiredForFormCore() const;
-        auto SetFocusCore() const;
-        auto GetPeerFromPointCore(Windows::Foundation::Point const& point) const;
-        auto GetLiveSettingCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetPatternCore(Windows::UI::Xaml::Automation::Peers::PatternInterface const& patternInterface) const;
+        WINRT_IMPL_AUTO(hstring) GetAcceleratorKeyCore() const;
+        WINRT_IMPL_AUTO(hstring) GetAccessKeyCore() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationControlType) GetAutomationControlTypeCore() const;
+        WINRT_IMPL_AUTO(hstring) GetAutomationIdCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) GetBoundingRectangleCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::Automation::Peers::AutomationPeer>) GetChildrenCore() const;
+        WINRT_IMPL_AUTO(hstring) GetClassNameCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetClickablePointCore() const;
+        WINRT_IMPL_AUTO(hstring) GetHelpTextCore() const;
+        WINRT_IMPL_AUTO(hstring) GetItemStatusCore() const;
+        WINRT_IMPL_AUTO(hstring) GetItemTypeCore() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) GetLabeledByCore() const;
+        WINRT_IMPL_AUTO(hstring) GetLocalizedControlTypeCore() const;
+        WINRT_IMPL_AUTO(hstring) GetNameCore() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationOrientation) GetOrientationCore() const;
+        WINRT_IMPL_AUTO(bool) HasKeyboardFocusCore() const;
+        WINRT_IMPL_AUTO(bool) IsContentElementCore() const;
+        WINRT_IMPL_AUTO(bool) IsControlElementCore() const;
+        WINRT_IMPL_AUTO(bool) IsEnabledCore() const;
+        WINRT_IMPL_AUTO(bool) IsKeyboardFocusableCore() const;
+        WINRT_IMPL_AUTO(bool) IsOffscreenCore() const;
+        WINRT_IMPL_AUTO(bool) IsPasswordCore() const;
+        WINRT_IMPL_AUTO(bool) IsRequiredForFormCore() const;
+        WINRT_IMPL_AUTO(void) SetFocusCore() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) GetPeerFromPointCore(Windows::Foundation::Point const& point) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationLiveSetting) GetLiveSettingCore() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides>
     {
@@ -3100,8 +3100,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerOverrides2
     {
-        auto ShowContextMenuCore() const;
-        auto GetControlledPeersCore() const;
+        WINRT_IMPL_AUTO(void) ShowContextMenuCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Xaml::Automation::Peers::AutomationPeer>) GetControlledPeersCore() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides2>
     {
@@ -3110,13 +3110,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerOverrides3
     {
-        auto NavigateCore(Windows::UI::Xaml::Automation::Peers::AutomationNavigationDirection const& direction) const;
-        auto GetElementFromPointCore(Windows::Foundation::Point const& pointInWindowCoordinates) const;
-        auto GetFocusedElementCore() const;
-        auto GetAnnotationsCore() const;
-        auto GetPositionInSetCore() const;
-        auto GetSizeOfSetCore() const;
-        auto GetLevelCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) NavigateCore(Windows::UI::Xaml::Automation::Peers::AutomationNavigationDirection const& direction) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetElementFromPointCore(Windows::Foundation::Point const& pointInWindowCoordinates) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetFocusedElementCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::Automation::Peers::AutomationPeerAnnotation>) GetAnnotationsCore() const;
+        WINRT_IMPL_AUTO(int32_t) GetPositionInSetCore() const;
+        WINRT_IMPL_AUTO(int32_t) GetSizeOfSetCore() const;
+        WINRT_IMPL_AUTO(int32_t) GetLevelCore() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides3>
     {
@@ -3125,8 +3125,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerOverrides4
     {
-        auto GetLandmarkTypeCore() const;
-        auto GetLocalizedLandmarkTypeCore() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationLandmarkType) GetLandmarkTypeCore() const;
+        WINRT_IMPL_AUTO(hstring) GetLocalizedLandmarkTypeCore() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides4>
     {
@@ -3135,12 +3135,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerOverrides5
     {
-        auto IsPeripheralCore() const;
-        auto IsDataValidForFormCore() const;
-        auto GetFullDescriptionCore() const;
-        auto GetDescribedByCore() const;
-        auto GetFlowsToCore() const;
-        auto GetFlowsFromCore() const;
+        WINRT_IMPL_AUTO(bool) IsPeripheralCore() const;
+        WINRT_IMPL_AUTO(bool) IsDataValidForFormCore() const;
+        WINRT_IMPL_AUTO(hstring) GetFullDescriptionCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::UI::Xaml::Automation::Peers::AutomationPeer>) GetDescribedByCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::UI::Xaml::Automation::Peers::AutomationPeer>) GetFlowsToCore() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::UI::Xaml::Automation::Peers::AutomationPeer>) GetFlowsFromCore() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides5>
     {
@@ -3149,7 +3149,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerOverrides6
     {
-        auto GetCultureCore() const;
+        WINRT_IMPL_AUTO(int32_t) GetCultureCore() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides6>
     {
@@ -3158,7 +3158,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerOverrides8
     {
-        auto GetHeadingLevelCore() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationHeadingLevel) GetHeadingLevelCore() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides8>
     {
@@ -3167,7 +3167,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerOverrides9
     {
-        auto IsDialogCore() const;
+        WINRT_IMPL_AUTO(bool) IsDialogCore() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerOverrides9>
     {
@@ -3176,8 +3176,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerProtected
     {
-        auto PeerFromProvider(Windows::UI::Xaml::Automation::Provider::IRawElementProviderSimple const& provider) const;
-        auto ProviderFromPeer(Windows::UI::Xaml::Automation::Peers::AutomationPeer const& peer) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) PeerFromProvider(Windows::UI::Xaml::Automation::Provider::IRawElementProviderSimple const& provider) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Provider::IRawElementProviderSimple) ProviderFromPeer(Windows::UI::Xaml::Automation::Peers::AutomationPeer const& peer) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerProtected>
     {
@@ -3186,7 +3186,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerStatics
     {
-        auto ListenerExists(Windows::UI::Xaml::Automation::Peers::AutomationEvents const& eventId) const;
+        WINRT_IMPL_AUTO(bool) ListenerExists(Windows::UI::Xaml::Automation::Peers::AutomationEvents const& eventId) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerStatics>
     {
@@ -3195,7 +3195,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IAutomationPeerStatics3
     {
-        auto GenerateRawElementProviderRuntimeId() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::RawElementProviderRuntimeId) GenerateRawElementProviderRuntimeId() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IAutomationPeerStatics3>
     {
@@ -3212,7 +3212,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IButtonAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Button const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ButtonAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Button const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IButtonAutomationPeerFactory>
     {
@@ -3229,7 +3229,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IButtonBaseAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ButtonBase const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ButtonBaseAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ButtonBase const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IButtonBaseAutomationPeerFactory>
     {
@@ -3246,7 +3246,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ICalendarDatePickerAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::CalendarDatePicker const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::CalendarDatePickerAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::CalendarDatePicker const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ICalendarDatePickerAutomationPeerFactory>
     {
@@ -3263,7 +3263,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ICaptureElementAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::CaptureElement const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::CaptureElementAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::CaptureElement const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ICaptureElementAutomationPeerFactory>
     {
@@ -3280,7 +3280,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ICheckBoxAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::CheckBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::CheckBoxAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::CheckBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ICheckBoxAutomationPeerFactory>
     {
@@ -3297,7 +3297,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IColorPickerSliderAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ColorPickerSlider const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ColorPickerSliderAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ColorPickerSlider const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IColorPickerSliderAutomationPeerFactory>
     {
@@ -3314,7 +3314,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IColorSpectrumAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ColorSpectrum const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ColorSpectrumAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ColorSpectrum const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IColorSpectrumAutomationPeerFactory>
     {
@@ -3331,7 +3331,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IComboBoxAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ComboBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ComboBoxAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ComboBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IComboBoxAutomationPeerFactory>
     {
@@ -3348,7 +3348,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IComboBoxItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ComboBoxItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ComboBoxItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ComboBoxItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IComboBoxItemAutomationPeerFactory>
     {
@@ -3365,7 +3365,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IComboBoxItemDataAutomationPeerFactory
     {
-        auto CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::ComboBoxAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ComboBoxItemDataAutomationPeer) CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::ComboBoxAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IComboBoxItemDataAutomationPeerFactory>
     {
@@ -3382,7 +3382,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IDatePickerAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::DatePicker const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::DatePickerAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::DatePicker const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IDatePickerAutomationPeerFactory>
     {
@@ -3407,7 +3407,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IFlipViewAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::FlipView const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::FlipViewAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::FlipView const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IFlipViewAutomationPeerFactory>
     {
@@ -3424,7 +3424,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IFlipViewItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::FlipViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::FlipViewItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::FlipViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IFlipViewItemAutomationPeerFactory>
     {
@@ -3441,7 +3441,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IFlipViewItemDataAutomationPeerFactory
     {
-        auto CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::FlipViewAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::FlipViewItemDataAutomationPeer) CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::FlipViewAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IFlipViewItemDataAutomationPeerFactory>
     {
@@ -3458,7 +3458,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IFlyoutPresenterAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::FlyoutPresenter const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::FlyoutPresenterAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::FlyoutPresenter const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IFlyoutPresenterAutomationPeerFactory>
     {
@@ -3467,7 +3467,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IFrameworkElementAutomationPeer
     {
-        [[nodiscard]] auto Owner() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Owner() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeer>
     {
@@ -3476,7 +3476,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IFrameworkElementAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::FrameworkElement const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::FrameworkElementAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::FrameworkElement const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeerFactory>
     {
@@ -3485,8 +3485,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IFrameworkElementAutomationPeerStatics
     {
-        auto FromElement(Windows::UI::Xaml::UIElement const& element) const;
-        auto CreatePeerForElement(Windows::UI::Xaml::UIElement const& element) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) FromElement(Windows::UI::Xaml::UIElement const& element) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) CreatePeerForElement(Windows::UI::Xaml::UIElement const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IFrameworkElementAutomationPeerStatics>
     {
@@ -3503,7 +3503,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IGridViewAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::GridView const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::GridViewAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::GridView const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IGridViewAutomationPeerFactory>
     {
@@ -3520,7 +3520,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IGridViewHeaderItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::GridViewHeaderItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::GridViewHeaderItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::GridViewHeaderItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IGridViewHeaderItemAutomationPeerFactory>
     {
@@ -3537,7 +3537,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IGridViewItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::GridViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::GridViewItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::GridViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IGridViewItemAutomationPeerFactory>
     {
@@ -3554,7 +3554,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IGridViewItemDataAutomationPeerFactory
     {
-        auto CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::GridViewAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::GridViewItemDataAutomationPeer) CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::GridViewAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IGridViewItemDataAutomationPeerFactory>
     {
@@ -3571,7 +3571,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IGroupItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::GroupItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::GroupItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::GroupItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IGroupItemAutomationPeerFactory>
     {
@@ -3588,7 +3588,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IHubAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Hub const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::HubAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Hub const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IHubAutomationPeerFactory>
     {
@@ -3605,7 +3605,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IHubSectionAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::HubSection const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::HubSectionAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::HubSection const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IHubSectionAutomationPeerFactory>
     {
@@ -3622,7 +3622,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IHyperlinkButtonAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::HyperlinkButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::HyperlinkButtonAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::HyperlinkButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IHyperlinkButtonAutomationPeerFactory>
     {
@@ -3639,7 +3639,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IImageAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Image const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ImageAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Image const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IImageAutomationPeerFactory>
     {
@@ -3656,8 +3656,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IItemAutomationPeer
     {
-        [[nodiscard]] auto Item() const;
-        [[nodiscard]] auto ItemsControlAutomationPeer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Item() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ItemsControlAutomationPeer) ItemsControlAutomationPeer() const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IItemAutomationPeer>
     {
@@ -3666,7 +3666,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IItemAutomationPeerFactory
     {
-        auto CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::ItemsControlAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ItemAutomationPeer) CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::ItemsControlAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IItemAutomationPeerFactory>
     {
@@ -3683,7 +3683,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IItemsControlAutomationPeer2
     {
-        auto CreateItemAutomationPeer(Windows::Foundation::IInspectable const& item) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ItemAutomationPeer) CreateItemAutomationPeer(Windows::Foundation::IInspectable const& item) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeer2>
     {
@@ -3692,7 +3692,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IItemsControlAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ItemsControl const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ItemsControlAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ItemsControl const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeerFactory>
     {
@@ -3701,7 +3701,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IItemsControlAutomationPeerOverrides2
     {
-        auto OnCreateItemAutomationPeer(Windows::Foundation::IInspectable const& item) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ItemAutomationPeer) OnCreateItemAutomationPeer(Windows::Foundation::IInspectable const& item) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IItemsControlAutomationPeerOverrides2>
     {
@@ -3718,7 +3718,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListBoxAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListBoxAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListBoxAutomationPeerFactory>
     {
@@ -3735,7 +3735,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListBoxItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListBoxItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListBoxItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListBoxItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListBoxItemAutomationPeerFactory>
     {
@@ -3752,7 +3752,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListBoxItemDataAutomationPeerFactory
     {
-        auto CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::ListBoxAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListBoxItemDataAutomationPeer) CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::ListBoxAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListBoxItemDataAutomationPeerFactory>
     {
@@ -3777,7 +3777,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListViewAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListView const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListViewAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListView const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListViewAutomationPeerFactory>
     {
@@ -3794,7 +3794,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListViewBaseAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListViewBase const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListViewBaseAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListViewBase const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListViewBaseAutomationPeerFactory>
     {
@@ -3811,7 +3811,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListViewBaseHeaderItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListViewBaseHeaderItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListViewBaseHeaderItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListViewBaseHeaderItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListViewBaseHeaderItemAutomationPeerFactory>
     {
@@ -3828,7 +3828,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListViewHeaderItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListViewHeaderItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListViewHeaderItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListViewHeaderItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListViewHeaderItemAutomationPeerFactory>
     {
@@ -3845,7 +3845,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListViewItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListViewItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ListViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListViewItemAutomationPeerFactory>
     {
@@ -3862,7 +3862,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IListViewItemDataAutomationPeerFactory
     {
-        auto CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::ListViewBaseAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ListViewItemDataAutomationPeer) CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::ListViewBaseAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IListViewItemDataAutomationPeerFactory>
     {
@@ -3911,7 +3911,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IMediaElementAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MediaElement const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::MediaElementAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MediaElement const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IMediaElementAutomationPeerFactory>
     {
@@ -3928,7 +3928,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IMediaPlayerElementAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MediaPlayerElement const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::MediaPlayerElementAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MediaPlayerElement const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IMediaPlayerElementAutomationPeerFactory>
     {
@@ -3945,7 +3945,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IMediaTransportControlsAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MediaTransportControls const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::MediaTransportControlsAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MediaTransportControls const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IMediaTransportControlsAutomationPeerFactory>
     {
@@ -3962,7 +3962,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IMenuBarAutomationPeerFactory
     {
-        auto CreateInstance(Windows::UI::Xaml::Controls::MenuBar const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::MenuBarAutomationPeer) CreateInstance(Windows::UI::Xaml::Controls::MenuBar const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IMenuBarAutomationPeerFactory>
     {
@@ -3979,7 +3979,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IMenuBarItemAutomationPeerFactory
     {
-        auto CreateInstance(Windows::UI::Xaml::Controls::MenuBarItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::MenuBarItemAutomationPeer) CreateInstance(Windows::UI::Xaml::Controls::MenuBarItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IMenuBarItemAutomationPeerFactory>
     {
@@ -3996,7 +3996,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IMenuFlyoutItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MenuFlyoutItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::MenuFlyoutItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MenuFlyoutItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutItemAutomationPeerFactory>
     {
@@ -4013,7 +4013,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IMenuFlyoutPresenterAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MenuFlyoutPresenter const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::MenuFlyoutPresenterAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::MenuFlyoutPresenter const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IMenuFlyoutPresenterAutomationPeerFactory>
     {
@@ -4030,7 +4030,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_INavigationViewItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::NavigationViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::NavigationViewItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::NavigationViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::INavigationViewItemAutomationPeerFactory>
     {
@@ -4047,7 +4047,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IPasswordBoxAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::PasswordBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::PasswordBoxAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::PasswordBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IPasswordBoxAutomationPeerFactory>
     {
@@ -4064,7 +4064,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IPersonPictureAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::PersonPicture const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::PersonPictureAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::PersonPicture const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IPersonPictureAutomationPeerFactory>
     {
@@ -4089,7 +4089,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IPivotAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Pivot const& owner) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::PivotAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Pivot const& owner) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IPivotAutomationPeerFactory>
     {
@@ -4106,7 +4106,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IPivotItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::PivotItem const& owner) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::PivotItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::PivotItem const& owner) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IPivotItemAutomationPeerFactory>
     {
@@ -4123,7 +4123,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IPivotItemDataAutomationPeerFactory
     {
-        auto CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::PivotAutomationPeer const& parent) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::PivotItemDataAutomationPeer) CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::PivotAutomationPeer const& parent) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IPivotItemDataAutomationPeerFactory>
     {
@@ -4140,7 +4140,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IProgressBarAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ProgressBar const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ProgressBarAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ProgressBar const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IProgressBarAutomationPeerFactory>
     {
@@ -4157,7 +4157,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IProgressRingAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ProgressRing const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ProgressRingAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ProgressRing const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IProgressRingAutomationPeerFactory>
     {
@@ -4174,7 +4174,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IRadioButtonAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RadioButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::RadioButtonAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RadioButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IRadioButtonAutomationPeerFactory>
     {
@@ -4191,7 +4191,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IRangeBaseAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::RangeBase const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::RangeBaseAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::RangeBase const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IRangeBaseAutomationPeerFactory>
     {
@@ -4208,7 +4208,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IRatingControlAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RatingControl const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::RatingControlAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RatingControl const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IRatingControlAutomationPeerFactory>
     {
@@ -4225,7 +4225,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IRepeatButtonAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::RepeatButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::RepeatButtonAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::RepeatButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IRepeatButtonAutomationPeerFactory>
     {
@@ -4242,7 +4242,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IRichEditBoxAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RichEditBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::RichEditBoxAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RichEditBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IRichEditBoxAutomationPeerFactory>
     {
@@ -4259,7 +4259,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IRichTextBlockAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RichTextBlock const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::RichTextBlockAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RichTextBlock const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IRichTextBlockAutomationPeerFactory>
     {
@@ -4276,7 +4276,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IRichTextBlockOverflowAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RichTextBlockOverflow const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::RichTextBlockOverflowAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::RichTextBlockOverflow const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IRichTextBlockOverflowAutomationPeerFactory>
     {
@@ -4293,7 +4293,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IScrollBarAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ScrollBar const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ScrollBarAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ScrollBar const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IScrollBarAutomationPeerFactory>
     {
@@ -4310,7 +4310,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IScrollViewerAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ScrollViewer const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ScrollViewerAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ScrollViewer const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IScrollViewerAutomationPeerFactory>
     {
@@ -4327,7 +4327,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ISearchBoxAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::SearchBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::SearchBoxAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::SearchBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ISearchBoxAutomationPeerFactory>
     {
@@ -4344,7 +4344,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ISelectorAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::Selector const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::SelectorAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::Selector const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ISelectorAutomationPeerFactory>
     {
@@ -4361,7 +4361,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ISelectorItemAutomationPeerFactory
     {
-        auto CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::SelectorAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::SelectorItemAutomationPeer) CreateInstanceWithParentAndItem(Windows::Foundation::IInspectable const& item, Windows::UI::Xaml::Automation::Peers::SelectorAutomationPeer const& parent, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ISelectorItemAutomationPeerFactory>
     {
@@ -4378,7 +4378,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ISemanticZoomAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::SemanticZoom const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::SemanticZoomAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::SemanticZoom const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ISemanticZoomAutomationPeerFactory>
     {
@@ -4395,7 +4395,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ISettingsFlyoutAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::SettingsFlyout const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::SettingsFlyoutAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::SettingsFlyout const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ISettingsFlyoutAutomationPeerFactory>
     {
@@ -4412,7 +4412,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ISliderAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Slider const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::SliderAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Slider const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ISliderAutomationPeerFactory>
     {
@@ -4429,7 +4429,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ITextBlockAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TextBlock const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::TextBlockAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TextBlock const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ITextBlockAutomationPeerFactory>
     {
@@ -4446,7 +4446,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ITextBoxAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TextBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::TextBoxAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TextBox const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ITextBoxAutomationPeerFactory>
     {
@@ -4463,7 +4463,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IThumbAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::Thumb const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ThumbAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::Thumb const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IThumbAutomationPeerFactory>
     {
@@ -4480,7 +4480,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ITimePickerAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TimePicker const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::TimePickerAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TimePicker const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ITimePickerAutomationPeerFactory>
     {
@@ -4505,7 +4505,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IToggleButtonAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ToggleButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ToggleButtonAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::Primitives::ToggleButton const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IToggleButtonAutomationPeerFactory>
     {
@@ -4522,7 +4522,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IToggleMenuFlyoutItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ToggleMenuFlyoutItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ToggleMenuFlyoutItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ToggleMenuFlyoutItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IToggleMenuFlyoutItemAutomationPeerFactory>
     {
@@ -4539,7 +4539,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_IToggleSwitchAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ToggleSwitch const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::ToggleSwitchAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::ToggleSwitch const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::IToggleSwitchAutomationPeerFactory>
     {
@@ -4556,7 +4556,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ITreeViewItemAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TreeViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::TreeViewItemAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TreeViewItem const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ITreeViewItemAutomationPeerFactory>
     {
@@ -4573,7 +4573,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Automation_Peers_ITreeViewListAutomationPeerFactory
     {
-        auto CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TreeViewList const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::TreeViewListAutomationPeer) CreateInstanceWithOwner(Windows::UI::Xaml::Controls::TreeViewList const& owner, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Automation::Peers::ITreeViewListAutomationPeerFactory>
     {

@@ -1,14 +1,19 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Media_MediaProperties_0_H
 #define WINRT_Windows_Media_MediaProperties_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     template <typename K, typename V> struct IMap;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::Core
 {
@@ -191,65 +196,63 @@ namespace winrt::impl
     template <> struct category<Windows::Media::MediaProperties::SphericalVideoFrameFormat>{ using type = enum_category; };
     template <> struct category<Windows::Media::MediaProperties::StereoscopicVideoPackingMode>{ using type = enum_category; };
     template <> struct category<Windows::Media::MediaProperties::VideoEncodingQuality>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::AudioEncodingProperties>{ L"Windows.Media.MediaProperties.AudioEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::ContainerEncodingProperties>{ L"Windows.Media.MediaProperties.ContainerEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::H264ProfileIds>{ L"Windows.Media.MediaProperties.H264ProfileIds" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::ImageEncodingProperties>{ L"Windows.Media.MediaProperties.ImageEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaEncodingProfile>{ L"Windows.Media.MediaProperties.MediaEncodingProfile" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaEncodingSubtypes>{ L"Windows.Media.MediaProperties.MediaEncodingSubtypes" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaPropertySet>{ L"Windows.Media.MediaProperties.MediaPropertySet" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaRatio>{ L"Windows.Media.MediaProperties.MediaRatio" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::Mpeg2ProfileIds>{ L"Windows.Media.MediaProperties.Mpeg2ProfileIds" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::TimedMetadataEncodingProperties>{ L"Windows.Media.MediaProperties.TimedMetadataEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::VideoEncodingProperties>{ L"Windows.Media.MediaProperties.VideoEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::AudioEncodingQuality>{ L"Windows.Media.MediaProperties.AudioEncodingQuality" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaMirroringOptions>{ L"Windows.Media.MediaProperties.MediaMirroringOptions" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaPixelFormat>{ L"Windows.Media.MediaProperties.MediaPixelFormat" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaRotation>{ L"Windows.Media.MediaProperties.MediaRotation" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaThumbnailFormat>{ L"Windows.Media.MediaProperties.MediaThumbnailFormat" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::SphericalVideoFrameFormat>{ L"Windows.Media.MediaProperties.SphericalVideoFrameFormat" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::StereoscopicVideoPackingMode>{ L"Windows.Media.MediaProperties.StereoscopicVideoPackingMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::VideoEncodingQuality>{ L"Windows.Media.MediaProperties.VideoEncodingQuality" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingProperties>{ L"Windows.Media.MediaProperties.IAudioEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingProperties2>{ L"Windows.Media.MediaProperties.IAudioEncodingProperties2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingProperties3>{ L"Windows.Media.MediaProperties.IAudioEncodingProperties3" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingPropertiesStatics>{ L"Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingPropertiesStatics2>{ L"Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingPropertiesWithFormatUserData>{ L"Windows.Media.MediaProperties.IAudioEncodingPropertiesWithFormatUserData" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IContainerEncodingProperties>{ L"Windows.Media.MediaProperties.IContainerEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IContainerEncodingProperties2>{ L"Windows.Media.MediaProperties.IContainerEncodingProperties2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IH264ProfileIdsStatics>{ L"Windows.Media.MediaProperties.IH264ProfileIdsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingProperties>{ L"Windows.Media.MediaProperties.IImageEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingProperties2>{ L"Windows.Media.MediaProperties.IImageEncodingProperties2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics>{ L"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics2>{ L"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics3>{ L"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfile>{ L"Windows.Media.MediaProperties.IMediaEncodingProfile" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfile2>{ L"Windows.Media.MediaProperties.IMediaEncodingProfile2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfile3>{ L"Windows.Media.MediaProperties.IMediaEncodingProfile3" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfileStatics>{ L"Windows.Media.MediaProperties.IMediaEncodingProfileStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfileStatics2>{ L"Windows.Media.MediaProperties.IMediaEncodingProfileStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfileStatics3>{ L"Windows.Media.MediaProperties.IMediaEncodingProfileStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProperties>{ L"Windows.Media.MediaProperties.IMediaEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics>{ L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics2>{ L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics3>{ L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics4>{ L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics5>{ L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics6>{ L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaRatio>{ L"Windows.Media.MediaProperties.IMediaRatio" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMpeg2ProfileIdsStatics>{ L"Windows.Media.MediaProperties.IMpeg2ProfileIdsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::ITimedMetadataEncodingProperties>{ L"Windows.Media.MediaProperties.ITimedMetadataEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::ITimedMetadataEncodingPropertiesStatics>{ L"Windows.Media.MediaProperties.ITimedMetadataEncodingPropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties>{ L"Windows.Media.MediaProperties.IVideoEncodingProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties2>{ L"Windows.Media.MediaProperties.IVideoEncodingProperties2" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties3>{ L"Windows.Media.MediaProperties.IVideoEncodingProperties3" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties4>{ L"Windows.Media.MediaProperties.IVideoEncodingProperties4" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties5>{ L"Windows.Media.MediaProperties.IVideoEncodingProperties5" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingPropertiesStatics>{ L"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingPropertiesStatics2>{ L"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::AudioEncodingProperties> = L"Windows.Media.MediaProperties.AudioEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::ContainerEncodingProperties> = L"Windows.Media.MediaProperties.ContainerEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::H264ProfileIds> = L"Windows.Media.MediaProperties.H264ProfileIds";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::ImageEncodingProperties> = L"Windows.Media.MediaProperties.ImageEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaEncodingProfile> = L"Windows.Media.MediaProperties.MediaEncodingProfile";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaEncodingSubtypes> = L"Windows.Media.MediaProperties.MediaEncodingSubtypes";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaPropertySet> = L"Windows.Media.MediaProperties.MediaPropertySet";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaRatio> = L"Windows.Media.MediaProperties.MediaRatio";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::Mpeg2ProfileIds> = L"Windows.Media.MediaProperties.Mpeg2ProfileIds";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::TimedMetadataEncodingProperties> = L"Windows.Media.MediaProperties.TimedMetadataEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::VideoEncodingProperties> = L"Windows.Media.MediaProperties.VideoEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::AudioEncodingQuality> = L"Windows.Media.MediaProperties.AudioEncodingQuality";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaMirroringOptions> = L"Windows.Media.MediaProperties.MediaMirroringOptions";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaPixelFormat> = L"Windows.Media.MediaProperties.MediaPixelFormat";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaRotation> = L"Windows.Media.MediaProperties.MediaRotation";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::MediaThumbnailFormat> = L"Windows.Media.MediaProperties.MediaThumbnailFormat";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::SphericalVideoFrameFormat> = L"Windows.Media.MediaProperties.SphericalVideoFrameFormat";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::StereoscopicVideoPackingMode> = L"Windows.Media.MediaProperties.StereoscopicVideoPackingMode";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::VideoEncodingQuality> = L"Windows.Media.MediaProperties.VideoEncodingQuality";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingProperties> = L"Windows.Media.MediaProperties.IAudioEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingProperties2> = L"Windows.Media.MediaProperties.IAudioEncodingProperties2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingProperties3> = L"Windows.Media.MediaProperties.IAudioEncodingProperties3";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingPropertiesStatics> = L"Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingPropertiesStatics2> = L"Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IAudioEncodingPropertiesWithFormatUserData> = L"Windows.Media.MediaProperties.IAudioEncodingPropertiesWithFormatUserData";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IContainerEncodingProperties> = L"Windows.Media.MediaProperties.IContainerEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IContainerEncodingProperties2> = L"Windows.Media.MediaProperties.IContainerEncodingProperties2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IH264ProfileIdsStatics> = L"Windows.Media.MediaProperties.IH264ProfileIdsStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingProperties> = L"Windows.Media.MediaProperties.IImageEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingProperties2> = L"Windows.Media.MediaProperties.IImageEncodingProperties2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics> = L"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics2> = L"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics3> = L"Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfile> = L"Windows.Media.MediaProperties.IMediaEncodingProfile";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfile2> = L"Windows.Media.MediaProperties.IMediaEncodingProfile2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfile3> = L"Windows.Media.MediaProperties.IMediaEncodingProfile3";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfileStatics> = L"Windows.Media.MediaProperties.IMediaEncodingProfileStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfileStatics2> = L"Windows.Media.MediaProperties.IMediaEncodingProfileStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProfileStatics3> = L"Windows.Media.MediaProperties.IMediaEncodingProfileStatics3";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingProperties> = L"Windows.Media.MediaProperties.IMediaEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics> = L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics2> = L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics3> = L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics4> = L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics5> = L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics6> = L"Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMediaRatio> = L"Windows.Media.MediaProperties.IMediaRatio";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IMpeg2ProfileIdsStatics> = L"Windows.Media.MediaProperties.IMpeg2ProfileIdsStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::ITimedMetadataEncodingProperties> = L"Windows.Media.MediaProperties.ITimedMetadataEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::ITimedMetadataEncodingPropertiesStatics> = L"Windows.Media.MediaProperties.ITimedMetadataEncodingPropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties> = L"Windows.Media.MediaProperties.IVideoEncodingProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties2> = L"Windows.Media.MediaProperties.IVideoEncodingProperties2";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties3> = L"Windows.Media.MediaProperties.IVideoEncodingProperties3";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties4> = L"Windows.Media.MediaProperties.IVideoEncodingProperties4";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingProperties5> = L"Windows.Media.MediaProperties.IVideoEncodingProperties5";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingPropertiesStatics> = L"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProperties::IVideoEncodingPropertiesStatics2> = L"Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2";
     template <> inline constexpr guid guid_v<Windows::Media::MediaProperties::IAudioEncodingProperties>{ 0x62BC7A16,0x005C,0x4B3B,{ 0x8A,0x0B,0x0A,0x09,0x0E,0x96,0x87,0xF3 } };
     template <> inline constexpr guid guid_v<Windows::Media::MediaProperties::IAudioEncodingProperties2>{ 0xC45D54DA,0x80BD,0x4C23,{ 0x80,0xD5,0x72,0xD4,0xA1,0x81,0xE8,0x94 } };
     template <> inline constexpr guid guid_v<Windows::Media::MediaProperties::IAudioEncodingProperties3>{ 0x87600341,0x748C,0x4F8D,{ 0xB0,0xFD,0x10,0xCA,0xF0,0x8F,0xF0,0x87 } };
@@ -683,14 +686,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IAudioEncodingProperties
     {
-        auto Bitrate(uint32_t value) const;
-        [[nodiscard]] auto Bitrate() const;
-        auto ChannelCount(uint32_t value) const;
-        [[nodiscard]] auto ChannelCount() const;
-        auto SampleRate(uint32_t value) const;
-        [[nodiscard]] auto SampleRate() const;
-        auto BitsPerSample(uint32_t value) const;
-        [[nodiscard]] auto BitsPerSample() const;
+        WINRT_IMPL_AUTO(void) Bitrate(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Bitrate() const;
+        WINRT_IMPL_AUTO(void) ChannelCount(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ChannelCount() const;
+        WINRT_IMPL_AUTO(void) SampleRate(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SampleRate() const;
+        WINRT_IMPL_AUTO(void) BitsPerSample(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BitsPerSample() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IAudioEncodingProperties>
     {
@@ -699,7 +702,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IAudioEncodingProperties2
     {
-        [[nodiscard]] auto IsSpatial() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSpatial() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IAudioEncodingProperties2>
     {
@@ -708,7 +711,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IAudioEncodingProperties3
     {
-        auto Copy() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) Copy() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IAudioEncodingProperties3>
     {
@@ -717,11 +720,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IAudioEncodingPropertiesStatics
     {
-        auto CreateAac(uint32_t sampleRate, uint32_t channelCount, uint32_t bitrate) const;
-        auto CreateAacAdts(uint32_t sampleRate, uint32_t channelCount, uint32_t bitrate) const;
-        auto CreateMp3(uint32_t sampleRate, uint32_t channelCount, uint32_t bitrate) const;
-        auto CreatePcm(uint32_t sampleRate, uint32_t channelCount, uint32_t bitsPerSample) const;
-        auto CreateWma(uint32_t sampleRate, uint32_t channelCount, uint32_t bitrate) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) CreateAac(uint32_t sampleRate, uint32_t channelCount, uint32_t bitrate) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) CreateAacAdts(uint32_t sampleRate, uint32_t channelCount, uint32_t bitrate) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) CreateMp3(uint32_t sampleRate, uint32_t channelCount, uint32_t bitrate) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) CreatePcm(uint32_t sampleRate, uint32_t channelCount, uint32_t bitsPerSample) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) CreateWma(uint32_t sampleRate, uint32_t channelCount, uint32_t bitrate) const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IAudioEncodingPropertiesStatics>
     {
@@ -730,8 +733,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IAudioEncodingPropertiesStatics2
     {
-        auto CreateAlac(uint32_t sampleRate, uint32_t channelCount, uint32_t bitsPerSample) const;
-        auto CreateFlac(uint32_t sampleRate, uint32_t channelCount, uint32_t bitsPerSample) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) CreateAlac(uint32_t sampleRate, uint32_t channelCount, uint32_t bitsPerSample) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) CreateFlac(uint32_t sampleRate, uint32_t channelCount, uint32_t bitsPerSample) const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IAudioEncodingPropertiesStatics2>
     {
@@ -740,8 +743,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IAudioEncodingPropertiesWithFormatUserData
     {
-        auto SetFormatUserData(array_view<uint8_t const> value) const;
-        auto GetFormatUserData(com_array<uint8_t>& value) const;
+        WINRT_IMPL_AUTO(void) SetFormatUserData(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) GetFormatUserData(com_array<uint8_t>& value) const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IAudioEncodingPropertiesWithFormatUserData>
     {
@@ -758,7 +761,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IContainerEncodingProperties2
     {
-        auto Copy() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ContainerEncodingProperties) Copy() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IContainerEncodingProperties2>
     {
@@ -767,16 +770,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IH264ProfileIdsStatics
     {
-        [[nodiscard]] auto ConstrainedBaseline() const;
-        [[nodiscard]] auto Baseline() const;
-        [[nodiscard]] auto Extended() const;
-        [[nodiscard]] auto Main() const;
-        [[nodiscard]] auto High() const;
-        [[nodiscard]] auto High10() const;
-        [[nodiscard]] auto High422() const;
-        [[nodiscard]] auto High444() const;
-        [[nodiscard]] auto StereoHigh() const;
-        [[nodiscard]] auto MultiviewHigh() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ConstrainedBaseline() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Baseline() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Extended() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Main() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) High() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) High10() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) High422() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) High444() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) StereoHigh() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MultiviewHigh() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IH264ProfileIdsStatics>
     {
@@ -785,10 +788,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IImageEncodingProperties
     {
-        auto Width(uint32_t value) const;
-        [[nodiscard]] auto Width() const;
-        auto Height(uint32_t value) const;
-        [[nodiscard]] auto Height() const;
+        WINRT_IMPL_AUTO(void) Width(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Width() const;
+        WINRT_IMPL_AUTO(void) Height(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Height() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IImageEncodingProperties>
     {
@@ -797,7 +800,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IImageEncodingProperties2
     {
-        auto Copy() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ImageEncodingProperties) Copy() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IImageEncodingProperties2>
     {
@@ -806,9 +809,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IImageEncodingPropertiesStatics
     {
-        auto CreateJpeg() const;
-        auto CreatePng() const;
-        auto CreateJpegXR() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ImageEncodingProperties) CreateJpeg() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ImageEncodingProperties) CreatePng() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ImageEncodingProperties) CreateJpegXR() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics>
     {
@@ -817,8 +820,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IImageEncodingPropertiesStatics2
     {
-        auto CreateUncompressed(Windows::Media::MediaProperties::MediaPixelFormat const& format) const;
-        auto CreateBmp() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ImageEncodingProperties) CreateUncompressed(Windows::Media::MediaProperties::MediaPixelFormat const& format) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ImageEncodingProperties) CreateBmp() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics2>
     {
@@ -827,7 +830,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IImageEncodingPropertiesStatics3
     {
-        auto CreateHeif() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ImageEncodingProperties) CreateHeif() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IImageEncodingPropertiesStatics3>
     {
@@ -836,12 +839,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingProfile
     {
-        auto Audio(Windows::Media::MediaProperties::AudioEncodingProperties const& value) const;
-        [[nodiscard]] auto Audio() const;
-        auto Video(Windows::Media::MediaProperties::VideoEncodingProperties const& value) const;
-        [[nodiscard]] auto Video() const;
-        auto Container(Windows::Media::MediaProperties::ContainerEncodingProperties const& value) const;
-        [[nodiscard]] auto Container() const;
+        WINRT_IMPL_AUTO(void) Audio(Windows::Media::MediaProperties::AudioEncodingProperties const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) Audio() const;
+        WINRT_IMPL_AUTO(void) Video(Windows::Media::MediaProperties::VideoEncodingProperties const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) Video() const;
+        WINRT_IMPL_AUTO(void) Container(Windows::Media::MediaProperties::ContainerEncodingProperties const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::ContainerEncodingProperties) Container() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingProfile>
     {
@@ -850,10 +853,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingProfile2
     {
-        auto SetAudioTracks(param::iterable<Windows::Media::Core::AudioStreamDescriptor> const& value) const;
-        auto GetAudioTracks() const;
-        auto SetVideoTracks(param::iterable<Windows::Media::Core::VideoStreamDescriptor> const& value) const;
-        auto GetVideoTracks() const;
+        WINRT_IMPL_AUTO(void) SetAudioTracks(param::iterable<Windows::Media::Core::AudioStreamDescriptor> const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Core::AudioStreamDescriptor>) GetAudioTracks() const;
+        WINRT_IMPL_AUTO(void) SetVideoTracks(param::iterable<Windows::Media::Core::VideoStreamDescriptor> const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Core::VideoStreamDescriptor>) GetVideoTracks() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingProfile2>
     {
@@ -862,8 +865,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingProfile3
     {
-        auto SetTimedMetadataTracks(param::iterable<Windows::Media::Core::TimedMetadataStreamDescriptor> const& value) const;
-        auto GetTimedMetadataTracks() const;
+        WINRT_IMPL_AUTO(void) SetTimedMetadataTracks(param::iterable<Windows::Media::Core::TimedMetadataStreamDescriptor> const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Core::TimedMetadataStreamDescriptor>) GetTimedMetadataTracks() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingProfile3>
     {
@@ -872,13 +875,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingProfileStatics
     {
-        auto CreateM4a(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
-        auto CreateMp3(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
-        auto CreateWma(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
-        auto CreateMp4(Windows::Media::MediaProperties::VideoEncodingQuality const& quality) const;
-        auto CreateWmv(Windows::Media::MediaProperties::VideoEncodingQuality const& quality) const;
-        auto CreateFromFileAsync(Windows::Storage::IStorageFile const& file) const;
-        auto CreateFromStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateM4a(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateMp3(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateWma(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateMp4(Windows::Media::MediaProperties::VideoEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateWmv(Windows::Media::MediaProperties::VideoEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::MediaProperties::MediaEncodingProfile>) CreateFromFileAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::MediaProperties::MediaEncodingProfile>) CreateFromStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingProfileStatics>
     {
@@ -887,8 +890,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingProfileStatics2
     {
-        auto CreateWav(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
-        auto CreateAvi(Windows::Media::MediaProperties::VideoEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateWav(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateAvi(Windows::Media::MediaProperties::VideoEncodingQuality const& quality) const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingProfileStatics2>
     {
@@ -897,9 +900,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingProfileStatics3
     {
-        auto CreateAlac(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
-        auto CreateFlac(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
-        auto CreateHevc(Windows::Media::MediaProperties::VideoEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateAlac(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateFlac(Windows::Media::MediaProperties::AudioEncodingQuality const& quality) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) CreateHevc(Windows::Media::MediaProperties::VideoEncodingQuality const& quality) const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingProfileStatics3>
     {
@@ -908,10 +911,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingProperties
     {
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto Type() const;
-        auto Subtype(param::hstring const& value) const;
-        [[nodiscard]] auto Subtype() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaPropertySet) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Type() const;
+        WINRT_IMPL_AUTO(void) Subtype(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subtype() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingProperties>
     {
@@ -920,46 +923,46 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingSubtypesStatics
     {
-        [[nodiscard]] auto Aac() const;
-        [[nodiscard]] auto AacAdts() const;
-        [[nodiscard]] auto Ac3() const;
-        [[nodiscard]] auto AmrNb() const;
-        [[nodiscard]] auto AmrWb() const;
-        [[nodiscard]] auto Argb32() const;
-        [[nodiscard]] auto Asf() const;
-        [[nodiscard]] auto Avi() const;
-        [[nodiscard]] auto Bgra8() const;
-        [[nodiscard]] auto Bmp() const;
-        [[nodiscard]] auto Eac3() const;
-        [[nodiscard]] auto Float() const;
-        [[nodiscard]] auto Gif() const;
-        [[nodiscard]] auto H263() const;
-        [[nodiscard]] auto H264() const;
-        [[nodiscard]] auto H264Es() const;
-        [[nodiscard]] auto Hevc() const;
-        [[nodiscard]] auto HevcEs() const;
-        [[nodiscard]] auto Iyuv() const;
-        [[nodiscard]] auto Jpeg() const;
-        [[nodiscard]] auto JpegXr() const;
-        [[nodiscard]] auto Mjpg() const;
-        [[nodiscard]] auto Mpeg() const;
-        [[nodiscard]] auto Mpeg1() const;
-        [[nodiscard]] auto Mpeg2() const;
-        [[nodiscard]] auto Mp3() const;
-        [[nodiscard]] auto Mpeg4() const;
-        [[nodiscard]] auto Nv12() const;
-        [[nodiscard]] auto Pcm() const;
-        [[nodiscard]] auto Png() const;
-        [[nodiscard]] auto Rgb24() const;
-        [[nodiscard]] auto Rgb32() const;
-        [[nodiscard]] auto Tiff() const;
-        [[nodiscard]] auto Wave() const;
-        [[nodiscard]] auto Wma8() const;
-        [[nodiscard]] auto Wma9() const;
-        [[nodiscard]] auto Wmv3() const;
-        [[nodiscard]] auto Wvc1() const;
-        [[nodiscard]] auto Yuy2() const;
-        [[nodiscard]] auto Yv12() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Aac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AacAdts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Ac3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AmrNb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AmrWb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Argb32() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Asf() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Avi() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Bgra8() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Bmp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Eac3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Float() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Gif() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) H263() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) H264() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) H264Es() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Hevc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HevcEs() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Iyuv() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Jpeg() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JpegXr() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mjpg() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mpeg() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mpeg1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mpeg2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mp3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Mpeg4() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Nv12() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Pcm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Png() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Rgb24() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Rgb32() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Tiff() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Wave() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Wma8() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Wma9() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Wmv3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Wvc1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Yuy2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Yv12() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics>
     {
@@ -968,10 +971,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingSubtypesStatics2
     {
-        [[nodiscard]] auto Vp9() const;
-        [[nodiscard]] auto L8() const;
-        [[nodiscard]] auto L16() const;
-        [[nodiscard]] auto D16() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Vp9() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) L8() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) L16() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) D16() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics2>
     {
@@ -980,8 +983,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingSubtypesStatics3
     {
-        [[nodiscard]] auto Alac() const;
-        [[nodiscard]] auto Flac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Alac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Flac() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics3>
     {
@@ -990,7 +993,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingSubtypesStatics4
     {
-        [[nodiscard]] auto P010() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) P010() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics4>
     {
@@ -999,7 +1002,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingSubtypesStatics5
     {
-        [[nodiscard]] auto Heif() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Heif() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics5>
     {
@@ -1008,10 +1011,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaEncodingSubtypesStatics6
     {
-        [[nodiscard]] auto Pgs() const;
-        [[nodiscard]] auto Srt() const;
-        [[nodiscard]] auto Ssa() const;
-        [[nodiscard]] auto VobSub() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Pgs() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Srt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Ssa() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VobSub() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaEncodingSubtypesStatics6>
     {
@@ -1020,10 +1023,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMediaRatio
     {
-        auto Numerator(uint32_t value) const;
-        [[nodiscard]] auto Numerator() const;
-        auto Denominator(uint32_t value) const;
-        [[nodiscard]] auto Denominator() const;
+        WINRT_IMPL_AUTO(void) Numerator(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Numerator() const;
+        WINRT_IMPL_AUTO(void) Denominator(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Denominator() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMediaRatio>
     {
@@ -1032,11 +1035,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IMpeg2ProfileIdsStatics
     {
-        [[nodiscard]] auto Simple() const;
-        [[nodiscard]] auto Main() const;
-        [[nodiscard]] auto SignalNoiseRatioScalable() const;
-        [[nodiscard]] auto SpatiallyScalable() const;
-        [[nodiscard]] auto High() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Simple() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Main() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SignalNoiseRatioScalable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SpatiallyScalable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) High() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IMpeg2ProfileIdsStatics>
     {
@@ -1045,9 +1048,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_ITimedMetadataEncodingProperties
     {
-        auto SetFormatUserData(array_view<uint8_t const> value) const;
-        auto GetFormatUserData(com_array<uint8_t>& value) const;
-        auto Copy() const;
+        WINRT_IMPL_AUTO(void) SetFormatUserData(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) GetFormatUserData(com_array<uint8_t>& value) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::TimedMetadataEncodingProperties) Copy() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::ITimedMetadataEncodingProperties>
     {
@@ -1056,10 +1059,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_ITimedMetadataEncodingPropertiesStatics
     {
-        auto CreatePgs() const;
-        auto CreateSrt() const;
-        auto CreateSsa(array_view<uint8_t const> formatUserData) const;
-        auto CreateVobSub(array_view<uint8_t const> formatUserData) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::TimedMetadataEncodingProperties) CreatePgs() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::TimedMetadataEncodingProperties) CreateSrt() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::TimedMetadataEncodingProperties) CreateSsa(array_view<uint8_t const> formatUserData) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::TimedMetadataEncodingProperties) CreateVobSub(array_view<uint8_t const> formatUserData) const;
     };
     template <> struct consume<Windows::Media::MediaProperties::ITimedMetadataEncodingPropertiesStatics>
     {
@@ -1068,14 +1071,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IVideoEncodingProperties
     {
-        auto Bitrate(uint32_t value) const;
-        [[nodiscard]] auto Bitrate() const;
-        auto Width(uint32_t value) const;
-        [[nodiscard]] auto Width() const;
-        auto Height(uint32_t value) const;
-        [[nodiscard]] auto Height() const;
-        [[nodiscard]] auto FrameRate() const;
-        [[nodiscard]] auto PixelAspectRatio() const;
+        WINRT_IMPL_AUTO(void) Bitrate(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Bitrate() const;
+        WINRT_IMPL_AUTO(void) Width(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Width() const;
+        WINRT_IMPL_AUTO(void) Height(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRatio) FrameRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRatio) PixelAspectRatio() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IVideoEncodingProperties>
     {
@@ -1084,10 +1087,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IVideoEncodingProperties2
     {
-        auto SetFormatUserData(array_view<uint8_t const> value) const;
-        auto GetFormatUserData(com_array<uint8_t>& value) const;
-        auto ProfileId(int32_t value) const;
-        [[nodiscard]] auto ProfileId() const;
+        WINRT_IMPL_AUTO(void) SetFormatUserData(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) GetFormatUserData(com_array<uint8_t>& value) const;
+        WINRT_IMPL_AUTO(void) ProfileId(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ProfileId() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IVideoEncodingProperties2>
     {
@@ -1096,7 +1099,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IVideoEncodingProperties3
     {
-        [[nodiscard]] auto StereoscopicVideoPackingMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::StereoscopicVideoPackingMode) StereoscopicVideoPackingMode() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IVideoEncodingProperties3>
     {
@@ -1105,7 +1108,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IVideoEncodingProperties4
     {
-        [[nodiscard]] auto SphericalVideoFrameFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::SphericalVideoFrameFormat) SphericalVideoFrameFormat() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IVideoEncodingProperties4>
     {
@@ -1114,7 +1117,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IVideoEncodingProperties5
     {
-        auto Copy() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) Copy() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IVideoEncodingProperties5>
     {
@@ -1123,9 +1126,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IVideoEncodingPropertiesStatics
     {
-        auto CreateH264() const;
-        auto CreateMpeg2() const;
-        auto CreateUncompressed(param::hstring const& subtype, uint32_t width, uint32_t height) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) CreateH264() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) CreateMpeg2() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) CreateUncompressed(param::hstring const& subtype, uint32_t width, uint32_t height) const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IVideoEncodingPropertiesStatics>
     {
@@ -1134,7 +1137,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_MediaProperties_IVideoEncodingPropertiesStatics2
     {
-        auto CreateHevc() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) CreateHevc() const;
     };
     template <> struct consume<Windows::Media::MediaProperties::IVideoEncodingPropertiesStatics2>
     {

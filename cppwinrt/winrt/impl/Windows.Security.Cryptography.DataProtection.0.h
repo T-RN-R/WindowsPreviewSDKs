@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,6 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -26,11 +27,9 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Cryptography::DataProtection::IDataProtectionProvider>{ using type = interface_category; };
     template <> struct category<Windows::Security::Cryptography::DataProtection::IDataProtectionProviderFactory>{ using type = interface_category; };
     template <> struct category<Windows::Security::Cryptography::DataProtection::DataProtectionProvider>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::DataProtection::DataProtectionProvider>{ L"Windows.Security.Cryptography.DataProtection.DataProtectionProvider" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::DataProtection::IDataProtectionProvider>{ L"Windows.Security.Cryptography.DataProtection.IDataProtectionProvider" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::DataProtection::IDataProtectionProviderFactory>{ L"Windows.Security.Cryptography.DataProtection.IDataProtectionProviderFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::DataProtection::DataProtectionProvider> = L"Windows.Security.Cryptography.DataProtection.DataProtectionProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::DataProtection::IDataProtectionProvider> = L"Windows.Security.Cryptography.DataProtection.IDataProtectionProvider";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::DataProtection::IDataProtectionProviderFactory> = L"Windows.Security.Cryptography.DataProtection.IDataProtectionProviderFactory";
     template <> inline constexpr guid guid_v<Windows::Security::Cryptography::DataProtection::IDataProtectionProvider>{ 0x09639948,0xED22,0x4270,{ 0xBD,0x1C,0x6D,0x72,0xC0,0x0F,0x87,0x87 } };
     template <> inline constexpr guid guid_v<Windows::Security::Cryptography::DataProtection::IDataProtectionProviderFactory>{ 0xADF33DAC,0x4932,0x4CDF,{ 0xAC,0x41,0x72,0x14,0x33,0x35,0x14,0xCA } };
     template <> struct default_interface<Windows::Security::Cryptography::DataProtection::DataProtectionProvider>{ using type = Windows::Security::Cryptography::DataProtection::IDataProtectionProvider; };
@@ -54,10 +53,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_DataProtection_IDataProtectionProvider
     {
-        auto ProtectAsync(Windows::Storage::Streams::IBuffer const& data) const;
-        auto UnprotectAsync(Windows::Storage::Streams::IBuffer const& data) const;
-        auto ProtectStreamAsync(Windows::Storage::Streams::IInputStream const& src, Windows::Storage::Streams::IOutputStream const& dest) const;
-        auto UnprotectStreamAsync(Windows::Storage::Streams::IInputStream const& src, Windows::Storage::Streams::IOutputStream const& dest) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) ProtectAsync(Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) UnprotectAsync(Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ProtectStreamAsync(Windows::Storage::Streams::IInputStream const& src, Windows::Storage::Streams::IOutputStream const& dest) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UnprotectStreamAsync(Windows::Storage::Streams::IInputStream const& src, Windows::Storage::Streams::IOutputStream const& dest) const;
     };
     template <> struct consume<Windows::Security::Cryptography::DataProtection::IDataProtectionProvider>
     {
@@ -66,7 +65,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_DataProtection_IDataProtectionProviderFactory
     {
-        auto CreateOverloadExplicit(param::hstring const& protectionDescriptor) const;
+        WINRT_IMPL_AUTO(Windows::Security::Cryptography::DataProtection::DataProtectionProvider) CreateOverloadExplicit(param::hstring const& protectionDescriptor) const;
     };
     template <> struct consume<Windows::Security::Cryptography::DataProtection::IDataProtectionProviderFactory>
     {

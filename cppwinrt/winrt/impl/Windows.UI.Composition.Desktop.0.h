@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,10 +14,8 @@ namespace winrt::impl
 {
     template <> struct category<Windows::UI::Composition::Desktop::IDesktopWindowTarget>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::Desktop::DesktopWindowTarget>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Desktop::DesktopWindowTarget>{ L"Windows.UI.Composition.Desktop.DesktopWindowTarget" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Desktop::IDesktopWindowTarget>{ L"Windows.UI.Composition.Desktop.IDesktopWindowTarget" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Desktop::DesktopWindowTarget> = L"Windows.UI.Composition.Desktop.DesktopWindowTarget";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Desktop::IDesktopWindowTarget> = L"Windows.UI.Composition.Desktop.IDesktopWindowTarget";
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Desktop::IDesktopWindowTarget>{ 0x6329D6CA,0x3366,0x490E,{ 0x9D,0xB3,0x25,0x31,0x29,0x29,0xAC,0x51 } };
     template <> struct default_interface<Windows::UI::Composition::Desktop::DesktopWindowTarget>{ using type = Windows::UI::Composition::Desktop::IDesktopWindowTarget; };
     template <> struct abi<Windows::UI::Composition::Desktop::IDesktopWindowTarget>
@@ -30,7 +28,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Desktop_IDesktopWindowTarget
     {
-        [[nodiscard]] auto IsTopmost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTopmost() const;
     };
     template <> struct consume<Windows::UI::Composition::Desktop::IDesktopWindowTarget>
     {

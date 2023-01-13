@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -182,11 +182,9 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::DirectX::DirectXColorSpace>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::DirectX::DirectXPixelFormat>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::DirectX::DirectXPrimitiveTopology>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::DirectXAlphaMode>{ L"Windows.Graphics.DirectX.DirectXAlphaMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::DirectXColorSpace>{ L"Windows.Graphics.DirectX.DirectXColorSpace" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::DirectXPixelFormat>{ L"Windows.Graphics.DirectX.DirectXPixelFormat" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::DirectXPrimitiveTopology>{ L"Windows.Graphics.DirectX.DirectXPrimitiveTopology" };
-#ifndef WINRT_LEAN_AND_MEAN
-#endif
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::DirectXAlphaMode> = L"Windows.Graphics.DirectX.DirectXAlphaMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::DirectXColorSpace> = L"Windows.Graphics.DirectX.DirectXColorSpace";
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::DirectXPixelFormat> = L"Windows.Graphics.DirectX.DirectXPixelFormat";
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::DirectXPrimitiveTopology> = L"Windows.Graphics.DirectX.DirectXPrimitiveTopology";
 }
 #endif

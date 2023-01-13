@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -40,21 +40,19 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Media::Media3D::PerspectiveTransform3D>{ using type = class_category; };
     template <> struct category<Windows::UI::Xaml::Media::Media3D::Transform3D>{ using type = class_category; };
     template <> struct category<Windows::UI::Xaml::Media::Media3D::Matrix3D>{ using type = struct_category<double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double>; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::CompositeTransform3D>{ L"Windows.UI.Xaml.Media.Media3D.CompositeTransform3D" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::Matrix3DHelper>{ L"Windows.UI.Xaml.Media.Media3D.Matrix3DHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::PerspectiveTransform3D>{ L"Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::Transform3D>{ L"Windows.UI.Xaml.Media.Media3D.Transform3D" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::Matrix3D>{ L"Windows.UI.Xaml.Media.Media3D.Matrix3D" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::ICompositeTransform3D>{ L"Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::ICompositeTransform3DStatics>{ L"Windows.UI.Xaml.Media.Media3D.ICompositeTransform3DStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::IMatrix3DHelper>{ L"Windows.UI.Xaml.Media.Media3D.IMatrix3DHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::IMatrix3DHelperStatics>{ L"Windows.UI.Xaml.Media.Media3D.IMatrix3DHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::IPerspectiveTransform3D>{ L"Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::IPerspectiveTransform3DStatics>{ L"Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3DStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::ITransform3D>{ L"Windows.UI.Xaml.Media.Media3D.ITransform3D" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::ITransform3DFactory>{ L"Windows.UI.Xaml.Media.Media3D.ITransform3DFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::CompositeTransform3D> = L"Windows.UI.Xaml.Media.Media3D.CompositeTransform3D";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::Matrix3DHelper> = L"Windows.UI.Xaml.Media.Media3D.Matrix3DHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::PerspectiveTransform3D> = L"Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::Transform3D> = L"Windows.UI.Xaml.Media.Media3D.Transform3D";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::Matrix3D> = L"Windows.UI.Xaml.Media.Media3D.Matrix3D";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::ICompositeTransform3D> = L"Windows.UI.Xaml.Media.Media3D.ICompositeTransform3D";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::ICompositeTransform3DStatics> = L"Windows.UI.Xaml.Media.Media3D.ICompositeTransform3DStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::IMatrix3DHelper> = L"Windows.UI.Xaml.Media.Media3D.IMatrix3DHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::IMatrix3DHelperStatics> = L"Windows.UI.Xaml.Media.Media3D.IMatrix3DHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::IPerspectiveTransform3D> = L"Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3D";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::IPerspectiveTransform3DStatics> = L"Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3DStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::ITransform3D> = L"Windows.UI.Xaml.Media.Media3D.ITransform3D";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Media3D::ITransform3DFactory> = L"Windows.UI.Xaml.Media.Media3D.ITransform3DFactory";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Media3D::ICompositeTransform3D>{ 0x8977CB01,0xAF8D,0x4AF5,{ 0xB0,0x84,0xC0,0x8E,0xB9,0x70,0x4A,0xBE } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Media3D::ICompositeTransform3DStatics>{ 0xDDBF4D67,0x2A25,0x48F3,{ 0x98,0x08,0xC5,0x1E,0xC3,0xD5,0x5B,0xEC } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Media3D::IMatrix3DHelper>{ 0xE48C10EF,0x9927,0x4C9B,{ 0x82,0x13,0x07,0x77,0x55,0x12,0xBA,0x04 } };
@@ -170,30 +168,30 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Media3D_ICompositeTransform3D
     {
-        [[nodiscard]] auto CenterX() const;
-        auto CenterX(double value) const;
-        [[nodiscard]] auto CenterY() const;
-        auto CenterY(double value) const;
-        [[nodiscard]] auto CenterZ() const;
-        auto CenterZ(double value) const;
-        [[nodiscard]] auto RotationX() const;
-        auto RotationX(double value) const;
-        [[nodiscard]] auto RotationY() const;
-        auto RotationY(double value) const;
-        [[nodiscard]] auto RotationZ() const;
-        auto RotationZ(double value) const;
-        [[nodiscard]] auto ScaleX() const;
-        auto ScaleX(double value) const;
-        [[nodiscard]] auto ScaleY() const;
-        auto ScaleY(double value) const;
-        [[nodiscard]] auto ScaleZ() const;
-        auto ScaleZ(double value) const;
-        [[nodiscard]] auto TranslateX() const;
-        auto TranslateX(double value) const;
-        [[nodiscard]] auto TranslateY() const;
-        auto TranslateY(double value) const;
-        [[nodiscard]] auto TranslateZ() const;
-        auto TranslateZ(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CenterX() const;
+        WINRT_IMPL_AUTO(void) CenterX(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CenterY() const;
+        WINRT_IMPL_AUTO(void) CenterY(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CenterZ() const;
+        WINRT_IMPL_AUTO(void) CenterZ(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RotationX() const;
+        WINRT_IMPL_AUTO(void) RotationX(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RotationY() const;
+        WINRT_IMPL_AUTO(void) RotationY(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RotationZ() const;
+        WINRT_IMPL_AUTO(void) RotationZ(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ScaleX() const;
+        WINRT_IMPL_AUTO(void) ScaleX(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ScaleY() const;
+        WINRT_IMPL_AUTO(void) ScaleY(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ScaleZ() const;
+        WINRT_IMPL_AUTO(void) ScaleZ(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) TranslateX() const;
+        WINRT_IMPL_AUTO(void) TranslateX(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) TranslateY() const;
+        WINRT_IMPL_AUTO(void) TranslateY(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) TranslateZ() const;
+        WINRT_IMPL_AUTO(void) TranslateZ(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Media3D::ICompositeTransform3D>
     {
@@ -202,18 +200,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Media3D_ICompositeTransform3DStatics
     {
-        [[nodiscard]] auto CenterXProperty() const;
-        [[nodiscard]] auto CenterYProperty() const;
-        [[nodiscard]] auto CenterZProperty() const;
-        [[nodiscard]] auto RotationXProperty() const;
-        [[nodiscard]] auto RotationYProperty() const;
-        [[nodiscard]] auto RotationZProperty() const;
-        [[nodiscard]] auto ScaleXProperty() const;
-        [[nodiscard]] auto ScaleYProperty() const;
-        [[nodiscard]] auto ScaleZProperty() const;
-        [[nodiscard]] auto TranslateXProperty() const;
-        [[nodiscard]] auto TranslateYProperty() const;
-        [[nodiscard]] auto TranslateZProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CenterXProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CenterYProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CenterZProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RotationXProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RotationYProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RotationZProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ScaleXProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ScaleYProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ScaleZProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TranslateXProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TranslateYProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TranslateZProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Media3D::ICompositeTransform3DStatics>
     {
@@ -230,12 +228,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Media3D_IMatrix3DHelperStatics
     {
-        [[nodiscard]] auto Identity() const;
-        auto Multiply(Windows::UI::Xaml::Media::Media3D::Matrix3D const& matrix1, Windows::UI::Xaml::Media::Media3D::Matrix3D const& matrix2) const;
-        auto FromElements(double m11, double m12, double m13, double m14, double m21, double m22, double m23, double m24, double m31, double m32, double m33, double m34, double offsetX, double offsetY, double offsetZ, double m44) const;
-        auto GetHasInverse(Windows::UI::Xaml::Media::Media3D::Matrix3D const& target) const;
-        auto GetIsIdentity(Windows::UI::Xaml::Media::Media3D::Matrix3D const& target) const;
-        auto Invert(Windows::UI::Xaml::Media::Media3D::Matrix3D const& target) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Media3D::Matrix3D) Identity() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Media3D::Matrix3D) Multiply(Windows::UI::Xaml::Media::Media3D::Matrix3D const& matrix1, Windows::UI::Xaml::Media::Media3D::Matrix3D const& matrix2) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Media3D::Matrix3D) FromElements(double m11, double m12, double m13, double m14, double m21, double m22, double m23, double m24, double m31, double m32, double m33, double m34, double offsetX, double offsetY, double offsetZ, double m44) const;
+        WINRT_IMPL_AUTO(bool) GetHasInverse(Windows::UI::Xaml::Media::Media3D::Matrix3D const& target) const;
+        WINRT_IMPL_AUTO(bool) GetIsIdentity(Windows::UI::Xaml::Media::Media3D::Matrix3D const& target) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Media3D::Matrix3D) Invert(Windows::UI::Xaml::Media::Media3D::Matrix3D const& target) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Media3D::IMatrix3DHelperStatics>
     {
@@ -244,12 +242,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Media3D_IPerspectiveTransform3D
     {
-        [[nodiscard]] auto Depth() const;
-        auto Depth(double value) const;
-        [[nodiscard]] auto OffsetX() const;
-        auto OffsetX(double value) const;
-        [[nodiscard]] auto OffsetY() const;
-        auto OffsetY(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Depth() const;
+        WINRT_IMPL_AUTO(void) Depth(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OffsetX() const;
+        WINRT_IMPL_AUTO(void) OffsetX(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OffsetY() const;
+        WINRT_IMPL_AUTO(void) OffsetY(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Media3D::IPerspectiveTransform3D>
     {
@@ -258,9 +256,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Media3D_IPerspectiveTransform3DStatics
     {
-        [[nodiscard]] auto DepthProperty() const;
-        [[nodiscard]] auto OffsetXProperty() const;
-        [[nodiscard]] auto OffsetYProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DepthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OffsetXProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OffsetYProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Media3D::IPerspectiveTransform3DStatics>
     {
@@ -277,7 +275,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Media3D_ITransform3DFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Media3D::Transform3D) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Media3D::ITransform3DFactory>
     {

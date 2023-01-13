@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,12 +8,14 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename K, typename V> struct IMapView;
     template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Security::Authentication::Web
 {
@@ -29,8 +31,13 @@ WINRT_EXPORT namespace winrt::Windows::Security::Credentials
 {
     struct WebAccount;
 }
+WINRT_EXPORT namespace winrt::Windows::Security::Cryptography::Core
+{
+    struct CryptographicKey;
+}
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
+    struct IBuffer;
     struct IRandomAccessStream;
 }
 WINRT_EXPORT namespace winrt::Windows::System
@@ -149,49 +156,47 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Authentication::Web::Provider::WebAccountProviderOperationKind>{ using type = enum_category; };
     template <> struct category<Windows::Security::Authentication::Web::Provider::WebAccountScope>{ using type = enum_category; };
     template <> struct category<Windows::Security::Authentication::Web::Provider::WebAccountSelectionOptions>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountClientView>{ L"Windows.Security.Authentication.Web.Provider.WebAccountClientView" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountManager>{ L"Windows.Security.Authentication.Web.Provider.WebAccountManager" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderAddAccountOperation>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderDeleteAccountOperation>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderGetTokenSilentOperation>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderManageAccountOperation>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderRequestTokenOperation>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderRetrieveCookiesOperation>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderSignOutAccountOperation>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderTriggerDetails>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebProviderTokenRequest>{ L"Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebProviderTokenResponse>{ L"Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountClientViewType>{ L"Windows.Security.Authentication.Web.Provider.WebAccountClientViewType" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderOperationKind>{ L"Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountScope>{ L"Windows.Security.Authentication.Web.Provider.WebAccountScope" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountSelectionOptions>{ L"Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountClientView>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountClientView" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountClientViewFactory>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountClientViewFactory" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics2>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics3>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics4>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics4" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountMapManagerStatics>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountMapManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderAddAccountOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderAddAccountOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderBaseReportOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderBaseReportOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderDeleteAccountOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderDeleteAccountOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderManageAccountOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderManageAccountOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderRetrieveCookiesOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderRetrieveCookiesOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderSignOutAccountOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderSignOutAccountOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderSilentReportOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderSilentReportOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenObjects>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenObjects2>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderUIReportOperation>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderUIReportOperation" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountScopeManagerStatics>{ L"Windows.Security.Authentication.Web.Provider.IWebAccountScopeManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest>{ L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest2>{ L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest3>{ L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest3" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenResponse>{ L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenResponseFactory>{ L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponseFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountClientView> = L"Windows.Security.Authentication.Web.Provider.WebAccountClientView";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountManager> = L"Windows.Security.Authentication.Web.Provider.WebAccountManager";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderAddAccountOperation> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderDeleteAccountOperation> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderGetTokenSilentOperation> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderManageAccountOperation> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderRequestTokenOperation> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderRetrieveCookiesOperation> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderSignOutAccountOperation> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderTriggerDetails> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebProviderTokenRequest> = L"Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebProviderTokenResponse> = L"Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountClientViewType> = L"Windows.Security.Authentication.Web.Provider.WebAccountClientViewType";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountProviderOperationKind> = L"Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountScope> = L"Windows.Security.Authentication.Web.Provider.WebAccountScope";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::WebAccountSelectionOptions> = L"Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountClientView> = L"Windows.Security.Authentication.Web.Provider.IWebAccountClientView";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountClientViewFactory> = L"Windows.Security.Authentication.Web.Provider.IWebAccountClientViewFactory";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics> = L"Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics2> = L"Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics3> = L"Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics3";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics4> = L"Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics4";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountMapManagerStatics> = L"Windows.Security.Authentication.Web.Provider.IWebAccountMapManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderAddAccountOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderAddAccountOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderBaseReportOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderBaseReportOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderDeleteAccountOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderDeleteAccountOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderManageAccountOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderManageAccountOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderRetrieveCookiesOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderRetrieveCookiesOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderSignOutAccountOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderSignOutAccountOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderSilentReportOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderSilentReportOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenObjects> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenObjects2> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects2";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountProviderUIReportOperation> = L"Windows.Security.Authentication.Web.Provider.IWebAccountProviderUIReportOperation";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebAccountScopeManagerStatics> = L"Windows.Security.Authentication.Web.Provider.IWebAccountScopeManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest> = L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest2> = L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest2";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest3> = L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenRequest3";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenResponse> = L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponse";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Provider::IWebProviderTokenResponseFactory> = L"Windows.Security.Authentication.Web.Provider.IWebProviderTokenResponseFactory";
     template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Provider::IWebAccountClientView>{ 0xE7BD66BA,0x0BC7,0x4C66,{ 0xBF,0xD4,0x65,0xD3,0x08,0x2C,0xBC,0xA8 } };
     template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Provider::IWebAccountClientViewFactory>{ 0x616D16A4,0xDE22,0x4855,{ 0xA3,0x26,0x06,0xCE,0xBF,0x2A,0x3F,0x23 } };
     template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics>{ 0xB2E8E1A6,0xD49A,0x4032,{ 0x84,0xBF,0x1A,0x28,0x47,0x74,0x7B,0xF1 } };
@@ -445,9 +450,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountClientView
     {
-        [[nodiscard]] auto ApplicationCallbackUri() const;
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto AccountPairwiseId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ApplicationCallbackUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::WebAccountClientViewType) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AccountPairwiseId() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountClientView>
     {
@@ -456,8 +461,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountClientViewFactory
     {
-        auto Create(Windows::Security::Authentication::Web::Provider::WebAccountClientViewType const& viewType, Windows::Foundation::Uri const& applicationCallbackUri) const;
-        auto CreateWithPairwiseId(Windows::Security::Authentication::Web::Provider::WebAccountClientViewType const& viewType, Windows::Foundation::Uri const& applicationCallbackUri, param::hstring const& accountPairwiseId) const;
+        WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::WebAccountClientView) Create(Windows::Security::Authentication::Web::Provider::WebAccountClientViewType const& viewType, Windows::Foundation::Uri const& applicationCallbackUri) const;
+        WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::WebAccountClientView) CreateWithPairwiseId(Windows::Security::Authentication::Web::Provider::WebAccountClientViewType const& viewType, Windows::Foundation::Uri const& applicationCallbackUri, param::hstring const& accountPairwiseId) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountClientViewFactory>
     {
@@ -466,16 +471,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountManagerStatics
     {
-        auto UpdateWebAccountPropertiesAsync(Windows::Security::Credentials::WebAccount const& webAccount, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& additionalProperties) const;
-        auto AddWebAccountAsync(param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props) const;
-        auto DeleteWebAccountAsync(Windows::Security::Credentials::WebAccount const& webAccount) const;
-        auto FindAllProviderWebAccountsAsync() const;
-        auto PushCookiesAsync(Windows::Foundation::Uri const& uri, param::async_vector_view<Windows::Web::Http::HttpCookie> const& cookies) const;
-        auto SetViewAsync(Windows::Security::Credentials::WebAccount const& webAccount, Windows::Security::Authentication::Web::Provider::WebAccountClientView const& view) const;
-        auto ClearViewAsync(Windows::Security::Credentials::WebAccount const& webAccount, Windows::Foundation::Uri const& applicationCallbackUri) const;
-        auto GetViewsAsync(Windows::Security::Credentials::WebAccount const& webAccount) const;
-        auto SetWebAccountPictureAsync(Windows::Security::Credentials::WebAccount const& webAccount, Windows::Storage::Streams::IRandomAccessStream const& webAccountPicture) const;
-        auto ClearWebAccountPictureAsync(Windows::Security::Credentials::WebAccount const& webAccount) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UpdateWebAccountPropertiesAsync(Windows::Security::Credentials::WebAccount const& webAccount, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& additionalProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Credentials::WebAccount>) AddWebAccountAsync(param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteWebAccountAsync(Windows::Security::Credentials::WebAccount const& webAccount) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Security::Credentials::WebAccount>>) FindAllProviderWebAccountsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) PushCookiesAsync(Windows::Foundation::Uri const& uri, param::async_vector_view<Windows::Web::Http::HttpCookie> const& cookies) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetViewAsync(Windows::Security::Credentials::WebAccount const& webAccount, Windows::Security::Authentication::Web::Provider::WebAccountClientView const& view) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearViewAsync(Windows::Security::Credentials::WebAccount const& webAccount, Windows::Foundation::Uri const& applicationCallbackUri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Security::Authentication::Web::Provider::WebAccountClientView>>) GetViewsAsync(Windows::Security::Credentials::WebAccount const& webAccount) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetWebAccountPictureAsync(Windows::Security::Credentials::WebAccount const& webAccount, Windows::Storage::Streams::IRandomAccessStream const& webAccountPicture) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearWebAccountPictureAsync(Windows::Security::Credentials::WebAccount const& webAccount) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics>
     {
@@ -484,7 +489,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountManagerStatics2
     {
-        auto PullCookiesAsync(param::hstring const& uriString, param::hstring const& callerPFN) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) PullCookiesAsync(param::hstring const& uriString, param::hstring const& callerPFN) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics2>
     {
@@ -493,10 +498,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountManagerStatics3
     {
-        auto FindAllProviderWebAccountsForUserAsync(Windows::System::User const& user) const;
-        auto AddWebAccountForUserAsync(Windows::System::User const& user, param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props) const;
-        auto AddWebAccountForUserAsync(Windows::System::User const& user, param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope) const;
-        auto AddWebAccountForUserAsync(Windows::System::User const& user, param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope, param::hstring const& perUserWebAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Security::Credentials::WebAccount>>) FindAllProviderWebAccountsForUserAsync(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Credentials::WebAccount>) AddWebAccountForUserAsync(Windows::System::User const& user, param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Credentials::WebAccount>) AddWebAccountForUserAsync(Windows::System::User const& user, param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Credentials::WebAccount>) AddWebAccountForUserAsync(Windows::System::User const& user, param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope, param::hstring const& perUserWebAccountId) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics3>
     {
@@ -505,8 +510,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountManagerStatics4
     {
-        auto InvalidateAppCacheForAllAccountsAsync() const;
-        auto InvalidateAppCacheForAccountAsync(Windows::Security::Credentials::WebAccount const& webAccount) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) InvalidateAppCacheForAllAccountsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) InvalidateAppCacheForAccountAsync(Windows::Security::Credentials::WebAccount const& webAccount) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountManagerStatics4>
     {
@@ -515,10 +520,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountMapManagerStatics
     {
-        auto AddWebAccountAsync(param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope, param::hstring const& perUserWebAccountId) const;
-        auto SetPerAppToPerUserAccountAsync(Windows::Security::Credentials::WebAccount const& perAppAccount, param::hstring const& perUserWebAccountId) const;
-        auto GetPerUserFromPerAppAccountAsync(Windows::Security::Credentials::WebAccount const& perAppAccount) const;
-        auto ClearPerUserFromPerAppAccountAsync(Windows::Security::Credentials::WebAccount const& perAppAccount) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Credentials::WebAccount>) AddWebAccountAsync(param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope, param::hstring const& perUserWebAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetPerAppToPerUserAccountAsync(Windows::Security::Credentials::WebAccount const& perAppAccount, param::hstring const& perUserWebAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Credentials::WebAccount>) GetPerUserFromPerAppAccountAsync(Windows::Security::Credentials::WebAccount const& perAppAccount) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearPerUserFromPerAppAccountAsync(Windows::Security::Credentials::WebAccount const& perAppAccount) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountMapManagerStatics>
     {
@@ -527,7 +532,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderAddAccountOperation
     {
-        auto ReportCompleted() const;
+        WINRT_IMPL_AUTO(void) ReportCompleted() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderAddAccountOperation>
     {
@@ -536,8 +541,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderBaseReportOperation
     {
-        auto ReportCompleted() const;
-        auto ReportError(Windows::Security::Authentication::Web::Core::WebProviderError const& value) const;
+        WINRT_IMPL_AUTO(void) ReportCompleted() const;
+        WINRT_IMPL_AUTO(void) ReportError(Windows::Security::Authentication::Web::Core::WebProviderError const& value) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderBaseReportOperation>
     {
@@ -546,7 +551,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderDeleteAccountOperation
     {
-        [[nodiscard]] auto WebAccount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::WebAccount) WebAccount() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderDeleteAccountOperation>
     {
@@ -555,8 +560,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderManageAccountOperation
     {
-        [[nodiscard]] auto WebAccount() const;
-        auto ReportCompleted() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::WebAccount) WebAccount() const;
+        WINRT_IMPL_AUTO(void) ReportCompleted() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderManageAccountOperation>
     {
@@ -565,7 +570,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderOperation
     {
-        [[nodiscard]] auto Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::WebAccountProviderOperationKind) Kind() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderOperation>
     {
@@ -574,11 +579,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderRetrieveCookiesOperation
     {
-        [[nodiscard]] auto Context() const;
-        [[nodiscard]] auto Cookies() const;
-        auto Uri(Windows::Foundation::Uri const& uri) const;
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto ApplicationCallbackUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Context() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Web::Http::HttpCookie>) Cookies() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& uri) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ApplicationCallbackUri() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderRetrieveCookiesOperation>
     {
@@ -587,9 +592,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderSignOutAccountOperation
     {
-        [[nodiscard]] auto WebAccount() const;
-        [[nodiscard]] auto ApplicationCallbackUri() const;
-        [[nodiscard]] auto ClientId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::WebAccount) WebAccount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ApplicationCallbackUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ClientId() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderSignOutAccountOperation>
     {
@@ -598,8 +603,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderSilentReportOperation
     {
-        auto ReportUserInteractionRequired() const;
-        auto ReportUserInteractionRequired(Windows::Security::Authentication::Web::Core::WebProviderError const& value) const;
+        WINRT_IMPL_AUTO(void) ReportUserInteractionRequired() const;
+        WINRT_IMPL_AUTO(void) ReportUserInteractionRequired(Windows::Security::Authentication::Web::Core::WebProviderError const& value) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderSilentReportOperation>
     {
@@ -608,7 +613,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderTokenObjects
     {
-        [[nodiscard]] auto Operation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::IWebAccountProviderOperation) Operation() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenObjects>
     {
@@ -617,7 +622,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderTokenObjects2
     {
-        [[nodiscard]] auto User() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenObjects2>
     {
@@ -626,10 +631,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderTokenOperation
     {
-        [[nodiscard]] auto ProviderRequest() const;
-        [[nodiscard]] auto ProviderResponses() const;
-        auto CacheExpirationTime(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto CacheExpirationTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::WebProviderTokenRequest) ProviderRequest() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Security::Authentication::Web::Provider::WebProviderTokenResponse>) ProviderResponses() const;
+        WINRT_IMPL_AUTO(void) CacheExpirationTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) CacheExpirationTime() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderTokenOperation>
     {
@@ -638,7 +643,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountProviderUIReportOperation
     {
-        auto ReportUserCanceled() const;
+        WINRT_IMPL_AUTO(void) ReportUserCanceled() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountProviderUIReportOperation>
     {
@@ -647,9 +652,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebAccountScopeManagerStatics
     {
-        auto AddWebAccountAsync(param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope) const;
-        auto SetScopeAsync(Windows::Security::Credentials::WebAccount const& webAccount, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope) const;
-        auto GetScope(Windows::Security::Credentials::WebAccount const& webAccount) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Credentials::WebAccount>) AddWebAccountAsync(param::hstring const& webAccountId, param::hstring const& webAccountUserName, param::async_map_view<hstring, hstring> const& props, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetScopeAsync(Windows::Security::Credentials::WebAccount const& webAccount, Windows::Security::Authentication::Web::Provider::WebAccountScope const& scope) const;
+        WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::WebAccountScope) GetScope(Windows::Security::Credentials::WebAccount const& webAccount) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebAccountScopeManagerStatics>
     {
@@ -658,11 +663,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebProviderTokenRequest
     {
-        [[nodiscard]] auto ClientRequest() const;
-        [[nodiscard]] auto WebAccounts() const;
-        [[nodiscard]] auto WebAccountSelectionOptions() const;
-        [[nodiscard]] auto ApplicationCallbackUri() const;
-        auto GetApplicationTokenBindingKeyAsync(Windows::Security::Authentication::Web::TokenBindingKeyType const& keyType, Windows::Foundation::Uri const& target) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Core::WebTokenRequest) ClientRequest() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Security::Credentials::WebAccount>) WebAccounts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::WebAccountSelectionOptions) WebAccountSelectionOptions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ApplicationCallbackUri() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Cryptography::Core::CryptographicKey>) GetApplicationTokenBindingKeyAsync(Windows::Security::Authentication::Web::TokenBindingKeyType const& keyType, Windows::Foundation::Uri const& target) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest>
     {
@@ -671,7 +676,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebProviderTokenRequest2
     {
-        auto GetApplicationTokenBindingKeyIdAsync(Windows::Security::Authentication::Web::TokenBindingKeyType const& keyType, Windows::Foundation::Uri const& target) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) GetApplicationTokenBindingKeyIdAsync(Windows::Security::Authentication::Web::TokenBindingKeyType const& keyType, Windows::Foundation::Uri const& target) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest2>
     {
@@ -680,9 +685,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebProviderTokenRequest3
     {
-        [[nodiscard]] auto ApplicationPackageFamilyName() const;
-        [[nodiscard]] auto ApplicationProcessName() const;
-        auto CheckApplicationForCapabilityAsync(param::hstring const& capabilityName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ApplicationPackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ApplicationProcessName() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) CheckApplicationForCapabilityAsync(param::hstring const& capabilityName) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebProviderTokenRequest3>
     {
@@ -691,7 +696,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebProviderTokenResponse
     {
-        [[nodiscard]] auto ClientResponse() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Core::WebTokenResponse) ClientResponse() const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebProviderTokenResponse>
     {
@@ -700,7 +705,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Web_Provider_IWebProviderTokenResponseFactory
     {
-        auto Create(Windows::Security::Authentication::Web::Core::WebTokenResponse const& webTokenResponse) const;
+        WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::WebProviderTokenResponse) Create(Windows::Security::Authentication::Web::Core::WebTokenResponse const& webTokenResponse) const;
     };
     template <> struct consume<Windows::Security::Authentication::Web::Provider::IWebProviderTokenResponseFactory>
     {

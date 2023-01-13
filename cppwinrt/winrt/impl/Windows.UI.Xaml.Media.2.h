@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -177,7 +177,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media
     {
         FontFamily(std::nullptr_t) noexcept {}
         FontFamily(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Xaml::Media::IFontFamily(ptr, take_ownership_from_abi) {}
-        FontFamily(param::hstring const& familyName);
+        explicit FontFamily(param::hstring const& familyName);
         [[nodiscard]] static auto XamlAutoFontFamily();
     };
     struct __declspec(empty_bases) GeneralTransform : Windows::UI::Xaml::Media::IGeneralTransform,
@@ -557,7 +557,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media
         SolidColorBrush(std::nullptr_t) noexcept {}
         SolidColorBrush(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Xaml::Media::ISolidColorBrush(ptr, take_ownership_from_abi) {}
         SolidColorBrush();
-        SolidColorBrush(Windows::UI::Color const& color);
+        explicit SolidColorBrush(Windows::UI::Color const& color);
         [[nodiscard]] static auto ColorProperty();
     };
     struct __declspec(empty_bases) ThemeShadow : Windows::UI::Xaml::Media::IThemeShadow,
@@ -677,7 +677,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media
         D const& shim() const noexcept { return *static_cast<const D*>(this); }
     public:
         using IBrushOverrides2 = winrt::Windows::UI::Xaml::Media::IBrushOverrides2;
-        auto PopulatePropertyInfoOverride(param::hstring const& propertyName, Windows::UI::Composition::AnimationPropertyInfo const& animationPropertyInfo) const;
+        WINRT_IMPL_AUTO(void) PopulatePropertyInfoOverride(param::hstring const& propertyName, Windows::UI::Composition::AnimationPropertyInfo const& animationPropertyInfo) const;
     };
     template <typename D>
     class IGeneralTransformOverridesT
@@ -686,9 +686,9 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media
         D const& shim() const noexcept { return *static_cast<const D*>(this); }
     public:
         using IGeneralTransformOverrides = winrt::Windows::UI::Xaml::Media::IGeneralTransformOverrides;
-        [[nodiscard]] auto InverseCore() const;
-        auto TryTransformCore(Windows::Foundation::Point const& inPoint, Windows::Foundation::Point& outPoint) const;
-        auto TransformBoundsCore(Windows::Foundation::Rect const& rect) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::GeneralTransform) InverseCore() const;
+        WINRT_IMPL_AUTO(bool) TryTransformCore(Windows::Foundation::Point const& inPoint, Windows::Foundation::Point& outPoint) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) TransformBoundsCore(Windows::Foundation::Rect const& rect) const;
     };
     template <typename D>
     class IXamlCompositionBrushBaseOverridesT
@@ -697,8 +697,8 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media
         D const& shim() const noexcept { return *static_cast<const D*>(this); }
     public:
         using IXamlCompositionBrushBaseOverrides = winrt::Windows::UI::Xaml::Media::IXamlCompositionBrushBaseOverrides;
-        auto OnConnected() const;
-        auto OnDisconnected() const;
+        WINRT_IMPL_AUTO(void) OnConnected() const;
+        WINRT_IMPL_AUTO(void) OnDisconnected() const;
     };
     template <typename D>
     class IXamlLightOverridesT
@@ -707,9 +707,9 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media
         D const& shim() const noexcept { return *static_cast<const D*>(this); }
     public:
         using IXamlLightOverrides = winrt::Windows::UI::Xaml::Media::IXamlLightOverrides;
-        auto GetId() const;
-        auto OnConnected(Windows::UI::Xaml::UIElement const& newElement) const;
-        auto OnDisconnected(Windows::UI::Xaml::UIElement const& oldElement) const;
+        WINRT_IMPL_AUTO(hstring) GetId() const;
+        WINRT_IMPL_AUTO(void) OnConnected(Windows::UI::Xaml::UIElement const& newElement) const;
+        WINRT_IMPL_AUTO(void) OnDisconnected(Windows::UI::Xaml::UIElement const& oldElement) const;
     };
 }
 #endif

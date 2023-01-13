@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,7 +14,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Spatial
     {
         SpatialGestureRecognizer(std::nullptr_t) noexcept {}
         SpatialGestureRecognizer(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Spatial::ISpatialGestureRecognizer(ptr, take_ownership_from_abi) {}
-        SpatialGestureRecognizer(Windows::UI::Input::Spatial::SpatialGestureSettings const& settings);
+        explicit SpatialGestureRecognizer(Windows::UI::Input::Spatial::SpatialGestureSettings const& settings);
     };
     struct __declspec(empty_bases) SpatialHoldCanceledEventArgs : Windows::UI::Input::Spatial::ISpatialHoldCanceledEventArgs
     {

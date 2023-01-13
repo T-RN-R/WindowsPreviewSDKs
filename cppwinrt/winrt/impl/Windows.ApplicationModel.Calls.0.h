@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,11 +10,16 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Contacts
     struct Contact;
     struct ContactPhone;
 }
+WINRT_EXPORT namespace winrt::Windows::Devices::Enumeration
+{
+    enum class DeviceAccessStatus : int32_t;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
@@ -22,6 +27,9 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMapView;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -320,97 +328,95 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Calls::VoipPhoneCallRejectReason>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Calls::VoipPhoneCallResourceReservationStatus>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Calls::VoipPhoneCallState>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::CallAnswerEventArgs>{ L"Windows.ApplicationModel.Calls.CallAnswerEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::CallRejectEventArgs>{ L"Windows.ApplicationModel.Calls.CallRejectEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::CallStateChangeEventArgs>{ L"Windows.ApplicationModel.Calls.CallStateChangeEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::LockScreenCallEndCallDeferral>{ L"Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::LockScreenCallEndRequestedEventArgs>{ L"Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::LockScreenCallUI>{ L"Windows.ApplicationModel.Calls.LockScreenCallUI" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::MuteChangeEventArgs>{ L"Windows.ApplicationModel.Calls.MuteChangeEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallBlocking>{ L"Windows.ApplicationModel.Calls.PhoneCallBlocking" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntry>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntry" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryAddress>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryOptions>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryReader>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryManager>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryManagerForUser>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryStore>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallManager>{ L"Windows.ApplicationModel.Calls.PhoneCallManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallStore>{ L"Windows.ApplicationModel.Calls.PhoneCallStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallVideoCapabilities>{ L"Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallVideoCapabilitiesManager>{ L"Windows.ApplicationModel.Calls.PhoneCallVideoCapabilitiesManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneDialOptions>{ L"Windows.ApplicationModel.Calls.PhoneDialOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLine>{ L"Windows.ApplicationModel.Calls.PhoneLine" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineCellularDetails>{ L"Windows.ApplicationModel.Calls.PhoneLineCellularDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineConfiguration>{ L"Windows.ApplicationModel.Calls.PhoneLineConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineTransportDevice>{ L"Windows.ApplicationModel.Calls.PhoneLineTransportDevice" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineWatcher>{ L"Windows.ApplicationModel.Calls.PhoneLineWatcher" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs>{ L"Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneVoicemail>{ L"Windows.ApplicationModel.Calls.PhoneVoicemail" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipCallCoordinator>{ L"Windows.ApplicationModel.Calls.VoipCallCoordinator" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCall>{ L"Windows.ApplicationModel.Calls.VoipPhoneCall" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::CellularDtmfMode>{ L"Windows.ApplicationModel.Calls.CellularDtmfMode" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneAudioRoutingEndpoint>{ L"Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryMedia>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryOtherAppReadAccess>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryDesiredMedia>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryRawAddressKind>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistorySourceIdKind>{ L"Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryStoreAccessType>{ L"Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallMedia>{ L"Windows.ApplicationModel.Calls.PhoneCallMedia" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineNetworkOperatorDisplayTextLocation>{ L"Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineTransport>{ L"Windows.ApplicationModel.Calls.PhoneLineTransport" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineWatcherStatus>{ L"Windows.ApplicationModel.Calls.PhoneLineWatcherStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneNetworkState>{ L"Windows.ApplicationModel.Calls.PhoneNetworkState" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneSimState>{ L"Windows.ApplicationModel.Calls.PhoneSimState" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneVoicemailType>{ L"Windows.ApplicationModel.Calls.PhoneVoicemailType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCallMedia>{ L"Windows.ApplicationModel.Calls.VoipPhoneCallMedia" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCallRejectReason>{ L"Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCallResourceReservationStatus>{ L"Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCallState>{ L"Windows.ApplicationModel.Calls.VoipPhoneCallState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ICallAnswerEventArgs>{ L"Windows.ApplicationModel.Calls.ICallAnswerEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ICallRejectEventArgs>{ L"Windows.ApplicationModel.Calls.ICallRejectEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ICallStateChangeEventArgs>{ L"Windows.ApplicationModel.Calls.ICallStateChangeEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ILockScreenCallEndCallDeferral>{ L"Windows.ApplicationModel.Calls.ILockScreenCallEndCallDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ILockScreenCallEndRequestedEventArgs>{ L"Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ILockScreenCallUI>{ L"Windows.ApplicationModel.Calls.ILockScreenCallUI" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IMuteChangeEventArgs>{ L"Windows.ApplicationModel.Calls.IMuteChangeEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallBlockingStatics>{ L"Windows.ApplicationModel.Calls.IPhoneCallBlockingStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntry>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryAddress>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryAddressFactory>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddressFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryQueryOptions>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryReader>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerForUser>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerStatics>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerStatics2>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryStore>{ L"Windows.ApplicationModel.Calls.IPhoneCallHistoryStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallManagerStatics>{ L"Windows.ApplicationModel.Calls.IPhoneCallManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallManagerStatics2>{ L"Windows.ApplicationModel.Calls.IPhoneCallManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallStore>{ L"Windows.ApplicationModel.Calls.IPhoneCallStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallVideoCapabilities>{ L"Windows.ApplicationModel.Calls.IPhoneCallVideoCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallVideoCapabilitiesManagerStatics>{ L"Windows.ApplicationModel.Calls.IPhoneCallVideoCapabilitiesManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneDialOptions>{ L"Windows.ApplicationModel.Calls.IPhoneDialOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLine>{ L"Windows.ApplicationModel.Calls.IPhoneLine" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLine2>{ L"Windows.ApplicationModel.Calls.IPhoneLine2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineCellularDetails>{ L"Windows.ApplicationModel.Calls.IPhoneLineCellularDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineConfiguration>{ L"Windows.ApplicationModel.Calls.IPhoneLineConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineStatics>{ L"Windows.ApplicationModel.Calls.IPhoneLineStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineTransportDevice>{ L"Windows.ApplicationModel.Calls.IPhoneLineTransportDevice" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineTransportDeviceStatics>{ L"Windows.ApplicationModel.Calls.IPhoneLineTransportDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineWatcher>{ L"Windows.ApplicationModel.Calls.IPhoneLineWatcher" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineWatcherEventArgs>{ L"Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneVoicemail>{ L"Windows.ApplicationModel.Calls.IPhoneVoicemail" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinator>{ L"Windows.ApplicationModel.Calls.IVoipCallCoordinator" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinator2>{ L"Windows.ApplicationModel.Calls.IVoipCallCoordinator2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinator3>{ L"Windows.ApplicationModel.Calls.IVoipCallCoordinator3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinator4>{ L"Windows.ApplicationModel.Calls.IVoipCallCoordinator4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinatorStatics>{ L"Windows.ApplicationModel.Calls.IVoipCallCoordinatorStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipPhoneCall>{ L"Windows.ApplicationModel.Calls.IVoipPhoneCall" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipPhoneCall2>{ L"Windows.ApplicationModel.Calls.IVoipPhoneCall2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipPhoneCall3>{ L"Windows.ApplicationModel.Calls.IVoipPhoneCall3" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::CallAnswerEventArgs> = L"Windows.ApplicationModel.Calls.CallAnswerEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::CallRejectEventArgs> = L"Windows.ApplicationModel.Calls.CallRejectEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::CallStateChangeEventArgs> = L"Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::LockScreenCallEndCallDeferral> = L"Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::LockScreenCallEndRequestedEventArgs> = L"Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::LockScreenCallUI> = L"Windows.ApplicationModel.Calls.LockScreenCallUI";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::MuteChangeEventArgs> = L"Windows.ApplicationModel.Calls.MuteChangeEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallBlocking> = L"Windows.ApplicationModel.Calls.PhoneCallBlocking";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntry> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryAddress> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryOptions> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryReader> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryManager> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryManagerForUser> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryStore> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallManager> = L"Windows.ApplicationModel.Calls.PhoneCallManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallStore> = L"Windows.ApplicationModel.Calls.PhoneCallStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallVideoCapabilities> = L"Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallVideoCapabilitiesManager> = L"Windows.ApplicationModel.Calls.PhoneCallVideoCapabilitiesManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneDialOptions> = L"Windows.ApplicationModel.Calls.PhoneDialOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLine> = L"Windows.ApplicationModel.Calls.PhoneLine";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineCellularDetails> = L"Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineConfiguration> = L"Windows.ApplicationModel.Calls.PhoneLineConfiguration";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineTransportDevice> = L"Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineWatcher> = L"Windows.ApplicationModel.Calls.PhoneLineWatcher";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> = L"Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneVoicemail> = L"Windows.ApplicationModel.Calls.PhoneVoicemail";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipCallCoordinator> = L"Windows.ApplicationModel.Calls.VoipCallCoordinator";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCall> = L"Windows.ApplicationModel.Calls.VoipPhoneCall";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::CellularDtmfMode> = L"Windows.ApplicationModel.Calls.CellularDtmfMode";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneAudioRoutingEndpoint> = L"Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryMedia> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryOtherAppReadAccess> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryDesiredMedia> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryEntryRawAddressKind> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistorySourceIdKind> = L"Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallHistoryStoreAccessType> = L"Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneCallMedia> = L"Windows.ApplicationModel.Calls.PhoneCallMedia";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineNetworkOperatorDisplayTextLocation> = L"Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineTransport> = L"Windows.ApplicationModel.Calls.PhoneLineTransport";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneLineWatcherStatus> = L"Windows.ApplicationModel.Calls.PhoneLineWatcherStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneNetworkState> = L"Windows.ApplicationModel.Calls.PhoneNetworkState";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneSimState> = L"Windows.ApplicationModel.Calls.PhoneSimState";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::PhoneVoicemailType> = L"Windows.ApplicationModel.Calls.PhoneVoicemailType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCallMedia> = L"Windows.ApplicationModel.Calls.VoipPhoneCallMedia";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCallRejectReason> = L"Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCallResourceReservationStatus> = L"Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::VoipPhoneCallState> = L"Windows.ApplicationModel.Calls.VoipPhoneCallState";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ICallAnswerEventArgs> = L"Windows.ApplicationModel.Calls.ICallAnswerEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ICallRejectEventArgs> = L"Windows.ApplicationModel.Calls.ICallRejectEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ICallStateChangeEventArgs> = L"Windows.ApplicationModel.Calls.ICallStateChangeEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ILockScreenCallEndCallDeferral> = L"Windows.ApplicationModel.Calls.ILockScreenCallEndCallDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ILockScreenCallEndRequestedEventArgs> = L"Windows.ApplicationModel.Calls.ILockScreenCallEndRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::ILockScreenCallUI> = L"Windows.ApplicationModel.Calls.ILockScreenCallUI";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IMuteChangeEventArgs> = L"Windows.ApplicationModel.Calls.IMuteChangeEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallBlockingStatics> = L"Windows.ApplicationModel.Calls.IPhoneCallBlockingStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntry> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntry";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryAddress> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddress";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryAddressFactory> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddressFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryQueryOptions> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryQueryOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryReader> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerForUser> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerForUser";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerStatics> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerStatics2> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallHistoryStore> = L"Windows.ApplicationModel.Calls.IPhoneCallHistoryStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallManagerStatics> = L"Windows.ApplicationModel.Calls.IPhoneCallManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallManagerStatics2> = L"Windows.ApplicationModel.Calls.IPhoneCallManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallStore> = L"Windows.ApplicationModel.Calls.IPhoneCallStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallVideoCapabilities> = L"Windows.ApplicationModel.Calls.IPhoneCallVideoCapabilities";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneCallVideoCapabilitiesManagerStatics> = L"Windows.ApplicationModel.Calls.IPhoneCallVideoCapabilitiesManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneDialOptions> = L"Windows.ApplicationModel.Calls.IPhoneDialOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLine> = L"Windows.ApplicationModel.Calls.IPhoneLine";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLine2> = L"Windows.ApplicationModel.Calls.IPhoneLine2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineCellularDetails> = L"Windows.ApplicationModel.Calls.IPhoneLineCellularDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineConfiguration> = L"Windows.ApplicationModel.Calls.IPhoneLineConfiguration";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineStatics> = L"Windows.ApplicationModel.Calls.IPhoneLineStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineTransportDevice> = L"Windows.ApplicationModel.Calls.IPhoneLineTransportDevice";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineTransportDeviceStatics> = L"Windows.ApplicationModel.Calls.IPhoneLineTransportDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineWatcher> = L"Windows.ApplicationModel.Calls.IPhoneLineWatcher";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneLineWatcherEventArgs> = L"Windows.ApplicationModel.Calls.IPhoneLineWatcherEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IPhoneVoicemail> = L"Windows.ApplicationModel.Calls.IPhoneVoicemail";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinator> = L"Windows.ApplicationModel.Calls.IVoipCallCoordinator";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinator2> = L"Windows.ApplicationModel.Calls.IVoipCallCoordinator2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinator3> = L"Windows.ApplicationModel.Calls.IVoipCallCoordinator3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinator4> = L"Windows.ApplicationModel.Calls.IVoipCallCoordinator4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipCallCoordinatorStatics> = L"Windows.ApplicationModel.Calls.IVoipCallCoordinatorStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipPhoneCall> = L"Windows.ApplicationModel.Calls.IVoipPhoneCall";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipPhoneCall2> = L"Windows.ApplicationModel.Calls.IVoipPhoneCall2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::IVoipPhoneCall3> = L"Windows.ApplicationModel.Calls.IVoipPhoneCall3";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::ICallAnswerEventArgs>{ 0xFD789617,0x2DD7,0x4C8C,{ 0xB2,0xBD,0x95,0xD1,0x7A,0x5B,0xB7,0x33 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::ICallRejectEventArgs>{ 0xDA47FAD7,0x13D4,0x4D92,{ 0xA1,0xC2,0xB7,0x78,0x11,0xEE,0x37,0xEC } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::ICallStateChangeEventArgs>{ 0xEAB2349E,0x66F5,0x47F9,{ 0x9F,0xB5,0x45,0x9C,0x51,0x98,0xC7,0x20 } };
@@ -928,7 +934,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_ICallAnswerEventArgs
     {
-        [[nodiscard]] auto AcceptedMedia() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCallMedia) AcceptedMedia() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::ICallAnswerEventArgs>
     {
@@ -937,7 +943,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_ICallRejectEventArgs
     {
-        [[nodiscard]] auto RejectReason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCallRejectReason) RejectReason() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::ICallRejectEventArgs>
     {
@@ -946,7 +952,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_ICallStateChangeEventArgs
     {
-        [[nodiscard]] auto State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCallState) State() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::ICallStateChangeEventArgs>
     {
@@ -955,7 +961,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_ILockScreenCallEndCallDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::ILockScreenCallEndCallDeferral>
     {
@@ -964,8 +970,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_ILockScreenCallEndRequestedEventArgs
     {
-        auto GetDeferral() const;
-        [[nodiscard]] auto Deadline() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::LockScreenCallEndCallDeferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Deadline() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::ILockScreenCallEndRequestedEventArgs>
     {
@@ -974,17 +980,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_ILockScreenCallUI
     {
-        auto Dismiss() const;
-        auto EndRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::LockScreenCallUI, Windows::ApplicationModel::Calls::LockScreenCallEndRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Dismiss() const;
+        WINRT_IMPL_AUTO(winrt::event_token) EndRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::LockScreenCallUI, Windows::ApplicationModel::Calls::LockScreenCallEndRequestedEventArgs> const& handler) const;
         using EndRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::ILockScreenCallUI, &impl::abi_t<Windows::ApplicationModel::Calls::ILockScreenCallUI>::remove_EndRequested>;
         [[nodiscard]] EndRequested_revoker EndRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::LockScreenCallUI, Windows::ApplicationModel::Calls::LockScreenCallEndRequestedEventArgs> const& handler) const;
-        auto EndRequested(winrt::event_token const& token) const noexcept;
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::LockScreenCallUI, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) EndRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::LockScreenCallUI, Windows::Foundation::IInspectable> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::ILockScreenCallUI, &impl::abi_t<Windows::ApplicationModel::Calls::ILockScreenCallUI>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::LockScreenCallUI, Windows::Foundation::IInspectable> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto CallTitle() const;
-        auto CallTitle(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallTitle() const;
+        WINRT_IMPL_AUTO(void) CallTitle(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::ILockScreenCallUI>
     {
@@ -993,7 +999,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IMuteChangeEventArgs
     {
-        [[nodiscard]] auto Muted() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Muted() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IMuteChangeEventArgs>
     {
@@ -1002,11 +1008,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallBlockingStatics
     {
-        [[nodiscard]] auto BlockUnknownNumbers() const;
-        auto BlockUnknownNumbers(bool value) const;
-        [[nodiscard]] auto BlockPrivateNumbers() const;
-        auto BlockPrivateNumbers(bool value) const;
-        auto SetCallBlockingListAsync(param::async_iterable<hstring> const& phoneNumberList) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) BlockUnknownNumbers() const;
+        WINRT_IMPL_AUTO(void) BlockUnknownNumbers(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) BlockPrivateNumbers() const;
+        WINRT_IMPL_AUTO(void) BlockPrivateNumbers(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) SetCallBlockingListAsync(param::async_iterable<hstring> const& phoneNumberList) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallBlockingStatics>
     {
@@ -1015,40 +1021,40 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryEntry
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Address() const;
-        auto Address(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryAddress const& value) const;
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto IsCallerIdBlocked() const;
-        auto IsCallerIdBlocked(bool value) const;
-        [[nodiscard]] auto IsEmergency() const;
-        auto IsEmergency(bool value) const;
-        [[nodiscard]] auto IsIncoming() const;
-        auto IsIncoming(bool value) const;
-        [[nodiscard]] auto IsMissed() const;
-        auto IsMissed(bool value) const;
-        [[nodiscard]] auto IsRinging() const;
-        auto IsRinging(bool value) const;
-        [[nodiscard]] auto IsSeen() const;
-        auto IsSeen(bool value) const;
-        [[nodiscard]] auto IsSuppressed() const;
-        auto IsSuppressed(bool value) const;
-        [[nodiscard]] auto IsVoicemail() const;
-        auto IsVoicemail(bool value) const;
-        [[nodiscard]] auto Media() const;
-        auto Media(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryMedia const& value) const;
-        [[nodiscard]] auto OtherAppReadAccess() const;
-        auto OtherAppReadAccess(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryOtherAppReadAccess const& value) const;
-        [[nodiscard]] auto RemoteId() const;
-        auto RemoteId(param::hstring const& value) const;
-        [[nodiscard]] auto SourceDisplayName() const;
-        [[nodiscard]] auto SourceId() const;
-        auto SourceId(param::hstring const& value) const;
-        [[nodiscard]] auto SourceIdKind() const;
-        auto SourceIdKind(Windows::ApplicationModel::Calls::PhoneCallHistorySourceIdKind const& value) const;
-        [[nodiscard]] auto StartTime() const;
-        auto StartTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryAddress) Address() const;
+        WINRT_IMPL_AUTO(void) Address(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryAddress const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCallerIdBlocked() const;
+        WINRT_IMPL_AUTO(void) IsCallerIdBlocked(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEmergency() const;
+        WINRT_IMPL_AUTO(void) IsEmergency(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsIncoming() const;
+        WINRT_IMPL_AUTO(void) IsIncoming(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMissed() const;
+        WINRT_IMPL_AUTO(void) IsMissed(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRinging() const;
+        WINRT_IMPL_AUTO(void) IsRinging(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSeen() const;
+        WINRT_IMPL_AUTO(void) IsSeen(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSuppressed() const;
+        WINRT_IMPL_AUTO(void) IsSuppressed(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVoicemail() const;
+        WINRT_IMPL_AUTO(void) IsVoicemail(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryMedia) Media() const;
+        WINRT_IMPL_AUTO(void) Media(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryMedia const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryOtherAppReadAccess) OtherAppReadAccess() const;
+        WINRT_IMPL_AUTO(void) OtherAppReadAccess(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryOtherAppReadAccess const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RemoteId() const;
+        WINRT_IMPL_AUTO(void) RemoteId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SourceDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SourceId() const;
+        WINRT_IMPL_AUTO(void) SourceId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistorySourceIdKind) SourceIdKind() const;
+        WINRT_IMPL_AUTO(void) SourceIdKind(Windows::ApplicationModel::Calls::PhoneCallHistorySourceIdKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) StartTime() const;
+        WINRT_IMPL_AUTO(void) StartTime(Windows::Foundation::DateTime const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntry>
     {
@@ -1057,14 +1063,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryEntryAddress
     {
-        [[nodiscard]] auto ContactId() const;
-        auto ContactId(param::hstring const& value) const;
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto RawAddress() const;
-        auto RawAddress(param::hstring const& value) const;
-        [[nodiscard]] auto RawAddressKind() const;
-        auto RawAddressKind(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryRawAddressKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContactId() const;
+        WINRT_IMPL_AUTO(void) ContactId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RawAddress() const;
+        WINRT_IMPL_AUTO(void) RawAddress(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryRawAddressKind) RawAddressKind() const;
+        WINRT_IMPL_AUTO(void) RawAddressKind(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryRawAddressKind const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryAddress>
     {
@@ -1073,7 +1079,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryEntryAddressFactory
     {
-        auto Create(param::hstring const& rawAddress, Windows::ApplicationModel::Calls::PhoneCallHistoryEntryRawAddressKind const& rawAddressKind) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryAddress) Create(param::hstring const& rawAddress, Windows::ApplicationModel::Calls::PhoneCallHistoryEntryRawAddressKind const& rawAddressKind) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryAddressFactory>
     {
@@ -1082,9 +1088,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryEntryQueryOptions
     {
-        [[nodiscard]] auto DesiredMedia() const;
-        auto DesiredMedia(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryDesiredMedia const& value) const;
-        [[nodiscard]] auto SourceIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryDesiredMedia) DesiredMedia() const;
+        WINRT_IMPL_AUTO(void) DesiredMedia(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryDesiredMedia const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) SourceIds() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryQueryOptions>
     {
@@ -1093,7 +1099,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryEntryReader
     {
-        auto ReadBatchAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Calls::PhoneCallHistoryEntry>>) ReadBatchAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryEntryReader>
     {
@@ -1102,8 +1108,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryManagerForUser
     {
-        auto RequestStoreAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryStoreAccessType const& accessType) const;
-        [[nodiscard]] auto User() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Calls::PhoneCallHistoryStore>) RequestStoreAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryStoreAccessType const& accessType) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerForUser>
     {
@@ -1112,7 +1118,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryManagerStatics
     {
-        auto RequestStoreAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryStoreAccessType const& accessType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Calls::PhoneCallHistoryStore>) RequestStoreAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryStoreAccessType const& accessType) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerStatics>
     {
@@ -1121,7 +1127,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryManagerStatics2
     {
-        auto GetForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryManagerForUser) GetForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryManagerStatics2>
     {
@@ -1130,18 +1136,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallHistoryStore
     {
-        auto GetEntryAsync(param::hstring const& callHistoryEntryId) const;
-        auto GetEntryReader() const;
-        auto GetEntryReader(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryOptions const& queryOptions) const;
-        auto SaveEntryAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryEntry const& callHistoryEntry) const;
-        auto DeleteEntryAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryEntry const& callHistoryEntry) const;
-        auto DeleteEntriesAsync(param::async_iterable<Windows::ApplicationModel::Calls::PhoneCallHistoryEntry> const& callHistoryEntries) const;
-        auto MarkEntryAsSeenAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryEntry const& callHistoryEntry) const;
-        auto MarkEntriesAsSeenAsync(param::async_iterable<Windows::ApplicationModel::Calls::PhoneCallHistoryEntry> const& callHistoryEntries) const;
-        auto GetUnseenCountAsync() const;
-        auto MarkAllAsSeenAsync() const;
-        auto GetSourcesUnseenCountAsync(param::async_iterable<hstring> const& sourceIds) const;
-        auto MarkSourcesAsSeenAsync(param::async_iterable<hstring> const& sourceIds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Calls::PhoneCallHistoryEntry>) GetEntryAsync(param::hstring const& callHistoryEntryId) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryReader) GetEntryReader() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryReader) GetEntryReader(Windows::ApplicationModel::Calls::PhoneCallHistoryEntryQueryOptions const& queryOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveEntryAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryEntry const& callHistoryEntry) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteEntryAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryEntry const& callHistoryEntry) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteEntriesAsync(param::async_iterable<Windows::ApplicationModel::Calls::PhoneCallHistoryEntry> const& callHistoryEntries) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) MarkEntryAsSeenAsync(Windows::ApplicationModel::Calls::PhoneCallHistoryEntry const& callHistoryEntry) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) MarkEntriesAsSeenAsync(param::async_iterable<Windows::ApplicationModel::Calls::PhoneCallHistoryEntry> const& callHistoryEntries) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint32_t>) GetUnseenCountAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) MarkAllAsSeenAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint32_t>) GetSourcesUnseenCountAsync(param::async_iterable<hstring> const& sourceIds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) MarkSourcesAsSeenAsync(param::async_iterable<hstring> const& sourceIds) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallHistoryStore>
     {
@@ -1150,7 +1156,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallManagerStatics
     {
-        auto ShowPhoneCallUI(param::hstring const& phoneNumber, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(void) ShowPhoneCallUI(param::hstring const& phoneNumber, param::hstring const& displayName) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallManagerStatics>
     {
@@ -1159,14 +1165,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallManagerStatics2
     {
-        auto CallStateChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) CallStateChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using CallStateChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IPhoneCallManagerStatics2, &impl::abi_t<Windows::ApplicationModel::Calls::IPhoneCallManagerStatics2>::remove_CallStateChanged>;
         [[nodiscard]] CallStateChanged_revoker CallStateChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto CallStateChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto IsCallActive() const;
-        [[nodiscard]] auto IsCallIncoming() const;
-        auto ShowPhoneCallSettingsUI() const;
-        auto RequestStoreAsync() const;
+        WINRT_IMPL_AUTO(void) CallStateChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCallActive() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCallIncoming() const;
+        WINRT_IMPL_AUTO(void) ShowPhoneCallSettingsUI() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Calls::PhoneCallStore>) RequestStoreAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallManagerStatics2>
     {
@@ -1175,9 +1181,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallStore
     {
-        auto IsEmergencyPhoneNumberAsync(param::hstring const& number) const;
-        auto GetDefaultLineAsync() const;
-        auto RequestLineWatcher() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsEmergencyPhoneNumberAsync(param::hstring const& number) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<winrt::guid>) GetDefaultLineAsync() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneLineWatcher) RequestLineWatcher() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallStore>
     {
@@ -1186,7 +1192,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallVideoCapabilities
     {
-        [[nodiscard]] auto IsVideoCallingCapable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVideoCallingCapable() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallVideoCapabilities>
     {
@@ -1195,7 +1201,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneCallVideoCapabilitiesManagerStatics
     {
-        auto GetCapabilitiesAsync(param::hstring const& phoneNumber) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Calls::PhoneCallVideoCapabilities>) GetCapabilitiesAsync(param::hstring const& phoneNumber) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneCallVideoCapabilitiesManagerStatics>
     {
@@ -1204,18 +1210,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneDialOptions
     {
-        [[nodiscard]] auto Number() const;
-        auto Number(param::hstring const& value) const;
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto Contact() const;
-        auto Contact(Windows::ApplicationModel::Contacts::Contact const& value) const;
-        [[nodiscard]] auto ContactPhone() const;
-        auto ContactPhone(Windows::ApplicationModel::Contacts::ContactPhone const& value) const;
-        [[nodiscard]] auto Media() const;
-        auto Media(Windows::ApplicationModel::Calls::PhoneCallMedia const& value) const;
-        [[nodiscard]] auto AudioEndpoint() const;
-        auto AudioEndpoint(Windows::ApplicationModel::Calls::PhoneAudioRoutingEndpoint const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Number() const;
+        WINRT_IMPL_AUTO(void) Number(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Contact) Contact() const;
+        WINRT_IMPL_AUTO(void) Contact(Windows::ApplicationModel::Contacts::Contact const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactPhone) ContactPhone() const;
+        WINRT_IMPL_AUTO(void) ContactPhone(Windows::ApplicationModel::Contacts::ContactPhone const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallMedia) Media() const;
+        WINRT_IMPL_AUTO(void) Media(Windows::ApplicationModel::Calls::PhoneCallMedia const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneAudioRoutingEndpoint) AudioEndpoint() const;
+        WINRT_IMPL_AUTO(void) AudioEndpoint(Windows::ApplicationModel::Calls::PhoneAudioRoutingEndpoint const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneDialOptions>
     {
@@ -1224,25 +1230,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLine
     {
-        auto LineChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLine, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) LineChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLine, Windows::Foundation::IInspectable> const& handler) const;
         using LineChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IPhoneLine, &impl::abi_t<Windows::ApplicationModel::Calls::IPhoneLine>::remove_LineChanged>;
         [[nodiscard]] LineChanged_revoker LineChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLine, Windows::Foundation::IInspectable> const& handler) const;
-        auto LineChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto DisplayColor() const;
-        [[nodiscard]] auto NetworkState() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto Voicemail() const;
-        [[nodiscard]] auto NetworkName() const;
-        [[nodiscard]] auto CellularDetails() const;
-        [[nodiscard]] auto Transport() const;
-        [[nodiscard]] auto CanDial() const;
-        [[nodiscard]] auto SupportsTile() const;
-        [[nodiscard]] auto VideoCallingCapabilities() const;
-        [[nodiscard]] auto LineConfiguration() const;
-        auto IsImmediateDialNumberAsync(param::hstring const& number) const;
-        auto Dial(param::hstring const& number, param::hstring const& displayName) const;
-        auto DialWithOptions(Windows::ApplicationModel::Calls::PhoneDialOptions const& options) const;
+        WINRT_IMPL_AUTO(void) LineChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) DisplayColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneNetworkState) NetworkState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneVoicemail) Voicemail() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NetworkName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneLineCellularDetails) CellularDetails() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneLineTransport) Transport() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanDial() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsTile() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneCallVideoCapabilities) VideoCallingCapabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneLineConfiguration) LineConfiguration() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsImmediateDialNumberAsync(param::hstring const& number) const;
+        WINRT_IMPL_AUTO(void) Dial(param::hstring const& number, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(void) DialWithOptions(Windows::ApplicationModel::Calls::PhoneDialOptions const& options) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLine>
     {
@@ -1251,8 +1257,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLine2
     {
-        auto EnableTextReply(bool value) const;
-        [[nodiscard]] auto TransportDeviceId() const;
+        WINRT_IMPL_AUTO(void) EnableTextReply(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TransportDeviceId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLine2>
     {
@@ -1261,11 +1267,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLineCellularDetails
     {
-        [[nodiscard]] auto SimState() const;
-        [[nodiscard]] auto SimSlotIndex() const;
-        [[nodiscard]] auto IsModemOn() const;
-        [[nodiscard]] auto RegistrationRejectCode() const;
-        auto GetNetworkOperatorDisplayText(Windows::ApplicationModel::Calls::PhoneLineNetworkOperatorDisplayTextLocation const& location) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneSimState) SimState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SimSlotIndex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsModemOn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RegistrationRejectCode() const;
+        WINRT_IMPL_AUTO(hstring) GetNetworkOperatorDisplayText(Windows::ApplicationModel::Calls::PhoneLineNetworkOperatorDisplayTextLocation const& location) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLineCellularDetails>
     {
@@ -1274,8 +1280,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLineConfiguration
     {
-        [[nodiscard]] auto IsVideoCallingEnabled() const;
-        [[nodiscard]] auto ExtendedProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVideoCallingEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) ExtendedProperties() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLineConfiguration>
     {
@@ -1284,7 +1290,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLineStatics
     {
-        auto FromIdAsync(winrt::guid const& lineId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Calls::PhoneLine>) FromIdAsync(winrt::guid const& lineId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLineStatics>
     {
@@ -1293,16 +1299,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLineTransportDevice
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Transport() const;
-        auto RequestAccessAsync() const;
-        auto RegisterApp() const;
-        auto RegisterAppForUser(Windows::System::User const& user) const;
-        auto UnregisterApp() const;
-        auto UnregisterAppForUser(Windows::System::User const& user) const;
-        auto IsRegistered() const;
-        auto Connect() const;
-        auto ConnectAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneLineTransport) Transport() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Enumeration::DeviceAccessStatus>) RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(void) RegisterApp() const;
+        WINRT_IMPL_AUTO(void) RegisterAppForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(void) UnregisterApp() const;
+        WINRT_IMPL_AUTO(void) UnregisterAppForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(bool) IsRegistered() const;
+        WINRT_IMPL_AUTO(bool) Connect() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ConnectAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLineTransportDevice>
     {
@@ -1311,9 +1317,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLineTransportDeviceStatics
     {
-        auto FromId(param::hstring const& id) const;
-        auto GetDeviceSelector() const;
-        auto GetDeviceSelector(Windows::ApplicationModel::Calls::PhoneLineTransport const& transport) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneLineTransportDevice) FromId(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::ApplicationModel::Calls::PhoneLineTransport const& transport) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLineTransportDeviceStatics>
     {
@@ -1322,29 +1328,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLineWatcher
     {
-        auto Start() const;
-        auto Stop() const;
-        auto LineAdded(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) LineAdded(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
         using LineAdded_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IPhoneLineWatcher, &impl::abi_t<Windows::ApplicationModel::Calls::IPhoneLineWatcher>::remove_LineAdded>;
         [[nodiscard]] LineAdded_revoker LineAdded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
-        auto LineAdded(winrt::event_token const& token) const noexcept;
-        auto LineRemoved(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) LineAdded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LineRemoved(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
         using LineRemoved_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IPhoneLineWatcher, &impl::abi_t<Windows::ApplicationModel::Calls::IPhoneLineWatcher>::remove_LineRemoved>;
         [[nodiscard]] LineRemoved_revoker LineRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
-        auto LineRemoved(winrt::event_token const& token) const noexcept;
-        auto LineUpdated(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) LineRemoved(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LineUpdated(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
         using LineUpdated_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IPhoneLineWatcher, &impl::abi_t<Windows::ApplicationModel::Calls::IPhoneLineWatcher>::remove_LineUpdated>;
         [[nodiscard]] LineUpdated_revoker LineUpdated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::ApplicationModel::Calls::PhoneLineWatcherEventArgs> const& handler) const;
-        auto LineUpdated(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) LineUpdated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IPhoneLineWatcher, &impl::abi_t<Windows::ApplicationModel::Calls::IPhoneLineWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IPhoneLineWatcher, &impl::abi_t<Windows::ApplicationModel::Calls::IPhoneLineWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::PhoneLineWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneLineWatcherStatus) Status() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLineWatcher>
     {
@@ -1353,7 +1359,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneLineWatcherEventArgs
     {
-        [[nodiscard]] auto LineId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) LineId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneLineWatcherEventArgs>
     {
@@ -1362,10 +1368,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IPhoneVoicemail
     {
-        [[nodiscard]] auto Number() const;
-        [[nodiscard]] auto MessageCount() const;
-        [[nodiscard]] auto Type() const;
-        auto DialVoicemailAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Number() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MessageCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::PhoneVoicemailType) Type() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DialVoicemailAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IPhoneVoicemail>
     {
@@ -1374,19 +1380,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IVoipCallCoordinator
     {
-        auto ReserveCallResourcesAsync(param::hstring const& taskEntryPoint) const;
-        auto MuteStateChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipCallCoordinator, Windows::ApplicationModel::Calls::MuteChangeEventArgs> const& muteChangeHandler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Calls::VoipPhoneCallResourceReservationStatus>) ReserveCallResourcesAsync(param::hstring const& taskEntryPoint) const;
+        WINRT_IMPL_AUTO(winrt::event_token) MuteStateChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipCallCoordinator, Windows::ApplicationModel::Calls::MuteChangeEventArgs> const& muteChangeHandler) const;
         using MuteStateChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IVoipCallCoordinator, &impl::abi_t<Windows::ApplicationModel::Calls::IVoipCallCoordinator>::remove_MuteStateChanged>;
         [[nodiscard]] MuteStateChanged_revoker MuteStateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipCallCoordinator, Windows::ApplicationModel::Calls::MuteChangeEventArgs> const& muteChangeHandler) const;
-        auto MuteStateChanged(winrt::event_token const& token) const noexcept;
-        auto RequestNewIncomingCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, Windows::Foundation::Uri const& contactImage, param::hstring const& serviceName, Windows::Foundation::Uri const& brandingImage, param::hstring const& callDetails, Windows::Foundation::Uri const& ringtone, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media, Windows::Foundation::TimeSpan const& ringTimeout) const;
-        auto RequestNewOutgoingCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& serviceName, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media) const;
-        auto NotifyMuted() const;
-        auto NotifyUnmuted() const;
-        auto RequestOutgoingUpgradeToVideoCall(winrt::guid const& callUpgradeGuid, param::hstring const& context, param::hstring const& contactName, param::hstring const& serviceName) const;
-        auto RequestIncomingUpgradeToVideoCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, Windows::Foundation::Uri const& contactImage, param::hstring const& serviceName, Windows::Foundation::Uri const& brandingImage, param::hstring const& callDetails, Windows::Foundation::Uri const& ringtone, Windows::Foundation::TimeSpan const& ringTimeout) const;
-        auto TerminateCellularCall(winrt::guid const& callUpgradeGuid) const;
-        auto CancelUpgrade(winrt::guid const& callUpgradeGuid) const;
+        WINRT_IMPL_AUTO(void) MuteStateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCall) RequestNewIncomingCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, Windows::Foundation::Uri const& contactImage, param::hstring const& serviceName, Windows::Foundation::Uri const& brandingImage, param::hstring const& callDetails, Windows::Foundation::Uri const& ringtone, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media, Windows::Foundation::TimeSpan const& ringTimeout) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCall) RequestNewOutgoingCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& serviceName, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media) const;
+        WINRT_IMPL_AUTO(void) NotifyMuted() const;
+        WINRT_IMPL_AUTO(void) NotifyUnmuted() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCall) RequestOutgoingUpgradeToVideoCall(winrt::guid const& callUpgradeGuid, param::hstring const& context, param::hstring const& contactName, param::hstring const& serviceName) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCall) RequestIncomingUpgradeToVideoCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, Windows::Foundation::Uri const& contactImage, param::hstring const& serviceName, Windows::Foundation::Uri const& brandingImage, param::hstring const& callDetails, Windows::Foundation::Uri const& ringtone, Windows::Foundation::TimeSpan const& ringTimeout) const;
+        WINRT_IMPL_AUTO(void) TerminateCellularCall(winrt::guid const& callUpgradeGuid) const;
+        WINRT_IMPL_AUTO(void) CancelUpgrade(winrt::guid const& callUpgradeGuid) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IVoipCallCoordinator>
     {
@@ -1395,7 +1401,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IVoipCallCoordinator2
     {
-        auto SetupNewAcceptedCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, param::hstring const& serviceName, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCall) SetupNewAcceptedCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, param::hstring const& serviceName, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IVoipCallCoordinator2>
     {
@@ -1404,8 +1410,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IVoipCallCoordinator3
     {
-        auto RequestNewAppInitiatedCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, param::hstring const& serviceName, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media) const;
-        auto RequestNewIncomingCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, Windows::Foundation::Uri const& contactImage, param::hstring const& serviceName, Windows::Foundation::Uri const& brandingImage, param::hstring const& callDetails, Windows::Foundation::Uri const& ringtone, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media, Windows::Foundation::TimeSpan const& ringTimeout, param::hstring const& contactRemoteId) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCall) RequestNewAppInitiatedCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, param::hstring const& serviceName, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCall) RequestNewIncomingCall(param::hstring const& context, param::hstring const& contactName, param::hstring const& contactNumber, Windows::Foundation::Uri const& contactImage, param::hstring const& serviceName, Windows::Foundation::Uri const& brandingImage, param::hstring const& callDetails, Windows::Foundation::Uri const& ringtone, Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media, Windows::Foundation::TimeSpan const& ringTimeout, param::hstring const& contactRemoteId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IVoipCallCoordinator3>
     {
@@ -1414,7 +1420,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IVoipCallCoordinator4
     {
-        auto ReserveCallResourcesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Calls::VoipPhoneCallResourceReservationStatus>) ReserveCallResourcesAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IVoipCallCoordinator4>
     {
@@ -1423,7 +1429,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IVoipCallCoordinatorStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipCallCoordinator) GetDefault() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IVoipCallCoordinatorStatics>
     {
@@ -1432,36 +1438,36 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IVoipPhoneCall
     {
-        auto EndRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) EndRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
         using EndRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IVoipPhoneCall, &impl::abi_t<Windows::ApplicationModel::Calls::IVoipPhoneCall>::remove_EndRequested>;
         [[nodiscard]] EndRequested_revoker EndRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
-        auto EndRequested(winrt::event_token const& token) const noexcept;
-        auto HoldRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) EndRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) HoldRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
         using HoldRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IVoipPhoneCall, &impl::abi_t<Windows::ApplicationModel::Calls::IVoipPhoneCall>::remove_HoldRequested>;
         [[nodiscard]] HoldRequested_revoker HoldRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
-        auto HoldRequested(winrt::event_token const& token) const noexcept;
-        auto ResumeRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) HoldRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ResumeRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
         using ResumeRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IVoipPhoneCall, &impl::abi_t<Windows::ApplicationModel::Calls::IVoipPhoneCall>::remove_ResumeRequested>;
         [[nodiscard]] ResumeRequested_revoker ResumeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallStateChangeEventArgs> const& handler) const;
-        auto ResumeRequested(winrt::event_token const& token) const noexcept;
-        auto AnswerRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallAnswerEventArgs> const& acceptHandler) const;
+        WINRT_IMPL_AUTO(void) ResumeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AnswerRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallAnswerEventArgs> const& acceptHandler) const;
         using AnswerRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IVoipPhoneCall, &impl::abi_t<Windows::ApplicationModel::Calls::IVoipPhoneCall>::remove_AnswerRequested>;
         [[nodiscard]] AnswerRequested_revoker AnswerRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallAnswerEventArgs> const& acceptHandler) const;
-        auto AnswerRequested(winrt::event_token const& token) const noexcept;
-        auto RejectRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallRejectEventArgs> const& rejectHandler) const;
+        WINRT_IMPL_AUTO(void) AnswerRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) RejectRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallRejectEventArgs> const& rejectHandler) const;
         using RejectRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Calls::IVoipPhoneCall, &impl::abi_t<Windows::ApplicationModel::Calls::IVoipPhoneCall>::remove_RejectRequested>;
         [[nodiscard]] RejectRequested_revoker RejectRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Calls::VoipPhoneCall, Windows::ApplicationModel::Calls::CallRejectEventArgs> const& rejectHandler) const;
-        auto RejectRequested(winrt::event_token const& token) const noexcept;
-        auto NotifyCallHeld() const;
-        auto NotifyCallActive() const;
-        auto NotifyCallEnded() const;
-        [[nodiscard]] auto ContactName() const;
-        auto ContactName(param::hstring const& value) const;
-        [[nodiscard]] auto StartTime() const;
-        auto StartTime(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto CallMedia() const;
-        auto CallMedia(Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& value) const;
-        auto NotifyCallReady() const;
+        WINRT_IMPL_AUTO(void) RejectRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) NotifyCallHeld() const;
+        WINRT_IMPL_AUTO(void) NotifyCallActive() const;
+        WINRT_IMPL_AUTO(void) NotifyCallEnded() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContactName() const;
+        WINRT_IMPL_AUTO(void) ContactName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) StartTime() const;
+        WINRT_IMPL_AUTO(void) StartTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::VoipPhoneCallMedia) CallMedia() const;
+        WINRT_IMPL_AUTO(void) CallMedia(Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& value) const;
+        WINRT_IMPL_AUTO(void) NotifyCallReady() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IVoipPhoneCall>
     {
@@ -1470,7 +1476,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IVoipPhoneCall2
     {
-        auto TryShowAppUI() const;
+        WINRT_IMPL_AUTO(void) TryShowAppUI() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IVoipPhoneCall2>
     {
@@ -1479,7 +1485,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_IVoipPhoneCall3
     {
-        auto NotifyCallAccepted(Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media) const;
+        WINRT_IMPL_AUTO(void) NotifyCallAccepted(Windows::ApplicationModel::Calls::VoipPhoneCallMedia const& media) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::IVoipPhoneCall3>
     {

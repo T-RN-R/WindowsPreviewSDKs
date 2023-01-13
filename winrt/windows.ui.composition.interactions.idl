@@ -428,7 +428,7 @@ namespace Windows
                 [uuid(D3EF5DA2-A254-40E4-88D5-44E4E16B5809)]
                 interface IInteractionTracker5 : IInspectable
                 {
-                    [overload("TryUpdatePosition")] HRESULT TryUpdatePositionWithOption([in] Windows.Foundation.Numerics.Vector3 value, [in] Windows.UI.Composition.Interactions.InteractionTrackerClampingOption option, [in] Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption posUpdateOption, [out] [retval] INT32* result);
+                    [overload("TryUpdatePosition")] HRESULT TryUpdatePositionWithOptions([in] Windows.Foundation.Numerics.Vector3 value, [in] Windows.UI.Composition.Interactions.InteractionTrackerClampingOption option, [in] Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption posUpdateOption, [out] [retval] INT32* result);
                 }
 
                 [contract(Windows.Foundation.UniversalApiContract, 3.0)]

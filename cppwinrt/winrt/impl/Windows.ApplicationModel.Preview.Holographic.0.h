@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -31,13 +31,11 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreviewStatics>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::Preview::Holographic::HolographicApplicationPreview>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Preview::Holographic::HolographicKeyboardPlacementOverridePreview>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::HolographicApplicationPreview>{ L"Windows.ApplicationModel.Preview.Holographic.HolographicApplicationPreview" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::HolographicKeyboardPlacementOverridePreview>{ L"Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicApplicationPreviewStatics>{ L"Windows.ApplicationModel.Preview.Holographic.IHolographicApplicationPreviewStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreview>{ L"Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreview" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreviewStatics>{ L"Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreviewStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::HolographicApplicationPreview> = L"Windows.ApplicationModel.Preview.Holographic.HolographicApplicationPreview";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::HolographicKeyboardPlacementOverridePreview> = L"Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicApplicationPreviewStatics> = L"Windows.ApplicationModel.Preview.Holographic.IHolographicApplicationPreviewStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreview> = L"Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreview";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreviewStatics> = L"Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreviewStatics";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicApplicationPreviewStatics>{ 0xFE038691,0x2A3A,0x45A9,{ 0xA2,0x08,0x7B,0xED,0x69,0x19,0x19,0xF3 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreview>{ 0xC8A8CE3A,0xDFDE,0x5A14,{ 0x8D,0x5F,0x18,0x2C,0x52,0x6D,0xD9,0xC4 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreviewStatics>{ 0x202E6039,0x1FF6,0x5A06,{ 0xAA,0xC4,0xA5,0xE2,0x4F,0xA3,0xEC,0x4B } };
@@ -69,8 +67,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Preview_Holographic_IHolographicApplicationPreviewStatics
     {
-        auto IsCurrentViewPresentedOnHolographicDisplay() const;
-        auto IsHolographicActivation(Windows::ApplicationModel::Activation::IActivatedEventArgs const& activatedEventArgs) const;
+        WINRT_IMPL_AUTO(bool) IsCurrentViewPresentedOnHolographicDisplay() const;
+        WINRT_IMPL_AUTO(bool) IsHolographicActivation(Windows::ApplicationModel::Activation::IActivatedEventArgs const& activatedEventArgs) const;
     };
     template <> struct consume<Windows::ApplicationModel::Preview::Holographic::IHolographicApplicationPreviewStatics>
     {
@@ -79,9 +77,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Preview_Holographic_IHolographicKeyboardPlacementOverridePreview
     {
-        auto SetPlacementOverride(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& topCenterPosition, Windows::Foundation::Numerics::float3 const& normal) const;
-        auto SetPlacementOverride(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& topCenterPosition, Windows::Foundation::Numerics::float3 const& normal, Windows::Foundation::Numerics::float2 const& maxSize) const;
-        auto ResetPlacementOverride() const;
+        WINRT_IMPL_AUTO(void) SetPlacementOverride(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& topCenterPosition, Windows::Foundation::Numerics::float3 const& normal) const;
+        WINRT_IMPL_AUTO(void) SetPlacementOverride(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& topCenterPosition, Windows::Foundation::Numerics::float3 const& normal, Windows::Foundation::Numerics::float2 const& maxSize) const;
+        WINRT_IMPL_AUTO(void) ResetPlacementOverride() const;
     };
     template <> struct consume<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreview>
     {
@@ -90,7 +88,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Preview_Holographic_IHolographicKeyboardPlacementOverridePreviewStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Preview::Holographic::HolographicKeyboardPlacementOverridePreview) GetForCurrentView() const;
     };
     template <> struct consume<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreviewStatics>
     {

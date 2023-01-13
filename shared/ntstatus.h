@@ -24673,6 +24673,24 @@ Notes:
 #define STATUS_SYSTEM_INTEGRITY_SUPPLEMENTAL_POLICY_NOT_AUTHORIZED ((NTSTATUS)0xC0E90006L)
 
 //
+// MessageId: STATUS_SYSTEM_INTEGRITY_REPUTATION_MALICIOUS
+//
+// MessageText:
+//
+// System Integrity policy has been violated.  Malicious binary reputation.
+//
+#define STATUS_SYSTEM_INTEGRITY_REPUTATION_MALICIOUS ((NTSTATUS)0xC0E90007L)
+
+//
+// MessageId: STATUS_SYSTEM_INTEGRITY_REPUTATION_PUA
+//
+// MessageText:
+//
+// System Integrity policy has been violated.  Potentially unwanted application.
+//
+#define STATUS_SYSTEM_INTEGRITY_REPUTATION_PUA ((NTSTATUS)0xC0E90008L)
+
+//
 // Clip modern app and windows licensing error messages.
 //
 //

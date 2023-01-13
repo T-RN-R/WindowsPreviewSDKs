@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -295,7 +295,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Input
         InputScopeName(std::nullptr_t) noexcept {}
         InputScopeName(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Xaml::Input::IInputScopeName(ptr, take_ownership_from_abi) {}
         InputScopeName();
-        InputScopeName(Windows::UI::Xaml::Input::InputScopeNameValue const& nameValue);
+        explicit InputScopeName(Windows::UI::Xaml::Input::InputScopeNameValue const& nameValue);
     };
     struct __declspec(empty_bases) KeyRoutedEventArgs : Windows::UI::Xaml::Input::IKeyRoutedEventArgs,
         impl::base<KeyRoutedEventArgs, Windows::UI::Xaml::RoutedEventArgs>,
@@ -415,7 +415,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Input
         StandardUICommand(std::nullptr_t) noexcept {}
         StandardUICommand(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Xaml::Input::IStandardUICommand(ptr, take_ownership_from_abi) {}
         StandardUICommand();
-        StandardUICommand(Windows::UI::Xaml::Input::StandardUICommandKind const& kind);
+        explicit StandardUICommand(Windows::UI::Xaml::Input::StandardUICommandKind const& kind);
         using Windows::UI::Xaml::Input::IStandardUICommand::Kind;
         using impl::consume_t<StandardUICommand, Windows::UI::Xaml::Input::IStandardUICommand2>::Kind;
         [[nodiscard]] static auto KindProperty();

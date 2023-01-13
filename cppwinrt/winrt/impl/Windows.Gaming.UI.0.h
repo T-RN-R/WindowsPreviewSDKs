@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -60,21 +60,19 @@ namespace winrt::impl
     template <> struct category<Windows::Gaming::UI::GameUIProviderActivatedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Gaming::UI::GameChatMessageOrigin>{ using type = enum_category; };
     template <> struct category<Windows::Gaming::UI::GameChatOverlayPosition>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameBar>{ L"Windows.Gaming.UI.GameBar" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatMessageReceivedEventArgs>{ L"Windows.Gaming.UI.GameChatMessageReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatOverlay>{ L"Windows.Gaming.UI.GameChatOverlay" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatOverlayMessageSource>{ L"Windows.Gaming.UI.GameChatOverlayMessageSource" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameUIProviderActivatedEventArgs>{ L"Windows.Gaming.UI.GameUIProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatMessageOrigin>{ L"Windows.Gaming.UI.GameChatMessageOrigin" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatOverlayPosition>{ L"Windows.Gaming.UI.GameChatOverlayPosition" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameBarStatics>{ L"Windows.Gaming.UI.IGameBarStatics" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatMessageReceivedEventArgs>{ L"Windows.Gaming.UI.IGameChatMessageReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatOverlay>{ L"Windows.Gaming.UI.IGameChatOverlay" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatOverlayMessageSource>{ L"Windows.Gaming.UI.IGameChatOverlayMessageSource" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatOverlayStatics>{ L"Windows.Gaming.UI.IGameChatOverlayStatics" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameUIProviderActivatedEventArgs>{ L"Windows.Gaming.UI.IGameUIProviderActivatedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameBar> = L"Windows.Gaming.UI.GameBar";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatMessageReceivedEventArgs> = L"Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatOverlay> = L"Windows.Gaming.UI.GameChatOverlay";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatOverlayMessageSource> = L"Windows.Gaming.UI.GameChatOverlayMessageSource";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameUIProviderActivatedEventArgs> = L"Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatMessageOrigin> = L"Windows.Gaming.UI.GameChatMessageOrigin";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::GameChatOverlayPosition> = L"Windows.Gaming.UI.GameChatOverlayPosition";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameBarStatics> = L"Windows.Gaming.UI.IGameBarStatics";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatMessageReceivedEventArgs> = L"Windows.Gaming.UI.IGameChatMessageReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatOverlay> = L"Windows.Gaming.UI.IGameChatOverlay";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatOverlayMessageSource> = L"Windows.Gaming.UI.IGameChatOverlayMessageSource";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatOverlayStatics> = L"Windows.Gaming.UI.IGameChatOverlayStatics";
+    template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameUIProviderActivatedEventArgs> = L"Windows.Gaming.UI.IGameUIProviderActivatedEventArgs";
     template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameBarStatics>{ 0x1DB9A292,0xCC78,0x4173,{ 0xBE,0x45,0xB6,0x1E,0x67,0x28,0x3E,0xA7 } };
     template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatMessageReceivedEventArgs>{ 0xA28201F1,0x3FB9,0x4E42,{ 0xA4,0x03,0x7A,0xFC,0xE2,0x02,0x3B,0x1E } };
     template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatOverlay>{ 0xFBC64865,0xF6FC,0x4A48,{ 0xAE,0x07,0x03,0xAC,0x6E,0xD4,0x37,0x04 } };
@@ -144,16 +142,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_UI_IGameBarStatics
     {
-        auto VisibilityChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) VisibilityChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using VisibilityChanged_revoker = impl::event_revoker<Windows::Gaming::UI::IGameBarStatics, &impl::abi_t<Windows::Gaming::UI::IGameBarStatics>::remove_VisibilityChanged>;
         [[nodiscard]] VisibilityChanged_revoker VisibilityChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto VisibilityChanged(winrt::event_token const& token) const noexcept;
-        auto IsInputRedirectedChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) VisibilityChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) IsInputRedirectedChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using IsInputRedirectedChanged_revoker = impl::event_revoker<Windows::Gaming::UI::IGameBarStatics, &impl::abi_t<Windows::Gaming::UI::IGameBarStatics>::remove_IsInputRedirectedChanged>;
         [[nodiscard]] IsInputRedirectedChanged_revoker IsInputRedirectedChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto IsInputRedirectedChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Visible() const;
-        [[nodiscard]] auto IsInputRedirected() const;
+        WINRT_IMPL_AUTO(void) IsInputRedirectedChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Visible() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsInputRedirected() const;
     };
     template <> struct consume<Windows::Gaming::UI::IGameBarStatics>
     {
@@ -162,11 +160,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_UI_IGameChatMessageReceivedEventArgs
     {
-        [[nodiscard]] auto AppId() const;
-        [[nodiscard]] auto AppDisplayName() const;
-        [[nodiscard]] auto SenderName() const;
-        [[nodiscard]] auto Message() const;
-        [[nodiscard]] auto Origin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SenderName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::UI::GameChatMessageOrigin) Origin() const;
     };
     template <> struct consume<Windows::Gaming::UI::IGameChatMessageReceivedEventArgs>
     {
@@ -175,9 +173,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_UI_IGameChatOverlay
     {
-        [[nodiscard]] auto DesiredPosition() const;
-        auto DesiredPosition(Windows::Gaming::UI::GameChatOverlayPosition const& value) const;
-        auto AddMessage(param::hstring const& sender, param::hstring const& message, Windows::Gaming::UI::GameChatMessageOrigin const& origin) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::UI::GameChatOverlayPosition) DesiredPosition() const;
+        WINRT_IMPL_AUTO(void) DesiredPosition(Windows::Gaming::UI::GameChatOverlayPosition const& value) const;
+        WINRT_IMPL_AUTO(void) AddMessage(param::hstring const& sender, param::hstring const& message, Windows::Gaming::UI::GameChatMessageOrigin const& origin) const;
     };
     template <> struct consume<Windows::Gaming::UI::IGameChatOverlay>
     {
@@ -186,11 +184,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_UI_IGameChatOverlayMessageSource
     {
-        auto MessageReceived(Windows::Foundation::TypedEventHandler<Windows::Gaming::UI::GameChatOverlayMessageSource, Windows::Gaming::UI::GameChatMessageReceivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) MessageReceived(Windows::Foundation::TypedEventHandler<Windows::Gaming::UI::GameChatOverlayMessageSource, Windows::Gaming::UI::GameChatMessageReceivedEventArgs> const& handler) const;
         using MessageReceived_revoker = impl::event_revoker<Windows::Gaming::UI::IGameChatOverlayMessageSource, &impl::abi_t<Windows::Gaming::UI::IGameChatOverlayMessageSource>::remove_MessageReceived>;
         [[nodiscard]] MessageReceived_revoker MessageReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Gaming::UI::GameChatOverlayMessageSource, Windows::Gaming::UI::GameChatMessageReceivedEventArgs> const& handler) const;
-        auto MessageReceived(winrt::event_token const& token) const noexcept;
-        auto SetDelayBeforeClosingAfterMessageReceived(Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(void) MessageReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SetDelayBeforeClosingAfterMessageReceived(Windows::Foundation::TimeSpan const& value) const;
     };
     template <> struct consume<Windows::Gaming::UI::IGameChatOverlayMessageSource>
     {
@@ -199,7 +197,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_UI_IGameChatOverlayStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Gaming::UI::GameChatOverlay) GetDefault() const;
     };
     template <> struct consume<Windows::Gaming::UI::IGameChatOverlayStatics>
     {
@@ -208,8 +206,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_UI_IGameUIProviderActivatedEventArgs
     {
-        [[nodiscard]] auto GameUIArgs() const;
-        auto ReportCompleted(Windows::Foundation::Collections::ValueSet const& results) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) GameUIArgs() const;
+        WINRT_IMPL_AUTO(void) ReportCompleted(Windows::Foundation::Collections::ValueSet const& results) const;
     };
     template <> struct consume<Windows::Gaming::UI::IGameUIProviderActivatedEventArgs>
     {

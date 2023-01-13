@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -76,31 +76,29 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Shapes::Polyline>{ using type = class_category; };
     template <> struct category<Windows::UI::Xaml::Shapes::Rectangle>{ using type = class_category; };
     template <> struct category<Windows::UI::Xaml::Shapes::Shape>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Ellipse>{ L"Windows.UI.Xaml.Shapes.Ellipse" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Line>{ L"Windows.UI.Xaml.Shapes.Line" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Path>{ L"Windows.UI.Xaml.Shapes.Path" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Polygon>{ L"Windows.UI.Xaml.Shapes.Polygon" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Polyline>{ L"Windows.UI.Xaml.Shapes.Polyline" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Rectangle>{ L"Windows.UI.Xaml.Shapes.Rectangle" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Shape>{ L"Windows.UI.Xaml.Shapes.Shape" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IEllipse>{ L"Windows.UI.Xaml.Shapes.IEllipse" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::ILine>{ L"Windows.UI.Xaml.Shapes.ILine" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::ILineStatics>{ L"Windows.UI.Xaml.Shapes.ILineStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPath>{ L"Windows.UI.Xaml.Shapes.IPath" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPathFactory>{ L"Windows.UI.Xaml.Shapes.IPathFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPathStatics>{ L"Windows.UI.Xaml.Shapes.IPathStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPolygon>{ L"Windows.UI.Xaml.Shapes.IPolygon" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPolygonStatics>{ L"Windows.UI.Xaml.Shapes.IPolygonStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPolyline>{ L"Windows.UI.Xaml.Shapes.IPolyline" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPolylineStatics>{ L"Windows.UI.Xaml.Shapes.IPolylineStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IRectangle>{ L"Windows.UI.Xaml.Shapes.IRectangle" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IRectangleStatics>{ L"Windows.UI.Xaml.Shapes.IRectangleStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IShape>{ L"Windows.UI.Xaml.Shapes.IShape" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IShape2>{ L"Windows.UI.Xaml.Shapes.IShape2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IShapeFactory>{ L"Windows.UI.Xaml.Shapes.IShapeFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IShapeStatics>{ L"Windows.UI.Xaml.Shapes.IShapeStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Ellipse> = L"Windows.UI.Xaml.Shapes.Ellipse";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Line> = L"Windows.UI.Xaml.Shapes.Line";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Path> = L"Windows.UI.Xaml.Shapes.Path";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Polygon> = L"Windows.UI.Xaml.Shapes.Polygon";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Polyline> = L"Windows.UI.Xaml.Shapes.Polyline";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Rectangle> = L"Windows.UI.Xaml.Shapes.Rectangle";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::Shape> = L"Windows.UI.Xaml.Shapes.Shape";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IEllipse> = L"Windows.UI.Xaml.Shapes.IEllipse";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::ILine> = L"Windows.UI.Xaml.Shapes.ILine";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::ILineStatics> = L"Windows.UI.Xaml.Shapes.ILineStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPath> = L"Windows.UI.Xaml.Shapes.IPath";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPathFactory> = L"Windows.UI.Xaml.Shapes.IPathFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPathStatics> = L"Windows.UI.Xaml.Shapes.IPathStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPolygon> = L"Windows.UI.Xaml.Shapes.IPolygon";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPolygonStatics> = L"Windows.UI.Xaml.Shapes.IPolygonStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPolyline> = L"Windows.UI.Xaml.Shapes.IPolyline";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IPolylineStatics> = L"Windows.UI.Xaml.Shapes.IPolylineStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IRectangle> = L"Windows.UI.Xaml.Shapes.IRectangle";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IRectangleStatics> = L"Windows.UI.Xaml.Shapes.IRectangleStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IShape> = L"Windows.UI.Xaml.Shapes.IShape";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IShape2> = L"Windows.UI.Xaml.Shapes.IShape2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IShapeFactory> = L"Windows.UI.Xaml.Shapes.IShapeFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Shapes::IShapeStatics> = L"Windows.UI.Xaml.Shapes.IShapeStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Shapes::IEllipse>{ 0x70E05AC4,0xD38D,0x4BAB,{ 0x83,0x1F,0x4A,0x22,0xEF,0x52,0xAC,0x86 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Shapes::ILine>{ 0x46A5433D,0x4FFB,0x48DF,{ 0x87,0x32,0x4E,0x15,0xC8,0x34,0x81,0x6B } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Shapes::ILineStatics>{ 0x267C123D,0x6EA4,0x4C50,{ 0x8B,0x1D,0x50,0x20,0x7A,0xFF,0x1E,0x8A } };
@@ -301,14 +299,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_ILine
     {
-        [[nodiscard]] auto X1() const;
-        auto X1(double value) const;
-        [[nodiscard]] auto Y1() const;
-        auto Y1(double value) const;
-        [[nodiscard]] auto X2() const;
-        auto X2(double value) const;
-        [[nodiscard]] auto Y2() const;
-        auto Y2(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) X1() const;
+        WINRT_IMPL_AUTO(void) X1(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Y1() const;
+        WINRT_IMPL_AUTO(void) Y1(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) X2() const;
+        WINRT_IMPL_AUTO(void) X2(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Y2() const;
+        WINRT_IMPL_AUTO(void) Y2(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::ILine>
     {
@@ -317,10 +315,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_ILineStatics
     {
-        [[nodiscard]] auto X1Property() const;
-        [[nodiscard]] auto Y1Property() const;
-        [[nodiscard]] auto X2Property() const;
-        [[nodiscard]] auto Y2Property() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) X1Property() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) Y1Property() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) X2Property() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) Y2Property() const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::ILineStatics>
     {
@@ -329,8 +327,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IPath
     {
-        [[nodiscard]] auto Data() const;
-        auto Data(Windows::UI::Xaml::Media::Geometry const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Geometry) Data() const;
+        WINRT_IMPL_AUTO(void) Data(Windows::UI::Xaml::Media::Geometry const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IPath>
     {
@@ -339,7 +337,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IPathFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Shapes::Path) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IPathFactory>
     {
@@ -348,7 +346,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IPathStatics
     {
-        [[nodiscard]] auto DataProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DataProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IPathStatics>
     {
@@ -357,10 +355,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IPolygon
     {
-        [[nodiscard]] auto FillRule() const;
-        auto FillRule(Windows::UI::Xaml::Media::FillRule const& value) const;
-        [[nodiscard]] auto Points() const;
-        auto Points(Windows::UI::Xaml::Media::PointCollection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::FillRule) FillRule() const;
+        WINRT_IMPL_AUTO(void) FillRule(Windows::UI::Xaml::Media::FillRule const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PointCollection) Points() const;
+        WINRT_IMPL_AUTO(void) Points(Windows::UI::Xaml::Media::PointCollection const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IPolygon>
     {
@@ -369,8 +367,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IPolygonStatics
     {
-        [[nodiscard]] auto FillRuleProperty() const;
-        [[nodiscard]] auto PointsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FillRuleProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PointsProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IPolygonStatics>
     {
@@ -379,10 +377,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IPolyline
     {
-        [[nodiscard]] auto FillRule() const;
-        auto FillRule(Windows::UI::Xaml::Media::FillRule const& value) const;
-        [[nodiscard]] auto Points() const;
-        auto Points(Windows::UI::Xaml::Media::PointCollection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::FillRule) FillRule() const;
+        WINRT_IMPL_AUTO(void) FillRule(Windows::UI::Xaml::Media::FillRule const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PointCollection) Points() const;
+        WINRT_IMPL_AUTO(void) Points(Windows::UI::Xaml::Media::PointCollection const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IPolyline>
     {
@@ -391,8 +389,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IPolylineStatics
     {
-        [[nodiscard]] auto FillRuleProperty() const;
-        [[nodiscard]] auto PointsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FillRuleProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PointsProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IPolylineStatics>
     {
@@ -401,10 +399,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IRectangle
     {
-        [[nodiscard]] auto RadiusX() const;
-        auto RadiusX(double value) const;
-        [[nodiscard]] auto RadiusY() const;
-        auto RadiusY(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RadiusX() const;
+        WINRT_IMPL_AUTO(void) RadiusX(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RadiusY() const;
+        WINRT_IMPL_AUTO(void) RadiusY(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IRectangle>
     {
@@ -413,8 +411,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IRectangleStatics
     {
-        [[nodiscard]] auto RadiusXProperty() const;
-        [[nodiscard]] auto RadiusYProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RadiusXProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RadiusYProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IRectangleStatics>
     {
@@ -423,29 +421,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IShape
     {
-        [[nodiscard]] auto Fill() const;
-        auto Fill(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto Stroke() const;
-        auto Stroke(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto StrokeMiterLimit() const;
-        auto StrokeMiterLimit(double value) const;
-        [[nodiscard]] auto StrokeThickness() const;
-        auto StrokeThickness(double value) const;
-        [[nodiscard]] auto StrokeStartLineCap() const;
-        auto StrokeStartLineCap(Windows::UI::Xaml::Media::PenLineCap const& value) const;
-        [[nodiscard]] auto StrokeEndLineCap() const;
-        auto StrokeEndLineCap(Windows::UI::Xaml::Media::PenLineCap const& value) const;
-        [[nodiscard]] auto StrokeLineJoin() const;
-        auto StrokeLineJoin(Windows::UI::Xaml::Media::PenLineJoin const& value) const;
-        [[nodiscard]] auto StrokeDashOffset() const;
-        auto StrokeDashOffset(double value) const;
-        [[nodiscard]] auto StrokeDashCap() const;
-        auto StrokeDashCap(Windows::UI::Xaml::Media::PenLineCap const& value) const;
-        [[nodiscard]] auto StrokeDashArray() const;
-        auto StrokeDashArray(Windows::UI::Xaml::Media::DoubleCollection const& value) const;
-        [[nodiscard]] auto Stretch() const;
-        auto Stretch(Windows::UI::Xaml::Media::Stretch const& value) const;
-        [[nodiscard]] auto GeometryTransform() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) Fill() const;
+        WINRT_IMPL_AUTO(void) Fill(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) Stroke() const;
+        WINRT_IMPL_AUTO(void) Stroke(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) StrokeMiterLimit() const;
+        WINRT_IMPL_AUTO(void) StrokeMiterLimit(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) StrokeThickness() const;
+        WINRT_IMPL_AUTO(void) StrokeThickness(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PenLineCap) StrokeStartLineCap() const;
+        WINRT_IMPL_AUTO(void) StrokeStartLineCap(Windows::UI::Xaml::Media::PenLineCap const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PenLineCap) StrokeEndLineCap() const;
+        WINRT_IMPL_AUTO(void) StrokeEndLineCap(Windows::UI::Xaml::Media::PenLineCap const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PenLineJoin) StrokeLineJoin() const;
+        WINRT_IMPL_AUTO(void) StrokeLineJoin(Windows::UI::Xaml::Media::PenLineJoin const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) StrokeDashOffset() const;
+        WINRT_IMPL_AUTO(void) StrokeDashOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PenLineCap) StrokeDashCap() const;
+        WINRT_IMPL_AUTO(void) StrokeDashCap(Windows::UI::Xaml::Media::PenLineCap const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::DoubleCollection) StrokeDashArray() const;
+        WINRT_IMPL_AUTO(void) StrokeDashArray(Windows::UI::Xaml::Media::DoubleCollection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Stretch) Stretch() const;
+        WINRT_IMPL_AUTO(void) Stretch(Windows::UI::Xaml::Media::Stretch const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Transform) GeometryTransform() const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IShape>
     {
@@ -454,7 +452,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IShape2
     {
-        auto GetAlphaMask() const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) GetAlphaMask() const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IShape2>
     {
@@ -463,7 +461,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IShapeFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Shapes::Shape) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IShapeFactory>
     {
@@ -472,17 +470,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Shapes_IShapeStatics
     {
-        [[nodiscard]] auto FillProperty() const;
-        [[nodiscard]] auto StrokeProperty() const;
-        [[nodiscard]] auto StrokeMiterLimitProperty() const;
-        [[nodiscard]] auto StrokeThicknessProperty() const;
-        [[nodiscard]] auto StrokeStartLineCapProperty() const;
-        [[nodiscard]] auto StrokeEndLineCapProperty() const;
-        [[nodiscard]] auto StrokeLineJoinProperty() const;
-        [[nodiscard]] auto StrokeDashOffsetProperty() const;
-        [[nodiscard]] auto StrokeDashCapProperty() const;
-        [[nodiscard]] auto StrokeDashArrayProperty() const;
-        [[nodiscard]] auto StretchProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FillProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeMiterLimitProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeThicknessProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeStartLineCapProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeEndLineCapProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeLineJoinProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeDashOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeDashCapProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StrokeDashArrayProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StretchProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Shapes::IShapeStatics>
     {

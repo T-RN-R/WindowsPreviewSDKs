@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,12 +7,14 @@
 #define WINRT_Windows_UI_Input_Inking_Analysis_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
     struct Point;
     struct Rect;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
 {
@@ -114,35 +116,33 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Input::Inking::Analysis::InkAnalysisNodeKind>{ using type = enum_category; };
     template <> struct category<Windows::UI::Input::Inking::Analysis::InkAnalysisStatus>{ using type = enum_category; };
     template <> struct category<Windows::UI::Input::Inking::Analysis::InkAnalysisStrokeKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisInkBullet>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisInkDrawing>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisInkWord>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisLine>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisLine" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisListItem>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisListItem" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisNode>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisNode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisParagraph>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisResult>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisResult" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisRoot>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisRoot" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisWritingRegion>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalyzer>{ L"Windows.UI.Input.Inking.Analysis.InkAnalyzer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisDrawingKind>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisNodeKind>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisStatus>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisStatus" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisStrokeKind>{ L"Windows.UI.Input.Inking.Analysis.InkAnalysisStrokeKind" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkBullet>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisInkBullet" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkDrawing>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisInkDrawing" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkWord>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisInkWord" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisLine>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisLine" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisListItem>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisListItem" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisNode>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisNode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisParagraph>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisParagraph" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisResult>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisResult" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisRoot>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisRoot" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisWritingRegion>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalysisWritingRegion" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalyzer>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalyzer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalyzerFactory>{ L"Windows.UI.Input.Inking.Analysis.IInkAnalyzerFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisInkBullet> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisInkDrawing> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisInkWord> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisLine> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisLine";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisListItem> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisListItem";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisNode> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisNode";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisParagraph> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisResult> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisResult";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisRoot> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisRoot";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisWritingRegion> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalyzer> = L"Windows.UI.Input.Inking.Analysis.InkAnalyzer";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisDrawingKind> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisNodeKind> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisStatus> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisStatus";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::InkAnalysisStrokeKind> = L"Windows.UI.Input.Inking.Analysis.InkAnalysisStrokeKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkBullet> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisInkBullet";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkDrawing> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisInkDrawing";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkWord> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisInkWord";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisLine> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisLine";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisListItem> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisListItem";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisNode> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisNode";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisParagraph> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisParagraph";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisResult> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisResult";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisRoot> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisRoot";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisWritingRegion> = L"Windows.UI.Input.Inking.Analysis.IInkAnalysisWritingRegion";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalyzer> = L"Windows.UI.Input.Inking.Analysis.IInkAnalyzer";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Analysis::IInkAnalyzerFactory> = L"Windows.UI.Input.Inking.Analysis.IInkAnalyzerFactory";
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkBullet>{ 0xEE049368,0x6110,0x4136,{ 0x95,0xF9,0xEE,0x80,0x9F,0xC2,0x00,0x30 } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkDrawing>{ 0x6A85ED1F,0x1FE4,0x4E15,{ 0x89,0x8C,0x8E,0x11,0x23,0x77,0xE0,0x21 } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkWord>{ 0x4BD228AD,0x83AF,0x4034,{ 0x8F,0x3B,0xF8,0x68,0x7D,0xFF,0xF4,0x36 } };
@@ -273,7 +273,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisInkBullet
     {
-        [[nodiscard]] auto RecognizedText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RecognizedText() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkBullet>
     {
@@ -282,9 +282,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisInkDrawing
     {
-        [[nodiscard]] auto DrawingKind() const;
-        [[nodiscard]] auto Center() const;
-        [[nodiscard]] auto Points() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::Inking::Analysis::InkAnalysisDrawingKind) DrawingKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Center() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::Point>) Points() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkDrawing>
     {
@@ -293,8 +293,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisInkWord
     {
-        [[nodiscard]] auto RecognizedText() const;
-        [[nodiscard]] auto TextAlternates() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RecognizedText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) TextAlternates() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisInkWord>
     {
@@ -303,8 +303,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisLine
     {
-        [[nodiscard]] auto RecognizedText() const;
-        [[nodiscard]] auto IndentLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RecognizedText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) IndentLevel() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisLine>
     {
@@ -313,7 +313,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisListItem
     {
-        [[nodiscard]] auto RecognizedText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RecognizedText() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisListItem>
     {
@@ -322,13 +322,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisNode
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto BoundingRect() const;
-        [[nodiscard]] auto RotatedBoundingRect() const;
-        [[nodiscard]] auto Children() const;
-        [[nodiscard]] auto Parent() const;
-        auto GetStrokeIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::Inking::Analysis::InkAnalysisNodeKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) BoundingRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::Point>) RotatedBoundingRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Input::Inking::Analysis::IInkAnalysisNode>) Children() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::Inking::Analysis::IInkAnalysisNode) Parent() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) GetStrokeIds() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisNode>
     {
@@ -337,7 +337,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisParagraph
     {
-        [[nodiscard]] auto RecognizedText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RecognizedText() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisParagraph>
     {
@@ -346,7 +346,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisResult
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::Inking::Analysis::InkAnalysisStatus) Status() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisResult>
     {
@@ -355,8 +355,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisRoot
     {
-        [[nodiscard]] auto RecognizedText() const;
-        auto FindNodes(Windows::UI::Input::Inking::Analysis::InkAnalysisNodeKind const& nodeKind) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RecognizedText() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Input::Inking::Analysis::IInkAnalysisNode>) FindNodes(Windows::UI::Input::Inking::Analysis::InkAnalysisNodeKind const& nodeKind) const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisRoot>
     {
@@ -365,7 +365,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalysisWritingRegion
     {
-        [[nodiscard]] auto RecognizedText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RecognizedText() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalysisWritingRegion>
     {
@@ -374,16 +374,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalyzer
     {
-        [[nodiscard]] auto AnalysisRoot() const;
-        [[nodiscard]] auto IsAnalyzing() const;
-        auto AddDataForStroke(Windows::UI::Input::Inking::InkStroke const& stroke) const;
-        auto AddDataForStrokes(param::iterable<Windows::UI::Input::Inking::InkStroke> const& strokes) const;
-        auto ClearDataForAllStrokes() const;
-        auto RemoveDataForStroke(uint32_t strokeId) const;
-        auto RemoveDataForStrokes(param::iterable<uint32_t> const& strokeIds) const;
-        auto ReplaceDataForStroke(Windows::UI::Input::Inking::InkStroke const& stroke) const;
-        auto SetStrokeDataKind(uint32_t strokeId, Windows::UI::Input::Inking::Analysis::InkAnalysisStrokeKind const& strokeKind) const;
-        auto AnalyzeAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::Inking::Analysis::InkAnalysisRoot) AnalysisRoot() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAnalyzing() const;
+        WINRT_IMPL_AUTO(void) AddDataForStroke(Windows::UI::Input::Inking::InkStroke const& stroke) const;
+        WINRT_IMPL_AUTO(void) AddDataForStrokes(param::iterable<Windows::UI::Input::Inking::InkStroke> const& strokes) const;
+        WINRT_IMPL_AUTO(void) ClearDataForAllStrokes() const;
+        WINRT_IMPL_AUTO(void) RemoveDataForStroke(uint32_t strokeId) const;
+        WINRT_IMPL_AUTO(void) RemoveDataForStrokes(param::iterable<uint32_t> const& strokeIds) const;
+        WINRT_IMPL_AUTO(void) ReplaceDataForStroke(Windows::UI::Input::Inking::InkStroke const& stroke) const;
+        WINRT_IMPL_AUTO(void) SetStrokeDataKind(uint32_t strokeId, Windows::UI::Input::Inking::Analysis::InkAnalysisStrokeKind const& strokeKind) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Input::Inking::Analysis::InkAnalysisResult>) AnalyzeAsync() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalyzer>
     {
@@ -392,7 +392,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Analysis_IInkAnalyzerFactory
     {
-        auto CreateAnalyzer() const;
+        WINRT_IMPL_AUTO(Windows::UI::Input::Inking::Analysis::InkAnalyzer) CreateAnalyzer() const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Analysis::IInkAnalyzerFactory>
     {

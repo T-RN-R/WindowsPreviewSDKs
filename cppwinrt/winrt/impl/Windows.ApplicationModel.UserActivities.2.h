@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -17,7 +17,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::UserActivities
     {
         UserActivity(std::nullptr_t) noexcept {}
         UserActivity(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::UserActivities::IUserActivity(ptr, take_ownership_from_abi) {}
-        UserActivity(param::hstring const& activityId);
+        explicit UserActivity(param::hstring const& activityId);
         static auto TryParseFromJson(param::hstring const& json);
         static auto TryParseFromJsonArray(param::hstring const& json);
         static auto ToJsonArray(param::iterable<Windows::ApplicationModel::UserActivities::UserActivity> const& activities);
@@ -27,7 +27,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::UserActivities
         UserActivityAttribution(std::nullptr_t) noexcept {}
         UserActivityAttribution(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::UserActivities::IUserActivityAttribution(ptr, take_ownership_from_abi) {}
         UserActivityAttribution();
-        UserActivityAttribution(Windows::Foundation::Uri const& iconUri);
+        explicit UserActivityAttribution(Windows::Foundation::Uri const& iconUri);
     };
     struct __declspec(empty_bases) UserActivityChannel : Windows::ApplicationModel::UserActivities::IUserActivityChannel,
         impl::require<UserActivityChannel, Windows::ApplicationModel::UserActivities::IUserActivityChannel2>

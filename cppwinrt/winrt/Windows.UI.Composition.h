@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_Composition_H
 #define WINRT_Windows_UI_Composition_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -20,273 +20,273 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.UI.Composition.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Composition_IAmbientLight<D>::Color() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_IAmbientLight<D>::Color() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAmbientLight)->get_Color(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAmbientLight<D>::Color(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAmbientLight<D>::Color(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAmbientLight)->put_Color(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAmbientLight2<D>::Intensity() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IAmbientLight2<D>::Intensity() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAmbientLight2)->get_Intensity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAmbientLight2<D>::Intensity(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAmbientLight2<D>::Intensity(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAmbientLight2)->put_Intensity(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationController<D>::PlaybackRate() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IAnimationController<D>::PlaybackRate() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationController)->get_PlaybackRate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationController<D>::PlaybackRate(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAnimationController<D>::PlaybackRate(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationController)->put_PlaybackRate(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationController<D>::Progress() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IAnimationController<D>::Progress() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationController)->get_Progress(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationController<D>::Progress(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAnimationController<D>::Progress(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationController)->put_Progress(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationController<D>::ProgressBehavior() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationControllerProgressBehavior) consume_Windows_UI_Composition_IAnimationController<D>::ProgressBehavior() const
     {
-        Windows::UI::Composition::AnimationControllerProgressBehavior value;
+        Windows::UI::Composition::AnimationControllerProgressBehavior value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationController)->get_ProgressBehavior(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationController<D>::ProgressBehavior(Windows::UI::Composition::AnimationControllerProgressBehavior const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAnimationController<D>::ProgressBehavior(Windows::UI::Composition::AnimationControllerProgressBehavior const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationController)->put_ProgressBehavior(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationController<D>::Pause() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAnimationController<D>::Pause() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationController)->Pause());
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationController<D>::Resume() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAnimationController<D>::Resume() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationController)->Resume());
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationControllerStatics<D>::MaxPlaybackRate() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IAnimationControllerStatics<D>::MaxPlaybackRate() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationControllerStatics)->get_MaxPlaybackRate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationControllerStatics<D>::MinPlaybackRate() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IAnimationControllerStatics<D>::MinPlaybackRate() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationControllerStatics)->get_MinPlaybackRate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationObject<D>::PopulatePropertyInfo(param::hstring const& propertyName, Windows::UI::Composition::AnimationPropertyInfo const& propertyInfo) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAnimationObject<D>::PopulatePropertyInfo(param::hstring const& propertyName, Windows::UI::Composition::AnimationPropertyInfo const& propertyInfo) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationObject)->PopulatePropertyInfo(*(void**)(&propertyName), *(void**)(&propertyInfo)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationPropertyInfo<D>::AccessMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationPropertyAccessMode) consume_Windows_UI_Composition_IAnimationPropertyInfo<D>::AccessMode() const
     {
-        Windows::UI::Composition::AnimationPropertyAccessMode value;
+        Windows::UI::Composition::AnimationPropertyAccessMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationPropertyInfo)->get_AccessMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IAnimationPropertyInfo<D>::AccessMode(Windows::UI::Composition::AnimationPropertyAccessMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IAnimationPropertyInfo<D>::AccessMode(Windows::UI::Composition::AnimationPropertyAccessMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationPropertyInfo)->put_AccessMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBooleanKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBooleanKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBooleanKeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Acceleration() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Acceleration() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceScalarNaturalMotionAnimation)->get_Acceleration(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Acceleration(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Acceleration(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceScalarNaturalMotionAnimation)->put_Acceleration(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Restitution() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Restitution() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceScalarNaturalMotionAnimation)->get_Restitution(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Restitution(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Restitution(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceScalarNaturalMotionAnimation)->put_Restitution(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceVector2NaturalMotionAnimation<D>::Acceleration() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBounceVector2NaturalMotionAnimation<D>::Acceleration() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector2NaturalMotionAnimation)->get_Acceleration(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceVector2NaturalMotionAnimation<D>::Acceleration(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBounceVector2NaturalMotionAnimation<D>::Acceleration(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector2NaturalMotionAnimation)->put_Acceleration(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceVector2NaturalMotionAnimation<D>::Restitution() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBounceVector2NaturalMotionAnimation<D>::Restitution() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector2NaturalMotionAnimation)->get_Restitution(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceVector2NaturalMotionAnimation<D>::Restitution(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBounceVector2NaturalMotionAnimation<D>::Restitution(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector2NaturalMotionAnimation)->put_Restitution(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Acceleration() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Acceleration() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector3NaturalMotionAnimation)->get_Acceleration(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Acceleration(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Acceleration(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector3NaturalMotionAnimation)->put_Acceleration(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Restitution() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Restitution() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector3NaturalMotionAnimation)->get_Restitution(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Restitution(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Restitution(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector3NaturalMotionAnimation)->put_Restitution(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InterpolationColorSpace() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionColorSpace) consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InterpolationColorSpace() const
     {
-        Windows::UI::Composition::CompositionColorSpace value;
+        Windows::UI::Composition::CompositionColorSpace value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IColorKeyFrameAnimation)->get_InterpolationColorSpace(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InterpolationColorSpace(Windows::UI::Composition::CompositionColorSpace const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InterpolationColorSpace(Windows::UI::Composition::CompositionColorSpace const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IColorKeyFrameAnimation)->put_InterpolationColorSpace(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IColorKeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::UI::Color const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::UI::Color const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IColorKeyFrameAnimation)->InsertKeyFrameWithEasingFunction(normalizedProgressKey, impl::bind_in(value), *(void**)(&easingFunction)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::ClearAllParameters() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::ClearAllParameters() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->ClearAllParameters());
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::ClearParameter(param::hstring const& key) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::ClearParameter(param::hstring const& key) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->ClearParameter(*(void**)(&key)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetColorParameter(param::hstring const& key, Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetColorParameter(param::hstring const& key, Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetColorParameter(*(void**)(&key), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetMatrix3x2Parameter(param::hstring const& key, Windows::Foundation::Numerics::float3x2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetMatrix3x2Parameter(param::hstring const& key, Windows::Foundation::Numerics::float3x2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetMatrix3x2Parameter(*(void**)(&key), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetMatrix4x4Parameter(param::hstring const& key, Windows::Foundation::Numerics::float4x4 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetMatrix4x4Parameter(param::hstring const& key, Windows::Foundation::Numerics::float4x4 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetMatrix4x4Parameter(*(void**)(&key), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetQuaternionParameter(param::hstring const& key, Windows::Foundation::Numerics::quaternion const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetQuaternionParameter(param::hstring const& key, Windows::Foundation::Numerics::quaternion const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetQuaternionParameter(*(void**)(&key), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetReferenceParameter(param::hstring const& key, Windows::UI::Composition::CompositionObject const& compositionObject) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetReferenceParameter(param::hstring const& key, Windows::UI::Composition::CompositionObject const& compositionObject) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetReferenceParameter(*(void**)(&key), *(void**)(&compositionObject)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetScalarParameter(param::hstring const& key, float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetScalarParameter(param::hstring const& key, float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetScalarParameter(*(void**)(&key), value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetVector2Parameter(param::hstring const& key, Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetVector2Parameter(param::hstring const& key, Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetVector2Parameter(*(void**)(&key), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetVector3Parameter(param::hstring const& key, Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetVector3Parameter(param::hstring const& key, Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetVector3Parameter(*(void**)(&key), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation<D>::SetVector4Parameter(param::hstring const& key, Windows::Foundation::Numerics::float4 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation<D>::SetVector4Parameter(param::hstring const& key, Windows::Foundation::Numerics::float4 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation)->SetVector4Parameter(*(void**)(&key), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation2<D>::SetBooleanParameter(param::hstring const& key, bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation2<D>::SetBooleanParameter(param::hstring const& key, bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation2)->SetBooleanParameter(*(void**)(&key), value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation2<D>::Target() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Composition_ICompositionAnimation2<D>::Target() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation2)->get_Target(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation2<D>::Target(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation2<D>::Target(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation2)->put_Target(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation3<D>::InitialValueExpressions() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::InitialValueExpressionCollection) consume_Windows_UI_Composition_ICompositionAnimation3<D>::InitialValueExpressions() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation3)->get_InitialValueExpressions(&value));
         return Windows::UI::Composition::InitialValueExpressionCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimation4<D>::SetExpressionReferenceParameter(param::hstring const& parameterName, Windows::UI::Composition::IAnimationObject const& source) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimation4<D>::SetExpressionReferenceParameter(param::hstring const& parameterName, Windows::UI::Composition::IAnimationObject const& source) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimation4)->SetExpressionReferenceParameter(*(void**)(&parameterName), *(void**)(&source)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimationGroup<D>::Count() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_ICompositionAnimationGroup<D>::Count() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimationGroup)->get_Count(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimationGroup<D>::Add(Windows::UI::Composition::CompositionAnimation const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimationGroup<D>::Add(Windows::UI::Composition::CompositionAnimation const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimationGroup)->Add(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimationGroup<D>::Remove(Windows::UI::Composition::CompositionAnimation const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimationGroup<D>::Remove(Windows::UI::Composition::CompositionAnimation const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimationGroup)->Remove(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionAnimationGroup<D>::RemoveAll() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionAnimationGroup<D>::RemoveAll() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionAnimationGroup)->RemoveAll());
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCapabilities<D>::AreEffectsSupported() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionCapabilities<D>::AreEffectsSupported() const
     {
-        bool result;
+        bool result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCapabilities)->AreEffectsSupported(&result));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCapabilities<D>::AreEffectsFast() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionCapabilities<D>::AreEffectsFast() const
     {
-        bool result;
+        bool result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCapabilities)->AreEffectsFast(&result));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCapabilities<D>::Changed(Windows::Foundation::TypedEventHandler<Windows::UI::Composition::CompositionCapabilities, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Composition_ICompositionCapabilities<D>::Changed(Windows::Foundation::TypedEventHandler<Windows::UI::Composition::CompositionCapabilities, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCapabilities)->add_Changed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -294,131 +294,131 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Changed_revoker>(this, Changed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCapabilities<D>::Changed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionCapabilities<D>::Changed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCapabilities)->remove_Changed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCapabilitiesStatics<D>::GetForCurrentView() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionCapabilities) consume_Windows_UI_Composition_ICompositionCapabilitiesStatics<D>::GetForCurrentView() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCapabilitiesStatics)->GetForCurrentView(&result));
         return Windows::UI::Composition::CompositionCapabilities{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::AnchorPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionClip2<D>::AnchorPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->get_AnchorPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::AnchorPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionClip2<D>::AnchorPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->put_AnchorPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::CenterPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionClip2<D>::CenterPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->get_CenterPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::CenterPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionClip2<D>::CenterPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->put_CenterPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionClip2<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionClip2<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::RotationAngle() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionClip2<D>::RotationAngle() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->get_RotationAngle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::RotationAngle(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionClip2<D>::RotationAngle(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->put_RotationAngle(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::RotationAngleInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionClip2<D>::RotationAngleInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->get_RotationAngleInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::RotationAngleInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionClip2<D>::RotationAngleInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->put_RotationAngleInDegrees(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::Scale() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionClip2<D>::Scale() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->get_Scale(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::Scale(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionClip2<D>::Scale(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->put_Scale(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::TransformMatrix() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3x2) consume_Windows_UI_Composition_ICompositionClip2<D>::TransformMatrix() const
     {
-        Windows::Foundation::Numerics::float3x2 value;
+        Windows::Foundation::Numerics::float3x2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->get_TransformMatrix(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionClip2<D>::TransformMatrix(Windows::Foundation::Numerics::float3x2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionClip2<D>::TransformMatrix(Windows::Foundation::Numerics::float3x2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionClip2)->put_TransformMatrix(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionColorBrush<D>::Color() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_ICompositionColorBrush<D>::Color() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionColorBrush)->get_Color(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionColorBrush<D>::Color(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionColorBrush<D>::Color(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionColorBrush)->put_Color(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionColorGradientStop<D>::Color() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_ICompositionColorGradientStop<D>::Color() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionColorGradientStop)->get_Color(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionColorGradientStop<D>::Color(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionColorGradientStop<D>::Color(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionColorGradientStop)->put_Color(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionColorGradientStop<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionColorGradientStop<D>::Offset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionColorGradientStop)->get_Offset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionColorGradientStop<D>::Offset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionColorGradientStop<D>::Offset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionColorGradientStop)->put_Offset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCommitBatch<D>::IsActive() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionCommitBatch<D>::IsActive() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCommitBatch)->get_IsActive(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCommitBatch<D>::IsEnded() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionCommitBatch<D>::IsEnded() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCommitBatch)->get_IsEnded(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCommitBatch<D>::Completed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Composition::CompositionBatchCompletedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Composition_ICompositionCommitBatch<D>::Completed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Composition::CompositionBatchCompletedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCommitBatch)->add_Completed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -426,285 +426,285 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Completed_revoker>(this, Completed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionCommitBatch<D>::Completed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionCommitBatch<D>::Completed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionCommitBatch)->remove_Completed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionContainerShape<D>::Shapes() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionShapeCollection) consume_Windows_UI_Composition_ICompositionContainerShape<D>::Shapes() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionContainerShape)->get_Shapes(&value));
         return Windows::UI::Composition::CompositionShapeCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface<D>::AlphaMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXAlphaMode) consume_Windows_UI_Composition_ICompositionDrawingSurface<D>::AlphaMode() const
     {
-        Windows::Graphics::DirectX::DirectXAlphaMode value;
+        Windows::Graphics::DirectX::DirectXAlphaMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface)->get_AlphaMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface<D>::PixelFormat() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXPixelFormat) consume_Windows_UI_Composition_ICompositionDrawingSurface<D>::PixelFormat() const
     {
-        Windows::Graphics::DirectX::DirectXPixelFormat value;
+        Windows::Graphics::DirectX::DirectXPixelFormat value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface)->get_PixelFormat(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface<D>::Size() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_UI_Composition_ICompositionDrawingSurface<D>::Size() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface)->get_Size(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::SizeInt32() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::SizeInt32) consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::SizeInt32() const
     {
-        Windows::Graphics::SizeInt32 value;
+        Windows::Graphics::SizeInt32 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface2)->get_SizeInt32(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::Resize(Windows::Graphics::SizeInt32 const& sizePixels) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::Resize(Windows::Graphics::SizeInt32 const& sizePixels) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface2)->Resize(impl::bind_in(sizePixels)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::Scroll(Windows::Graphics::PointInt32 const& offset) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::Scroll(Windows::Graphics::PointInt32 const& offset) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface2)->Scroll(impl::bind_in(offset)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::Scroll(Windows::Graphics::PointInt32 const& offset, Windows::Graphics::RectInt32 const& scrollRect) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::Scroll(Windows::Graphics::PointInt32 const& offset, Windows::Graphics::RectInt32 const& scrollRect) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface2)->ScrollRect(impl::bind_in(offset), impl::bind_in(scrollRect)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::ScrollWithClip(Windows::Graphics::PointInt32 const& offset, Windows::Graphics::RectInt32 const& clipRect) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::ScrollWithClip(Windows::Graphics::PointInt32 const& offset, Windows::Graphics::RectInt32 const& clipRect) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface2)->ScrollWithClip(impl::bind_in(offset), impl::bind_in(clipRect)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::ScrollWithClip(Windows::Graphics::PointInt32 const& offset, Windows::Graphics::RectInt32 const& clipRect, Windows::Graphics::RectInt32 const& scrollRect) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::ScrollWithClip(Windows::Graphics::PointInt32 const& offset, Windows::Graphics::RectInt32 const& clipRect, Windows::Graphics::RectInt32 const& scrollRect) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface2)->ScrollRectWithClip(impl::bind_in(offset), impl::bind_in(clipRect), impl::bind_in(scrollRect)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEffectBrush<D>::GetSourceParameter(param::hstring const& name) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ICompositionEffectBrush<D>::GetSourceParameter(param::hstring const& name) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEffectBrush)->GetSourceParameter(*(void**)(&name), &result));
         return Windows::UI::Composition::CompositionBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEffectBrush<D>::SetSourceParameter(param::hstring const& name, Windows::UI::Composition::CompositionBrush const& source) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionEffectBrush<D>::SetSourceParameter(param::hstring const& name, Windows::UI::Composition::CompositionBrush const& source) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEffectBrush)->SetSourceParameter(*(void**)(&name), *(void**)(&source)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEffectFactory<D>::CreateBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEffectBrush) consume_Windows_UI_Composition_ICompositionEffectFactory<D>::CreateBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEffectFactory)->CreateBrush(&result));
         return Windows::UI::Composition::CompositionEffectBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEffectFactory<D>::ExtendedError() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_UI_Composition_ICompositionEffectFactory<D>::ExtendedError() const
     {
-        winrt::hresult value;
+        winrt::hresult value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEffectFactory)->get_ExtendedError(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEffectFactory<D>::LoadStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEffectFactoryLoadStatus) consume_Windows_UI_Composition_ICompositionEffectFactory<D>::LoadStatus() const
     {
-        Windows::UI::Composition::CompositionEffectFactoryLoadStatus value;
+        Windows::UI::Composition::CompositionEffectFactoryLoadStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEffectFactory)->get_LoadStatus(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEffectSourceParameter<D>::Name() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Composition_ICompositionEffectSourceParameter<D>::Name() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEffectSourceParameter)->get_Name(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEffectSourceParameterFactory<D>::Create(param::hstring const& name) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEffectSourceParameter) consume_Windows_UI_Composition_ICompositionEffectSourceParameterFactory<D>::Create(param::hstring const& name) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEffectSourceParameterFactory)->Create(*(void**)(&name), &value));
         return Windows::UI::Composition::CompositionEffectSourceParameter{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEllipseGeometry<D>::Center() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionEllipseGeometry<D>::Center() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEllipseGeometry)->get_Center(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEllipseGeometry<D>::Center(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionEllipseGeometry<D>::Center(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEllipseGeometry)->put_Center(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEllipseGeometry<D>::Radius() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionEllipseGeometry<D>::Radius() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEllipseGeometry)->get_Radius(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionEllipseGeometry<D>::Radius(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionEllipseGeometry<D>::Radius(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEllipseGeometry)->put_Radius(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometricClip<D>::Geometry() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGeometry) consume_Windows_UI_Composition_ICompositionGeometricClip<D>::Geometry() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometricClip)->get_Geometry(&value));
         return Windows::UI::Composition::CompositionGeometry{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometricClip<D>::Geometry(Windows::UI::Composition::CompositionGeometry const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGeometricClip<D>::Geometry(Windows::UI::Composition::CompositionGeometry const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometricClip)->put_Geometry(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometricClip<D>::ViewBox() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionViewBox) consume_Windows_UI_Composition_ICompositionGeometricClip<D>::ViewBox() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometricClip)->get_ViewBox(&value));
         return Windows::UI::Composition::CompositionViewBox{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometricClip<D>::ViewBox(Windows::UI::Composition::CompositionViewBox const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGeometricClip<D>::ViewBox(Windows::UI::Composition::CompositionViewBox const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometricClip)->put_ViewBox(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimEnd() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimEnd() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometry)->get_TrimEnd(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimEnd(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimEnd(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometry)->put_TrimEnd(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimOffset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimOffset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometry)->get_TrimOffset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimOffset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimOffset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometry)->put_TrimOffset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimStart() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimStart() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometry)->get_TrimStart(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimStart(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGeometry<D>::TrimStart(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGeometry)->put_TrimStart(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::AnchorPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::AnchorPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_AnchorPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::AnchorPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::AnchorPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_AnchorPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::CenterPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::CenterPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_CenterPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::CenterPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::CenterPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_CenterPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::ColorStops() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionColorGradientStopCollection) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::ColorStops() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_ColorStops(&value));
         return Windows::UI::Composition::CompositionColorGradientStopCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::ExtendMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGradientExtendMode) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::ExtendMode() const
     {
-        Windows::UI::Composition::CompositionGradientExtendMode value;
+        Windows::UI::Composition::CompositionGradientExtendMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_ExtendMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::ExtendMode(Windows::UI::Composition::CompositionGradientExtendMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::ExtendMode(Windows::UI::Composition::CompositionGradientExtendMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_ExtendMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::InterpolationSpace() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionColorSpace) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::InterpolationSpace() const
     {
-        Windows::UI::Composition::CompositionColorSpace value;
+        Windows::UI::Composition::CompositionColorSpace value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_InterpolationSpace(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::InterpolationSpace(Windows::UI::Composition::CompositionColorSpace const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::InterpolationSpace(Windows::UI::Composition::CompositionColorSpace const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_InterpolationSpace(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::RotationAngle() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::RotationAngle() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_RotationAngle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::RotationAngle(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::RotationAngle(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_RotationAngle(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::RotationAngleInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::RotationAngleInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_RotationAngleInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::RotationAngleInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::RotationAngleInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_RotationAngleInDegrees(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::Scale() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::Scale() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_Scale(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::Scale(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::Scale(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_Scale(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::TransformMatrix() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3x2) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::TransformMatrix() const
     {
-        Windows::Foundation::Numerics::float3x2 value;
+        Windows::Foundation::Numerics::float3x2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->get_TransformMatrix(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush<D>::TransformMatrix(Windows::Foundation::Numerics::float3x2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush<D>::TransformMatrix(Windows::Foundation::Numerics::float3x2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush)->put_TransformMatrix(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush2<D>::MappingMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionMappingMode) consume_Windows_UI_Composition_ICompositionGradientBrush2<D>::MappingMode() const
     {
-        Windows::UI::Composition::CompositionMappingMode value;
+        Windows::UI::Composition::CompositionMappingMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush2)->get_MappingMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGradientBrush2<D>::MappingMode(Windows::UI::Composition::CompositionMappingMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGradientBrush2<D>::MappingMode(Windows::UI::Composition::CompositionMappingMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGradientBrush2)->put_MappingMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGraphicsDevice<D>::CreateDrawingSurface(Windows::Foundation::Size const& sizePixels, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionDrawingSurface) consume_Windows_UI_Composition_ICompositionGraphicsDevice<D>::CreateDrawingSurface(Windows::Foundation::Size const& sizePixels, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice)->CreateDrawingSurface(impl::bind_in(sizePixels), static_cast<int32_t>(pixelFormat), static_cast<int32_t>(alphaMode), &result));
         return Windows::UI::Composition::CompositionDrawingSurface{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGraphicsDevice<D>::RenderingDeviceReplaced(Windows::Foundation::TypedEventHandler<Windows::UI::Composition::CompositionGraphicsDevice, Windows::UI::Composition::RenderingDeviceReplacedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Composition_ICompositionGraphicsDevice<D>::RenderingDeviceReplaced(Windows::Foundation::TypedEventHandler<Windows::UI::Composition::CompositionGraphicsDevice, Windows::UI::Composition::RenderingDeviceReplacedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice)->add_RenderingDeviceReplaced(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -712,683 +712,683 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, RenderingDeviceReplaced_revoker>(this, RenderingDeviceReplaced(handler));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGraphicsDevice<D>::RenderingDeviceReplaced(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGraphicsDevice<D>::RenderingDeviceReplaced(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice)->remove_RenderingDeviceReplaced(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGraphicsDevice2<D>::CreateDrawingSurface2(Windows::Graphics::SizeInt32 const& sizePixels, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionDrawingSurface) consume_Windows_UI_Composition_ICompositionGraphicsDevice2<D>::CreateDrawingSurface2(Windows::Graphics::SizeInt32 const& sizePixels, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice2)->CreateDrawingSurface2(impl::bind_in(sizePixels), static_cast<int32_t>(pixelFormat), static_cast<int32_t>(alphaMode), &result));
         return Windows::UI::Composition::CompositionDrawingSurface{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGraphicsDevice2<D>::CreateVirtualDrawingSurface(Windows::Graphics::SizeInt32 const& sizePixels, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionVirtualDrawingSurface) consume_Windows_UI_Composition_ICompositionGraphicsDevice2<D>::CreateVirtualDrawingSurface(Windows::Graphics::SizeInt32 const& sizePixels, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice2)->CreateVirtualDrawingSurface(impl::bind_in(sizePixels), static_cast<int32_t>(pixelFormat), static_cast<int32_t>(alphaMode), &result));
         return Windows::UI::Composition::CompositionVirtualDrawingSurface{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGraphicsDevice3<D>::CreateMipmapSurface(Windows::Graphics::SizeInt32 const& sizePixels, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionMipmapSurface) consume_Windows_UI_Composition_ICompositionGraphicsDevice3<D>::CreateMipmapSurface(Windows::Graphics::SizeInt32 const& sizePixels, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice3)->CreateMipmapSurface(impl::bind_in(sizePixels), static_cast<int32_t>(pixelFormat), static_cast<int32_t>(alphaMode), &result));
         return Windows::UI::Composition::CompositionMipmapSurface{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionGraphicsDevice3<D>::Trim() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionGraphicsDevice3<D>::Trim() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice3)->Trim());
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLight<D>::Targets() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::VisualUnorderedCollection) consume_Windows_UI_Composition_ICompositionLight<D>::Targets() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLight)->get_Targets(&value));
         return Windows::UI::Composition::VisualUnorderedCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLight2<D>::ExclusionsFromTargets() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::VisualUnorderedCollection) consume_Windows_UI_Composition_ICompositionLight2<D>::ExclusionsFromTargets() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLight2)->get_ExclusionsFromTargets(&value));
         return Windows::UI::Composition::VisualUnorderedCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLight3<D>::IsEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionLight3<D>::IsEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLight3)->get_IsEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLight3<D>::IsEnabled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionLight3<D>::IsEnabled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLight3)->put_IsEnabled(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLineGeometry<D>::Start() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionLineGeometry<D>::Start() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLineGeometry)->get_Start(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLineGeometry<D>::Start(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionLineGeometry<D>::Start(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLineGeometry)->put_Start(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLineGeometry<D>::End() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionLineGeometry<D>::End() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLineGeometry)->get_End(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLineGeometry<D>::End(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionLineGeometry<D>::End(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLineGeometry)->put_End(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLinearGradientBrush<D>::EndPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionLinearGradientBrush<D>::EndPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLinearGradientBrush)->get_EndPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLinearGradientBrush<D>::EndPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionLinearGradientBrush<D>::EndPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLinearGradientBrush)->put_EndPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLinearGradientBrush<D>::StartPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionLinearGradientBrush<D>::StartPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLinearGradientBrush)->get_StartPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionLinearGradientBrush<D>::StartPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionLinearGradientBrush<D>::StartPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionLinearGradientBrush)->put_StartPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMaskBrush<D>::Mask() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ICompositionMaskBrush<D>::Mask() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMaskBrush)->get_Mask(&value));
         return Windows::UI::Composition::CompositionBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMaskBrush<D>::Mask(Windows::UI::Composition::CompositionBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionMaskBrush<D>::Mask(Windows::UI::Composition::CompositionBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMaskBrush)->put_Mask(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMaskBrush<D>::Source() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ICompositionMaskBrush<D>::Source() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMaskBrush)->get_Source(&value));
         return Windows::UI::Composition::CompositionBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMaskBrush<D>::Source(Windows::UI::Composition::CompositionBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionMaskBrush<D>::Source(Windows::UI::Composition::CompositionBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMaskBrush)->put_Source(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::LevelCount() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::LevelCount() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMipmapSurface)->get_LevelCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::AlphaMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXAlphaMode) consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::AlphaMode() const
     {
-        Windows::Graphics::DirectX::DirectXAlphaMode value;
+        Windows::Graphics::DirectX::DirectXAlphaMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMipmapSurface)->get_AlphaMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::PixelFormat() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXPixelFormat) consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::PixelFormat() const
     {
-        Windows::Graphics::DirectX::DirectXPixelFormat value;
+        Windows::Graphics::DirectX::DirectXPixelFormat value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMipmapSurface)->get_PixelFormat(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::SizeInt32() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::SizeInt32) consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::SizeInt32() const
     {
-        Windows::Graphics::SizeInt32 value;
+        Windows::Graphics::SizeInt32 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMipmapSurface)->get_SizeInt32(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::GetDrawingSurfaceForLevel(uint32_t level) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionDrawingSurface) consume_Windows_UI_Composition_ICompositionMipmapSurface<D>::GetDrawingSurfaceForLevel(uint32_t level) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionMipmapSurface)->GetDrawingSurfaceForLevel(level, &result));
         return Windows::UI::Composition::CompositionDrawingSurface{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::BottomInset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::BottomInset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_BottomInset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::BottomInset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::BottomInset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_BottomInset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::BottomInsetScale() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::BottomInsetScale() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_BottomInsetScale(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::BottomInsetScale(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::BottomInsetScale(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_BottomInsetScale(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::IsCenterHollow() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::IsCenterHollow() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_IsCenterHollow(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::IsCenterHollow(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::IsCenterHollow(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_IsCenterHollow(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::LeftInset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::LeftInset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_LeftInset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::LeftInset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::LeftInset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_LeftInset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::LeftInsetScale() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::LeftInsetScale() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_LeftInsetScale(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::LeftInsetScale(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::LeftInsetScale(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_LeftInsetScale(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::RightInset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::RightInset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_RightInset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::RightInset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::RightInset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_RightInset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::RightInsetScale() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::RightInsetScale() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_RightInsetScale(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::RightInsetScale(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::RightInsetScale(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_RightInsetScale(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::Source() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::Source() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_Source(&value));
         return Windows::UI::Composition::CompositionBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::Source(Windows::UI::Composition::CompositionBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::Source(Windows::UI::Composition::CompositionBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_Source(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::TopInset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::TopInset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_TopInset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::TopInset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::TopInset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_TopInset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::TopInsetScale() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::TopInsetScale() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->get_TopInsetScale(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::TopInsetScale(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::TopInsetScale(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->put_TopInsetScale(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::SetInsets(float inset) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::SetInsets(float inset) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->SetInsets(inset));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::SetInsets(float left, float top, float right, float bottom) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::SetInsets(float left, float top, float right, float bottom) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->SetInsetsWithValues(left, top, right, bottom));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::SetInsetScales(float scale) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::SetInsetScales(float scale) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->SetInsetScales(scale));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::SetInsetScales(float left, float top, float right, float bottom) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionNineGridBrush<D>::SetInsetScales(float left, float top, float right, float bottom) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionNineGridBrush)->SetInsetScalesWithValues(left, top, right, bottom));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject<D>::Compositor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Compositor) consume_Windows_UI_Composition_ICompositionObject<D>::Compositor() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject)->get_Compositor(&value));
         return Windows::UI::Composition::Compositor{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject<D>::Dispatcher() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreDispatcher) consume_Windows_UI_Composition_ICompositionObject<D>::Dispatcher() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject)->get_Dispatcher(&value));
         return Windows::UI::Core::CoreDispatcher{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionPropertySet) consume_Windows_UI_Composition_ICompositionObject<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject)->get_Properties(&value));
         return Windows::UI::Composition::CompositionPropertySet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject<D>::StartAnimation(param::hstring const& propertyName, Windows::UI::Composition::CompositionAnimation const& animation) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionObject<D>::StartAnimation(param::hstring const& propertyName, Windows::UI::Composition::CompositionAnimation const& animation) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject)->StartAnimation(*(void**)(&propertyName), *(void**)(&animation)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject<D>::StopAnimation(param::hstring const& propertyName) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionObject<D>::StopAnimation(param::hstring const& propertyName) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject)->StopAnimation(*(void**)(&propertyName)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject2<D>::Comment() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Composition_ICompositionObject2<D>::Comment() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject2)->get_Comment(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject2<D>::Comment(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionObject2<D>::Comment(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject2)->put_Comment(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject2<D>::ImplicitAnimations() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ImplicitAnimationCollection) consume_Windows_UI_Composition_ICompositionObject2<D>::ImplicitAnimations() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject2)->get_ImplicitAnimations(&value));
         return Windows::UI::Composition::ImplicitAnimationCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject2<D>::ImplicitAnimations(Windows::UI::Composition::ImplicitAnimationCollection const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionObject2<D>::ImplicitAnimations(Windows::UI::Composition::ImplicitAnimationCollection const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject2)->put_ImplicitAnimations(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject2<D>::StartAnimationGroup(Windows::UI::Composition::ICompositionAnimationBase const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionObject2<D>::StartAnimationGroup(Windows::UI::Composition::ICompositionAnimationBase const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject2)->StartAnimationGroup(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject2<D>::StopAnimationGroup(Windows::UI::Composition::ICompositionAnimationBase const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionObject2<D>::StopAnimationGroup(Windows::UI::Composition::ICompositionAnimationBase const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject2)->StopAnimationGroup(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject3<D>::DispatcherQueue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) consume_Windows_UI_Composition_ICompositionObject3<D>::DispatcherQueue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject3)->get_DispatcherQueue(&value));
         return Windows::System::DispatcherQueue{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObject4<D>::TryGetAnimationController(param::hstring const& propertyName) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationController) consume_Windows_UI_Composition_ICompositionObject4<D>::TryGetAnimationController(param::hstring const& propertyName) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObject4)->TryGetAnimationController(*(void**)(&propertyName), &result));
         return Windows::UI::Composition::AnimationController{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObjectStatics<D>::StartAnimationWithIAnimationObject(Windows::UI::Composition::IAnimationObject const& target, param::hstring const& propertyName, Windows::UI::Composition::CompositionAnimation const& animation) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionObjectStatics<D>::StartAnimationWithIAnimationObject(Windows::UI::Composition::IAnimationObject const& target, param::hstring const& propertyName, Windows::UI::Composition::CompositionAnimation const& animation) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObjectStatics)->StartAnimationWithIAnimationObject(*(void**)(&target), *(void**)(&propertyName), *(void**)(&animation)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionObjectStatics<D>::StartAnimationGroupWithIAnimationObject(Windows::UI::Composition::IAnimationObject const& target, Windows::UI::Composition::ICompositionAnimationBase const& animation) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionObjectStatics<D>::StartAnimationGroupWithIAnimationObject(Windows::UI::Composition::IAnimationObject const& target, Windows::UI::Composition::ICompositionAnimationBase const& animation) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionObjectStatics)->StartAnimationGroupWithIAnimationObject(*(void**)(&target), *(void**)(&animation)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPathFactory<D>::Create(Windows::Graphics::IGeometrySource2D const& source) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionPath) consume_Windows_UI_Composition_ICompositionPathFactory<D>::Create(Windows::Graphics::IGeometrySource2D const& source) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPathFactory)->Create(*(void**)(&source), &value));
         return Windows::UI::Composition::CompositionPath{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPathGeometry<D>::Path() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionPath) consume_Windows_UI_Composition_ICompositionPathGeometry<D>::Path() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPathGeometry)->get_Path(&value));
         return Windows::UI::Composition::CompositionPath{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPathGeometry<D>::Path(Windows::UI::Composition::CompositionPath const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPathGeometry<D>::Path(Windows::UI::Composition::CompositionPath const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPathGeometry)->put_Path(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::BlurRadiusMultiplier() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::BlurRadiusMultiplier() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->get_BlurRadiusMultiplier(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::BlurRadiusMultiplier(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::BlurRadiusMultiplier(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->put_BlurRadiusMultiplier(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::Casters() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionProjectedShadowCasterCollection) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::Casters() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->get_Casters(&value));
         return Windows::UI::Composition::CompositionProjectedShadowCasterCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::LightSource() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionLight) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::LightSource() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->get_LightSource(&value));
         return Windows::UI::Composition::CompositionLight{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::LightSource(Windows::UI::Composition::CompositionLight const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::LightSource(Windows::UI::Composition::CompositionLight const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->put_LightSource(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::MaxBlurRadius() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::MaxBlurRadius() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->get_MaxBlurRadius(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::MaxBlurRadius(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::MaxBlurRadius(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->put_MaxBlurRadius(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::MinBlurRadius() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::MinBlurRadius() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->get_MinBlurRadius(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::MinBlurRadius(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::MinBlurRadius(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->put_MinBlurRadius(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::Receivers() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionProjectedShadowReceiverUnorderedCollection) consume_Windows_UI_Composition_ICompositionProjectedShadow<D>::Receivers() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadow)->get_Receivers(&value));
         return Windows::UI::Composition::CompositionProjectedShadowReceiverUnorderedCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCaster<D>::Brush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ICompositionProjectedShadowCaster<D>::Brush() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCaster)->get_Brush(&value));
         return Windows::UI::Composition::CompositionBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCaster<D>::Brush(Windows::UI::Composition::CompositionBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowCaster<D>::Brush(Windows::UI::Composition::CompositionBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCaster)->put_Brush(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCaster<D>::CastingVisual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_ICompositionProjectedShadowCaster<D>::CastingVisual() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCaster)->get_CastingVisual(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCaster<D>::CastingVisual(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowCaster<D>::CastingVisual(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCaster)->put_CastingVisual(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::Count() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::Count() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCasterCollection)->get_Count(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::InsertAbove(Windows::UI::Composition::CompositionProjectedShadowCaster const& newCaster, Windows::UI::Composition::CompositionProjectedShadowCaster const& reference) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::InsertAbove(Windows::UI::Composition::CompositionProjectedShadowCaster const& newCaster, Windows::UI::Composition::CompositionProjectedShadowCaster const& reference) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCasterCollection)->InsertAbove(*(void**)(&newCaster), *(void**)(&reference)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::InsertAtBottom(Windows::UI::Composition::CompositionProjectedShadowCaster const& newCaster) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::InsertAtBottom(Windows::UI::Composition::CompositionProjectedShadowCaster const& newCaster) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCasterCollection)->InsertAtBottom(*(void**)(&newCaster)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::InsertAtTop(Windows::UI::Composition::CompositionProjectedShadowCaster const& newCaster) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::InsertAtTop(Windows::UI::Composition::CompositionProjectedShadowCaster const& newCaster) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCasterCollection)->InsertAtTop(*(void**)(&newCaster)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::InsertBelow(Windows::UI::Composition::CompositionProjectedShadowCaster const& newCaster, Windows::UI::Composition::CompositionProjectedShadowCaster const& reference) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::InsertBelow(Windows::UI::Composition::CompositionProjectedShadowCaster const& newCaster, Windows::UI::Composition::CompositionProjectedShadowCaster const& reference) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCasterCollection)->InsertBelow(*(void**)(&newCaster), *(void**)(&reference)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::Remove(Windows::UI::Composition::CompositionProjectedShadowCaster const& caster) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::Remove(Windows::UI::Composition::CompositionProjectedShadowCaster const& caster) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCasterCollection)->Remove(*(void**)(&caster)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::RemoveAll() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollection<D>::RemoveAll() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCasterCollection)->RemoveAll());
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollectionStatics<D>::MaxRespectedCasters() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_ICompositionProjectedShadowCasterCollectionStatics<D>::MaxRespectedCasters() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowCasterCollectionStatics)->get_MaxRespectedCasters(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowReceiver<D>::ReceivingVisual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_ICompositionProjectedShadowReceiver<D>::ReceivingVisual() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowReceiver)->get_ReceivingVisual(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowReceiver<D>::ReceivingVisual(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowReceiver<D>::ReceivingVisual(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowReceiver)->put_ReceivingVisual(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowReceiverUnorderedCollection<D>::Add(Windows::UI::Composition::CompositionProjectedShadowReceiver const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowReceiverUnorderedCollection<D>::Add(Windows::UI::Composition::CompositionProjectedShadowReceiver const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowReceiverUnorderedCollection)->Add(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowReceiverUnorderedCollection<D>::Count() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_ICompositionProjectedShadowReceiverUnorderedCollection<D>::Count() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowReceiverUnorderedCollection)->get_Count(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowReceiverUnorderedCollection<D>::Remove(Windows::UI::Composition::CompositionProjectedShadowReceiver const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowReceiverUnorderedCollection<D>::Remove(Windows::UI::Composition::CompositionProjectedShadowReceiver const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowReceiverUnorderedCollection)->Remove(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionProjectedShadowReceiverUnorderedCollection<D>::RemoveAll() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionProjectedShadowReceiverUnorderedCollection<D>::RemoveAll() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionProjectedShadowReceiverUnorderedCollection)->RemoveAll());
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertColor(param::hstring const& propertyName, Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertColor(param::hstring const& propertyName, Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->InsertColor(*(void**)(&propertyName), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertMatrix3x2(param::hstring const& propertyName, Windows::Foundation::Numerics::float3x2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertMatrix3x2(param::hstring const& propertyName, Windows::Foundation::Numerics::float3x2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->InsertMatrix3x2(*(void**)(&propertyName), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertMatrix4x4(param::hstring const& propertyName, Windows::Foundation::Numerics::float4x4 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertMatrix4x4(param::hstring const& propertyName, Windows::Foundation::Numerics::float4x4 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->InsertMatrix4x4(*(void**)(&propertyName), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertQuaternion(param::hstring const& propertyName, Windows::Foundation::Numerics::quaternion const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertQuaternion(param::hstring const& propertyName, Windows::Foundation::Numerics::quaternion const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->InsertQuaternion(*(void**)(&propertyName), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertScalar(param::hstring const& propertyName, float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertScalar(param::hstring const& propertyName, float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->InsertScalar(*(void**)(&propertyName), value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertVector2(param::hstring const& propertyName, Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertVector2(param::hstring const& propertyName, Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->InsertVector2(*(void**)(&propertyName), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertVector3(param::hstring const& propertyName, Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertVector3(param::hstring const& propertyName, Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->InsertVector3(*(void**)(&propertyName), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertVector4(param::hstring const& propertyName, Windows::Foundation::Numerics::float4 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet<D>::InsertVector4(param::hstring const& propertyName, Windows::Foundation::Numerics::float4 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->InsertVector4(*(void**)(&propertyName), impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetColor(param::hstring const& propertyName, Windows::UI::Color& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetColor(param::hstring const& propertyName, Windows::UI::Color& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->TryGetColor(*(void**)(&propertyName), impl::bind_out(value), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetMatrix3x2(param::hstring const& propertyName, Windows::Foundation::Numerics::float3x2& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetMatrix3x2(param::hstring const& propertyName, Windows::Foundation::Numerics::float3x2& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->TryGetMatrix3x2(*(void**)(&propertyName), impl::bind_out(value), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetMatrix4x4(param::hstring const& propertyName, Windows::Foundation::Numerics::float4x4& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetMatrix4x4(param::hstring const& propertyName, Windows::Foundation::Numerics::float4x4& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->TryGetMatrix4x4(*(void**)(&propertyName), impl::bind_out(value), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetQuaternion(param::hstring const& propertyName, Windows::Foundation::Numerics::quaternion& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetQuaternion(param::hstring const& propertyName, Windows::Foundation::Numerics::quaternion& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->TryGetQuaternion(*(void**)(&propertyName), impl::bind_out(value), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetScalar(param::hstring const& propertyName, float& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetScalar(param::hstring const& propertyName, float& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->TryGetScalar(*(void**)(&propertyName), &value, reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetVector2(param::hstring const& propertyName, Windows::Foundation::Numerics::float2& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetVector2(param::hstring const& propertyName, Windows::Foundation::Numerics::float2& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->TryGetVector2(*(void**)(&propertyName), impl::bind_out(value), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetVector3(param::hstring const& propertyName, Windows::Foundation::Numerics::float3& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetVector3(param::hstring const& propertyName, Windows::Foundation::Numerics::float3& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->TryGetVector3(*(void**)(&propertyName), impl::bind_out(value), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetVector4(param::hstring const& propertyName, Windows::Foundation::Numerics::float4& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet<D>::TryGetVector4(param::hstring const& propertyName, Windows::Foundation::Numerics::float4& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet)->TryGetVector4(*(void**)(&propertyName), impl::bind_out(value), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet2<D>::InsertBoolean(param::hstring const& propertyName, bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionPropertySet2<D>::InsertBoolean(param::hstring const& propertyName, bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet2)->InsertBoolean(*(void**)(&propertyName), value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionPropertySet2<D>::TryGetBoolean(param::hstring const& propertyName, bool& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGetValueStatus) consume_Windows_UI_Composition_ICompositionPropertySet2<D>::TryGetBoolean(param::hstring const& propertyName, bool& value) const
     {
-        Windows::UI::Composition::CompositionGetValueStatus result;
+        Windows::UI::Composition::CompositionGetValueStatus result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionPropertySet2)->TryGetBoolean(*(void**)(&propertyName), &value, reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::EllipseCenter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::EllipseCenter() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRadialGradientBrush)->get_EllipseCenter(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::EllipseCenter(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::EllipseCenter(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRadialGradientBrush)->put_EllipseCenter(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::EllipseRadius() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::EllipseRadius() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRadialGradientBrush)->get_EllipseRadius(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::EllipseRadius(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::EllipseRadius(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRadialGradientBrush)->put_EllipseRadius(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::GradientOriginOffset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::GradientOriginOffset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRadialGradientBrush)->get_GradientOriginOffset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::GradientOriginOffset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionRadialGradientBrush<D>::GradientOriginOffset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRadialGradientBrush)->put_GradientOriginOffset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRectangleGeometry<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionRectangleGeometry<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRectangleGeometry)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRectangleGeometry<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionRectangleGeometry<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRectangleGeometry)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRectangleGeometry<D>::Size() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionRectangleGeometry<D>::Size() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRectangleGeometry)->get_Size(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRectangleGeometry<D>::Size(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionRectangleGeometry<D>::Size(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRectangleGeometry)->put_Size(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::CornerRadius() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::CornerRadius() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRoundedRectangleGeometry)->get_CornerRadius(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::CornerRadius(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::CornerRadius(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRoundedRectangleGeometry)->put_CornerRadius(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRoundedRectangleGeometry)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRoundedRectangleGeometry)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::Size() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::Size() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRoundedRectangleGeometry)->get_Size(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::Size(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionRoundedRectangleGeometry<D>::Size(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionRoundedRectangleGeometry)->put_Size(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionScopedBatch<D>::IsActive() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionScopedBatch<D>::IsActive() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionScopedBatch)->get_IsActive(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionScopedBatch<D>::IsEnded() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionScopedBatch<D>::IsEnded() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionScopedBatch)->get_IsEnded(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionScopedBatch<D>::End() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionScopedBatch<D>::End() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionScopedBatch)->End());
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionScopedBatch<D>::Resume() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionScopedBatch<D>::Resume() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionScopedBatch)->Resume());
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionScopedBatch<D>::Suspend() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionScopedBatch<D>::Suspend() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionScopedBatch)->Suspend());
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionScopedBatch<D>::Completed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Composition::CompositionBatchCompletedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Composition_ICompositionScopedBatch<D>::Completed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Composition::CompositionBatchCompletedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionScopedBatch)->add_Completed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1396,1965 +1396,1965 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Completed_revoker>(this, Completed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionScopedBatch<D>::Completed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionScopedBatch<D>::Completed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionScopedBatch)->remove_Completed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::CenterPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionShape<D>::CenterPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->get_CenterPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::CenterPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionShape<D>::CenterPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->put_CenterPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionShape<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionShape<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::RotationAngle() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionShape<D>::RotationAngle() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->get_RotationAngle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::RotationAngle(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionShape<D>::RotationAngle(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->put_RotationAngle(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::RotationAngleInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionShape<D>::RotationAngleInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->get_RotationAngleInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::RotationAngleInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionShape<D>::RotationAngleInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->put_RotationAngleInDegrees(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::Scale() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionShape<D>::Scale() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->get_Scale(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::Scale(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionShape<D>::Scale(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->put_Scale(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::TransformMatrix() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3x2) consume_Windows_UI_Composition_ICompositionShape<D>::TransformMatrix() const
     {
-        Windows::Foundation::Numerics::float3x2 value;
+        Windows::Foundation::Numerics::float3x2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->get_TransformMatrix(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionShape<D>::TransformMatrix(Windows::Foundation::Numerics::float3x2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionShape<D>::TransformMatrix(Windows::Foundation::Numerics::float3x2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionShape)->put_TransformMatrix(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::FillBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::FillBrush() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_FillBrush(&value));
         return Windows::UI::Composition::CompositionBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::FillBrush(Windows::UI::Composition::CompositionBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::FillBrush(Windows::UI::Composition::CompositionBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_FillBrush(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::Geometry() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGeometry) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::Geometry() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_Geometry(&value));
         return Windows::UI::Composition::CompositionGeometry{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::Geometry(Windows::UI::Composition::CompositionGeometry const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::Geometry(Windows::UI::Composition::CompositionGeometry const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_Geometry(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::IsStrokeNonScaling() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::IsStrokeNonScaling() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_IsStrokeNonScaling(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::IsStrokeNonScaling(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::IsStrokeNonScaling(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_IsStrokeNonScaling(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeBrush() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeBrush(&value));
         return Windows::UI::Composition::CompositionBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeBrush(Windows::UI::Composition::CompositionBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeBrush(Windows::UI::Composition::CompositionBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_StrokeBrush(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashArray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionStrokeDashArray) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashArray() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeDashArray(&value));
         return Windows::UI::Composition::CompositionStrokeDashArray{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashCap() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionStrokeCap) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashCap() const
     {
-        Windows::UI::Composition::CompositionStrokeCap value;
+        Windows::UI::Composition::CompositionStrokeCap value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeDashCap(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashCap(Windows::UI::Composition::CompositionStrokeCap const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashCap(Windows::UI::Composition::CompositionStrokeCap const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_StrokeDashCap(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashOffset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashOffset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeDashOffset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashOffset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeDashOffset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_StrokeDashOffset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeEndCap() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionStrokeCap) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeEndCap() const
     {
-        Windows::UI::Composition::CompositionStrokeCap value;
+        Windows::UI::Composition::CompositionStrokeCap value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeEndCap(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeEndCap(Windows::UI::Composition::CompositionStrokeCap const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeEndCap(Windows::UI::Composition::CompositionStrokeCap const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_StrokeEndCap(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeLineJoin() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionStrokeLineJoin) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeLineJoin() const
     {
-        Windows::UI::Composition::CompositionStrokeLineJoin value;
+        Windows::UI::Composition::CompositionStrokeLineJoin value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeLineJoin(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeLineJoin(Windows::UI::Composition::CompositionStrokeLineJoin const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeLineJoin(Windows::UI::Composition::CompositionStrokeLineJoin const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_StrokeLineJoin(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeMiterLimit() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeMiterLimit() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeMiterLimit(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeMiterLimit(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeMiterLimit(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_StrokeMiterLimit(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeStartCap() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionStrokeCap) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeStartCap() const
     {
-        Windows::UI::Composition::CompositionStrokeCap value;
+        Windows::UI::Composition::CompositionStrokeCap value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeStartCap(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeStartCap(Windows::UI::Composition::CompositionStrokeCap const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeStartCap(Windows::UI::Composition::CompositionStrokeCap const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_StrokeStartCap(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeThickness() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeThickness() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->get_StrokeThickness(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeThickness(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSpriteShape<D>::StrokeThickness(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSpriteShape)->put_StrokeThickness(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::BitmapInterpolationMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBitmapInterpolationMode) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::BitmapInterpolationMode() const
     {
-        Windows::UI::Composition::CompositionBitmapInterpolationMode value;
+        Windows::UI::Composition::CompositionBitmapInterpolationMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->get_BitmapInterpolationMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::BitmapInterpolationMode(Windows::UI::Composition::CompositionBitmapInterpolationMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::BitmapInterpolationMode(Windows::UI::Composition::CompositionBitmapInterpolationMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->put_BitmapInterpolationMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::HorizontalAlignmentRatio() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::HorizontalAlignmentRatio() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->get_HorizontalAlignmentRatio(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::HorizontalAlignmentRatio(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::HorizontalAlignmentRatio(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->put_HorizontalAlignmentRatio(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::Stretch() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionStretch) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::Stretch() const
     {
-        Windows::UI::Composition::CompositionStretch value;
+        Windows::UI::Composition::CompositionStretch value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->get_Stretch(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::Stretch(Windows::UI::Composition::CompositionStretch const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::Stretch(Windows::UI::Composition::CompositionStretch const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->put_Stretch(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::Surface() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ICompositionSurface) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::Surface() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->get_Surface(&value));
         return Windows::UI::Composition::ICompositionSurface{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::Surface(Windows::UI::Composition::ICompositionSurface const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::Surface(Windows::UI::Composition::ICompositionSurface const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->put_Surface(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::VerticalAlignmentRatio() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::VerticalAlignmentRatio() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->get_VerticalAlignmentRatio(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::VerticalAlignmentRatio(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush<D>::VerticalAlignmentRatio(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush)->put_VerticalAlignmentRatio(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::AnchorPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::AnchorPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->get_AnchorPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::AnchorPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::AnchorPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->put_AnchorPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::CenterPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::CenterPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->get_CenterPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::CenterPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::CenterPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->put_CenterPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::RotationAngle() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::RotationAngle() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->get_RotationAngle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::RotationAngle(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::RotationAngle(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->put_RotationAngle(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::RotationAngleInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::RotationAngleInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->get_RotationAngleInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::RotationAngleInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::RotationAngleInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->put_RotationAngleInDegrees(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::Scale() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::Scale() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->get_Scale(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::Scale(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::Scale(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->put_Scale(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::TransformMatrix() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3x2) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::TransformMatrix() const
     {
-        Windows::Foundation::Numerics::float3x2 value;
+        Windows::Foundation::Numerics::float3x2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->get_TransformMatrix(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::TransformMatrix(Windows::Foundation::Numerics::float3x2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush2<D>::TransformMatrix(Windows::Foundation::Numerics::float3x2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush2)->put_TransformMatrix(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush3<D>::SnapToPixels() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_ICompositionSurfaceBrush3<D>::SnapToPixels() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush3)->get_SnapToPixels(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionSurfaceBrush3<D>::SnapToPixels(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionSurfaceBrush3<D>::SnapToPixels(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush3)->put_SnapToPixels(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionTarget<D>::Root() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_ICompositionTarget<D>::Root() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionTarget)->get_Root(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionTarget<D>::Root(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionTarget<D>::Root(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionTarget)->put_Root(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::HorizontalAlignmentRatio() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionViewBox<D>::HorizontalAlignmentRatio() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->get_HorizontalAlignmentRatio(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::HorizontalAlignmentRatio(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionViewBox<D>::HorizontalAlignmentRatio(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->put_HorizontalAlignmentRatio(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionViewBox<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionViewBox<D>::Offset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::Size() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionViewBox<D>::Size() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->get_Size(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::Size(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionViewBox<D>::Size(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->put_Size(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::Stretch() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionStretch) consume_Windows_UI_Composition_ICompositionViewBox<D>::Stretch() const
     {
-        Windows::UI::Composition::CompositionStretch value;
+        Windows::UI::Composition::CompositionStretch value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->get_Stretch(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::Stretch(Windows::UI::Composition::CompositionStretch const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionViewBox<D>::Stretch(Windows::UI::Composition::CompositionStretch const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->put_Stretch(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::VerticalAlignmentRatio() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositionViewBox<D>::VerticalAlignmentRatio() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->get_VerticalAlignmentRatio(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionViewBox<D>::VerticalAlignmentRatio(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionViewBox<D>::VerticalAlignmentRatio(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionViewBox)->put_VerticalAlignmentRatio(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionVirtualDrawingSurface<D>::Trim(array_view<Windows::Graphics::RectInt32 const> rects) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionVirtualDrawingSurface<D>::Trim(array_view<Windows::Graphics::RectInt32 const> rects) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionVirtualDrawingSurface)->Trim(rects.size(), get_abi(rects)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceVisual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceVisual() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionVisualSurface)->get_SourceVisual(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceVisual(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceVisual(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionVisualSurface)->put_SourceVisual(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceOffset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceOffset() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionVisualSurface)->get_SourceOffset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceOffset(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceOffset(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionVisualSurface)->put_SourceOffset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceSize() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionVisualSurface)->get_SourceSize(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceSize(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionVisualSurface<D>::SourceSize(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionVisualSurface)->put_SourceSize(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateColorKeyFrameAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ColorKeyFrameAnimation) consume_Windows_UI_Composition_ICompositor<D>::CreateColorKeyFrameAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateColorKeyFrameAnimation(&result));
         return Windows::UI::Composition::ColorKeyFrameAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateColorBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionColorBrush) consume_Windows_UI_Composition_ICompositor<D>::CreateColorBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateColorBrush(&result));
         return Windows::UI::Composition::CompositionColorBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateColorBrush(Windows::UI::Color const& color) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionColorBrush) consume_Windows_UI_Composition_ICompositor<D>::CreateColorBrush(Windows::UI::Color const& color) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateColorBrushWithColor(impl::bind_in(color), &result));
         return Windows::UI::Composition::CompositionColorBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateContainerVisual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ContainerVisual) consume_Windows_UI_Composition_ICompositor<D>::CreateContainerVisual() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateContainerVisual(&result));
         return Windows::UI::Composition::ContainerVisual{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateCubicBezierEasingFunction(Windows::Foundation::Numerics::float2 const& controlPoint1, Windows::Foundation::Numerics::float2 const& controlPoint2) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CubicBezierEasingFunction) consume_Windows_UI_Composition_ICompositor<D>::CreateCubicBezierEasingFunction(Windows::Foundation::Numerics::float2 const& controlPoint1, Windows::Foundation::Numerics::float2 const& controlPoint2) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateCubicBezierEasingFunction(impl::bind_in(controlPoint1), impl::bind_in(controlPoint2), &result));
         return Windows::UI::Composition::CubicBezierEasingFunction{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateEffectFactory(Windows::Graphics::Effects::IGraphicsEffect const& graphicsEffect) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEffectFactory) consume_Windows_UI_Composition_ICompositor<D>::CreateEffectFactory(Windows::Graphics::Effects::IGraphicsEffect const& graphicsEffect) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateEffectFactory(*(void**)(&graphicsEffect), &result));
         return Windows::UI::Composition::CompositionEffectFactory{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateEffectFactory(Windows::Graphics::Effects::IGraphicsEffect const& graphicsEffect, param::iterable<hstring> const& animatableProperties) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEffectFactory) consume_Windows_UI_Composition_ICompositor<D>::CreateEffectFactory(Windows::Graphics::Effects::IGraphicsEffect const& graphicsEffect, param::iterable<hstring> const& animatableProperties) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateEffectFactoryWithProperties(*(void**)(&graphicsEffect), *(void**)(&animatableProperties), &result));
         return Windows::UI::Composition::CompositionEffectFactory{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateExpressionAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ExpressionAnimation) consume_Windows_UI_Composition_ICompositor<D>::CreateExpressionAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateExpressionAnimation(&result));
         return Windows::UI::Composition::ExpressionAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateExpressionAnimation(param::hstring const& expression) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ExpressionAnimation) consume_Windows_UI_Composition_ICompositor<D>::CreateExpressionAnimation(param::hstring const& expression) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateExpressionAnimationWithExpression(*(void**)(&expression), &result));
         return Windows::UI::Composition::ExpressionAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateInsetClip() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::InsetClip) consume_Windows_UI_Composition_ICompositor<D>::CreateInsetClip() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateInsetClip(&result));
         return Windows::UI::Composition::InsetClip{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateInsetClip(float leftInset, float topInset, float rightInset, float bottomInset) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::InsetClip) consume_Windows_UI_Composition_ICompositor<D>::CreateInsetClip(float leftInset, float topInset, float rightInset, float bottomInset) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateInsetClipWithInsets(leftInset, topInset, rightInset, bottomInset, &result));
         return Windows::UI::Composition::InsetClip{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateLinearEasingFunction() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::LinearEasingFunction) consume_Windows_UI_Composition_ICompositor<D>::CreateLinearEasingFunction() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateLinearEasingFunction(&result));
         return Windows::UI::Composition::LinearEasingFunction{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreatePropertySet() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionPropertySet) consume_Windows_UI_Composition_ICompositor<D>::CreatePropertySet() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreatePropertySet(&result));
         return Windows::UI::Composition::CompositionPropertySet{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateQuaternionKeyFrameAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::QuaternionKeyFrameAnimation) consume_Windows_UI_Composition_ICompositor<D>::CreateQuaternionKeyFrameAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateQuaternionKeyFrameAnimation(&result));
         return Windows::UI::Composition::QuaternionKeyFrameAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateScalarKeyFrameAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ScalarKeyFrameAnimation) consume_Windows_UI_Composition_ICompositor<D>::CreateScalarKeyFrameAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateScalarKeyFrameAnimation(&result));
         return Windows::UI::Composition::ScalarKeyFrameAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateScopedBatch(Windows::UI::Composition::CompositionBatchTypes const& batchType) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionScopedBatch) consume_Windows_UI_Composition_ICompositor<D>::CreateScopedBatch(Windows::UI::Composition::CompositionBatchTypes const& batchType) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateScopedBatch(static_cast<uint32_t>(batchType), &result));
         return Windows::UI::Composition::CompositionScopedBatch{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateSpriteVisual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::SpriteVisual) consume_Windows_UI_Composition_ICompositor<D>::CreateSpriteVisual() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateSpriteVisual(&result));
         return Windows::UI::Composition::SpriteVisual{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateSurfaceBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionSurfaceBrush) consume_Windows_UI_Composition_ICompositor<D>::CreateSurfaceBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateSurfaceBrush(&result));
         return Windows::UI::Composition::CompositionSurfaceBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateSurfaceBrush(Windows::UI::Composition::ICompositionSurface const& surface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionSurfaceBrush) consume_Windows_UI_Composition_ICompositor<D>::CreateSurfaceBrush(Windows::UI::Composition::ICompositionSurface const& surface) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateSurfaceBrushWithSurface(*(void**)(&surface), &result));
         return Windows::UI::Composition::CompositionSurfaceBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateTargetForCurrentView() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionTarget) consume_Windows_UI_Composition_ICompositor<D>::CreateTargetForCurrentView() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateTargetForCurrentView(&result));
         return Windows::UI::Composition::CompositionTarget{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateVector2KeyFrameAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Vector2KeyFrameAnimation) consume_Windows_UI_Composition_ICompositor<D>::CreateVector2KeyFrameAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateVector2KeyFrameAnimation(&result));
         return Windows::UI::Composition::Vector2KeyFrameAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateVector3KeyFrameAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Vector3KeyFrameAnimation) consume_Windows_UI_Composition_ICompositor<D>::CreateVector3KeyFrameAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateVector3KeyFrameAnimation(&result));
         return Windows::UI::Composition::Vector3KeyFrameAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::CreateVector4KeyFrameAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Vector4KeyFrameAnimation) consume_Windows_UI_Composition_ICompositor<D>::CreateVector4KeyFrameAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->CreateVector4KeyFrameAnimation(&result));
         return Windows::UI::Composition::Vector4KeyFrameAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor<D>::GetCommitBatch(Windows::UI::Composition::CompositionBatchTypes const& batchType) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionCommitBatch) consume_Windows_UI_Composition_ICompositor<D>::GetCommitBatch(Windows::UI::Composition::CompositionBatchTypes const& batchType) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor)->GetCommitBatch(static_cast<uint32_t>(batchType), &result));
         return Windows::UI::Composition::CompositionCommitBatch{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateAmbientLight() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AmbientLight) consume_Windows_UI_Composition_ICompositor2<D>::CreateAmbientLight() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateAmbientLight(&result));
         return Windows::UI::Composition::AmbientLight{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateAnimationGroup() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionAnimationGroup) consume_Windows_UI_Composition_ICompositor2<D>::CreateAnimationGroup() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateAnimationGroup(&result));
         return Windows::UI::Composition::CompositionAnimationGroup{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateBackdropBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBackdropBrush) consume_Windows_UI_Composition_ICompositor2<D>::CreateBackdropBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateBackdropBrush(&result));
         return Windows::UI::Composition::CompositionBackdropBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateDistantLight() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::DistantLight) consume_Windows_UI_Composition_ICompositor2<D>::CreateDistantLight() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateDistantLight(&result));
         return Windows::UI::Composition::DistantLight{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateDropShadow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::DropShadow) consume_Windows_UI_Composition_ICompositor2<D>::CreateDropShadow() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateDropShadow(&result));
         return Windows::UI::Composition::DropShadow{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateImplicitAnimationCollection() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ImplicitAnimationCollection) consume_Windows_UI_Composition_ICompositor2<D>::CreateImplicitAnimationCollection() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateImplicitAnimationCollection(&result));
         return Windows::UI::Composition::ImplicitAnimationCollection{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateLayerVisual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::LayerVisual) consume_Windows_UI_Composition_ICompositor2<D>::CreateLayerVisual() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateLayerVisual(&result));
         return Windows::UI::Composition::LayerVisual{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateMaskBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionMaskBrush) consume_Windows_UI_Composition_ICompositor2<D>::CreateMaskBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateMaskBrush(&result));
         return Windows::UI::Composition::CompositionMaskBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateNineGridBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionNineGridBrush) consume_Windows_UI_Composition_ICompositor2<D>::CreateNineGridBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateNineGridBrush(&result));
         return Windows::UI::Composition::CompositionNineGridBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreatePointLight() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::PointLight) consume_Windows_UI_Composition_ICompositor2<D>::CreatePointLight() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreatePointLight(&result));
         return Windows::UI::Composition::PointLight{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateSpotLight() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::SpotLight) consume_Windows_UI_Composition_ICompositor2<D>::CreateSpotLight() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateSpotLight(&result));
         return Windows::UI::Composition::SpotLight{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateStepEasingFunction() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::StepEasingFunction) consume_Windows_UI_Composition_ICompositor2<D>::CreateStepEasingFunction() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateStepEasingFunction(&result));
         return Windows::UI::Composition::StepEasingFunction{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor2<D>::CreateStepEasingFunction(int32_t stepCount) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::StepEasingFunction) consume_Windows_UI_Composition_ICompositor2<D>::CreateStepEasingFunction(int32_t stepCount) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor2)->CreateStepEasingFunctionWithStepCount(stepCount, &result));
         return Windows::UI::Composition::StepEasingFunction{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor3<D>::CreateHostBackdropBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBackdropBrush) consume_Windows_UI_Composition_ICompositor3<D>::CreateHostBackdropBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor3)->CreateHostBackdropBrush(&result));
         return Windows::UI::Composition::CompositionBackdropBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor4<D>::CreateColorGradientStop() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionColorGradientStop) consume_Windows_UI_Composition_ICompositor4<D>::CreateColorGradientStop() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor4)->CreateColorGradientStop(&result));
         return Windows::UI::Composition::CompositionColorGradientStop{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor4<D>::CreateColorGradientStop(float offset, Windows::UI::Color const& color) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionColorGradientStop) consume_Windows_UI_Composition_ICompositor4<D>::CreateColorGradientStop(float offset, Windows::UI::Color const& color) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor4)->CreateColorGradientStopWithOffsetAndColor(offset, impl::bind_in(color), &result));
         return Windows::UI::Composition::CompositionColorGradientStop{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor4<D>::CreateLinearGradientBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionLinearGradientBrush) consume_Windows_UI_Composition_ICompositor4<D>::CreateLinearGradientBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor4)->CreateLinearGradientBrush(&result));
         return Windows::UI::Composition::CompositionLinearGradientBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor4<D>::CreateSpringScalarAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::SpringScalarNaturalMotionAnimation) consume_Windows_UI_Composition_ICompositor4<D>::CreateSpringScalarAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor4)->CreateSpringScalarAnimation(&result));
         return Windows::UI::Composition::SpringScalarNaturalMotionAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor4<D>::CreateSpringVector2Animation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::SpringVector2NaturalMotionAnimation) consume_Windows_UI_Composition_ICompositor4<D>::CreateSpringVector2Animation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor4)->CreateSpringVector2Animation(&result));
         return Windows::UI::Composition::SpringVector2NaturalMotionAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor4<D>::CreateSpringVector3Animation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::SpringVector3NaturalMotionAnimation) consume_Windows_UI_Composition_ICompositor4<D>::CreateSpringVector3Animation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor4)->CreateSpringVector3Animation(&result));
         return Windows::UI::Composition::SpringVector3NaturalMotionAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::Comment() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Composition_ICompositor5<D>::Comment() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->get_Comment(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::Comment(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositor5<D>::Comment(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->put_Comment(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::GlobalPlaybackRate() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositor5<D>::GlobalPlaybackRate() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->get_GlobalPlaybackRate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::GlobalPlaybackRate(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositor5<D>::GlobalPlaybackRate(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->put_GlobalPlaybackRate(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateBounceScalarAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::BounceScalarNaturalMotionAnimation) consume_Windows_UI_Composition_ICompositor5<D>::CreateBounceScalarAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateBounceScalarAnimation(&result));
         return Windows::UI::Composition::BounceScalarNaturalMotionAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateBounceVector2Animation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::BounceVector2NaturalMotionAnimation) consume_Windows_UI_Composition_ICompositor5<D>::CreateBounceVector2Animation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateBounceVector2Animation(&result));
         return Windows::UI::Composition::BounceVector2NaturalMotionAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateBounceVector3Animation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::BounceVector3NaturalMotionAnimation) consume_Windows_UI_Composition_ICompositor5<D>::CreateBounceVector3Animation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateBounceVector3Animation(&result));
         return Windows::UI::Composition::BounceVector3NaturalMotionAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateContainerShape() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionContainerShape) consume_Windows_UI_Composition_ICompositor5<D>::CreateContainerShape() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateContainerShape(&result));
         return Windows::UI::Composition::CompositionContainerShape{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateEllipseGeometry() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEllipseGeometry) consume_Windows_UI_Composition_ICompositor5<D>::CreateEllipseGeometry() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateEllipseGeometry(&result));
         return Windows::UI::Composition::CompositionEllipseGeometry{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateLineGeometry() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionLineGeometry) consume_Windows_UI_Composition_ICompositor5<D>::CreateLineGeometry() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateLineGeometry(&result));
         return Windows::UI::Composition::CompositionLineGeometry{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreatePathGeometry() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionPathGeometry) consume_Windows_UI_Composition_ICompositor5<D>::CreatePathGeometry() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreatePathGeometry(&result));
         return Windows::UI::Composition::CompositionPathGeometry{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreatePathGeometry(Windows::UI::Composition::CompositionPath const& path) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionPathGeometry) consume_Windows_UI_Composition_ICompositor5<D>::CreatePathGeometry(Windows::UI::Composition::CompositionPath const& path) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreatePathGeometryWithPath(*(void**)(&path), &result));
         return Windows::UI::Composition::CompositionPathGeometry{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreatePathKeyFrameAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::PathKeyFrameAnimation) consume_Windows_UI_Composition_ICompositor5<D>::CreatePathKeyFrameAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreatePathKeyFrameAnimation(&result));
         return Windows::UI::Composition::PathKeyFrameAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateRectangleGeometry() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionRectangleGeometry) consume_Windows_UI_Composition_ICompositor5<D>::CreateRectangleGeometry() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateRectangleGeometry(&result));
         return Windows::UI::Composition::CompositionRectangleGeometry{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateRoundedRectangleGeometry() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionRoundedRectangleGeometry) consume_Windows_UI_Composition_ICompositor5<D>::CreateRoundedRectangleGeometry() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateRoundedRectangleGeometry(&result));
         return Windows::UI::Composition::CompositionRoundedRectangleGeometry{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateShapeVisual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ShapeVisual) consume_Windows_UI_Composition_ICompositor5<D>::CreateShapeVisual() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateShapeVisual(&result));
         return Windows::UI::Composition::ShapeVisual{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateSpriteShape() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionSpriteShape) consume_Windows_UI_Composition_ICompositor5<D>::CreateSpriteShape() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateSpriteShape(&result));
         return Windows::UI::Composition::CompositionSpriteShape{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateSpriteShape(Windows::UI::Composition::CompositionGeometry const& geometry) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionSpriteShape) consume_Windows_UI_Composition_ICompositor5<D>::CreateSpriteShape(Windows::UI::Composition::CompositionGeometry const& geometry) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateSpriteShapeWithGeometry(*(void**)(&geometry), &result));
         return Windows::UI::Composition::CompositionSpriteShape{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::CreateViewBox() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionViewBox) consume_Windows_UI_Composition_ICompositor5<D>::CreateViewBox() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->CreateViewBox(&result));
         return Windows::UI::Composition::CompositionViewBox{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor5<D>::RequestCommitAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Composition_ICompositor5<D>::RequestCommitAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor5)->RequestCommitAsync(&operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor6<D>::CreateGeometricClip() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGeometricClip) consume_Windows_UI_Composition_ICompositor6<D>::CreateGeometricClip() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor6)->CreateGeometricClip(&result));
         return Windows::UI::Composition::CompositionGeometricClip{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor6<D>::CreateGeometricClip(Windows::UI::Composition::CompositionGeometry const& geometry) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGeometricClip) consume_Windows_UI_Composition_ICompositor6<D>::CreateGeometricClip(Windows::UI::Composition::CompositionGeometry const& geometry) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor6)->CreateGeometricClipWithGeometry(*(void**)(&geometry), &result));
         return Windows::UI::Composition::CompositionGeometricClip{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor6<D>::CreateRedirectVisual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::RedirectVisual) consume_Windows_UI_Composition_ICompositor6<D>::CreateRedirectVisual() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor6)->CreateRedirectVisual(&result));
         return Windows::UI::Composition::RedirectVisual{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor6<D>::CreateRedirectVisual(Windows::UI::Composition::Visual const& source) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::RedirectVisual) consume_Windows_UI_Composition_ICompositor6<D>::CreateRedirectVisual(Windows::UI::Composition::Visual const& source) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor6)->CreateRedirectVisualWithSourceVisual(*(void**)(&source), &result));
         return Windows::UI::Composition::RedirectVisual{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositor6<D>::CreateBooleanKeyFrameAnimation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::BooleanKeyFrameAnimation) consume_Windows_UI_Composition_ICompositor6<D>::CreateBooleanKeyFrameAnimation() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor6)->CreateBooleanKeyFrameAnimation(&result));
         return Windows::UI::Composition::BooleanKeyFrameAnimation{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositorStatics<D>::MaxGlobalPlaybackRate() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositorStatics<D>::MaxGlobalPlaybackRate() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositorStatics)->get_MaxGlobalPlaybackRate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositorStatics<D>::MinGlobalPlaybackRate() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositorStatics<D>::MinGlobalPlaybackRate() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositorStatics)->get_MinGlobalPlaybackRate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositorWithProjectedShadow<D>::CreateProjectedShadowCaster() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionProjectedShadowCaster) consume_Windows_UI_Composition_ICompositorWithProjectedShadow<D>::CreateProjectedShadowCaster() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositorWithProjectedShadow)->CreateProjectedShadowCaster(&result));
         return Windows::UI::Composition::CompositionProjectedShadowCaster{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositorWithProjectedShadow<D>::CreateProjectedShadow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionProjectedShadow) consume_Windows_UI_Composition_ICompositorWithProjectedShadow<D>::CreateProjectedShadow() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositorWithProjectedShadow)->CreateProjectedShadow(&result));
         return Windows::UI::Composition::CompositionProjectedShadow{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositorWithProjectedShadow<D>::CreateProjectedShadowReceiver() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionProjectedShadowReceiver) consume_Windows_UI_Composition_ICompositorWithProjectedShadow<D>::CreateProjectedShadowReceiver() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositorWithProjectedShadow)->CreateProjectedShadowReceiver(&result));
         return Windows::UI::Composition::CompositionProjectedShadowReceiver{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositorWithRadialGradient<D>::CreateRadialGradientBrush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionRadialGradientBrush) consume_Windows_UI_Composition_ICompositorWithRadialGradient<D>::CreateRadialGradientBrush() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositorWithRadialGradient)->CreateRadialGradientBrush(&result));
         return Windows::UI::Composition::CompositionRadialGradientBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICompositorWithVisualSurface<D>::CreateVisualSurface() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionVisualSurface) consume_Windows_UI_Composition_ICompositorWithVisualSurface<D>::CreateVisualSurface() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositorWithVisualSurface)->CreateVisualSurface(&result));
         return Windows::UI::Composition::CompositionVisualSurface{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IContainerVisual<D>::Children() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::VisualCollection) consume_Windows_UI_Composition_IContainerVisual<D>::Children() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IContainerVisual)->get_Children(&value));
         return Windows::UI::Composition::VisualCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICubicBezierEasingFunction<D>::ControlPoint1() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICubicBezierEasingFunction<D>::ControlPoint1() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICubicBezierEasingFunction)->get_ControlPoint1(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ICubicBezierEasingFunction<D>::ControlPoint2() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_ICubicBezierEasingFunction<D>::ControlPoint2() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICubicBezierEasingFunction)->get_ControlPoint2(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDistantLight<D>::Color() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_IDistantLight<D>::Color() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDistantLight)->get_Color(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDistantLight<D>::Color(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDistantLight<D>::Color(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDistantLight)->put_Color(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDistantLight<D>::CoordinateSpace() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_IDistantLight<D>::CoordinateSpace() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDistantLight)->get_CoordinateSpace(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDistantLight<D>::CoordinateSpace(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDistantLight<D>::CoordinateSpace(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDistantLight)->put_CoordinateSpace(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDistantLight<D>::Direction() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IDistantLight<D>::Direction() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDistantLight)->get_Direction(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDistantLight<D>::Direction(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDistantLight<D>::Direction(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDistantLight)->put_Direction(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDistantLight2<D>::Intensity() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IDistantLight2<D>::Intensity() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDistantLight2)->get_Intensity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDistantLight2<D>::Intensity(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDistantLight2<D>::Intensity(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDistantLight2)->put_Intensity(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::BlurRadius() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IDropShadow<D>::BlurRadius() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->get_BlurRadius(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::BlurRadius(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDropShadow<D>::BlurRadius(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->put_BlurRadius(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::Color() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_IDropShadow<D>::Color() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->get_Color(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::Color(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDropShadow<D>::Color(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->put_Color(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::Mask() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_IDropShadow<D>::Mask() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->get_Mask(&value));
         return Windows::UI::Composition::CompositionBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::Mask(Windows::UI::Composition::CompositionBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDropShadow<D>::Mask(Windows::UI::Composition::CompositionBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->put_Mask(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IDropShadow<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::Offset(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDropShadow<D>::Offset(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::Opacity() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IDropShadow<D>::Opacity() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->get_Opacity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow<D>::Opacity(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDropShadow<D>::Opacity(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow)->put_Opacity(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow2<D>::SourcePolicy() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionDropShadowSourcePolicy) consume_Windows_UI_Composition_IDropShadow2<D>::SourcePolicy() const
     {
-        Windows::UI::Composition::CompositionDropShadowSourcePolicy value;
+        Windows::UI::Composition::CompositionDropShadowSourcePolicy value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow2)->get_SourcePolicy(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IDropShadow2<D>::SourcePolicy(Windows::UI::Composition::CompositionDropShadowSourcePolicy const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDropShadow2<D>::SourcePolicy(Windows::UI::Composition::CompositionDropShadowSourcePolicy const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow2)->put_SourcePolicy(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IExpressionAnimation<D>::Expression() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Composition_IExpressionAnimation<D>::Expression() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IExpressionAnimation)->get_Expression(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IExpressionAnimation<D>::Expression(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IExpressionAnimation<D>::Expression(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IExpressionAnimation)->put_Expression(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IInsetClip<D>::BottomInset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IInsetClip<D>::BottomInset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IInsetClip)->get_BottomInset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IInsetClip<D>::BottomInset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IInsetClip<D>::BottomInset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IInsetClip)->put_BottomInset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IInsetClip<D>::LeftInset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IInsetClip<D>::LeftInset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IInsetClip)->get_LeftInset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IInsetClip<D>::LeftInset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IInsetClip<D>::LeftInset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IInsetClip)->put_LeftInset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IInsetClip<D>::RightInset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IInsetClip<D>::RightInset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IInsetClip)->get_RightInset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IInsetClip<D>::RightInset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IInsetClip<D>::RightInset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IInsetClip)->put_RightInset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IInsetClip<D>::TopInset() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IInsetClip<D>::TopInset() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IInsetClip)->get_TopInset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IInsetClip<D>::TopInset(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IInsetClip<D>::TopInset(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IInsetClip)->put_TopInset(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::DelayTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::DelayTime() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->get_DelayTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::DelayTime(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::DelayTime(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->put_DelayTime(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::Duration() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::Duration() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->get_Duration(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::Duration(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::Duration(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->put_Duration(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::IterationBehavior() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationIterationBehavior) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::IterationBehavior() const
     {
-        Windows::UI::Composition::AnimationIterationBehavior value;
+        Windows::UI::Composition::AnimationIterationBehavior value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->get_IterationBehavior(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::IterationBehavior(Windows::UI::Composition::AnimationIterationBehavior const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::IterationBehavior(Windows::UI::Composition::AnimationIterationBehavior const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->put_IterationBehavior(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::IterationCount() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::IterationCount() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->get_IterationCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::IterationCount(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::IterationCount(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->put_IterationCount(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::KeyFrameCount() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::KeyFrameCount() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->get_KeyFrameCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::StopBehavior() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationStopBehavior) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::StopBehavior() const
     {
-        Windows::UI::Composition::AnimationStopBehavior value;
+        Windows::UI::Composition::AnimationStopBehavior value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->get_StopBehavior(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::StopBehavior(Windows::UI::Composition::AnimationStopBehavior const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::StopBehavior(Windows::UI::Composition::AnimationStopBehavior const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->put_StopBehavior(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::InsertExpressionKeyFrame(float normalizedProgressKey, param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::InsertExpressionKeyFrame(float normalizedProgressKey, param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->InsertExpressionKeyFrame(normalizedProgressKey, *(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation<D>::InsertExpressionKeyFrame(float normalizedProgressKey, param::hstring const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation<D>::InsertExpressionKeyFrame(float normalizedProgressKey, param::hstring const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation)->InsertExpressionKeyFrameWithEasingFunction(normalizedProgressKey, *(void**)(&value), *(void**)(&easingFunction)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation2<D>::Direction() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationDirection) consume_Windows_UI_Composition_IKeyFrameAnimation2<D>::Direction() const
     {
-        Windows::UI::Composition::AnimationDirection value;
+        Windows::UI::Composition::AnimationDirection value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation2)->get_Direction(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation2<D>::Direction(Windows::UI::Composition::AnimationDirection const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation2<D>::Direction(Windows::UI::Composition::AnimationDirection const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation2)->put_Direction(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation3<D>::DelayBehavior() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationDelayBehavior) consume_Windows_UI_Composition_IKeyFrameAnimation3<D>::DelayBehavior() const
     {
-        Windows::UI::Composition::AnimationDelayBehavior value;
+        Windows::UI::Composition::AnimationDelayBehavior value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation3)->get_DelayBehavior(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IKeyFrameAnimation3<D>::DelayBehavior(Windows::UI::Composition::AnimationDelayBehavior const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IKeyFrameAnimation3<D>::DelayBehavior(Windows::UI::Composition::AnimationDelayBehavior const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IKeyFrameAnimation3)->put_DelayBehavior(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ILayerVisual<D>::Effect() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEffectBrush) consume_Windows_UI_Composition_ILayerVisual<D>::Effect() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ILayerVisual)->get_Effect(&value));
         return Windows::UI::Composition::CompositionEffectBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ILayerVisual<D>::Effect(Windows::UI::Composition::CompositionEffectBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ILayerVisual<D>::Effect(Windows::UI::Composition::CompositionEffectBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ILayerVisual)->put_Effect(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ILayerVisual2<D>::Shadow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionShadow) consume_Windows_UI_Composition_ILayerVisual2<D>::Shadow() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ILayerVisual2)->get_Shadow(&value));
         return Windows::UI::Composition::CompositionShadow{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ILayerVisual2<D>::Shadow(Windows::UI::Composition::CompositionShadow const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ILayerVisual2<D>::Shadow(Windows::UI::Composition::CompositionShadow const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ILayerVisual2)->put_Shadow(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_INaturalMotionAnimation<D>::DelayBehavior() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationDelayBehavior) consume_Windows_UI_Composition_INaturalMotionAnimation<D>::DelayBehavior() const
     {
-        Windows::UI::Composition::AnimationDelayBehavior value;
+        Windows::UI::Composition::AnimationDelayBehavior value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::INaturalMotionAnimation)->get_DelayBehavior(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_INaturalMotionAnimation<D>::DelayBehavior(Windows::UI::Composition::AnimationDelayBehavior const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_INaturalMotionAnimation<D>::DelayBehavior(Windows::UI::Composition::AnimationDelayBehavior const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::INaturalMotionAnimation)->put_DelayBehavior(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_INaturalMotionAnimation<D>::DelayTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_UI_Composition_INaturalMotionAnimation<D>::DelayTime() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::INaturalMotionAnimation)->get_DelayTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_INaturalMotionAnimation<D>::DelayTime(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_INaturalMotionAnimation<D>::DelayTime(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::INaturalMotionAnimation)->put_DelayTime(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_INaturalMotionAnimation<D>::StopBehavior() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationStopBehavior) consume_Windows_UI_Composition_INaturalMotionAnimation<D>::StopBehavior() const
     {
-        Windows::UI::Composition::AnimationStopBehavior value;
+        Windows::UI::Composition::AnimationStopBehavior value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::INaturalMotionAnimation)->get_StopBehavior(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_INaturalMotionAnimation<D>::StopBehavior(Windows::UI::Composition::AnimationStopBehavior const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_INaturalMotionAnimation<D>::StopBehavior(Windows::UI::Composition::AnimationStopBehavior const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::INaturalMotionAnimation)->put_StopBehavior(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPathKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::UI::Composition::CompositionPath const& path) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPathKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::UI::Composition::CompositionPath const& path) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPathKeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, *(void**)(&path)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPathKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::UI::Composition::CompositionPath const& path, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPathKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::UI::Composition::CompositionPath const& path, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPathKeyFrameAnimation)->InsertKeyFrameWithEasingFunction(normalizedProgressKey, *(void**)(&path), *(void**)(&easingFunction)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::Color() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_IPointLight<D>::Color() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->get_Color(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::Color(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight<D>::Color(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->put_Color(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::ConstantAttenuation() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IPointLight<D>::ConstantAttenuation() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->get_ConstantAttenuation(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::ConstantAttenuation(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight<D>::ConstantAttenuation(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->put_ConstantAttenuation(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::CoordinateSpace() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_IPointLight<D>::CoordinateSpace() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->get_CoordinateSpace(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::CoordinateSpace(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight<D>::CoordinateSpace(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->put_CoordinateSpace(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::LinearAttenuation() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IPointLight<D>::LinearAttenuation() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->get_LinearAttenuation(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::LinearAttenuation(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight<D>::LinearAttenuation(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->put_LinearAttenuation(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IPointLight<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::Offset(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight<D>::Offset(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::QuadraticAttenuation() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IPointLight<D>::QuadraticAttenuation() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->get_QuadraticAttenuation(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight<D>::QuadraticAttenuation(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight<D>::QuadraticAttenuation(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight)->put_QuadraticAttenuation(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight2<D>::Intensity() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IPointLight2<D>::Intensity() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight2)->get_Intensity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight2<D>::Intensity(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight2<D>::Intensity(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight2)->put_Intensity(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight3<D>::MinAttenuationCutoff() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IPointLight3<D>::MinAttenuationCutoff() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight3)->get_MinAttenuationCutoff(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight3<D>::MinAttenuationCutoff(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight3<D>::MinAttenuationCutoff(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight3)->put_MinAttenuationCutoff(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight3<D>::MaxAttenuationCutoff() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IPointLight3<D>::MaxAttenuationCutoff() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight3)->get_MaxAttenuationCutoff(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IPointLight3<D>::MaxAttenuationCutoff(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IPointLight3<D>::MaxAttenuationCutoff(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight3)->put_MaxAttenuationCutoff(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IQuaternionKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::quaternion const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IQuaternionKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::quaternion const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IQuaternionKeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IQuaternionKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::quaternion const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IQuaternionKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::quaternion const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IQuaternionKeyFrameAnimation)->InsertKeyFrameWithEasingFunction(normalizedProgressKey, impl::bind_in(value), *(void**)(&easingFunction)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IRedirectVisual<D>::Source() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_IRedirectVisual<D>::Source() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRedirectVisual)->get_Source(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IRedirectVisual<D>::Source(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRedirectVisual<D>::Source(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRedirectVisual)->put_Source(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IRenderingDeviceReplacedEventArgs<D>::GraphicsDevice() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionGraphicsDevice) consume_Windows_UI_Composition_IRenderingDeviceReplacedEventArgs<D>::GraphicsDevice() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRenderingDeviceReplacedEventArgs)->get_GraphicsDevice(&value));
         return Windows::UI::Composition::CompositionGraphicsDevice{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IScalarKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IScalarKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IScalarKeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IScalarKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, float value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IScalarKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, float value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IScalarKeyFrameAnimation)->InsertKeyFrameWithEasingFunction(normalizedProgressKey, value, *(void**)(&easingFunction)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::FinalValue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<float>) consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::FinalValue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IScalarNaturalMotionAnimation)->get_FinalValue(&value));
         return Windows::Foundation::IReference<float>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::FinalValue(Windows::Foundation::IReference<float> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::FinalValue(Windows::Foundation::IReference<float> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IScalarNaturalMotionAnimation)->put_FinalValue(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::InitialValue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<float>) consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::InitialValue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IScalarNaturalMotionAnimation)->get_InitialValue(&value));
         return Windows::Foundation::IReference<float>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::InitialValue(Windows::Foundation::IReference<float> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::InitialValue(Windows::Foundation::IReference<float> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IScalarNaturalMotionAnimation)->put_InitialValue(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::InitialVelocity() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::InitialVelocity() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IScalarNaturalMotionAnimation)->get_InitialVelocity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::InitialVelocity(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IScalarNaturalMotionAnimation<D>::InitialVelocity(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IScalarNaturalMotionAnimation)->put_InitialVelocity(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IShapeVisual<D>::Shapes() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionShapeCollection) consume_Windows_UI_Composition_IShapeVisual<D>::Shapes() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IShapeVisual)->get_Shapes(&value));
         return Windows::UI::Composition::CompositionShapeCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IShapeVisual<D>::ViewBox() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionViewBox) consume_Windows_UI_Composition_IShapeVisual<D>::ViewBox() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IShapeVisual)->get_ViewBox(&value));
         return Windows::UI::Composition::CompositionViewBox{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IShapeVisual<D>::ViewBox(Windows::UI::Composition::CompositionViewBox const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IShapeVisual<D>::ViewBox(Windows::UI::Composition::CompositionViewBox const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IShapeVisual)->put_ViewBox(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::ConstantAttenuation() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight<D>::ConstantAttenuation() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_ConstantAttenuation(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::ConstantAttenuation(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::ConstantAttenuation(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_ConstantAttenuation(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::CoordinateSpace() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_ISpotLight<D>::CoordinateSpace() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_CoordinateSpace(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::CoordinateSpace(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::CoordinateSpace(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_CoordinateSpace(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::Direction() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_ISpotLight<D>::Direction() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_Direction(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::Direction(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::Direction(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_Direction(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::InnerConeAngle() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight<D>::InnerConeAngle() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_InnerConeAngle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::InnerConeAngle(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::InnerConeAngle(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_InnerConeAngle(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::InnerConeAngleInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight<D>::InnerConeAngleInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_InnerConeAngleInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::InnerConeAngleInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::InnerConeAngleInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_InnerConeAngleInDegrees(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::InnerConeColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_ISpotLight<D>::InnerConeColor() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_InnerConeColor(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::InnerConeColor(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::InnerConeColor(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_InnerConeColor(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::LinearAttenuation() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight<D>::LinearAttenuation() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_LinearAttenuation(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::LinearAttenuation(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::LinearAttenuation(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_LinearAttenuation(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_ISpotLight<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::Offset(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::Offset(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::OuterConeAngle() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight<D>::OuterConeAngle() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_OuterConeAngle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::OuterConeAngle(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::OuterConeAngle(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_OuterConeAngle(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::OuterConeAngleInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight<D>::OuterConeAngleInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_OuterConeAngleInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::OuterConeAngleInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::OuterConeAngleInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_OuterConeAngleInDegrees(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::OuterConeColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_ISpotLight<D>::OuterConeColor() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_OuterConeColor(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::OuterConeColor(Windows::UI::Color const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::OuterConeColor(Windows::UI::Color const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_OuterConeColor(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::QuadraticAttenuation() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight<D>::QuadraticAttenuation() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->get_QuadraticAttenuation(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight<D>::QuadraticAttenuation(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight<D>::QuadraticAttenuation(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight)->put_QuadraticAttenuation(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight2<D>::InnerConeIntensity() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight2<D>::InnerConeIntensity() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight2)->get_InnerConeIntensity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight2<D>::InnerConeIntensity(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight2<D>::InnerConeIntensity(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight2)->put_InnerConeIntensity(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight2<D>::OuterConeIntensity() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight2<D>::OuterConeIntensity() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight2)->get_OuterConeIntensity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight2<D>::OuterConeIntensity(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight2<D>::OuterConeIntensity(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight2)->put_OuterConeIntensity(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight3<D>::MinAttenuationCutoff() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight3<D>::MinAttenuationCutoff() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight3)->get_MinAttenuationCutoff(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight3<D>::MinAttenuationCutoff(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight3<D>::MinAttenuationCutoff(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight3)->put_MinAttenuationCutoff(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight3<D>::MaxAttenuationCutoff() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight3<D>::MaxAttenuationCutoff() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight3)->get_MaxAttenuationCutoff(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpotLight3<D>::MaxAttenuationCutoff(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpotLight3<D>::MaxAttenuationCutoff(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpotLight3)->put_MaxAttenuationCutoff(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringScalarNaturalMotionAnimation<D>::DampingRatio() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpringScalarNaturalMotionAnimation<D>::DampingRatio() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringScalarNaturalMotionAnimation)->get_DampingRatio(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringScalarNaturalMotionAnimation<D>::DampingRatio(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpringScalarNaturalMotionAnimation<D>::DampingRatio(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringScalarNaturalMotionAnimation)->put_DampingRatio(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringScalarNaturalMotionAnimation<D>::Period() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_UI_Composition_ISpringScalarNaturalMotionAnimation<D>::Period() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringScalarNaturalMotionAnimation)->get_Period(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringScalarNaturalMotionAnimation<D>::Period(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpringScalarNaturalMotionAnimation<D>::Period(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringScalarNaturalMotionAnimation)->put_Period(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringVector2NaturalMotionAnimation<D>::DampingRatio() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpringVector2NaturalMotionAnimation<D>::DampingRatio() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringVector2NaturalMotionAnimation)->get_DampingRatio(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringVector2NaturalMotionAnimation<D>::DampingRatio(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpringVector2NaturalMotionAnimation<D>::DampingRatio(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringVector2NaturalMotionAnimation)->put_DampingRatio(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringVector2NaturalMotionAnimation<D>::Period() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_UI_Composition_ISpringVector2NaturalMotionAnimation<D>::Period() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringVector2NaturalMotionAnimation)->get_Period(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringVector2NaturalMotionAnimation<D>::Period(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpringVector2NaturalMotionAnimation<D>::Period(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringVector2NaturalMotionAnimation)->put_Period(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringVector3NaturalMotionAnimation<D>::DampingRatio() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpringVector3NaturalMotionAnimation<D>::DampingRatio() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringVector3NaturalMotionAnimation)->get_DampingRatio(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringVector3NaturalMotionAnimation<D>::DampingRatio(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpringVector3NaturalMotionAnimation<D>::DampingRatio(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringVector3NaturalMotionAnimation)->put_DampingRatio(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringVector3NaturalMotionAnimation<D>::Period() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_UI_Composition_ISpringVector3NaturalMotionAnimation<D>::Period() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringVector3NaturalMotionAnimation)->get_Period(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpringVector3NaturalMotionAnimation<D>::Period(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpringVector3NaturalMotionAnimation<D>::Period(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpringVector3NaturalMotionAnimation)->put_Period(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpriteVisual<D>::Brush() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ISpriteVisual<D>::Brush() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpriteVisual)->get_Brush(&value));
         return Windows::UI::Composition::CompositionBrush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpriteVisual<D>::Brush(Windows::UI::Composition::CompositionBrush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpriteVisual<D>::Brush(Windows::UI::Composition::CompositionBrush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpriteVisual)->put_Brush(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpriteVisual2<D>::Shadow() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionShadow) consume_Windows_UI_Composition_ISpriteVisual2<D>::Shadow() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpriteVisual2)->get_Shadow(&value));
         return Windows::UI::Composition::CompositionShadow{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_ISpriteVisual2<D>::Shadow(Windows::UI::Composition::CompositionShadow const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ISpriteVisual2<D>::Shadow(Windows::UI::Composition::CompositionShadow const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISpriteVisual2)->put_Shadow(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::FinalStep() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IStepEasingFunction<D>::FinalStep() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->get_FinalStep(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::FinalStep(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IStepEasingFunction<D>::FinalStep(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->put_FinalStep(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::InitialStep() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IStepEasingFunction<D>::InitialStep() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->get_InitialStep(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::InitialStep(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IStepEasingFunction<D>::InitialStep(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->put_InitialStep(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::IsFinalStepSingleFrame() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_IStepEasingFunction<D>::IsFinalStepSingleFrame() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->get_IsFinalStepSingleFrame(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::IsFinalStepSingleFrame(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IStepEasingFunction<D>::IsFinalStepSingleFrame(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->put_IsFinalStepSingleFrame(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::IsInitialStepSingleFrame() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_IStepEasingFunction<D>::IsInitialStepSingleFrame() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->get_IsInitialStepSingleFrame(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::IsInitialStepSingleFrame(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IStepEasingFunction<D>::IsInitialStepSingleFrame(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->put_IsInitialStepSingleFrame(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::StepCount() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IStepEasingFunction<D>::StepCount() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->get_StepCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IStepEasingFunction<D>::StepCount(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IStepEasingFunction<D>::StepCount(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IStepEasingFunction)->put_StepCount(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector2KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector2KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector2KeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector2KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float2 const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector2KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float2 const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector2KeyFrameAnimation)->InsertKeyFrameWithEasingFunction(normalizedProgressKey, impl::bind_in(value), *(void**)(&easingFunction)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::FinalValue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Numerics::float2>) consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::FinalValue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector2NaturalMotionAnimation)->get_FinalValue(&value));
         return Windows::Foundation::IReference<Windows::Foundation::Numerics::float2>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::FinalValue(Windows::Foundation::IReference<Windows::Foundation::Numerics::float2> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::FinalValue(Windows::Foundation::IReference<Windows::Foundation::Numerics::float2> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector2NaturalMotionAnimation)->put_FinalValue(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::InitialValue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Numerics::float2>) consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::InitialValue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector2NaturalMotionAnimation)->get_InitialValue(&value));
         return Windows::Foundation::IReference<Windows::Foundation::Numerics::float2>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::InitialValue(Windows::Foundation::IReference<Windows::Foundation::Numerics::float2> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::InitialValue(Windows::Foundation::IReference<Windows::Foundation::Numerics::float2> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector2NaturalMotionAnimation)->put_InitialValue(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::InitialVelocity() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::InitialVelocity() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector2NaturalMotionAnimation)->get_InitialVelocity(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::InitialVelocity(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector2NaturalMotionAnimation<D>::InitialVelocity(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector2NaturalMotionAnimation)->put_InitialVelocity(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector3KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector3KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector3KeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector3KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float3 const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector3KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float3 const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector3KeyFrameAnimation)->InsertKeyFrameWithEasingFunction(normalizedProgressKey, impl::bind_in(value), *(void**)(&easingFunction)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::FinalValue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Numerics::float3>) consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::FinalValue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector3NaturalMotionAnimation)->get_FinalValue(&value));
         return Windows::Foundation::IReference<Windows::Foundation::Numerics::float3>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::FinalValue(Windows::Foundation::IReference<Windows::Foundation::Numerics::float3> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::FinalValue(Windows::Foundation::IReference<Windows::Foundation::Numerics::float3> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector3NaturalMotionAnimation)->put_FinalValue(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::InitialValue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Numerics::float3>) consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::InitialValue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector3NaturalMotionAnimation)->get_InitialValue(&value));
         return Windows::Foundation::IReference<Windows::Foundation::Numerics::float3>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::InitialValue(Windows::Foundation::IReference<Windows::Foundation::Numerics::float3> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::InitialValue(Windows::Foundation::IReference<Windows::Foundation::Numerics::float3> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector3NaturalMotionAnimation)->put_InitialValue(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::InitialVelocity() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::InitialVelocity() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector3NaturalMotionAnimation)->get_InitialVelocity(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::InitialVelocity(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector3NaturalMotionAnimation<D>::InitialVelocity(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector3NaturalMotionAnimation)->put_InitialVelocity(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector4KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float4 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector4KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float4 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector4KeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVector4KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float4 const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVector4KeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::float4 const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVector4KeyFrameAnimation)->InsertKeyFrameWithEasingFunction(normalizedProgressKey, impl::bind_in(value), *(void**)(&easingFunction)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::AnchorPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_IVisual<D>::AnchorPoint() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_AnchorPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::AnchorPoint(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::AnchorPoint(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_AnchorPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::BackfaceVisibility() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBackfaceVisibility) consume_Windows_UI_Composition_IVisual<D>::BackfaceVisibility() const
     {
-        Windows::UI::Composition::CompositionBackfaceVisibility value;
+        Windows::UI::Composition::CompositionBackfaceVisibility value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_BackfaceVisibility(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::BackfaceVisibility(Windows::UI::Composition::CompositionBackfaceVisibility const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::BackfaceVisibility(Windows::UI::Composition::CompositionBackfaceVisibility const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_BackfaceVisibility(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::BorderMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBorderMode) consume_Windows_UI_Composition_IVisual<D>::BorderMode() const
     {
-        Windows::UI::Composition::CompositionBorderMode value;
+        Windows::UI::Composition::CompositionBorderMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_BorderMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::BorderMode(Windows::UI::Composition::CompositionBorderMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::BorderMode(Windows::UI::Composition::CompositionBorderMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_BorderMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::CenterPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IVisual<D>::CenterPoint() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_CenterPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::CenterPoint(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::CenterPoint(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_CenterPoint(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Clip() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionClip) consume_Windows_UI_Composition_IVisual<D>::Clip() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_Clip(&value));
         return Windows::UI::Composition::CompositionClip{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Clip(Windows::UI::Composition::CompositionClip const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::Clip(Windows::UI::Composition::CompositionClip const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_Clip(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::CompositeMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionCompositeMode) consume_Windows_UI_Composition_IVisual<D>::CompositeMode() const
     {
-        Windows::UI::Composition::CompositionCompositeMode value;
+        Windows::UI::Composition::CompositionCompositeMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_CompositeMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::CompositeMode(Windows::UI::Composition::CompositionCompositeMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::CompositeMode(Windows::UI::Composition::CompositionCompositeMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_CompositeMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::IsVisible() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_IVisual<D>::IsVisible() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_IsVisible(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::IsVisible(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::IsVisible(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_IsVisible(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Offset() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IVisual<D>::Offset() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_Offset(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Offset(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::Offset(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_Offset(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Opacity() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IVisual<D>::Opacity() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_Opacity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Opacity(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::Opacity(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_Opacity(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Orientation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::quaternion) consume_Windows_UI_Composition_IVisual<D>::Orientation() const
     {
-        Windows::Foundation::Numerics::quaternion value;
+        Windows::Foundation::Numerics::quaternion value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_Orientation(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Orientation(Windows::Foundation::Numerics::quaternion const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::Orientation(Windows::Foundation::Numerics::quaternion const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_Orientation(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Parent() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ContainerVisual) consume_Windows_UI_Composition_IVisual<D>::Parent() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_Parent(&value));
         return Windows::UI::Composition::ContainerVisual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::RotationAngle() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IVisual<D>::RotationAngle() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_RotationAngle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::RotationAngle(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::RotationAngle(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_RotationAngle(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::RotationAngleInDegrees() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IVisual<D>::RotationAngleInDegrees() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_RotationAngleInDegrees(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::RotationAngleInDegrees(float value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::RotationAngleInDegrees(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_RotationAngleInDegrees(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::RotationAxis() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IVisual<D>::RotationAxis() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_RotationAxis(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::RotationAxis(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::RotationAxis(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_RotationAxis(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Scale() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IVisual<D>::Scale() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_Scale(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Scale(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::Scale(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_Scale(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Size() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_IVisual<D>::Size() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_Size(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::Size(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::Size(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_Size(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::TransformMatrix() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float4x4) consume_Windows_UI_Composition_IVisual<D>::TransformMatrix() const
     {
-        Windows::Foundation::Numerics::float4x4 value;
+        Windows::Foundation::Numerics::float4x4 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->get_TransformMatrix(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual<D>::TransformMatrix(Windows::Foundation::Numerics::float4x4 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual<D>::TransformMatrix(Windows::Foundation::Numerics::float4x4 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual)->put_TransformMatrix(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual2<D>::ParentForTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_IVisual2<D>::ParentForTransform() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual2)->get_ParentForTransform(&value));
         return Windows::UI::Composition::Visual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual2<D>::ParentForTransform(Windows::UI::Composition::Visual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual2<D>::ParentForTransform(Windows::UI::Composition::Visual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual2)->put_ParentForTransform(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual2<D>::RelativeOffsetAdjustment() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) consume_Windows_UI_Composition_IVisual2<D>::RelativeOffsetAdjustment() const
     {
-        Windows::Foundation::Numerics::float3 value;
+        Windows::Foundation::Numerics::float3 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual2)->get_RelativeOffsetAdjustment(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual2<D>::RelativeOffsetAdjustment(Windows::Foundation::Numerics::float3 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual2<D>::RelativeOffsetAdjustment(Windows::Foundation::Numerics::float3 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual2)->put_RelativeOffsetAdjustment(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual2<D>::RelativeSizeAdjustment() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_IVisual2<D>::RelativeSizeAdjustment() const
     {
-        Windows::Foundation::Numerics::float2 value;
+        Windows::Foundation::Numerics::float2 value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual2)->get_RelativeSizeAdjustment(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual2<D>::RelativeSizeAdjustment(Windows::Foundation::Numerics::float2 const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual2<D>::RelativeSizeAdjustment(Windows::Foundation::Numerics::float2 const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual2)->put_RelativeSizeAdjustment(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual3<D>::IsTransparentForHitTest() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_IVisual3<D>::IsHitTestVisible() const
     {
-        bool value;
-        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual3)->get_IsTransparentForHitTest(&value));
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual3)->get_IsHitTestVisible(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisual3<D>::IsTransparentForHitTest(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual3<D>::IsHitTestVisible(bool value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual3)->put_IsTransparentForHitTest(value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual3)->put_IsHitTestVisible(value));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualCollection<D>::Count() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IVisualCollection<D>::Count() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualCollection)->get_Count(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualCollection<D>::InsertAbove(Windows::UI::Composition::Visual const& newChild, Windows::UI::Composition::Visual const& sibling) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualCollection<D>::InsertAbove(Windows::UI::Composition::Visual const& newChild, Windows::UI::Composition::Visual const& sibling) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualCollection)->InsertAbove(*(void**)(&newChild), *(void**)(&sibling)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualCollection<D>::InsertAtBottom(Windows::UI::Composition::Visual const& newChild) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualCollection<D>::InsertAtBottom(Windows::UI::Composition::Visual const& newChild) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualCollection)->InsertAtBottom(*(void**)(&newChild)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualCollection<D>::InsertAtTop(Windows::UI::Composition::Visual const& newChild) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualCollection<D>::InsertAtTop(Windows::UI::Composition::Visual const& newChild) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualCollection)->InsertAtTop(*(void**)(&newChild)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualCollection<D>::InsertBelow(Windows::UI::Composition::Visual const& newChild, Windows::UI::Composition::Visual const& sibling) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualCollection<D>::InsertBelow(Windows::UI::Composition::Visual const& newChild, Windows::UI::Composition::Visual const& sibling) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualCollection)->InsertBelow(*(void**)(&newChild), *(void**)(&sibling)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualCollection<D>::Remove(Windows::UI::Composition::Visual const& child) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualCollection<D>::Remove(Windows::UI::Composition::Visual const& child) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualCollection)->Remove(*(void**)(&child)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualCollection<D>::RemoveAll() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualCollection<D>::RemoveAll() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualCollection)->RemoveAll());
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::Count() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::Count() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualUnorderedCollection)->get_Count(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::Add(Windows::UI::Composition::Visual const& newVisual) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::Add(Windows::UI::Composition::Visual const& newVisual) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualUnorderedCollection)->Add(*(void**)(&newVisual)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::Remove(Windows::UI::Composition::Visual const& visual) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::Remove(Windows::UI::Composition::Visual const& visual) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualUnorderedCollection)->Remove(*(void**)(&visual)));
     }
-    template <typename D> auto consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::RemoveAll() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::RemoveAll() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualUnorderedCollection)->RemoveAll());
     }
@@ -8997,17 +8997,17 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::UI::Composition::IVisual3> : produce_base<D, Windows::UI::Composition::IVisual3>
     {
-        int32_t __stdcall get_IsTransparentForHitTest(bool* value) noexcept final try
+        int32_t __stdcall get_IsHitTestVisible(bool* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<bool>(this->shim().IsTransparentForHitTest());
+            *value = detach_from<bool>(this->shim().IsHitTestVisible());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall put_IsTransparentForHitTest(bool value) noexcept final try
+        int32_t __stdcall put_IsHitTestVisible(bool value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().IsTransparentForHitTest(value);
+            this->shim().IsHitTestVisible(value);
             return 0;
         }
         catch (...) { return to_hresult(); }

@@ -694,6 +694,19 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            interface IStorageLibraryChangeReader2;
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2 ABI::Windows::Storage::IStorageLibraryChangeReader2
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker_FWD_DEFINED__
 namespace ABI {
@@ -706,6 +719,58 @@ namespace ABI {
 #define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker ABI::Windows::Storage::IStorageLibraryChangeTracker
 
 #endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            interface IStorageLibraryChangeTracker2;
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2 ABI::Windows::Storage::IStorageLibraryChangeTracker2
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            interface IStorageLibraryChangeTrackerOptions;
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions ABI::Windows::Storage::IStorageLibraryChangeTrackerOptions
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            interface IStorageLibraryLastChangeId;
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId ABI::Windows::Storage::IStorageLibraryLastChangeId
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            interface IStorageLibraryLastChangeIdStatics;
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics ABI::Windows::Storage::IStorageLibraryLastChangeIdStatics
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CIStorageLibraryStatics_FWD_DEFINED__
@@ -3357,6 +3422,14 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Storage {
+            class StorageLibraryChangeTrackerOptions;
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
             class StorageProvider;
         } /* Storage */
     } /* Windows */
@@ -5830,6 +5903,40 @@ EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader;
 
 /*
  *
+ * Interface Windows.Storage.IStorageLibraryChangeReader2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryChangeReader
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryChangeReader2[] = L"Windows.Storage.IStorageLibraryChangeReader2";
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            MIDL_INTERFACE("abf4868b-fbcc-4a4f-999e-e7ab7c646dbe")
+            IStorageLibraryChangeReader2 : public IInspectable
+            {
+            public:
+                virtual HRESULT STDMETHODCALLTYPE GetLastChangeId(
+                    UINT64* result
+                    ) = 0;
+            };
+
+            extern MIDL_CONST_ID IID& IID_IStorageLibraryChangeReader2 = _uuidof(IStorageLibraryChangeReader2);
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Interface Windows.Storage.IStorageLibraryChangeTracker
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -5863,6 +5970,143 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker;
 #endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+
+/*
+ *
+ * Interface Windows.Storage.IStorageLibraryChangeTracker2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryChangeTracker
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryChangeTracker2[] = L"Windows.Storage.IStorageLibraryChangeTracker2";
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            MIDL_INTERFACE("cd051c3b-0f9f-42f9-8fb3-158d82e13821")
+            IStorageLibraryChangeTracker2 : public IInspectable
+            {
+            public:
+                virtual HRESULT STDMETHODCALLTYPE EnableWithOptions(
+                    ABI::Windows::Storage::IStorageLibraryChangeTrackerOptions* options
+                    ) = 0;
+                virtual HRESULT STDMETHODCALLTYPE Disable(void) = 0;
+            };
+
+            extern MIDL_CONST_ID IID& IID_IStorageLibraryChangeTracker2 = _uuidof(IStorageLibraryChangeTracker2);
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.Storage.IStorageLibraryChangeTrackerOptions
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryChangeTrackerOptions
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryChangeTrackerOptions[] = L"Windows.Storage.IStorageLibraryChangeTrackerOptions";
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            MIDL_INTERFACE("bb52bcd4-1a6d-59c0-ad2a-823a20532483")
+            IStorageLibraryChangeTrackerOptions : public IInspectable
+            {
+            public:
+                virtual HRESULT STDMETHODCALLTYPE get_TrackChangeDetails(
+                    boolean* value
+                    ) = 0;
+                virtual HRESULT STDMETHODCALLTYPE put_TrackChangeDetails(
+                    boolean value
+                    ) = 0;
+            };
+
+            extern MIDL_CONST_ID IID& IID_IStorageLibraryChangeTrackerOptions = _uuidof(IStorageLibraryChangeTrackerOptions);
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.Storage.IStorageLibraryLastChangeId
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryLastChangeId
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryLastChangeId[] = L"Windows.Storage.IStorageLibraryLastChangeId";
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            MIDL_INTERFACE("5281826a-bbe1-53bc-82ca-81cc7f039329")
+            IStorageLibraryLastChangeId : public IInspectable
+            {
+            public:
+            };
+
+            extern MIDL_CONST_ID IID& IID_IStorageLibraryLastChangeId = _uuidof(IStorageLibraryLastChangeId);
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.Storage.IStorageLibraryLastChangeIdStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryLastChangeId
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryLastChangeIdStatics[] = L"Windows.Storage.IStorageLibraryLastChangeIdStatics";
+namespace ABI {
+    namespace Windows {
+        namespace Storage {
+            MIDL_INTERFACE("81a49128-2ca3-5309-b0d1-cf0788e40762")
+            IStorageLibraryLastChangeIdStatics : public IInspectable
+            {
+            public:
+                virtual HRESULT STDMETHODCALLTYPE get_Unknown(
+                    UINT64* value
+                    ) = 0;
+            };
+
+            extern MIDL_CONST_ID IID& IID_IStorageLibraryLastChangeIdStatics = _uuidof(IStorageLibraryLastChangeIdStatics);
+        } /* Storage */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -6726,8 +6970,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IApplicationDataStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IApplicationDataStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IApplicationDataStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IApplicationData ** Default Interface **
@@ -6840,8 +7084,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IDownloadsFolderStatics2 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IDownloadsFolderStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IDownloadsFolderStatics2 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -6879,13 +7123,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IKnownFoldersCameraRollStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics3 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IKnownFoldersSavedPicturesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Storage.IKnownFoldersPlaylistsStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics4 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics3 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersCameraRollStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersPlaylistsStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -6963,8 +7207,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IStorageFileStatics2 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IStorageFileStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IStorageFileStatics2 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IStorageFile ** Default Interface **
@@ -6993,8 +7237,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IStorageFolderStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IStorageFolderStatics2 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IStorageFolderStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IStorageFolder ** Default Interface **
@@ -7067,6 +7311,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IStorageLibraryChangeReader ** Default Interface **
+ *    Windows.Storage.IStorageLibraryChangeReader2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -7088,6 +7333,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IStorageLibraryChangeTracker ** Default Interface **
+ *    Windows.Storage.IStorageLibraryChangeTracker2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -7100,6 +7346,54 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Storage_StorageLibraryChangeTracker[] = L"Windows.Storage.StorageLibraryChangeTracker";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+
+/*
+ *
+ * Class Windows.Storage.StorageLibraryChangeTrackerOptions
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.Storage.IStorageLibraryChangeTrackerOptions ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_Storage_StorageLibraryChangeTrackerOptions_DEFINED
+#define RUNTIMECLASS_Windows_Storage_StorageLibraryChangeTrackerOptions_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Storage_StorageLibraryChangeTrackerOptions[] = L"Windows.Storage.StorageLibraryChangeTrackerOptions";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Class Windows.Storage.StorageLibraryLastChangeId
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.Storage.IStorageLibraryLastChangeIdStatics interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.Storage.IStorageLibraryLastChangeId ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_Storage_StorageLibraryLastChangeId_DEFINED
+#define RUNTIMECLASS_Windows_Storage_StorageLibraryLastChangeId_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Storage_StorageLibraryLastChangeId[] = L"Windows.Storage.StorageLibraryLastChangeId";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -7624,11 +7918,41 @@ typedef interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader __x_ABI
 
 #endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2 __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2;
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker;
 
 #endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2 __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2;
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions;
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId;
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics;
+
+#endif // ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CStorage_CIStorageLibraryStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CIStorageLibraryStatics_FWD_DEFINED__
@@ -16781,6 +17105,75 @@ EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader;
 
 /*
  *
+ * Interface Windows.Storage.IStorageLibraryChangeReader2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryChangeReader
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryChangeReader2[] = L"Windows.Storage.IStorageLibraryChangeReader2";
+typedef struct __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetLastChangeId)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2* This,
+        UINT64* result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2Vtbl;
+
+interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_GetLastChangeId(This, result) \
+    ((This)->lpVtbl->GetLastChangeId(This, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeReader2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Interface Windows.Storage.IStorageLibraryChangeTracker
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -16855,6 +17248,286 @@ interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker
 EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker;
 #endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+
+/*
+ *
+ * Interface Windows.Storage.IStorageLibraryChangeTracker2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryChangeTracker
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryChangeTracker2[] = L"Windows.Storage.IStorageLibraryChangeTracker2";
+typedef struct __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* EnableWithOptions)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2* This,
+        __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* options);
+    HRESULT (STDMETHODCALLTYPE* Disable)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2* This);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2Vtbl;
+
+interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_EnableWithOptions(This, options) \
+    ((This)->lpVtbl->EnableWithOptions(This, options))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_Disable(This) \
+    ((This)->lpVtbl->Disable(This))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTracker2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.Storage.IStorageLibraryChangeTrackerOptions
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryChangeTrackerOptions
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryChangeTrackerOptions[] = L"Windows.Storage.IStorageLibraryChangeTrackerOptions";
+typedef struct __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptionsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_TrackChangeDetails)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_TrackChangeDetails)(__x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions* This,
+        boolean value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptionsVtbl;
+
+interface __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions
+{
+    CONST_VTBL struct __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptionsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_get_TrackChangeDetails(This, value) \
+    ((This)->lpVtbl->get_TrackChangeDetails(This, value))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_put_TrackChangeDetails(This, value) \
+    ((This)->lpVtbl->put_TrackChangeDetails(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryChangeTrackerOptions_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.Storage.IStorageLibraryLastChangeId
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryLastChangeId
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryLastChangeId[] = L"Windows.Storage.IStorageLibraryLastChangeId";
+typedef struct __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId* This,
+        TrustLevel* trustLevel);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdVtbl;
+
+interface __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId
+{
+    CONST_VTBL struct __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeId_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.Storage.IStorageLibraryLastChangeIdStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Storage.StorageLibraryLastChangeId
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_IStorageLibraryLastChangeIdStatics[] = L"Windows.Storage.IStorageLibraryLastChangeIdStatics";
+typedef struct __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStaticsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Unknown)(__x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics* This,
+        UINT64* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStaticsVtbl;
+
+interface __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics
+{
+    CONST_VTBL struct __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_get_Unknown(This, value) \
+    ((This)->lpVtbl->get_Unknown(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics;
+#endif /* !defined(____x_ABI_CWindows_CStorage_CIStorageLibraryLastChangeIdStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -18488,8 +19161,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IApplicationDataStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IApplicationDataStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IApplicationDataStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IApplicationData ** Default Interface **
@@ -18602,8 +19275,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IDownloadsFolderStatics2 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IDownloadsFolderStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IDownloadsFolderStatics2 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -18641,13 +19314,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IKnownFoldersCameraRollStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics3 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IKnownFoldersSavedPicturesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Storage.IKnownFoldersPlaylistsStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics4 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics3 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersCameraRollStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersPlaylistsStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IKnownFoldersStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -18725,8 +19398,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IStorageFileStatics2 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IStorageFileStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IStorageFileStatics2 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IStorageFile ** Default Interface **
@@ -18755,8 +19428,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Storage.IStorageFolderStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Storage.IStorageFolderStatics2 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Storage.IStorageFolderStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IStorageFolder ** Default Interface **
@@ -18829,6 +19502,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IStorageLibraryChangeReader ** Default Interface **
+ *    Windows.Storage.IStorageLibraryChangeReader2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -18850,6 +19524,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Storage.IStorageLibraryChangeTracker ** Default Interface **
+ *    Windows.Storage.IStorageLibraryChangeTracker2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -18862,6 +19537,54 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Storage_StorageLibraryChangeTracker[] = L"Windows.Storage.StorageLibraryChangeTracker";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+
+/*
+ *
+ * Class Windows.Storage.StorageLibraryChangeTrackerOptions
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.Storage.IStorageLibraryChangeTrackerOptions ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_Storage_StorageLibraryChangeTrackerOptions_DEFINED
+#define RUNTIMECLASS_Windows_Storage_StorageLibraryChangeTrackerOptions_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Storage_StorageLibraryChangeTrackerOptions[] = L"Windows.Storage.StorageLibraryChangeTrackerOptions";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Class Windows.Storage.StorageLibraryLastChangeId
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.Storage.IStorageLibraryLastChangeIdStatics interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.Storage.IStorageLibraryLastChangeId ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_Storage_StorageLibraryLastChangeId_DEFINED
+#define RUNTIMECLASS_Windows_Storage_StorageLibraryLastChangeId_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Storage_StorageLibraryLastChangeId[] = L"Windows.Storage.StorageLibraryLastChangeId";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *

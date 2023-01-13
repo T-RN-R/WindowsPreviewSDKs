@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,7 +7,13 @@
 #define WINRT_Windows_Web_AtomPub_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TProgress> struct IAsyncActionWithProgress;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Security::Credentials
 {
@@ -20,7 +26,10 @@ WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 WINRT_EXPORT namespace winrt::Windows::Web::Syndication
 {
     struct ISyndicationText;
+    struct RetrievalProgress;
+    struct SyndicationCategory;
     struct SyndicationItem;
+    struct TransferProgress;
 }
 WINRT_EXPORT namespace winrt::Windows::Web::AtomPub
 {
@@ -45,17 +54,15 @@ namespace winrt::impl
     template <> struct category<Windows::Web::AtomPub::ResourceCollection>{ using type = class_category; };
     template <> struct category<Windows::Web::AtomPub::ServiceDocument>{ using type = class_category; };
     template <> struct category<Windows::Web::AtomPub::Workspace>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::AtomPubClient>{ L"Windows.Web.AtomPub.AtomPubClient" };
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::ResourceCollection>{ L"Windows.Web.AtomPub.ResourceCollection" };
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::ServiceDocument>{ L"Windows.Web.AtomPub.ServiceDocument" };
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::Workspace>{ L"Windows.Web.AtomPub.Workspace" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IAtomPubClient>{ L"Windows.Web.AtomPub.IAtomPubClient" };
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IAtomPubClientFactory>{ L"Windows.Web.AtomPub.IAtomPubClientFactory" };
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IResourceCollection>{ L"Windows.Web.AtomPub.IResourceCollection" };
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IServiceDocument>{ L"Windows.Web.AtomPub.IServiceDocument" };
-    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IWorkspace>{ L"Windows.Web.AtomPub.IWorkspace" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::AtomPubClient> = L"Windows.Web.AtomPub.AtomPubClient";
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::ResourceCollection> = L"Windows.Web.AtomPub.ResourceCollection";
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::ServiceDocument> = L"Windows.Web.AtomPub.ServiceDocument";
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::Workspace> = L"Windows.Web.AtomPub.Workspace";
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IAtomPubClient> = L"Windows.Web.AtomPub.IAtomPubClient";
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IAtomPubClientFactory> = L"Windows.Web.AtomPub.IAtomPubClientFactory";
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IResourceCollection> = L"Windows.Web.AtomPub.IResourceCollection";
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IServiceDocument> = L"Windows.Web.AtomPub.IServiceDocument";
+    template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IWorkspace> = L"Windows.Web.AtomPub.IWorkspace";
     template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IAtomPubClient>{ 0x35392C38,0xCDED,0x4D4C,{ 0x96,0x37,0x05,0xF1,0x5C,0x1C,0x94,0x06 } };
     template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IAtomPubClientFactory>{ 0x49D55012,0x57CB,0x4BDE,{ 0xAB,0x9F,0x26,0x10,0xB1,0x72,0x77,0x7B } };
     template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IResourceCollection>{ 0x7F5FD609,0xBC88,0x41D4,{ 0x88,0xFA,0x3D,0xE6,0x70,0x4D,0x42,0x8E } };
@@ -117,17 +124,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_AtomPub_IAtomPubClient
     {
-        auto RetrieveServiceDocumentAsync(Windows::Foundation::Uri const& uri) const;
-        auto RetrieveMediaResourceAsync(Windows::Foundation::Uri const& uri) const;
-        auto RetrieveResourceAsync(Windows::Foundation::Uri const& uri) const;
-        auto CreateResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& description, Windows::Web::Syndication::SyndicationItem const& item) const;
-        auto CreateMediaResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& mediaType, param::hstring const& description, Windows::Storage::Streams::IInputStream const& mediaStream) const;
-        auto UpdateMediaResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& mediaType, Windows::Storage::Streams::IInputStream const& mediaStream) const;
-        auto UpdateResourceAsync(Windows::Foundation::Uri const& uri, Windows::Web::Syndication::SyndicationItem const& item) const;
-        auto UpdateResourceItemAsync(Windows::Web::Syndication::SyndicationItem const& item) const;
-        auto DeleteResourceAsync(Windows::Foundation::Uri const& uri) const;
-        auto DeleteResourceItemAsync(Windows::Web::Syndication::SyndicationItem const& item) const;
-        auto CancelAsyncOperations() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::AtomPub::ServiceDocument, Windows::Web::Syndication::RetrievalProgress>) RetrieveServiceDocumentAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Storage::Streams::IInputStream, Windows::Web::Syndication::RetrievalProgress>) RetrieveMediaResourceAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::RetrievalProgress>) RetrieveResourceAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::TransferProgress>) CreateResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& description, Windows::Web::Syndication::SyndicationItem const& item) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::TransferProgress>) CreateMediaResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& mediaType, param::hstring const& description, Windows::Storage::Streams::IInputStream const& mediaStream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) UpdateMediaResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& mediaType, Windows::Storage::Streams::IInputStream const& mediaStream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) UpdateResourceAsync(Windows::Foundation::Uri const& uri, Windows::Web::Syndication::SyndicationItem const& item) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) UpdateResourceItemAsync(Windows::Web::Syndication::SyndicationItem const& item) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) DeleteResourceAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) DeleteResourceItemAsync(Windows::Web::Syndication::SyndicationItem const& item) const;
+        WINRT_IMPL_AUTO(void) CancelAsyncOperations() const;
     };
     template <> struct consume<Windows::Web::AtomPub::IAtomPubClient>
     {
@@ -136,7 +143,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_AtomPub_IAtomPubClientFactory
     {
-        auto CreateAtomPubClientWithCredentials(Windows::Security::Credentials::PasswordCredential const& serverCredential) const;
+        WINRT_IMPL_AUTO(Windows::Web::AtomPub::AtomPubClient) CreateAtomPubClientWithCredentials(Windows::Security::Credentials::PasswordCredential const& serverCredential) const;
     };
     template <> struct consume<Windows::Web::AtomPub::IAtomPubClientFactory>
     {
@@ -145,10 +152,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_AtomPub_IResourceCollection
     {
-        [[nodiscard]] auto Title() const;
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Categories() const;
-        [[nodiscard]] auto Accepts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) Title() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::Syndication::SyndicationCategory>) Categories() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Accepts() const;
     };
     template <> struct consume<Windows::Web::AtomPub::IResourceCollection>
     {
@@ -157,7 +164,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_AtomPub_IServiceDocument
     {
-        [[nodiscard]] auto Workspaces() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::AtomPub::Workspace>) Workspaces() const;
     };
     template <> struct consume<Windows::Web::AtomPub::IServiceDocument>
     {
@@ -166,8 +173,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_AtomPub_IWorkspace
     {
-        [[nodiscard]] auto Title() const;
-        [[nodiscard]] auto Collections() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) Title() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::AtomPub::ResourceCollection>) Collections() const;
     };
     template <> struct consume<Windows::Web::AtomPub::IWorkspace>
     {

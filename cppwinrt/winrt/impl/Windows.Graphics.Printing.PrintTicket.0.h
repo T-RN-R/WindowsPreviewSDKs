@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,6 +13,11 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::Printing::PrintTicket
 {
@@ -71,27 +76,25 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::Printing::PrintTicket::PrintTicketFeatureSelectionType>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::Printing::PrintTicket::PrintTicketParameterDataType>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::Printing::PrintTicket::PrintTicketValueType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketCapabilities>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketFeature>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketFeature" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketOption>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketOption" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketParameterDefinition>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketParameterInitializer>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketValue>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketValue" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket>{ L"Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicketValidationResult>{ L"Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketFeatureSelectionType>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketParameterDataType>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketValueType>{ L"Windows.Graphics.Printing.PrintTicket.PrintTicketValueType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketCapabilities>{ L"Windows.Graphics.Printing.PrintTicket.IPrintTicketCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketFeature>{ L"Windows.Graphics.Printing.PrintTicket.IPrintTicketFeature" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketOption>{ L"Windows.Graphics.Printing.PrintTicket.IPrintTicketOption" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterDefinition>{ L"Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterInitializer>{ L"Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterInitializer" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketValue>{ L"Windows.Graphics.Printing.PrintTicket.IPrintTicketValue" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicket>{ L"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicketValidationResult>{ L"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketValidationResult" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketCapabilities> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketFeature> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketFeature";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketOption> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketOption";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketParameterDefinition> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketParameterInitializer> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketValue> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketValue";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket> = L"Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicketValidationResult> = L"Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketFeatureSelectionType> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketParameterDataType> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::PrintTicketValueType> = L"Windows.Graphics.Printing.PrintTicket.PrintTicketValueType";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketCapabilities> = L"Windows.Graphics.Printing.PrintTicket.IPrintTicketCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketFeature> = L"Windows.Graphics.Printing.PrintTicket.IPrintTicketFeature";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketOption> = L"Windows.Graphics.Printing.PrintTicket.IPrintTicketOption";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterDefinition> = L"Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterDefinition";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterInitializer> = L"Windows.Graphics.Printing.PrintTicket.IPrintTicketParameterInitializer";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketValue> = L"Windows.Graphics.Printing.PrintTicket.IPrintTicketValue";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicket> = L"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicketValidationResult> = L"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketValidationResult";
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketCapabilities>{ 0x8C45508B,0xBBDC,0x4256,{ 0xA1,0x42,0x2F,0xD6,0x15,0xEC,0xB4,0x16 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketFeature>{ 0xE7607D6A,0x59F5,0x4103,{ 0x88,0x58,0xB9,0x77,0x10,0x96,0x3D,0x39 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketOption>{ 0xB086CF90,0xB367,0x4E4B,{ 0xBD,0x48,0x9C,0x78,0xA0,0xBB,0x31,0xCE } };
@@ -239,26 +242,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintTicket_IPrintTicketCapabilities
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto XmlNamespace() const;
-        [[nodiscard]] auto XmlNode() const;
-        [[nodiscard]] auto DocumentBindingFeature() const;
-        [[nodiscard]] auto DocumentCollateFeature() const;
-        [[nodiscard]] auto DocumentDuplexFeature() const;
-        [[nodiscard]] auto DocumentHolePunchFeature() const;
-        [[nodiscard]] auto DocumentInputBinFeature() const;
-        [[nodiscard]] auto DocumentNUpFeature() const;
-        [[nodiscard]] auto DocumentStapleFeature() const;
-        [[nodiscard]] auto JobPasscodeFeature() const;
-        [[nodiscard]] auto PageBorderlessFeature() const;
-        [[nodiscard]] auto PageMediaSizeFeature() const;
-        [[nodiscard]] auto PageMediaTypeFeature() const;
-        [[nodiscard]] auto PageOrientationFeature() const;
-        [[nodiscard]] auto PageOutputColorFeature() const;
-        [[nodiscard]] auto PageOutputQualityFeature() const;
-        [[nodiscard]] auto PageResolutionFeature() const;
-        auto GetFeature(param::hstring const& name, param::hstring const& xmlNamespace) const;
-        auto GetParameterDefinition(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XmlNamespace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) XmlNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentBindingFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentCollateFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentDuplexFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentHolePunchFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentInputBinFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentNUpFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentStapleFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) JobPasscodeFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageBorderlessFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageMediaSizeFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageMediaTypeFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageOrientationFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageOutputColorFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageOutputQualityFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageResolutionFeature() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) GetFeature(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketParameterDefinition) GetParameterDefinition(param::hstring const& name, param::hstring const& xmlNamespace) const;
     };
     template <> struct consume<Windows::Graphics::Printing::PrintTicket::IPrintTicketCapabilities>
     {
@@ -267,15 +270,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintTicket_IPrintTicketFeature
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto XmlNamespace() const;
-        [[nodiscard]] auto XmlNode() const;
-        [[nodiscard]] auto DisplayName() const;
-        auto GetOption(param::hstring const& name, param::hstring const& xmlNamespace) const;
-        [[nodiscard]] auto Options() const;
-        auto GetSelectedOption() const;
-        auto SetSelectedOption(Windows::Graphics::Printing::PrintTicket::PrintTicketOption const& value) const;
-        [[nodiscard]] auto SelectionType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XmlNamespace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) XmlNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketOption) GetOption(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Printing::PrintTicket::PrintTicketOption>) Options() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketOption) GetSelectedOption() const;
+        WINRT_IMPL_AUTO(void) SetSelectedOption(Windows::Graphics::Printing::PrintTicket::PrintTicketOption const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeatureSelectionType) SelectionType() const;
     };
     template <> struct consume<Windows::Graphics::Printing::PrintTicket::IPrintTicketFeature>
     {
@@ -284,14 +287,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintTicket_IPrintTicketOption
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto XmlNamespace() const;
-        [[nodiscard]] auto XmlNode() const;
-        [[nodiscard]] auto DisplayName() const;
-        auto GetPropertyNode(param::hstring const& name, param::hstring const& xmlNamespace) const;
-        auto GetScoredPropertyNode(param::hstring const& name, param::hstring const& xmlNamespace) const;
-        auto GetPropertyValue(param::hstring const& name, param::hstring const& xmlNamespace) const;
-        auto GetScoredPropertyValue(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XmlNamespace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) XmlNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) GetPropertyNode(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) GetScoredPropertyNode(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketValue) GetPropertyValue(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketValue) GetScoredPropertyValue(param::hstring const& name, param::hstring const& xmlNamespace) const;
     };
     template <> struct consume<Windows::Graphics::Printing::PrintTicket::IPrintTicketOption>
     {
@@ -300,13 +303,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintTicket_IPrintTicketParameterDefinition
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto XmlNamespace() const;
-        [[nodiscard]] auto XmlNode() const;
-        [[nodiscard]] auto DataType() const;
-        [[nodiscard]] auto UnitType() const;
-        [[nodiscard]] auto RangeMin() const;
-        [[nodiscard]] auto RangeMax() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XmlNamespace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) XmlNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketParameterDataType) DataType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UnitType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RangeMin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RangeMax() const;
     };
     template <> struct consume<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterDefinition>
     {
@@ -315,11 +318,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintTicket_IPrintTicketParameterInitializer
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto XmlNamespace() const;
-        [[nodiscard]] auto XmlNode() const;
-        auto Value(Windows::Graphics::Printing::PrintTicket::PrintTicketValue const& value) const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XmlNamespace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) XmlNode() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Graphics::Printing::PrintTicket::PrintTicketValue const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketValue) Value() const;
     };
     template <> struct consume<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterInitializer>
     {
@@ -328,9 +331,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintTicket_IPrintTicketValue
     {
-        [[nodiscard]] auto Type() const;
-        auto GetValueAsInteger() const;
-        auto GetValueAsString() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketValueType) Type() const;
+        WINRT_IMPL_AUTO(int32_t) GetValueAsInteger() const;
+        WINRT_IMPL_AUTO(hstring) GetValueAsString() const;
     };
     template <> struct consume<Windows::Graphics::Printing::PrintTicket::IPrintTicketValue>
     {
@@ -339,32 +342,32 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintTicket_IWorkflowPrintTicket
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto XmlNamespace() const;
-        [[nodiscard]] auto XmlNode() const;
-        auto GetCapabilities() const;
-        [[nodiscard]] auto DocumentBindingFeature() const;
-        [[nodiscard]] auto DocumentCollateFeature() const;
-        [[nodiscard]] auto DocumentDuplexFeature() const;
-        [[nodiscard]] auto DocumentHolePunchFeature() const;
-        [[nodiscard]] auto DocumentInputBinFeature() const;
-        [[nodiscard]] auto DocumentNUpFeature() const;
-        [[nodiscard]] auto DocumentStapleFeature() const;
-        [[nodiscard]] auto JobPasscodeFeature() const;
-        [[nodiscard]] auto PageBorderlessFeature() const;
-        [[nodiscard]] auto PageMediaSizeFeature() const;
-        [[nodiscard]] auto PageMediaTypeFeature() const;
-        [[nodiscard]] auto PageOrientationFeature() const;
-        [[nodiscard]] auto PageOutputColorFeature() const;
-        [[nodiscard]] auto PageOutputQualityFeature() const;
-        [[nodiscard]] auto PageResolutionFeature() const;
-        auto GetFeature(param::hstring const& name, param::hstring const& xmlNamespace) const;
-        auto NotifyXmlChangedAsync() const;
-        auto ValidateAsync() const;
-        auto GetParameterInitializer(param::hstring const& name, param::hstring const& xmlNamespace) const;
-        auto SetParameterInitializerAsInteger(param::hstring const& name, param::hstring const& xmlNamespace, int32_t integerValue) const;
-        auto SetParameterInitializerAsString(param::hstring const& name, param::hstring const& xmlNamespace, param::hstring const& stringValue) const;
-        auto MergeAndValidateTicket(Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket const& deltaShemaTicket) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) XmlNamespace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) XmlNode() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketCapabilities) GetCapabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentBindingFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentCollateFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentDuplexFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentHolePunchFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentInputBinFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentNUpFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) DocumentStapleFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) JobPasscodeFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageBorderlessFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageMediaSizeFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageMediaTypeFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageOrientationFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageOutputColorFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageOutputQualityFeature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) PageResolutionFeature() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketFeature) GetFeature(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) NotifyXmlChangedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicketValidationResult>) ValidateAsync() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketParameterInitializer) GetParameterInitializer(param::hstring const& name, param::hstring const& xmlNamespace) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketParameterInitializer) SetParameterInitializerAsInteger(param::hstring const& name, param::hstring const& xmlNamespace, int32_t integerValue) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::PrintTicketParameterInitializer) SetParameterInitializerAsString(param::hstring const& name, param::hstring const& xmlNamespace, param::hstring const& stringValue) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket) MergeAndValidateTicket(Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket const& deltaShemaTicket) const;
     };
     template <> struct consume<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicket>
     {
@@ -373,8 +376,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintTicket_IWorkflowPrintTicketValidationResult
     {
-        [[nodiscard]] auto Validated() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Validated() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicketValidationResult>
     {

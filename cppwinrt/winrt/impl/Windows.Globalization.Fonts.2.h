@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -17,7 +17,7 @@ WINRT_EXPORT namespace winrt::Windows::Globalization::Fonts
     {
         LanguageFontGroup(std::nullptr_t) noexcept {}
         LanguageFontGroup(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Globalization::Fonts::ILanguageFontGroup(ptr, take_ownership_from_abi) {}
-        LanguageFontGroup(param::hstring const& languageTag);
+        explicit LanguageFontGroup(param::hstring const& languageTag);
     };
 }
 #endif

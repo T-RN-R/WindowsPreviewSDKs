@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -45,7 +45,7 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Perception::Provider
     {
         PerceptionControlGroup(std::nullptr_t) noexcept {}
         PerceptionControlGroup(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Perception::Provider::IPerceptionControlGroup(ptr, take_ownership_from_abi) {}
-        PerceptionControlGroup(param::iterable<hstring> const& ids);
+        explicit PerceptionControlGroup(param::iterable<hstring> const& ids);
     };
     struct __declspec(empty_bases) PerceptionCorrelation : Windows::Devices::Perception::Provider::IPerceptionCorrelation
     {
@@ -57,7 +57,7 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Perception::Provider
     {
         PerceptionCorrelationGroup(std::nullptr_t) noexcept {}
         PerceptionCorrelationGroup(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Perception::Provider::IPerceptionCorrelationGroup(ptr, take_ownership_from_abi) {}
-        PerceptionCorrelationGroup(param::iterable<Windows::Devices::Perception::Provider::PerceptionCorrelation> const& relativeLocations);
+        explicit PerceptionCorrelationGroup(param::iterable<Windows::Devices::Perception::Provider::PerceptionCorrelation> const& relativeLocations);
     };
     struct __declspec(empty_bases) PerceptionFaceAuthenticationGroup : Windows::Devices::Perception::Provider::IPerceptionFaceAuthenticationGroup
     {

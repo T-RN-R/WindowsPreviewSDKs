@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -60,11 +60,16 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Activation
     struct IWebAccountProviderActivatedEventArgs;
     struct IWebAuthenticationBrokerContinuationEventArgs;
 }
+WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Core
+{
+    enum class AppRestartFailureReason : int32_t;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
@@ -253,93 +258,91 @@ namespace winrt::impl
     template <> struct category<Windows::UI::WebUI::NavigatedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::WebUI::ResumingEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::WebUI::SuspendingEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::ActivatedDeferral>{ L"Windows.UI.WebUI.ActivatedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::ActivatedOperation>{ L"Windows.UI.WebUI.ActivatedOperation" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::BackgroundActivatedEventArgs>{ L"Windows.UI.WebUI.BackgroundActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::EnteredBackgroundEventArgs>{ L"Windows.UI.WebUI.EnteredBackgroundEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::HtmlPrintDocumentSource>{ L"Windows.UI.WebUI.HtmlPrintDocumentSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::LeavingBackgroundEventArgs>{ L"Windows.UI.WebUI.LeavingBackgroundEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::NewWebUIViewCreatedEventArgs>{ L"Windows.UI.WebUI.NewWebUIViewCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::SuspendingDeferral>{ L"Windows.UI.WebUI.SuspendingDeferral" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::SuspendingEventArgs>{ L"Windows.UI.WebUI.SuspendingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::SuspendingOperation>{ L"Windows.UI.WebUI.SuspendingOperation" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIApplication>{ L"Windows.UI.WebUI.WebUIApplication" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderAddAppointmentActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIAppointmentsProviderAddAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIBackgroundTaskInstance>{ L"Windows.UI.WebUI.WebUIBackgroundTaskInstance" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIBackgroundTaskInstanceRuntimeClass>{ L"Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIBarcodeScannerPreviewActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUICachedFileUpdaterActivatedEventArgs>{ L"Windows.UI.WebUI.WebUICachedFileUpdaterActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUICameraSettingsActivatedEventArgs>{ L"Windows.UI.WebUI.WebUICameraSettingsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUICommandLineActivatedEventArgs>{ L"Windows.UI.WebUI.WebUICommandLineActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactCallActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIContactCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactMapActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIContactMapActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactMessageActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIContactMessageActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactPanelActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactPickerActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIContactPickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactPostActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIContactPostActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactVideoCallActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIContactVideoCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIDeviceActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIDeviceActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIDevicePairingActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIDevicePairingActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIDialReceiverActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIDialReceiverActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIFileActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileOpenPickerActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileOpenPickerContinuationEventArgs>{ L"Windows.UI.WebUI.WebUIFileOpenPickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileSavePickerActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileSavePickerContinuationEventArgs>{ L"Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFolderPickerContinuationEventArgs>{ L"Windows.UI.WebUI.WebUIFolderPickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUILaunchActivatedEventArgs>{ L"Windows.UI.WebUI.WebUILaunchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUILockScreenActivatedEventArgs>{ L"Windows.UI.WebUI.WebUILockScreenActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUILockScreenCallActivatedEventArgs>{ L"Windows.UI.WebUI.WebUILockScreenCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUILockScreenComponentActivatedEventArgs>{ L"Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUINavigatedDeferral>{ L"Windows.UI.WebUI.WebUINavigatedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUINavigatedEventArgs>{ L"Windows.UI.WebUI.WebUINavigatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUINavigatedOperation>{ L"Windows.UI.WebUI.WebUINavigatedOperation" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIPrint3DWorkflowActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIPrintTaskSettingsActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIPrintTaskSettingsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIPrintWorkflowForegroundTaskActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIPrintWorkflowForegroundTaskActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIProtocolActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIProtocolActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIProtocolForResultsActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIProtocolForResultsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIRestrictedLaunchActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIRestrictedLaunchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUISearchActivatedEventArgs>{ L"Windows.UI.WebUI.WebUISearchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIShareTargetActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIShareTargetActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIStartupTaskActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIToastNotificationActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIToastNotificationActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIUserDataAccountProviderActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIView>{ L"Windows.UI.WebUI.WebUIView" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIVoiceCommandActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIVoiceCommandActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIWalletActionActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIWebAccountProviderActivatedEventArgs>{ L"Windows.UI.WebUI.WebUIWebAccountProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIWebAuthenticationBrokerContinuationEventArgs>{ L"Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::PrintContent>{ L"Windows.UI.WebUI.PrintContent" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IActivatedDeferral>{ L"Windows.UI.WebUI.IActivatedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IActivatedEventArgsDeferral>{ L"Windows.UI.WebUI.IActivatedEventArgsDeferral" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IActivatedOperation>{ L"Windows.UI.WebUI.IActivatedOperation" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IHtmlPrintDocumentSource>{ L"Windows.UI.WebUI.IHtmlPrintDocumentSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::INewWebUIViewCreatedEventArgs>{ L"Windows.UI.WebUI.INewWebUIViewCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIActivationStatics>{ L"Windows.UI.WebUI.IWebUIActivationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIActivationStatics2>{ L"Windows.UI.WebUI.IWebUIActivationStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIActivationStatics3>{ L"Windows.UI.WebUI.IWebUIActivationStatics3" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIActivationStatics4>{ L"Windows.UI.WebUI.IWebUIActivationStatics4" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIBackgroundTaskInstance>{ L"Windows.UI.WebUI.IWebUIBackgroundTaskInstance" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIBackgroundTaskInstanceStatics>{ L"Windows.UI.WebUI.IWebUIBackgroundTaskInstanceStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUINavigatedDeferral>{ L"Windows.UI.WebUI.IWebUINavigatedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUINavigatedEventArgs>{ L"Windows.UI.WebUI.IWebUINavigatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUINavigatedOperation>{ L"Windows.UI.WebUI.IWebUINavigatedOperation" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIView>{ L"Windows.UI.WebUI.IWebUIView" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIViewStatics>{ L"Windows.UI.WebUI.IWebUIViewStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::ActivatedEventHandler>{ L"Windows.UI.WebUI.ActivatedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::BackgroundActivatedEventHandler>{ L"Windows.UI.WebUI.BackgroundActivatedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::EnteredBackgroundEventHandler>{ L"Windows.UI.WebUI.EnteredBackgroundEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::LeavingBackgroundEventHandler>{ L"Windows.UI.WebUI.LeavingBackgroundEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::NavigatedEventHandler>{ L"Windows.UI.WebUI.NavigatedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::ResumingEventHandler>{ L"Windows.UI.WebUI.ResumingEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::WebUI::SuspendingEventHandler>{ L"Windows.UI.WebUI.SuspendingEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::ActivatedDeferral> = L"Windows.UI.WebUI.ActivatedDeferral";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::ActivatedOperation> = L"Windows.UI.WebUI.ActivatedOperation";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::BackgroundActivatedEventArgs> = L"Windows.UI.WebUI.BackgroundActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::EnteredBackgroundEventArgs> = L"Windows.UI.WebUI.EnteredBackgroundEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::HtmlPrintDocumentSource> = L"Windows.UI.WebUI.HtmlPrintDocumentSource";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::LeavingBackgroundEventArgs> = L"Windows.UI.WebUI.LeavingBackgroundEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::NewWebUIViewCreatedEventArgs> = L"Windows.UI.WebUI.NewWebUIViewCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::SuspendingDeferral> = L"Windows.UI.WebUI.SuspendingDeferral";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::SuspendingEventArgs> = L"Windows.UI.WebUI.SuspendingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::SuspendingOperation> = L"Windows.UI.WebUI.SuspendingOperation";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIApplication> = L"Windows.UI.WebUI.WebUIApplication";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderAddAppointmentActivatedEventArgs> = L"Windows.UI.WebUI.WebUIAppointmentsProviderAddAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs> = L"Windows.UI.WebUI.WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs> = L"Windows.UI.WebUI.WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> = L"Windows.UI.WebUI.WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs> = L"Windows.UI.WebUI.WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIBackgroundTaskInstance> = L"Windows.UI.WebUI.WebUIBackgroundTaskInstance";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIBackgroundTaskInstanceRuntimeClass> = L"Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIBarcodeScannerPreviewActivatedEventArgs> = L"Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUICachedFileUpdaterActivatedEventArgs> = L"Windows.UI.WebUI.WebUICachedFileUpdaterActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUICameraSettingsActivatedEventArgs> = L"Windows.UI.WebUI.WebUICameraSettingsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUICommandLineActivatedEventArgs> = L"Windows.UI.WebUI.WebUICommandLineActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactCallActivatedEventArgs> = L"Windows.UI.WebUI.WebUIContactCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactMapActivatedEventArgs> = L"Windows.UI.WebUI.WebUIContactMapActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactMessageActivatedEventArgs> = L"Windows.UI.WebUI.WebUIContactMessageActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactPanelActivatedEventArgs> = L"Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactPickerActivatedEventArgs> = L"Windows.UI.WebUI.WebUIContactPickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactPostActivatedEventArgs> = L"Windows.UI.WebUI.WebUIContactPostActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIContactVideoCallActivatedEventArgs> = L"Windows.UI.WebUI.WebUIContactVideoCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIDeviceActivatedEventArgs> = L"Windows.UI.WebUI.WebUIDeviceActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIDevicePairingActivatedEventArgs> = L"Windows.UI.WebUI.WebUIDevicePairingActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIDialReceiverActivatedEventArgs> = L"Windows.UI.WebUI.WebUIDialReceiverActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileActivatedEventArgs> = L"Windows.UI.WebUI.WebUIFileActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileOpenPickerActivatedEventArgs> = L"Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileOpenPickerContinuationEventArgs> = L"Windows.UI.WebUI.WebUIFileOpenPickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileSavePickerActivatedEventArgs> = L"Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFileSavePickerContinuationEventArgs> = L"Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIFolderPickerContinuationEventArgs> = L"Windows.UI.WebUI.WebUIFolderPickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUILaunchActivatedEventArgs> = L"Windows.UI.WebUI.WebUILaunchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUILockScreenActivatedEventArgs> = L"Windows.UI.WebUI.WebUILockScreenActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUILockScreenCallActivatedEventArgs> = L"Windows.UI.WebUI.WebUILockScreenCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUILockScreenComponentActivatedEventArgs> = L"Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUINavigatedDeferral> = L"Windows.UI.WebUI.WebUINavigatedDeferral";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUINavigatedEventArgs> = L"Windows.UI.WebUI.WebUINavigatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUINavigatedOperation> = L"Windows.UI.WebUI.WebUINavigatedOperation";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIPrint3DWorkflowActivatedEventArgs> = L"Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIPrintTaskSettingsActivatedEventArgs> = L"Windows.UI.WebUI.WebUIPrintTaskSettingsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIPrintWorkflowForegroundTaskActivatedEventArgs> = L"Windows.UI.WebUI.WebUIPrintWorkflowForegroundTaskActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIProtocolActivatedEventArgs> = L"Windows.UI.WebUI.WebUIProtocolActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIProtocolForResultsActivatedEventArgs> = L"Windows.UI.WebUI.WebUIProtocolForResultsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIRestrictedLaunchActivatedEventArgs> = L"Windows.UI.WebUI.WebUIRestrictedLaunchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUISearchActivatedEventArgs> = L"Windows.UI.WebUI.WebUISearchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIShareTargetActivatedEventArgs> = L"Windows.UI.WebUI.WebUIShareTargetActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIStartupTaskActivatedEventArgs> = L"Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIToastNotificationActivatedEventArgs> = L"Windows.UI.WebUI.WebUIToastNotificationActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIUserDataAccountProviderActivatedEventArgs> = L"Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIView> = L"Windows.UI.WebUI.WebUIView";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIVoiceCommandActivatedEventArgs> = L"Windows.UI.WebUI.WebUIVoiceCommandActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIWalletActionActivatedEventArgs> = L"Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIWebAccountProviderActivatedEventArgs> = L"Windows.UI.WebUI.WebUIWebAccountProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::WebUIWebAuthenticationBrokerContinuationEventArgs> = L"Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::PrintContent> = L"Windows.UI.WebUI.PrintContent";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IActivatedDeferral> = L"Windows.UI.WebUI.IActivatedDeferral";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IActivatedEventArgsDeferral> = L"Windows.UI.WebUI.IActivatedEventArgsDeferral";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IActivatedOperation> = L"Windows.UI.WebUI.IActivatedOperation";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IHtmlPrintDocumentSource> = L"Windows.UI.WebUI.IHtmlPrintDocumentSource";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::INewWebUIViewCreatedEventArgs> = L"Windows.UI.WebUI.INewWebUIViewCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIActivationStatics> = L"Windows.UI.WebUI.IWebUIActivationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIActivationStatics2> = L"Windows.UI.WebUI.IWebUIActivationStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIActivationStatics3> = L"Windows.UI.WebUI.IWebUIActivationStatics3";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIActivationStatics4> = L"Windows.UI.WebUI.IWebUIActivationStatics4";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIBackgroundTaskInstance> = L"Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIBackgroundTaskInstanceStatics> = L"Windows.UI.WebUI.IWebUIBackgroundTaskInstanceStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUINavigatedDeferral> = L"Windows.UI.WebUI.IWebUINavigatedDeferral";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUINavigatedEventArgs> = L"Windows.UI.WebUI.IWebUINavigatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUINavigatedOperation> = L"Windows.UI.WebUI.IWebUINavigatedOperation";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIView> = L"Windows.UI.WebUI.IWebUIView";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::IWebUIViewStatics> = L"Windows.UI.WebUI.IWebUIViewStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::ActivatedEventHandler> = L"Windows.UI.WebUI.ActivatedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::BackgroundActivatedEventHandler> = L"Windows.UI.WebUI.BackgroundActivatedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::EnteredBackgroundEventHandler> = L"Windows.UI.WebUI.EnteredBackgroundEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::LeavingBackgroundEventHandler> = L"Windows.UI.WebUI.LeavingBackgroundEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::NavigatedEventHandler> = L"Windows.UI.WebUI.NavigatedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::ResumingEventHandler> = L"Windows.UI.WebUI.ResumingEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::WebUI::SuspendingEventHandler> = L"Windows.UI.WebUI.SuspendingEventHandler";
     template <> inline constexpr guid guid_v<Windows::UI::WebUI::IActivatedDeferral>{ 0xC3BD1978,0xA431,0x49D8,{ 0xA7,0x6A,0x39,0x5A,0x4E,0x03,0xDC,0xF3 } };
     template <> inline constexpr guid guid_v<Windows::UI::WebUI::IActivatedEventArgsDeferral>{ 0xCA6D5F74,0x63C2,0x44A6,{ 0xB9,0x7B,0xD9,0xA0,0x3C,0x20,0xBC,0x9B } };
     template <> inline constexpr guid guid_v<Windows::UI::WebUI::IActivatedOperation>{ 0xB6A0B4BC,0xC6CA,0x42FD,{ 0x98,0x18,0x71,0x90,0x4E,0x45,0xFE,0xD7 } };
@@ -629,7 +632,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IActivatedDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::UI::WebUI::IActivatedDeferral>
     {
@@ -638,7 +641,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IActivatedEventArgsDeferral
     {
-        [[nodiscard]] auto ActivatedOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WebUI::ActivatedOperation) ActivatedOperation() const;
     };
     template <> struct consume<Windows::UI::WebUI::IActivatedEventArgsDeferral>
     {
@@ -647,7 +650,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IActivatedOperation
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::UI::WebUI::ActivatedDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::UI::WebUI::IActivatedOperation>
     {
@@ -656,24 +659,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IHtmlPrintDocumentSource
     {
-        [[nodiscard]] auto Content() const;
-        auto Content(Windows::UI::WebUI::PrintContent const& value) const;
-        [[nodiscard]] auto LeftMargin() const;
-        auto LeftMargin(float value) const;
-        [[nodiscard]] auto TopMargin() const;
-        auto TopMargin(float value) const;
-        [[nodiscard]] auto RightMargin() const;
-        auto RightMargin(float value) const;
-        [[nodiscard]] auto BottomMargin() const;
-        auto BottomMargin(float value) const;
-        [[nodiscard]] auto EnableHeaderFooter() const;
-        auto EnableHeaderFooter(bool value) const;
-        [[nodiscard]] auto ShrinkToFit() const;
-        auto ShrinkToFit(bool value) const;
-        [[nodiscard]] auto PercentScale() const;
-        auto PercentScale(float scalePercent) const;
-        [[nodiscard]] auto PageRange() const;
-        auto TrySetPageRange(param::hstring const& strPageRange) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WebUI::PrintContent) Content() const;
+        WINRT_IMPL_AUTO(void) Content(Windows::UI::WebUI::PrintContent const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) LeftMargin() const;
+        WINRT_IMPL_AUTO(void) LeftMargin(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) TopMargin() const;
+        WINRT_IMPL_AUTO(void) TopMargin(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) RightMargin() const;
+        WINRT_IMPL_AUTO(void) RightMargin(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) BottomMargin() const;
+        WINRT_IMPL_AUTO(void) BottomMargin(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableHeaderFooter() const;
+        WINRT_IMPL_AUTO(void) EnableHeaderFooter(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShrinkToFit() const;
+        WINRT_IMPL_AUTO(void) ShrinkToFit(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) PercentScale() const;
+        WINRT_IMPL_AUTO(void) PercentScale(float scalePercent) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PageRange() const;
+        WINRT_IMPL_AUTO(bool) TrySetPageRange(param::hstring const& strPageRange) const;
     };
     template <> struct consume<Windows::UI::WebUI::IHtmlPrintDocumentSource>
     {
@@ -682,10 +685,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_INewWebUIViewCreatedEventArgs
     {
-        [[nodiscard]] auto WebUIView() const;
-        [[nodiscard]] auto ActivatedEventArgs() const;
-        [[nodiscard]] auto HasPendingNavigate() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WebUI::WebUIView) WebUIView() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Activation::IActivatedEventArgs) ActivatedEventArgs() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasPendingNavigate() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::UI::WebUI::INewWebUIViewCreatedEventArgs>
     {
@@ -694,22 +697,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUIActivationStatics
     {
-        auto Activated(Windows::UI::WebUI::ActivatedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Activated(Windows::UI::WebUI::ActivatedEventHandler const& handler) const;
         using Activated_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIActivationStatics, &impl::abi_t<Windows::UI::WebUI::IWebUIActivationStatics>::remove_Activated>;
         [[nodiscard]] Activated_revoker Activated(auto_revoke_t, Windows::UI::WebUI::ActivatedEventHandler const& handler) const;
-        auto Activated(winrt::event_token const& token) const noexcept;
-        auto Suspending(Windows::UI::WebUI::SuspendingEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Activated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Suspending(Windows::UI::WebUI::SuspendingEventHandler const& handler) const;
         using Suspending_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIActivationStatics, &impl::abi_t<Windows::UI::WebUI::IWebUIActivationStatics>::remove_Suspending>;
         [[nodiscard]] Suspending_revoker Suspending(auto_revoke_t, Windows::UI::WebUI::SuspendingEventHandler const& handler) const;
-        auto Suspending(winrt::event_token const& token) const noexcept;
-        auto Resuming(Windows::UI::WebUI::ResumingEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Suspending(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Resuming(Windows::UI::WebUI::ResumingEventHandler const& handler) const;
         using Resuming_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIActivationStatics, &impl::abi_t<Windows::UI::WebUI::IWebUIActivationStatics>::remove_Resuming>;
         [[nodiscard]] Resuming_revoker Resuming(auto_revoke_t, Windows::UI::WebUI::ResumingEventHandler const& handler) const;
-        auto Resuming(winrt::event_token const& token) const noexcept;
-        auto Navigated(Windows::UI::WebUI::NavigatedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Resuming(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Navigated(Windows::UI::WebUI::NavigatedEventHandler const& handler) const;
         using Navigated_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIActivationStatics, &impl::abi_t<Windows::UI::WebUI::IWebUIActivationStatics>::remove_Navigated>;
         [[nodiscard]] Navigated_revoker Navigated(auto_revoke_t, Windows::UI::WebUI::NavigatedEventHandler const& handler) const;
-        auto Navigated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Navigated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUIActivationStatics>
     {
@@ -718,15 +721,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUIActivationStatics2
     {
-        auto LeavingBackground(Windows::UI::WebUI::LeavingBackgroundEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) LeavingBackground(Windows::UI::WebUI::LeavingBackgroundEventHandler const& handler) const;
         using LeavingBackground_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIActivationStatics2, &impl::abi_t<Windows::UI::WebUI::IWebUIActivationStatics2>::remove_LeavingBackground>;
         [[nodiscard]] LeavingBackground_revoker LeavingBackground(auto_revoke_t, Windows::UI::WebUI::LeavingBackgroundEventHandler const& handler) const;
-        auto LeavingBackground(winrt::event_token const& token) const noexcept;
-        auto EnteredBackground(Windows::UI::WebUI::EnteredBackgroundEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) LeavingBackground(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnteredBackground(Windows::UI::WebUI::EnteredBackgroundEventHandler const& handler) const;
         using EnteredBackground_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIActivationStatics2, &impl::abi_t<Windows::UI::WebUI::IWebUIActivationStatics2>::remove_EnteredBackground>;
         [[nodiscard]] EnteredBackground_revoker EnteredBackground(auto_revoke_t, Windows::UI::WebUI::EnteredBackgroundEventHandler const& handler) const;
-        auto EnteredBackground(winrt::event_token const& token) const noexcept;
-        auto EnablePrelaunch(bool value) const;
+        WINRT_IMPL_AUTO(void) EnteredBackground(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) EnablePrelaunch(bool value) const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUIActivationStatics2>
     {
@@ -735,8 +738,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUIActivationStatics3
     {
-        auto RequestRestartAsync(param::hstring const& launchArguments) const;
-        auto RequestRestartForUserAsync(Windows::System::User const& user, param::hstring const& launchArguments) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Core::AppRestartFailureReason>) RequestRestartAsync(param::hstring const& launchArguments) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Core::AppRestartFailureReason>) RequestRestartForUserAsync(Windows::System::User const& user, param::hstring const& launchArguments) const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUIActivationStatics3>
     {
@@ -745,14 +748,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUIActivationStatics4
     {
-        auto NewWebUIViewCreated(Windows::Foundation::EventHandler<Windows::UI::WebUI::NewWebUIViewCreatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) NewWebUIViewCreated(Windows::Foundation::EventHandler<Windows::UI::WebUI::NewWebUIViewCreatedEventArgs> const& handler) const;
         using NewWebUIViewCreated_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIActivationStatics4, &impl::abi_t<Windows::UI::WebUI::IWebUIActivationStatics4>::remove_NewWebUIViewCreated>;
         [[nodiscard]] NewWebUIViewCreated_revoker NewWebUIViewCreated(auto_revoke_t, Windows::Foundation::EventHandler<Windows::UI::WebUI::NewWebUIViewCreatedEventArgs> const& handler) const;
-        auto NewWebUIViewCreated(winrt::event_token const& token) const noexcept;
-        auto BackgroundActivated(Windows::UI::WebUI::BackgroundActivatedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) NewWebUIViewCreated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) BackgroundActivated(Windows::UI::WebUI::BackgroundActivatedEventHandler const& handler) const;
         using BackgroundActivated_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIActivationStatics4, &impl::abi_t<Windows::UI::WebUI::IWebUIActivationStatics4>::remove_BackgroundActivated>;
         [[nodiscard]] BackgroundActivated_revoker BackgroundActivated(auto_revoke_t, Windows::UI::WebUI::BackgroundActivatedEventHandler const& handler) const;
-        auto BackgroundActivated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) BackgroundActivated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUIActivationStatics4>
     {
@@ -761,8 +764,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUIBackgroundTaskInstance
     {
-        [[nodiscard]] auto Succeeded() const;
-        auto Succeeded(bool succeeded) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Succeeded() const;
+        WINRT_IMPL_AUTO(void) Succeeded(bool succeeded) const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUIBackgroundTaskInstance>
     {
@@ -771,7 +774,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUIBackgroundTaskInstanceStatics
     {
-        [[nodiscard]] auto Current() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WebUI::IWebUIBackgroundTaskInstance) Current() const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUIBackgroundTaskInstanceStatics>
     {
@@ -780,7 +783,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUINavigatedDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUINavigatedDeferral>
     {
@@ -789,7 +792,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUINavigatedEventArgs
     {
-        [[nodiscard]] auto NavigatedOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WebUI::WebUINavigatedOperation) NavigatedOperation() const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUINavigatedEventArgs>
     {
@@ -798,7 +801,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUINavigatedOperation
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::UI::WebUI::WebUINavigatedDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUINavigatedOperation>
     {
@@ -807,17 +810,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUIView
     {
-        [[nodiscard]] auto ApplicationViewId() const;
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ApplicationViewId() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::Foundation::IInspectable> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIView, &impl::abi_t<Windows::UI::WebUI::IWebUIView>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::Foundation::IInspectable> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
-        auto Activated(Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::ApplicationModel::Activation::IActivatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Activated(Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::ApplicationModel::Activation::IActivatedEventArgs> const& handler) const;
         using Activated_revoker = impl::event_revoker<Windows::UI::WebUI::IWebUIView, &impl::abi_t<Windows::UI::WebUI::IWebUIView>::remove_Activated>;
         [[nodiscard]] Activated_revoker Activated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WebUI::WebUIView, Windows::ApplicationModel::Activation::IActivatedEventArgs> const& handler) const;
-        auto Activated(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto IgnoreApplicationContentUriRulesNavigationRestrictions() const;
-        auto IgnoreApplicationContentUriRulesNavigationRestrictions(bool value) const;
+        WINRT_IMPL_AUTO(void) Activated(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IgnoreApplicationContentUriRulesNavigationRestrictions() const;
+        WINRT_IMPL_AUTO(void) IgnoreApplicationContentUriRulesNavigationRestrictions(bool value) const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUIView>
     {
@@ -826,8 +829,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WebUI_IWebUIViewStatics
     {
-        auto CreateAsync() const;
-        auto CreateAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::WebUI::WebUIView>) CreateAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::WebUI::WebUIView>) CreateAsync(Windows::Foundation::Uri const& uri) const;
     };
     template <> struct consume<Windows::UI::WebUI::IWebUIViewStatics>
     {

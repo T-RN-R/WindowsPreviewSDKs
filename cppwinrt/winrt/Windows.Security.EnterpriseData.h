@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Security_EnterpriseData_H
 #define WINRT_Windows_Security_EnterpriseData_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.Networking.2.h"
@@ -15,385 +15,385 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Security.EnterpriseData.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IBufferProtectUnprotectResult<D>::Buffer() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) consume_Windows_Security_EnterpriseData_IBufferProtectUnprotectResult<D>::Buffer() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IBufferProtectUnprotectResult)->get_Buffer(&value));
         return Windows::Storage::Streams::IBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IBufferProtectUnprotectResult<D>::ProtectionInfo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::DataProtectionInfo) consume_Windows_Security_EnterpriseData_IBufferProtectUnprotectResult<D>::ProtectionInfo() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IBufferProtectUnprotectResult)->get_ProtectionInfo(&value));
         return Windows::Security::EnterpriseData::DataProtectionInfo{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IDataProtectionInfo<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::DataProtectionStatus) consume_Windows_Security_EnterpriseData_IDataProtectionInfo<D>::Status() const
     {
-        Windows::Security::EnterpriseData::DataProtectionStatus value;
+        Windows::Security::EnterpriseData::DataProtectionStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IDataProtectionInfo)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IDataProtectionInfo<D>::Identity() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_EnterpriseData_IDataProtectionInfo<D>::Identity() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IDataProtectionInfo)->get_Identity(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::ProtectAsync(Windows::Storage::Streams::IBuffer const& data, param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::BufferProtectUnprotectResult>) consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::ProtectAsync(Windows::Storage::Streams::IBuffer const& data, param::hstring const& identity) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IDataProtectionManagerStatics)->ProtectAsync(*(void**)(&data), *(void**)(&identity), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::BufferProtectUnprotectResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::UnprotectAsync(Windows::Storage::Streams::IBuffer const& data) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::BufferProtectUnprotectResult>) consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::UnprotectAsync(Windows::Storage::Streams::IBuffer const& data) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IDataProtectionManagerStatics)->UnprotectAsync(*(void**)(&data), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::BufferProtectUnprotectResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::ProtectStreamAsync(Windows::Storage::Streams::IInputStream const& unprotectedStream, param::hstring const& identity, Windows::Storage::Streams::IOutputStream const& protectedStream) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::DataProtectionInfo>) consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::ProtectStreamAsync(Windows::Storage::Streams::IInputStream const& unprotectedStream, param::hstring const& identity, Windows::Storage::Streams::IOutputStream const& protectedStream) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IDataProtectionManagerStatics)->ProtectStreamAsync(*(void**)(&unprotectedStream), *(void**)(&identity), *(void**)(&protectedStream), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::DataProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::UnprotectStreamAsync(Windows::Storage::Streams::IInputStream const& protectedStream, Windows::Storage::Streams::IOutputStream const& unprotectedStream) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::DataProtectionInfo>) consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::UnprotectStreamAsync(Windows::Storage::Streams::IInputStream const& protectedStream, Windows::Storage::Streams::IOutputStream const& unprotectedStream) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IDataProtectionManagerStatics)->UnprotectStreamAsync(*(void**)(&protectedStream), *(void**)(&unprotectedStream), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::DataProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::GetProtectionInfoAsync(Windows::Storage::Streams::IBuffer const& protectedData) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::DataProtectionInfo>) consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::GetProtectionInfoAsync(Windows::Storage::Streams::IBuffer const& protectedData) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IDataProtectionManagerStatics)->GetProtectionInfoAsync(*(void**)(&protectedData), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::DataProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::GetStreamProtectionInfoAsync(Windows::Storage::Streams::IInputStream const& protectedStream) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::DataProtectionInfo>) consume_Windows_Security_EnterpriseData_IDataProtectionManagerStatics<D>::GetStreamProtectionInfoAsync(Windows::Storage::Streams::IInputStream const& protectedStream) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IDataProtectionManagerStatics)->GetStreamProtectionInfoAsync(*(void**)(&protectedStream), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::DataProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionInfo<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::FileProtectionStatus) consume_Windows_Security_EnterpriseData_IFileProtectionInfo<D>::Status() const
     {
-        Windows::Security::EnterpriseData::FileProtectionStatus value;
+        Windows::Security::EnterpriseData::FileProtectionStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionInfo)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionInfo<D>::IsRoamable() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IFileProtectionInfo<D>::IsRoamable() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionInfo)->get_IsRoamable(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionInfo<D>::Identity() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_EnterpriseData_IFileProtectionInfo<D>::Identity() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionInfo)->get_Identity(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionInfo2<D>::IsProtectWhileOpenSupported() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IFileProtectionInfo2<D>::IsProtectWhileOpenSupported() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionInfo2)->get_IsProtectWhileOpenSupported(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::ProtectAsync(Windows::Storage::IStorageItem const& target, param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionInfo>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::ProtectAsync(Windows::Storage::IStorageItem const& target, param::hstring const& identity) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics)->ProtectAsync(*(void**)(&target), *(void**)(&identity), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::CopyProtectionAsync(Windows::Storage::IStorageItem const& source, Windows::Storage::IStorageItem const& target) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::CopyProtectionAsync(Windows::Storage::IStorageItem const& source, Windows::Storage::IStorageItem const& target) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics)->CopyProtectionAsync(*(void**)(&source), *(void**)(&target), &result));
         return Windows::Foundation::IAsyncOperation<bool>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::GetProtectionInfoAsync(Windows::Storage::IStorageItem const& source) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionInfo>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::GetProtectionInfoAsync(Windows::Storage::IStorageItem const& source) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics)->GetProtectionInfoAsync(*(void**)(&source), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::SaveFileAsContainerAsync(Windows::Storage::IStorageFile const& protectedFile) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerExportResult>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::SaveFileAsContainerAsync(Windows::Storage::IStorageFile const& protectedFile) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics)->SaveFileAsContainerAsync(*(void**)(&protectedFile), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerExportResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::LoadFileFromContainerAsync(Windows::Storage::IStorageFile const& containerFile) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerImportResult>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::LoadFileFromContainerAsync(Windows::Storage::IStorageFile const& containerFile) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics)->LoadFileFromContainerAsync(*(void**)(&containerFile), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerImportResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::LoadFileFromContainerAsync(Windows::Storage::IStorageFile const& containerFile, Windows::Storage::IStorageItem const& target) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerImportResult>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::LoadFileFromContainerAsync(Windows::Storage::IStorageFile const& containerFile, Windows::Storage::IStorageItem const& target) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics)->LoadFileFromContainerWithTargetAsync(*(void**)(&containerFile), *(void**)(&target), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerImportResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::CreateProtectedAndOpenAsync(Windows::Storage::IStorageFolder const& parentFolder, param::hstring const& desiredName, param::hstring const& identity, Windows::Storage::CreationCollisionOption const& collisionOption) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedFileCreateResult>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics<D>::CreateProtectedAndOpenAsync(Windows::Storage::IStorageFolder const& parentFolder, param::hstring const& desiredName, param::hstring const& identity, Windows::Storage::CreationCollisionOption const& collisionOption) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics)->CreateProtectedAndOpenAsync(*(void**)(&parentFolder), *(void**)(&desiredName), *(void**)(&identity), static_cast<int32_t>(collisionOption), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedFileCreateResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics2<D>::IsContainerAsync(Windows::Storage::IStorageFile const& file) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics2<D>::IsContainerAsync(Windows::Storage::IStorageFile const& file) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics2)->IsContainerAsync(*(void**)(&file), &result));
         return Windows::Foundation::IAsyncOperation<bool>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics2<D>::LoadFileFromContainerAsync(Windows::Storage::IStorageFile const& containerFile, Windows::Storage::IStorageItem const& target, Windows::Storage::NameCollisionOption const& collisionOption) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerImportResult>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics2<D>::LoadFileFromContainerAsync(Windows::Storage::IStorageFile const& containerFile, Windows::Storage::IStorageItem const& target, Windows::Storage::NameCollisionOption const& collisionOption) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics2)->LoadFileFromContainerWithTargetAndNameCollisionOptionAsync(*(void**)(&containerFile), *(void**)(&target), static_cast<int32_t>(collisionOption), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerImportResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics2<D>::SaveFileAsContainerAsync(Windows::Storage::IStorageFile const& protectedFile, param::async_iterable<hstring> const& sharedWithIdentities) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerExportResult>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics2<D>::SaveFileAsContainerAsync(Windows::Storage::IStorageFile const& protectedFile, param::async_iterable<hstring> const& sharedWithIdentities) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics2)->SaveFileAsContainerWithSharingAsync(*(void**)(&protectedFile), *(void**)(&sharedWithIdentities), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectedContainerExportResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics3<D>::UnprotectAsync(Windows::Storage::IStorageItem const& target) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionInfo>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics3<D>::UnprotectAsync(Windows::Storage::IStorageItem const& target) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics3)->UnprotectAsync(*(void**)(&target), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics3<D>::UnprotectAsync(Windows::Storage::IStorageItem const& target, Windows::Security::EnterpriseData::FileUnprotectOptions const& options) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionInfo>) consume_Windows_Security_EnterpriseData_IFileProtectionManagerStatics3<D>::UnprotectAsync(Windows::Storage::IStorageItem const& target, Windows::Security::EnterpriseData::FileUnprotectOptions const& options) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileProtectionManagerStatics3)->UnprotectWithOptionsAsync(*(void**)(&target), *(void**)(&options), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileRevocationManagerStatics<D>::ProtectAsync(Windows::Storage::IStorageItem const& storageItem, param::hstring const& enterpriseIdentity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionStatus>) consume_Windows_Security_EnterpriseData_IFileRevocationManagerStatics<D>::ProtectAsync(Windows::Storage::IStorageItem const& storageItem, param::hstring const& enterpriseIdentity) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileRevocationManagerStatics)->ProtectAsync(*(void**)(&storageItem), *(void**)(&enterpriseIdentity), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionStatus>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileRevocationManagerStatics<D>::CopyProtectionAsync(Windows::Storage::IStorageItem const& sourceStorageItem, Windows::Storage::IStorageItem const& targetStorageItem) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Security_EnterpriseData_IFileRevocationManagerStatics<D>::CopyProtectionAsync(Windows::Storage::IStorageItem const& sourceStorageItem, Windows::Storage::IStorageItem const& targetStorageItem) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileRevocationManagerStatics)->CopyProtectionAsync(*(void**)(&sourceStorageItem), *(void**)(&targetStorageItem), &result));
         return Windows::Foundation::IAsyncOperation<bool>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileRevocationManagerStatics<D>::Revoke(param::hstring const& enterpriseIdentity) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IFileRevocationManagerStatics<D>::Revoke(param::hstring const& enterpriseIdentity) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileRevocationManagerStatics)->Revoke(*(void**)(&enterpriseIdentity)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileRevocationManagerStatics<D>::GetStatusAsync(Windows::Storage::IStorageItem const& storageItem) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionStatus>) consume_Windows_Security_EnterpriseData_IFileRevocationManagerStatics<D>::GetStatusAsync(Windows::Storage::IStorageItem const& storageItem) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileRevocationManagerStatics)->GetStatusAsync(*(void**)(&storageItem), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::FileProtectionStatus>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileUnprotectOptions<D>::Audit(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IFileUnprotectOptions<D>::Audit(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileUnprotectOptions)->put_Audit(value));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileUnprotectOptions<D>::Audit() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IFileUnprotectOptions<D>::Audit() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileUnprotectOptions)->get_Audit(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IFileUnprotectOptionsFactory<D>::Create(bool audit) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::FileUnprotectOptions) consume_Windows_Security_EnterpriseData_IFileUnprotectOptionsFactory<D>::Create(bool audit) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IFileUnprotectOptionsFactory)->Create(audit, &result));
         return Windows::Security::EnterpriseData::FileUnprotectOptions{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedAccessResumedEventArgs<D>::Identities() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) consume_Windows_Security_EnterpriseData_IProtectedAccessResumedEventArgs<D>::Identities() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedAccessResumedEventArgs)->get_Identities(&value));
         return Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedAccessSuspendingEventArgs<D>::Identities() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) consume_Windows_Security_EnterpriseData_IProtectedAccessSuspendingEventArgs<D>::Identities() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedAccessSuspendingEventArgs)->get_Identities(&value));
         return Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedAccessSuspendingEventArgs<D>::Deadline() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Security_EnterpriseData_IProtectedAccessSuspendingEventArgs<D>::Deadline() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedAccessSuspendingEventArgs)->get_Deadline(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedAccessSuspendingEventArgs<D>::GetDeferral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Deferral) consume_Windows_Security_EnterpriseData_IProtectedAccessSuspendingEventArgs<D>::GetDeferral() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedAccessSuspendingEventArgs)->GetDeferral(&result));
         return Windows::Foundation::Deferral{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedContainerExportResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectedImportExportStatus) consume_Windows_Security_EnterpriseData_IProtectedContainerExportResult<D>::Status() const
     {
-        Windows::Security::EnterpriseData::ProtectedImportExportStatus value;
+        Windows::Security::EnterpriseData::ProtectedImportExportStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedContainerExportResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedContainerExportResult<D>::File() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::StorageFile) consume_Windows_Security_EnterpriseData_IProtectedContainerExportResult<D>::File() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedContainerExportResult)->get_File(&value));
         return Windows::Storage::StorageFile{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedContainerImportResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectedImportExportStatus) consume_Windows_Security_EnterpriseData_IProtectedContainerImportResult<D>::Status() const
     {
-        Windows::Security::EnterpriseData::ProtectedImportExportStatus value;
+        Windows::Security::EnterpriseData::ProtectedImportExportStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedContainerImportResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedContainerImportResult<D>::File() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::StorageFile) consume_Windows_Security_EnterpriseData_IProtectedContainerImportResult<D>::File() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedContainerImportResult)->get_File(&value));
         return Windows::Storage::StorageFile{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedContentRevokedEventArgs<D>::Identities() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) consume_Windows_Security_EnterpriseData_IProtectedContentRevokedEventArgs<D>::Identities() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedContentRevokedEventArgs)->get_Identities(&value));
         return Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedFileCreateResult<D>::File() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::StorageFile) consume_Windows_Security_EnterpriseData_IProtectedFileCreateResult<D>::File() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedFileCreateResult)->get_File(&value));
         return Windows::Storage::StorageFile{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedFileCreateResult<D>::Stream() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStream) consume_Windows_Security_EnterpriseData_IProtectedFileCreateResult<D>::Stream() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedFileCreateResult)->get_Stream(&value));
         return Windows::Storage::Streams::IRandomAccessStream{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectedFileCreateResult<D>::ProtectionInfo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::FileProtectionInfo) consume_Windows_Security_EnterpriseData_IProtectedFileCreateResult<D>::ProtectionInfo() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectedFileCreateResult)->get_ProtectionInfo(&value));
         return Windows::Security::EnterpriseData::FileProtectionInfo{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::Action(Windows::Security::EnterpriseData::ProtectionPolicyAuditAction const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::Action(Windows::Security::EnterpriseData::ProtectionPolicyAuditAction const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo)->put_Action(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::Action() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectionPolicyAuditAction) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::Action() const
     {
-        Windows::Security::EnterpriseData::ProtectionPolicyAuditAction value;
+        Windows::Security::EnterpriseData::ProtectionPolicyAuditAction value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo)->get_Action(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::DataDescription(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::DataDescription(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo)->put_DataDescription(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::DataDescription() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::DataDescription() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo)->get_DataDescription(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::SourceDescription(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::SourceDescription(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo)->put_SourceDescription(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::SourceDescription() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::SourceDescription() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo)->get_SourceDescription(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::TargetDescription(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::TargetDescription(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo)->put_TargetDescription(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::TargetDescription() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfo<D>::TargetDescription() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo)->get_TargetDescription(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfoFactory<D>::Create(Windows::Security::EnterpriseData::ProtectionPolicyAuditAction const& action, param::hstring const& dataDescription, param::hstring const& sourceDescription, param::hstring const& targetDescription) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfoFactory<D>::Create(Windows::Security::EnterpriseData::ProtectionPolicyAuditAction const& action, param::hstring const& dataDescription, param::hstring const& sourceDescription, param::hstring const& targetDescription) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfoFactory)->Create(static_cast<int32_t>(action), *(void**)(&dataDescription), *(void**)(&sourceDescription), *(void**)(&targetDescription), &result));
         return Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfoFactory<D>::CreateWithActionAndDataDescription(Windows::Security::EnterpriseData::ProtectionPolicyAuditAction const& action, param::hstring const& dataDescription) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo) consume_Windows_Security_EnterpriseData_IProtectionPolicyAuditInfoFactory<D>::CreateWithActionAndDataDescription(Windows::Security::EnterpriseData::ProtectionPolicyAuditAction const& action, param::hstring const& dataDescription) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyAuditInfoFactory)->CreateWithActionAndDataDescription(static_cast<int32_t>(action), *(void**)(&dataDescription), &result));
         return Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManager<D>::Identity(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManager<D>::Identity(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManager)->put_Identity(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManager<D>::Identity() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_EnterpriseData_IProtectionPolicyManager<D>::Identity() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManager)->get_Identity(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManager2<D>::ShowEnterpriseIndicator(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManager2<D>::ShowEnterpriseIndicator(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManager2)->put_ShowEnterpriseIndicator(value));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManager2<D>::ShowEnterpriseIndicator() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IProtectionPolicyManager2<D>::ShowEnterpriseIndicator() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManager2)->get_ShowEnterpriseIndicator(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::IsIdentityManaged(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::IsIdentityManaged(param::hstring const& identity) const
     {
-        bool result;
+        bool result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->IsIdentityManaged(*(void**)(&identity), &result));
         return result;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::TryApplyProcessUIPolicy(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::TryApplyProcessUIPolicy(param::hstring const& identity) const
     {
-        bool result;
+        bool result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->TryApplyProcessUIPolicy(*(void**)(&identity), &result));
         return result;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ClearProcessUIPolicy() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ClearProcessUIPolicy() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->ClearProcessUIPolicy());
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::CreateCurrentThreadNetworkContext(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ThreadNetworkContext) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::CreateCurrentThreadNetworkContext(param::hstring const& identity) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->CreateCurrentThreadNetworkContext(*(void**)(&identity), &result));
         return Windows::Security::EnterpriseData::ThreadNetworkContext{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::GetPrimaryManagedIdentityForNetworkEndpointAsync(Windows::Networking::HostName const& endpointHost) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::GetPrimaryManagedIdentityForNetworkEndpointAsync(Windows::Networking::HostName const& endpointHost) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->GetPrimaryManagedIdentityForNetworkEndpointAsync(*(void**)(&endpointHost), &result));
         return Windows::Foundation::IAsyncOperation<hstring>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::RevokeContent(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::RevokeContent(param::hstring const& identity) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->RevokeContent(*(void**)(&identity)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::GetForCurrentView() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectionPolicyManager) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::GetForCurrentView() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->GetForCurrentView(&result));
         return Windows::Security::EnterpriseData::ProtectionPolicyManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedAccessSuspending(Windows::Foundation::EventHandler<Windows::Security::EnterpriseData::ProtectedAccessSuspendingEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedAccessSuspending(Windows::Foundation::EventHandler<Windows::Security::EnterpriseData::ProtectedAccessSuspendingEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->add_ProtectedAccessSuspending(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -401,13 +401,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ProtectedAccessSuspending_revoker>(this, ProtectedAccessSuspending(handler));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedAccessSuspending(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedAccessSuspending(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->remove_ProtectedAccessSuspending(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedAccessResumed(Windows::Foundation::EventHandler<Windows::Security::EnterpriseData::ProtectedAccessResumedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedAccessResumed(Windows::Foundation::EventHandler<Windows::Security::EnterpriseData::ProtectedAccessResumedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->add_ProtectedAccessResumed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -415,13 +415,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ProtectedAccessResumed_revoker>(this, ProtectedAccessResumed(handler));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedAccessResumed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedAccessResumed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->remove_ProtectedAccessResumed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedContentRevoked(Windows::Foundation::EventHandler<Windows::Security::EnterpriseData::ProtectedContentRevokedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedContentRevoked(Windows::Foundation::EventHandler<Windows::Security::EnterpriseData::ProtectedContentRevokedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->add_ProtectedContentRevoked(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -429,61 +429,61 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ProtectedContentRevoked_revoker>(this, ProtectedContentRevoked(handler));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedContentRevoked(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::ProtectedContentRevoked(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->remove_ProtectedContentRevoked(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::CheckAccess(param::hstring const& sourceIdentity, param::hstring const& targetIdentity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::CheckAccess(param::hstring const& sourceIdentity, param::hstring const& targetIdentity) const
     {
-        Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult result;
+        Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->CheckAccess(*(void**)(&sourceIdentity), *(void**)(&targetIdentity), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::RequestAccessAsync(param::hstring const& sourceIdentity, param::hstring const& targetIdentity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics<D>::RequestAccessAsync(param::hstring const& sourceIdentity, param::hstring const& targetIdentity) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics)->RequestAccessAsync(*(void**)(&sourceIdentity), *(void**)(&targetIdentity), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::HasContentBeenRevokedSince(param::hstring const& identity, Windows::Foundation::DateTime const& since) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::HasContentBeenRevokedSince(param::hstring const& identity, Windows::Foundation::DateTime const& since) const
     {
-        bool result;
+        bool result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->HasContentBeenRevokedSince(*(void**)(&identity), impl::bind_in(since), &result));
         return result;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::CheckAccessForApp(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::CheckAccessForApp(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName) const
     {
-        Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult result;
+        Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->CheckAccessForApp(*(void**)(&sourceIdentity), *(void**)(&appPackageFamilyName), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::RequestAccessForAppAsync(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::RequestAccessForAppAsync(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->RequestAccessForAppAsync(*(void**)(&sourceIdentity), *(void**)(&appPackageFamilyName), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::GetEnforcementLevel(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::EnforcementLevel) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::GetEnforcementLevel(param::hstring const& identity) const
     {
-        Windows::Security::EnterpriseData::EnforcementLevel value;
+        Windows::Security::EnterpriseData::EnforcementLevel value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->GetEnforcementLevel(*(void**)(&identity), reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::IsUserDecryptionAllowed(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::IsUserDecryptionAllowed(param::hstring const& identity) const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->IsUserDecryptionAllowed(*(void**)(&identity), &value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::IsProtectionUnderLockRequired(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::IsProtectionUnderLockRequired(param::hstring const& identity) const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->IsProtectionUnderLockRequired(*(void**)(&identity), &value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::PolicyChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::PolicyChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->add_PolicyChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -491,105 +491,105 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PolicyChanged_revoker>(this, PolicyChanged(handler));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::PolicyChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::PolicyChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->remove_PolicyChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::IsProtectionEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics2<D>::IsProtectionEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2)->get_IsProtectionEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::RequestAccessAsync(param::hstring const& sourceIdentity, param::hstring const& targetIdentity, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::RequestAccessAsync(param::hstring const& sourceIdentity, param::hstring const& targetIdentity, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics3)->RequestAccessWithAuditingInfoAsync(*(void**)(&sourceIdentity), *(void**)(&targetIdentity), *(void**)(&auditInfo), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::RequestAccessAsync(param::hstring const& sourceIdentity, param::hstring const& targetIdentity, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::RequestAccessAsync(param::hstring const& sourceIdentity, param::hstring const& targetIdentity, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics3)->RequestAccessWithMessageAsync(*(void**)(&sourceIdentity), *(void**)(&targetIdentity), *(void**)(&auditInfo), *(void**)(&messageFromApp), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::RequestAccessForAppAsync(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::RequestAccessForAppAsync(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics3)->RequestAccessForAppWithAuditingInfoAsync(*(void**)(&sourceIdentity), *(void**)(&appPackageFamilyName), *(void**)(&auditInfo), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::RequestAccessForAppAsync(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::RequestAccessForAppAsync(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics3)->RequestAccessForAppWithMessageAsync(*(void**)(&sourceIdentity), *(void**)(&appPackageFamilyName), *(void**)(&auditInfo), *(void**)(&messageFromApp), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::LogAuditEvent(param::hstring const& sourceIdentity, param::hstring const& targetIdentity, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics3<D>::LogAuditEvent(param::hstring const& sourceIdentity, param::hstring const& targetIdentity, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics3)->LogAuditEvent(*(void**)(&sourceIdentity), *(void**)(&targetIdentity), *(void**)(&auditInfo)));
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::IsRoamableProtectionEnabled(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::IsRoamableProtectionEnabled(param::hstring const& identity) const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->IsRoamableProtectionEnabled(*(void**)(&identity), &value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessAsync(param::hstring const& sourceIdentity, param::hstring const& targetIdentity, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp, Windows::Security::EnterpriseData::ProtectionPolicyRequestAccessBehavior const& behavior) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessAsync(param::hstring const& sourceIdentity, param::hstring const& targetIdentity, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp, Windows::Security::EnterpriseData::ProtectionPolicyRequestAccessBehavior const& behavior) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->RequestAccessWithBehaviorAsync(*(void**)(&sourceIdentity), *(void**)(&targetIdentity), *(void**)(&auditInfo), *(void**)(&messageFromApp), static_cast<int32_t>(behavior), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessForAppAsync(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp, Windows::Security::EnterpriseData::ProtectionPolicyRequestAccessBehavior const& behavior) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessForAppAsync(param::hstring const& sourceIdentity, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp, Windows::Security::EnterpriseData::ProtectionPolicyRequestAccessBehavior const& behavior) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->RequestAccessForAppWithBehaviorAsync(*(void**)(&sourceIdentity), *(void**)(&appPackageFamilyName), *(void**)(&auditInfo), *(void**)(&messageFromApp), static_cast<int32_t>(behavior), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessToFilesForAppAsync(param::async_iterable<Windows::Storage::IStorageItem> const& sourceItemList, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessToFilesForAppAsync(param::async_iterable<Windows::Storage::IStorageItem> const& sourceItemList, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->RequestAccessToFilesForAppAsync(*(void**)(&sourceItemList), *(void**)(&appPackageFamilyName), *(void**)(&auditInfo), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessToFilesForAppAsync(param::async_iterable<Windows::Storage::IStorageItem> const& sourceItemList, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp, Windows::Security::EnterpriseData::ProtectionPolicyRequestAccessBehavior const& behavior) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessToFilesForAppAsync(param::async_iterable<Windows::Storage::IStorageItem> const& sourceItemList, param::hstring const& appPackageFamilyName, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp, Windows::Security::EnterpriseData::ProtectionPolicyRequestAccessBehavior const& behavior) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->RequestAccessToFilesForAppWithMessageAndBehaviorAsync(*(void**)(&sourceItemList), *(void**)(&appPackageFamilyName), *(void**)(&auditInfo), *(void**)(&messageFromApp), static_cast<int32_t>(behavior), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessToFilesForProcessAsync(param::async_iterable<Windows::Storage::IStorageItem> const& sourceItemList, uint32_t processId, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessToFilesForProcessAsync(param::async_iterable<Windows::Storage::IStorageItem> const& sourceItemList, uint32_t processId, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->RequestAccessToFilesForProcessAsync(*(void**)(&sourceItemList), processId, *(void**)(&auditInfo), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessToFilesForProcessAsync(param::async_iterable<Windows::Storage::IStorageItem> const& sourceItemList, uint32_t processId, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp, Windows::Security::EnterpriseData::ProtectionPolicyRequestAccessBehavior const& behavior) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::RequestAccessToFilesForProcessAsync(param::async_iterable<Windows::Storage::IStorageItem> const& sourceItemList, uint32_t processId, Windows::Security::EnterpriseData::ProtectionPolicyAuditInfo const& auditInfo, param::hstring const& messageFromApp, Windows::Security::EnterpriseData::ProtectionPolicyRequestAccessBehavior const& behavior) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->RequestAccessToFilesForProcessWithMessageAndBehaviorAsync(*(void**)(&sourceItemList), processId, *(void**)(&auditInfo), *(void**)(&messageFromApp), static_cast<int32_t>(behavior), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::IsFileProtectionRequiredAsync(Windows::Storage::IStorageItem const& target, param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::IsFileProtectionRequiredAsync(Windows::Storage::IStorageItem const& target, param::hstring const& identity) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->IsFileProtectionRequiredAsync(*(void**)(&target), *(void**)(&identity), &result));
         return Windows::Foundation::IAsyncOperation<bool>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::IsFileProtectionRequiredForNewFileAsync(Windows::Storage::IStorageFolder const& parentFolder, param::hstring const& identity, param::hstring const& desiredName) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::IsFileProtectionRequiredForNewFileAsync(Windows::Storage::IStorageFolder const& parentFolder, param::hstring const& identity, param::hstring const& desiredName) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->IsFileProtectionRequiredForNewFileAsync(*(void**)(&parentFolder), *(void**)(&identity), *(void**)(&desiredName), &result));
         return Windows::Foundation::IAsyncOperation<bool>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::PrimaryManagedIdentity() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::PrimaryManagedIdentity() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->get_PrimaryManagedIdentity(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::GetPrimaryManagedIdentityForIdentity(param::hstring const& identity) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_EnterpriseData_IProtectionPolicyManagerStatics4<D>::GetPrimaryManagedIdentityForIdentity(param::hstring const& identity) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4)->GetPrimaryManagedIdentityForIdentity(*(void**)(&identity), &value));

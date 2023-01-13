@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,6 +10,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Point;
     struct Rect;
     struct Size;
@@ -19,6 +20,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     template <typename K, typename V> struct IKeyValuePair;
+    template <typename K, typename V> struct IMapView;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::Imaging
 {
@@ -694,217 +697,215 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel>{ using type = enum_category; };
     template <> struct category<Windows::Devices::PointOfService::UnifiedPosPowerReportingType>{ using type = enum_category; };
     template <> struct category<Windows::Devices::PointOfService::SizeUInt32>{ using type = struct_category<uint32_t, uint32_t>; };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScanner>{ L"Windows.Devices.PointOfService.BarcodeScanner" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerCapabilities>{ L"Windows.Devices.PointOfService.BarcodeScannerCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerDataReceivedEventArgs>{ L"Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerErrorOccurredEventArgs>{ L"Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerImagePreviewReceivedEventArgs>{ L"Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerReport>{ L"Windows.Devices.PointOfService.BarcodeScannerReport" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeSymbologies>{ L"Windows.Devices.PointOfService.BarcodeSymbologies" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeSymbologyAttributes>{ L"Windows.Devices.PointOfService.BarcodeSymbologyAttributes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawer>{ L"Windows.Devices.PointOfService.CashDrawer" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerCapabilities>{ L"Windows.Devices.PointOfService.CashDrawerCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerCloseAlarm>{ L"Windows.Devices.PointOfService.CashDrawerCloseAlarm" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerClosedEventArgs>{ L"Windows.Devices.PointOfService.CashDrawerClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerEventSource>{ L"Windows.Devices.PointOfService.CashDrawerEventSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerOpenedEventArgs>{ L"Windows.Devices.PointOfService.CashDrawerOpenedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerStatus>{ L"Windows.Devices.PointOfService.CashDrawerStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedBarcodeScanner>{ L"Windows.Devices.PointOfService.ClaimedBarcodeScanner" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedBarcodeScannerClosedEventArgs>{ L"Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedCashDrawer>{ L"Windows.Devices.PointOfService.ClaimedCashDrawer" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedCashDrawerClosedEventArgs>{ L"Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedJournalPrinter>{ L"Windows.Devices.PointOfService.ClaimedJournalPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedLineDisplay>{ L"Windows.Devices.PointOfService.ClaimedLineDisplay" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedLineDisplayClosedEventArgs>{ L"Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedMagneticStripeReader>{ L"Windows.Devices.PointOfService.ClaimedMagneticStripeReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedMagneticStripeReaderClosedEventArgs>{ L"Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedPosPrinter>{ L"Windows.Devices.PointOfService.ClaimedPosPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedPosPrinterClosedEventArgs>{ L"Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedReceiptPrinter>{ L"Windows.Devices.PointOfService.ClaimedReceiptPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedSlipPrinter>{ L"Windows.Devices.PointOfService.ClaimedSlipPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::JournalPrintJob>{ L"Windows.Devices.PointOfService.JournalPrintJob" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::JournalPrinterCapabilities>{ L"Windows.Devices.PointOfService.JournalPrinterCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplay>{ L"Windows.Devices.PointOfService.LineDisplay" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayAttributes>{ L"Windows.Devices.PointOfService.LineDisplayAttributes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCapabilities>{ L"Windows.Devices.PointOfService.LineDisplayCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCursor>{ L"Windows.Devices.PointOfService.LineDisplayCursor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCursorAttributes>{ L"Windows.Devices.PointOfService.LineDisplayCursorAttributes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCustomGlyphs>{ L"Windows.Devices.PointOfService.LineDisplayCustomGlyphs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayMarquee>{ L"Windows.Devices.PointOfService.LineDisplayMarquee" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayStatisticsCategorySelector>{ L"Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayStoredBitmap>{ L"Windows.Devices.PointOfService.LineDisplayStoredBitmap" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayWindow>{ L"Windows.Devices.PointOfService.LineDisplayWindow" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReader>{ L"Windows.Devices.PointOfService.MagneticStripeReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderAamvaCardDataReceivedEventArgs>{ L"Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderBankCardDataReceivedEventArgs>{ L"Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderCapabilities>{ L"Windows.Devices.PointOfService.MagneticStripeReaderCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderCardTypes>{ L"Windows.Devices.PointOfService.MagneticStripeReaderCardTypes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderEncryptionAlgorithms>{ L"Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderErrorOccurredEventArgs>{ L"Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderReport>{ L"Windows.Devices.PointOfService.MagneticStripeReaderReport" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderTrackData>{ L"Windows.Devices.PointOfService.MagneticStripeReaderTrackData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>{ L"Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinter>{ L"Windows.Devices.PointOfService.PosPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterCapabilities>{ L"Windows.Devices.PointOfService.PosPrinterCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterCharacterSetIds>{ L"Windows.Devices.PointOfService.PosPrinterCharacterSetIds" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterFontProperty>{ L"Windows.Devices.PointOfService.PosPrinterFontProperty" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterPrintOptions>{ L"Windows.Devices.PointOfService.PosPrinterPrintOptions" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterReleaseDeviceRequestedEventArgs>{ L"Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterStatus>{ L"Windows.Devices.PointOfService.PosPrinterStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ReceiptPrintJob>{ L"Windows.Devices.PointOfService.ReceiptPrintJob" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ReceiptPrinterCapabilities>{ L"Windows.Devices.PointOfService.ReceiptPrinterCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::SlipPrintJob>{ L"Windows.Devices.PointOfService.SlipPrintJob" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::SlipPrinterCapabilities>{ L"Windows.Devices.PointOfService.SlipPrinterCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosErrorData>{ L"Windows.Devices.PointOfService.UnifiedPosErrorData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerStatus>{ L"Windows.Devices.PointOfService.BarcodeScannerStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeSymbologyDecodeLengthKind>{ L"Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerStatusKind>{ L"Windows.Devices.PointOfService.CashDrawerStatusKind" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCursorType>{ L"Windows.Devices.PointOfService.LineDisplayCursorType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayDescriptorState>{ L"Windows.Devices.PointOfService.LineDisplayDescriptorState" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayHorizontalAlignment>{ L"Windows.Devices.PointOfService.LineDisplayHorizontalAlignment" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayMarqueeFormat>{ L"Windows.Devices.PointOfService.LineDisplayMarqueeFormat" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayPowerStatus>{ L"Windows.Devices.PointOfService.LineDisplayPowerStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayScrollDirection>{ L"Windows.Devices.PointOfService.LineDisplayScrollDirection" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayTextAttribute>{ L"Windows.Devices.PointOfService.LineDisplayTextAttribute" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayTextAttributeGranularity>{ L"Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayVerticalAlignment>{ L"Windows.Devices.PointOfService.LineDisplayVerticalAlignment" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderAuthenticationLevel>{ L"Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderAuthenticationProtocol>{ L"Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderErrorReportingType>{ L"Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderStatus>{ L"Windows.Devices.PointOfService.MagneticStripeReaderStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderTrackErrorType>{ L"Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderTrackIds>{ L"Windows.Devices.PointOfService.MagneticStripeReaderTrackIds" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosConnectionTypes>{ L"Windows.Devices.PointOfService.PosConnectionTypes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterAlignment>{ L"Windows.Devices.PointOfService.PosPrinterAlignment" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterBarcodeTextPosition>{ L"Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterCartridgeSensors>{ L"Windows.Devices.PointOfService.PosPrinterCartridgeSensors" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterColorCapabilities>{ L"Windows.Devices.PointOfService.PosPrinterColorCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterColorCartridge>{ L"Windows.Devices.PointOfService.PosPrinterColorCartridge" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterLineDirection>{ L"Windows.Devices.PointOfService.PosPrinterLineDirection" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterLineStyle>{ L"Windows.Devices.PointOfService.PosPrinterLineStyle" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterMapMode>{ L"Windows.Devices.PointOfService.PosPrinterMapMode" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterMarkFeedCapabilities>{ L"Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterMarkFeedKind>{ L"Windows.Devices.PointOfService.PosPrinterMarkFeedKind" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterPrintSide>{ L"Windows.Devices.PointOfService.PosPrinterPrintSide" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterRotation>{ L"Windows.Devices.PointOfService.PosPrinterRotation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterRuledLineCapabilities>{ L"Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterStatusKind>{ L"Windows.Devices.PointOfService.PosPrinterStatusKind" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosErrorReason>{ L"Windows.Devices.PointOfService.UnifiedPosErrorReason" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosErrorSeverity>{ L"Windows.Devices.PointOfService.UnifiedPosErrorSeverity" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel>{ L"Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosPowerReportingType>{ L"Windows.Devices.PointOfService.UnifiedPosPowerReportingType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::SizeUInt32>{ L"Windows.Devices.PointOfService.SizeUInt32" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScanner>{ L"Windows.Devices.PointOfService.IBarcodeScanner" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScanner2>{ L"Windows.Devices.PointOfService.IBarcodeScanner2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerCapabilities>{ L"Windows.Devices.PointOfService.IBarcodeScannerCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerCapabilities1>{ L"Windows.Devices.PointOfService.IBarcodeScannerCapabilities1" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerCapabilities2>{ L"Windows.Devices.PointOfService.IBarcodeScannerCapabilities2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerDataReceivedEventArgs>{ L"Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerErrorOccurredEventArgs>{ L"Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerImagePreviewReceivedEventArgs>{ L"Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerReport>{ L"Windows.Devices.PointOfService.IBarcodeScannerReport" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerReportFactory>{ L"Windows.Devices.PointOfService.IBarcodeScannerReportFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerStatics>{ L"Windows.Devices.PointOfService.IBarcodeScannerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerStatics2>{ L"Windows.Devices.PointOfService.IBarcodeScannerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeSymbologiesStatics>{ L"Windows.Devices.PointOfService.IBarcodeSymbologiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeSymbologiesStatics2>{ L"Windows.Devices.PointOfService.IBarcodeSymbologiesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeSymbologyAttributes>{ L"Windows.Devices.PointOfService.IBarcodeSymbologyAttributes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawer>{ L"Windows.Devices.PointOfService.ICashDrawer" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerCapabilities>{ L"Windows.Devices.PointOfService.ICashDrawerCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerCloseAlarm>{ L"Windows.Devices.PointOfService.ICashDrawerCloseAlarm" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerEventSource>{ L"Windows.Devices.PointOfService.ICashDrawerEventSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerEventSourceEventArgs>{ L"Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerStatics>{ L"Windows.Devices.PointOfService.ICashDrawerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerStatics2>{ L"Windows.Devices.PointOfService.ICashDrawerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerStatus>{ L"Windows.Devices.PointOfService.ICashDrawerStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.ICashDrawerStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner>{ L"Windows.Devices.PointOfService.IClaimedBarcodeScanner" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner1>{ L"Windows.Devices.PointOfService.IClaimedBarcodeScanner1" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner2>{ L"Windows.Devices.PointOfService.IClaimedBarcodeScanner2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner3>{ L"Windows.Devices.PointOfService.IClaimedBarcodeScanner3" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner4>{ L"Windows.Devices.PointOfService.IClaimedBarcodeScanner4" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScannerClosedEventArgs>{ L"Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedCashDrawer>{ L"Windows.Devices.PointOfService.IClaimedCashDrawer" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedCashDrawer2>{ L"Windows.Devices.PointOfService.IClaimedCashDrawer2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedCashDrawerClosedEventArgs>{ L"Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedJournalPrinter>{ L"Windows.Devices.PointOfService.IClaimedJournalPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplay>{ L"Windows.Devices.PointOfService.IClaimedLineDisplay" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplay2>{ L"Windows.Devices.PointOfService.IClaimedLineDisplay2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplay3>{ L"Windows.Devices.PointOfService.IClaimedLineDisplay3" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplayClosedEventArgs>{ L"Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplayStatics>{ L"Windows.Devices.PointOfService.IClaimedLineDisplayStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedMagneticStripeReader>{ L"Windows.Devices.PointOfService.IClaimedMagneticStripeReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedMagneticStripeReader2>{ L"Windows.Devices.PointOfService.IClaimedMagneticStripeReader2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedMagneticStripeReaderClosedEventArgs>{ L"Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedPosPrinter>{ L"Windows.Devices.PointOfService.IClaimedPosPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedPosPrinter2>{ L"Windows.Devices.PointOfService.IClaimedPosPrinter2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedPosPrinterClosedEventArgs>{ L"Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedReceiptPrinter>{ L"Windows.Devices.PointOfService.IClaimedReceiptPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedSlipPrinter>{ L"Windows.Devices.PointOfService.IClaimedSlipPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICommonClaimedPosPrinterStation>{ L"Windows.Devices.PointOfService.ICommonClaimedPosPrinterStation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICommonPosPrintStationCapabilities>{ L"Windows.Devices.PointOfService.ICommonPosPrintStationCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICommonReceiptSlipCapabilities>{ L"Windows.Devices.PointOfService.ICommonReceiptSlipCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IJournalPrintJob>{ L"Windows.Devices.PointOfService.IJournalPrintJob" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IJournalPrinterCapabilities>{ L"Windows.Devices.PointOfService.IJournalPrinterCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IJournalPrinterCapabilities2>{ L"Windows.Devices.PointOfService.IJournalPrinterCapabilities2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplay>{ L"Windows.Devices.PointOfService.ILineDisplay" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplay2>{ L"Windows.Devices.PointOfService.ILineDisplay2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayAttributes>{ L"Windows.Devices.PointOfService.ILineDisplayAttributes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayCapabilities>{ L"Windows.Devices.PointOfService.ILineDisplayCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayCursor>{ L"Windows.Devices.PointOfService.ILineDisplayCursor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayCursorAttributes>{ L"Windows.Devices.PointOfService.ILineDisplayCursorAttributes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayCustomGlyphs>{ L"Windows.Devices.PointOfService.ILineDisplayCustomGlyphs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayMarquee>{ L"Windows.Devices.PointOfService.ILineDisplayMarquee" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStatics>{ L"Windows.Devices.PointOfService.ILineDisplayStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStatics2>{ L"Windows.Devices.PointOfService.ILineDisplayStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStatisticsCategorySelector>{ L"Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.ILineDisplayStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStoredBitmap>{ L"Windows.Devices.PointOfService.ILineDisplayStoredBitmap" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayWindow>{ L"Windows.Devices.PointOfService.ILineDisplayWindow" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayWindow2>{ L"Windows.Devices.PointOfService.ILineDisplayWindow2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReader>{ L"Windows.Devices.PointOfService.IMagneticStripeReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderAamvaCardDataReceivedEventArgs>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderBankCardDataReceivedEventArgs>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderCapabilities>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderCardTypesStatics>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderCardTypesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderEncryptionAlgorithmsStatics>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderEncryptionAlgorithmsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderErrorOccurredEventArgs>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderReport>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderReport" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderStatics>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderStatics2>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderTrackData>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderTrackData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>{ L"Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinter>{ L"Windows.Devices.PointOfService.IPosPrinter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinter2>{ L"Windows.Devices.PointOfService.IPosPrinter2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterCapabilities>{ L"Windows.Devices.PointOfService.IPosPrinterCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterCharacterSetIdsStatics>{ L"Windows.Devices.PointOfService.IPosPrinterCharacterSetIdsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterFontProperty>{ L"Windows.Devices.PointOfService.IPosPrinterFontProperty" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterJob>{ L"Windows.Devices.PointOfService.IPosPrinterJob" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterPrintOptions>{ L"Windows.Devices.PointOfService.IPosPrinterPrintOptions" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterReleaseDeviceRequestedEventArgs>{ L"Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterStatics>{ L"Windows.Devices.PointOfService.IPosPrinterStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterStatics2>{ L"Windows.Devices.PointOfService.IPosPrinterStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterStatus>{ L"Windows.Devices.PointOfService.IPosPrinterStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterStatusUpdatedEventArgs>{ L"Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptOrSlipJob>{ L"Windows.Devices.PointOfService.IReceiptOrSlipJob" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptPrintJob>{ L"Windows.Devices.PointOfService.IReceiptPrintJob" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptPrintJob2>{ L"Windows.Devices.PointOfService.IReceiptPrintJob2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptPrinterCapabilities>{ L"Windows.Devices.PointOfService.IReceiptPrinterCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptPrinterCapabilities2>{ L"Windows.Devices.PointOfService.IReceiptPrinterCapabilities2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ISlipPrintJob>{ L"Windows.Devices.PointOfService.ISlipPrintJob" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ISlipPrinterCapabilities>{ L"Windows.Devices.PointOfService.ISlipPrinterCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ISlipPrinterCapabilities2>{ L"Windows.Devices.PointOfService.ISlipPrinterCapabilities2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IUnifiedPosErrorData>{ L"Windows.Devices.PointOfService.IUnifiedPosErrorData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IUnifiedPosErrorDataFactory>{ L"Windows.Devices.PointOfService.IUnifiedPosErrorDataFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScanner> = L"Windows.Devices.PointOfService.BarcodeScanner";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerCapabilities> = L"Windows.Devices.PointOfService.BarcodeScannerCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerDataReceivedEventArgs> = L"Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerErrorOccurredEventArgs> = L"Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerImagePreviewReceivedEventArgs> = L"Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerReport> = L"Windows.Devices.PointOfService.BarcodeScannerReport";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeSymbologies> = L"Windows.Devices.PointOfService.BarcodeSymbologies";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeSymbologyAttributes> = L"Windows.Devices.PointOfService.BarcodeSymbologyAttributes";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawer> = L"Windows.Devices.PointOfService.CashDrawer";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerCapabilities> = L"Windows.Devices.PointOfService.CashDrawerCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerCloseAlarm> = L"Windows.Devices.PointOfService.CashDrawerCloseAlarm";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerClosedEventArgs> = L"Windows.Devices.PointOfService.CashDrawerClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerEventSource> = L"Windows.Devices.PointOfService.CashDrawerEventSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerOpenedEventArgs> = L"Windows.Devices.PointOfService.CashDrawerOpenedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerStatus> = L"Windows.Devices.PointOfService.CashDrawerStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedBarcodeScanner> = L"Windows.Devices.PointOfService.ClaimedBarcodeScanner";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedBarcodeScannerClosedEventArgs> = L"Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedCashDrawer> = L"Windows.Devices.PointOfService.ClaimedCashDrawer";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedCashDrawerClosedEventArgs> = L"Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedJournalPrinter> = L"Windows.Devices.PointOfService.ClaimedJournalPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedLineDisplay> = L"Windows.Devices.PointOfService.ClaimedLineDisplay";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedLineDisplayClosedEventArgs> = L"Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedMagneticStripeReader> = L"Windows.Devices.PointOfService.ClaimedMagneticStripeReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedMagneticStripeReaderClosedEventArgs> = L"Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedPosPrinter> = L"Windows.Devices.PointOfService.ClaimedPosPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedPosPrinterClosedEventArgs> = L"Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedReceiptPrinter> = L"Windows.Devices.PointOfService.ClaimedReceiptPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ClaimedSlipPrinter> = L"Windows.Devices.PointOfService.ClaimedSlipPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::JournalPrintJob> = L"Windows.Devices.PointOfService.JournalPrintJob";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::JournalPrinterCapabilities> = L"Windows.Devices.PointOfService.JournalPrinterCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplay> = L"Windows.Devices.PointOfService.LineDisplay";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayAttributes> = L"Windows.Devices.PointOfService.LineDisplayAttributes";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCapabilities> = L"Windows.Devices.PointOfService.LineDisplayCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCursor> = L"Windows.Devices.PointOfService.LineDisplayCursor";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCursorAttributes> = L"Windows.Devices.PointOfService.LineDisplayCursorAttributes";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCustomGlyphs> = L"Windows.Devices.PointOfService.LineDisplayCustomGlyphs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayMarquee> = L"Windows.Devices.PointOfService.LineDisplayMarquee";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayStatisticsCategorySelector> = L"Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayStoredBitmap> = L"Windows.Devices.PointOfService.LineDisplayStoredBitmap";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayWindow> = L"Windows.Devices.PointOfService.LineDisplayWindow";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReader> = L"Windows.Devices.PointOfService.MagneticStripeReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderAamvaCardDataReceivedEventArgs> = L"Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderBankCardDataReceivedEventArgs> = L"Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderCapabilities> = L"Windows.Devices.PointOfService.MagneticStripeReaderCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderCardTypes> = L"Windows.Devices.PointOfService.MagneticStripeReaderCardTypes";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderEncryptionAlgorithms> = L"Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderErrorOccurredEventArgs> = L"Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderReport> = L"Windows.Devices.PointOfService.MagneticStripeReaderReport";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderTrackData> = L"Windows.Devices.PointOfService.MagneticStripeReaderTrackData";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> = L"Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinter> = L"Windows.Devices.PointOfService.PosPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterCapabilities> = L"Windows.Devices.PointOfService.PosPrinterCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterCharacterSetIds> = L"Windows.Devices.PointOfService.PosPrinterCharacterSetIds";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterFontProperty> = L"Windows.Devices.PointOfService.PosPrinterFontProperty";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterPrintOptions> = L"Windows.Devices.PointOfService.PosPrinterPrintOptions";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterReleaseDeviceRequestedEventArgs> = L"Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterStatus> = L"Windows.Devices.PointOfService.PosPrinterStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ReceiptPrintJob> = L"Windows.Devices.PointOfService.ReceiptPrintJob";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ReceiptPrinterCapabilities> = L"Windows.Devices.PointOfService.ReceiptPrinterCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::SlipPrintJob> = L"Windows.Devices.PointOfService.SlipPrintJob";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::SlipPrinterCapabilities> = L"Windows.Devices.PointOfService.SlipPrinterCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosErrorData> = L"Windows.Devices.PointOfService.UnifiedPosErrorData";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeScannerStatus> = L"Windows.Devices.PointOfService.BarcodeScannerStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::BarcodeSymbologyDecodeLengthKind> = L"Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::CashDrawerStatusKind> = L"Windows.Devices.PointOfService.CashDrawerStatusKind";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayCursorType> = L"Windows.Devices.PointOfService.LineDisplayCursorType";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayDescriptorState> = L"Windows.Devices.PointOfService.LineDisplayDescriptorState";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayHorizontalAlignment> = L"Windows.Devices.PointOfService.LineDisplayHorizontalAlignment";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayMarqueeFormat> = L"Windows.Devices.PointOfService.LineDisplayMarqueeFormat";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayPowerStatus> = L"Windows.Devices.PointOfService.LineDisplayPowerStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayScrollDirection> = L"Windows.Devices.PointOfService.LineDisplayScrollDirection";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayTextAttribute> = L"Windows.Devices.PointOfService.LineDisplayTextAttribute";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayTextAttributeGranularity> = L"Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::LineDisplayVerticalAlignment> = L"Windows.Devices.PointOfService.LineDisplayVerticalAlignment";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderAuthenticationLevel> = L"Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderAuthenticationProtocol> = L"Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderErrorReportingType> = L"Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderStatus> = L"Windows.Devices.PointOfService.MagneticStripeReaderStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderTrackErrorType> = L"Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::MagneticStripeReaderTrackIds> = L"Windows.Devices.PointOfService.MagneticStripeReaderTrackIds";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosConnectionTypes> = L"Windows.Devices.PointOfService.PosConnectionTypes";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterAlignment> = L"Windows.Devices.PointOfService.PosPrinterAlignment";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterBarcodeTextPosition> = L"Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterCartridgeSensors> = L"Windows.Devices.PointOfService.PosPrinterCartridgeSensors";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterColorCapabilities> = L"Windows.Devices.PointOfService.PosPrinterColorCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterColorCartridge> = L"Windows.Devices.PointOfService.PosPrinterColorCartridge";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterLineDirection> = L"Windows.Devices.PointOfService.PosPrinterLineDirection";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterLineStyle> = L"Windows.Devices.PointOfService.PosPrinterLineStyle";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterMapMode> = L"Windows.Devices.PointOfService.PosPrinterMapMode";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterMarkFeedCapabilities> = L"Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterMarkFeedKind> = L"Windows.Devices.PointOfService.PosPrinterMarkFeedKind";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterPrintSide> = L"Windows.Devices.PointOfService.PosPrinterPrintSide";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterRotation> = L"Windows.Devices.PointOfService.PosPrinterRotation";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterRuledLineCapabilities> = L"Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::PosPrinterStatusKind> = L"Windows.Devices.PointOfService.PosPrinterStatusKind";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosErrorReason> = L"Windows.Devices.PointOfService.UnifiedPosErrorReason";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosErrorSeverity> = L"Windows.Devices.PointOfService.UnifiedPosErrorSeverity";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel> = L"Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::UnifiedPosPowerReportingType> = L"Windows.Devices.PointOfService.UnifiedPosPowerReportingType";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::SizeUInt32> = L"Windows.Devices.PointOfService.SizeUInt32";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScanner> = L"Windows.Devices.PointOfService.IBarcodeScanner";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScanner2> = L"Windows.Devices.PointOfService.IBarcodeScanner2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerCapabilities> = L"Windows.Devices.PointOfService.IBarcodeScannerCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerCapabilities1> = L"Windows.Devices.PointOfService.IBarcodeScannerCapabilities1";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerCapabilities2> = L"Windows.Devices.PointOfService.IBarcodeScannerCapabilities2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerDataReceivedEventArgs> = L"Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerErrorOccurredEventArgs> = L"Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerImagePreviewReceivedEventArgs> = L"Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerReport> = L"Windows.Devices.PointOfService.IBarcodeScannerReport";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerReportFactory> = L"Windows.Devices.PointOfService.IBarcodeScannerReportFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerStatics> = L"Windows.Devices.PointOfService.IBarcodeScannerStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerStatics2> = L"Windows.Devices.PointOfService.IBarcodeScannerStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeScannerStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeSymbologiesStatics> = L"Windows.Devices.PointOfService.IBarcodeSymbologiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeSymbologiesStatics2> = L"Windows.Devices.PointOfService.IBarcodeSymbologiesStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IBarcodeSymbologyAttributes> = L"Windows.Devices.PointOfService.IBarcodeSymbologyAttributes";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawer> = L"Windows.Devices.PointOfService.ICashDrawer";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerCapabilities> = L"Windows.Devices.PointOfService.ICashDrawerCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerCloseAlarm> = L"Windows.Devices.PointOfService.ICashDrawerCloseAlarm";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerEventSource> = L"Windows.Devices.PointOfService.ICashDrawerEventSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerEventSourceEventArgs> = L"Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerStatics> = L"Windows.Devices.PointOfService.ICashDrawerStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerStatics2> = L"Windows.Devices.PointOfService.ICashDrawerStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerStatus> = L"Windows.Devices.PointOfService.ICashDrawerStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICashDrawerStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.ICashDrawerStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner> = L"Windows.Devices.PointOfService.IClaimedBarcodeScanner";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner1> = L"Windows.Devices.PointOfService.IClaimedBarcodeScanner1";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner2> = L"Windows.Devices.PointOfService.IClaimedBarcodeScanner2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner3> = L"Windows.Devices.PointOfService.IClaimedBarcodeScanner3";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScanner4> = L"Windows.Devices.PointOfService.IClaimedBarcodeScanner4";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedBarcodeScannerClosedEventArgs> = L"Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedCashDrawer> = L"Windows.Devices.PointOfService.IClaimedCashDrawer";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedCashDrawer2> = L"Windows.Devices.PointOfService.IClaimedCashDrawer2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedCashDrawerClosedEventArgs> = L"Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedJournalPrinter> = L"Windows.Devices.PointOfService.IClaimedJournalPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplay> = L"Windows.Devices.PointOfService.IClaimedLineDisplay";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplay2> = L"Windows.Devices.PointOfService.IClaimedLineDisplay2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplay3> = L"Windows.Devices.PointOfService.IClaimedLineDisplay3";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplayClosedEventArgs> = L"Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedLineDisplayStatics> = L"Windows.Devices.PointOfService.IClaimedLineDisplayStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedMagneticStripeReader> = L"Windows.Devices.PointOfService.IClaimedMagneticStripeReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedMagneticStripeReader2> = L"Windows.Devices.PointOfService.IClaimedMagneticStripeReader2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedMagneticStripeReaderClosedEventArgs> = L"Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedPosPrinter> = L"Windows.Devices.PointOfService.IClaimedPosPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedPosPrinter2> = L"Windows.Devices.PointOfService.IClaimedPosPrinter2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedPosPrinterClosedEventArgs> = L"Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedReceiptPrinter> = L"Windows.Devices.PointOfService.IClaimedReceiptPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IClaimedSlipPrinter> = L"Windows.Devices.PointOfService.IClaimedSlipPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICommonClaimedPosPrinterStation> = L"Windows.Devices.PointOfService.ICommonClaimedPosPrinterStation";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICommonPosPrintStationCapabilities> = L"Windows.Devices.PointOfService.ICommonPosPrintStationCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ICommonReceiptSlipCapabilities> = L"Windows.Devices.PointOfService.ICommonReceiptSlipCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IJournalPrintJob> = L"Windows.Devices.PointOfService.IJournalPrintJob";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IJournalPrinterCapabilities> = L"Windows.Devices.PointOfService.IJournalPrinterCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IJournalPrinterCapabilities2> = L"Windows.Devices.PointOfService.IJournalPrinterCapabilities2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplay> = L"Windows.Devices.PointOfService.ILineDisplay";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplay2> = L"Windows.Devices.PointOfService.ILineDisplay2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayAttributes> = L"Windows.Devices.PointOfService.ILineDisplayAttributes";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayCapabilities> = L"Windows.Devices.PointOfService.ILineDisplayCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayCursor> = L"Windows.Devices.PointOfService.ILineDisplayCursor";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayCursorAttributes> = L"Windows.Devices.PointOfService.ILineDisplayCursorAttributes";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayCustomGlyphs> = L"Windows.Devices.PointOfService.ILineDisplayCustomGlyphs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayMarquee> = L"Windows.Devices.PointOfService.ILineDisplayMarquee";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStatics> = L"Windows.Devices.PointOfService.ILineDisplayStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStatics2> = L"Windows.Devices.PointOfService.ILineDisplayStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStatisticsCategorySelector> = L"Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.ILineDisplayStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayStoredBitmap> = L"Windows.Devices.PointOfService.ILineDisplayStoredBitmap";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayWindow> = L"Windows.Devices.PointOfService.ILineDisplayWindow";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ILineDisplayWindow2> = L"Windows.Devices.PointOfService.ILineDisplayWindow2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReader> = L"Windows.Devices.PointOfService.IMagneticStripeReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderAamvaCardDataReceivedEventArgs> = L"Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderBankCardDataReceivedEventArgs> = L"Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderCapabilities> = L"Windows.Devices.PointOfService.IMagneticStripeReaderCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderCardTypesStatics> = L"Windows.Devices.PointOfService.IMagneticStripeReaderCardTypesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderEncryptionAlgorithmsStatics> = L"Windows.Devices.PointOfService.IMagneticStripeReaderEncryptionAlgorithmsStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderErrorOccurredEventArgs> = L"Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderReport> = L"Windows.Devices.PointOfService.IMagneticStripeReaderReport";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderStatics> = L"Windows.Devices.PointOfService.IMagneticStripeReaderStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderStatics2> = L"Windows.Devices.PointOfService.IMagneticStripeReaderStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderTrackData> = L"Windows.Devices.PointOfService.IMagneticStripeReaderTrackData";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> = L"Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinter> = L"Windows.Devices.PointOfService.IPosPrinter";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinter2> = L"Windows.Devices.PointOfService.IPosPrinter2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterCapabilities> = L"Windows.Devices.PointOfService.IPosPrinterCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterCharacterSetIdsStatics> = L"Windows.Devices.PointOfService.IPosPrinterCharacterSetIdsStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterFontProperty> = L"Windows.Devices.PointOfService.IPosPrinterFontProperty";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterJob> = L"Windows.Devices.PointOfService.IPosPrinterJob";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterPrintOptions> = L"Windows.Devices.PointOfService.IPosPrinterPrintOptions";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterReleaseDeviceRequestedEventArgs> = L"Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterStatics> = L"Windows.Devices.PointOfService.IPosPrinterStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterStatics2> = L"Windows.Devices.PointOfService.IPosPrinterStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterStatus> = L"Windows.Devices.PointOfService.IPosPrinterStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IPosPrinterStatusUpdatedEventArgs> = L"Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptOrSlipJob> = L"Windows.Devices.PointOfService.IReceiptOrSlipJob";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptPrintJob> = L"Windows.Devices.PointOfService.IReceiptPrintJob";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptPrintJob2> = L"Windows.Devices.PointOfService.IReceiptPrintJob2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptPrinterCapabilities> = L"Windows.Devices.PointOfService.IReceiptPrinterCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IReceiptPrinterCapabilities2> = L"Windows.Devices.PointOfService.IReceiptPrinterCapabilities2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ISlipPrintJob> = L"Windows.Devices.PointOfService.ISlipPrintJob";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ISlipPrinterCapabilities> = L"Windows.Devices.PointOfService.ISlipPrinterCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::ISlipPrinterCapabilities2> = L"Windows.Devices.PointOfService.ISlipPrinterCapabilities2";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IUnifiedPosErrorData> = L"Windows.Devices.PointOfService.IUnifiedPosErrorData";
+    template <> inline constexpr auto& name_v<Windows::Devices::PointOfService::IUnifiedPosErrorDataFactory> = L"Windows.Devices.PointOfService.IUnifiedPosErrorDataFactory";
     template <> inline constexpr guid guid_v<Windows::Devices::PointOfService::IBarcodeScanner>{ 0xBEA33E06,0xB264,0x4F03,{ 0xA9,0xC1,0x45,0xB2,0x0F,0x01,0x13,0x4F } };
     template <> inline constexpr guid guid_v<Windows::Devices::PointOfService::IBarcodeScanner2>{ 0x89215167,0x8CEE,0x436D,{ 0x89,0xAB,0x8D,0xFB,0x43,0xBB,0x42,0x86 } };
     template <> inline constexpr guid guid_v<Windows::Devices::PointOfService::IBarcodeScannerCapabilities>{ 0xC60691E4,0xF2C8,0x4420,{ 0xA3,0x07,0xB1,0x2E,0xF6,0x62,0x28,0x57 } };
@@ -2378,19 +2379,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScanner
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Capabilities() const;
-        auto ClaimScannerAsync() const;
-        auto CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
-        auto GetSupportedSymbologiesAsync() const;
-        auto IsSymbologySupportedAsync(uint32_t barcodeSymbology) const;
-        auto RetrieveStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto GetSupportedProfiles() const;
-        auto IsProfileSupported(param::hstring const& profile) const;
-        auto StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::BarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerStatusUpdatedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::BarcodeScannerCapabilities) Capabilities() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::ClaimedBarcodeScanner>) ClaimScannerAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<uint32_t>>) GetSupportedSymbologiesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsSymbologySupportedAsync(uint32_t barcodeSymbology) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) RetrieveStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) GetSupportedProfiles() const;
+        WINRT_IMPL_AUTO(bool) IsProfileSupported(param::hstring const& profile) const;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::BarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerStatusUpdatedEventArgs> const& handler) const;
         using StatusUpdated_revoker = impl::event_revoker<Windows::Devices::PointOfService::IBarcodeScanner, &impl::abi_t<Windows::Devices::PointOfService::IBarcodeScanner>::remove_StatusUpdated>;
         [[nodiscard]] StatusUpdated_revoker StatusUpdated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::BarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerStatusUpdatedEventArgs> const& handler) const;
-        auto StatusUpdated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StatusUpdated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScanner>
     {
@@ -2399,7 +2400,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScanner2
     {
-        [[nodiscard]] auto VideoDeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoDeviceId() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScanner2>
     {
@@ -2408,10 +2409,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerCapabilities
     {
-        [[nodiscard]] auto PowerReportingType() const;
-        [[nodiscard]] auto IsStatisticsReportingSupported() const;
-        [[nodiscard]] auto IsStatisticsUpdatingSupported() const;
-        [[nodiscard]] auto IsImagePreviewSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosPowerReportingType) PowerReportingType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsReportingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsUpdatingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsImagePreviewSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerCapabilities>
     {
@@ -2420,7 +2421,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerCapabilities1
     {
-        [[nodiscard]] auto IsSoftwareTriggerSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSoftwareTriggerSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerCapabilities1>
     {
@@ -2429,7 +2430,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerCapabilities2
     {
-        [[nodiscard]] auto IsVideoPreviewSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVideoPreviewSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerCapabilities2>
     {
@@ -2438,7 +2439,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerDataReceivedEventArgs
     {
-        [[nodiscard]] auto Report() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::BarcodeScannerReport) Report() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerDataReceivedEventArgs>
     {
@@ -2447,9 +2448,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerErrorOccurredEventArgs
     {
-        [[nodiscard]] auto PartialInputData() const;
-        [[nodiscard]] auto IsRetriable() const;
-        [[nodiscard]] auto ErrorData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::BarcodeScannerReport) PartialInputData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRetriable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosErrorData) ErrorData() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerErrorOccurredEventArgs>
     {
@@ -2458,7 +2459,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerImagePreviewReceivedEventArgs
     {
-        [[nodiscard]] auto Preview() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamWithContentType) Preview() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerImagePreviewReceivedEventArgs>
     {
@@ -2467,9 +2468,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerReport
     {
-        [[nodiscard]] auto ScanDataType() const;
-        [[nodiscard]] auto ScanData() const;
-        [[nodiscard]] auto ScanDataLabel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ScanDataType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ScanData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ScanDataLabel() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerReport>
     {
@@ -2478,7 +2479,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerReportFactory
     {
-        auto CreateInstance(uint32_t scanDataType, Windows::Storage::Streams::IBuffer const& scanData, Windows::Storage::Streams::IBuffer const& scanDataLabel) const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::BarcodeScannerReport) CreateInstance(uint32_t scanDataType, Windows::Storage::Streams::IBuffer const& scanData, Windows::Storage::Streams::IBuffer const& scanDataLabel) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerReportFactory>
     {
@@ -2487,9 +2488,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerStatics
     {
-        auto GetDefaultAsync() const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::BarcodeScanner>) GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::BarcodeScanner>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerStatics>
     {
@@ -2498,7 +2499,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerStatics2
     {
-        auto GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerStatics2>
     {
@@ -2507,8 +2508,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeScannerStatusUpdatedEventArgs
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::BarcodeScannerStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedStatus() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeScannerStatusUpdatedEventArgs>
     {
@@ -2517,100 +2518,100 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeSymbologiesStatics
     {
-        [[nodiscard]] auto Unknown() const;
-        [[nodiscard]] auto Ean8() const;
-        [[nodiscard]] auto Ean8Add2() const;
-        [[nodiscard]] auto Ean8Add5() const;
-        [[nodiscard]] auto Eanv() const;
-        [[nodiscard]] auto EanvAdd2() const;
-        [[nodiscard]] auto EanvAdd5() const;
-        [[nodiscard]] auto Ean13() const;
-        [[nodiscard]] auto Ean13Add2() const;
-        [[nodiscard]] auto Ean13Add5() const;
-        [[nodiscard]] auto Isbn() const;
-        [[nodiscard]] auto IsbnAdd5() const;
-        [[nodiscard]] auto Ismn() const;
-        [[nodiscard]] auto IsmnAdd2() const;
-        [[nodiscard]] auto IsmnAdd5() const;
-        [[nodiscard]] auto Issn() const;
-        [[nodiscard]] auto IssnAdd2() const;
-        [[nodiscard]] auto IssnAdd5() const;
-        [[nodiscard]] auto Ean99() const;
-        [[nodiscard]] auto Ean99Add2() const;
-        [[nodiscard]] auto Ean99Add5() const;
-        [[nodiscard]] auto Upca() const;
-        [[nodiscard]] auto UpcaAdd2() const;
-        [[nodiscard]] auto UpcaAdd5() const;
-        [[nodiscard]] auto Upce() const;
-        [[nodiscard]] auto UpceAdd2() const;
-        [[nodiscard]] auto UpceAdd5() const;
-        [[nodiscard]] auto UpcCoupon() const;
-        [[nodiscard]] auto TfStd() const;
-        [[nodiscard]] auto TfDis() const;
-        [[nodiscard]] auto TfInt() const;
-        [[nodiscard]] auto TfInd() const;
-        [[nodiscard]] auto TfMat() const;
-        [[nodiscard]] auto TfIata() const;
-        [[nodiscard]] auto Gs1DatabarType1() const;
-        [[nodiscard]] auto Gs1DatabarType2() const;
-        [[nodiscard]] auto Gs1DatabarType3() const;
-        [[nodiscard]] auto Code39() const;
-        [[nodiscard]] auto Code39Ex() const;
-        [[nodiscard]] auto Trioptic39() const;
-        [[nodiscard]] auto Code32() const;
-        [[nodiscard]] auto Pzn() const;
-        [[nodiscard]] auto Code93() const;
-        [[nodiscard]] auto Code93Ex() const;
-        [[nodiscard]] auto Code128() const;
-        [[nodiscard]] auto Gs1128() const;
-        [[nodiscard]] auto Gs1128Coupon() const;
-        [[nodiscard]] auto UccEan128() const;
-        [[nodiscard]] auto Sisac() const;
-        [[nodiscard]] auto Isbt() const;
-        [[nodiscard]] auto Codabar() const;
-        [[nodiscard]] auto Code11() const;
-        [[nodiscard]] auto Msi() const;
-        [[nodiscard]] auto Plessey() const;
-        [[nodiscard]] auto Telepen() const;
-        [[nodiscard]] auto Code16k() const;
-        [[nodiscard]] auto CodablockA() const;
-        [[nodiscard]] auto CodablockF() const;
-        [[nodiscard]] auto Codablock128() const;
-        [[nodiscard]] auto Code49() const;
-        [[nodiscard]] auto Aztec() const;
-        [[nodiscard]] auto DataCode() const;
-        [[nodiscard]] auto DataMatrix() const;
-        [[nodiscard]] auto HanXin() const;
-        [[nodiscard]] auto Maxicode() const;
-        [[nodiscard]] auto MicroPdf417() const;
-        [[nodiscard]] auto MicroQr() const;
-        [[nodiscard]] auto Pdf417() const;
-        [[nodiscard]] auto Qr() const;
-        [[nodiscard]] auto MsTag() const;
-        [[nodiscard]] auto Ccab() const;
-        [[nodiscard]] auto Ccc() const;
-        [[nodiscard]] auto Tlc39() const;
-        [[nodiscard]] auto AusPost() const;
-        [[nodiscard]] auto CanPost() const;
-        [[nodiscard]] auto ChinaPost() const;
-        [[nodiscard]] auto DutchKix() const;
-        [[nodiscard]] auto InfoMail() const;
-        [[nodiscard]] auto ItalianPost25() const;
-        [[nodiscard]] auto ItalianPost39() const;
-        [[nodiscard]] auto JapanPost() const;
-        [[nodiscard]] auto KoreanPost() const;
-        [[nodiscard]] auto SwedenPost() const;
-        [[nodiscard]] auto UkPost() const;
-        [[nodiscard]] auto UsIntelligent() const;
-        [[nodiscard]] auto UsIntelligentPkg() const;
-        [[nodiscard]] auto UsPlanet() const;
-        [[nodiscard]] auto UsPostNet() const;
-        [[nodiscard]] auto Us4StateFics() const;
-        [[nodiscard]] auto OcrA() const;
-        [[nodiscard]] auto OcrB() const;
-        [[nodiscard]] auto Micr() const;
-        [[nodiscard]] auto ExtendedBase() const;
-        auto GetName(uint32_t scanDataType) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Unknown() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean8() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean8Add2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean8Add5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Eanv() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) EanvAdd2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) EanvAdd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean13() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean13Add2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean13Add5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Isbn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) IsbnAdd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ismn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) IsmnAdd2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) IsmnAdd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Issn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) IssnAdd2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) IssnAdd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean99() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean99Add2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ean99Add5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Upca() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UpcaAdd2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UpcaAdd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Upce() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UpceAdd2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UpceAdd5() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UpcCoupon() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TfStd() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TfDis() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TfInt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TfInd() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TfMat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TfIata() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Gs1DatabarType1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Gs1DatabarType2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Gs1DatabarType3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code39() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code39Ex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Trioptic39() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code32() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Pzn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code93() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code93Ex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code128() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Gs1128() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Gs1128Coupon() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UccEan128() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Sisac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Isbt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Codabar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code11() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Msi() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Plessey() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Telepen() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code16k() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CodablockA() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CodablockF() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Codablock128() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Code49() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Aztec() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DataCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DataMatrix() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) HanXin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Maxicode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MicroPdf417() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MicroQr() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Pdf417() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Qr() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MsTag() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ccab() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ccc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Tlc39() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) AusPost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CanPost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ChinaPost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DutchKix() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) InfoMail() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ItalianPost25() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ItalianPost39() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) JapanPost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) KoreanPost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SwedenPost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UkPost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UsIntelligent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UsIntelligentPkg() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UsPlanet() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UsPostNet() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Us4StateFics() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) OcrA() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) OcrB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Micr() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedBase() const;
+        WINRT_IMPL_AUTO(hstring) GetName(uint32_t scanDataType) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeSymbologiesStatics>
     {
@@ -2619,7 +2620,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeSymbologiesStatics2
     {
-        [[nodiscard]] auto Gs1DWCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Gs1DWCode() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeSymbologiesStatics2>
     {
@@ -2628,19 +2629,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IBarcodeSymbologyAttributes
     {
-        [[nodiscard]] auto IsCheckDigitValidationEnabled() const;
-        auto IsCheckDigitValidationEnabled(bool value) const;
-        [[nodiscard]] auto IsCheckDigitValidationSupported() const;
-        [[nodiscard]] auto IsCheckDigitTransmissionEnabled() const;
-        auto IsCheckDigitTransmissionEnabled(bool value) const;
-        [[nodiscard]] auto IsCheckDigitTransmissionSupported() const;
-        [[nodiscard]] auto DecodeLength1() const;
-        auto DecodeLength1(uint32_t value) const;
-        [[nodiscard]] auto DecodeLength2() const;
-        auto DecodeLength2(uint32_t value) const;
-        [[nodiscard]] auto DecodeLengthKind() const;
-        auto DecodeLengthKind(Windows::Devices::PointOfService::BarcodeSymbologyDecodeLengthKind const& value) const;
-        [[nodiscard]] auto IsDecodeLengthSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCheckDigitValidationEnabled() const;
+        WINRT_IMPL_AUTO(void) IsCheckDigitValidationEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCheckDigitValidationSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCheckDigitTransmissionEnabled() const;
+        WINRT_IMPL_AUTO(void) IsCheckDigitTransmissionEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCheckDigitTransmissionSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DecodeLength1() const;
+        WINRT_IMPL_AUTO(void) DecodeLength1(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DecodeLength2() const;
+        WINRT_IMPL_AUTO(void) DecodeLength2(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::BarcodeSymbologyDecodeLengthKind) DecodeLengthKind() const;
+        WINRT_IMPL_AUTO(void) DecodeLengthKind(Windows::Devices::PointOfService::BarcodeSymbologyDecodeLengthKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDecodeLengthSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IBarcodeSymbologyAttributes>
     {
@@ -2649,18 +2650,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawer
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Capabilities() const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto IsDrawerOpen() const;
-        [[nodiscard]] auto DrawerEventSource() const;
-        auto ClaimDrawerAsync() const;
-        auto CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
-        auto GetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawer, Windows::Devices::PointOfService::CashDrawerStatusUpdatedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::CashDrawerCapabilities) Capabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::CashDrawerStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDrawerOpen() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::CashDrawerEventSource) DrawerEventSource() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::ClaimedCashDrawer>) ClaimDrawerAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawer, Windows::Devices::PointOfService::CashDrawerStatusUpdatedEventArgs> const& handler) const;
         using StatusUpdated_revoker = impl::event_revoker<Windows::Devices::PointOfService::ICashDrawer, &impl::abi_t<Windows::Devices::PointOfService::ICashDrawer>::remove_StatusUpdated>;
         [[nodiscard]] StatusUpdated_revoker StatusUpdated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawer, Windows::Devices::PointOfService::CashDrawerStatusUpdatedEventArgs> const& handler) const;
-        auto StatusUpdated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StatusUpdated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawer>
     {
@@ -2669,12 +2670,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawerCapabilities
     {
-        [[nodiscard]] auto PowerReportingType() const;
-        [[nodiscard]] auto IsStatisticsReportingSupported() const;
-        [[nodiscard]] auto IsStatisticsUpdatingSupported() const;
-        [[nodiscard]] auto IsStatusReportingSupported() const;
-        [[nodiscard]] auto IsStatusMultiDrawerDetectSupported() const;
-        [[nodiscard]] auto IsDrawerOpenSensorAvailable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosPowerReportingType) PowerReportingType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsReportingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsUpdatingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatusReportingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatusMultiDrawerDetectSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDrawerOpenSensorAvailable() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawerCapabilities>
     {
@@ -2683,19 +2684,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawerCloseAlarm
     {
-        auto AlarmTimeout(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto AlarmTimeout() const;
-        auto BeepFrequency(uint32_t value) const;
-        [[nodiscard]] auto BeepFrequency() const;
-        auto BeepDuration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto BeepDuration() const;
-        auto BeepDelay(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto BeepDelay() const;
-        auto AlarmTimeoutExpired(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerCloseAlarm, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) AlarmTimeout(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) AlarmTimeout() const;
+        WINRT_IMPL_AUTO(void) BeepFrequency(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BeepFrequency() const;
+        WINRT_IMPL_AUTO(void) BeepDuration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) BeepDuration() const;
+        WINRT_IMPL_AUTO(void) BeepDelay(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) BeepDelay() const;
+        WINRT_IMPL_AUTO(winrt::event_token) AlarmTimeoutExpired(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerCloseAlarm, Windows::Foundation::IInspectable> const& handler) const;
         using AlarmTimeoutExpired_revoker = impl::event_revoker<Windows::Devices::PointOfService::ICashDrawerCloseAlarm, &impl::abi_t<Windows::Devices::PointOfService::ICashDrawerCloseAlarm>::remove_AlarmTimeoutExpired>;
         [[nodiscard]] AlarmTimeoutExpired_revoker AlarmTimeoutExpired(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerCloseAlarm, Windows::Foundation::IInspectable> const& handler) const;
-        auto AlarmTimeoutExpired(winrt::event_token const& token) const noexcept;
-        auto StartAsync() const;
+        WINRT_IMPL_AUTO(void) AlarmTimeoutExpired(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) StartAsync() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawerCloseAlarm>
     {
@@ -2704,14 +2705,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawerEventSource
     {
-        auto DrawerClosed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerEventSource, Windows::Devices::PointOfService::CashDrawerClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DrawerClosed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerEventSource, Windows::Devices::PointOfService::CashDrawerClosedEventArgs> const& handler) const;
         using DrawerClosed_revoker = impl::event_revoker<Windows::Devices::PointOfService::ICashDrawerEventSource, &impl::abi_t<Windows::Devices::PointOfService::ICashDrawerEventSource>::remove_DrawerClosed>;
         [[nodiscard]] DrawerClosed_revoker DrawerClosed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerEventSource, Windows::Devices::PointOfService::CashDrawerClosedEventArgs> const& handler) const;
-        auto DrawerClosed(winrt::event_token const& token) const noexcept;
-        auto DrawerOpened(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerEventSource, Windows::Devices::PointOfService::CashDrawerOpenedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DrawerClosed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DrawerOpened(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerEventSource, Windows::Devices::PointOfService::CashDrawerOpenedEventArgs> const& handler) const;
         using DrawerOpened_revoker = impl::event_revoker<Windows::Devices::PointOfService::ICashDrawerEventSource, &impl::abi_t<Windows::Devices::PointOfService::ICashDrawerEventSource>::remove_DrawerOpened>;
         [[nodiscard]] DrawerOpened_revoker DrawerOpened(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::CashDrawerEventSource, Windows::Devices::PointOfService::CashDrawerOpenedEventArgs> const& handler) const;
-        auto DrawerOpened(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) DrawerOpened(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawerEventSource>
     {
@@ -2720,7 +2721,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawerEventSourceEventArgs
     {
-        [[nodiscard]] auto CashDrawer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::CashDrawer) CashDrawer() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawerEventSourceEventArgs>
     {
@@ -2729,9 +2730,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawerStatics
     {
-        auto GetDefaultAsync() const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::CashDrawer>) GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::CashDrawer>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawerStatics>
     {
@@ -2740,7 +2741,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawerStatics2
     {
-        auto GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawerStatics2>
     {
@@ -2749,8 +2750,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawerStatus
     {
-        [[nodiscard]] auto StatusKind() const;
-        [[nodiscard]] auto ExtendedStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::CashDrawerStatusKind) StatusKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedStatus() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawerStatus>
     {
@@ -2759,7 +2760,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICashDrawerStatusUpdatedEventArgs
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::CashDrawerStatus) Status() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICashDrawerStatusUpdatedEventArgs>
     {
@@ -2768,43 +2769,43 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedBarcodeScanner
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto IsEnabled() const;
-        auto IsDisabledOnDataReceived(bool value) const;
-        [[nodiscard]] auto IsDisabledOnDataReceived() const;
-        auto IsDecodeDataEnabled(bool value) const;
-        [[nodiscard]] auto IsDecodeDataEnabled() const;
-        auto EnableAsync() const;
-        auto DisableAsync() const;
-        auto RetainDevice() const;
-        auto SetActiveSymbologiesAsync(param::async_iterable<uint32_t> const& symbologies) const;
-        auto ResetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto UpdateStatisticsAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& statistics) const;
-        auto SetActiveProfileAsync(param::hstring const& profile) const;
-        auto DataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerDataReceivedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) IsDisabledOnDataReceived(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDisabledOnDataReceived() const;
+        WINRT_IMPL_AUTO(void) IsDecodeDataEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDecodeDataEnabled() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) EnableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DisableAsync() const;
+        WINRT_IMPL_AUTO(void) RetainDevice() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetActiveSymbologiesAsync(param::async_iterable<uint32_t> const& symbologies) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ResetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UpdateStatisticsAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& statistics) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetActiveProfileAsync(param::hstring const& profile) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerDataReceivedEventArgs> const& handler) const;
         using DataReceived_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedBarcodeScanner, &impl::abi_t<Windows::Devices::PointOfService::IClaimedBarcodeScanner>::remove_DataReceived>;
         [[nodiscard]] DataReceived_revoker DataReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerDataReceivedEventArgs> const& handler) const;
-        auto DataReceived(winrt::event_token const& token) const noexcept;
-        auto TriggerPressed(Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
+        WINRT_IMPL_AUTO(void) DataReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TriggerPressed(Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
         using TriggerPressed_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedBarcodeScanner, &impl::abi_t<Windows::Devices::PointOfService::IClaimedBarcodeScanner>::remove_TriggerPressed>;
         [[nodiscard]] TriggerPressed_revoker TriggerPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
-        auto TriggerPressed(winrt::event_token const& token) const noexcept;
-        auto TriggerReleased(Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
+        WINRT_IMPL_AUTO(void) TriggerPressed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TriggerReleased(Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
         using TriggerReleased_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedBarcodeScanner, &impl::abi_t<Windows::Devices::PointOfService::IClaimedBarcodeScanner>::remove_TriggerReleased>;
         [[nodiscard]] TriggerReleased_revoker TriggerReleased(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
-        auto TriggerReleased(winrt::event_token const& token) const noexcept;
-        auto ReleaseDeviceRequested(Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
+        WINRT_IMPL_AUTO(void) TriggerReleased(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ReleaseDeviceRequested(Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
         using ReleaseDeviceRequested_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedBarcodeScanner, &impl::abi_t<Windows::Devices::PointOfService::IClaimedBarcodeScanner>::remove_ReleaseDeviceRequested>;
         [[nodiscard]] ReleaseDeviceRequested_revoker ReleaseDeviceRequested(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner> const& handler) const;
-        auto ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
-        auto ImagePreviewReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerImagePreviewReceivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ImagePreviewReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerImagePreviewReceivedEventArgs> const& handler) const;
         using ImagePreviewReceived_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedBarcodeScanner, &impl::abi_t<Windows::Devices::PointOfService::IClaimedBarcodeScanner>::remove_ImagePreviewReceived>;
         [[nodiscard]] ImagePreviewReceived_revoker ImagePreviewReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerImagePreviewReceivedEventArgs> const& handler) const;
-        auto ImagePreviewReceived(winrt::event_token const& token) const noexcept;
-        auto ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerErrorOccurredEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ImagePreviewReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerErrorOccurredEventArgs> const& handler) const;
         using ErrorOccurred_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedBarcodeScanner, &impl::abi_t<Windows::Devices::PointOfService::IClaimedBarcodeScanner>::remove_ErrorOccurred>;
         [[nodiscard]] ErrorOccurred_revoker ErrorOccurred(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::BarcodeScannerErrorOccurredEventArgs> const& handler) const;
-        auto ErrorOccurred(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ErrorOccurred(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedBarcodeScanner>
     {
@@ -2813,8 +2814,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedBarcodeScanner1
     {
-        auto StartSoftwareTriggerAsync() const;
-        auto StopSoftwareTriggerAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StartSoftwareTriggerAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StopSoftwareTriggerAsync() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedBarcodeScanner1>
     {
@@ -2823,8 +2824,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedBarcodeScanner2
     {
-        auto GetSymbologyAttributesAsync(uint32_t barcodeSymbology) const;
-        auto SetSymbologyAttributesAsync(uint32_t barcodeSymbology, Windows::Devices::PointOfService::BarcodeSymbologyAttributes const& attributes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::BarcodeSymbologyAttributes>) GetSymbologyAttributesAsync(uint32_t barcodeSymbology) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) SetSymbologyAttributesAsync(uint32_t barcodeSymbology, Windows::Devices::PointOfService::BarcodeSymbologyAttributes const& attributes) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedBarcodeScanner2>
     {
@@ -2833,10 +2834,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedBarcodeScanner3
     {
-        auto ShowVideoPreviewAsync() const;
-        auto HideVideoPreview() const;
-        auto IsVideoPreviewShownOnEnable(bool value) const;
-        [[nodiscard]] auto IsVideoPreviewShownOnEnable() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowVideoPreviewAsync() const;
+        WINRT_IMPL_AUTO(void) HideVideoPreview() const;
+        WINRT_IMPL_AUTO(void) IsVideoPreviewShownOnEnable(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVideoPreviewShownOnEnable() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedBarcodeScanner3>
     {
@@ -2845,10 +2846,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedBarcodeScanner4
     {
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::ClaimedBarcodeScannerClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::ClaimedBarcodeScannerClosedEventArgs> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedBarcodeScanner4, &impl::abi_t<Windows::Devices::PointOfService::IClaimedBarcodeScanner4>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedBarcodeScanner, Windows::Devices::PointOfService::ClaimedBarcodeScannerClosedEventArgs> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedBarcodeScanner4>
     {
@@ -2865,20 +2866,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedCashDrawer
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto IsEnabled() const;
-        [[nodiscard]] auto IsDrawerOpen() const;
-        [[nodiscard]] auto CloseAlarm() const;
-        auto OpenDrawerAsync() const;
-        auto EnableAsync() const;
-        auto DisableAsync() const;
-        auto RetainDeviceAsync() const;
-        auto ResetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto UpdateStatisticsAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& statistics) const;
-        auto ReleaseDeviceRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedCashDrawer, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDrawerOpen() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::CashDrawerCloseAlarm) CloseAlarm() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) OpenDrawerAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) EnableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) DisableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RetainDeviceAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ResetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) UpdateStatisticsAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& statistics) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ReleaseDeviceRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedCashDrawer, Windows::Foundation::IInspectable> const& handler) const;
         using ReleaseDeviceRequested_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedCashDrawer, &impl::abi_t<Windows::Devices::PointOfService::IClaimedCashDrawer>::remove_ReleaseDeviceRequested>;
         [[nodiscard]] ReleaseDeviceRequested_revoker ReleaseDeviceRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedCashDrawer, Windows::Foundation::IInspectable> const& handler) const;
-        auto ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedCashDrawer>
     {
@@ -2887,10 +2888,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedCashDrawer2
     {
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedCashDrawer, Windows::Devices::PointOfService::ClaimedCashDrawerClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedCashDrawer, Windows::Devices::PointOfService::ClaimedCashDrawerClosedEventArgs> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedCashDrawer2, &impl::abi_t<Windows::Devices::PointOfService::IClaimedCashDrawer2>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedCashDrawer, Windows::Devices::PointOfService::ClaimedCashDrawerClosedEventArgs> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedCashDrawer2>
     {
@@ -2907,7 +2908,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedJournalPrinter
     {
-        auto CreateJob() const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::JournalPrintJob) CreateJob() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedJournalPrinter>
     {
@@ -2916,19 +2917,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedLineDisplay
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Capabilities() const;
-        [[nodiscard]] auto PhysicalDeviceName() const;
-        [[nodiscard]] auto PhysicalDeviceDescription() const;
-        [[nodiscard]] auto DeviceControlDescription() const;
-        [[nodiscard]] auto DeviceControlVersion() const;
-        [[nodiscard]] auto DeviceServiceVersion() const;
-        [[nodiscard]] auto DefaultWindow() const;
-        auto RetainDevice() const;
-        auto ReleaseDeviceRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayCapabilities) Capabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhysicalDeviceName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhysicalDeviceDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceControlDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceControlVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceServiceVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayWindow) DefaultWindow() const;
+        WINRT_IMPL_AUTO(void) RetainDevice() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ReleaseDeviceRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Foundation::IInspectable> const& handler) const;
         using ReleaseDeviceRequested_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedLineDisplay, &impl::abi_t<Windows::Devices::PointOfService::IClaimedLineDisplay>::remove_ReleaseDeviceRequested>;
         [[nodiscard]] ReleaseDeviceRequested_revoker ReleaseDeviceRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Foundation::IInspectable> const& handler) const;
-        auto ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedLineDisplay>
     {
@@ -2937,25 +2938,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedLineDisplay2
     {
-        auto GetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
-        auto CheckPowerStatusAsync() const;
-        auto StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Devices::PointOfService::LineDisplayStatusUpdatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::LineDisplayPowerStatus>) CheckPowerStatusAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Devices::PointOfService::LineDisplayStatusUpdatedEventArgs> const& handler) const;
         using StatusUpdated_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedLineDisplay2, &impl::abi_t<Windows::Devices::PointOfService::IClaimedLineDisplay2>::remove_StatusUpdated>;
         [[nodiscard]] StatusUpdated_revoker StatusUpdated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Devices::PointOfService::LineDisplayStatusUpdatedEventArgs> const& handler) const;
-        auto StatusUpdated(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto SupportedScreenSizesInCharacters() const;
-        [[nodiscard]] auto MaxBitmapSizeInPixels() const;
-        [[nodiscard]] auto SupportedCharacterSets() const;
-        [[nodiscard]] auto CustomGlyphs() const;
-        auto GetAttributes() const;
-        auto TryUpdateAttributesAsync(Windows::Devices::PointOfService::LineDisplayAttributes const& attributes) const;
-        auto TrySetDescriptorAsync(uint32_t descriptor, Windows::Devices::PointOfService::LineDisplayDescriptorState const& descriptorState) const;
-        auto TryClearDescriptorsAsync() const;
-        auto TryCreateWindowAsync(Windows::Foundation::Rect const& viewport, Windows::Foundation::Size const& windowSize) const;
-        auto TryStoreStorageFileBitmapAsync(Windows::Storage::StorageFile const& bitmap) const;
-        auto TryStoreStorageFileBitmapAsync(Windows::Storage::StorageFile const& bitmap, Windows::Devices::PointOfService::LineDisplayHorizontalAlignment const& horizontalAlignment, Windows::Devices::PointOfService::LineDisplayVerticalAlignment const& verticalAlignment) const;
-        auto TryStoreStorageFileBitmapAsync(Windows::Storage::StorageFile const& bitmap, Windows::Devices::PointOfService::LineDisplayHorizontalAlignment const& horizontalAlignment, Windows::Devices::PointOfService::LineDisplayVerticalAlignment const& verticalAlignment, int32_t widthInPixels) const;
+        WINRT_IMPL_AUTO(void) StatusUpdated(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::Size>) SupportedScreenSizesInCharacters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) MaxBitmapSizeInPixels() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<int32_t>) SupportedCharacterSets() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayCustomGlyphs) CustomGlyphs() const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayAttributes) GetAttributes() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryUpdateAttributesAsync(Windows::Devices::PointOfService::LineDisplayAttributes const& attributes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TrySetDescriptorAsync(uint32_t descriptor, Windows::Devices::PointOfService::LineDisplayDescriptorState const& descriptorState) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryClearDescriptorsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::LineDisplayWindow>) TryCreateWindowAsync(Windows::Foundation::Rect const& viewport, Windows::Foundation::Size const& windowSize) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::LineDisplayStoredBitmap>) TryStoreStorageFileBitmapAsync(Windows::Storage::StorageFile const& bitmap) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::LineDisplayStoredBitmap>) TryStoreStorageFileBitmapAsync(Windows::Storage::StorageFile const& bitmap, Windows::Devices::PointOfService::LineDisplayHorizontalAlignment const& horizontalAlignment, Windows::Devices::PointOfService::LineDisplayVerticalAlignment const& verticalAlignment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::LineDisplayStoredBitmap>) TryStoreStorageFileBitmapAsync(Windows::Storage::StorageFile const& bitmap, Windows::Devices::PointOfService::LineDisplayHorizontalAlignment const& horizontalAlignment, Windows::Devices::PointOfService::LineDisplayVerticalAlignment const& verticalAlignment, int32_t widthInPixels) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedLineDisplay2>
     {
@@ -2964,10 +2965,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedLineDisplay3
     {
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Devices::PointOfService::ClaimedLineDisplayClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Devices::PointOfService::ClaimedLineDisplayClosedEventArgs> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedLineDisplay3, &impl::abi_t<Windows::Devices::PointOfService::IClaimedLineDisplay3>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedLineDisplay, Windows::Devices::PointOfService::ClaimedLineDisplayClosedEventArgs> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedLineDisplay3>
     {
@@ -2984,9 +2985,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedLineDisplayStatics
     {
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDeviceSelector() const;
-        auto GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::ClaimedLineDisplay>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedLineDisplayStatics>
     {
@@ -2995,49 +2996,49 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedMagneticStripeReader
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto IsEnabled() const;
-        auto IsDisabledOnDataReceived(bool value) const;
-        [[nodiscard]] auto IsDisabledOnDataReceived() const;
-        auto IsDecodeDataEnabled(bool value) const;
-        [[nodiscard]] auto IsDecodeDataEnabled() const;
-        [[nodiscard]] auto IsDeviceAuthenticated() const;
-        auto DataEncryptionAlgorithm(uint32_t value) const;
-        [[nodiscard]] auto DataEncryptionAlgorithm() const;
-        auto TracksToRead(Windows::Devices::PointOfService::MagneticStripeReaderTrackIds const& value) const;
-        [[nodiscard]] auto TracksToRead() const;
-        auto IsTransmitSentinelsEnabled(bool value) const;
-        [[nodiscard]] auto IsTransmitSentinelsEnabled() const;
-        auto EnableAsync() const;
-        auto DisableAsync() const;
-        auto RetainDevice() const;
-        auto SetErrorReportingType(Windows::Devices::PointOfService::MagneticStripeReaderErrorReportingType const& value) const;
-        auto RetrieveDeviceAuthenticationDataAsync() const;
-        auto AuthenticateDeviceAsync(array_view<uint8_t const> responseToken) const;
-        auto DeAuthenticateDeviceAsync(array_view<uint8_t const> responseToken) const;
-        auto UpdateKeyAsync(param::hstring const& key, param::hstring const& keyName) const;
-        auto ResetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto UpdateStatisticsAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& statistics) const;
-        auto BankCardDataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderBankCardDataReceivedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) IsDisabledOnDataReceived(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDisabledOnDataReceived() const;
+        WINRT_IMPL_AUTO(void) IsDecodeDataEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDecodeDataEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDeviceAuthenticated() const;
+        WINRT_IMPL_AUTO(void) DataEncryptionAlgorithm(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DataEncryptionAlgorithm() const;
+        WINRT_IMPL_AUTO(void) TracksToRead(Windows::Devices::PointOfService::MagneticStripeReaderTrackIds const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackIds) TracksToRead() const;
+        WINRT_IMPL_AUTO(void) IsTransmitSentinelsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTransmitSentinelsEnabled() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) EnableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DisableAsync() const;
+        WINRT_IMPL_AUTO(void) RetainDevice() const;
+        WINRT_IMPL_AUTO(void) SetErrorReportingType(Windows::Devices::PointOfService::MagneticStripeReaderErrorReportingType const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) RetrieveDeviceAuthenticationDataAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) AuthenticateDeviceAsync(array_view<uint8_t const> responseToken) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeAuthenticateDeviceAsync(array_view<uint8_t const> responseToken) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UpdateKeyAsync(param::hstring const& key, param::hstring const& keyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ResetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UpdateStatisticsAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& statistics) const;
+        WINRT_IMPL_AUTO(winrt::event_token) BankCardDataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderBankCardDataReceivedEventArgs> const& handler) const;
         using BankCardDataReceived_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedMagneticStripeReader, &impl::abi_t<Windows::Devices::PointOfService::IClaimedMagneticStripeReader>::remove_BankCardDataReceived>;
         [[nodiscard]] BankCardDataReceived_revoker BankCardDataReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderBankCardDataReceivedEventArgs> const& handler) const;
-        auto BankCardDataReceived(winrt::event_token const& token) const noexcept;
-        auto AamvaCardDataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderAamvaCardDataReceivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) BankCardDataReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AamvaCardDataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderAamvaCardDataReceivedEventArgs> const& handler) const;
         using AamvaCardDataReceived_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedMagneticStripeReader, &impl::abi_t<Windows::Devices::PointOfService::IClaimedMagneticStripeReader>::remove_AamvaCardDataReceived>;
         [[nodiscard]] AamvaCardDataReceived_revoker AamvaCardDataReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderAamvaCardDataReceivedEventArgs> const& handler) const;
-        auto AamvaCardDataReceived(winrt::event_token const& token) const noexcept;
-        auto VendorSpecificDataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AamvaCardDataReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) VendorSpecificDataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> const& handler) const;
         using VendorSpecificDataReceived_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedMagneticStripeReader, &impl::abi_t<Windows::Devices::PointOfService::IClaimedMagneticStripeReader>::remove_VendorSpecificDataReceived>;
         [[nodiscard]] VendorSpecificDataReceived_revoker VendorSpecificDataReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> const& handler) const;
-        auto VendorSpecificDataReceived(winrt::event_token const& token) const noexcept;
-        auto ReleaseDeviceRequested(Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader> const& handler) const;
+        WINRT_IMPL_AUTO(void) VendorSpecificDataReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ReleaseDeviceRequested(Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader> const& handler) const;
         using ReleaseDeviceRequested_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedMagneticStripeReader, &impl::abi_t<Windows::Devices::PointOfService::IClaimedMagneticStripeReader>::remove_ReleaseDeviceRequested>;
         [[nodiscard]] ReleaseDeviceRequested_revoker ReleaseDeviceRequested(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader> const& handler) const;
-        auto ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
-        auto ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderErrorOccurredEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderErrorOccurredEventArgs> const& handler) const;
         using ErrorOccurred_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedMagneticStripeReader, &impl::abi_t<Windows::Devices::PointOfService::IClaimedMagneticStripeReader>::remove_ErrorOccurred>;
         [[nodiscard]] ErrorOccurred_revoker ErrorOccurred(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderErrorOccurredEventArgs> const& handler) const;
-        auto ErrorOccurred(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ErrorOccurred(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedMagneticStripeReader>
     {
@@ -3046,10 +3047,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedMagneticStripeReader2
     {
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::ClaimedMagneticStripeReaderClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::ClaimedMagneticStripeReaderClosedEventArgs> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedMagneticStripeReader2, &impl::abi_t<Windows::Devices::PointOfService::IClaimedMagneticStripeReader2>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedMagneticStripeReader, Windows::Devices::PointOfService::ClaimedMagneticStripeReaderClosedEventArgs> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedMagneticStripeReader2>
     {
@@ -3066,27 +3067,27 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedPosPrinter
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto IsEnabled() const;
-        auto CharacterSet(uint32_t value) const;
-        [[nodiscard]] auto CharacterSet() const;
-        [[nodiscard]] auto IsCoverOpen() const;
-        auto IsCharacterSetMappingEnabled(bool value) const;
-        [[nodiscard]] auto IsCharacterSetMappingEnabled() const;
-        auto MapMode(Windows::Devices::PointOfService::PosPrinterMapMode const& value) const;
-        [[nodiscard]] auto MapMode() const;
-        [[nodiscard]] auto Receipt() const;
-        [[nodiscard]] auto Slip() const;
-        [[nodiscard]] auto Journal() const;
-        auto EnableAsync() const;
-        auto DisableAsync() const;
-        auto RetainDeviceAsync() const;
-        auto ResetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto UpdateStatisticsAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& statistics) const;
-        auto ReleaseDeviceRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedPosPrinter, Windows::Devices::PointOfService::PosPrinterReleaseDeviceRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) CharacterSet(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CharacterSet() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCoverOpen() const;
+        WINRT_IMPL_AUTO(void) IsCharacterSetMappingEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCharacterSetMappingEnabled() const;
+        WINRT_IMPL_AUTO(void) MapMode(Windows::Devices::PointOfService::PosPrinterMapMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterMapMode) MapMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::ClaimedReceiptPrinter) Receipt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::ClaimedSlipPrinter) Slip() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::ClaimedJournalPrinter) Journal() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) EnableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) DisableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RetainDeviceAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ResetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) UpdateStatisticsAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& statistics) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ReleaseDeviceRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedPosPrinter, Windows::Devices::PointOfService::PosPrinterReleaseDeviceRequestedEventArgs> const& handler) const;
         using ReleaseDeviceRequested_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedPosPrinter, &impl::abi_t<Windows::Devices::PointOfService::IClaimedPosPrinter>::remove_ReleaseDeviceRequested>;
         [[nodiscard]] ReleaseDeviceRequested_revoker ReleaseDeviceRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedPosPrinter, Windows::Devices::PointOfService::PosPrinterReleaseDeviceRequestedEventArgs> const& handler) const;
-        auto ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ReleaseDeviceRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedPosPrinter>
     {
@@ -3095,10 +3096,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedPosPrinter2
     {
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedPosPrinter, Windows::Devices::PointOfService::ClaimedPosPrinterClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedPosPrinter, Windows::Devices::PointOfService::ClaimedPosPrinterClosedEventArgs> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::Devices::PointOfService::IClaimedPosPrinter2, &impl::abi_t<Windows::Devices::PointOfService::IClaimedPosPrinter2>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::ClaimedPosPrinter, Windows::Devices::PointOfService::ClaimedPosPrinterClosedEventArgs> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedPosPrinter2>
     {
@@ -3115,12 +3116,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedReceiptPrinter
     {
-        [[nodiscard]] auto SidewaysMaxLines() const;
-        [[nodiscard]] auto SidewaysMaxChars() const;
-        [[nodiscard]] auto LinesToPaperCut() const;
-        [[nodiscard]] auto PageSize() const;
-        [[nodiscard]] auto PrintArea() const;
-        auto CreateJob() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SidewaysMaxLines() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SidewaysMaxChars() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) LinesToPaperCut() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) PageSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) PrintArea() const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::ReceiptPrintJob) CreateJob() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedReceiptPrinter>
     {
@@ -3129,19 +3130,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IClaimedSlipPrinter
     {
-        [[nodiscard]] auto SidewaysMaxLines() const;
-        [[nodiscard]] auto SidewaysMaxChars() const;
-        [[nodiscard]] auto MaxLines() const;
-        [[nodiscard]] auto LinesNearEndToEnd() const;
-        [[nodiscard]] auto PrintSide() const;
-        [[nodiscard]] auto PageSize() const;
-        [[nodiscard]] auto PrintArea() const;
-        auto OpenJaws() const;
-        auto CloseJaws() const;
-        auto InsertSlipAsync(Windows::Foundation::TimeSpan const& timeout) const;
-        auto RemoveSlipAsync(Windows::Foundation::TimeSpan const& timeout) const;
-        auto ChangePrintSide(Windows::Devices::PointOfService::PosPrinterPrintSide const& printSide) const;
-        auto CreateJob() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SidewaysMaxLines() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SidewaysMaxChars() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxLines() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) LinesNearEndToEnd() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterPrintSide) PrintSide() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) PageSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) PrintArea() const;
+        WINRT_IMPL_AUTO(void) OpenJaws() const;
+        WINRT_IMPL_AUTO(void) CloseJaws() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) InsertSlipAsync(Windows::Foundation::TimeSpan const& timeout) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RemoveSlipAsync(Windows::Foundation::TimeSpan const& timeout) const;
+        WINRT_IMPL_AUTO(void) ChangePrintSide(Windows::Devices::PointOfService::PosPrinterPrintSide const& printSide) const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::SlipPrintJob) CreateJob() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IClaimedSlipPrinter>
     {
@@ -3150,25 +3151,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICommonClaimedPosPrinterStation
     {
-        auto CharactersPerLine(uint32_t value) const;
-        [[nodiscard]] auto CharactersPerLine() const;
-        auto LineHeight(uint32_t value) const;
-        [[nodiscard]] auto LineHeight() const;
-        auto LineSpacing(uint32_t value) const;
-        [[nodiscard]] auto LineSpacing() const;
-        [[nodiscard]] auto LineWidth() const;
-        auto IsLetterQuality(bool value) const;
-        [[nodiscard]] auto IsLetterQuality() const;
-        [[nodiscard]] auto IsPaperNearEnd() const;
-        auto ColorCartridge(Windows::Devices::PointOfService::PosPrinterColorCartridge const& value) const;
-        [[nodiscard]] auto ColorCartridge() const;
-        [[nodiscard]] auto IsCoverOpen() const;
-        [[nodiscard]] auto IsCartridgeRemoved() const;
-        [[nodiscard]] auto IsCartridgeEmpty() const;
-        [[nodiscard]] auto IsHeadCleaning() const;
-        [[nodiscard]] auto IsPaperEmpty() const;
-        [[nodiscard]] auto IsReadyToPrint() const;
-        auto ValidateData(param::hstring const& data) const;
+        WINRT_IMPL_AUTO(void) CharactersPerLine(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CharactersPerLine() const;
+        WINRT_IMPL_AUTO(void) LineHeight(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) LineHeight() const;
+        WINRT_IMPL_AUTO(void) LineSpacing(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) LineSpacing() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) LineWidth() const;
+        WINRT_IMPL_AUTO(void) IsLetterQuality(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLetterQuality() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPaperNearEnd() const;
+        WINRT_IMPL_AUTO(void) ColorCartridge(Windows::Devices::PointOfService::PosPrinterColorCartridge const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterColorCartridge) ColorCartridge() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCoverOpen() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCartridgeRemoved() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCartridgeEmpty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHeadCleaning() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPaperEmpty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReadyToPrint() const;
+        WINRT_IMPL_AUTO(bool) ValidateData(param::hstring const& data) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICommonClaimedPosPrinterStation>
     {
@@ -3177,19 +3178,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICommonPosPrintStationCapabilities
     {
-        [[nodiscard]] auto IsPrinterPresent() const;
-        [[nodiscard]] auto IsDualColorSupported() const;
-        [[nodiscard]] auto ColorCartridgeCapabilities() const;
-        [[nodiscard]] auto CartridgeSensors() const;
-        [[nodiscard]] auto IsBoldSupported() const;
-        [[nodiscard]] auto IsItalicSupported() const;
-        [[nodiscard]] auto IsUnderlineSupported() const;
-        [[nodiscard]] auto IsDoubleHighPrintSupported() const;
-        [[nodiscard]] auto IsDoubleWidePrintSupported() const;
-        [[nodiscard]] auto IsDoubleHighDoubleWidePrintSupported() const;
-        [[nodiscard]] auto IsPaperEmptySensorSupported() const;
-        [[nodiscard]] auto IsPaperNearEndSensorSupported() const;
-        [[nodiscard]] auto SupportedCharactersPerLine() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPrinterPresent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDualColorSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterColorCapabilities) ColorCartridgeCapabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterCartridgeSensors) CartridgeSensors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBoldSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsItalicSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsUnderlineSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDoubleHighPrintSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDoubleWidePrintSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDoubleHighDoubleWidePrintSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPaperEmptySensorSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPaperNearEndSensorSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) SupportedCharactersPerLine() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICommonPosPrintStationCapabilities>
     {
@@ -3198,15 +3199,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ICommonReceiptSlipCapabilities
     {
-        [[nodiscard]] auto IsBarcodeSupported() const;
-        [[nodiscard]] auto IsBitmapSupported() const;
-        [[nodiscard]] auto IsLeft90RotationSupported() const;
-        [[nodiscard]] auto IsRight90RotationSupported() const;
-        [[nodiscard]] auto Is180RotationSupported() const;
-        [[nodiscard]] auto IsPrintAreaSupported() const;
-        [[nodiscard]] auto RuledLineCapabilities() const;
-        [[nodiscard]] auto SupportedBarcodeRotations() const;
-        [[nodiscard]] auto SupportedBitmapRotations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBarcodeSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBitmapSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLeft90RotationSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRight90RotationSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Is180RotationSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPrintAreaSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterRuledLineCapabilities) RuledLineCapabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::PointOfService::PosPrinterRotation>) SupportedBarcodeRotations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::PointOfService::PosPrinterRotation>) SupportedBitmapRotations() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ICommonReceiptSlipCapabilities>
     {
@@ -3215,9 +3216,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IJournalPrintJob
     {
-        auto Print(param::hstring const& data, Windows::Devices::PointOfService::PosPrinterPrintOptions const& printOptions) const;
-        auto FeedPaperByLine(int32_t lineCount) const;
-        auto FeedPaperByMapModeUnit(int32_t distance) const;
+        WINRT_IMPL_AUTO(void) Print(param::hstring const& data, Windows::Devices::PointOfService::PosPrinterPrintOptions const& printOptions) const;
+        WINRT_IMPL_AUTO(void) FeedPaperByLine(int32_t lineCount) const;
+        WINRT_IMPL_AUTO(void) FeedPaperByMapModeUnit(int32_t distance) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IJournalPrintJob>
     {
@@ -3234,12 +3235,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IJournalPrinterCapabilities2
     {
-        [[nodiscard]] auto IsReverseVideoSupported() const;
-        [[nodiscard]] auto IsStrikethroughSupported() const;
-        [[nodiscard]] auto IsSuperscriptSupported() const;
-        [[nodiscard]] auto IsSubscriptSupported() const;
-        [[nodiscard]] auto IsReversePaperFeedByLineSupported() const;
-        [[nodiscard]] auto IsReversePaperFeedByMapModeUnitSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReverseVideoSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStrikethroughSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSuperscriptSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSubscriptSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReversePaperFeedByLineSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReversePaperFeedByMapModeUnitSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IJournalPrinterCapabilities2>
     {
@@ -3248,14 +3249,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplay
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Capabilities() const;
-        [[nodiscard]] auto PhysicalDeviceName() const;
-        [[nodiscard]] auto PhysicalDeviceDescription() const;
-        [[nodiscard]] auto DeviceControlDescription() const;
-        [[nodiscard]] auto DeviceControlVersion() const;
-        [[nodiscard]] auto DeviceServiceVersion() const;
-        auto ClaimAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayCapabilities) Capabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhysicalDeviceName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhysicalDeviceDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceControlDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceControlVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceServiceVersion() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::ClaimedLineDisplay>) ClaimAsync() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplay>
     {
@@ -3264,7 +3265,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplay2
     {
-        auto CheckPowerStatusAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::LineDisplayPowerStatus>) CheckPowerStatusAsync() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplay2>
     {
@@ -3273,20 +3274,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayAttributes
     {
-        [[nodiscard]] auto IsPowerNotifyEnabled() const;
-        auto IsPowerNotifyEnabled(bool value) const;
-        [[nodiscard]] auto Brightness() const;
-        auto Brightness(int32_t value) const;
-        [[nodiscard]] auto BlinkRate() const;
-        auto BlinkRate(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto ScreenSizeInCharacters() const;
-        auto ScreenSizeInCharacters(Windows::Foundation::Size const& value) const;
-        [[nodiscard]] auto CharacterSet() const;
-        auto CharacterSet(int32_t value) const;
-        [[nodiscard]] auto IsCharacterSetMappingEnabled() const;
-        auto IsCharacterSetMappingEnabled(bool value) const;
-        [[nodiscard]] auto CurrentWindow() const;
-        auto CurrentWindow(Windows::Devices::PointOfService::LineDisplayWindow const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPowerNotifyEnabled() const;
+        WINRT_IMPL_AUTO(void) IsPowerNotifyEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Brightness() const;
+        WINRT_IMPL_AUTO(void) Brightness(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) BlinkRate() const;
+        WINRT_IMPL_AUTO(void) BlinkRate(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) ScreenSizeInCharacters() const;
+        WINRT_IMPL_AUTO(void) ScreenSizeInCharacters(Windows::Foundation::Size const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) CharacterSet() const;
+        WINRT_IMPL_AUTO(void) CharacterSet(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCharacterSetMappingEnabled() const;
+        WINRT_IMPL_AUTO(void) IsCharacterSetMappingEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayWindow) CurrentWindow() const;
+        WINRT_IMPL_AUTO(void) CurrentWindow(Windows::Devices::PointOfService::LineDisplayWindow const& value) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayAttributes>
     {
@@ -3295,24 +3296,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayCapabilities
     {
-        [[nodiscard]] auto IsStatisticsReportingSupported() const;
-        [[nodiscard]] auto IsStatisticsUpdatingSupported() const;
-        [[nodiscard]] auto PowerReportingType() const;
-        [[nodiscard]] auto CanChangeScreenSize() const;
-        [[nodiscard]] auto CanDisplayBitmaps() const;
-        [[nodiscard]] auto CanReadCharacterAtCursor() const;
-        [[nodiscard]] auto CanMapCharacterSets() const;
-        [[nodiscard]] auto CanDisplayCustomGlyphs() const;
-        [[nodiscard]] auto CanReverse() const;
-        [[nodiscard]] auto CanBlink() const;
-        [[nodiscard]] auto CanChangeBlinkRate() const;
-        [[nodiscard]] auto IsBrightnessSupported() const;
-        [[nodiscard]] auto IsCursorSupported() const;
-        [[nodiscard]] auto IsHorizontalMarqueeSupported() const;
-        [[nodiscard]] auto IsVerticalMarqueeSupported() const;
-        [[nodiscard]] auto IsInterCharacterWaitSupported() const;
-        [[nodiscard]] auto SupportedDescriptors() const;
-        [[nodiscard]] auto SupportedWindows() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsReportingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsUpdatingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosPowerReportingType) PowerReportingType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanChangeScreenSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanDisplayBitmaps() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanReadCharacterAtCursor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanMapCharacterSets() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanDisplayCustomGlyphs() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayTextAttributeGranularity) CanReverse() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayTextAttributeGranularity) CanBlink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanChangeBlinkRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBrightnessSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCursorSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHorizontalMarqueeSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVerticalMarqueeSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsInterCharacterWaitSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SupportedDescriptors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SupportedWindows() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayCapabilities>
     {
@@ -3321,15 +3322,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayCursor
     {
-        [[nodiscard]] auto CanCustomize() const;
-        [[nodiscard]] auto IsBlinkSupported() const;
-        [[nodiscard]] auto IsBlockSupported() const;
-        [[nodiscard]] auto IsHalfBlockSupported() const;
-        [[nodiscard]] auto IsUnderlineSupported() const;
-        [[nodiscard]] auto IsReverseSupported() const;
-        [[nodiscard]] auto IsOtherSupported() const;
-        auto GetAttributes() const;
-        auto TryUpdateAttributesAsync(Windows::Devices::PointOfService::LineDisplayCursorAttributes const& attributes) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanCustomize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBlinkSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBlockSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHalfBlockSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsUnderlineSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReverseSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOtherSupported() const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayCursorAttributes) GetAttributes() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryUpdateAttributesAsync(Windows::Devices::PointOfService::LineDisplayCursorAttributes const& attributes) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayCursor>
     {
@@ -3338,14 +3339,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayCursorAttributes
     {
-        [[nodiscard]] auto IsBlinkEnabled() const;
-        auto IsBlinkEnabled(bool value) const;
-        [[nodiscard]] auto CursorType() const;
-        auto CursorType(Windows::Devices::PointOfService::LineDisplayCursorType const& value) const;
-        [[nodiscard]] auto IsAutoAdvanceEnabled() const;
-        auto IsAutoAdvanceEnabled(bool value) const;
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Foundation::Point const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBlinkEnabled() const;
+        WINRT_IMPL_AUTO(void) IsBlinkEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayCursorType) CursorType() const;
+        WINRT_IMPL_AUTO(void) CursorType(Windows::Devices::PointOfService::LineDisplayCursorType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAutoAdvanceEnabled() const;
+        WINRT_IMPL_AUTO(void) IsAutoAdvanceEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Foundation::Point const& value) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayCursorAttributes>
     {
@@ -3354,9 +3355,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayCustomGlyphs
     {
-        [[nodiscard]] auto SizeInPixels() const;
-        [[nodiscard]] auto SupportedGlyphCodes() const;
-        auto TryRedefineAsync(uint32_t glyphCode, Windows::Storage::Streams::IBuffer const& glyphData) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) SizeInPixels() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) SupportedGlyphCodes() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryRedefineAsync(uint32_t glyphCode, Windows::Storage::Streams::IBuffer const& glyphData) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayCustomGlyphs>
     {
@@ -3365,14 +3366,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayMarquee
     {
-        [[nodiscard]] auto Format() const;
-        auto Format(Windows::Devices::PointOfService::LineDisplayMarqueeFormat const& value) const;
-        [[nodiscard]] auto RepeatWaitInterval() const;
-        auto RepeatWaitInterval(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto ScrollWaitInterval() const;
-        auto ScrollWaitInterval(Windows::Foundation::TimeSpan const& value) const;
-        auto TryStartScrollingAsync(Windows::Devices::PointOfService::LineDisplayScrollDirection const& direction) const;
-        auto TryStopScrollingAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayMarqueeFormat) Format() const;
+        WINRT_IMPL_AUTO(void) Format(Windows::Devices::PointOfService::LineDisplayMarqueeFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) RepeatWaitInterval() const;
+        WINRT_IMPL_AUTO(void) RepeatWaitInterval(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) ScrollWaitInterval() const;
+        WINRT_IMPL_AUTO(void) ScrollWaitInterval(Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryStartScrollingAsync(Windows::Devices::PointOfService::LineDisplayScrollDirection const& direction) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryStopScrollingAsync() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayMarquee>
     {
@@ -3381,10 +3382,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayStatics
     {
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDefaultAsync() const;
-        auto GetDeviceSelector() const;
-        auto GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::LineDisplay>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::LineDisplay>) GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayStatics>
     {
@@ -3393,7 +3394,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayStatics2
     {
-        [[nodiscard]] auto StatisticsCategorySelector() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayStatisticsCategorySelector) StatisticsCategorySelector() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayStatics2>
     {
@@ -3402,9 +3403,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayStatisticsCategorySelector
     {
-        [[nodiscard]] auto AllStatistics() const;
-        [[nodiscard]] auto UnifiedPosStatistics() const;
-        [[nodiscard]] auto ManufacturerStatistics() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AllStatistics() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UnifiedPosStatistics() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ManufacturerStatistics() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayStatisticsCategorySelector>
     {
@@ -3413,7 +3414,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayStatusUpdatedEventArgs
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayPowerStatus) Status() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayStatusUpdatedEventArgs>
     {
@@ -3422,8 +3423,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayStoredBitmap
     {
-        [[nodiscard]] auto EscapeSequence() const;
-        auto TryDeleteAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EscapeSequence() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDeleteAsync() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayStoredBitmap>
     {
@@ -3432,15 +3433,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayWindow
     {
-        [[nodiscard]] auto SizeInCharacters() const;
-        [[nodiscard]] auto InterCharacterWaitInterval() const;
-        auto InterCharacterWaitInterval(Windows::Foundation::TimeSpan const& value) const;
-        auto TryRefreshAsync() const;
-        auto TryDisplayTextAsync(param::hstring const& text, Windows::Devices::PointOfService::LineDisplayTextAttribute const& displayAttribute) const;
-        auto TryDisplayTextAsync(param::hstring const& text, Windows::Devices::PointOfService::LineDisplayTextAttribute const& displayAttribute, Windows::Foundation::Point const& startPosition) const;
-        auto TryDisplayTextAsync(param::hstring const& text) const;
-        auto TryScrollTextAsync(Windows::Devices::PointOfService::LineDisplayScrollDirection const& direction, uint32_t numberOfColumnsOrRows) const;
-        auto TryClearTextAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) SizeInCharacters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) InterCharacterWaitInterval() const;
+        WINRT_IMPL_AUTO(void) InterCharacterWaitInterval(Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryRefreshAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayTextAsync(param::hstring const& text, Windows::Devices::PointOfService::LineDisplayTextAttribute const& displayAttribute) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayTextAsync(param::hstring const& text, Windows::Devices::PointOfService::LineDisplayTextAttribute const& displayAttribute, Windows::Foundation::Point const& startPosition) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayTextAsync(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryScrollTextAsync(Windows::Devices::PointOfService::LineDisplayScrollDirection const& direction, uint32_t numberOfColumnsOrRows) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryClearTextAsync() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayWindow>
     {
@@ -3449,15 +3450,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ILineDisplayWindow2
     {
-        [[nodiscard]] auto Cursor() const;
-        [[nodiscard]] auto Marquee() const;
-        auto ReadCharacterAtCursorAsync() const;
-        auto TryDisplayStoredBitmapAtCursorAsync(Windows::Devices::PointOfService::LineDisplayStoredBitmap const& bitmap) const;
-        auto TryDisplayStorageFileBitmapAtCursorAsync(Windows::Storage::StorageFile const& bitmap) const;
-        auto TryDisplayStorageFileBitmapAtCursorAsync(Windows::Storage::StorageFile const& bitmap, Windows::Devices::PointOfService::LineDisplayHorizontalAlignment const& horizontalAlignment, Windows::Devices::PointOfService::LineDisplayVerticalAlignment const& verticalAlignment) const;
-        auto TryDisplayStorageFileBitmapAtCursorAsync(Windows::Storage::StorageFile const& bitmap, Windows::Devices::PointOfService::LineDisplayHorizontalAlignment const& horizontalAlignment, Windows::Devices::PointOfService::LineDisplayVerticalAlignment const& verticalAlignment, int32_t widthInPixels) const;
-        auto TryDisplayStorageFileBitmapAtPointAsync(Windows::Storage::StorageFile const& bitmap, Windows::Foundation::Point const& offsetInPixels) const;
-        auto TryDisplayStorageFileBitmapAtPointAsync(Windows::Storage::StorageFile const& bitmap, Windows::Foundation::Point const& offsetInPixels, int32_t widthInPixels) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayCursor) Cursor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::LineDisplayMarquee) Marquee() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint32_t>) ReadCharacterAtCursorAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayStoredBitmapAtCursorAsync(Windows::Devices::PointOfService::LineDisplayStoredBitmap const& bitmap) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayStorageFileBitmapAtCursorAsync(Windows::Storage::StorageFile const& bitmap) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayStorageFileBitmapAtCursorAsync(Windows::Storage::StorageFile const& bitmap, Windows::Devices::PointOfService::LineDisplayHorizontalAlignment const& horizontalAlignment, Windows::Devices::PointOfService::LineDisplayVerticalAlignment const& verticalAlignment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayStorageFileBitmapAtCursorAsync(Windows::Storage::StorageFile const& bitmap, Windows::Devices::PointOfService::LineDisplayHorizontalAlignment const& horizontalAlignment, Windows::Devices::PointOfService::LineDisplayVerticalAlignment const& verticalAlignment, int32_t widthInPixels) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayStorageFileBitmapAtPointAsync(Windows::Storage::StorageFile const& bitmap, Windows::Foundation::Point const& offsetInPixels) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisplayStorageFileBitmapAtPointAsync(Windows::Storage::StorageFile const& bitmap, Windows::Foundation::Point const& offsetInPixels, int32_t widthInPixels) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ILineDisplayWindow2>
     {
@@ -3466,18 +3467,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReader
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Capabilities() const;
-        [[nodiscard]] auto SupportedCardTypes() const;
-        [[nodiscard]] auto DeviceAuthenticationProtocol() const;
-        auto CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
-        auto ClaimReaderAsync() const;
-        auto RetrieveStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto GetErrorReportingType() const;
-        auto StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::MagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderStatusUpdatedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderCapabilities) Capabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint32_t>) SupportedCardTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderAuthenticationProtocol) DeviceAuthenticationProtocol() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::ClaimedMagneticStripeReader>) ClaimReaderAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) RetrieveStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderErrorReportingType) GetErrorReportingType() const;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::MagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderStatusUpdatedEventArgs> const& handler) const;
         using StatusUpdated_revoker = impl::event_revoker<Windows::Devices::PointOfService::IMagneticStripeReader, &impl::abi_t<Windows::Devices::PointOfService::IMagneticStripeReader>::remove_StatusUpdated>;
         [[nodiscard]] StatusUpdated_revoker StatusUpdated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::MagneticStripeReader, Windows::Devices::PointOfService::MagneticStripeReaderStatusUpdatedEventArgs> const& handler) const;
-        auto StatusUpdated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StatusUpdated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReader>
     {
@@ -3486,25 +3487,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderAamvaCardDataReceivedEventArgs
     {
-        [[nodiscard]] auto Report() const;
-        [[nodiscard]] auto LicenseNumber() const;
-        [[nodiscard]] auto ExpirationDate() const;
-        [[nodiscard]] auto Restrictions() const;
-        [[nodiscard]] auto Class() const;
-        [[nodiscard]] auto Endorsements() const;
-        [[nodiscard]] auto BirthDate() const;
-        [[nodiscard]] auto FirstName() const;
-        [[nodiscard]] auto Surname() const;
-        [[nodiscard]] auto Suffix() const;
-        [[nodiscard]] auto Gender() const;
-        [[nodiscard]] auto HairColor() const;
-        [[nodiscard]] auto EyeColor() const;
-        [[nodiscard]] auto Height() const;
-        [[nodiscard]] auto Weight() const;
-        [[nodiscard]] auto Address() const;
-        [[nodiscard]] auto City() const;
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto PostalCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderReport) Report() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LicenseNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ExpirationDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Restrictions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Class() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Endorsements() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BirthDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FirstName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Surname() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Suffix() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Gender() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HairColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EyeColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Weight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Address() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) City() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PostalCode() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderAamvaCardDataReceivedEventArgs>
     {
@@ -3513,15 +3514,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderBankCardDataReceivedEventArgs
     {
-        [[nodiscard]] auto Report() const;
-        [[nodiscard]] auto AccountNumber() const;
-        [[nodiscard]] auto ExpirationDate() const;
-        [[nodiscard]] auto ServiceCode() const;
-        [[nodiscard]] auto Title() const;
-        [[nodiscard]] auto FirstName() const;
-        [[nodiscard]] auto MiddleInitial() const;
-        [[nodiscard]] auto Surname() const;
-        [[nodiscard]] auto Suffix() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderReport) Report() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AccountNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ExpirationDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FirstName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MiddleInitial() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Surname() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Suffix() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderBankCardDataReceivedEventArgs>
     {
@@ -3530,17 +3531,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderCapabilities
     {
-        [[nodiscard]] auto CardAuthentication() const;
-        [[nodiscard]] auto SupportedEncryptionAlgorithms() const;
-        [[nodiscard]] auto AuthenticationLevel() const;
-        [[nodiscard]] auto IsIsoSupported() const;
-        [[nodiscard]] auto IsJisOneSupported() const;
-        [[nodiscard]] auto IsJisTwoSupported() const;
-        [[nodiscard]] auto PowerReportingType() const;
-        [[nodiscard]] auto IsStatisticsReportingSupported() const;
-        [[nodiscard]] auto IsStatisticsUpdatingSupported() const;
-        [[nodiscard]] auto IsTrackDataMaskingSupported() const;
-        [[nodiscard]] auto IsTransmitSentinelsSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CardAuthentication() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SupportedEncryptionAlgorithms() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderAuthenticationLevel) AuthenticationLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsIsoSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsJisOneSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsJisTwoSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosPowerReportingType) PowerReportingType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsReportingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsUpdatingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTrackDataMaskingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTransmitSentinelsSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderCapabilities>
     {
@@ -3549,10 +3550,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderCardTypesStatics
     {
-        [[nodiscard]] auto Unknown() const;
-        [[nodiscard]] auto Bank() const;
-        [[nodiscard]] auto Aamva() const;
-        [[nodiscard]] auto ExtendedBase() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Unknown() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Bank() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Aamva() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedBase() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderCardTypesStatics>
     {
@@ -3561,9 +3562,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderEncryptionAlgorithmsStatics
     {
-        [[nodiscard]] auto None() const;
-        [[nodiscard]] auto TripleDesDukpt() const;
-        [[nodiscard]] auto ExtendedBase() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) None() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TripleDesDukpt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedBase() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderEncryptionAlgorithmsStatics>
     {
@@ -3572,12 +3573,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderErrorOccurredEventArgs
     {
-        [[nodiscard]] auto Track1Status() const;
-        [[nodiscard]] auto Track2Status() const;
-        [[nodiscard]] auto Track3Status() const;
-        [[nodiscard]] auto Track4Status() const;
-        [[nodiscard]] auto ErrorData() const;
-        [[nodiscard]] auto PartialInputData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackErrorType) Track1Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackErrorType) Track2Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackErrorType) Track3Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackErrorType) Track4Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosErrorData) ErrorData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderReport) PartialInputData() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderErrorOccurredEventArgs>
     {
@@ -3586,15 +3587,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderReport
     {
-        [[nodiscard]] auto CardType() const;
-        [[nodiscard]] auto Track1() const;
-        [[nodiscard]] auto Track2() const;
-        [[nodiscard]] auto Track3() const;
-        [[nodiscard]] auto Track4() const;
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto CardAuthenticationData() const;
-        [[nodiscard]] auto CardAuthenticationDataLength() const;
-        [[nodiscard]] auto AdditionalSecurityInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CardType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackData) Track1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackData) Track2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackData) Track3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderTrackData) Track4() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, hstring>) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) CardAuthenticationData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CardAuthenticationDataLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) AdditionalSecurityInformation() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderReport>
     {
@@ -3603,9 +3604,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderStatics
     {
-        auto GetDefaultAsync() const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::MagneticStripeReader>) GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::MagneticStripeReader>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderStatics>
     {
@@ -3614,7 +3615,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderStatics2
     {
-        auto GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderStatics2>
     {
@@ -3623,8 +3624,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderStatusUpdatedEventArgs
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedStatus() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderStatusUpdatedEventArgs>
     {
@@ -3633,9 +3634,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderTrackData
     {
-        [[nodiscard]] auto Data() const;
-        [[nodiscard]] auto DiscretionaryData() const;
-        [[nodiscard]] auto EncryptedData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Data() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DiscretionaryData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) EncryptedData() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderTrackData>
     {
@@ -3644,7 +3645,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs
     {
-        [[nodiscard]] auto Report() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::MagneticStripeReaderReport) Report() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>
     {
@@ -3653,18 +3654,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinter
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Capabilities() const;
-        [[nodiscard]] auto SupportedCharacterSets() const;
-        [[nodiscard]] auto SupportedTypeFaces() const;
-        [[nodiscard]] auto Status() const;
-        auto ClaimPrinterAsync() const;
-        auto CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
-        auto GetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
-        auto StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::PosPrinter, Windows::Devices::PointOfService::PosPrinterStatusUpdatedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterCapabilities) Capabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) SupportedCharacterSets() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) SupportedTypeFaces() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterStatus) Status() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::ClaimedPosPrinter>) ClaimPrinterAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) CheckHealthAsync(Windows::Devices::PointOfService::UnifiedPosHealthCheckLevel const& level) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetStatisticsAsync(param::async_iterable<hstring> const& statisticsCategories) const;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusUpdated(Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::PosPrinter, Windows::Devices::PointOfService::PosPrinterStatusUpdatedEventArgs> const& handler) const;
         using StatusUpdated_revoker = impl::event_revoker<Windows::Devices::PointOfService::IPosPrinter, &impl::abi_t<Windows::Devices::PointOfService::IPosPrinter>::remove_StatusUpdated>;
         [[nodiscard]] StatusUpdated_revoker StatusUpdated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::PointOfService::PosPrinter, Windows::Devices::PointOfService::PosPrinterStatusUpdatedEventArgs> const& handler) const;
-        auto StatusUpdated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StatusUpdated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinter>
     {
@@ -3673,8 +3674,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinter2
     {
-        [[nodiscard]] auto SupportedBarcodeSymbologies() const;
-        auto GetFontProperty(param::hstring const& typeface) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) SupportedBarcodeSymbologies() const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterFontProperty) GetFontProperty(param::hstring const& typeface) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinter2>
     {
@@ -3683,16 +3684,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterCapabilities
     {
-        [[nodiscard]] auto PowerReportingType() const;
-        [[nodiscard]] auto IsStatisticsReportingSupported() const;
-        [[nodiscard]] auto IsStatisticsUpdatingSupported() const;
-        [[nodiscard]] auto DefaultCharacterSet() const;
-        [[nodiscard]] auto HasCoverSensor() const;
-        [[nodiscard]] auto CanMapCharacterSet() const;
-        [[nodiscard]] auto IsTransactionSupported() const;
-        [[nodiscard]] auto Receipt() const;
-        [[nodiscard]] auto Slip() const;
-        [[nodiscard]] auto Journal() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosPowerReportingType) PowerReportingType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsReportingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStatisticsUpdatingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DefaultCharacterSet() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasCoverSensor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanMapCharacterSet() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTransactionSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::ReceiptPrinterCapabilities) Receipt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::SlipPrinterCapabilities) Slip() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::JournalPrinterCapabilities) Journal() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterCapabilities>
     {
@@ -3701,9 +3702,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterCharacterSetIdsStatics
     {
-        [[nodiscard]] auto Utf16LE() const;
-        [[nodiscard]] auto Ascii() const;
-        [[nodiscard]] auto Ansi() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Utf16LE() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ascii() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Ansi() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterCharacterSetIdsStatics>
     {
@@ -3712,9 +3713,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterFontProperty
     {
-        [[nodiscard]] auto TypeFace() const;
-        [[nodiscard]] auto IsScalableToAnySize() const;
-        [[nodiscard]] auto CharacterSizes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TypeFace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsScalableToAnySize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::PointOfService::SizeUInt32>) CharacterSizes() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterFontProperty>
     {
@@ -3723,10 +3724,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterJob
     {
-        auto Print(param::hstring const& data) const;
-        auto PrintLine(param::hstring const& data) const;
-        auto PrintLine() const;
-        auto ExecuteAsync() const;
+        WINRT_IMPL_AUTO(void) Print(param::hstring const& data) const;
+        WINRT_IMPL_AUTO(void) PrintLine(param::hstring const& data) const;
+        WINRT_IMPL_AUTO(void) PrintLine() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ExecuteAsync() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterJob>
     {
@@ -3735,32 +3736,32 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterPrintOptions
     {
-        [[nodiscard]] auto TypeFace() const;
-        auto TypeFace(param::hstring const& value) const;
-        [[nodiscard]] auto CharacterHeight() const;
-        auto CharacterHeight(uint32_t value) const;
-        [[nodiscard]] auto Bold() const;
-        auto Bold(bool value) const;
-        [[nodiscard]] auto Italic() const;
-        auto Italic(bool value) const;
-        [[nodiscard]] auto Underline() const;
-        auto Underline(bool value) const;
-        [[nodiscard]] auto ReverseVideo() const;
-        auto ReverseVideo(bool value) const;
-        [[nodiscard]] auto Strikethrough() const;
-        auto Strikethrough(bool value) const;
-        [[nodiscard]] auto Superscript() const;
-        auto Superscript(bool value) const;
-        [[nodiscard]] auto Subscript() const;
-        auto Subscript(bool value) const;
-        [[nodiscard]] auto DoubleWide() const;
-        auto DoubleWide(bool value) const;
-        [[nodiscard]] auto DoubleHigh() const;
-        auto DoubleHigh(bool value) const;
-        [[nodiscard]] auto Alignment() const;
-        auto Alignment(Windows::Devices::PointOfService::PosPrinterAlignment const& value) const;
-        [[nodiscard]] auto CharacterSet() const;
-        auto CharacterSet(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TypeFace() const;
+        WINRT_IMPL_AUTO(void) TypeFace(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CharacterHeight() const;
+        WINRT_IMPL_AUTO(void) CharacterHeight(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Bold() const;
+        WINRT_IMPL_AUTO(void) Bold(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Italic() const;
+        WINRT_IMPL_AUTO(void) Italic(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Underline() const;
+        WINRT_IMPL_AUTO(void) Underline(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ReverseVideo() const;
+        WINRT_IMPL_AUTO(void) ReverseVideo(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Strikethrough() const;
+        WINRT_IMPL_AUTO(void) Strikethrough(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Superscript() const;
+        WINRT_IMPL_AUTO(void) Superscript(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Subscript() const;
+        WINRT_IMPL_AUTO(void) Subscript(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DoubleWide() const;
+        WINRT_IMPL_AUTO(void) DoubleWide(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DoubleHigh() const;
+        WINRT_IMPL_AUTO(void) DoubleHigh(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterAlignment) Alignment() const;
+        WINRT_IMPL_AUTO(void) Alignment(Windows::Devices::PointOfService::PosPrinterAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CharacterSet() const;
+        WINRT_IMPL_AUTO(void) CharacterSet(uint32_t value) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterPrintOptions>
     {
@@ -3777,9 +3778,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterStatics
     {
-        auto GetDefaultAsync() const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::PosPrinter>) GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::PointOfService::PosPrinter>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterStatics>
     {
@@ -3788,7 +3789,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterStatics2
     {
-        auto GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::Devices::PointOfService::PosConnectionTypes const& connectionTypes) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterStatics2>
     {
@@ -3797,8 +3798,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterStatus
     {
-        [[nodiscard]] auto StatusKind() const;
-        [[nodiscard]] auto ExtendedStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterStatusKind) StatusKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedStatus() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterStatus>
     {
@@ -3807,7 +3808,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IPosPrinterStatusUpdatedEventArgs
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterStatus) Status() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IPosPrinterStatusUpdatedEventArgs>
     {
@@ -3816,21 +3817,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IReceiptOrSlipJob
     {
-        auto SetBarcodeRotation(Windows::Devices::PointOfService::PosPrinterRotation const& value) const;
-        auto SetPrintRotation(Windows::Devices::PointOfService::PosPrinterRotation const& value, bool includeBitmaps) const;
-        auto SetPrintArea(Windows::Foundation::Rect const& value) const;
-        auto SetBitmap(uint32_t bitmapNumber, Windows::Graphics::Imaging::BitmapFrame const& bitmap, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment) const;
-        auto SetBitmap(uint32_t bitmapNumber, Windows::Graphics::Imaging::BitmapFrame const& bitmap, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment, uint32_t width) const;
-        auto SetCustomAlignedBitmap(uint32_t bitmapNumber, Windows::Graphics::Imaging::BitmapFrame const& bitmap, uint32_t alignmentDistance) const;
-        auto SetCustomAlignedBitmap(uint32_t bitmapNumber, Windows::Graphics::Imaging::BitmapFrame const& bitmap, uint32_t alignmentDistance, uint32_t width) const;
-        auto PrintSavedBitmap(uint32_t bitmapNumber) const;
-        auto DrawRuledLine(param::hstring const& positionList, Windows::Devices::PointOfService::PosPrinterLineDirection const& lineDirection, uint32_t lineWidth, Windows::Devices::PointOfService::PosPrinterLineStyle const& lineStyle, uint32_t lineColor) const;
-        auto PrintBarcode(param::hstring const& data, uint32_t symbology, uint32_t height, uint32_t width, Windows::Devices::PointOfService::PosPrinterBarcodeTextPosition const& textPosition, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment) const;
-        auto PrintBarcodeCustomAlign(param::hstring const& data, uint32_t symbology, uint32_t height, uint32_t width, Windows::Devices::PointOfService::PosPrinterBarcodeTextPosition const& textPosition, uint32_t alignmentDistance) const;
-        auto PrintBitmap(Windows::Graphics::Imaging::BitmapFrame const& bitmap, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment) const;
-        auto PrintBitmap(Windows::Graphics::Imaging::BitmapFrame const& bitmap, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment, uint32_t width) const;
-        auto PrintCustomAlignedBitmap(Windows::Graphics::Imaging::BitmapFrame const& bitmap, uint32_t alignmentDistance) const;
-        auto PrintCustomAlignedBitmap(Windows::Graphics::Imaging::BitmapFrame const& bitmap, uint32_t alignmentDistance, uint32_t width) const;
+        WINRT_IMPL_AUTO(void) SetBarcodeRotation(Windows::Devices::PointOfService::PosPrinterRotation const& value) const;
+        WINRT_IMPL_AUTO(void) SetPrintRotation(Windows::Devices::PointOfService::PosPrinterRotation const& value, bool includeBitmaps) const;
+        WINRT_IMPL_AUTO(void) SetPrintArea(Windows::Foundation::Rect const& value) const;
+        WINRT_IMPL_AUTO(void) SetBitmap(uint32_t bitmapNumber, Windows::Graphics::Imaging::BitmapFrame const& bitmap, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment) const;
+        WINRT_IMPL_AUTO(void) SetBitmap(uint32_t bitmapNumber, Windows::Graphics::Imaging::BitmapFrame const& bitmap, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment, uint32_t width) const;
+        WINRT_IMPL_AUTO(void) SetCustomAlignedBitmap(uint32_t bitmapNumber, Windows::Graphics::Imaging::BitmapFrame const& bitmap, uint32_t alignmentDistance) const;
+        WINRT_IMPL_AUTO(void) SetCustomAlignedBitmap(uint32_t bitmapNumber, Windows::Graphics::Imaging::BitmapFrame const& bitmap, uint32_t alignmentDistance, uint32_t width) const;
+        WINRT_IMPL_AUTO(void) PrintSavedBitmap(uint32_t bitmapNumber) const;
+        WINRT_IMPL_AUTO(void) DrawRuledLine(param::hstring const& positionList, Windows::Devices::PointOfService::PosPrinterLineDirection const& lineDirection, uint32_t lineWidth, Windows::Devices::PointOfService::PosPrinterLineStyle const& lineStyle, uint32_t lineColor) const;
+        WINRT_IMPL_AUTO(void) PrintBarcode(param::hstring const& data, uint32_t symbology, uint32_t height, uint32_t width, Windows::Devices::PointOfService::PosPrinterBarcodeTextPosition const& textPosition, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment) const;
+        WINRT_IMPL_AUTO(void) PrintBarcodeCustomAlign(param::hstring const& data, uint32_t symbology, uint32_t height, uint32_t width, Windows::Devices::PointOfService::PosPrinterBarcodeTextPosition const& textPosition, uint32_t alignmentDistance) const;
+        WINRT_IMPL_AUTO(void) PrintBitmap(Windows::Graphics::Imaging::BitmapFrame const& bitmap, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment) const;
+        WINRT_IMPL_AUTO(void) PrintBitmap(Windows::Graphics::Imaging::BitmapFrame const& bitmap, Windows::Devices::PointOfService::PosPrinterAlignment const& alignment, uint32_t width) const;
+        WINRT_IMPL_AUTO(void) PrintCustomAlignedBitmap(Windows::Graphics::Imaging::BitmapFrame const& bitmap, uint32_t alignmentDistance) const;
+        WINRT_IMPL_AUTO(void) PrintCustomAlignedBitmap(Windows::Graphics::Imaging::BitmapFrame const& bitmap, uint32_t alignmentDistance, uint32_t width) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IReceiptOrSlipJob>
     {
@@ -3839,9 +3840,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IReceiptPrintJob
     {
-        auto MarkFeed(Windows::Devices::PointOfService::PosPrinterMarkFeedKind const& kind) const;
-        auto CutPaper(double percentage) const;
-        auto CutPaper() const;
+        WINRT_IMPL_AUTO(void) MarkFeed(Windows::Devices::PointOfService::PosPrinterMarkFeedKind const& kind) const;
+        WINRT_IMPL_AUTO(void) CutPaper(double percentage) const;
+        WINRT_IMPL_AUTO(void) CutPaper() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IReceiptPrintJob>
     {
@@ -3850,10 +3851,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IReceiptPrintJob2
     {
-        auto StampPaper() const;
-        auto Print(param::hstring const& data, Windows::Devices::PointOfService::PosPrinterPrintOptions const& printOptions) const;
-        auto FeedPaperByLine(int32_t lineCount) const;
-        auto FeedPaperByMapModeUnit(int32_t distance) const;
+        WINRT_IMPL_AUTO(void) StampPaper() const;
+        WINRT_IMPL_AUTO(void) Print(param::hstring const& data, Windows::Devices::PointOfService::PosPrinterPrintOptions const& printOptions) const;
+        WINRT_IMPL_AUTO(void) FeedPaperByLine(int32_t lineCount) const;
+        WINRT_IMPL_AUTO(void) FeedPaperByMapModeUnit(int32_t distance) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IReceiptPrintJob2>
     {
@@ -3862,9 +3863,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IReceiptPrinterCapabilities
     {
-        [[nodiscard]] auto CanCutPaper() const;
-        [[nodiscard]] auto IsStampSupported() const;
-        [[nodiscard]] auto MarkFeedCapabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanCutPaper() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStampSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::PosPrinterMarkFeedCapabilities) MarkFeedCapabilities() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IReceiptPrinterCapabilities>
     {
@@ -3873,12 +3874,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IReceiptPrinterCapabilities2
     {
-        [[nodiscard]] auto IsReverseVideoSupported() const;
-        [[nodiscard]] auto IsStrikethroughSupported() const;
-        [[nodiscard]] auto IsSuperscriptSupported() const;
-        [[nodiscard]] auto IsSubscriptSupported() const;
-        [[nodiscard]] auto IsReversePaperFeedByLineSupported() const;
-        [[nodiscard]] auto IsReversePaperFeedByMapModeUnitSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReverseVideoSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStrikethroughSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSuperscriptSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSubscriptSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReversePaperFeedByLineSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReversePaperFeedByMapModeUnitSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IReceiptPrinterCapabilities2>
     {
@@ -3887,9 +3888,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ISlipPrintJob
     {
-        auto Print(param::hstring const& data, Windows::Devices::PointOfService::PosPrinterPrintOptions const& printOptions) const;
-        auto FeedPaperByLine(int32_t lineCount) const;
-        auto FeedPaperByMapModeUnit(int32_t distance) const;
+        WINRT_IMPL_AUTO(void) Print(param::hstring const& data, Windows::Devices::PointOfService::PosPrinterPrintOptions const& printOptions) const;
+        WINRT_IMPL_AUTO(void) FeedPaperByLine(int32_t lineCount) const;
+        WINRT_IMPL_AUTO(void) FeedPaperByMapModeUnit(int32_t distance) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ISlipPrintJob>
     {
@@ -3898,8 +3899,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ISlipPrinterCapabilities
     {
-        [[nodiscard]] auto IsFullLengthSupported() const;
-        [[nodiscard]] auto IsBothSidesPrintingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsFullLengthSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBothSidesPrintingSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ISlipPrinterCapabilities>
     {
@@ -3908,12 +3909,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_ISlipPrinterCapabilities2
     {
-        [[nodiscard]] auto IsReverseVideoSupported() const;
-        [[nodiscard]] auto IsStrikethroughSupported() const;
-        [[nodiscard]] auto IsSuperscriptSupported() const;
-        [[nodiscard]] auto IsSubscriptSupported() const;
-        [[nodiscard]] auto IsReversePaperFeedByLineSupported() const;
-        [[nodiscard]] auto IsReversePaperFeedByMapModeUnitSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReverseVideoSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStrikethroughSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSuperscriptSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSubscriptSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReversePaperFeedByLineSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReversePaperFeedByMapModeUnitSupported() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::ISlipPrinterCapabilities2>
     {
@@ -3922,10 +3923,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IUnifiedPosErrorData
     {
-        [[nodiscard]] auto Message() const;
-        [[nodiscard]] auto Severity() const;
-        [[nodiscard]] auto Reason() const;
-        [[nodiscard]] auto ExtendedReason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosErrorSeverity) Severity() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosErrorReason) Reason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedReason() const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IUnifiedPosErrorData>
     {
@@ -3934,7 +3935,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_PointOfService_IUnifiedPosErrorDataFactory
     {
-        auto CreateInstance(param::hstring const& message, Windows::Devices::PointOfService::UnifiedPosErrorSeverity const& severity, Windows::Devices::PointOfService::UnifiedPosErrorReason const& reason, uint32_t extendedReason) const;
+        WINRT_IMPL_AUTO(Windows::Devices::PointOfService::UnifiedPosErrorData) CreateInstance(param::hstring const& message, Windows::Devices::PointOfService::UnifiedPosErrorSeverity const& severity, Windows::Devices::PointOfService::UnifiedPosErrorReason const& reason, uint32_t extendedReason) const;
     };
     template <> struct consume<Windows::Devices::PointOfService::IUnifiedPosErrorDataFactory>
     {

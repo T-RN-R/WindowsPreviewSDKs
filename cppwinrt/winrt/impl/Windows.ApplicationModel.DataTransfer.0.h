@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,6 +10,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct Deferral;
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
@@ -18,6 +19,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMapView;
+    template <typename K, typename V> struct IMap;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Security::EnterpriseData
 {
@@ -27,6 +32,7 @@ WINRT_EXPORT namespace winrt::Windows::Storage
 {
     struct IStorageFile;
     struct IStorageItem;
+    struct StorageFile;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -223,88 +229,86 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::DataTransfer::ShareUITheme>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::DataTransfer::DataProviderHandler>{ using type = delegate_category; };
     template <> struct category<Windows::ApplicationModel::DataTransfer::ShareProviderHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::Clipboard>{ L"Windows.ApplicationModel.DataTransfer.Clipboard" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardContentOptions>{ L"Windows.ApplicationModel.DataTransfer.ClipboardContentOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardHistoryChangedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItem>{ L"Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItemsResult>{ L"Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackage>{ L"Windows.ApplicationModel.DataTransfer.DataPackage" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackagePropertySet>{ L"Windows.ApplicationModel.DataTransfer.DataPackagePropertySet" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackagePropertySetView>{ L"Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackageView>{ L"Windows.ApplicationModel.DataTransfer.DataPackageView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataProviderDeferral>{ L"Windows.ApplicationModel.DataTransfer.DataProviderDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataProviderRequest>{ L"Windows.ApplicationModel.DataTransfer.DataProviderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataRequest>{ L"Windows.ApplicationModel.DataTransfer.DataRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataRequestDeferral>{ L"Windows.ApplicationModel.DataTransfer.DataRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataTransferManager>{ L"Windows.ApplicationModel.DataTransfer.DataTransferManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::HtmlFormatHelper>{ L"Windows.ApplicationModel.DataTransfer.HtmlFormatHelper" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::OperationCompletedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareCompletedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProvider>{ L"Windows.ApplicationModel.DataTransfer.ShareProvider" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProviderOperation>{ L"Windows.ApplicationModel.DataTransfer.ShareProviderOperation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProvidersRequestedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTargetInfo>{ L"Windows.ApplicationModel.DataTransfer.ShareTargetInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareUIOptions>{ L"Windows.ApplicationModel.DataTransfer.ShareUIOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::SharedStorageAccessManager>{ L"Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::StandardDataFormats>{ L"Windows.ApplicationModel.DataTransfer.StandardDataFormats" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs>{ L"Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItemsResultStatus>{ L"Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackageOperation>{ L"Windows.ApplicationModel.DataTransfer.DataPackageOperation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::SetHistoryItemAsContentStatus>{ L"Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareUITheme>{ L"Windows.ApplicationModel.DataTransfer.ShareUITheme" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardContentOptions>{ L"Windows.ApplicationModel.DataTransfer.IClipboardContentOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryChangedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItem>{ L"Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItemsResult>{ L"Windows.ApplicationModel.DataTransfer.IClipboardHistoryItemsResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardStatics>{ L"Windows.ApplicationModel.DataTransfer.IClipboardStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardStatics2>{ L"Windows.ApplicationModel.DataTransfer.IClipboardStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackage>{ L"Windows.ApplicationModel.DataTransfer.IDataPackage" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackage2>{ L"Windows.ApplicationModel.DataTransfer.IDataPackage2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackage3>{ L"Windows.ApplicationModel.DataTransfer.IDataPackage3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackage4>{ L"Windows.ApplicationModel.DataTransfer.IDataPackage4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet2>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet3>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet4>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView2>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView3>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView4>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView5>{ L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView5" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackageView>{ L"Windows.ApplicationModel.DataTransfer.IDataPackageView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackageView2>{ L"Windows.ApplicationModel.DataTransfer.IDataPackageView2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackageView3>{ L"Windows.ApplicationModel.DataTransfer.IDataPackageView3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackageView4>{ L"Windows.ApplicationModel.DataTransfer.IDataPackageView4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataProviderDeferral>{ L"Windows.ApplicationModel.DataTransfer.IDataProviderDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataProviderRequest>{ L"Windows.ApplicationModel.DataTransfer.IDataProviderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataRequest>{ L"Windows.ApplicationModel.DataTransfer.IDataRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataRequestDeferral>{ L"Windows.ApplicationModel.DataTransfer.IDataRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataRequestedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManager>{ L"Windows.ApplicationModel.DataTransfer.IDataTransferManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManager2>{ L"Windows.ApplicationModel.DataTransfer.IDataTransferManager2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics>{ L"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2>{ L"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics3>{ L"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IHtmlFormatHelperStatics>{ L"Windows.ApplicationModel.DataTransfer.IHtmlFormatHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs2>{ L"Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareCompletedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareProvider>{ L"Windows.ApplicationModel.DataTransfer.IShareProvider" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareProviderFactory>{ L"Windows.ApplicationModel.DataTransfer.IShareProviderFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareProviderOperation>{ L"Windows.ApplicationModel.DataTransfer.IShareProviderOperation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareProvidersRequestedEventArgs>{ L"Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareTargetInfo>{ L"Windows.ApplicationModel.DataTransfer.IShareTargetInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareUIOptions>{ L"Windows.ApplicationModel.DataTransfer.IShareUIOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ISharedStorageAccessManagerStatics>{ L"Windows.ApplicationModel.DataTransfer.ISharedStorageAccessManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics>{ L"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics2>{ L"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics3>{ L"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ITargetApplicationChosenEventArgs>{ L"Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataProviderHandler>{ L"Windows.ApplicationModel.DataTransfer.DataProviderHandler" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProviderHandler>{ L"Windows.ApplicationModel.DataTransfer.ShareProviderHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::Clipboard> = L"Windows.ApplicationModel.DataTransfer.Clipboard";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardContentOptions> = L"Windows.ApplicationModel.DataTransfer.ClipboardContentOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardHistoryChangedEventArgs> = L"Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItem> = L"Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItemsResult> = L"Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackage> = L"Windows.ApplicationModel.DataTransfer.DataPackage";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackagePropertySet> = L"Windows.ApplicationModel.DataTransfer.DataPackagePropertySet";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackagePropertySetView> = L"Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackageView> = L"Windows.ApplicationModel.DataTransfer.DataPackageView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataProviderDeferral> = L"Windows.ApplicationModel.DataTransfer.DataProviderDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataProviderRequest> = L"Windows.ApplicationModel.DataTransfer.DataProviderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataRequest> = L"Windows.ApplicationModel.DataTransfer.DataRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataRequestDeferral> = L"Windows.ApplicationModel.DataTransfer.DataRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> = L"Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataTransferManager> = L"Windows.ApplicationModel.DataTransfer.DataTransferManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::HtmlFormatHelper> = L"Windows.ApplicationModel.DataTransfer.HtmlFormatHelper";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::OperationCompletedEventArgs> = L"Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareCompletedEventArgs> = L"Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProvider> = L"Windows.ApplicationModel.DataTransfer.ShareProvider";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProviderOperation> = L"Windows.ApplicationModel.DataTransfer.ShareProviderOperation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProvidersRequestedEventArgs> = L"Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTargetInfo> = L"Windows.ApplicationModel.DataTransfer.ShareTargetInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareUIOptions> = L"Windows.ApplicationModel.DataTransfer.ShareUIOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::SharedStorageAccessManager> = L"Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::StandardDataFormats> = L"Windows.ApplicationModel.DataTransfer.StandardDataFormats";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> = L"Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItemsResultStatus> = L"Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataPackageOperation> = L"Windows.ApplicationModel.DataTransfer.DataPackageOperation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::SetHistoryItemAsContentStatus> = L"Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareUITheme> = L"Windows.ApplicationModel.DataTransfer.ShareUITheme";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardContentOptions> = L"Windows.ApplicationModel.DataTransfer.IClipboardContentOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryChangedEventArgs> = L"Windows.ApplicationModel.DataTransfer.IClipboardHistoryChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItem> = L"Windows.ApplicationModel.DataTransfer.IClipboardHistoryItem";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItemsResult> = L"Windows.ApplicationModel.DataTransfer.IClipboardHistoryItemsResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardStatics> = L"Windows.ApplicationModel.DataTransfer.IClipboardStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IClipboardStatics2> = L"Windows.ApplicationModel.DataTransfer.IClipboardStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackage> = L"Windows.ApplicationModel.DataTransfer.IDataPackage";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackage2> = L"Windows.ApplicationModel.DataTransfer.IDataPackage2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackage3> = L"Windows.ApplicationModel.DataTransfer.IDataPackage3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackage4> = L"Windows.ApplicationModel.DataTransfer.IDataPackage4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet2> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet3> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet4> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySet4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView2> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView3> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView4> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView5> = L"Windows.ApplicationModel.DataTransfer.IDataPackagePropertySetView5";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackageView> = L"Windows.ApplicationModel.DataTransfer.IDataPackageView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackageView2> = L"Windows.ApplicationModel.DataTransfer.IDataPackageView2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackageView3> = L"Windows.ApplicationModel.DataTransfer.IDataPackageView3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataPackageView4> = L"Windows.ApplicationModel.DataTransfer.IDataPackageView4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataProviderDeferral> = L"Windows.ApplicationModel.DataTransfer.IDataProviderDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataProviderRequest> = L"Windows.ApplicationModel.DataTransfer.IDataProviderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataRequest> = L"Windows.ApplicationModel.DataTransfer.IDataRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataRequestDeferral> = L"Windows.ApplicationModel.DataTransfer.IDataRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataRequestedEventArgs> = L"Windows.ApplicationModel.DataTransfer.IDataRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManager> = L"Windows.ApplicationModel.DataTransfer.IDataTransferManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManager2> = L"Windows.ApplicationModel.DataTransfer.IDataTransferManager2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics> = L"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2> = L"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics3> = L"Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IHtmlFormatHelperStatics> = L"Windows.ApplicationModel.DataTransfer.IHtmlFormatHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs> = L"Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs2> = L"Windows.ApplicationModel.DataTransfer.IOperationCompletedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareCompletedEventArgs> = L"Windows.ApplicationModel.DataTransfer.IShareCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareProvider> = L"Windows.ApplicationModel.DataTransfer.IShareProvider";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareProviderFactory> = L"Windows.ApplicationModel.DataTransfer.IShareProviderFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareProviderOperation> = L"Windows.ApplicationModel.DataTransfer.IShareProviderOperation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareProvidersRequestedEventArgs> = L"Windows.ApplicationModel.DataTransfer.IShareProvidersRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareTargetInfo> = L"Windows.ApplicationModel.DataTransfer.IShareTargetInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IShareUIOptions> = L"Windows.ApplicationModel.DataTransfer.IShareUIOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ISharedStorageAccessManagerStatics> = L"Windows.ApplicationModel.DataTransfer.ISharedStorageAccessManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics> = L"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics2> = L"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics3> = L"Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ITargetApplicationChosenEventArgs> = L"Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataProviderHandler> = L"Windows.ApplicationModel.DataTransfer.DataProviderHandler";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProviderHandler> = L"Windows.ApplicationModel.DataTransfer.ShareProviderHandler";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardContentOptions>{ 0xE888A98C,0xAD4B,0x5447,{ 0xA0,0x56,0xAB,0x35,0x56,0x27,0x6D,0x2B } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryChangedEventArgs>{ 0xC0BE453F,0x8EA2,0x53CE,{ 0x9A,0xBA,0x8D,0x22,0x12,0x57,0x34,0x52 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItem>{ 0x0173BD8A,0xAFFF,0x5C50,{ 0xAB,0x92,0x3D,0x19,0xF4,0x81,0xEC,0x58 } };
@@ -853,12 +857,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IClipboardContentOptions
     {
-        [[nodiscard]] auto IsRoamable() const;
-        auto IsRoamable(bool value) const;
-        [[nodiscard]] auto IsAllowedInHistory() const;
-        auto IsAllowedInHistory(bool value) const;
-        [[nodiscard]] auto RoamingFormats() const;
-        [[nodiscard]] auto HistoryFormats() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRoamable() const;
+        WINRT_IMPL_AUTO(void) IsRoamable(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAllowedInHistory() const;
+        WINRT_IMPL_AUTO(void) IsAllowedInHistory(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) RoamingFormats() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) HistoryFormats() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IClipboardContentOptions>
     {
@@ -875,9 +879,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IClipboardHistoryItem
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto Content() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageView) Content() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItem>
     {
@@ -886,8 +890,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IClipboardHistoryItemsResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Items() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::ClipboardHistoryItemsResultStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItem>) Items() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItemsResult>
     {
@@ -896,14 +900,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IClipboardStatics
     {
-        auto GetContent() const;
-        auto SetContent(Windows::ApplicationModel::DataTransfer::DataPackage const& content) const;
-        auto Flush() const;
-        auto Clear() const;
-        auto ContentChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageView) GetContent() const;
+        WINRT_IMPL_AUTO(void) SetContent(Windows::ApplicationModel::DataTransfer::DataPackage const& content) const;
+        WINRT_IMPL_AUTO(void) Flush() const;
+        WINRT_IMPL_AUTO(void) Clear() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ContentChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using ContentChanged_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IClipboardStatics, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IClipboardStatics>::remove_ContentChanged>;
         [[nodiscard]] ContentChanged_revoker ContentChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto ContentChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ContentChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IClipboardStatics>
     {
@@ -912,25 +916,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IClipboardStatics2
     {
-        auto GetHistoryItemsAsync() const;
-        auto ClearHistory() const;
-        auto DeleteItemFromHistory(Windows::ApplicationModel::DataTransfer::ClipboardHistoryItem const& item) const;
-        auto SetHistoryItemAsContent(Windows::ApplicationModel::DataTransfer::ClipboardHistoryItem const& item) const;
-        auto IsHistoryEnabled() const;
-        auto IsRoamingEnabled() const;
-        auto SetContentWithOptions(Windows::ApplicationModel::DataTransfer::DataPackage const& content, Windows::ApplicationModel::DataTransfer::ClipboardContentOptions const& options) const;
-        auto HistoryChanged(Windows::Foundation::EventHandler<Windows::ApplicationModel::DataTransfer::ClipboardHistoryChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItemsResult>) GetHistoryItemsAsync() const;
+        WINRT_IMPL_AUTO(bool) ClearHistory() const;
+        WINRT_IMPL_AUTO(bool) DeleteItemFromHistory(Windows::ApplicationModel::DataTransfer::ClipboardHistoryItem const& item) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::SetHistoryItemAsContentStatus) SetHistoryItemAsContent(Windows::ApplicationModel::DataTransfer::ClipboardHistoryItem const& item) const;
+        WINRT_IMPL_AUTO(bool) IsHistoryEnabled() const;
+        WINRT_IMPL_AUTO(bool) IsRoamingEnabled() const;
+        WINRT_IMPL_AUTO(bool) SetContentWithOptions(Windows::ApplicationModel::DataTransfer::DataPackage const& content, Windows::ApplicationModel::DataTransfer::ClipboardContentOptions const& options) const;
+        WINRT_IMPL_AUTO(winrt::event_token) HistoryChanged(Windows::Foundation::EventHandler<Windows::ApplicationModel::DataTransfer::ClipboardHistoryChangedEventArgs> const& handler) const;
         using HistoryChanged_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IClipboardStatics2, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IClipboardStatics2>::remove_HistoryChanged>;
         [[nodiscard]] HistoryChanged_revoker HistoryChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::ApplicationModel::DataTransfer::ClipboardHistoryChangedEventArgs> const& handler) const;
-        auto HistoryChanged(winrt::event_token const& token) const noexcept;
-        auto RoamingEnabledChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) HistoryChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) RoamingEnabledChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using RoamingEnabledChanged_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IClipboardStatics2, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IClipboardStatics2>::remove_RoamingEnabledChanged>;
         [[nodiscard]] RoamingEnabledChanged_revoker RoamingEnabledChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto RoamingEnabledChanged(winrt::event_token const& token) const noexcept;
-        auto HistoryEnabledChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) RoamingEnabledChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) HistoryEnabledChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using HistoryEnabledChanged_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IClipboardStatics2, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IClipboardStatics2>::remove_HistoryEnabledChanged>;
         [[nodiscard]] HistoryEnabledChanged_revoker HistoryEnabledChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto HistoryEnabledChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) HistoryEnabledChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IClipboardStatics2>
     {
@@ -939,28 +943,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackage
     {
-        auto GetView() const;
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto RequestedOperation() const;
-        auto RequestedOperation(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
-        auto OperationCompleted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::ApplicationModel::DataTransfer::OperationCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageView) GetView() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackagePropertySet) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) RequestedOperation() const;
+        WINRT_IMPL_AUTO(void) RequestedOperation(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) OperationCompleted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::ApplicationModel::DataTransfer::OperationCompletedEventArgs> const& handler) const;
         using OperationCompleted_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataPackage, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataPackage>::remove_OperationCompleted>;
         [[nodiscard]] OperationCompleted_revoker OperationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::ApplicationModel::DataTransfer::OperationCompletedEventArgs> const& handler) const;
-        auto OperationCompleted(winrt::event_token const& token) const noexcept;
-        auto Destroyed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) OperationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Destroyed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::Foundation::IInspectable> const& handler) const;
         using Destroyed_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataPackage, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataPackage>::remove_Destroyed>;
         [[nodiscard]] Destroyed_revoker Destroyed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::Foundation::IInspectable> const& handler) const;
-        auto Destroyed(winrt::event_token const& token) const noexcept;
-        auto SetData(param::hstring const& formatId, Windows::Foundation::IInspectable const& value) const;
-        auto SetDataProvider(param::hstring const& formatId, Windows::ApplicationModel::DataTransfer::DataProviderHandler const& delayRenderer) const;
-        auto SetText(param::hstring const& value) const;
-        auto SetUri(Windows::Foundation::Uri const& value) const;
-        auto SetHtmlFormat(param::hstring const& value) const;
-        [[nodiscard]] auto ResourceMap() const;
-        auto SetRtf(param::hstring const& value) const;
-        auto SetBitmap(Windows::Storage::Streams::RandomAccessStreamReference const& value) const;
-        auto SetStorageItems(param::iterable<Windows::Storage::IStorageItem> const& value) const;
-        auto SetStorageItems(param::iterable<Windows::Storage::IStorageItem> const& value, bool readOnly) const;
+        WINRT_IMPL_AUTO(void) Destroyed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SetData(param::hstring const& formatId, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) SetDataProvider(param::hstring const& formatId, Windows::ApplicationModel::DataTransfer::DataProviderHandler const& delayRenderer) const;
+        WINRT_IMPL_AUTO(void) SetText(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) SetUri(Windows::Foundation::Uri const& value) const;
+        WINRT_IMPL_AUTO(void) SetHtmlFormat(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, Windows::Storage::Streams::RandomAccessStreamReference>) ResourceMap() const;
+        WINRT_IMPL_AUTO(void) SetRtf(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) SetBitmap(Windows::Storage::Streams::RandomAccessStreamReference const& value) const;
+        WINRT_IMPL_AUTO(void) SetStorageItems(param::iterable<Windows::Storage::IStorageItem> const& value) const;
+        WINRT_IMPL_AUTO(void) SetStorageItems(param::iterable<Windows::Storage::IStorageItem> const& value, bool readOnly) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackage>
     {
@@ -969,8 +973,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackage2
     {
-        auto SetApplicationLink(Windows::Foundation::Uri const& value) const;
-        auto SetWebLink(Windows::Foundation::Uri const& value) const;
+        WINRT_IMPL_AUTO(void) SetApplicationLink(Windows::Foundation::Uri const& value) const;
+        WINRT_IMPL_AUTO(void) SetWebLink(Windows::Foundation::Uri const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackage2>
     {
@@ -979,10 +983,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackage3
     {
-        auto ShareCompleted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::ApplicationModel::DataTransfer::ShareCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ShareCompleted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::ApplicationModel::DataTransfer::ShareCompletedEventArgs> const& handler) const;
         using ShareCompleted_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataPackage3, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataPackage3>::remove_ShareCompleted>;
         [[nodiscard]] ShareCompleted_revoker ShareCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::ApplicationModel::DataTransfer::ShareCompletedEventArgs> const& handler) const;
-        auto ShareCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ShareCompleted(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackage3>
     {
@@ -991,10 +995,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackage4
     {
-        auto ShareCanceled(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ShareCanceled(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::Foundation::IInspectable> const& handler) const;
         using ShareCanceled_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataPackage4, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataPackage4>::remove_ShareCanceled>;
         [[nodiscard]] ShareCanceled_revoker ShareCanceled(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataPackage, Windows::Foundation::IInspectable> const& handler) const;
-        auto ShareCanceled(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ShareCanceled(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackage4>
     {
@@ -1003,17 +1007,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySet
     {
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Thumbnail() const;
-        auto Thumbnail(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto FileTypes() const;
-        [[nodiscard]] auto ApplicationName() const;
-        auto ApplicationName(param::hstring const& value) const;
-        [[nodiscard]] auto ApplicationListingUri() const;
-        auto ApplicationListingUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Thumbnail() const;
+        WINRT_IMPL_AUTO(void) Thumbnail(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) FileTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ApplicationName() const;
+        WINRT_IMPL_AUTO(void) ApplicationName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ApplicationListingUri() const;
+        WINRT_IMPL_AUTO(void) ApplicationListingUri(Windows::Foundation::Uri const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet>
     {
@@ -1022,16 +1026,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySet2
     {
-        [[nodiscard]] auto ContentSourceWebLink() const;
-        auto ContentSourceWebLink(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto ContentSourceApplicationLink() const;
-        auto ContentSourceApplicationLink(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto PackageFamilyName() const;
-        auto PackageFamilyName(param::hstring const& value) const;
-        [[nodiscard]] auto Square30x30Logo() const;
-        auto Square30x30Logo(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto LogoBackgroundColor() const;
-        auto LogoBackgroundColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ContentSourceWebLink() const;
+        WINRT_IMPL_AUTO(void) ContentSourceWebLink(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ContentSourceApplicationLink() const;
+        WINRT_IMPL_AUTO(void) ContentSourceApplicationLink(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PackageFamilyName() const;
+        WINRT_IMPL_AUTO(void) PackageFamilyName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Square30x30Logo() const;
+        WINRT_IMPL_AUTO(void) Square30x30Logo(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) LogoBackgroundColor() const;
+        WINRT_IMPL_AUTO(void) LogoBackgroundColor(Windows::UI::Color const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet2>
     {
@@ -1040,8 +1044,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySet3
     {
-        [[nodiscard]] auto EnterpriseId() const;
-        auto EnterpriseId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnterpriseId() const;
+        WINRT_IMPL_AUTO(void) EnterpriseId(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet3>
     {
@@ -1050,8 +1054,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySet4
     {
-        [[nodiscard]] auto ContentSourceUserActivityJson() const;
-        auto ContentSourceUserActivityJson(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentSourceUserActivityJson() const;
+        WINRT_IMPL_AUTO(void) ContentSourceUserActivityJson(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet4>
     {
@@ -1060,12 +1064,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySetView
     {
-        [[nodiscard]] auto Title() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto Thumbnail() const;
-        [[nodiscard]] auto FileTypes() const;
-        [[nodiscard]] auto ApplicationName() const;
-        [[nodiscard]] auto ApplicationListingUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::RandomAccessStreamReference) Thumbnail() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) FileTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ApplicationName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ApplicationListingUri() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView>
     {
@@ -1074,11 +1078,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySetView2
     {
-        [[nodiscard]] auto PackageFamilyName() const;
-        [[nodiscard]] auto ContentSourceWebLink() const;
-        [[nodiscard]] auto ContentSourceApplicationLink() const;
-        [[nodiscard]] auto Square30x30Logo() const;
-        [[nodiscard]] auto LogoBackgroundColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ContentSourceWebLink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ContentSourceApplicationLink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Square30x30Logo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) LogoBackgroundColor() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView2>
     {
@@ -1087,7 +1091,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySetView3
     {
-        [[nodiscard]] auto EnterpriseId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnterpriseId() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView3>
     {
@@ -1096,7 +1100,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySetView4
     {
-        [[nodiscard]] auto ContentSourceUserActivityJson() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentSourceUserActivityJson() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView4>
     {
@@ -1105,7 +1109,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackagePropertySetView5
     {
-        [[nodiscard]] auto IsFromRoamingClipboard() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsFromRoamingClipboard() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView5>
     {
@@ -1114,20 +1118,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackageView
     {
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto RequestedOperation() const;
-        auto ReportOperationCompleted(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
-        [[nodiscard]] auto AvailableFormats() const;
-        auto Contains(param::hstring const& formatId) const;
-        auto GetDataAsync(param::hstring const& formatId) const;
-        auto GetTextAsync() const;
-        auto GetTextAsync(param::hstring const& formatId) const;
-        auto GetUriAsync() const;
-        auto GetHtmlFormatAsync() const;
-        auto GetResourceMapAsync() const;
-        auto GetRtfAsync() const;
-        auto GetBitmapAsync() const;
-        auto GetStorageItemsAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackagePropertySetView) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) RequestedOperation() const;
+        WINRT_IMPL_AUTO(void) ReportOperationCompleted(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) AvailableFormats() const;
+        WINRT_IMPL_AUTO(bool) Contains(param::hstring const& formatId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::IInspectable>) GetDataAsync(param::hstring const& formatId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetTextAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetTextAsync(param::hstring const& formatId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Uri>) GetUriAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetHtmlFormatAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IMapView<hstring, Windows::Storage::Streams::RandomAccessStreamReference>>) GetResourceMapAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetRtfAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::RandomAccessStreamReference>) GetBitmapAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Storage::IStorageItem>>) GetStorageItemsAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackageView>
     {
@@ -1136,8 +1140,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackageView2
     {
-        auto GetApplicationLinkAsync() const;
-        auto GetWebLinkAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Uri>) GetApplicationLinkAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Uri>) GetWebLinkAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackageView2>
     {
@@ -1146,9 +1150,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackageView3
     {
-        auto RequestAccessAsync() const;
-        auto RequestAccessAsync(param::hstring const& enterpriseId) const;
-        auto UnlockAndAssumeEnterpriseIdentity() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult>) RequestAccessAsync(param::hstring const& enterpriseId) const;
+        WINRT_IMPL_AUTO(Windows::Security::EnterpriseData::ProtectionPolicyEvaluationResult) UnlockAndAssumeEnterpriseIdentity() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackageView3>
     {
@@ -1157,7 +1161,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataPackageView4
     {
-        auto SetAcceptedFormatId(param::hstring const& formatId) const;
+        WINRT_IMPL_AUTO(void) SetAcceptedFormatId(param::hstring const& formatId) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataPackageView4>
     {
@@ -1166,7 +1170,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataProviderDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataProviderDeferral>
     {
@@ -1175,10 +1179,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataProviderRequest
     {
-        [[nodiscard]] auto FormatId() const;
-        [[nodiscard]] auto Deadline() const;
-        auto GetDeferral() const;
-        auto SetData(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FormatId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Deadline() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataProviderDeferral) GetDeferral() const;
+        WINRT_IMPL_AUTO(void) SetData(Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataProviderRequest>
     {
@@ -1187,11 +1191,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataRequest
     {
-        [[nodiscard]] auto Data() const;
-        auto Data(Windows::ApplicationModel::DataTransfer::DataPackage const& value) const;
-        [[nodiscard]] auto Deadline() const;
-        auto FailWithDisplayText(param::hstring const& value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackage) Data() const;
+        WINRT_IMPL_AUTO(void) Data(Windows::ApplicationModel::DataTransfer::DataPackage const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Deadline() const;
+        WINRT_IMPL_AUTO(void) FailWithDisplayText(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataRequestDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataRequest>
     {
@@ -1200,7 +1204,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataRequestDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataRequestDeferral>
     {
@@ -1209,7 +1213,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataRequestedEventArgs
     {
-        [[nodiscard]] auto Request() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataRequest) Request() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataRequestedEventArgs>
     {
@@ -1218,14 +1222,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager
     {
-        auto DataRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& eventHandler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DataRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& eventHandler) const;
         using DataRequested_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataTransferManager, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataTransferManager>::remove_DataRequested>;
         [[nodiscard]] DataRequested_revoker DataRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& eventHandler) const;
-        auto DataRequested(winrt::event_token const& eventCookie) const noexcept;
-        auto TargetApplicationChosen(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& eventHandler) const;
+        WINRT_IMPL_AUTO(void) DataRequested(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TargetApplicationChosen(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& eventHandler) const;
         using TargetApplicationChosen_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataTransferManager, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataTransferManager>::remove_TargetApplicationChosen>;
         [[nodiscard]] TargetApplicationChosen_revoker TargetApplicationChosen(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& eventHandler) const;
-        auto TargetApplicationChosen(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(void) TargetApplicationChosen(winrt::event_token const& eventCookie) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataTransferManager>
     {
@@ -1234,10 +1238,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager2
     {
-        auto ShareProvidersRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::ShareProvidersRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ShareProvidersRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::ShareProvidersRequestedEventArgs> const& handler) const;
         using ShareProvidersRequested_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataTransferManager2, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataTransferManager2>::remove_ShareProvidersRequested>;
         [[nodiscard]] ShareProvidersRequested_revoker ShareProvidersRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::ShareProvidersRequestedEventArgs> const& handler) const;
-        auto ShareProvidersRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ShareProvidersRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataTransferManager2>
     {
@@ -1246,8 +1250,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataTransferManagerStatics
     {
-        auto ShowShareUI() const;
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(void) ShowShareUI() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataTransferManager) GetForCurrentView() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics>
     {
@@ -1256,7 +1260,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataTransferManagerStatics2
     {
-        auto IsSupported() const;
+        WINRT_IMPL_AUTO(bool) IsSupported() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2>
     {
@@ -1265,7 +1269,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataTransferManagerStatics3
     {
-        auto ShowShareUI(Windows::ApplicationModel::DataTransfer::ShareUIOptions const& options) const;
+        WINRT_IMPL_AUTO(void) ShowShareUI(Windows::ApplicationModel::DataTransfer::ShareUIOptions const& options) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics3>
     {
@@ -1274,8 +1278,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IHtmlFormatHelperStatics
     {
-        auto GetStaticFragment(param::hstring const& htmlFormat) const;
-        auto CreateHtmlFormat(param::hstring const& htmlFragment) const;
+        WINRT_IMPL_AUTO(hstring) GetStaticFragment(param::hstring const& htmlFormat) const;
+        WINRT_IMPL_AUTO(hstring) CreateHtmlFormat(param::hstring const& htmlFragment) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IHtmlFormatHelperStatics>
     {
@@ -1284,7 +1288,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IOperationCompletedEventArgs
     {
-        [[nodiscard]] auto Operation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) Operation() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs>
     {
@@ -1293,7 +1297,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IOperationCompletedEventArgs2
     {
-        [[nodiscard]] auto AcceptedFormatId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AcceptedFormatId() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs2>
     {
@@ -1302,7 +1306,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IShareCompletedEventArgs
     {
-        [[nodiscard]] auto ShareTarget() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::ShareTargetInfo) ShareTarget() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IShareCompletedEventArgs>
     {
@@ -1311,11 +1315,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IShareProvider
     {
-        [[nodiscard]] auto Title() const;
-        [[nodiscard]] auto DisplayIcon() const;
-        [[nodiscard]] auto BackgroundColor() const;
-        [[nodiscard]] auto Tag() const;
-        auto Tag(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::RandomAccessStreamReference) DisplayIcon() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) BackgroundColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Tag() const;
+        WINRT_IMPL_AUTO(void) Tag(Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IShareProvider>
     {
@@ -1324,7 +1328,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IShareProviderFactory
     {
-        auto Create(param::hstring const& title, Windows::Storage::Streams::RandomAccessStreamReference const& displayIcon, Windows::UI::Color const& backgroundColor, Windows::ApplicationModel::DataTransfer::ShareProviderHandler const& handler) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::ShareProvider) Create(param::hstring const& title, Windows::Storage::Streams::RandomAccessStreamReference const& displayIcon, Windows::UI::Color const& backgroundColor, Windows::ApplicationModel::DataTransfer::ShareProviderHandler const& handler) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IShareProviderFactory>
     {
@@ -1333,9 +1337,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IShareProviderOperation
     {
-        [[nodiscard]] auto Data() const;
-        [[nodiscard]] auto Provider() const;
-        auto ReportCompleted() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageView) Data() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::ShareProvider) Provider() const;
+        WINRT_IMPL_AUTO(void) ReportCompleted() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IShareProviderOperation>
     {
@@ -1344,9 +1348,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IShareProvidersRequestedEventArgs
     {
-        [[nodiscard]] auto Providers() const;
-        [[nodiscard]] auto Data() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::DataTransfer::ShareProvider>) Providers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageView) Data() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IShareProvidersRequestedEventArgs>
     {
@@ -1355,8 +1359,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IShareTargetInfo
     {
-        [[nodiscard]] auto AppUserModelId() const;
-        [[nodiscard]] auto ShareProvider() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppUserModelId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::ShareProvider) ShareProvider() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IShareTargetInfo>
     {
@@ -1365,10 +1369,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IShareUIOptions
     {
-        [[nodiscard]] auto Theme() const;
-        auto Theme(Windows::ApplicationModel::DataTransfer::ShareUITheme const& value) const;
-        [[nodiscard]] auto SelectionRect() const;
-        auto SelectionRect(Windows::Foundation::IReference<Windows::Foundation::Rect> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::ShareUITheme) Theme() const;
+        WINRT_IMPL_AUTO(void) Theme(Windows::ApplicationModel::DataTransfer::ShareUITheme const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Rect>) SelectionRect() const;
+        WINRT_IMPL_AUTO(void) SelectionRect(Windows::Foundation::IReference<Windows::Foundation::Rect> const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IShareUIOptions>
     {
@@ -1377,9 +1381,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_ISharedStorageAccessManagerStatics
     {
-        auto AddFile(Windows::Storage::IStorageFile const& file) const;
-        auto RedeemTokenForFileAsync(param::hstring const& token) const;
-        auto RemoveFile(param::hstring const& token) const;
+        WINRT_IMPL_AUTO(hstring) AddFile(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) RedeemTokenForFileAsync(param::hstring const& token) const;
+        WINRT_IMPL_AUTO(void) RemoveFile(param::hstring const& token) const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::ISharedStorageAccessManagerStatics>
     {
@@ -1388,12 +1392,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IStandardDataFormatsStatics
     {
-        [[nodiscard]] auto Text() const;
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Html() const;
-        [[nodiscard]] auto Rtf() const;
-        [[nodiscard]] auto Bitmap() const;
-        [[nodiscard]] auto StorageItems() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Html() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Rtf() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Bitmap() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) StorageItems() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics>
     {
@@ -1402,8 +1406,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IStandardDataFormatsStatics2
     {
-        [[nodiscard]] auto WebLink() const;
-        [[nodiscard]] auto ApplicationLink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WebLink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ApplicationLink() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics2>
     {
@@ -1412,7 +1416,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IStandardDataFormatsStatics3
     {
-        [[nodiscard]] auto UserActivityJsonArray() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserActivityJsonArray() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics3>
     {
@@ -1421,7 +1425,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_ITargetApplicationChosenEventArgs
     {
-        [[nodiscard]] auto ApplicationName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ApplicationName() const;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::ITargetApplicationChosenEventArgs>
     {

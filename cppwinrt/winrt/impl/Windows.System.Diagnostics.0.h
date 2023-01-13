@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,13 +12,18 @@ WINRT_EXPORT namespace winrt::Windows::Data::Json
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct HResult;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
     struct ValueSet;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
+    struct AppDiagnosticInfo;
+    enum class ProcessorArchitecture : int32_t;
     struct User;
 }
 WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
@@ -33,14 +38,22 @@ WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
         VerifyingResolution = 5,
         Executing = 6,
     };
+    enum class ExecutionEnvironmentKind : int32_t
+    {
+        Other = 0,
+        Native = 1,
+        Win32Container = 2,
+    };
     struct IDiagnosticActionResult;
     struct IDiagnosticInvoker;
     struct IDiagnosticInvoker2;
     struct IDiagnosticInvokerStatics;
+    struct IExecutionEnvironment;
     struct IProcessCpuUsage;
     struct IProcessCpuUsageReport;
     struct IProcessDiagnosticInfo;
     struct IProcessDiagnosticInfo2;
+    struct IProcessDiagnosticInfo3;
     struct IProcessDiagnosticInfoStatics;
     struct IProcessDiagnosticInfoStatics2;
     struct IProcessDiskUsage;
@@ -51,10 +64,12 @@ WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
     struct ISystemCpuUsageReport;
     struct ISystemDiagnosticInfo;
     struct ISystemDiagnosticInfoStatics;
+    struct ISystemDiagnosticInfoStatics2;
     struct ISystemMemoryUsage;
     struct ISystemMemoryUsageReport;
     struct DiagnosticActionResult;
     struct DiagnosticInvoker;
+    struct ExecutionEnvironment;
     struct ProcessCpuUsage;
     struct ProcessCpuUsageReport;
     struct ProcessDiagnosticInfo;
@@ -74,10 +89,12 @@ namespace winrt::impl
     template <> struct category<Windows::System::Diagnostics::IDiagnosticInvoker>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IDiagnosticInvoker2>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IDiagnosticInvokerStatics>{ using type = interface_category; };
+    template <> struct category<Windows::System::Diagnostics::IExecutionEnvironment>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IProcessCpuUsage>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IProcessCpuUsageReport>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IProcessDiagnosticInfo>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IProcessDiagnosticInfo2>{ using type = interface_category; };
+    template <> struct category<Windows::System::Diagnostics::IProcessDiagnosticInfo3>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics2>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::IProcessDiskUsage>{ using type = interface_category; };
@@ -88,10 +105,12 @@ namespace winrt::impl
     template <> struct category<Windows::System::Diagnostics::ISystemCpuUsageReport>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::ISystemDiagnosticInfo>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics>{ using type = interface_category; };
+    template <> struct category<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::ISystemMemoryUsage>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::ISystemMemoryUsageReport>{ using type = interface_category; };
     template <> struct category<Windows::System::Diagnostics::DiagnosticActionResult>{ using type = class_category; };
     template <> struct category<Windows::System::Diagnostics::DiagnosticInvoker>{ using type = class_category; };
+    template <> struct category<Windows::System::Diagnostics::ExecutionEnvironment>{ using type = class_category; };
     template <> struct category<Windows::System::Diagnostics::ProcessCpuUsage>{ using type = class_category; };
     template <> struct category<Windows::System::Diagnostics::ProcessCpuUsageReport>{ using type = class_category; };
     template <> struct category<Windows::System::Diagnostics::ProcessDiagnosticInfo>{ using type = class_category; };
@@ -105,51 +124,57 @@ namespace winrt::impl
     template <> struct category<Windows::System::Diagnostics::SystemMemoryUsage>{ using type = class_category; };
     template <> struct category<Windows::System::Diagnostics::SystemMemoryUsageReport>{ using type = class_category; };
     template <> struct category<Windows::System::Diagnostics::DiagnosticActionState>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DiagnosticActionResult>{ L"Windows.System.Diagnostics.DiagnosticActionResult" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DiagnosticInvoker>{ L"Windows.System.Diagnostics.DiagnosticInvoker" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessCpuUsage>{ L"Windows.System.Diagnostics.ProcessCpuUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessCpuUsageReport>{ L"Windows.System.Diagnostics.ProcessCpuUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessDiagnosticInfo>{ L"Windows.System.Diagnostics.ProcessDiagnosticInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessDiskUsage>{ L"Windows.System.Diagnostics.ProcessDiskUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessDiskUsageReport>{ L"Windows.System.Diagnostics.ProcessDiskUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessMemoryUsage>{ L"Windows.System.Diagnostics.ProcessMemoryUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessMemoryUsageReport>{ L"Windows.System.Diagnostics.ProcessMemoryUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemCpuUsage>{ L"Windows.System.Diagnostics.SystemCpuUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemCpuUsageReport>{ L"Windows.System.Diagnostics.SystemCpuUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemDiagnosticInfo>{ L"Windows.System.Diagnostics.SystemDiagnosticInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemMemoryUsage>{ L"Windows.System.Diagnostics.SystemMemoryUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemMemoryUsageReport>{ L"Windows.System.Diagnostics.SystemMemoryUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DiagnosticActionState>{ L"Windows.System.Diagnostics.DiagnosticActionState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IDiagnosticActionResult>{ L"Windows.System.Diagnostics.IDiagnosticActionResult" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IDiagnosticInvoker>{ L"Windows.System.Diagnostics.IDiagnosticInvoker" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IDiagnosticInvoker2>{ L"Windows.System.Diagnostics.IDiagnosticInvoker2" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IDiagnosticInvokerStatics>{ L"Windows.System.Diagnostics.IDiagnosticInvokerStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessCpuUsage>{ L"Windows.System.Diagnostics.IProcessCpuUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessCpuUsageReport>{ L"Windows.System.Diagnostics.IProcessCpuUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfo>{ L"Windows.System.Diagnostics.IProcessDiagnosticInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfo2>{ L"Windows.System.Diagnostics.IProcessDiagnosticInfo2" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics>{ L"Windows.System.Diagnostics.IProcessDiagnosticInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics2>{ L"Windows.System.Diagnostics.IProcessDiagnosticInfoStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiskUsage>{ L"Windows.System.Diagnostics.IProcessDiskUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiskUsageReport>{ L"Windows.System.Diagnostics.IProcessDiskUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessMemoryUsage>{ L"Windows.System.Diagnostics.IProcessMemoryUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessMemoryUsageReport>{ L"Windows.System.Diagnostics.IProcessMemoryUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemCpuUsage>{ L"Windows.System.Diagnostics.ISystemCpuUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemCpuUsageReport>{ L"Windows.System.Diagnostics.ISystemCpuUsageReport" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemDiagnosticInfo>{ L"Windows.System.Diagnostics.ISystemDiagnosticInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics>{ L"Windows.System.Diagnostics.ISystemDiagnosticInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemMemoryUsage>{ L"Windows.System.Diagnostics.ISystemMemoryUsage" };
-    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemMemoryUsageReport>{ L"Windows.System.Diagnostics.ISystemMemoryUsageReport" };
-#endif
+    template <> struct category<Windows::System::Diagnostics::ExecutionEnvironmentKind>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DiagnosticActionResult> = L"Windows.System.Diagnostics.DiagnosticActionResult";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DiagnosticInvoker> = L"Windows.System.Diagnostics.DiagnosticInvoker";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ExecutionEnvironment> = L"Windows.System.Diagnostics.ExecutionEnvironment";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessCpuUsage> = L"Windows.System.Diagnostics.ProcessCpuUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessCpuUsageReport> = L"Windows.System.Diagnostics.ProcessCpuUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessDiagnosticInfo> = L"Windows.System.Diagnostics.ProcessDiagnosticInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessDiskUsage> = L"Windows.System.Diagnostics.ProcessDiskUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessDiskUsageReport> = L"Windows.System.Diagnostics.ProcessDiskUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessMemoryUsage> = L"Windows.System.Diagnostics.ProcessMemoryUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ProcessMemoryUsageReport> = L"Windows.System.Diagnostics.ProcessMemoryUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemCpuUsage> = L"Windows.System.Diagnostics.SystemCpuUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemCpuUsageReport> = L"Windows.System.Diagnostics.SystemCpuUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemDiagnosticInfo> = L"Windows.System.Diagnostics.SystemDiagnosticInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemMemoryUsage> = L"Windows.System.Diagnostics.SystemMemoryUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::SystemMemoryUsageReport> = L"Windows.System.Diagnostics.SystemMemoryUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DiagnosticActionState> = L"Windows.System.Diagnostics.DiagnosticActionState";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ExecutionEnvironmentKind> = L"Windows.System.Diagnostics.ExecutionEnvironmentKind";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IDiagnosticActionResult> = L"Windows.System.Diagnostics.IDiagnosticActionResult";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IDiagnosticInvoker> = L"Windows.System.Diagnostics.IDiagnosticInvoker";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IDiagnosticInvoker2> = L"Windows.System.Diagnostics.IDiagnosticInvoker2";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IDiagnosticInvokerStatics> = L"Windows.System.Diagnostics.IDiagnosticInvokerStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IExecutionEnvironment> = L"Windows.System.Diagnostics.IExecutionEnvironment";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessCpuUsage> = L"Windows.System.Diagnostics.IProcessCpuUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessCpuUsageReport> = L"Windows.System.Diagnostics.IProcessCpuUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfo> = L"Windows.System.Diagnostics.IProcessDiagnosticInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfo2> = L"Windows.System.Diagnostics.IProcessDiagnosticInfo2";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfo3> = L"Windows.System.Diagnostics.IProcessDiagnosticInfo3";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics> = L"Windows.System.Diagnostics.IProcessDiagnosticInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics2> = L"Windows.System.Diagnostics.IProcessDiagnosticInfoStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiskUsage> = L"Windows.System.Diagnostics.IProcessDiskUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessDiskUsageReport> = L"Windows.System.Diagnostics.IProcessDiskUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessMemoryUsage> = L"Windows.System.Diagnostics.IProcessMemoryUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::IProcessMemoryUsageReport> = L"Windows.System.Diagnostics.IProcessMemoryUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemCpuUsage> = L"Windows.System.Diagnostics.ISystemCpuUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemCpuUsageReport> = L"Windows.System.Diagnostics.ISystemCpuUsageReport";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemDiagnosticInfo> = L"Windows.System.Diagnostics.ISystemDiagnosticInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics> = L"Windows.System.Diagnostics.ISystemDiagnosticInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2> = L"Windows.System.Diagnostics.ISystemDiagnosticInfoStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemMemoryUsage> = L"Windows.System.Diagnostics.ISystemMemoryUsage";
+    template <> inline constexpr auto& name_v<Windows::System::Diagnostics::ISystemMemoryUsageReport> = L"Windows.System.Diagnostics.ISystemMemoryUsageReport";
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IDiagnosticActionResult>{ 0xC265A296,0xE73B,0x4097,{ 0xB2,0x8F,0x34,0x42,0xF0,0x3D,0xD8,0x31 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IDiagnosticInvoker>{ 0x187B270A,0x02E3,0x4F86,{ 0x84,0xFC,0xFD,0xD8,0x92,0xB5,0x94,0x0F } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IDiagnosticInvoker2>{ 0xE3BF945C,0x155A,0x4B52,{ 0xA8,0xEC,0x07,0x0C,0x44,0xF9,0x50,0x00 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IDiagnosticInvokerStatics>{ 0x5CFAD8DE,0xF15C,0x4554,{ 0xA8,0x13,0xC1,0x13,0xC3,0x88,0x1B,0x09 } };
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IExecutionEnvironment>{ 0xD49B283A,0x7AA3,0x4100,{ 0xA5,0xEA,0x7E,0xA0,0x3E,0xD8,0xF1,0x0A } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IProcessCpuUsage>{ 0x0BBB2472,0xC8BF,0x423A,{ 0xA8,0x10,0xB5,0x59,0xAE,0x43,0x54,0xE2 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IProcessCpuUsageReport>{ 0x8A6D9CAC,0x3987,0x4E2F,{ 0xA1,0x19,0x6B,0x5F,0xA2,0x14,0xF1,0xB4 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IProcessDiagnosticInfo>{ 0xE830B04B,0x300E,0x4EE6,{ 0xA0,0xAB,0x5B,0x5F,0x52,0x31,0xB4,0x34 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IProcessDiagnosticInfo2>{ 0x9558CB1A,0x3D0B,0x49EC,{ 0xAB,0x70,0x4F,0x7A,0x11,0x28,0x05,0xDE } };
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IProcessDiagnosticInfo3>{ 0xED5D0634,0x75B8,0x4941,{ 0x99,0x8A,0x45,0x15,0x3F,0x67,0xE6,0x5F } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics>{ 0x2F41B260,0xB49F,0x428C,{ 0xAA,0x0E,0x84,0x74,0x4F,0x49,0xCA,0x95 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics2>{ 0x4A869897,0x9899,0x4A44,{ 0xA2,0x9B,0x09,0x16,0x63,0xBE,0x09,0xB6 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::IProcessDiskUsage>{ 0x5AD78BFD,0x7E51,0x4E53,{ 0xBF,0xAA,0x5A,0x6E,0xE1,0xAA,0xBB,0xF8 } };
@@ -160,10 +185,12 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::ISystemCpuUsageReport>{ 0x2C26D0B2,0x9483,0x4F62,{ 0xAB,0x57,0x82,0xB2,0x9D,0x97,0x19,0xB8 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::ISystemDiagnosticInfo>{ 0xA290FE05,0xDFF3,0x407F,{ 0x9A,0x1B,0x0B,0x2B,0x31,0x7C,0xA8,0x00 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics>{ 0xD404AC21,0xFC7D,0x45F0,{ 0x9A,0x3F,0x39,0x20,0x3A,0xED,0x9F,0x7E } };
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2>{ 0xF6AAE5F4,0xF4D7,0x4081,{ 0x9D,0xFA,0x6B,0x49,0x9C,0xC9,0x13,0x87 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::ISystemMemoryUsage>{ 0x17FFC595,0x1702,0x49CF,{ 0xAA,0x27,0x2F,0x0A,0x32,0x59,0x14,0x04 } };
     template <> inline constexpr guid guid_v<Windows::System::Diagnostics::ISystemMemoryUsageReport>{ 0x38663C87,0x2A9F,0x403A,{ 0xBD,0x19,0x2C,0xF3,0xE8,0x16,0x95,0x00 } };
     template <> struct default_interface<Windows::System::Diagnostics::DiagnosticActionResult>{ using type = Windows::System::Diagnostics::IDiagnosticActionResult; };
     template <> struct default_interface<Windows::System::Diagnostics::DiagnosticInvoker>{ using type = Windows::System::Diagnostics::IDiagnosticInvoker; };
+    template <> struct default_interface<Windows::System::Diagnostics::ExecutionEnvironment>{ using type = Windows::System::Diagnostics::IExecutionEnvironment; };
     template <> struct default_interface<Windows::System::Diagnostics::ProcessCpuUsage>{ using type = Windows::System::Diagnostics::IProcessCpuUsage; };
     template <> struct default_interface<Windows::System::Diagnostics::ProcessCpuUsageReport>{ using type = Windows::System::Diagnostics::IProcessCpuUsageReport; };
     template <> struct default_interface<Windows::System::Diagnostics::ProcessDiagnosticInfo>{ using type = Windows::System::Diagnostics::IProcessDiagnosticInfo; };
@@ -207,6 +234,13 @@ namespace winrt::impl
             virtual int32_t __stdcall get_IsSupported(bool*) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::System::Diagnostics::IExecutionEnvironment>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Kind(int32_t*) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::System::Diagnostics::IProcessCpuUsage>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -241,6 +275,13 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall GetAppDiagnosticInfos(void**) noexcept = 0;
             virtual int32_t __stdcall get_IsPackaged(bool*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::System::Diagnostics::IProcessDiagnosticInfo3>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_ExecutionEnvironmentInfo(void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics>
@@ -333,6 +374,16 @@ namespace winrt::impl
             virtual int32_t __stdcall GetForCurrentSystem(void**) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_SupportedExecutionEnvironments(void**) noexcept = 0;
+            virtual int32_t __stdcall IsEnvironmentKindSupported(int32_t, bool*) noexcept = 0;
+            virtual int32_t __stdcall IsArchitectureSupported(int32_t, bool*) noexcept = 0;
+            virtual int32_t __stdcall get_PreferredArchitecture(int32_t*) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::System::Diagnostics::ISystemMemoryUsage>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -352,8 +403,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IDiagnosticActionResult
     {
-        [[nodiscard]] auto ExtendedError() const;
-        [[nodiscard]] auto Results() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Results() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IDiagnosticActionResult>
     {
@@ -362,7 +413,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IDiagnosticInvoker
     {
-        auto RunDiagnosticActionAsync(Windows::Data::Json::JsonObject const& context) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::System::Diagnostics::DiagnosticActionResult, Windows::System::Diagnostics::DiagnosticActionState>) RunDiagnosticActionAsync(Windows::Data::Json::JsonObject const& context) const;
     };
     template <> struct consume<Windows::System::Diagnostics::IDiagnosticInvoker>
     {
@@ -371,7 +422,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IDiagnosticInvoker2
     {
-        auto RunDiagnosticActionFromStringAsync(param::hstring const& context) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::System::Diagnostics::DiagnosticActionResult, Windows::System::Diagnostics::DiagnosticActionState>) RunDiagnosticActionFromStringAsync(param::hstring const& context) const;
     };
     template <> struct consume<Windows::System::Diagnostics::IDiagnosticInvoker2>
     {
@@ -380,18 +431,27 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IDiagnosticInvokerStatics
     {
-        auto GetDefault() const;
-        auto GetForUser(Windows::System::User const& user) const;
-        [[nodiscard]] auto IsSupported() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::DiagnosticInvoker) GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::DiagnosticInvoker) GetForUser(Windows::System::User const& user) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSupported() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IDiagnosticInvokerStatics>
     {
         template <typename D> using type = consume_Windows_System_Diagnostics_IDiagnosticInvokerStatics<D>;
     };
     template <typename D>
+    struct consume_Windows_System_Diagnostics_IExecutionEnvironment
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::ExecutionEnvironmentKind) Kind() const;
+    };
+    template <> struct consume<Windows::System::Diagnostics::IExecutionEnvironment>
+    {
+        template <typename D> using type = consume_Windows_System_Diagnostics_IExecutionEnvironment<D>;
+    };
+    template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessCpuUsage
     {
-        auto GetReport() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessCpuUsageReport) GetReport() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessCpuUsage>
     {
@@ -400,8 +460,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessCpuUsageReport
     {
-        [[nodiscard]] auto KernelTime() const;
-        [[nodiscard]] auto UserTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) KernelTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) UserTime() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessCpuUsageReport>
     {
@@ -410,13 +470,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessDiagnosticInfo
     {
-        [[nodiscard]] auto ProcessId() const;
-        [[nodiscard]] auto ExecutableFileName() const;
-        [[nodiscard]] auto Parent() const;
-        [[nodiscard]] auto ProcessStartTime() const;
-        [[nodiscard]] auto DiskUsage() const;
-        [[nodiscard]] auto MemoryUsage() const;
-        [[nodiscard]] auto CpuUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ProcessId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ExecutableFileName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessDiagnosticInfo) Parent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) ProcessStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessDiskUsage) DiskUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessMemoryUsage) MemoryUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessCpuUsage) CpuUsage() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessDiagnosticInfo>
     {
@@ -425,18 +485,27 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessDiagnosticInfo2
     {
-        auto GetAppDiagnosticInfos() const;
-        [[nodiscard]] auto IsPackaged() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::System::AppDiagnosticInfo>) GetAppDiagnosticInfos() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPackaged() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessDiagnosticInfo2>
     {
         template <typename D> using type = consume_Windows_System_Diagnostics_IProcessDiagnosticInfo2<D>;
     };
     template <typename D>
+    struct consume_Windows_System_Diagnostics_IProcessDiagnosticInfo3
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::ExecutionEnvironment) ExecutionEnvironmentInfo() const;
+    };
+    template <> struct consume<Windows::System::Diagnostics::IProcessDiagnosticInfo3>
+    {
+        template <typename D> using type = consume_Windows_System_Diagnostics_IProcessDiagnosticInfo3<D>;
+    };
+    template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessDiagnosticInfoStatics
     {
-        auto GetForProcesses() const;
-        auto GetForCurrentProcess() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::Diagnostics::ProcessDiagnosticInfo>) GetForProcesses() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessDiagnosticInfo) GetForCurrentProcess() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics>
     {
@@ -445,7 +514,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessDiagnosticInfoStatics2
     {
-        auto TryGetForProcessId(uint32_t processId) const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessDiagnosticInfo) TryGetForProcessId(uint32_t processId) const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessDiagnosticInfoStatics2>
     {
@@ -454,7 +523,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessDiskUsage
     {
-        auto GetReport() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessDiskUsageReport) GetReport() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessDiskUsage>
     {
@@ -463,12 +532,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessDiskUsageReport
     {
-        [[nodiscard]] auto ReadOperationCount() const;
-        [[nodiscard]] auto WriteOperationCount() const;
-        [[nodiscard]] auto OtherOperationCount() const;
-        [[nodiscard]] auto BytesReadCount() const;
-        [[nodiscard]] auto BytesWrittenCount() const;
-        [[nodiscard]] auto OtherBytesCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) ReadOperationCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) WriteOperationCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) OtherOperationCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) BytesReadCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) BytesWrittenCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) OtherBytesCount() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessDiskUsageReport>
     {
@@ -477,7 +546,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessMemoryUsage
     {
-        auto GetReport() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessMemoryUsageReport) GetReport() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessMemoryUsage>
     {
@@ -486,18 +555,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_IProcessMemoryUsageReport
     {
-        [[nodiscard]] auto NonPagedPoolSizeInBytes() const;
-        [[nodiscard]] auto PageFaultCount() const;
-        [[nodiscard]] auto PageFileSizeInBytes() const;
-        [[nodiscard]] auto PagedPoolSizeInBytes() const;
-        [[nodiscard]] auto PeakNonPagedPoolSizeInBytes() const;
-        [[nodiscard]] auto PeakPageFileSizeInBytes() const;
-        [[nodiscard]] auto PeakPagedPoolSizeInBytes() const;
-        [[nodiscard]] auto PeakVirtualMemorySizeInBytes() const;
-        [[nodiscard]] auto PeakWorkingSetSizeInBytes() const;
-        [[nodiscard]] auto PrivatePageCount() const;
-        [[nodiscard]] auto VirtualMemorySizeInBytes() const;
-        [[nodiscard]] auto WorkingSetSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) NonPagedPoolSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PageFaultCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PageFileSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PagedPoolSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PeakNonPagedPoolSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PeakPageFileSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PeakPagedPoolSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PeakVirtualMemorySizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PeakWorkingSetSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PrivatePageCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) VirtualMemorySizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) WorkingSetSizeInBytes() const;
     };
     template <> struct consume<Windows::System::Diagnostics::IProcessMemoryUsageReport>
     {
@@ -506,7 +575,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_ISystemCpuUsage
     {
-        auto GetReport() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::SystemCpuUsageReport) GetReport() const;
     };
     template <> struct consume<Windows::System::Diagnostics::ISystemCpuUsage>
     {
@@ -515,9 +584,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_ISystemCpuUsageReport
     {
-        [[nodiscard]] auto KernelTime() const;
-        [[nodiscard]] auto UserTime() const;
-        [[nodiscard]] auto IdleTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) KernelTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) UserTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) IdleTime() const;
     };
     template <> struct consume<Windows::System::Diagnostics::ISystemCpuUsageReport>
     {
@@ -526,8 +595,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_ISystemDiagnosticInfo
     {
-        [[nodiscard]] auto MemoryUsage() const;
-        [[nodiscard]] auto CpuUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::SystemMemoryUsage) MemoryUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Diagnostics::SystemCpuUsage) CpuUsage() const;
     };
     template <> struct consume<Windows::System::Diagnostics::ISystemDiagnosticInfo>
     {
@@ -536,16 +605,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics
     {
-        auto GetForCurrentSystem() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::SystemDiagnosticInfo) GetForCurrentSystem() const;
     };
     template <> struct consume<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics>
     {
         template <typename D> using type = consume_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics<D>;
     };
     template <typename D>
+    struct consume_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics2
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::Diagnostics::ExecutionEnvironment>) SupportedExecutionEnvironments() const;
+        WINRT_IMPL_AUTO(bool) IsEnvironmentKindSupported(Windows::System::Diagnostics::ExecutionEnvironmentKind const& kind) const;
+        WINRT_IMPL_AUTO(bool) IsArchitectureSupported(Windows::System::ProcessorArchitecture const& type) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::ProcessorArchitecture) PreferredArchitecture() const;
+    };
+    template <> struct consume<Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2>
+    {
+        template <typename D> using type = consume_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics2<D>;
+    };
+    template <typename D>
     struct consume_Windows_System_Diagnostics_ISystemMemoryUsage
     {
-        auto GetReport() const;
+        WINRT_IMPL_AUTO(Windows::System::Diagnostics::SystemMemoryUsageReport) GetReport() const;
     };
     template <> struct consume<Windows::System::Diagnostics::ISystemMemoryUsage>
     {
@@ -554,9 +635,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Diagnostics_ISystemMemoryUsageReport
     {
-        [[nodiscard]] auto TotalPhysicalSizeInBytes() const;
-        [[nodiscard]] auto AvailableSizeInBytes() const;
-        [[nodiscard]] auto CommittedSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) TotalPhysicalSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) AvailableSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) CommittedSizeInBytes() const;
     };
     template <> struct consume<Windows::System::Diagnostics::ISystemMemoryUsageReport>
     {

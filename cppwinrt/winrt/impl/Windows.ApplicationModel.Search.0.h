@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,6 +13,12 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
+}
+WINRT_EXPORT namespace winrt::Windows::Storage
+{
+    struct StorageFolder;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -87,40 +93,38 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Search::SearchSuggestionCollection>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Search::SearchSuggestionsRequest>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Search::SearchSuggestionsRequestDeferral>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::LocalContentSuggestionSettings>{ L"Windows.ApplicationModel.Search.LocalContentSuggestionSettings" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPane>{ L"Windows.ApplicationModel.Search.SearchPane" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneQueryChangedEventArgs>{ L"Windows.ApplicationModel.Search.SearchPaneQueryChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneQueryLinguisticDetails>{ L"Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneQuerySubmittedEventArgs>{ L"Windows.ApplicationModel.Search.SearchPaneQuerySubmittedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneResultSuggestionChosenEventArgs>{ L"Windows.ApplicationModel.Search.SearchPaneResultSuggestionChosenEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneSuggestionsRequest>{ L"Windows.ApplicationModel.Search.SearchPaneSuggestionsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneSuggestionsRequestDeferral>{ L"Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneSuggestionsRequestedEventArgs>{ L"Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneVisibilityChangedEventArgs>{ L"Windows.ApplicationModel.Search.SearchPaneVisibilityChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchQueryLinguisticDetails>{ L"Windows.ApplicationModel.Search.SearchQueryLinguisticDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchSuggestionCollection>{ L"Windows.ApplicationModel.Search.SearchSuggestionCollection" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchSuggestionsRequest>{ L"Windows.ApplicationModel.Search.SearchSuggestionsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchSuggestionsRequestDeferral>{ L"Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ILocalContentSuggestionSettings>{ L"Windows.ApplicationModel.Search.ILocalContentSuggestionSettings" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPane>{ L"Windows.ApplicationModel.Search.ISearchPane" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneQueryChangedEventArgs>{ L"Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneQueryLinguisticDetails>{ L"Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgs>{ L"Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>{ L"Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneResultSuggestionChosenEventArgs>{ L"Windows.ApplicationModel.Search.ISearchPaneResultSuggestionChosenEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneStatics>{ L"Windows.ApplicationModel.Search.ISearchPaneStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneStaticsWithHideThisApplication>{ L"Windows.ApplicationModel.Search.ISearchPaneStaticsWithHideThisApplication" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequest>{ L"Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestDeferral>{ L"Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestedEventArgs>{ L"Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneVisibilityChangedEventArgs>{ L"Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetails>{ L"Windows.ApplicationModel.Search.ISearchQueryLinguisticDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetailsFactory>{ L"Windows.ApplicationModel.Search.ISearchQueryLinguisticDetailsFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionCollection>{ L"Windows.ApplicationModel.Search.ISearchSuggestionCollection" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequest>{ L"Windows.ApplicationModel.Search.ISearchSuggestionsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequestDeferral>{ L"Windows.ApplicationModel.Search.ISearchSuggestionsRequestDeferral" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::LocalContentSuggestionSettings> = L"Windows.ApplicationModel.Search.LocalContentSuggestionSettings";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPane> = L"Windows.ApplicationModel.Search.SearchPane";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneQueryChangedEventArgs> = L"Windows.ApplicationModel.Search.SearchPaneQueryChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneQueryLinguisticDetails> = L"Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneQuerySubmittedEventArgs> = L"Windows.ApplicationModel.Search.SearchPaneQuerySubmittedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneResultSuggestionChosenEventArgs> = L"Windows.ApplicationModel.Search.SearchPaneResultSuggestionChosenEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneSuggestionsRequest> = L"Windows.ApplicationModel.Search.SearchPaneSuggestionsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneSuggestionsRequestDeferral> = L"Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneSuggestionsRequestedEventArgs> = L"Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchPaneVisibilityChangedEventArgs> = L"Windows.ApplicationModel.Search.SearchPaneVisibilityChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchQueryLinguisticDetails> = L"Windows.ApplicationModel.Search.SearchQueryLinguisticDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchSuggestionCollection> = L"Windows.ApplicationModel.Search.SearchSuggestionCollection";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchSuggestionsRequest> = L"Windows.ApplicationModel.Search.SearchSuggestionsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::SearchSuggestionsRequestDeferral> = L"Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ILocalContentSuggestionSettings> = L"Windows.ApplicationModel.Search.ILocalContentSuggestionSettings";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPane> = L"Windows.ApplicationModel.Search.ISearchPane";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneQueryChangedEventArgs> = L"Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneQueryLinguisticDetails> = L"Windows.ApplicationModel.Search.ISearchPaneQueryLinguisticDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgs> = L"Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails> = L"Windows.ApplicationModel.Search.ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneResultSuggestionChosenEventArgs> = L"Windows.ApplicationModel.Search.ISearchPaneResultSuggestionChosenEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneStatics> = L"Windows.ApplicationModel.Search.ISearchPaneStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneStaticsWithHideThisApplication> = L"Windows.ApplicationModel.Search.ISearchPaneStaticsWithHideThisApplication";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequest> = L"Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestDeferral> = L"Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestedEventArgs> = L"Windows.ApplicationModel.Search.ISearchPaneSuggestionsRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchPaneVisibilityChangedEventArgs> = L"Windows.ApplicationModel.Search.ISearchPaneVisibilityChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetails> = L"Windows.ApplicationModel.Search.ISearchQueryLinguisticDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetailsFactory> = L"Windows.ApplicationModel.Search.ISearchQueryLinguisticDetailsFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionCollection> = L"Windows.ApplicationModel.Search.ISearchSuggestionCollection";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequest> = L"Windows.ApplicationModel.Search.ISearchSuggestionsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequestDeferral> = L"Windows.ApplicationModel.Search.ISearchSuggestionsRequestDeferral";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ILocalContentSuggestionSettings>{ 0xEEAEB062,0x743D,0x456E,{ 0x84,0xA3,0x23,0xF0,0x6F,0x2D,0x15,0xD7 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPane>{ 0xFDACEC38,0x3700,0x4D73,{ 0x91,0xA1,0x2F,0x99,0x86,0x74,0x23,0x8A } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQueryChangedEventArgs>{ 0x3C064FE9,0x2351,0x4248,{ 0xA5,0x29,0x71,0x10,0xF4,0x64,0xA7,0x85 } };
@@ -326,12 +330,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ILocalContentSuggestionSettings
     {
-        auto Enabled(bool value) const;
-        [[nodiscard]] auto Enabled() const;
-        [[nodiscard]] auto Locations() const;
-        auto AqsFilter(param::hstring const& value) const;
-        [[nodiscard]] auto AqsFilter() const;
-        [[nodiscard]] auto PropertiesToMatch() const;
+        WINRT_IMPL_AUTO(void) Enabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Storage::StorageFolder>) Locations() const;
+        WINRT_IMPL_AUTO(void) AqsFilter(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AqsFilter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) PropertiesToMatch() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ILocalContentSuggestionSettings>
     {
@@ -340,41 +344,41 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPane
     {
-        auto SearchHistoryEnabled(bool value) const;
-        [[nodiscard]] auto SearchHistoryEnabled() const;
-        auto SearchHistoryContext(param::hstring const& value) const;
-        [[nodiscard]] auto SearchHistoryContext() const;
-        auto PlaceholderText(param::hstring const& value) const;
-        [[nodiscard]] auto PlaceholderText() const;
-        [[nodiscard]] auto QueryText() const;
-        [[nodiscard]] auto Language() const;
-        [[nodiscard]] auto Visible() const;
-        auto VisibilityChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneVisibilityChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SearchHistoryEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SearchHistoryEnabled() const;
+        WINRT_IMPL_AUTO(void) SearchHistoryContext(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SearchHistoryContext() const;
+        WINRT_IMPL_AUTO(void) PlaceholderText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PlaceholderText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) QueryText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Visible() const;
+        WINRT_IMPL_AUTO(winrt::event_token) VisibilityChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneVisibilityChangedEventArgs> const& handler) const;
         using VisibilityChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Search::ISearchPane, &impl::abi_t<Windows::ApplicationModel::Search::ISearchPane>::remove_VisibilityChanged>;
         [[nodiscard]] VisibilityChanged_revoker VisibilityChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneVisibilityChangedEventArgs> const& handler) const;
-        auto VisibilityChanged(winrt::event_token const& token) const noexcept;
-        auto QueryChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneQueryChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) VisibilityChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) QueryChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneQueryChangedEventArgs> const& handler) const;
         using QueryChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Search::ISearchPane, &impl::abi_t<Windows::ApplicationModel::Search::ISearchPane>::remove_QueryChanged>;
         [[nodiscard]] QueryChanged_revoker QueryChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneQueryChangedEventArgs> const& handler) const;
-        auto QueryChanged(winrt::event_token const& token) const noexcept;
-        auto SuggestionsRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneSuggestionsRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) QueryChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SuggestionsRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneSuggestionsRequestedEventArgs> const& handler) const;
         using SuggestionsRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Search::ISearchPane, &impl::abi_t<Windows::ApplicationModel::Search::ISearchPane>::remove_SuggestionsRequested>;
         [[nodiscard]] SuggestionsRequested_revoker SuggestionsRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneSuggestionsRequestedEventArgs> const& handler) const;
-        auto SuggestionsRequested(winrt::event_token const& token) const noexcept;
-        auto QuerySubmitted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneQuerySubmittedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SuggestionsRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) QuerySubmitted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneQuerySubmittedEventArgs> const& handler) const;
         using QuerySubmitted_revoker = impl::event_revoker<Windows::ApplicationModel::Search::ISearchPane, &impl::abi_t<Windows::ApplicationModel::Search::ISearchPane>::remove_QuerySubmitted>;
         [[nodiscard]] QuerySubmitted_revoker QuerySubmitted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneQuerySubmittedEventArgs> const& handler) const;
-        auto QuerySubmitted(winrt::event_token const& token) const noexcept;
-        auto ResultSuggestionChosen(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneResultSuggestionChosenEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) QuerySubmitted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ResultSuggestionChosen(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneResultSuggestionChosenEventArgs> const& handler) const;
         using ResultSuggestionChosen_revoker = impl::event_revoker<Windows::ApplicationModel::Search::ISearchPane, &impl::abi_t<Windows::ApplicationModel::Search::ISearchPane>::remove_ResultSuggestionChosen>;
         [[nodiscard]] ResultSuggestionChosen_revoker ResultSuggestionChosen(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Search::SearchPane, Windows::ApplicationModel::Search::SearchPaneResultSuggestionChosenEventArgs> const& handler) const;
-        auto ResultSuggestionChosen(winrt::event_token const& token) const noexcept;
-        auto SetLocalContentSuggestionSettings(Windows::ApplicationModel::Search::LocalContentSuggestionSettings const& settings) const;
-        auto Show() const;
-        auto Show(param::hstring const& query) const;
-        auto ShowOnKeyboardInput(bool value) const;
-        [[nodiscard]] auto ShowOnKeyboardInput() const;
-        auto TrySetQueryText(param::hstring const& query) const;
+        WINRT_IMPL_AUTO(void) ResultSuggestionChosen(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SetLocalContentSuggestionSettings(Windows::ApplicationModel::Search::LocalContentSuggestionSettings const& settings) const;
+        WINRT_IMPL_AUTO(void) Show() const;
+        WINRT_IMPL_AUTO(void) Show(param::hstring const& query) const;
+        WINRT_IMPL_AUTO(void) ShowOnKeyboardInput(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShowOnKeyboardInput() const;
+        WINRT_IMPL_AUTO(bool) TrySetQueryText(param::hstring const& query) const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPane>
     {
@@ -383,9 +387,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneQueryChangedEventArgs
     {
-        [[nodiscard]] auto QueryText() const;
-        [[nodiscard]] auto Language() const;
-        [[nodiscard]] auto LinguisticDetails() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) QueryText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchPaneQueryLinguisticDetails) LinguisticDetails() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneQueryChangedEventArgs>
     {
@@ -394,9 +398,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneQueryLinguisticDetails
     {
-        [[nodiscard]] auto QueryTextAlternatives() const;
-        [[nodiscard]] auto QueryTextCompositionStart() const;
-        [[nodiscard]] auto QueryTextCompositionLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) QueryTextAlternatives() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) QueryTextCompositionStart() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) QueryTextCompositionLength() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneQueryLinguisticDetails>
     {
@@ -405,8 +409,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneQuerySubmittedEventArgs
     {
-        [[nodiscard]] auto QueryText() const;
-        [[nodiscard]] auto Language() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) QueryText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgs>
     {
@@ -415,7 +419,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails
     {
-        [[nodiscard]] auto LinguisticDetails() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchPaneQueryLinguisticDetails) LinguisticDetails() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>
     {
@@ -424,7 +428,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneResultSuggestionChosenEventArgs
     {
-        [[nodiscard]] auto Tag() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Tag() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneResultSuggestionChosenEventArgs>
     {
@@ -433,7 +437,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchPane) GetForCurrentView() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneStatics>
     {
@@ -442,7 +446,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneStaticsWithHideThisApplication
     {
-        auto HideThisApplication() const;
+        WINRT_IMPL_AUTO(void) HideThisApplication() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneStaticsWithHideThisApplication>
     {
@@ -451,9 +455,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneSuggestionsRequest
     {
-        [[nodiscard]] auto IsCanceled() const;
-        [[nodiscard]] auto SearchSuggestionCollection() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCanceled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchSuggestionCollection) SearchSuggestionCollection() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchPaneSuggestionsRequestDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequest>
     {
@@ -462,7 +466,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneSuggestionsRequestDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestDeferral>
     {
@@ -471,7 +475,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneSuggestionsRequestedEventArgs
     {
-        [[nodiscard]] auto Request() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchPaneSuggestionsRequest) Request() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestedEventArgs>
     {
@@ -480,7 +484,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchPaneVisibilityChangedEventArgs
     {
-        [[nodiscard]] auto Visible() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Visible() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchPaneVisibilityChangedEventArgs>
     {
@@ -489,9 +493,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchQueryLinguisticDetails
     {
-        [[nodiscard]] auto QueryTextAlternatives() const;
-        [[nodiscard]] auto QueryTextCompositionStart() const;
-        [[nodiscard]] auto QueryTextCompositionLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) QueryTextAlternatives() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) QueryTextCompositionStart() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) QueryTextCompositionLength() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetails>
     {
@@ -500,7 +504,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchQueryLinguisticDetailsFactory
     {
-        auto CreateInstance(param::iterable<hstring> const& queryTextAlternatives, uint32_t queryTextCompositionStart, uint32_t queryTextCompositionLength) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchQueryLinguisticDetails) CreateInstance(param::iterable<hstring> const& queryTextAlternatives, uint32_t queryTextCompositionStart, uint32_t queryTextCompositionLength) const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetailsFactory>
     {
@@ -509,11 +513,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchSuggestionCollection
     {
-        [[nodiscard]] auto Size() const;
-        auto AppendQuerySuggestion(param::hstring const& text) const;
-        auto AppendQuerySuggestions(param::iterable<hstring> const& suggestions) const;
-        auto AppendResultSuggestion(param::hstring const& text, param::hstring const& detailText, param::hstring const& tag, Windows::Storage::Streams::IRandomAccessStreamReference const& image, param::hstring const& imageAlternateText) const;
-        auto AppendSearchSeparator(param::hstring const& label) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Size() const;
+        WINRT_IMPL_AUTO(void) AppendQuerySuggestion(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(void) AppendQuerySuggestions(param::iterable<hstring> const& suggestions) const;
+        WINRT_IMPL_AUTO(void) AppendResultSuggestion(param::hstring const& text, param::hstring const& detailText, param::hstring const& tag, Windows::Storage::Streams::IRandomAccessStreamReference const& image, param::hstring const& imageAlternateText) const;
+        WINRT_IMPL_AUTO(void) AppendSearchSeparator(param::hstring const& label) const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchSuggestionCollection>
     {
@@ -522,9 +526,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchSuggestionsRequest
     {
-        [[nodiscard]] auto IsCanceled() const;
-        [[nodiscard]] auto SearchSuggestionCollection() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCanceled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchSuggestionCollection) SearchSuggestionCollection() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchSuggestionsRequestDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchSuggestionsRequest>
     {
@@ -533,7 +537,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Search_ISearchSuggestionsRequestDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::Search::ISearchSuggestionsRequestDeferral>
     {

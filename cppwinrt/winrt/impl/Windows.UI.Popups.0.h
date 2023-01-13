@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,8 +7,13 @@
 #define WINRT_Windows_UI_Popups_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
     struct Point;
     struct Rect;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Popups
 {
@@ -50,20 +55,18 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Popups::MessageDialogOptions>{ using type = enum_category; };
     template <> struct category<Windows::UI::Popups::Placement>{ using type = enum_category; };
     template <> struct category<Windows::UI::Popups::UICommandInvokedHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::MessageDialog>{ L"Windows.UI.Popups.MessageDialog" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::PopupMenu>{ L"Windows.UI.Popups.PopupMenu" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::UICommand>{ L"Windows.UI.Popups.UICommand" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::UICommandSeparator>{ L"Windows.UI.Popups.UICommandSeparator" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::MessageDialogOptions>{ L"Windows.UI.Popups.MessageDialogOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::Placement>{ L"Windows.UI.Popups.Placement" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::IMessageDialog>{ L"Windows.UI.Popups.IMessageDialog" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::IMessageDialogFactory>{ L"Windows.UI.Popups.IMessageDialogFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::IPopupMenu>{ L"Windows.UI.Popups.IPopupMenu" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::IUICommand>{ L"Windows.UI.Popups.IUICommand" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::IUICommandFactory>{ L"Windows.UI.Popups.IUICommandFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Popups::UICommandInvokedHandler>{ L"Windows.UI.Popups.UICommandInvokedHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::MessageDialog> = L"Windows.UI.Popups.MessageDialog";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::PopupMenu> = L"Windows.UI.Popups.PopupMenu";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::UICommand> = L"Windows.UI.Popups.UICommand";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::UICommandSeparator> = L"Windows.UI.Popups.UICommandSeparator";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::MessageDialogOptions> = L"Windows.UI.Popups.MessageDialogOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::Placement> = L"Windows.UI.Popups.Placement";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::IMessageDialog> = L"Windows.UI.Popups.IMessageDialog";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::IMessageDialogFactory> = L"Windows.UI.Popups.IMessageDialogFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::IPopupMenu> = L"Windows.UI.Popups.IPopupMenu";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::IUICommand> = L"Windows.UI.Popups.IUICommand";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::IUICommandFactory> = L"Windows.UI.Popups.IUICommandFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Popups::UICommandInvokedHandler> = L"Windows.UI.Popups.UICommandInvokedHandler";
     template <> inline constexpr guid guid_v<Windows::UI::Popups::IMessageDialog>{ 0x33F59B01,0x5325,0x43AB,{ 0x9A,0xB3,0xBD,0xAE,0x44,0x0E,0x41,0x21 } };
     template <> inline constexpr guid guid_v<Windows::UI::Popups::IMessageDialogFactory>{ 0x2D161777,0xA66F,0x4EA5,{ 0xBB,0x87,0x79,0x3F,0xFA,0x49,0x41,0xF2 } };
     template <> inline constexpr guid guid_v<Windows::UI::Popups::IPopupMenu>{ 0x4E9BC6DC,0x880D,0x47FC,{ 0xA0,0xA1,0x72,0xB6,0x39,0xE6,0x25,0x59 } };
@@ -141,18 +144,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Popups_IMessageDialog
     {
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Commands() const;
-        [[nodiscard]] auto DefaultCommandIndex() const;
-        auto DefaultCommandIndex(uint32_t value) const;
-        [[nodiscard]] auto CancelCommandIndex() const;
-        auto CancelCommandIndex(uint32_t value) const;
-        [[nodiscard]] auto Content() const;
-        auto Content(param::hstring const& value) const;
-        auto ShowAsync() const;
-        [[nodiscard]] auto Options() const;
-        auto Options(Windows::UI::Popups::MessageDialogOptions const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Popups::IUICommand>) Commands() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DefaultCommandIndex() const;
+        WINRT_IMPL_AUTO(void) DefaultCommandIndex(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CancelCommandIndex() const;
+        WINRT_IMPL_AUTO(void) CancelCommandIndex(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Content() const;
+        WINRT_IMPL_AUTO(void) Content(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Popups::IUICommand>) ShowAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Popups::MessageDialogOptions) Options() const;
+        WINRT_IMPL_AUTO(void) Options(Windows::UI::Popups::MessageDialogOptions const& value) const;
     };
     template <> struct consume<Windows::UI::Popups::IMessageDialog>
     {
@@ -161,8 +164,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Popups_IMessageDialogFactory
     {
-        auto Create(param::hstring const& content) const;
-        auto CreateWithTitle(param::hstring const& content, param::hstring const& title) const;
+        WINRT_IMPL_AUTO(Windows::UI::Popups::MessageDialog) Create(param::hstring const& content) const;
+        WINRT_IMPL_AUTO(Windows::UI::Popups::MessageDialog) CreateWithTitle(param::hstring const& content, param::hstring const& title) const;
     };
     template <> struct consume<Windows::UI::Popups::IMessageDialogFactory>
     {
@@ -171,10 +174,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Popups_IPopupMenu
     {
-        [[nodiscard]] auto Commands() const;
-        auto ShowAsync(Windows::Foundation::Point const& invocationPoint) const;
-        auto ShowForSelectionAsync(Windows::Foundation::Rect const& selection) const;
-        auto ShowForSelectionAsync(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Popups::IUICommand>) Commands() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Popups::IUICommand>) ShowAsync(Windows::Foundation::Point const& invocationPoint) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Popups::IUICommand>) ShowForSelectionAsync(Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Popups::IUICommand>) ShowForSelectionAsync(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
     };
     template <> struct consume<Windows::UI::Popups::IPopupMenu>
     {
@@ -183,12 +186,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Popups_IUICommand
     {
-        [[nodiscard]] auto Label() const;
-        auto Label(param::hstring const& value) const;
-        [[nodiscard]] auto Invoked() const;
-        auto Invoked(Windows::UI::Popups::UICommandInvokedHandler const& value) const;
-        [[nodiscard]] auto Id() const;
-        auto Id(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Label() const;
+        WINRT_IMPL_AUTO(void) Label(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Popups::UICommandInvokedHandler) Invoked() const;
+        WINRT_IMPL_AUTO(void) Invoked(Windows::UI::Popups::UICommandInvokedHandler const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Id() const;
+        WINRT_IMPL_AUTO(void) Id(Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::UI::Popups::IUICommand>
     {
@@ -197,9 +200,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Popups_IUICommandFactory
     {
-        auto Create(param::hstring const& label) const;
-        auto CreateWithHandler(param::hstring const& label, Windows::UI::Popups::UICommandInvokedHandler const& action) const;
-        auto CreateWithHandlerAndId(param::hstring const& label, Windows::UI::Popups::UICommandInvokedHandler const& action, Windows::Foundation::IInspectable const& commandId) const;
+        WINRT_IMPL_AUTO(Windows::UI::Popups::UICommand) Create(param::hstring const& label) const;
+        WINRT_IMPL_AUTO(Windows::UI::Popups::UICommand) CreateWithHandler(param::hstring const& label, Windows::UI::Popups::UICommandInvokedHandler const& action) const;
+        WINRT_IMPL_AUTO(Windows::UI::Popups::UICommand) CreateWithHandlerAndId(param::hstring const& label, Windows::UI::Popups::UICommandInvokedHandler const& action, Windows::Foundation::IInspectable const& commandId) const;
     };
     template <> struct consume<Windows::UI::Popups::IUICommandFactory>
     {

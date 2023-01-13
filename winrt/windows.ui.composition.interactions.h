@@ -2297,7 +2297,7 @@ namespace ABI {
                     IInteractionTracker5 : public IInspectable
                     {
                     public:
-                        virtual HRESULT STDMETHODCALLTYPE TryUpdatePositionWithOption(
+                        virtual HRESULT STDMETHODCALLTYPE TryUpdatePositionWithOptions(
                             ABI::Windows::Foundation::Numerics::Vector3 value,
                             ABI::Windows::UI::Composition::Interactions::InteractionTrackerClampingOption option,
                             ABI::Windows::UI::Composition::Interactions::InteractionTrackerPositionUpdateOption posUpdateOption,
@@ -3776,8 +3776,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.Composition.Interactions.IInteractionTrackerStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.Composition.Interactions.IInteractionTrackerStatics2 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.Composition.Interactions.IInteractionTrackerStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.Interactions.IInteractionTracker ** Default Interface **
@@ -4062,8 +4062,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics2 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.Interactions.IVisualInteractionSource ** Default Interface **
@@ -6121,7 +6121,7 @@ typedef struct __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTrac
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5* This,
         TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* TryUpdatePositionWithOption)(__x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5* This,
+    HRESULT (STDMETHODCALLTYPE* TryUpdatePositionWithOptions)(__x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5* This,
         struct __x_ABI_CWindows_CFoundation_CNumerics_CVector3 value,
         enum __x_ABI_CWindows_CUI_CComposition_CInteractions_CInteractionTrackerClampingOption option,
         enum __x_ABI_CWindows_CUI_CComposition_CInteractions_CInteractionTrackerPositionUpdateOption posUpdateOption,
@@ -6155,8 +6155,8 @@ interface __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5
 #define __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#define __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_TryUpdatePositionWithOption(This, value, option, posUpdateOption, result) \
-    ((This)->lpVtbl->TryUpdatePositionWithOption(This, value, option, posUpdateOption, result))
+#define __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_TryUpdatePositionWithOptions(This, value, option, posUpdateOption, result) \
+    ((This)->lpVtbl->TryUpdatePositionWithOptions(This, value, option, posUpdateOption, result))
 
 #endif /* COBJMACROS */
 
@@ -8718,8 +8718,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.Composition.Interactions.IInteractionTrackerStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.Composition.Interactions.IInteractionTrackerStatics2 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.Composition.Interactions.IInteractionTrackerStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.Interactions.IInteractionTracker ** Default Interface **
@@ -9004,8 +9004,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics2 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.Interactions.IVisualInteractionSource ** Default Interface **

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_ApplicationModel_Background_H
 #define WINRT_Windows_ApplicationModel_Background_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.ApplicationModel.h"
 #include "winrt/impl/Windows.ApplicationModel.Activation.2.h"
 #include "winrt/impl/Windows.ApplicationModel.Calls.Background.2.h"
@@ -29,297 +29,297 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.ApplicationModel.Background.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IActivitySensorTrigger<D>::SubscribedActivities() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Devices::Sensors::ActivityType>) consume_Windows_ApplicationModel_Background_IActivitySensorTrigger<D>::SubscribedActivities() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IActivitySensorTrigger)->get_SubscribedActivities(&value));
         return Windows::Foundation::Collections::IVector<Windows::Devices::Sensors::ActivityType>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IActivitySensorTrigger<D>::ReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IActivitySensorTrigger<D>::ReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IActivitySensorTrigger)->get_ReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IActivitySensorTrigger<D>::SupportedActivities() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivityType>) consume_Windows_ApplicationModel_Background_IActivitySensorTrigger<D>::SupportedActivities() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IActivitySensorTrigger)->get_SupportedActivities(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Devices::Sensors::ActivityType>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IActivitySensorTrigger<D>::MinimumReportInterval() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IActivitySensorTrigger<D>::MinimumReportInterval() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IActivitySensorTrigger)->get_MinimumReportInterval(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IActivitySensorTriggerFactory<D>::Create(uint32_t reportIntervalInMilliseconds) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::ActivitySensorTrigger) consume_Windows_ApplicationModel_Background_IActivitySensorTriggerFactory<D>::Create(uint32_t reportIntervalInMilliseconds) const
     {
         void* activityTrigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IActivitySensorTriggerFactory)->Create(reportIntervalInMilliseconds, &activityTrigger));
         return Windows::ApplicationModel::Background::ActivitySensorTrigger{ activityTrigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAlarmApplicationManagerStatics<D>::RequestAccessAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::AlarmAccessStatus>) consume_Windows_ApplicationModel_Background_IAlarmApplicationManagerStatics<D>::RequestAccessAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAlarmApplicationManagerStatics)->RequestAccessAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::AlarmAccessStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAlarmApplicationManagerStatics<D>::GetAccessStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::AlarmAccessStatus) consume_Windows_ApplicationModel_Background_IAlarmApplicationManagerStatics<D>::GetAccessStatus() const
     {
-        Windows::ApplicationModel::Background::AlarmAccessStatus status;
+        Windows::ApplicationModel::Background::AlarmAccessStatus status{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAlarmApplicationManagerStatics)->GetAccessStatus(reinterpret_cast<int32_t*>(&status)));
         return status;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTrigger<D>::ProviderInfo(Windows::ApplicationModel::Background::AppBroadcastTriggerProviderInfo const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IAppBroadcastTrigger<D>::ProviderInfo(Windows::ApplicationModel::Background::AppBroadcastTriggerProviderInfo const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTrigger)->put_ProviderInfo(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTrigger<D>::ProviderInfo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::AppBroadcastTriggerProviderInfo) consume_Windows_ApplicationModel_Background_IAppBroadcastTrigger<D>::ProviderInfo() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTrigger)->get_ProviderInfo(&value));
         return Windows::ApplicationModel::Background::AppBroadcastTriggerProviderInfo{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerFactory<D>::CreateAppBroadcastTrigger(param::hstring const& providerKey) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::AppBroadcastTrigger) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerFactory<D>::CreateAppBroadcastTrigger(param::hstring const& providerKey) const
     {
         void* broadcastTrigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerFactory)->CreateAppBroadcastTrigger(*(void**)(&providerKey), &broadcastTrigger));
         return Windows::ApplicationModel::Background::AppBroadcastTrigger{ broadcastTrigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::DisplayNameResource(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::DisplayNameResource(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->put_DisplayNameResource(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::DisplayNameResource() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::DisplayNameResource() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->get_DisplayNameResource(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::LogoResource(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::LogoResource(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->put_LogoResource(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::LogoResource() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::LogoResource() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->get_LogoResource(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::VideoKeyFrameInterval(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::VideoKeyFrameInterval(Windows::Foundation::TimeSpan const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->put_VideoKeyFrameInterval(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::VideoKeyFrameInterval() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::VideoKeyFrameInterval() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->get_VideoKeyFrameInterval(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoBitrate(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoBitrate(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->put_MaxVideoBitrate(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoBitrate() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoBitrate() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->get_MaxVideoBitrate(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoWidth(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoWidth(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->put_MaxVideoWidth(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoWidth() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoWidth() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->get_MaxVideoWidth(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoHeight(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoHeight(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->put_MaxVideoHeight(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoHeight() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IAppBroadcastTriggerProviderInfo<D>::MaxVideoHeight() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IAppBroadcastTriggerProviderInfo)->get_MaxVideoHeight(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IApplicationTrigger<D>::RequestAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::ApplicationTriggerResult>) consume_Windows_ApplicationModel_Background_IApplicationTrigger<D>::RequestAsync() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IApplicationTrigger)->RequestAsync(&result));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::ApplicationTriggerResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IApplicationTrigger<D>::RequestAsync(Windows::Foundation::Collections::ValueSet const& arguments) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::ApplicationTriggerResult>) consume_Windows_ApplicationModel_Background_IApplicationTrigger<D>::RequestAsync(Windows::Foundation::Collections::ValueSet const& arguments) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IApplicationTrigger)->RequestAsyncWithArguments(*(void**)(&arguments), &result));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::ApplicationTriggerResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IApplicationTriggerDetails<D>::Arguments() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) consume_Windows_ApplicationModel_Background_IApplicationTriggerDetails<D>::Arguments() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IApplicationTriggerDetails)->get_Arguments(&value));
         return Windows::Foundation::Collections::ValueSet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::RequestAccessAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::BackgroundAccessStatus>) consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::RequestAccessAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics)->RequestAccessAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::BackgroundAccessStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::RequestAccessAsync(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::BackgroundAccessStatus>) consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::RequestAccessAsync(param::hstring const& applicationId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics)->RequestAccessForApplicationAsync(*(void**)(&applicationId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::BackgroundAccessStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::RemoveAccess() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::RemoveAccess() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics)->RemoveAccess());
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::RemoveAccess(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::RemoveAccess(param::hstring const& applicationId) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics)->RemoveAccessForApplication(*(void**)(&applicationId)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::GetAccessStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundAccessStatus) consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::GetAccessStatus() const
     {
-        Windows::ApplicationModel::Background::BackgroundAccessStatus status;
+        Windows::ApplicationModel::Background::BackgroundAccessStatus status{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics)->GetAccessStatus(reinterpret_cast<int32_t*>(&status)));
         return status;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::GetAccessStatus(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundAccessStatus) consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics<D>::GetAccessStatus(param::hstring const& applicationId) const
     {
-        Windows::ApplicationModel::Background::BackgroundAccessStatus status;
+        Windows::ApplicationModel::Background::BackgroundAccessStatus status{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics)->GetAccessStatusForApplication(*(void**)(&applicationId), reinterpret_cast<int32_t*>(&status)));
         return status;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics2<D>::RequestAccessKindAsync(Windows::ApplicationModel::Background::BackgroundAccessRequestKind const& requestedAccess, param::hstring const& reason) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics2<D>::RequestAccessKindAsync(Windows::ApplicationModel::Background::BackgroundAccessRequestKind const& requestedAccess, param::hstring const& reason) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics2)->RequestAccessKindAsync(static_cast<int32_t>(requestedAccess), *(void**)(&reason), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTask<D>::Run(Windows::ApplicationModel::Background::IBackgroundTaskInstance const& taskInstance) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTask<D>::Run(Windows::ApplicationModel::Background::IBackgroundTaskInstance const& taskInstance) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTask)->Run(*(void**)(&taskInstance)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::TaskEntryPoint(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::TaskEntryPoint(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder)->put_TaskEntryPoint(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::TaskEntryPoint() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::TaskEntryPoint() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder)->get_TaskEntryPoint(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::SetTrigger(Windows::ApplicationModel::Background::IBackgroundTrigger const& trigger) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::SetTrigger(Windows::ApplicationModel::Background::IBackgroundTrigger const& trigger) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder)->SetTrigger(*(void**)(&trigger)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::AddCondition(Windows::ApplicationModel::Background::IBackgroundCondition const& condition) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::AddCondition(Windows::ApplicationModel::Background::IBackgroundCondition const& condition) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder)->AddCondition(*(void**)(&condition)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::Name(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::Name(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder)->put_Name(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::Name() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::Name() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder)->get_Name(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::Register() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundTaskRegistration) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder<D>::Register() const
     {
         void* task{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder)->Register(&task));
         return Windows::ApplicationModel::Background::BackgroundTaskRegistration{ task, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder2<D>::CancelOnConditionLoss(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder2<D>::CancelOnConditionLoss(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder2)->put_CancelOnConditionLoss(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder2<D>::CancelOnConditionLoss() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder2<D>::CancelOnConditionLoss() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder2)->get_CancelOnConditionLoss(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder3<D>::IsNetworkRequested(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder3<D>::IsNetworkRequested(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder3)->put_IsNetworkRequested(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder3<D>::IsNetworkRequested() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder3<D>::IsNetworkRequested() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder3)->get_IsNetworkRequested(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder4<D>::TaskGroup() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder4<D>::TaskGroup() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder4)->get_TaskGroup(&value));
         return Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder4<D>::TaskGroup(Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder4<D>::TaskGroup(Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder4)->put_TaskGroup(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder5<D>::SetTaskEntryPointClsid(winrt::guid const& TaskEntryPoint) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskBuilder5<D>::SetTaskEntryPointClsid(winrt::guid const& TaskEntryPoint) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskBuilder5)->SetTaskEntryPointClsid(impl::bind_in(TaskEntryPoint)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskCompletedEventArgs<D>::InstanceId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_ApplicationModel_Background_IBackgroundTaskCompletedEventArgs<D>::InstanceId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskCompletedEventArgs)->get_InstanceId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskCompletedEventArgs<D>::CheckResult() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskCompletedEventArgs<D>::CheckResult() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskCompletedEventArgs)->CheckResult());
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskDeferral<D>::Complete() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskDeferral<D>::Complete() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskDeferral)->Complete());
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::InstanceId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::InstanceId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->get_InstanceId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Task() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundTaskRegistration) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Task() const
     {
         void* task{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->get_Task(&task));
         return Windows::ApplicationModel::Background::BackgroundTaskRegistration{ task, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Progress() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Progress() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->get_Progress(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Progress(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Progress(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->put_Progress(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::TriggerDetails() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::TriggerDetails() const
     {
         void* triggerDetails{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->get_TriggerDetails(&triggerDetails));
         return Windows::Foundation::IInspectable{ triggerDetails, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Canceled(Windows::ApplicationModel::Background::BackgroundTaskCanceledEventHandler const& cancelHandler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Canceled(Windows::ApplicationModel::Background::BackgroundTaskCanceledEventHandler const& cancelHandler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->add_Canceled(*(void**)(&cancelHandler), put_abi(cookie)));
         return cookie;
     }
@@ -327,61 +327,61 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Canceled_revoker>(this, Canceled(cancelHandler));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Canceled(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::Canceled(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->remove_Canceled(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::SuspendedCount() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::SuspendedCount() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->get_SuspendedCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::GetDeferral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundTaskDeferral) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance<D>::GetDeferral() const
     {
         void* deferral{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance)->GetDeferral(&deferral));
         return Windows::ApplicationModel::Background::BackgroundTaskDeferral{ deferral, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance2<D>::GetThrottleCount(Windows::ApplicationModel::Background::BackgroundTaskThrottleCounter const& counter) const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance2<D>::GetThrottleCount(Windows::ApplicationModel::Background::BackgroundTaskThrottleCounter const& counter) const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance2)->GetThrottleCount(static_cast<int32_t>(counter), &value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance4<D>::User() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::User) consume_Windows_ApplicationModel_Background_IBackgroundTaskInstance4<D>::User() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskInstance4)->get_User(&value));
         return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskProgressEventArgs<D>::InstanceId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_ApplicationModel_Background_IBackgroundTaskProgressEventArgs<D>::InstanceId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskProgressEventArgs)->get_InstanceId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskProgressEventArgs<D>::Progress() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IBackgroundTaskProgressEventArgs<D>::Progress() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskProgressEventArgs)->get_Progress(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::TaskId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::TaskId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration)->get_TaskId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Name() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Name() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration)->get_Name(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Progress(Windows::ApplicationModel::Background::BackgroundTaskProgressEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Progress(Windows::ApplicationModel::Background::BackgroundTaskProgressEventHandler const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration)->add_Progress(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -389,13 +389,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Progress_revoker>(this, Progress(handler));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Progress(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Progress(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration)->remove_Progress(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Completed(Windows::ApplicationModel::Background::BackgroundTaskCompletedEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Completed(Windows::ApplicationModel::Background::BackgroundTaskCompletedEventHandler const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration)->add_Completed(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -403,41 +403,41 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Completed_revoker>(this, Completed(handler));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Completed(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Completed(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration)->remove_Completed(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Unregister(bool cancelTask) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration<D>::Unregister(bool cancelTask) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration)->Unregister(cancelTask));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration2<D>::Trigger() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::IBackgroundTrigger) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration2<D>::Trigger() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration2)->get_Trigger(&value));
         return Windows::ApplicationModel::Background::IBackgroundTrigger{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration3<D>::TaskGroup() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistration3<D>::TaskGroup() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistration3)->get_TaskGroup(&value));
         return Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::Id() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationGroup)->get_Id(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::Name() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::Name() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationGroup)->get_Name(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::BackgroundActivated(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup, Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::BackgroundActivated(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup, Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationGroup)->add_BackgroundActivated(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -445,573 +445,573 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, BackgroundActivated_revoker>(this, BackgroundActivated(handler));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::BackgroundActivated(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::BackgroundActivated(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationGroup)->remove_BackgroundActivated(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::AllTasks() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<winrt::guid, Windows::ApplicationModel::Background::BackgroundTaskRegistration>) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroup<D>::AllTasks() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationGroup)->get_AllTasks(&value));
         return Windows::Foundation::Collections::IMapView<winrt::guid, Windows::ApplicationModel::Background::BackgroundTaskRegistration>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroupFactory<D>::Create(param::hstring const& id) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroupFactory<D>::Create(param::hstring const& id) const
     {
         void* group{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationGroupFactory)->Create(*(void**)(&id), &group));
         return Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup{ group, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroupFactory<D>::CreateWithName(param::hstring const& id, param::hstring const& name) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationGroupFactory<D>::CreateWithName(param::hstring const& id, param::hstring const& name) const
     {
         void* group{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationGroupFactory)->CreateWithName(*(void**)(&id), *(void**)(&name), &group));
         return Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup{ group, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationStatics<D>::AllTasks() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<winrt::guid, Windows::ApplicationModel::Background::IBackgroundTaskRegistration>) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationStatics<D>::AllTasks() const
     {
         void* tasks{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationStatics)->get_AllTasks(&tasks));
         return Windows::Foundation::Collections::IMapView<winrt::guid, Windows::ApplicationModel::Background::IBackgroundTaskRegistration>{ tasks, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationStatics2<D>::AllTaskGroups() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup>) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationStatics2<D>::AllTaskGroups() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationStatics2)->get_AllTaskGroups(&value));
         return Windows::Foundation::Collections::IMapView<hstring, Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationStatics2<D>::GetTaskGroup(param::hstring const& groupId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup) consume_Windows_ApplicationModel_Background_IBackgroundTaskRegistrationStatics2<D>::GetTaskGroup(param::hstring const& groupId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundTaskRegistrationStatics2)->GetTaskGroup(*(void**)(&groupId), &value));
         return Windows::ApplicationModel::Background::BackgroundTaskRegistrationGroup{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBackgroundWorkCostStatics<D>::CurrentBackgroundWorkCost() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::BackgroundWorkCostValue) consume_Windows_ApplicationModel_Background_IBackgroundWorkCostStatics<D>::CurrentBackgroundWorkCost() const
     {
-        Windows::ApplicationModel::Background::BackgroundWorkCostValue value;
+        Windows::ApplicationModel::Background::BackgroundWorkCostValue value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBackgroundWorkCostStatics)->get_CurrentBackgroundWorkCost(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger<D>::Advertisement() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger<D>::Advertisement() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger)->get_Advertisement(&value));
         return Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::PreferredTransmitPowerLevelInDBm() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<int16_t>) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::PreferredTransmitPowerLevelInDBm() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2)->get_PreferredTransmitPowerLevelInDBm(&value));
         return Windows::Foundation::IReference<int16_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::PreferredTransmitPowerLevelInDBm(Windows::Foundation::IReference<int16_t> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::PreferredTransmitPowerLevelInDBm(Windows::Foundation::IReference<int16_t> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2)->put_PreferredTransmitPowerLevelInDBm(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::UseExtendedFormat() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::UseExtendedFormat() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2)->get_UseExtendedFormat(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::UseExtendedFormat(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::UseExtendedFormat(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2)->put_UseExtendedFormat(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::IsAnonymous() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::IsAnonymous() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2)->get_IsAnonymous(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::IsAnonymous(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::IsAnonymous(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2)->put_IsAnonymous(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::IncludeTransmitPowerLevel() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::IncludeTransmitPowerLevel() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2)->get_IncludeTransmitPowerLevel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::IncludeTransmitPowerLevel(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementPublisherTrigger2<D>::IncludeTransmitPowerLevel(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2)->put_IncludeTransmitPowerLevel(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::MinSamplingInterval() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::MinSamplingInterval() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger)->get_MinSamplingInterval(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::MaxSamplingInterval() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::MaxSamplingInterval() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger)->get_MaxSamplingInterval(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::MinOutOfRangeTimeout() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::MinOutOfRangeTimeout() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger)->get_MinOutOfRangeTimeout(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::MaxOutOfRangeTimeout() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::MaxOutOfRangeTimeout() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger)->get_MaxOutOfRangeTimeout(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::SignalStrengthFilter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::SignalStrengthFilter() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger)->get_SignalStrengthFilter(&value));
         return Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::SignalStrengthFilter(Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::SignalStrengthFilter(Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger)->put_SignalStrengthFilter(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::AdvertisementFilter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::AdvertisementFilter() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger)->get_AdvertisementFilter(&value));
         return Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::AdvertisementFilter(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger<D>::AdvertisementFilter(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger)->put_AdvertisementFilter(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger2<D>::AllowExtendedAdvertisements() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger2<D>::AllowExtendedAdvertisements() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger2)->get_AllowExtendedAdvertisements(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger2<D>::AllowExtendedAdvertisements(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IBluetoothLEAdvertisementWatcherTrigger2<D>::AllowExtendedAdvertisements(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IBluetoothLEAdvertisementWatcherTrigger2)->put_AllowExtendedAdvertisements(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ICachedFileUpdaterTriggerDetails<D>::UpdateTarget() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::CachedFileTarget) consume_Windows_ApplicationModel_Background_ICachedFileUpdaterTriggerDetails<D>::UpdateTarget() const
     {
-        Windows::Storage::Provider::CachedFileTarget value;
+        Windows::Storage::Provider::CachedFileTarget value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ICachedFileUpdaterTriggerDetails)->get_UpdateTarget(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ICachedFileUpdaterTriggerDetails<D>::UpdateRequest() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::FileUpdateRequest) consume_Windows_ApplicationModel_Background_ICachedFileUpdaterTriggerDetails<D>::UpdateRequest() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ICachedFileUpdaterTriggerDetails)->get_UpdateRequest(&value));
         return Windows::Storage::Provider::FileUpdateRequest{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ICachedFileUpdaterTriggerDetails<D>::CanRequestUserInput() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_ICachedFileUpdaterTriggerDetails<D>::CanRequestUserInput() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ICachedFileUpdaterTriggerDetails)->get_CanRequestUserInput(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IContentPrefetchTrigger<D>::WaitInterval() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_ApplicationModel_Background_IContentPrefetchTrigger<D>::WaitInterval() const
     {
-        Windows::Foundation::TimeSpan waitInterval;
+        Windows::Foundation::TimeSpan waitInterval{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IContentPrefetchTrigger)->get_WaitInterval(put_abi(waitInterval)));
         return waitInterval;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IContentPrefetchTriggerFactory<D>::Create(Windows::Foundation::TimeSpan const& waitInterval) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::ContentPrefetchTrigger) consume_Windows_ApplicationModel_Background_IContentPrefetchTriggerFactory<D>::Create(Windows::Foundation::TimeSpan const& waitInterval) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IContentPrefetchTriggerFactory)->Create(impl::bind_in(waitInterval), &trigger));
         return Windows::ApplicationModel::Background::ContentPrefetchTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ICustomSystemEventTrigger<D>::TriggerId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_ICustomSystemEventTrigger<D>::TriggerId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ICustomSystemEventTrigger)->get_TriggerId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ICustomSystemEventTrigger<D>::Recurrence() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::CustomSystemEventTriggerRecurrence) consume_Windows_ApplicationModel_Background_ICustomSystemEventTrigger<D>::Recurrence() const
     {
-        Windows::ApplicationModel::Background::CustomSystemEventTriggerRecurrence value;
+        Windows::ApplicationModel::Background::CustomSystemEventTriggerRecurrence value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ICustomSystemEventTrigger)->get_Recurrence(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ICustomSystemEventTriggerFactory<D>::Create(param::hstring const& triggerId, Windows::ApplicationModel::Background::CustomSystemEventTriggerRecurrence const& recurrence) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::CustomSystemEventTrigger) consume_Windows_ApplicationModel_Background_ICustomSystemEventTriggerFactory<D>::Create(param::hstring const& triggerId, Windows::ApplicationModel::Background::CustomSystemEventTriggerRecurrence const& recurrence) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ICustomSystemEventTriggerFactory)->Create(*(void**)(&triggerId), static_cast<int32_t>(recurrence), &trigger));
         return Windows::ApplicationModel::Background::CustomSystemEventTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTrigger<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTrigger<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceConnectionChangeTrigger)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTrigger<D>::CanMaintainConnection() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTrigger<D>::CanMaintainConnection() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceConnectionChangeTrigger)->get_CanMaintainConnection(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTrigger<D>::MaintainConnection() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTrigger<D>::MaintainConnection() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceConnectionChangeTrigger)->get_MaintainConnection(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTrigger<D>::MaintainConnection(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTrigger<D>::MaintainConnection(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceConnectionChangeTrigger)->put_MaintainConnection(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTriggerStatics<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceConnectionChangeTrigger>) consume_Windows_ApplicationModel_Background_IDeviceConnectionChangeTriggerStatics<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* deviceChangeTrigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceConnectionChangeTriggerStatics)->FromIdAsync(*(void**)(&deviceId), &deviceChangeTrigger));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceConnectionChangeTrigger>{ deviceChangeTrigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceManufacturerNotificationTrigger<D>::TriggerQualifier() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IDeviceManufacturerNotificationTrigger<D>::TriggerQualifier() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceManufacturerNotificationTrigger)->get_TriggerQualifier(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceManufacturerNotificationTrigger<D>::OneShot() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IDeviceManufacturerNotificationTrigger<D>::OneShot() const
     {
-        bool oneShot;
+        bool oneShot{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceManufacturerNotificationTrigger)->get_OneShot(&oneShot));
         return oneShot;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceManufacturerNotificationTriggerFactory<D>::Create(param::hstring const& triggerQualifier, bool oneShot) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::DeviceManufacturerNotificationTrigger) consume_Windows_ApplicationModel_Background_IDeviceManufacturerNotificationTriggerFactory<D>::Create(param::hstring const& triggerQualifier, bool oneShot) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceManufacturerNotificationTriggerFactory)->Create(*(void**)(&triggerQualifier), oneShot, &trigger));
         return Windows::ApplicationModel::Background::DeviceManufacturerNotificationTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceServicingTrigger<D>::RequestAsync(param::hstring const& deviceId, Windows::Foundation::TimeSpan const& expectedDuration) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceTriggerResult>) consume_Windows_ApplicationModel_Background_IDeviceServicingTrigger<D>::RequestAsync(param::hstring const& deviceId, Windows::Foundation::TimeSpan const& expectedDuration) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceServicingTrigger)->RequestAsyncSimple(*(void**)(&deviceId), impl::bind_in(expectedDuration), &result));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceTriggerResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceServicingTrigger<D>::RequestAsync(param::hstring const& deviceId, Windows::Foundation::TimeSpan const& expectedDuration, param::hstring const& arguments) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceTriggerResult>) consume_Windows_ApplicationModel_Background_IDeviceServicingTrigger<D>::RequestAsync(param::hstring const& deviceId, Windows::Foundation::TimeSpan const& expectedDuration, param::hstring const& arguments) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceServicingTrigger)->RequestAsyncWithArguments(*(void**)(&deviceId), impl::bind_in(expectedDuration), *(void**)(&arguments), &result));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceTriggerResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceUseTrigger<D>::RequestAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceTriggerResult>) consume_Windows_ApplicationModel_Background_IDeviceUseTrigger<D>::RequestAsync(param::hstring const& deviceId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceUseTrigger)->RequestAsyncSimple(*(void**)(&deviceId), &result));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceTriggerResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IDeviceUseTrigger<D>::RequestAsync(param::hstring const& deviceId, param::hstring const& arguments) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceTriggerResult>) consume_Windows_ApplicationModel_Background_IDeviceUseTrigger<D>::RequestAsync(param::hstring const& deviceId, param::hstring const& arguments) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IDeviceUseTrigger)->RequestAsyncWithArguments(*(void**)(&deviceId), *(void**)(&arguments), &result));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::DeviceTriggerResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattCharacteristicNotificationTrigger<D>::Characteristic() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic) consume_Windows_ApplicationModel_Background_IGattCharacteristicNotificationTrigger<D>::Characteristic() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattCharacteristicNotificationTrigger)->get_Characteristic(&value));
         return Windows::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattCharacteristicNotificationTrigger2<D>::EventTriggeringMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) consume_Windows_ApplicationModel_Background_IGattCharacteristicNotificationTrigger2<D>::EventTriggeringMode() const
     {
-        Windows::Devices::Bluetooth::Background::BluetoothEventTriggeringMode value;
+        Windows::Devices::Bluetooth::Background::BluetoothEventTriggeringMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattCharacteristicNotificationTrigger2)->get_EventTriggeringMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattCharacteristicNotificationTriggerFactory<D>::Create(Windows::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic const& characteristic) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::GattCharacteristicNotificationTrigger) consume_Windows_ApplicationModel_Background_IGattCharacteristicNotificationTriggerFactory<D>::Create(Windows::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic const& characteristic) const
     {
         void* gattCharacteristicNotificationTrigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattCharacteristicNotificationTriggerFactory)->Create(*(void**)(&characteristic), &gattCharacteristicNotificationTrigger));
         return Windows::ApplicationModel::Background::GattCharacteristicNotificationTrigger{ gattCharacteristicNotificationTrigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattCharacteristicNotificationTriggerFactory2<D>::Create(Windows::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic const& characteristic, Windows::Devices::Bluetooth::Background::BluetoothEventTriggeringMode const& eventTriggeringMode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::GattCharacteristicNotificationTrigger) consume_Windows_ApplicationModel_Background_IGattCharacteristicNotificationTriggerFactory2<D>::Create(Windows::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic const& characteristic, Windows::Devices::Bluetooth::Background::BluetoothEventTriggeringMode const& eventTriggeringMode) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattCharacteristicNotificationTriggerFactory2)->CreateWithEventTriggeringMode(*(void**)(&characteristic), static_cast<int32_t>(eventTriggeringMode), &result));
         return Windows::ApplicationModel::Background::GattCharacteristicNotificationTrigger{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattServiceProviderTrigger<D>::TriggerId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_IGattServiceProviderTrigger<D>::TriggerId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattServiceProviderTrigger)->get_TriggerId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattServiceProviderTrigger<D>::Service() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::GenericAttributeProfile::GattLocalService) consume_Windows_ApplicationModel_Background_IGattServiceProviderTrigger<D>::Service() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattServiceProviderTrigger)->get_Service(&value));
         return Windows::Devices::Bluetooth::GenericAttributeProfile::GattLocalService{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattServiceProviderTrigger<D>::AdvertisingParameters(Windows::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IGattServiceProviderTrigger<D>::AdvertisingParameters(Windows::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattServiceProviderTrigger)->put_AdvertisingParameters(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattServiceProviderTrigger<D>::AdvertisingParameters() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters) consume_Windows_ApplicationModel_Background_IGattServiceProviderTrigger<D>::AdvertisingParameters() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattServiceProviderTrigger)->get_AdvertisingParameters(&value));
         return Windows::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattServiceProviderTriggerResult<D>::Trigger() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::GattServiceProviderTrigger) consume_Windows_ApplicationModel_Background_IGattServiceProviderTriggerResult<D>::Trigger() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattServiceProviderTriggerResult)->get_Trigger(&value));
         return Windows::ApplicationModel::Background::GattServiceProviderTrigger{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattServiceProviderTriggerResult<D>::Error() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothError) consume_Windows_ApplicationModel_Background_IGattServiceProviderTriggerResult<D>::Error() const
     {
-        Windows::Devices::Bluetooth::BluetoothError value;
+        Windows::Devices::Bluetooth::BluetoothError value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattServiceProviderTriggerResult)->get_Error(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGattServiceProviderTriggerStatics<D>::CreateAsync(param::hstring const& triggerId, winrt::guid const& serviceUuid) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::GattServiceProviderTriggerResult>) consume_Windows_ApplicationModel_Background_IGattServiceProviderTriggerStatics<D>::CreateAsync(param::hstring const& triggerId, winrt::guid const& serviceUuid) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGattServiceProviderTriggerStatics)->CreateAsync(*(void**)(&triggerId), impl::bind_in(serviceUuid), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::GattServiceProviderTriggerResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGeovisitTrigger<D>::MonitoringScope() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Geolocation::VisitMonitoringScope) consume_Windows_ApplicationModel_Background_IGeovisitTrigger<D>::MonitoringScope() const
     {
-        Windows::Devices::Geolocation::VisitMonitoringScope value;
+        Windows::Devices::Geolocation::VisitMonitoringScope value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGeovisitTrigger)->get_MonitoringScope(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IGeovisitTrigger<D>::MonitoringScope(Windows::Devices::Geolocation::VisitMonitoringScope const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IGeovisitTrigger<D>::MonitoringScope(Windows::Devices::Geolocation::VisitMonitoringScope const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IGeovisitTrigger)->put_MonitoringScope(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ILocationTrigger<D>::TriggerType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::LocationTriggerType) consume_Windows_ApplicationModel_Background_ILocationTrigger<D>::TriggerType() const
     {
-        Windows::ApplicationModel::Background::LocationTriggerType triggerType;
+        Windows::ApplicationModel::Background::LocationTriggerType triggerType{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ILocationTrigger)->get_TriggerType(reinterpret_cast<int32_t*>(&triggerType)));
         return triggerType;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ILocationTriggerFactory<D>::Create(Windows::ApplicationModel::Background::LocationTriggerType const& triggerType) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::LocationTrigger) consume_Windows_ApplicationModel_Background_ILocationTriggerFactory<D>::Create(Windows::ApplicationModel::Background::LocationTriggerType const& triggerType) const
     {
         void* locationTrigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ILocationTriggerFactory)->Create(static_cast<int32_t>(triggerType), &locationTrigger));
         return Windows::ApplicationModel::Background::LocationTrigger{ locationTrigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IMaintenanceTrigger<D>::FreshnessTime() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_IMaintenanceTrigger<D>::FreshnessTime() const
     {
-        uint32_t freshnessTime;
+        uint32_t freshnessTime{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IMaintenanceTrigger)->get_FreshnessTime(&freshnessTime));
         return freshnessTime;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IMaintenanceTrigger<D>::OneShot() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IMaintenanceTrigger<D>::OneShot() const
     {
-        bool oneShot;
+        bool oneShot{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IMaintenanceTrigger)->get_OneShot(&oneShot));
         return oneShot;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IMaintenanceTriggerFactory<D>::Create(uint32_t freshnessTime, bool oneShot) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::MaintenanceTrigger) consume_Windows_ApplicationModel_Background_IMaintenanceTriggerFactory<D>::Create(uint32_t freshnessTime, bool oneShot) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IMaintenanceTriggerFactory)->Create(freshnessTime, oneShot, &trigger));
         return Windows::ApplicationModel::Background::MaintenanceTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IMediaProcessingTrigger<D>::RequestAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::MediaProcessingTriggerResult>) consume_Windows_ApplicationModel_Background_IMediaProcessingTrigger<D>::RequestAsync() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IMediaProcessingTrigger)->RequestAsync(&result));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::MediaProcessingTriggerResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IMediaProcessingTrigger<D>::RequestAsync(Windows::Foundation::Collections::ValueSet const& arguments) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::MediaProcessingTriggerResult>) consume_Windows_ApplicationModel_Background_IMediaProcessingTrigger<D>::RequestAsync(Windows::Foundation::Collections::ValueSet const& arguments) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IMediaProcessingTrigger)->RequestAsyncWithArguments(*(void**)(&arguments), &result));
         return Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Background::MediaProcessingTriggerResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_INetworkOperatorNotificationTrigger<D>::NetworkAccountId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_Background_INetworkOperatorNotificationTrigger<D>::NetworkAccountId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::INetworkOperatorNotificationTrigger)->get_NetworkAccountId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_INetworkOperatorNotificationTriggerFactory<D>::Create(param::hstring const& networkAccountId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::NetworkOperatorNotificationTrigger) consume_Windows_ApplicationModel_Background_INetworkOperatorNotificationTriggerFactory<D>::Create(param::hstring const& networkAccountId) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::INetworkOperatorNotificationTriggerFactory)->Create(*(void**)(&networkAccountId), &trigger));
         return Windows::ApplicationModel::Background::NetworkOperatorNotificationTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IPhoneTrigger<D>::OneShot() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IPhoneTrigger<D>::OneShot() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IPhoneTrigger)->get_OneShot(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IPhoneTrigger<D>::TriggerType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::Background::PhoneTriggerType) consume_Windows_ApplicationModel_Background_IPhoneTrigger<D>::TriggerType() const
     {
-        Windows::ApplicationModel::Calls::Background::PhoneTriggerType result;
+        Windows::ApplicationModel::Calls::Background::PhoneTriggerType result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IPhoneTrigger)->get_TriggerType(reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IPhoneTriggerFactory<D>::Create(Windows::ApplicationModel::Calls::Background::PhoneTriggerType const& type, bool oneShot) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::PhoneTrigger) consume_Windows_ApplicationModel_Background_IPhoneTriggerFactory<D>::Create(Windows::ApplicationModel::Calls::Background::PhoneTriggerType const& type, bool oneShot) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IPhoneTriggerFactory)->Create(static_cast<int32_t>(type), oneShot, &result));
         return Windows::ApplicationModel::Background::PhoneTrigger{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IPushNotificationTriggerFactory<D>::Create(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::PushNotificationTrigger) consume_Windows_ApplicationModel_Background_IPushNotificationTriggerFactory<D>::Create(param::hstring const& applicationId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IPushNotificationTriggerFactory)->Create(*(void**)(&applicationId), &value));
         return Windows::ApplicationModel::Background::PushNotificationTrigger{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::InboundConnection() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Background::RfcommInboundConnectionInformation) consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::InboundConnection() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IRfcommConnectionTrigger)->get_InboundConnection(&value));
         return Windows::Devices::Bluetooth::Background::RfcommInboundConnectionInformation{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::OutboundConnection() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation) consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::OutboundConnection() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IRfcommConnectionTrigger)->get_OutboundConnection(&value));
         return Windows::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::AllowMultipleConnections() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::AllowMultipleConnections() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IRfcommConnectionTrigger)->get_AllowMultipleConnections(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::AllowMultipleConnections(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::AllowMultipleConnections(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IRfcommConnectionTrigger)->put_AllowMultipleConnections(value));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::ProtectionLevel() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Sockets::SocketProtectionLevel) consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::ProtectionLevel() const
     {
-        Windows::Networking::Sockets::SocketProtectionLevel value;
+        Windows::Networking::Sockets::SocketProtectionLevel value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IRfcommConnectionTrigger)->get_ProtectionLevel(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::ProtectionLevel(Windows::Networking::Sockets::SocketProtectionLevel const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::ProtectionLevel(Windows::Networking::Sockets::SocketProtectionLevel const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IRfcommConnectionTrigger)->put_ProtectionLevel(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::RemoteHostName() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::HostName) consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::RemoteHostName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IRfcommConnectionTrigger)->get_RemoteHostName(&value));
         return Windows::Networking::HostName{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::RemoteHostName(Windows::Networking::HostName const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_Background_IRfcommConnectionTrigger<D>::RemoteHostName(Windows::Networking::HostName const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IRfcommConnectionTrigger)->put_RemoteHostName(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISensorDataThresholdTriggerFactory<D>::Create(Windows::Devices::Sensors::ISensorDataThreshold const& threshold) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::SensorDataThresholdTrigger) consume_Windows_ApplicationModel_Background_ISensorDataThresholdTriggerFactory<D>::Create(Windows::Devices::Sensors::ISensorDataThreshold const& threshold) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISensorDataThresholdTriggerFactory)->Create(*(void**)(&threshold), &trigger));
         return Windows::ApplicationModel::Background::SensorDataThresholdTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISmartCardTrigger<D>::TriggerType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::SmartCards::SmartCardTriggerType) consume_Windows_ApplicationModel_Background_ISmartCardTrigger<D>::TriggerType() const
     {
-        Windows::Devices::SmartCards::SmartCardTriggerType triggerType;
+        Windows::Devices::SmartCards::SmartCardTriggerType triggerType{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISmartCardTrigger)->get_TriggerType(reinterpret_cast<int32_t*>(&triggerType)));
         return triggerType;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISmartCardTriggerFactory<D>::Create(Windows::Devices::SmartCards::SmartCardTriggerType const& triggerType) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::SmartCardTrigger) consume_Windows_ApplicationModel_Background_ISmartCardTriggerFactory<D>::Create(Windows::Devices::SmartCards::SmartCardTriggerType const& triggerType) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISmartCardTriggerFactory)->Create(static_cast<int32_t>(triggerType), &trigger));
         return Windows::ApplicationModel::Background::SmartCardTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISmsMessageReceivedTriggerFactory<D>::Create(Windows::Devices::Sms::SmsFilterRules const& filterRules) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::SmsMessageReceivedTrigger) consume_Windows_ApplicationModel_Background_ISmsMessageReceivedTriggerFactory<D>::Create(Windows::Devices::Sms::SmsFilterRules const& filterRules) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISmsMessageReceivedTriggerFactory)->Create(*(void**)(&filterRules), &value));
         return Windows::ApplicationModel::Background::SmsMessageReceivedTrigger{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISocketActivityTrigger<D>::IsWakeFromLowPowerSupported() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_ISocketActivityTrigger<D>::IsWakeFromLowPowerSupported() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISocketActivityTrigger)->get_IsWakeFromLowPowerSupported(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IStorageLibraryChangeTrackerTriggerFactory<D>::Create(Windows::Storage::StorageLibraryChangeTracker const& tracker) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::StorageLibraryChangeTrackerTrigger) consume_Windows_ApplicationModel_Background_IStorageLibraryChangeTrackerTriggerFactory<D>::Create(Windows::Storage::StorageLibraryChangeTracker const& tracker) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IStorageLibraryChangeTrackerTriggerFactory)->Create(*(void**)(&tracker), &result));
         return Windows::ApplicationModel::Background::StorageLibraryChangeTrackerTrigger{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IStorageLibraryContentChangedTriggerStatics<D>::Create(Windows::Storage::StorageLibrary const& storageLibrary) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::StorageLibraryContentChangedTrigger) consume_Windows_ApplicationModel_Background_IStorageLibraryContentChangedTriggerStatics<D>::Create(Windows::Storage::StorageLibrary const& storageLibrary) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IStorageLibraryContentChangedTriggerStatics)->Create(*(void**)(&storageLibrary), &result));
         return Windows::ApplicationModel::Background::StorageLibraryContentChangedTrigger{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IStorageLibraryContentChangedTriggerStatics<D>::CreateFromLibraries(param::iterable<Windows::Storage::StorageLibrary> const& storageLibraries) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::StorageLibraryContentChangedTrigger) consume_Windows_ApplicationModel_Background_IStorageLibraryContentChangedTriggerStatics<D>::CreateFromLibraries(param::iterable<Windows::Storage::StorageLibrary> const& storageLibraries) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IStorageLibraryContentChangedTriggerStatics)->CreateFromLibraries(*(void**)(&storageLibraries), &result));
         return Windows::ApplicationModel::Background::StorageLibraryContentChangedTrigger{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISystemCondition<D>::ConditionType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::SystemConditionType) consume_Windows_ApplicationModel_Background_ISystemCondition<D>::ConditionType() const
     {
-        Windows::ApplicationModel::Background::SystemConditionType conditionType;
+        Windows::ApplicationModel::Background::SystemConditionType conditionType{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISystemCondition)->get_ConditionType(reinterpret_cast<int32_t*>(&conditionType)));
         return conditionType;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISystemConditionFactory<D>::Create(Windows::ApplicationModel::Background::SystemConditionType const& conditionType) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::SystemCondition) consume_Windows_ApplicationModel_Background_ISystemConditionFactory<D>::Create(Windows::ApplicationModel::Background::SystemConditionType const& conditionType) const
     {
         void* condition{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISystemConditionFactory)->Create(static_cast<int32_t>(conditionType), &condition));
         return Windows::ApplicationModel::Background::SystemCondition{ condition, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISystemTrigger<D>::OneShot() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_ISystemTrigger<D>::OneShot() const
     {
-        bool oneShot;
+        bool oneShot{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISystemTrigger)->get_OneShot(&oneShot));
         return oneShot;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISystemTrigger<D>::TriggerType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::SystemTriggerType) consume_Windows_ApplicationModel_Background_ISystemTrigger<D>::TriggerType() const
     {
-        Windows::ApplicationModel::Background::SystemTriggerType triggerType;
+        Windows::ApplicationModel::Background::SystemTriggerType triggerType{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISystemTrigger)->get_TriggerType(reinterpret_cast<int32_t*>(&triggerType)));
         return triggerType;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ISystemTriggerFactory<D>::Create(Windows::ApplicationModel::Background::SystemTriggerType const& triggerType, bool oneShot) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::SystemTrigger) consume_Windows_ApplicationModel_Background_ISystemTriggerFactory<D>::Create(Windows::ApplicationModel::Background::SystemTriggerType const& triggerType, bool oneShot) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ISystemTriggerFactory)->Create(static_cast<int32_t>(triggerType), oneShot, &trigger));
         return Windows::ApplicationModel::Background::SystemTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ITimeTrigger<D>::FreshnessTime() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_ApplicationModel_Background_ITimeTrigger<D>::FreshnessTime() const
     {
-        uint32_t freshnessTime;
+        uint32_t freshnessTime{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ITimeTrigger)->get_FreshnessTime(&freshnessTime));
         return freshnessTime;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ITimeTrigger<D>::OneShot() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_Background_ITimeTrigger<D>::OneShot() const
     {
-        bool oneShot;
+        bool oneShot{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ITimeTrigger)->get_OneShot(&oneShot));
         return oneShot;
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_ITimeTriggerFactory<D>::Create(uint32_t freshnessTime, bool oneShot) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::TimeTrigger) consume_Windows_ApplicationModel_Background_ITimeTriggerFactory<D>::Create(uint32_t freshnessTime, bool oneShot) const
     {
         void* trigger{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::ITimeTriggerFactory)->Create(freshnessTime, oneShot, &trigger));
         return Windows::ApplicationModel::Background::TimeTrigger{ trigger, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IToastNotificationActionTriggerFactory<D>::Create(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::ToastNotificationActionTrigger) consume_Windows_ApplicationModel_Background_IToastNotificationActionTriggerFactory<D>::Create(param::hstring const& applicationId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IToastNotificationActionTriggerFactory)->Create(*(void**)(&applicationId), &value));
         return Windows::ApplicationModel::Background::ToastNotificationActionTrigger{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IToastNotificationHistoryChangedTriggerFactory<D>::Create(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::ToastNotificationHistoryChangedTrigger) consume_Windows_ApplicationModel_Background_IToastNotificationHistoryChangedTriggerFactory<D>::Create(param::hstring const& applicationId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IToastNotificationHistoryChangedTriggerFactory)->Create(*(void**)(&applicationId), &value));
         return Windows::ApplicationModel::Background::ToastNotificationHistoryChangedTrigger{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_ApplicationModel_Background_IUserNotificationChangedTriggerFactory<D>::Create(Windows::UI::Notifications::NotificationKinds const& notificationKinds) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::UserNotificationChangedTrigger) consume_Windows_ApplicationModel_Background_IUserNotificationChangedTriggerFactory<D>::Create(Windows::UI::Notifications::NotificationKinds const& notificationKinds) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::Background::IUserNotificationChangedTriggerFactory)->Create(static_cast<uint32_t>(notificationKinds), &value));

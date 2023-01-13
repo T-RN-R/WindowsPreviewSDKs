@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,18 +6,18 @@
 #ifndef WINRT_Windows_Graphics_DirectX_Direct3D11_H
 #define WINRT_Windows_Graphics_DirectX_Direct3D11_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Graphics.DirectX.h"
 #include "winrt/impl/Windows.Graphics.DirectX.Direct3D11.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Graphics_DirectX_Direct3D11_IDirect3DDevice<D>::Trim() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Graphics_DirectX_Direct3D11_IDirect3DDevice<D>::Trim() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice)->Trim());
     }
-    template <typename D> auto consume_Windows_Graphics_DirectX_Direct3D11_IDirect3DSurface<D>::Description() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::Direct3DSurfaceDescription) consume_Windows_Graphics_DirectX_Direct3D11_IDirect3DSurface<D>::Description() const
     {
-        Windows::Graphics::DirectX::Direct3D11::Direct3DSurfaceDescription value;
+        Windows::Graphics::DirectX::Direct3D11::Direct3DSurfaceDescription value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface)->get_Description(put_abi(value)));
         return value;
     }

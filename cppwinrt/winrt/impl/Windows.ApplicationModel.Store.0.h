@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,11 +9,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMapView;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
@@ -112,43 +115,41 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Store::ProductPurchaseStatus>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Store::ProductType>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Store::LicenseChangedEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::CurrentApp>{ L"Windows.ApplicationModel.Store.CurrentApp" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::CurrentAppSimulator>{ L"Windows.ApplicationModel.Store.CurrentAppSimulator" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseInformation>{ L"Windows.ApplicationModel.Store.LicenseInformation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ListingInformation>{ L"Windows.ApplicationModel.Store.ListingInformation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductLicense>{ L"Windows.ApplicationModel.Store.ProductLicense" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductListing>{ L"Windows.ApplicationModel.Store.ProductListing" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductPurchaseDisplayProperties>{ L"Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::PurchaseResults>{ L"Windows.ApplicationModel.Store.PurchaseResults" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::UnfulfilledConsumable>{ L"Windows.ApplicationModel.Store.UnfulfilledConsumable" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::FulfillmentResult>{ L"Windows.ApplicationModel.Store.FulfillmentResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductPurchaseStatus>{ L"Windows.ApplicationModel.Store.ProductPurchaseStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductType>{ L"Windows.ApplicationModel.Store.ProductType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentApp>{ L"Windows.ApplicationModel.Store.ICurrentApp" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentApp2Statics>{ L"Windows.ApplicationModel.Store.ICurrentApp2Statics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppSimulator>{ L"Windows.ApplicationModel.Store.ICurrentAppSimulator" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorStaticsWithFiltering>{ L"Windows.ApplicationModel.Store.ICurrentAppSimulatorStaticsWithFiltering" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithCampaignId>{ L"Windows.ApplicationModel.Store.ICurrentAppSimulatorWithCampaignId" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithConsumables>{ L"Windows.ApplicationModel.Store.ICurrentAppSimulatorWithConsumables" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppStaticsWithFiltering>{ L"Windows.ApplicationModel.Store.ICurrentAppStaticsWithFiltering" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppWithCampaignId>{ L"Windows.ApplicationModel.Store.ICurrentAppWithCampaignId" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppWithConsumables>{ L"Windows.ApplicationModel.Store.ICurrentAppWithConsumables" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ILicenseInformation>{ L"Windows.ApplicationModel.Store.ILicenseInformation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IListingInformation>{ L"Windows.ApplicationModel.Store.IListingInformation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IListingInformation2>{ L"Windows.ApplicationModel.Store.IListingInformation2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductLicense>{ L"Windows.ApplicationModel.Store.IProductLicense" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductLicenseWithFulfillment>{ L"Windows.ApplicationModel.Store.IProductLicenseWithFulfillment" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductListing>{ L"Windows.ApplicationModel.Store.IProductListing" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductListing2>{ L"Windows.ApplicationModel.Store.IProductListing2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductListingWithConsumables>{ L"Windows.ApplicationModel.Store.IProductListingWithConsumables" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductListingWithMetadata>{ L"Windows.ApplicationModel.Store.IProductListingWithMetadata" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductPurchaseDisplayProperties>{ L"Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductPurchaseDisplayPropertiesFactory>{ L"Windows.ApplicationModel.Store.IProductPurchaseDisplayPropertiesFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IPurchaseResults>{ L"Windows.ApplicationModel.Store.IPurchaseResults" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IUnfulfilledConsumable>{ L"Windows.ApplicationModel.Store.IUnfulfilledConsumable" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseChangedEventHandler>{ L"Windows.ApplicationModel.Store.LicenseChangedEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::CurrentApp> = L"Windows.ApplicationModel.Store.CurrentApp";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::CurrentAppSimulator> = L"Windows.ApplicationModel.Store.CurrentAppSimulator";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseInformation> = L"Windows.ApplicationModel.Store.LicenseInformation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ListingInformation> = L"Windows.ApplicationModel.Store.ListingInformation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductLicense> = L"Windows.ApplicationModel.Store.ProductLicense";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductListing> = L"Windows.ApplicationModel.Store.ProductListing";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductPurchaseDisplayProperties> = L"Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::PurchaseResults> = L"Windows.ApplicationModel.Store.PurchaseResults";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::UnfulfilledConsumable> = L"Windows.ApplicationModel.Store.UnfulfilledConsumable";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::FulfillmentResult> = L"Windows.ApplicationModel.Store.FulfillmentResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductPurchaseStatus> = L"Windows.ApplicationModel.Store.ProductPurchaseStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ProductType> = L"Windows.ApplicationModel.Store.ProductType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentApp> = L"Windows.ApplicationModel.Store.ICurrentApp";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentApp2Statics> = L"Windows.ApplicationModel.Store.ICurrentApp2Statics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppSimulator> = L"Windows.ApplicationModel.Store.ICurrentAppSimulator";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorStaticsWithFiltering> = L"Windows.ApplicationModel.Store.ICurrentAppSimulatorStaticsWithFiltering";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithCampaignId> = L"Windows.ApplicationModel.Store.ICurrentAppSimulatorWithCampaignId";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithConsumables> = L"Windows.ApplicationModel.Store.ICurrentAppSimulatorWithConsumables";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppStaticsWithFiltering> = L"Windows.ApplicationModel.Store.ICurrentAppStaticsWithFiltering";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppWithCampaignId> = L"Windows.ApplicationModel.Store.ICurrentAppWithCampaignId";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ICurrentAppWithConsumables> = L"Windows.ApplicationModel.Store.ICurrentAppWithConsumables";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::ILicenseInformation> = L"Windows.ApplicationModel.Store.ILicenseInformation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IListingInformation> = L"Windows.ApplicationModel.Store.IListingInformation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IListingInformation2> = L"Windows.ApplicationModel.Store.IListingInformation2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductLicense> = L"Windows.ApplicationModel.Store.IProductLicense";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductLicenseWithFulfillment> = L"Windows.ApplicationModel.Store.IProductLicenseWithFulfillment";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductListing> = L"Windows.ApplicationModel.Store.IProductListing";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductListing2> = L"Windows.ApplicationModel.Store.IProductListing2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductListingWithConsumables> = L"Windows.ApplicationModel.Store.IProductListingWithConsumables";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductListingWithMetadata> = L"Windows.ApplicationModel.Store.IProductListingWithMetadata";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductPurchaseDisplayProperties> = L"Windows.ApplicationModel.Store.IProductPurchaseDisplayProperties";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IProductPurchaseDisplayPropertiesFactory> = L"Windows.ApplicationModel.Store.IProductPurchaseDisplayPropertiesFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IPurchaseResults> = L"Windows.ApplicationModel.Store.IPurchaseResults";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IUnfulfilledConsumable> = L"Windows.ApplicationModel.Store.IUnfulfilledConsumable";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseChangedEventHandler> = L"Windows.ApplicationModel.Store.LicenseChangedEventHandler";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentApp>{ 0xD52DC065,0xDA3F,0x4685,{ 0x99,0x5E,0x9B,0x48,0x2E,0xB5,0xE6,0x03 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentApp2Statics>{ 0xDF4E6E2D,0x3171,0x4AD3,{ 0x86,0x14,0x2C,0x61,0x24,0x43,0x73,0xCB } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulator>{ 0xF17F9DB1,0x74CD,0x4787,{ 0x97,0x87,0x19,0x86,0x6E,0x9A,0x55,0x59 } };
@@ -402,14 +403,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentApp
     {
-        [[nodiscard]] auto LicenseInformation() const;
-        [[nodiscard]] auto LinkUri() const;
-        [[nodiscard]] auto AppId() const;
-        auto RequestAppPurchaseAsync(bool includeReceipt) const;
-        auto RequestProductPurchaseAsync(param::hstring const& productId, bool includeReceipt) const;
-        auto LoadListingInformationAsync() const;
-        auto GetAppReceiptAsync() const;
-        auto GetProductReceiptAsync(param::hstring const& productId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::LicenseInformation) LicenseInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) LinkUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) AppId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) RequestAppPurchaseAsync(bool includeReceipt) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) RequestProductPurchaseAsync(param::hstring const& productId, bool includeReceipt) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::ListingInformation>) LoadListingInformationAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetAppReceiptAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetProductReceiptAsync(param::hstring const& productId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentApp>
     {
@@ -418,8 +419,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentApp2Statics
     {
-        auto GetCustomerPurchaseIdAsync(param::hstring const& serviceTicket, param::hstring const& publisherUserId) const;
-        auto GetCustomerCollectionsIdAsync(param::hstring const& serviceTicket, param::hstring const& publisherUserId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetCustomerPurchaseIdAsync(param::hstring const& serviceTicket, param::hstring const& publisherUserId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetCustomerCollectionsIdAsync(param::hstring const& serviceTicket, param::hstring const& publisherUserId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentApp2Statics>
     {
@@ -428,15 +429,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentAppSimulator
     {
-        [[nodiscard]] auto LicenseInformation() const;
-        [[nodiscard]] auto LinkUri() const;
-        [[nodiscard]] auto AppId() const;
-        auto RequestAppPurchaseAsync(bool includeReceipt) const;
-        auto RequestProductPurchaseAsync(param::hstring const& productId, bool includeReceipt) const;
-        auto LoadListingInformationAsync() const;
-        auto GetAppReceiptAsync() const;
-        auto GetProductReceiptAsync(param::hstring const& productId) const;
-        auto ReloadSimulatorAsync(Windows::Storage::StorageFile const& simulatorSettingsFile) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::LicenseInformation) LicenseInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) LinkUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) AppId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) RequestAppPurchaseAsync(bool includeReceipt) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) RequestProductPurchaseAsync(param::hstring const& productId, bool includeReceipt) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::ListingInformation>) LoadListingInformationAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetAppReceiptAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetProductReceiptAsync(param::hstring const& productId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReloadSimulatorAsync(Windows::Storage::StorageFile const& simulatorSettingsFile) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentAppSimulator>
     {
@@ -445,8 +446,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentAppSimulatorStaticsWithFiltering
     {
-        auto LoadListingInformationByProductIdsAsync(param::async_iterable<hstring> const& productIds) const;
-        auto LoadListingInformationByKeywordsAsync(param::async_iterable<hstring> const& keywords) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::ListingInformation>) LoadListingInformationByProductIdsAsync(param::async_iterable<hstring> const& productIds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::ListingInformation>) LoadListingInformationByKeywordsAsync(param::async_iterable<hstring> const& keywords) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentAppSimulatorStaticsWithFiltering>
     {
@@ -455,7 +456,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentAppSimulatorWithCampaignId
     {
-        auto GetAppPurchaseCampaignIdAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetAppPurchaseCampaignIdAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithCampaignId>
     {
@@ -464,10 +465,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentAppSimulatorWithConsumables
     {
-        auto ReportConsumableFulfillmentAsync(param::hstring const& productId, winrt::guid const& transactionId) const;
-        auto RequestProductPurchaseAsync(param::hstring const& productId) const;
-        auto RequestProductPurchaseAsync(param::hstring const& productId, param::hstring const& offerId, Windows::ApplicationModel::Store::ProductPurchaseDisplayProperties const& displayProperties) const;
-        auto GetUnfulfilledConsumablesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::FulfillmentResult>) ReportConsumableFulfillmentAsync(param::hstring const& productId, winrt::guid const& transactionId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::PurchaseResults>) RequestProductPurchaseAsync(param::hstring const& productId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::PurchaseResults>) RequestProductPurchaseAsync(param::hstring const& productId, param::hstring const& offerId, Windows::ApplicationModel::Store::ProductPurchaseDisplayProperties const& displayProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::UnfulfilledConsumable>>) GetUnfulfilledConsumablesAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithConsumables>
     {
@@ -476,9 +477,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentAppStaticsWithFiltering
     {
-        auto LoadListingInformationByProductIdsAsync(param::async_iterable<hstring> const& productIds) const;
-        auto LoadListingInformationByKeywordsAsync(param::async_iterable<hstring> const& keywords) const;
-        auto ReportProductFulfillment(param::hstring const& productId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::ListingInformation>) LoadListingInformationByProductIdsAsync(param::async_iterable<hstring> const& productIds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::ListingInformation>) LoadListingInformationByKeywordsAsync(param::async_iterable<hstring> const& keywords) const;
+        WINRT_IMPL_AUTO(void) ReportProductFulfillment(param::hstring const& productId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentAppStaticsWithFiltering>
     {
@@ -487,7 +488,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentAppWithCampaignId
     {
-        auto GetAppPurchaseCampaignIdAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetAppPurchaseCampaignIdAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentAppWithCampaignId>
     {
@@ -496,10 +497,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ICurrentAppWithConsumables
     {
-        auto ReportConsumableFulfillmentAsync(param::hstring const& productId, winrt::guid const& transactionId) const;
-        auto RequestProductPurchaseAsync(param::hstring const& productId) const;
-        auto RequestProductPurchaseAsync(param::hstring const& productId, param::hstring const& offerId, Windows::ApplicationModel::Store::ProductPurchaseDisplayProperties const& displayProperties) const;
-        auto GetUnfulfilledConsumablesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::FulfillmentResult>) ReportConsumableFulfillmentAsync(param::hstring const& productId, winrt::guid const& transactionId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::PurchaseResults>) RequestProductPurchaseAsync(param::hstring const& productId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::PurchaseResults>) RequestProductPurchaseAsync(param::hstring const& productId, param::hstring const& offerId, Windows::ApplicationModel::Store::ProductPurchaseDisplayProperties const& displayProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::UnfulfilledConsumable>>) GetUnfulfilledConsumablesAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ICurrentAppWithConsumables>
     {
@@ -508,14 +509,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_ILicenseInformation
     {
-        [[nodiscard]] auto ProductLicenses() const;
-        [[nodiscard]] auto IsActive() const;
-        [[nodiscard]] auto IsTrial() const;
-        [[nodiscard]] auto ExpirationDate() const;
-        auto LicenseChanged(Windows::ApplicationModel::Store::LicenseChangedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::ApplicationModel::Store::ProductLicense>) ProductLicenses() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsActive() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTrial() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) ExpirationDate() const;
+        WINRT_IMPL_AUTO(winrt::event_token) LicenseChanged(Windows::ApplicationModel::Store::LicenseChangedEventHandler const& handler) const;
         using LicenseChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Store::ILicenseInformation, &impl::abi_t<Windows::ApplicationModel::Store::ILicenseInformation>::remove_LicenseChanged>;
         [[nodiscard]] LicenseChanged_revoker LicenseChanged(auto_revoke_t, Windows::ApplicationModel::Store::LicenseChangedEventHandler const& handler) const;
-        auto LicenseChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) LicenseChanged(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Store::ILicenseInformation>
     {
@@ -524,12 +525,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IListingInformation
     {
-        [[nodiscard]] auto CurrentMarket() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto ProductListings() const;
-        [[nodiscard]] auto FormattedPrice() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto AgeRating() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CurrentMarket() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::ApplicationModel::Store::ProductListing>) ProductListings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FormattedPrice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) AgeRating() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IListingInformation>
     {
@@ -538,10 +539,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IListingInformation2
     {
-        [[nodiscard]] auto FormattedBasePrice() const;
-        [[nodiscard]] auto SaleEndDate() const;
-        [[nodiscard]] auto IsOnSale() const;
-        [[nodiscard]] auto CurrencyCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FormattedBasePrice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) SaleEndDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOnSale() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CurrencyCode() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IListingInformation2>
     {
@@ -550,9 +551,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IProductLicense
     {
-        [[nodiscard]] auto ProductId() const;
-        [[nodiscard]] auto IsActive() const;
-        [[nodiscard]] auto ExpirationDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProductId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsActive() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) ExpirationDate() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IProductLicense>
     {
@@ -561,7 +562,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IProductLicenseWithFulfillment
     {
-        [[nodiscard]] auto IsConsumable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConsumable() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IProductLicenseWithFulfillment>
     {
@@ -570,9 +571,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IProductListing
     {
-        [[nodiscard]] auto ProductId() const;
-        [[nodiscard]] auto FormattedPrice() const;
-        [[nodiscard]] auto Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProductId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FormattedPrice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IProductListing>
     {
@@ -581,10 +582,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IProductListing2
     {
-        [[nodiscard]] auto FormattedBasePrice() const;
-        [[nodiscard]] auto SaleEndDate() const;
-        [[nodiscard]] auto IsOnSale() const;
-        [[nodiscard]] auto CurrencyCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FormattedBasePrice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) SaleEndDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOnSale() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CurrencyCode() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IProductListing2>
     {
@@ -593,7 +594,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IProductListingWithConsumables
     {
-        [[nodiscard]] auto ProductType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::ProductType) ProductType() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IProductListingWithConsumables>
     {
@@ -602,11 +603,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IProductListingWithMetadata
     {
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto Keywords() const;
-        [[nodiscard]] auto ProductType() const;
-        [[nodiscard]] auto Tag() const;
-        [[nodiscard]] auto ImageUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<hstring>) Keywords() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::ProductType) ProductType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Tag() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ImageUri() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IProductListingWithMetadata>
     {
@@ -615,12 +616,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IProductPurchaseDisplayProperties
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Image() const;
-        auto Image(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Image() const;
+        WINRT_IMPL_AUTO(void) Image(Windows::Foundation::Uri const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IProductPurchaseDisplayProperties>
     {
@@ -629,7 +630,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IProductPurchaseDisplayPropertiesFactory
     {
-        auto CreateProductPurchaseDisplayProperties(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::ProductPurchaseDisplayProperties) CreateProductPurchaseDisplayProperties(param::hstring const& name) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IProductPurchaseDisplayPropertiesFactory>
     {
@@ -638,10 +639,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IPurchaseResults
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto TransactionId() const;
-        [[nodiscard]] auto ReceiptXml() const;
-        [[nodiscard]] auto OfferId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::ProductPurchaseStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) TransactionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ReceiptXml() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OfferId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IPurchaseResults>
     {
@@ -650,9 +651,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_IUnfulfilledConsumable
     {
-        [[nodiscard]] auto ProductId() const;
-        [[nodiscard]] auto TransactionId() const;
-        [[nodiscard]] auto OfferId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProductId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) TransactionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OfferId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::IUnfulfilledConsumable>
     {

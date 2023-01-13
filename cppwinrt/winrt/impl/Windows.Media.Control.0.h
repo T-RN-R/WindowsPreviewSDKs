@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,11 +8,18 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Media
 {
     enum class MediaPlaybackAutoRepeatMode : int32_t;
+    enum class MediaPlaybackType : int32_t;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -79,32 +86,30 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Control::SessionsChangedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Media::Control::TimelinePropertiesChangedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::CurrentSessionChangedEventArgs>{ L"Windows.Media.Control.CurrentSessionChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSession>{ L"Windows.Media.Control.GlobalSystemMediaTransportControlsSession" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager>{ L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionMediaProperties>{ L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackControls>{ L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackInfo>{ L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionTimelineProperties>{ L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::MediaPropertiesChangedEventArgs>{ L"Windows.Media.Control.MediaPropertiesChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::PlaybackInfoChangedEventArgs>{ L"Windows.Media.Control.PlaybackInfoChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::SessionsChangedEventArgs>{ L"Windows.Media.Control.SessionsChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::TimelinePropertiesChangedEventArgs>{ L"Windows.Media.Control.TimelinePropertiesChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackStatus>{ L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Control::ICurrentSessionChangedEventArgs>{ L"Windows.Media.Control.ICurrentSessionChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession>{ L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSession" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager>{ L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManagerStatics>{ L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties>{ L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionMediaProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls>{ L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionPlaybackControls" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo>{ L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionPlaybackInfo" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties>{ L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionTimelineProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IMediaPropertiesChangedEventArgs>{ L"Windows.Media.Control.IMediaPropertiesChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::IPlaybackInfoChangedEventArgs>{ L"Windows.Media.Control.IPlaybackInfoChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::ISessionsChangedEventArgs>{ L"Windows.Media.Control.ISessionsChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Control::ITimelinePropertiesChangedEventArgs>{ L"Windows.Media.Control.ITimelinePropertiesChangedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Control::CurrentSessionChangedEventArgs> = L"Windows.Media.Control.CurrentSessionChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSession> = L"Windows.Media.Control.GlobalSystemMediaTransportControlsSession";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager> = L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionMediaProperties> = L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackControls> = L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackInfo> = L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionTimelineProperties> = L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::MediaPropertiesChangedEventArgs> = L"Windows.Media.Control.MediaPropertiesChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::PlaybackInfoChangedEventArgs> = L"Windows.Media.Control.PlaybackInfoChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::SessionsChangedEventArgs> = L"Windows.Media.Control.SessionsChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::TimelinePropertiesChangedEventArgs> = L"Windows.Media.Control.TimelinePropertiesChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackStatus> = L"Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::ICurrentSessionChangedEventArgs> = L"Windows.Media.Control.ICurrentSessionChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession> = L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSession";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager> = L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManagerStatics> = L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties> = L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionMediaProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls> = L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionPlaybackControls";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo> = L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionPlaybackInfo";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties> = L"Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionTimelineProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IMediaPropertiesChangedEventArgs> = L"Windows.Media.Control.IMediaPropertiesChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::IPlaybackInfoChangedEventArgs> = L"Windows.Media.Control.IPlaybackInfoChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::ISessionsChangedEventArgs> = L"Windows.Media.Control.ISessionsChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Control::ITimelinePropertiesChangedEventArgs> = L"Windows.Media.Control.ITimelinePropertiesChangedEventArgs";
     template <> inline constexpr guid guid_v<Windows::Media::Control::ICurrentSessionChangedEventArgs>{ 0x6969CB39,0x0BFA,0x5FE0,{ 0x8D,0x73,0x09,0xCC,0x5E,0x54,0x08,0xE1 } };
     template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession>{ 0x7148C835,0x9B14,0x5AE2,{ 0xAB,0x85,0xDC,0x9B,0x1C,0x14,0xE1,0xA8 } };
     template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager>{ 0xCACE8EAC,0xE86E,0x504A,{ 0xAB,0x31,0x5F,0xF8,0xFF,0x1B,0xCE,0x49 } };
@@ -280,37 +285,37 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession
     {
-        [[nodiscard]] auto SourceAppUserModelId() const;
-        auto TryGetMediaPropertiesAsync() const;
-        auto GetTimelineProperties() const;
-        auto GetPlaybackInfo() const;
-        auto TryPlayAsync() const;
-        auto TryPauseAsync() const;
-        auto TryStopAsync() const;
-        auto TryRecordAsync() const;
-        auto TryFastForwardAsync() const;
-        auto TryRewindAsync() const;
-        auto TrySkipNextAsync() const;
-        auto TrySkipPreviousAsync() const;
-        auto TryChangeChannelUpAsync() const;
-        auto TryChangeChannelDownAsync() const;
-        auto TryTogglePlayPauseAsync() const;
-        auto TryChangeAutoRepeatModeAsync(Windows::Media::MediaPlaybackAutoRepeatMode const& requestedAutoRepeatMode) const;
-        auto TryChangePlaybackRateAsync(double requestedPlaybackRate) const;
-        auto TryChangeShuffleActiveAsync(bool requestedShuffleState) const;
-        auto TryChangePlaybackPositionAsync(int64_t requestedPlaybackPosition) const;
-        auto TimelinePropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::TimelinePropertiesChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SourceAppUserModelId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionMediaProperties>) TryGetMediaPropertiesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSessionTimelineProperties) GetTimelineProperties() const;
+        WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackInfo) GetPlaybackInfo() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryPlayAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryPauseAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryStopAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryRecordAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryFastForwardAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryRewindAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TrySkipNextAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TrySkipPreviousAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryChangeChannelUpAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryChangeChannelDownAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryTogglePlayPauseAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryChangeAutoRepeatModeAsync(Windows::Media::MediaPlaybackAutoRepeatMode const& requestedAutoRepeatMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryChangePlaybackRateAsync(double requestedPlaybackRate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryChangeShuffleActiveAsync(bool requestedShuffleState) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryChangePlaybackPositionAsync(int64_t requestedPlaybackPosition) const;
+        WINRT_IMPL_AUTO(winrt::event_token) TimelinePropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::TimelinePropertiesChangedEventArgs> const& handler) const;
         using TimelinePropertiesChanged_revoker = impl::event_revoker<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession, &impl::abi_t<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession>::remove_TimelinePropertiesChanged>;
         [[nodiscard]] TimelinePropertiesChanged_revoker TimelinePropertiesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::TimelinePropertiesChangedEventArgs> const& handler) const;
-        auto TimelinePropertiesChanged(winrt::event_token const& token) const noexcept;
-        auto PlaybackInfoChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::PlaybackInfoChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) TimelinePropertiesChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PlaybackInfoChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::PlaybackInfoChangedEventArgs> const& handler) const;
         using PlaybackInfoChanged_revoker = impl::event_revoker<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession, &impl::abi_t<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession>::remove_PlaybackInfoChanged>;
         [[nodiscard]] PlaybackInfoChanged_revoker PlaybackInfoChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::PlaybackInfoChangedEventArgs> const& handler) const;
-        auto PlaybackInfoChanged(winrt::event_token const& token) const noexcept;
-        auto MediaPropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::MediaPropertiesChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlaybackInfoChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) MediaPropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::MediaPropertiesChangedEventArgs> const& handler) const;
         using MediaPropertiesChanged_revoker = impl::event_revoker<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession, &impl::abi_t<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession>::remove_MediaPropertiesChanged>;
         [[nodiscard]] MediaPropertiesChanged_revoker MediaPropertiesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::MediaPropertiesChangedEventArgs> const& handler) const;
-        auto MediaPropertiesChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) MediaPropertiesChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession>
     {
@@ -319,16 +324,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager
     {
-        auto GetCurrentSession() const;
-        auto GetSessions() const;
-        auto CurrentSessionChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::CurrentSessionChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSession) GetCurrentSession() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Control::GlobalSystemMediaTransportControlsSession>) GetSessions() const;
+        WINRT_IMPL_AUTO(winrt::event_token) CurrentSessionChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::CurrentSessionChangedEventArgs> const& handler) const;
         using CurrentSessionChanged_revoker = impl::event_revoker<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager, &impl::abi_t<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager>::remove_CurrentSessionChanged>;
         [[nodiscard]] CurrentSessionChanged_revoker CurrentSessionChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::CurrentSessionChangedEventArgs> const& handler) const;
-        auto CurrentSessionChanged(winrt::event_token const& token) const noexcept;
-        auto SessionsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::SessionsChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CurrentSessionChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SessionsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::SessionsChangedEventArgs> const& handler) const;
         using SessionsChanged_revoker = impl::event_revoker<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager, &impl::abi_t<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager>::remove_SessionsChanged>;
         [[nodiscard]] SessionsChanged_revoker SessionsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::SessionsChangedEventArgs> const& handler) const;
-        auto SessionsChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SessionsChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager>
     {
@@ -337,7 +342,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManagerStatics
     {
-        auto RequestAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager>) RequestAsync() const;
     };
     template <> struct consume<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManagerStatics>
     {
@@ -346,16 +351,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties
     {
-        [[nodiscard]] auto Title() const;
-        [[nodiscard]] auto Subtitle() const;
-        [[nodiscard]] auto AlbumArtist() const;
-        [[nodiscard]] auto Artist() const;
-        [[nodiscard]] auto AlbumTitle() const;
-        [[nodiscard]] auto TrackNumber() const;
-        [[nodiscard]] auto Genres() const;
-        [[nodiscard]] auto AlbumTrackCount() const;
-        [[nodiscard]] auto PlaybackType() const;
-        [[nodiscard]] auto Thumbnail() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subtitle() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlbumArtist() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Artist() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlbumTitle() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) TrackNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Genres() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) AlbumTrackCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::MediaPlaybackType>) PlaybackType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Thumbnail() const;
     };
     template <> struct consume<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties>
     {
@@ -364,21 +369,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls
     {
-        [[nodiscard]] auto IsPlayEnabled() const;
-        [[nodiscard]] auto IsPauseEnabled() const;
-        [[nodiscard]] auto IsStopEnabled() const;
-        [[nodiscard]] auto IsRecordEnabled() const;
-        [[nodiscard]] auto IsFastForwardEnabled() const;
-        [[nodiscard]] auto IsRewindEnabled() const;
-        [[nodiscard]] auto IsNextEnabled() const;
-        [[nodiscard]] auto IsPreviousEnabled() const;
-        [[nodiscard]] auto IsChannelUpEnabled() const;
-        [[nodiscard]] auto IsChannelDownEnabled() const;
-        [[nodiscard]] auto IsPlayPauseToggleEnabled() const;
-        [[nodiscard]] auto IsShuffleEnabled() const;
-        [[nodiscard]] auto IsRepeatEnabled() const;
-        [[nodiscard]] auto IsPlaybackRateEnabled() const;
-        [[nodiscard]] auto IsPlaybackPositionEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlayEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPauseEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStopEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRecordEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsFastForwardEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRewindEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsNextEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPreviousEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsChannelUpEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsChannelDownEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlayPauseToggleEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsShuffleEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRepeatEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlaybackRateEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlaybackPositionEnabled() const;
     };
     template <> struct consume<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls>
     {
@@ -387,12 +392,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo
     {
-        [[nodiscard]] auto Controls() const;
-        [[nodiscard]] auto PlaybackStatus() const;
-        [[nodiscard]] auto PlaybackType() const;
-        [[nodiscard]] auto AutoRepeatMode() const;
-        [[nodiscard]] auto PlaybackRate() const;
-        [[nodiscard]] auto IsShuffleActive() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackControls) Controls() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackStatus) PlaybackStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::MediaPlaybackType>) PlaybackType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::MediaPlaybackAutoRepeatMode>) AutoRepeatMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) PlaybackRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) IsShuffleActive() const;
     };
     template <> struct consume<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo>
     {
@@ -401,12 +406,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties
     {
-        [[nodiscard]] auto StartTime() const;
-        [[nodiscard]] auto EndTime() const;
-        [[nodiscard]] auto MinSeekTime() const;
-        [[nodiscard]] auto MaxSeekTime() const;
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto LastUpdatedTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) StartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) EndTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MinSeekTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MaxSeekTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastUpdatedTime() const;
     };
     template <> struct consume<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties>
     {

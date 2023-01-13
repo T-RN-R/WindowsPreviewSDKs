@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_Notifications_H
 #define WINRT_Windows_UI_Notifications_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.h"
 #include "winrt/impl/Windows.ApplicationModel.2.h"
 #include "winrt/impl/Windows.Data.Xml.Dom.2.h"
@@ -16,923 +16,923 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.UI.Notifications.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Notifications_IAdaptiveNotificationContent<D>::Kind() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::AdaptiveNotificationContentKind) consume_Windows_UI_Notifications_IAdaptiveNotificationContent<D>::Kind() const
     {
-        Windows::UI::Notifications::AdaptiveNotificationContentKind value;
+        Windows::UI::Notifications::AdaptiveNotificationContentKind value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IAdaptiveNotificationContent)->get_Kind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IAdaptiveNotificationContent<D>::Hints() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) consume_Windows_UI_Notifications_IAdaptiveNotificationContent<D>::Hints() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IAdaptiveNotificationContent)->get_Hints(&value));
         return Windows::Foundation::Collections::IMap<hstring, hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IAdaptiveNotificationText<D>::Text() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IAdaptiveNotificationText<D>::Text() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IAdaptiveNotificationText)->get_Text(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IAdaptiveNotificationText<D>::Text(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IAdaptiveNotificationText<D>::Text(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IAdaptiveNotificationText)->put_Text(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IAdaptiveNotificationText<D>::Language() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IAdaptiveNotificationText<D>::Language() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IAdaptiveNotificationText)->get_Language(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IAdaptiveNotificationText<D>::Language(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IAdaptiveNotificationText<D>::Language(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IAdaptiveNotificationText)->put_Language(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeNotification<D>::Content() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_IBadgeNotification<D>::Content() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeNotification)->get_Content(&value));
         return Windows::Data::Xml::Dom::XmlDocument{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IBadgeNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeNotification)->put_ExpirationTime(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeNotification<D>::ExpirationTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) consume_Windows_UI_Notifications_IBadgeNotification<D>::ExpirationTime() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeNotification)->get_ExpirationTime(&value));
         return Windows::Foundation::IReference<Windows::Foundation::DateTime>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeNotificationFactory<D>::CreateBadgeNotification(Windows::Data::Xml::Dom::XmlDocument const& content) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::BadgeNotification) consume_Windows_UI_Notifications_IBadgeNotificationFactory<D>::CreateBadgeNotification(Windows::Data::Xml::Dom::XmlDocument const& content) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeNotificationFactory)->CreateBadgeNotification(*(void**)(&content), &value));
         return Windows::UI::Notifications::BadgeNotification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerForUser<D>::CreateBadgeUpdaterForApplication() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::BadgeUpdater) consume_Windows_UI_Notifications_IBadgeUpdateManagerForUser<D>::CreateBadgeUpdaterForApplication() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerForUser)->CreateBadgeUpdaterForApplication(&result));
         return Windows::UI::Notifications::BadgeUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerForUser<D>::CreateBadgeUpdaterForApplication(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::BadgeUpdater) consume_Windows_UI_Notifications_IBadgeUpdateManagerForUser<D>::CreateBadgeUpdaterForApplication(param::hstring const& applicationId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerForUser)->CreateBadgeUpdaterForApplicationWithId(*(void**)(&applicationId), &result));
         return Windows::UI::Notifications::BadgeUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerForUser<D>::CreateBadgeUpdaterForSecondaryTile(param::hstring const& tileId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::BadgeUpdater) consume_Windows_UI_Notifications_IBadgeUpdateManagerForUser<D>::CreateBadgeUpdaterForSecondaryTile(param::hstring const& tileId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerForUser)->CreateBadgeUpdaterForSecondaryTile(*(void**)(&tileId), &result));
         return Windows::UI::Notifications::BadgeUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerForUser<D>::User() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::User) consume_Windows_UI_Notifications_IBadgeUpdateManagerForUser<D>::User() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerForUser)->get_User(&value));
         return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics<D>::CreateBadgeUpdaterForApplication() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::BadgeUpdater) consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics<D>::CreateBadgeUpdaterForApplication() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerStatics)->CreateBadgeUpdaterForApplication(&result));
         return Windows::UI::Notifications::BadgeUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics<D>::CreateBadgeUpdaterForApplication(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::BadgeUpdater) consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics<D>::CreateBadgeUpdaterForApplication(param::hstring const& applicationId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerStatics)->CreateBadgeUpdaterForApplicationWithId(*(void**)(&applicationId), &result));
         return Windows::UI::Notifications::BadgeUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics<D>::CreateBadgeUpdaterForSecondaryTile(param::hstring const& tileId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::BadgeUpdater) consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics<D>::CreateBadgeUpdaterForSecondaryTile(param::hstring const& tileId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerStatics)->CreateBadgeUpdaterForSecondaryTile(*(void**)(&tileId), &result));
         return Windows::UI::Notifications::BadgeUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics<D>::GetTemplateContent(Windows::UI::Notifications::BadgeTemplateType const& type) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics<D>::GetTemplateContent(Windows::UI::Notifications::BadgeTemplateType const& type) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerStatics)->GetTemplateContent(static_cast<int32_t>(type), &result));
         return Windows::Data::Xml::Dom::XmlDocument{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics2<D>::GetForUser(Windows::System::User const& user) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::BadgeUpdateManagerForUser) consume_Windows_UI_Notifications_IBadgeUpdateManagerStatics2<D>::GetForUser(Windows::System::User const& user) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdateManagerStatics2)->GetForUser(*(void**)(&user), &result));
         return Windows::UI::Notifications::BadgeUpdateManagerForUser{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdater<D>::Update(Windows::UI::Notifications::BadgeNotification const& notification) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IBadgeUpdater<D>::Update(Windows::UI::Notifications::BadgeNotification const& notification) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdater)->Update(*(void**)(&notification)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdater<D>::Clear() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IBadgeUpdater<D>::Clear() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdater)->Clear());
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& badgeContent, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IBadgeUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& badgeContent, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdater)->StartPeriodicUpdate(*(void**)(&badgeContent), static_cast<int32_t>(requestedInterval)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& badgeContent, Windows::Foundation::DateTime const& startTime, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IBadgeUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& badgeContent, Windows::Foundation::DateTime const& startTime, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdater)->StartPeriodicUpdateAtTime(*(void**)(&badgeContent), impl::bind_in(startTime), static_cast<int32_t>(requestedInterval)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IBadgeUpdater<D>::StopPeriodicUpdate() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IBadgeUpdater<D>::StopPeriodicUpdate() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IBadgeUpdater)->StopPeriodicUpdate());
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::Style() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::Style() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationHintsStatics)->get_Style(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::Wrap() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::Wrap() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationHintsStatics)->get_Wrap(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::MaxLines() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::MaxLines() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationHintsStatics)->get_MaxLines(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::MinLines() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::MinLines() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationHintsStatics)->get_MinLines(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::TextStacking() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::TextStacking() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationHintsStatics)->get_TextStacking(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::Align() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationHintsStatics<D>::Align() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationHintsStatics)->get_Align(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Caption() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Caption() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_Caption(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Body() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Body() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_Body(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Base() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Base() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_Base(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Subtitle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Subtitle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_Subtitle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Title() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Title() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Subheader() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Subheader() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_Subheader(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Header() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::Header() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_Header(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::TitleNumeral() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::TitleNumeral() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_TitleNumeral(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::SubheaderNumeral() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::SubheaderNumeral() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_SubheaderNumeral(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::HeaderNumeral() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::HeaderNumeral() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_HeaderNumeral(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::CaptionSubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::CaptionSubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_CaptionSubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::BodySubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::BodySubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_BodySubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::BaseSubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::BaseSubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_BaseSubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::SubtitleSubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::SubtitleSubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_SubtitleSubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::TitleSubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::TitleSubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_TitleSubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::SubheaderSubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::SubheaderSubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_SubheaderSubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::SubheaderNumeralSubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::SubheaderNumeralSubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_SubheaderNumeralSubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::HeaderSubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::HeaderSubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_HeaderSubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::HeaderNumeralSubtle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownAdaptiveNotificationTextStylesStatics<D>::HeaderNumeralSubtle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownAdaptiveNotificationTextStylesStatics)->get_HeaderNumeralSubtle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IKnownNotificationBindingsStatics<D>::ToastGeneric() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IKnownNotificationBindingsStatics<D>::ToastGeneric() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IKnownNotificationBindingsStatics)->get_ToastGeneric(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotification<D>::ExpirationTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) consume_Windows_UI_Notifications_INotification<D>::ExpirationTime() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotification)->get_ExpirationTime(&value));
         return Windows::Foundation::IReference<Windows::Foundation::DateTime>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_INotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotification)->put_ExpirationTime(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotification<D>::Visual() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationVisual) consume_Windows_UI_Notifications_INotification<D>::Visual() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotification)->get_Visual(&value));
         return Windows::UI::Notifications::NotificationVisual{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotification<D>::Visual(Windows::UI::Notifications::NotificationVisual const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_INotification<D>::Visual(Windows::UI::Notifications::NotificationVisual const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotification)->put_Visual(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationBinding<D>::Template() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_INotificationBinding<D>::Template() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationBinding)->get_Template(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationBinding<D>::Template(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_INotificationBinding<D>::Template(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationBinding)->put_Template(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationBinding<D>::Language() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_INotificationBinding<D>::Language() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationBinding)->get_Language(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationBinding<D>::Language(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_INotificationBinding<D>::Language(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationBinding)->put_Language(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationBinding<D>::Hints() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) consume_Windows_UI_Notifications_INotificationBinding<D>::Hints() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationBinding)->get_Hints(&value));
         return Windows::Foundation::Collections::IMap<hstring, hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationBinding<D>::GetTextElements() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::AdaptiveNotificationText>) consume_Windows_UI_Notifications_INotificationBinding<D>::GetTextElements() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationBinding)->GetTextElements(&result));
         return Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::AdaptiveNotificationText>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationData<D>::Values() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) consume_Windows_UI_Notifications_INotificationData<D>::Values() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationData)->get_Values(&value));
         return Windows::Foundation::Collections::IMap<hstring, hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationData<D>::SequenceNumber() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Notifications_INotificationData<D>::SequenceNumber() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationData)->get_SequenceNumber(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationData<D>::SequenceNumber(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_INotificationData<D>::SequenceNumber(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationData)->put_SequenceNumber(value));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationDataFactory<D>::CreateNotificationData(param::iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& initialValues, uint32_t sequenceNumber) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationData) consume_Windows_UI_Notifications_INotificationDataFactory<D>::CreateNotificationData(param::iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& initialValues, uint32_t sequenceNumber) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationDataFactory)->CreateNotificationDataWithValuesAndSequenceNumber(*(void**)(&initialValues), sequenceNumber, &value));
         return Windows::UI::Notifications::NotificationData{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationDataFactory<D>::CreateNotificationData(param::iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& initialValues) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationData) consume_Windows_UI_Notifications_INotificationDataFactory<D>::CreateNotificationData(param::iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& initialValues) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationDataFactory)->CreateNotificationDataWithValues(*(void**)(&initialValues), &value));
         return Windows::UI::Notifications::NotificationData{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationVisual<D>::Language() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_INotificationVisual<D>::Language() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationVisual)->get_Language(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationVisual<D>::Language(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_INotificationVisual<D>::Language(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationVisual)->put_Language(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationVisual<D>::Bindings() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Notifications::NotificationBinding>) consume_Windows_UI_Notifications_INotificationVisual<D>::Bindings() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationVisual)->get_Bindings(&value));
         return Windows::Foundation::Collections::IVector<Windows::UI::Notifications::NotificationBinding>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_INotificationVisual<D>::GetBinding(param::hstring const& templateName) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationBinding) consume_Windows_UI_Notifications_INotificationVisual<D>::GetBinding(param::hstring const& templateName) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::INotificationVisual)->GetBinding(*(void**)(&templateName), &result));
         return Windows::UI::Notifications::NotificationBinding{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Content() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Content() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotification)->get_Content(&value));
         return Windows::Data::Xml::Dom::XmlDocument{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotification<D>::DeliveryTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_UI_Notifications_IScheduledTileNotification<D>::DeliveryTime() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotification)->get_DeliveryTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledTileNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotification)->put_ExpirationTime(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotification<D>::ExpirationTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) consume_Windows_UI_Notifications_IScheduledTileNotification<D>::ExpirationTime() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotification)->get_ExpirationTime(&value));
         return Windows::Foundation::IReference<Windows::Foundation::DateTime>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Tag(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Tag(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotification)->put_Tag(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Tag() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Tag() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotification)->get_Tag(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Id(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Id(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotification)->put_Id(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IScheduledTileNotification<D>::Id() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotification)->get_Id(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledTileNotificationFactory<D>::CreateScheduledTileNotification(Windows::Data::Xml::Dom::XmlDocument const& content, Windows::Foundation::DateTime const& deliveryTime) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ScheduledTileNotification) consume_Windows_UI_Notifications_IScheduledTileNotificationFactory<D>::CreateScheduledTileNotification(Windows::Data::Xml::Dom::XmlDocument const& content, Windows::Foundation::DateTime const& deliveryTime) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledTileNotificationFactory)->CreateScheduledTileNotification(*(void**)(&content), impl::bind_in(deliveryTime), &value));
         return Windows::UI::Notifications::ScheduledTileNotification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification<D>::Content() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_IScheduledToastNotification<D>::Content() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification)->get_Content(&value));
         return Windows::Data::Xml::Dom::XmlDocument{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification<D>::DeliveryTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_UI_Notifications_IScheduledToastNotification<D>::DeliveryTime() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification)->get_DeliveryTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification<D>::SnoozeInterval() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) consume_Windows_UI_Notifications_IScheduledToastNotification<D>::SnoozeInterval() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification)->get_SnoozeInterval(&value));
         return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification<D>::MaximumSnoozeCount() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Notifications_IScheduledToastNotification<D>::MaximumSnoozeCount() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification)->get_MaximumSnoozeCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification<D>::Id(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledToastNotification<D>::Id(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification)->put_Id(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IScheduledToastNotification<D>::Id() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification)->get_Id(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::Tag(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::Tag(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification2)->put_Tag(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::Tag() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::Tag() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification2)->get_Tag(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::Group(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::Group(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification2)->put_Group(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::Group() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::Group() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification2)->get_Group(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::SuppressPopup(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::SuppressPopup(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification2)->put_SuppressPopup(value));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::SuppressPopup() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Notifications_IScheduledToastNotification2<D>::SuppressPopup() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification2)->get_SuppressPopup(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification3<D>::NotificationMirroring() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationMirroring) consume_Windows_UI_Notifications_IScheduledToastNotification3<D>::NotificationMirroring() const
     {
-        Windows::UI::Notifications::NotificationMirroring value;
+        Windows::UI::Notifications::NotificationMirroring value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification3)->get_NotificationMirroring(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification3<D>::NotificationMirroring(Windows::UI::Notifications::NotificationMirroring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledToastNotification3<D>::NotificationMirroring(Windows::UI::Notifications::NotificationMirroring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification3)->put_NotificationMirroring(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification3<D>::RemoteId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IScheduledToastNotification3<D>::RemoteId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification3)->get_RemoteId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification3<D>::RemoteId(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledToastNotification3<D>::RemoteId(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification3)->put_RemoteId(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification4<D>::ExpirationTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) consume_Windows_UI_Notifications_IScheduledToastNotification4<D>::ExpirationTime() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification4)->get_ExpirationTime(&value));
         return Windows::Foundation::IReference<Windows::Foundation::DateTime>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotification4<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledToastNotification4<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotification4)->put_ExpirationTime(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotificationFactory<D>::CreateScheduledToastNotification(Windows::Data::Xml::Dom::XmlDocument const& content, Windows::Foundation::DateTime const& deliveryTime) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ScheduledToastNotification) consume_Windows_UI_Notifications_IScheduledToastNotificationFactory<D>::CreateScheduledToastNotification(Windows::Data::Xml::Dom::XmlDocument const& content, Windows::Foundation::DateTime const& deliveryTime) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotificationFactory)->CreateScheduledToastNotification(*(void**)(&content), impl::bind_in(deliveryTime), &value));
         return Windows::UI::Notifications::ScheduledToastNotification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotificationFactory<D>::CreateScheduledToastNotificationRecurring(Windows::Data::Xml::Dom::XmlDocument const& content, Windows::Foundation::DateTime const& deliveryTime, Windows::Foundation::TimeSpan const& snoozeInterval, uint32_t maximumSnoozeCount) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ScheduledToastNotification) consume_Windows_UI_Notifications_IScheduledToastNotificationFactory<D>::CreateScheduledToastNotificationRecurring(Windows::Data::Xml::Dom::XmlDocument const& content, Windows::Foundation::DateTime const& deliveryTime, Windows::Foundation::TimeSpan const& snoozeInterval, uint32_t maximumSnoozeCount) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotificationFactory)->CreateScheduledToastNotificationRecurring(*(void**)(&content), impl::bind_in(deliveryTime), impl::bind_in(snoozeInterval), maximumSnoozeCount, &value));
         return Windows::UI::Notifications::ScheduledToastNotification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotificationShowingEventArgs<D>::Cancel() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Notifications_IScheduledToastNotificationShowingEventArgs<D>::Cancel() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotificationShowingEventArgs)->get_Cancel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotificationShowingEventArgs<D>::Cancel(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IScheduledToastNotificationShowingEventArgs<D>::Cancel(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotificationShowingEventArgs)->put_Cancel(value));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotificationShowingEventArgs<D>::ScheduledToastNotification() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ScheduledToastNotification) consume_Windows_UI_Notifications_IScheduledToastNotificationShowingEventArgs<D>::ScheduledToastNotification() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotificationShowingEventArgs)->get_ScheduledToastNotification(&value));
         return Windows::UI::Notifications::ScheduledToastNotification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IScheduledToastNotificationShowingEventArgs<D>::GetDeferral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Deferral) consume_Windows_UI_Notifications_IScheduledToastNotificationShowingEventArgs<D>::GetDeferral() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IScheduledToastNotificationShowingEventArgs)->GetDeferral(&result));
         return Windows::Foundation::Deferral{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IShownTileNotification<D>::Arguments() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IShownTileNotification<D>::Arguments() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IShownTileNotification)->get_Arguments(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutNotification<D>::Content() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_ITileFlyoutNotification<D>::Content() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutNotification)->get_Content(&value));
         return Windows::Data::Xml::Dom::XmlDocument{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileFlyoutNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutNotification)->put_ExpirationTime(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutNotification<D>::ExpirationTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) consume_Windows_UI_Notifications_ITileFlyoutNotification<D>::ExpirationTime() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutNotification)->get_ExpirationTime(&value));
         return Windows::Foundation::IReference<Windows::Foundation::DateTime>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutNotificationFactory<D>::CreateTileFlyoutNotification(Windows::Data::Xml::Dom::XmlDocument const& content) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileFlyoutNotification) consume_Windows_UI_Notifications_ITileFlyoutNotificationFactory<D>::CreateTileFlyoutNotification(Windows::Data::Xml::Dom::XmlDocument const& content) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutNotificationFactory)->CreateTileFlyoutNotification(*(void**)(&content), &value));
         return Windows::UI::Notifications::TileFlyoutNotification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdateManagerStatics<D>::CreateTileFlyoutUpdaterForApplication() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileFlyoutUpdater) consume_Windows_UI_Notifications_ITileFlyoutUpdateManagerStatics<D>::CreateTileFlyoutUpdaterForApplication() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdateManagerStatics)->CreateTileFlyoutUpdaterForApplication(&result));
         return Windows::UI::Notifications::TileFlyoutUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdateManagerStatics<D>::CreateTileFlyoutUpdaterForApplication(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileFlyoutUpdater) consume_Windows_UI_Notifications_ITileFlyoutUpdateManagerStatics<D>::CreateTileFlyoutUpdaterForApplication(param::hstring const& applicationId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdateManagerStatics)->CreateTileFlyoutUpdaterForApplicationWithId(*(void**)(&applicationId), &result));
         return Windows::UI::Notifications::TileFlyoutUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdateManagerStatics<D>::CreateTileFlyoutUpdaterForSecondaryTile(param::hstring const& tileId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileFlyoutUpdater) consume_Windows_UI_Notifications_ITileFlyoutUpdateManagerStatics<D>::CreateTileFlyoutUpdaterForSecondaryTile(param::hstring const& tileId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdateManagerStatics)->CreateTileFlyoutUpdaterForSecondaryTile(*(void**)(&tileId), &result));
         return Windows::UI::Notifications::TileFlyoutUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdateManagerStatics<D>::GetTemplateContent(Windows::UI::Notifications::TileFlyoutTemplateType const& type) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_ITileFlyoutUpdateManagerStatics<D>::GetTemplateContent(Windows::UI::Notifications::TileFlyoutTemplateType const& type) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdateManagerStatics)->GetTemplateContent(static_cast<int32_t>(type), &result));
         return Windows::Data::Xml::Dom::XmlDocument{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::Update(Windows::UI::Notifications::TileFlyoutNotification const& notification) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::Update(Windows::UI::Notifications::TileFlyoutNotification const& notification) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdater)->Update(*(void**)(&notification)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::Clear() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::Clear() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdater)->Clear());
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& tileFlyoutContent, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& tileFlyoutContent, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdater)->StartPeriodicUpdate(*(void**)(&tileFlyoutContent), static_cast<int32_t>(requestedInterval)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& tileFlyoutContent, Windows::Foundation::DateTime const& startTime, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& tileFlyoutContent, Windows::Foundation::DateTime const& startTime, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdater)->StartPeriodicUpdateAtTime(*(void**)(&tileFlyoutContent), impl::bind_in(startTime), static_cast<int32_t>(requestedInterval)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::StopPeriodicUpdate() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::StopPeriodicUpdate() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdater)->StopPeriodicUpdate());
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::Setting() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationSetting) consume_Windows_UI_Notifications_ITileFlyoutUpdater<D>::Setting() const
     {
-        Windows::UI::Notifications::NotificationSetting value;
+        Windows::UI::Notifications::NotificationSetting value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileFlyoutUpdater)->get_Setting(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileNotification<D>::Content() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_ITileNotification<D>::Content() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileNotification)->get_Content(&value));
         return Windows::Data::Xml::Dom::XmlDocument{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileNotification)->put_ExpirationTime(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileNotification<D>::ExpirationTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) consume_Windows_UI_Notifications_ITileNotification<D>::ExpirationTime() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileNotification)->get_ExpirationTime(&value));
         return Windows::Foundation::IReference<Windows::Foundation::DateTime>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileNotification<D>::Tag(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileNotification<D>::Tag(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileNotification)->put_Tag(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileNotification<D>::Tag() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_ITileNotification<D>::Tag() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileNotification)->get_Tag(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileNotificationFactory<D>::CreateTileNotification(Windows::Data::Xml::Dom::XmlDocument const& content) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileNotification) consume_Windows_UI_Notifications_ITileNotificationFactory<D>::CreateTileNotification(Windows::Data::Xml::Dom::XmlDocument const& content) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileNotificationFactory)->CreateTileNotification(*(void**)(&content), &value));
         return Windows::UI::Notifications::TileNotification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerForUser<D>::CreateTileUpdaterForApplicationForUser() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileUpdater) consume_Windows_UI_Notifications_ITileUpdateManagerForUser<D>::CreateTileUpdaterForApplicationForUser() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerForUser)->CreateTileUpdaterForApplication(&result));
         return Windows::UI::Notifications::TileUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerForUser<D>::CreateTileUpdaterForApplication(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileUpdater) consume_Windows_UI_Notifications_ITileUpdateManagerForUser<D>::CreateTileUpdaterForApplication(param::hstring const& applicationId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerForUser)->CreateTileUpdaterForApplicationWithId(*(void**)(&applicationId), &result));
         return Windows::UI::Notifications::TileUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerForUser<D>::CreateTileUpdaterForSecondaryTile(param::hstring const& tileId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileUpdater) consume_Windows_UI_Notifications_ITileUpdateManagerForUser<D>::CreateTileUpdaterForSecondaryTile(param::hstring const& tileId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerForUser)->CreateTileUpdaterForSecondaryTile(*(void**)(&tileId), &result));
         return Windows::UI::Notifications::TileUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerForUser<D>::User() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::User) consume_Windows_UI_Notifications_ITileUpdateManagerForUser<D>::User() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerForUser)->get_User(&value));
         return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerStatics<D>::CreateTileUpdaterForApplication() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileUpdater) consume_Windows_UI_Notifications_ITileUpdateManagerStatics<D>::CreateTileUpdaterForApplication() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerStatics)->CreateTileUpdaterForApplication(&result));
         return Windows::UI::Notifications::TileUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerStatics<D>::CreateTileUpdaterForApplication(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileUpdater) consume_Windows_UI_Notifications_ITileUpdateManagerStatics<D>::CreateTileUpdaterForApplication(param::hstring const& applicationId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerStatics)->CreateTileUpdaterForApplicationWithId(*(void**)(&applicationId), &result));
         return Windows::UI::Notifications::TileUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerStatics<D>::CreateTileUpdaterForSecondaryTile(param::hstring const& tileId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileUpdater) consume_Windows_UI_Notifications_ITileUpdateManagerStatics<D>::CreateTileUpdaterForSecondaryTile(param::hstring const& tileId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerStatics)->CreateTileUpdaterForSecondaryTile(*(void**)(&tileId), &result));
         return Windows::UI::Notifications::TileUpdater{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerStatics<D>::GetTemplateContent(Windows::UI::Notifications::TileTemplateType const& type) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_ITileUpdateManagerStatics<D>::GetTemplateContent(Windows::UI::Notifications::TileTemplateType const& type) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerStatics)->GetTemplateContent(static_cast<int32_t>(type), &result));
         return Windows::Data::Xml::Dom::XmlDocument{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdateManagerStatics2<D>::GetForUser(Windows::System::User const& user) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::TileUpdateManagerForUser) consume_Windows_UI_Notifications_ITileUpdateManagerStatics2<D>::GetForUser(Windows::System::User const& user) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdateManagerStatics2)->GetForUser(*(void**)(&user), &result));
         return Windows::UI::Notifications::TileUpdateManagerForUser{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::Update(Windows::UI::Notifications::TileNotification const& notification) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::Update(Windows::UI::Notifications::TileNotification const& notification) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->Update(*(void**)(&notification)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::Clear() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::Clear() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->Clear());
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::EnableNotificationQueue(bool enable) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::EnableNotificationQueue(bool enable) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->EnableNotificationQueue(enable));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::Setting() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationSetting) consume_Windows_UI_Notifications_ITileUpdater<D>::Setting() const
     {
-        Windows::UI::Notifications::NotificationSetting value;
+        Windows::UI::Notifications::NotificationSetting value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->get_Setting(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::AddToSchedule(Windows::UI::Notifications::ScheduledTileNotification const& scheduledTile) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::AddToSchedule(Windows::UI::Notifications::ScheduledTileNotification const& scheduledTile) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->AddToSchedule(*(void**)(&scheduledTile)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::RemoveFromSchedule(Windows::UI::Notifications::ScheduledTileNotification const& scheduledTile) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::RemoveFromSchedule(Windows::UI::Notifications::ScheduledTileNotification const& scheduledTile) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->RemoveFromSchedule(*(void**)(&scheduledTile)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::GetScheduledTileNotifications() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ScheduledTileNotification>) consume_Windows_UI_Notifications_ITileUpdater<D>::GetScheduledTileNotifications() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->GetScheduledTileNotifications(&result));
         return Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ScheduledTileNotification>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& tileContent, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& tileContent, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->StartPeriodicUpdate(*(void**)(&tileContent), static_cast<int32_t>(requestedInterval)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& tileContent, Windows::Foundation::DateTime const& startTime, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::StartPeriodicUpdate(Windows::Foundation::Uri const& tileContent, Windows::Foundation::DateTime const& startTime, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->StartPeriodicUpdateAtTime(*(void**)(&tileContent), impl::bind_in(startTime), static_cast<int32_t>(requestedInterval)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::StopPeriodicUpdate() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::StopPeriodicUpdate() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->StopPeriodicUpdate());
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::StartPeriodicUpdateBatch(param::iterable<Windows::Foundation::Uri> const& tileContents, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::StartPeriodicUpdateBatch(param::iterable<Windows::Foundation::Uri> const& tileContents, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->StartPeriodicUpdateBatch(*(void**)(&tileContents), static_cast<int32_t>(requestedInterval)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater<D>::StartPeriodicUpdateBatch(param::iterable<Windows::Foundation::Uri> const& tileContents, Windows::Foundation::DateTime const& startTime, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater<D>::StartPeriodicUpdateBatch(param::iterable<Windows::Foundation::Uri> const& tileContents, Windows::Foundation::DateTime const& startTime, Windows::UI::Notifications::PeriodicUpdateRecurrence const& requestedInterval) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater)->StartPeriodicUpdateBatchAtTime(*(void**)(&tileContents), impl::bind_in(startTime), static_cast<int32_t>(requestedInterval)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater2<D>::EnableNotificationQueueForSquare150x150(bool enable) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater2<D>::EnableNotificationQueueForSquare150x150(bool enable) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater2)->EnableNotificationQueueForSquare150x150(enable));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater2<D>::EnableNotificationQueueForWide310x150(bool enable) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater2<D>::EnableNotificationQueueForWide310x150(bool enable) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater2)->EnableNotificationQueueForWide310x150(enable));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_ITileUpdater2<D>::EnableNotificationQueueForSquare310x310(bool enable) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_ITileUpdater2<D>::EnableNotificationQueueForSquare310x310(bool enable) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::ITileUpdater2)->EnableNotificationQueueForSquare310x310(enable));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastActivatedEventArgs<D>::Arguments() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastActivatedEventArgs<D>::Arguments() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastActivatedEventArgs)->get_Arguments(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastActivatedEventArgs2<D>::UserInput() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) consume_Windows_UI_Notifications_IToastActivatedEventArgs2<D>::UserInput() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastActivatedEventArgs2)->get_UserInput(&value));
         return Windows::Foundation::Collections::ValueSet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollection<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastCollection<D>::Id() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollection)->get_Id(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollection<D>::DisplayName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastCollection<D>::DisplayName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollection)->get_DisplayName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollection<D>::DisplayName(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastCollection<D>::DisplayName(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollection)->put_DisplayName(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollection<D>::LaunchArgs() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastCollection<D>::LaunchArgs() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollection)->get_LaunchArgs(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollection<D>::LaunchArgs(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastCollection<D>::LaunchArgs(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollection)->put_LaunchArgs(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollection<D>::Icon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_UI_Notifications_IToastCollection<D>::Icon() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollection)->get_Icon(&value));
         return Windows::Foundation::Uri{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollection<D>::Icon(Windows::Foundation::Uri const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastCollection<D>::Icon(Windows::Foundation::Uri const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollection)->put_Icon(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollectionFactory<D>::CreateInstance(param::hstring const& collectionId, param::hstring const& displayName, param::hstring const& launchArgs, Windows::Foundation::Uri const& iconUri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastCollection) consume_Windows_UI_Notifications_IToastCollectionFactory<D>::CreateInstance(param::hstring const& collectionId, param::hstring const& displayName, param::hstring const& launchArgs, Windows::Foundation::Uri const& iconUri) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollectionFactory)->CreateInstance(*(void**)(&collectionId), *(void**)(&displayName), *(void**)(&launchArgs), *(void**)(&iconUri), &value));
         return Windows::UI::Notifications::ToastCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollectionManager<D>::SaveToastCollectionAsync(Windows::UI::Notifications::ToastCollection const& collection) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Notifications_IToastCollectionManager<D>::SaveToastCollectionAsync(Windows::UI::Notifications::ToastCollection const& collection) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollectionManager)->SaveToastCollectionAsync(*(void**)(&collection), &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollectionManager<D>::FindAllToastCollectionsAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ToastCollection>>) consume_Windows_UI_Notifications_IToastCollectionManager<D>::FindAllToastCollectionsAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollectionManager)->FindAllToastCollectionsAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ToastCollection>>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollectionManager<D>::GetToastCollectionAsync(param::hstring const& collectionId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Notifications::ToastCollection>) consume_Windows_UI_Notifications_IToastCollectionManager<D>::GetToastCollectionAsync(param::hstring const& collectionId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollectionManager)->GetToastCollectionAsync(*(void**)(&collectionId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::UI::Notifications::ToastCollection>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollectionManager<D>::RemoveToastCollectionAsync(param::hstring const& collectionId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Notifications_IToastCollectionManager<D>::RemoveToastCollectionAsync(param::hstring const& collectionId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollectionManager)->RemoveToastCollectionAsync(*(void**)(&collectionId), &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollectionManager<D>::RemoveAllToastCollectionsAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Notifications_IToastCollectionManager<D>::RemoveAllToastCollectionsAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollectionManager)->RemoveAllToastCollectionsAsync(&operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollectionManager<D>::User() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::User) consume_Windows_UI_Notifications_IToastCollectionManager<D>::User() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollectionManager)->get_User(&value));
         return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastCollectionManager<D>::AppId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastCollectionManager<D>::AppId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastCollectionManager)->get_AppId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastDismissedEventArgs<D>::Reason() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastDismissalReason) consume_Windows_UI_Notifications_IToastDismissedEventArgs<D>::Reason() const
     {
-        Windows::UI::Notifications::ToastDismissalReason value;
+        Windows::UI::Notifications::ToastDismissalReason value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastDismissedEventArgs)->get_Reason(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastFailedEventArgs<D>::ErrorCode() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_UI_Notifications_IToastFailedEventArgs<D>::ErrorCode() const
     {
-        winrt::hresult value;
+        winrt::hresult value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastFailedEventArgs)->get_ErrorCode(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::Content() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_IToastNotification<D>::Content() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->get_Content(&value));
         return Windows::Data::Xml::Dom::XmlDocument{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification<D>::ExpirationTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->put_ExpirationTime(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::ExpirationTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) consume_Windows_UI_Notifications_IToastNotification<D>::ExpirationTime() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->get_ExpirationTime(&value));
         return Windows::Foundation::IReference<Windows::Foundation::DateTime>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::Dismissed(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::ToastNotification, Windows::UI::Notifications::ToastDismissedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Notifications_IToastNotification<D>::Dismissed(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::ToastNotification, Windows::UI::Notifications::ToastDismissedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->add_Dismissed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -940,13 +940,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Dismissed_revoker>(this, Dismissed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::Dismissed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification<D>::Dismissed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->remove_Dismissed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::Activated(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::ToastNotification, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Notifications_IToastNotification<D>::Activated(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::ToastNotification, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->add_Activated(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -954,13 +954,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Activated_revoker>(this, Activated(handler));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::Activated(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification<D>::Activated(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->remove_Activated(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::Failed(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::ToastNotification, Windows::UI::Notifications::ToastFailedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Notifications_IToastNotification<D>::Failed(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::ToastNotification, Windows::UI::Notifications::ToastFailedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->add_Failed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -968,291 +968,291 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Failed_revoker>(this, Failed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification<D>::Failed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification<D>::Failed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification)->remove_Failed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification2<D>::Tag(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification2<D>::Tag(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification2)->put_Tag(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification2<D>::Tag() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastNotification2<D>::Tag() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification2)->get_Tag(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification2<D>::Group(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification2<D>::Group(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification2)->put_Group(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification2<D>::Group() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastNotification2<D>::Group() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification2)->get_Group(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification2<D>::SuppressPopup(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification2<D>::SuppressPopup(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification2)->put_SuppressPopup(value));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification2<D>::SuppressPopup() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Notifications_IToastNotification2<D>::SuppressPopup() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification2)->get_SuppressPopup(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification3<D>::NotificationMirroring() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationMirroring) consume_Windows_UI_Notifications_IToastNotification3<D>::NotificationMirroring() const
     {
-        Windows::UI::Notifications::NotificationMirroring value;
+        Windows::UI::Notifications::NotificationMirroring value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification3)->get_NotificationMirroring(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification3<D>::NotificationMirroring(Windows::UI::Notifications::NotificationMirroring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification3<D>::NotificationMirroring(Windows::UI::Notifications::NotificationMirroring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification3)->put_NotificationMirroring(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification3<D>::RemoteId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastNotification3<D>::RemoteId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification3)->get_RemoteId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification3<D>::RemoteId(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification3<D>::RemoteId(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification3)->put_RemoteId(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification4<D>::Data() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationData) consume_Windows_UI_Notifications_IToastNotification4<D>::Data() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification4)->get_Data(&value));
         return Windows::UI::Notifications::NotificationData{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification4<D>::Data(Windows::UI::Notifications::NotificationData const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification4<D>::Data(Windows::UI::Notifications::NotificationData const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification4)->put_Data(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification4<D>::Priority() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotificationPriority) consume_Windows_UI_Notifications_IToastNotification4<D>::Priority() const
     {
-        Windows::UI::Notifications::ToastNotificationPriority value;
+        Windows::UI::Notifications::ToastNotificationPriority value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification4)->get_Priority(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification4<D>::Priority(Windows::UI::Notifications::ToastNotificationPriority const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification4<D>::Priority(Windows::UI::Notifications::ToastNotificationPriority const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification4)->put_Priority(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification6<D>::ExpiresOnReboot() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Notifications_IToastNotification6<D>::ExpiresOnReboot() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification6)->get_ExpiresOnReboot(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotification6<D>::ExpiresOnReboot(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotification6<D>::ExpiresOnReboot(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotification6)->put_ExpiresOnReboot(value));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationActionTriggerDetail<D>::Argument() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastNotificationActionTriggerDetail<D>::Argument() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationActionTriggerDetail)->get_Argument(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationActionTriggerDetail<D>::UserInput() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) consume_Windows_UI_Notifications_IToastNotificationActionTriggerDetail<D>::UserInput() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationActionTriggerDetail)->get_UserInput(&value));
         return Windows::Foundation::Collections::ValueSet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationFactory<D>::CreateToastNotification(Windows::Data::Xml::Dom::XmlDocument const& content) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotification) consume_Windows_UI_Notifications_IToastNotificationFactory<D>::CreateToastNotification(Windows::Data::Xml::Dom::XmlDocument const& content) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationFactory)->CreateToastNotification(*(void**)(&content), &value));
         return Windows::UI::Notifications::ToastNotification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory<D>::RemoveGroup(param::hstring const& group) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotificationHistory<D>::RemoveGroup(param::hstring const& group) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory)->RemoveGroup(*(void**)(&group)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory<D>::RemoveGroup(param::hstring const& group, param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotificationHistory<D>::RemoveGroup(param::hstring const& group, param::hstring const& applicationId) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory)->RemoveGroupWithId(*(void**)(&group), *(void**)(&applicationId)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Remove(param::hstring const& tag, param::hstring const& group, param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Remove(param::hstring const& tag, param::hstring const& group, param::hstring const& applicationId) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory)->RemoveGroupedTagWithId(*(void**)(&tag), *(void**)(&group), *(void**)(&applicationId)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Remove(param::hstring const& tag, param::hstring const& group) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Remove(param::hstring const& tag, param::hstring const& group) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory)->RemoveGroupedTag(*(void**)(&tag), *(void**)(&group)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Remove(param::hstring const& tag) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Remove(param::hstring const& tag) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory)->Remove(*(void**)(&tag)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Clear() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Clear() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory)->Clear());
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Clear(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotificationHistory<D>::Clear(param::hstring const& applicationId) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory)->ClearWithId(*(void**)(&applicationId)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory2<D>::GetHistory() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ToastNotification>) consume_Windows_UI_Notifications_IToastNotificationHistory2<D>::GetHistory() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory2)->GetHistory(&result));
         return Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ToastNotification>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistory2<D>::GetHistory(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ToastNotification>) consume_Windows_UI_Notifications_IToastNotificationHistory2<D>::GetHistory(param::hstring const& applicationId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistory2)->GetHistoryWithId(*(void**)(&applicationId), &result));
         return Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ToastNotification>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistoryChangedTriggerDetail<D>::ChangeType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastHistoryChangedType) consume_Windows_UI_Notifications_IToastNotificationHistoryChangedTriggerDetail<D>::ChangeType() const
     {
-        Windows::UI::Notifications::ToastHistoryChangedType value;
+        Windows::UI::Notifications::ToastHistoryChangedType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistoryChangedTriggerDetail)->get_ChangeType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationHistoryChangedTriggerDetail2<D>::CollectionId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Notifications_IToastNotificationHistoryChangedTriggerDetail2<D>::CollectionId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationHistoryChangedTriggerDetail2)->get_CollectionId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerForUser<D>::CreateToastNotifier() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotifier) consume_Windows_UI_Notifications_IToastNotificationManagerForUser<D>::CreateToastNotifier() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerForUser)->CreateToastNotifier(&result));
         return Windows::UI::Notifications::ToastNotifier{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerForUser<D>::CreateToastNotifier(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotifier) consume_Windows_UI_Notifications_IToastNotificationManagerForUser<D>::CreateToastNotifier(param::hstring const& applicationId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerForUser)->CreateToastNotifierWithId(*(void**)(&applicationId), &result));
         return Windows::UI::Notifications::ToastNotifier{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerForUser<D>::History() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotificationHistory) consume_Windows_UI_Notifications_IToastNotificationManagerForUser<D>::History() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerForUser)->get_History(&value));
         return Windows::UI::Notifications::ToastNotificationHistory{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerForUser<D>::User() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::User) consume_Windows_UI_Notifications_IToastNotificationManagerForUser<D>::User() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerForUser)->get_User(&value));
         return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerForUser2<D>::GetToastNotifierForToastCollectionIdAsync(param::hstring const& collectionId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Notifications::ToastNotifier>) consume_Windows_UI_Notifications_IToastNotificationManagerForUser2<D>::GetToastNotifierForToastCollectionIdAsync(param::hstring const& collectionId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerForUser2)->GetToastNotifierForToastCollectionIdAsync(*(void**)(&collectionId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::UI::Notifications::ToastNotifier>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerForUser2<D>::GetHistoryForToastCollectionIdAsync(param::hstring const& collectionId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Notifications::ToastNotificationHistory>) consume_Windows_UI_Notifications_IToastNotificationManagerForUser2<D>::GetHistoryForToastCollectionIdAsync(param::hstring const& collectionId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerForUser2)->GetHistoryForToastCollectionIdAsync(*(void**)(&collectionId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::UI::Notifications::ToastNotificationHistory>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerForUser2<D>::GetToastCollectionManager() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastCollectionManager) consume_Windows_UI_Notifications_IToastNotificationManagerForUser2<D>::GetToastCollectionManager() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerForUser2)->GetToastCollectionManager(&result));
         return Windows::UI::Notifications::ToastCollectionManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerForUser2<D>::GetToastCollectionManager(param::hstring const& appId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastCollectionManager) consume_Windows_UI_Notifications_IToastNotificationManagerForUser2<D>::GetToastCollectionManager(param::hstring const& appId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerForUser2)->GetToastCollectionManagerWithAppId(*(void**)(&appId), &result));
         return Windows::UI::Notifications::ToastCollectionManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerStatics<D>::CreateToastNotifier() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotifier) consume_Windows_UI_Notifications_IToastNotificationManagerStatics<D>::CreateToastNotifier() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerStatics)->CreateToastNotifier(&result));
         return Windows::UI::Notifications::ToastNotifier{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerStatics<D>::CreateToastNotifier(param::hstring const& applicationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotifier) consume_Windows_UI_Notifications_IToastNotificationManagerStatics<D>::CreateToastNotifier(param::hstring const& applicationId) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerStatics)->CreateToastNotifierWithId(*(void**)(&applicationId), &result));
         return Windows::UI::Notifications::ToastNotifier{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerStatics<D>::GetTemplateContent(Windows::UI::Notifications::ToastTemplateType const& type) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) consume_Windows_UI_Notifications_IToastNotificationManagerStatics<D>::GetTemplateContent(Windows::UI::Notifications::ToastTemplateType const& type) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerStatics)->GetTemplateContent(static_cast<int32_t>(type), &result));
         return Windows::Data::Xml::Dom::XmlDocument{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerStatics2<D>::History() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotificationHistory) consume_Windows_UI_Notifications_IToastNotificationManagerStatics2<D>::History() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerStatics2)->get_History(&value));
         return Windows::UI::Notifications::ToastNotificationHistory{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerStatics4<D>::GetForUser(Windows::System::User const& user) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotificationManagerForUser) consume_Windows_UI_Notifications_IToastNotificationManagerStatics4<D>::GetForUser(Windows::System::User const& user) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerStatics4)->GetForUser(*(void**)(&user), &result));
         return Windows::UI::Notifications::ToastNotificationManagerForUser{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerStatics4<D>::ConfigureNotificationMirroring(Windows::UI::Notifications::NotificationMirroring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotificationManagerStatics4<D>::ConfigureNotificationMirroring(Windows::UI::Notifications::NotificationMirroring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerStatics4)->ConfigureNotificationMirroring(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotificationManagerStatics5<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::ToastNotificationManagerForUser) consume_Windows_UI_Notifications_IToastNotificationManagerStatics5<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotificationManagerStatics5)->GetDefault(&result));
         return Windows::UI::Notifications::ToastNotificationManagerForUser{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier<D>::Show(Windows::UI::Notifications::ToastNotification const& notification) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotifier<D>::Show(Windows::UI::Notifications::ToastNotification const& notification) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier)->Show(*(void**)(&notification)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier<D>::Hide(Windows::UI::Notifications::ToastNotification const& notification) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotifier<D>::Hide(Windows::UI::Notifications::ToastNotification const& notification) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier)->Hide(*(void**)(&notification)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier<D>::Setting() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationSetting) consume_Windows_UI_Notifications_IToastNotifier<D>::Setting() const
     {
-        Windows::UI::Notifications::NotificationSetting value;
+        Windows::UI::Notifications::NotificationSetting value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier)->get_Setting(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier<D>::AddToSchedule(Windows::UI::Notifications::ScheduledToastNotification const& scheduledToast) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotifier<D>::AddToSchedule(Windows::UI::Notifications::ScheduledToastNotification const& scheduledToast) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier)->AddToSchedule(*(void**)(&scheduledToast)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier<D>::RemoveFromSchedule(Windows::UI::Notifications::ScheduledToastNotification const& scheduledToast) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotifier<D>::RemoveFromSchedule(Windows::UI::Notifications::ScheduledToastNotification const& scheduledToast) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier)->RemoveFromSchedule(*(void**)(&scheduledToast)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier<D>::GetScheduledToastNotifications() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ScheduledToastNotification>) consume_Windows_UI_Notifications_IToastNotifier<D>::GetScheduledToastNotifications() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier)->GetScheduledToastNotifications(&result));
         return Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ScheduledToastNotification>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier2<D>::Update(Windows::UI::Notifications::NotificationData const& data, param::hstring const& tag, param::hstring const& group) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationUpdateResult) consume_Windows_UI_Notifications_IToastNotifier2<D>::Update(Windows::UI::Notifications::NotificationData const& data, param::hstring const& tag, param::hstring const& group) const
     {
-        Windows::UI::Notifications::NotificationUpdateResult result;
+        Windows::UI::Notifications::NotificationUpdateResult result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier2)->UpdateWithTagAndGroup(*(void**)(&data), *(void**)(&tag), *(void**)(&group), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier2<D>::Update(Windows::UI::Notifications::NotificationData const& data, param::hstring const& tag) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::NotificationUpdateResult) consume_Windows_UI_Notifications_IToastNotifier2<D>::Update(Windows::UI::Notifications::NotificationData const& data, param::hstring const& tag) const
     {
-        Windows::UI::Notifications::NotificationUpdateResult result;
+        Windows::UI::Notifications::NotificationUpdateResult result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier2)->UpdateWithTag(*(void**)(&data), *(void**)(&tag), reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier3<D>::ScheduledToastNotificationShowing(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::ToastNotifier, Windows::UI::Notifications::ScheduledToastNotificationShowingEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Notifications_IToastNotifier3<D>::ScheduledToastNotificationShowing(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::ToastNotifier, Windows::UI::Notifications::ScheduledToastNotificationShowingEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier3)->add_ScheduledToastNotificationShowing(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1260,43 +1260,43 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ScheduledToastNotificationShowing_revoker>(this, ScheduledToastNotificationShowing(handler));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IToastNotifier3<D>::ScheduledToastNotificationShowing(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Notifications_IToastNotifier3<D>::ScheduledToastNotificationShowing(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Notifications::IToastNotifier3)->remove_ScheduledToastNotificationShowing(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IUserNotification<D>::Notification() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::Notification) consume_Windows_UI_Notifications_IUserNotification<D>::Notification() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IUserNotification)->get_Notification(&value));
         return Windows::UI::Notifications::Notification{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IUserNotification<D>::AppInfo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInfo) consume_Windows_UI_Notifications_IUserNotification<D>::AppInfo() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IUserNotification)->get_AppInfo(&value));
         return Windows::ApplicationModel::AppInfo{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IUserNotification<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Notifications_IUserNotification<D>::Id() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IUserNotification)->get_Id(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IUserNotification<D>::CreationTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_UI_Notifications_IUserNotification<D>::CreationTime() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IUserNotification)->get_CreationTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IUserNotificationChangedEventArgs<D>::ChangeKind() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Notifications::UserNotificationChangedKind) consume_Windows_UI_Notifications_IUserNotificationChangedEventArgs<D>::ChangeKind() const
     {
-        Windows::UI::Notifications::UserNotificationChangedKind value;
+        Windows::UI::Notifications::UserNotificationChangedKind value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IUserNotificationChangedEventArgs)->get_ChangeKind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Notifications_IUserNotificationChangedEventArgs<D>::UserNotificationId() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Notifications_IUserNotificationChangedEventArgs<D>::UserNotificationId() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Notifications::IUserNotificationChangedEventArgs)->get_UserNotificationId(&value));
         return value;
     }

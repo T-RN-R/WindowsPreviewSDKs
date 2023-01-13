@@ -1289,6 +1289,11 @@ typedef struct _nlsversioninfoex{
     GUID  guidCustomVersion;        // Explicit sort version
 } NLSVERSIONINFOEX, *LPNLSVERSIONINFOEX;
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+#define SORTING_PARADIGM_NLS 0x00000000     // NLS style sorting
+#define SORTING_PARADIGM_ICU 0x01000000     // ICU style sorting
+#endif
+
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 #define GEO_NAME_USER_DEFAULT NULL
 #endif

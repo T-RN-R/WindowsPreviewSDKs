@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Services_Maps_OfflineMaps_H
 #define WINRT_Windows_Services_Maps_OfflineMaps_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Services.Maps.h"
 #include "winrt/impl/Windows.Devices.Geolocation.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -14,37 +14,37 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Services.Maps.OfflineMaps.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Services::Maps::OfflineMaps::OfflineMapPackageStatus) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::Status() const
     {
-        Windows::Services::Maps::OfflineMaps::OfflineMapPackageStatus value;
+        Windows::Services::Maps::OfflineMaps::OfflineMapPackageStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackage)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::DisplayName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::DisplayName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackage)->get_DisplayName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::EnclosingRegionName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::EnclosingRegionName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackage)->get_EnclosingRegionName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::EstimatedSizeInBytes() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::EstimatedSizeInBytes() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackage)->get_EstimatedSizeInBytes(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::StatusChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::StatusChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackage)->remove_StatusChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Services::Maps::OfflineMaps::OfflineMapPackage, Windows::Foundation::IInspectable> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Services::Maps::OfflineMaps::OfflineMapPackage, Windows::Foundation::IInspectable> const& value) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackage)->add_StatusChanged(*(void**)(&value), put_abi(token)));
         return token;
     }
@@ -52,43 +52,43 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, StatusChanged_revoker>(this, StatusChanged(value));
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::RequestStartDownloadAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadResult>) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage<D>::RequestStartDownloadAsync() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackage)->RequestStartDownloadAsync(&value));
         return Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadResult>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageQueryResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryStatus) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageQueryResult<D>::Status() const
     {
-        Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryStatus value;
+        Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageQueryResult<D>::Packages() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::OfflineMaps::OfflineMapPackage>) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageQueryResult<D>::Packages() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult)->get_Packages(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::OfflineMaps::OfflineMapPackage>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStartDownloadResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadStatus) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStartDownloadResult<D>::Status() const
     {
-        Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadStatus value;
+        Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStatics<D>::FindPackagesAsync(Windows::Devices::Geolocation::Geopoint const& queryPoint) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStatics<D>::FindPackagesAsync(Windows::Devices::Geolocation::Geopoint const& queryPoint) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics)->FindPackagesAsync(*(void**)(&queryPoint), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStatics<D>::FindPackagesInBoundingBoxAsync(Windows::Devices::Geolocation::GeoboundingBox const& queryBoundingBox) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStatics<D>::FindPackagesInBoundingBoxAsync(Windows::Devices::Geolocation::GeoboundingBox const& queryBoundingBox) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics)->FindPackagesInBoundingBoxAsync(*(void**)(&queryBoundingBox), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStatics<D>::FindPackagesInGeocircleAsync(Windows::Devices::Geolocation::Geocircle const& queryCircle) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>) consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStatics<D>::FindPackagesInGeocircleAsync(Windows::Devices::Geolocation::Geocircle const& queryCircle) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics)->FindPackagesInGeocircleAsync(*(void**)(&queryCircle), &result));

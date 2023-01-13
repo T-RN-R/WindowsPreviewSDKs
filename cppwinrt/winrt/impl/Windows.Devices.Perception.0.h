@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,6 +13,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Point;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
@@ -20,6 +21,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     enum class CollectionChange : int32_t;
+    template <typename K, typename V> struct IMapView;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {
@@ -210,85 +213,83 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Perception::PerceptionVideoProfile>{ using type = class_category; };
     template <> struct category<Windows::Devices::Perception::PerceptionFrameSourceAccessStatus>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownCameraIntrinsicsProperties>{ L"Windows.Devices.Perception.KnownCameraIntrinsicsProperties" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionColorFrameSourceProperties>{ L"Windows.Devices.Perception.KnownPerceptionColorFrameSourceProperties" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionDepthFrameSourceProperties>{ L"Windows.Devices.Perception.KnownPerceptionDepthFrameSourceProperties" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionFrameSourceProperties>{ L"Windows.Devices.Perception.KnownPerceptionFrameSourceProperties" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionInfraredFrameSourceProperties>{ L"Windows.Devices.Perception.KnownPerceptionInfraredFrameSourceProperties" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionVideoFrameSourceProperties>{ L"Windows.Devices.Perception.KnownPerceptionVideoFrameSourceProperties" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionVideoProfileProperties>{ L"Windows.Devices.Perception.KnownPerceptionVideoProfileProperties" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrame>{ L"Windows.Devices.Perception.PerceptionColorFrame" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameArrivedEventArgs>{ L"Windows.Devices.Perception.PerceptionColorFrameArrivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameReader>{ L"Windows.Devices.Perception.PerceptionColorFrameReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameSource>{ L"Windows.Devices.Perception.PerceptionColorFrameSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameSourceAddedEventArgs>{ L"Windows.Devices.Perception.PerceptionColorFrameSourceAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameSourceRemovedEventArgs>{ L"Windows.Devices.Perception.PerceptionColorFrameSourceRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher>{ L"Windows.Devices.Perception.PerceptionColorFrameSourceWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionControlSession>{ L"Windows.Devices.Perception.PerceptionControlSession" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthCorrelatedCameraIntrinsics>{ L"Windows.Devices.Perception.PerceptionDepthCorrelatedCameraIntrinsics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthCorrelatedCoordinateMapper>{ L"Windows.Devices.Perception.PerceptionDepthCorrelatedCoordinateMapper" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrame>{ L"Windows.Devices.Perception.PerceptionDepthFrame" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameArrivedEventArgs>{ L"Windows.Devices.Perception.PerceptionDepthFrameArrivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameReader>{ L"Windows.Devices.Perception.PerceptionDepthFrameReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameSource>{ L"Windows.Devices.Perception.PerceptionDepthFrameSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameSourceAddedEventArgs>{ L"Windows.Devices.Perception.PerceptionDepthFrameSourceAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameSourceRemovedEventArgs>{ L"Windows.Devices.Perception.PerceptionDepthFrameSourceRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher>{ L"Windows.Devices.Perception.PerceptionDepthFrameSourceWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs>{ L"Windows.Devices.Perception.PerceptionFrameSourcePropertiesChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeResult>{ L"Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeResult" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrame>{ L"Windows.Devices.Perception.PerceptionInfraredFrame" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameArrivedEventArgs>{ L"Windows.Devices.Perception.PerceptionInfraredFrameArrivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameReader>{ L"Windows.Devices.Perception.PerceptionInfraredFrameReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameSource>{ L"Windows.Devices.Perception.PerceptionInfraredFrameSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameSourceAddedEventArgs>{ L"Windows.Devices.Perception.PerceptionInfraredFrameSourceAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameSourceRemovedEventArgs>{ L"Windows.Devices.Perception.PerceptionInfraredFrameSourceRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher>{ L"Windows.Devices.Perception.PerceptionInfraredFrameSourceWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionVideoProfile>{ L"Windows.Devices.Perception.PerceptionVideoProfile" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionFrameSourceAccessStatus>{ L"Windows.Devices.Perception.PerceptionFrameSourceAccessStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeStatus>{ L"Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownCameraIntrinsicsPropertiesStatics>{ L"Windows.Devices.Perception.IKnownCameraIntrinsicsPropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionColorFrameSourcePropertiesStatics>{ L"Windows.Devices.Perception.IKnownPerceptionColorFrameSourcePropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionDepthFrameSourcePropertiesStatics>{ L"Windows.Devices.Perception.IKnownPerceptionDepthFrameSourcePropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics>{ L"Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics2>{ L"Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionInfraredFrameSourcePropertiesStatics>{ L"Windows.Devices.Perception.IKnownPerceptionInfraredFrameSourcePropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionVideoFrameSourcePropertiesStatics>{ L"Windows.Devices.Perception.IKnownPerceptionVideoFrameSourcePropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionVideoProfilePropertiesStatics>{ L"Windows.Devices.Perception.IKnownPerceptionVideoProfilePropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrame>{ L"Windows.Devices.Perception.IPerceptionColorFrame" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameArrivedEventArgs>{ L"Windows.Devices.Perception.IPerceptionColorFrameArrivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameReader>{ L"Windows.Devices.Perception.IPerceptionColorFrameReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSource>{ L"Windows.Devices.Perception.IPerceptionColorFrameSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSource2>{ L"Windows.Devices.Perception.IPerceptionColorFrameSource2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSourceAddedEventArgs>{ L"Windows.Devices.Perception.IPerceptionColorFrameSourceAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSourceRemovedEventArgs>{ L"Windows.Devices.Perception.IPerceptionColorFrameSourceRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSourceStatics>{ L"Windows.Devices.Perception.IPerceptionColorFrameSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher>{ L"Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionControlSession>{ L"Windows.Devices.Perception.IPerceptionControlSession" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthCorrelatedCameraIntrinsics>{ L"Windows.Devices.Perception.IPerceptionDepthCorrelatedCameraIntrinsics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthCorrelatedCoordinateMapper>{ L"Windows.Devices.Perception.IPerceptionDepthCorrelatedCoordinateMapper" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrame>{ L"Windows.Devices.Perception.IPerceptionDepthFrame" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameArrivedEventArgs>{ L"Windows.Devices.Perception.IPerceptionDepthFrameArrivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameReader>{ L"Windows.Devices.Perception.IPerceptionDepthFrameReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSource>{ L"Windows.Devices.Perception.IPerceptionDepthFrameSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSource2>{ L"Windows.Devices.Perception.IPerceptionDepthFrameSource2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceAddedEventArgs>{ L"Windows.Devices.Perception.IPerceptionDepthFrameSourceAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceRemovedEventArgs>{ L"Windows.Devices.Perception.IPerceptionDepthFrameSourceRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceStatics>{ L"Windows.Devices.Perception.IPerceptionDepthFrameSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher>{ L"Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionFrameSourcePropertiesChangedEventArgs>{ L"Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionFrameSourcePropertyChangeResult>{ L"Windows.Devices.Perception.IPerceptionFrameSourcePropertyChangeResult" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrame>{ L"Windows.Devices.Perception.IPerceptionInfraredFrame" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameArrivedEventArgs>{ L"Windows.Devices.Perception.IPerceptionInfraredFrameArrivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameReader>{ L"Windows.Devices.Perception.IPerceptionInfraredFrameReader" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSource>{ L"Windows.Devices.Perception.IPerceptionInfraredFrameSource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSource2>{ L"Windows.Devices.Perception.IPerceptionInfraredFrameSource2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceAddedEventArgs>{ L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceRemovedEventArgs>{ L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceStatics>{ L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher>{ L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionVideoProfile>{ L"Windows.Devices.Perception.IPerceptionVideoProfile" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownCameraIntrinsicsProperties> = L"Windows.Devices.Perception.KnownCameraIntrinsicsProperties";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionColorFrameSourceProperties> = L"Windows.Devices.Perception.KnownPerceptionColorFrameSourceProperties";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionDepthFrameSourceProperties> = L"Windows.Devices.Perception.KnownPerceptionDepthFrameSourceProperties";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionFrameSourceProperties> = L"Windows.Devices.Perception.KnownPerceptionFrameSourceProperties";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionInfraredFrameSourceProperties> = L"Windows.Devices.Perception.KnownPerceptionInfraredFrameSourceProperties";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionVideoFrameSourceProperties> = L"Windows.Devices.Perception.KnownPerceptionVideoFrameSourceProperties";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::KnownPerceptionVideoProfileProperties> = L"Windows.Devices.Perception.KnownPerceptionVideoProfileProperties";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrame> = L"Windows.Devices.Perception.PerceptionColorFrame";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameArrivedEventArgs> = L"Windows.Devices.Perception.PerceptionColorFrameArrivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameReader> = L"Windows.Devices.Perception.PerceptionColorFrameReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameSource> = L"Windows.Devices.Perception.PerceptionColorFrameSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameSourceAddedEventArgs> = L"Windows.Devices.Perception.PerceptionColorFrameSourceAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameSourceRemovedEventArgs> = L"Windows.Devices.Perception.PerceptionColorFrameSourceRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher> = L"Windows.Devices.Perception.PerceptionColorFrameSourceWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionControlSession> = L"Windows.Devices.Perception.PerceptionControlSession";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthCorrelatedCameraIntrinsics> = L"Windows.Devices.Perception.PerceptionDepthCorrelatedCameraIntrinsics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthCorrelatedCoordinateMapper> = L"Windows.Devices.Perception.PerceptionDepthCorrelatedCoordinateMapper";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrame> = L"Windows.Devices.Perception.PerceptionDepthFrame";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameArrivedEventArgs> = L"Windows.Devices.Perception.PerceptionDepthFrameArrivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameReader> = L"Windows.Devices.Perception.PerceptionDepthFrameReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameSource> = L"Windows.Devices.Perception.PerceptionDepthFrameSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameSourceAddedEventArgs> = L"Windows.Devices.Perception.PerceptionDepthFrameSourceAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameSourceRemovedEventArgs> = L"Windows.Devices.Perception.PerceptionDepthFrameSourceRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher> = L"Windows.Devices.Perception.PerceptionDepthFrameSourceWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> = L"Windows.Devices.Perception.PerceptionFrameSourcePropertiesChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeResult> = L"Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeResult";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrame> = L"Windows.Devices.Perception.PerceptionInfraredFrame";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameArrivedEventArgs> = L"Windows.Devices.Perception.PerceptionInfraredFrameArrivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameReader> = L"Windows.Devices.Perception.PerceptionInfraredFrameReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameSource> = L"Windows.Devices.Perception.PerceptionInfraredFrameSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameSourceAddedEventArgs> = L"Windows.Devices.Perception.PerceptionInfraredFrameSourceAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameSourceRemovedEventArgs> = L"Windows.Devices.Perception.PerceptionInfraredFrameSourceRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher> = L"Windows.Devices.Perception.PerceptionInfraredFrameSourceWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionVideoProfile> = L"Windows.Devices.Perception.PerceptionVideoProfile";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionFrameSourceAccessStatus> = L"Windows.Devices.Perception.PerceptionFrameSourceAccessStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeStatus> = L"Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownCameraIntrinsicsPropertiesStatics> = L"Windows.Devices.Perception.IKnownCameraIntrinsicsPropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionColorFrameSourcePropertiesStatics> = L"Windows.Devices.Perception.IKnownPerceptionColorFrameSourcePropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionDepthFrameSourcePropertiesStatics> = L"Windows.Devices.Perception.IKnownPerceptionDepthFrameSourcePropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics> = L"Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics2> = L"Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionInfraredFrameSourcePropertiesStatics> = L"Windows.Devices.Perception.IKnownPerceptionInfraredFrameSourcePropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionVideoFrameSourcePropertiesStatics> = L"Windows.Devices.Perception.IKnownPerceptionVideoFrameSourcePropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IKnownPerceptionVideoProfilePropertiesStatics> = L"Windows.Devices.Perception.IKnownPerceptionVideoProfilePropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrame> = L"Windows.Devices.Perception.IPerceptionColorFrame";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameArrivedEventArgs> = L"Windows.Devices.Perception.IPerceptionColorFrameArrivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameReader> = L"Windows.Devices.Perception.IPerceptionColorFrameReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSource> = L"Windows.Devices.Perception.IPerceptionColorFrameSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSource2> = L"Windows.Devices.Perception.IPerceptionColorFrameSource2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSourceAddedEventArgs> = L"Windows.Devices.Perception.IPerceptionColorFrameSourceAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSourceRemovedEventArgs> = L"Windows.Devices.Perception.IPerceptionColorFrameSourceRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSourceStatics> = L"Windows.Devices.Perception.IPerceptionColorFrameSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher> = L"Windows.Devices.Perception.IPerceptionColorFrameSourceWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionControlSession> = L"Windows.Devices.Perception.IPerceptionControlSession";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthCorrelatedCameraIntrinsics> = L"Windows.Devices.Perception.IPerceptionDepthCorrelatedCameraIntrinsics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthCorrelatedCoordinateMapper> = L"Windows.Devices.Perception.IPerceptionDepthCorrelatedCoordinateMapper";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrame> = L"Windows.Devices.Perception.IPerceptionDepthFrame";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameArrivedEventArgs> = L"Windows.Devices.Perception.IPerceptionDepthFrameArrivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameReader> = L"Windows.Devices.Perception.IPerceptionDepthFrameReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSource> = L"Windows.Devices.Perception.IPerceptionDepthFrameSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSource2> = L"Windows.Devices.Perception.IPerceptionDepthFrameSource2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceAddedEventArgs> = L"Windows.Devices.Perception.IPerceptionDepthFrameSourceAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceRemovedEventArgs> = L"Windows.Devices.Perception.IPerceptionDepthFrameSourceRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceStatics> = L"Windows.Devices.Perception.IPerceptionDepthFrameSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher> = L"Windows.Devices.Perception.IPerceptionDepthFrameSourceWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionFrameSourcePropertiesChangedEventArgs> = L"Windows.Devices.Perception.IPerceptionFrameSourcePropertiesChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionFrameSourcePropertyChangeResult> = L"Windows.Devices.Perception.IPerceptionFrameSourcePropertyChangeResult";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrame> = L"Windows.Devices.Perception.IPerceptionInfraredFrame";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameArrivedEventArgs> = L"Windows.Devices.Perception.IPerceptionInfraredFrameArrivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameReader> = L"Windows.Devices.Perception.IPerceptionInfraredFrameReader";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSource> = L"Windows.Devices.Perception.IPerceptionInfraredFrameSource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSource2> = L"Windows.Devices.Perception.IPerceptionInfraredFrameSource2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceAddedEventArgs> = L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceRemovedEventArgs> = L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceStatics> = L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher> = L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionVideoProfile> = L"Windows.Devices.Perception.IPerceptionVideoProfile";
     template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownCameraIntrinsicsPropertiesStatics>{ 0x08C03978,0x437A,0x4D97,{ 0xA6,0x63,0xFD,0x31,0x95,0x60,0x02,0x49 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionColorFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x4B } };
     template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionDepthFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x4A } };
@@ -827,10 +828,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IKnownCameraIntrinsicsPropertiesStatics
     {
-        [[nodiscard]] auto FocalLength() const;
-        [[nodiscard]] auto PrincipalPoint() const;
-        [[nodiscard]] auto RadialDistortion() const;
-        [[nodiscard]] auto TangentialDistortion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FocalLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PrincipalPoint() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RadialDistortion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TangentialDistortion() const;
     };
     template <> struct consume<Windows::Devices::Perception::IKnownCameraIntrinsicsPropertiesStatics>
     {
@@ -839,9 +840,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IKnownPerceptionColorFrameSourcePropertiesStatics
     {
-        [[nodiscard]] auto Exposure() const;
-        [[nodiscard]] auto AutoExposureEnabled() const;
-        [[nodiscard]] auto ExposureCompensation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Exposure() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AutoExposureEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ExposureCompensation() const;
     };
     template <> struct consume<Windows::Devices::Perception::IKnownPerceptionColorFrameSourcePropertiesStatics>
     {
@@ -850,8 +851,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IKnownPerceptionDepthFrameSourcePropertiesStatics
     {
-        [[nodiscard]] auto MinDepth() const;
-        [[nodiscard]] auto MaxDepth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MinDepth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MaxDepth() const;
     };
     template <> struct consume<Windows::Devices::Perception::IKnownPerceptionDepthFrameSourcePropertiesStatics>
     {
@@ -860,11 +861,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IKnownPerceptionFrameSourcePropertiesStatics
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto PhysicalDeviceIds() const;
-        [[nodiscard]] auto FrameKind() const;
-        [[nodiscard]] auto DeviceModelVersion() const;
-        [[nodiscard]] auto EnclosureLocation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhysicalDeviceIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FrameKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceModelVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnclosureLocation() const;
     };
     template <> struct consume<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics>
     {
@@ -873,7 +874,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IKnownPerceptionFrameSourcePropertiesStatics2
     {
-        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
     };
     template <> struct consume<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics2>
     {
@@ -882,13 +883,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IKnownPerceptionInfraredFrameSourcePropertiesStatics
     {
-        [[nodiscard]] auto Exposure() const;
-        [[nodiscard]] auto AutoExposureEnabled() const;
-        [[nodiscard]] auto ExposureCompensation() const;
-        [[nodiscard]] auto ActiveIlluminationEnabled() const;
-        [[nodiscard]] auto AmbientSubtractionEnabled() const;
-        [[nodiscard]] auto StructureLightPatternEnabled() const;
-        [[nodiscard]] auto InterleavedIlluminationEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Exposure() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AutoExposureEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ExposureCompensation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ActiveIlluminationEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AmbientSubtractionEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) StructureLightPatternEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) InterleavedIlluminationEnabled() const;
     };
     template <> struct consume<Windows::Devices::Perception::IKnownPerceptionInfraredFrameSourcePropertiesStatics>
     {
@@ -897,11 +898,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IKnownPerceptionVideoFrameSourcePropertiesStatics
     {
-        [[nodiscard]] auto VideoProfile() const;
-        [[nodiscard]] auto SupportedVideoProfiles() const;
-        [[nodiscard]] auto AvailableVideoProfiles() const;
-        [[nodiscard]] auto IsMirrored() const;
-        [[nodiscard]] auto CameraIntrinsics() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoProfile() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SupportedVideoProfiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AvailableVideoProfiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IsMirrored() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CameraIntrinsics() const;
     };
     template <> struct consume<Windows::Devices::Perception::IKnownPerceptionVideoFrameSourcePropertiesStatics>
     {
@@ -910,11 +911,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IKnownPerceptionVideoProfilePropertiesStatics
     {
-        [[nodiscard]] auto BitmapPixelFormat() const;
-        [[nodiscard]] auto BitmapAlphaMode() const;
-        [[nodiscard]] auto Width() const;
-        [[nodiscard]] auto Height() const;
-        [[nodiscard]] auto FrameDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BitmapPixelFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BitmapAlphaMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Width() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FrameDuration() const;
     };
     template <> struct consume<Windows::Devices::Perception::IKnownPerceptionVideoProfilePropertiesStatics>
     {
@@ -923,7 +924,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrame
     {
-        [[nodiscard]] auto VideoFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoFrame) VideoFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrame>
     {
@@ -932,8 +933,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrameArrivedEventArgs
     {
-        [[nodiscard]] auto RelativeTime() const;
-        auto TryOpenFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) RelativeTime() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionColorFrame) TryOpenFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrameArrivedEventArgs>
     {
@@ -942,14 +943,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrameReader
     {
-        auto FrameArrived(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameReader, Windows::Devices::Perception::PerceptionColorFrameArrivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) FrameArrived(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameReader, Windows::Devices::Perception::PerceptionColorFrameArrivedEventArgs> const& handler) const;
         using FrameArrived_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameReader, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameReader>::remove_FrameArrived>;
         [[nodiscard]] FrameArrived_revoker FrameArrived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameReader, Windows::Devices::Perception::PerceptionColorFrameArrivedEventArgs> const& handler) const;
-        auto FrameArrived(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Source() const;
-        [[nodiscard]] auto IsPaused() const;
-        auto IsPaused(bool value) const;
-        auto TryReadLatestFrame() const;
+        WINRT_IMPL_AUTO(void) FrameArrived(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionColorFrameSource) Source() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPaused() const;
+        WINRT_IMPL_AUTO(void) IsPaused(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionColorFrame) TryReadLatestFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrameReader>
     {
@@ -958,45 +959,45 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrameSource
     {
-        auto AvailableChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) AvailableChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using AvailableChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSource>::remove_AvailableChanged>;
         [[nodiscard]] AvailableChanged_revoker AvailableChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto AvailableChanged(winrt::event_token const& token) const noexcept;
-        auto ActiveChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) AvailableChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ActiveChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using ActiveChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSource>::remove_ActiveChanged>;
         [[nodiscard]] ActiveChanged_revoker ActiveChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto ActiveChanged(winrt::event_token const& token) const noexcept;
-        auto PropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ActiveChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
         using PropertiesChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSource>::remove_PropertiesChanged>;
         [[nodiscard]] PropertiesChanged_revoker PropertiesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
-        auto PropertiesChanged(winrt::event_token const& token) const noexcept;
-        auto VideoProfileChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PropertiesChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) VideoProfileChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using VideoProfileChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSource>::remove_VideoProfileChanged>;
         [[nodiscard]] VideoProfileChanged_revoker VideoProfileChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto VideoProfileChanged(winrt::event_token const& token) const noexcept;
-        auto CameraIntrinsicsChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) VideoProfileChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CameraIntrinsicsChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using CameraIntrinsicsChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSource>::remove_CameraIntrinsicsChanged>;
         [[nodiscard]] CameraIntrinsicsChanged_revoker CameraIntrinsicsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto CameraIntrinsicsChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto DeviceKind() const;
-        [[nodiscard]] auto Available() const;
-        [[nodiscard]] auto Active() const;
-        [[nodiscard]] auto IsControlled() const;
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto SupportedVideoProfiles() const;
-        [[nodiscard]] auto AvailableVideoProfiles() const;
-        [[nodiscard]] auto VideoProfile() const;
-        [[nodiscard]] auto CameraIntrinsics() const;
-        auto AcquireControlSession() const;
-        auto CanControlIndependentlyFrom(param::hstring const& targetId) const;
-        auto IsCorrelatedWith(param::hstring const& targetId) const;
-        auto TryGetTransformTo(param::hstring const& targetId, Windows::Foundation::Numerics::float4x4& result) const;
-        auto TryGetDepthCorrelatedCameraIntrinsicsAsync(Windows::Devices::Perception::PerceptionDepthFrameSource const& correlatedDepthFrameSource) const;
-        auto TryGetDepthCorrelatedCoordinateMapperAsync(param::hstring const& targetSourceId, Windows::Devices::Perception::PerceptionDepthFrameSource const& correlatedDepthFrameSource) const;
-        auto TrySetVideoProfileAsync(Windows::Devices::Perception::PerceptionControlSession const& controlSession, Windows::Devices::Perception::PerceptionVideoProfile const& profile) const;
-        auto OpenReader() const;
+        WINRT_IMPL_AUTO(void) CameraIntrinsicsChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Available() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Active() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsControlled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionVideoProfile>) SupportedVideoProfiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionVideoProfile>) AvailableVideoProfiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionVideoProfile) VideoProfile() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::CameraIntrinsics) CameraIntrinsics() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionControlSession) AcquireControlSession() const;
+        WINRT_IMPL_AUTO(bool) CanControlIndependentlyFrom(param::hstring const& targetId) const;
+        WINRT_IMPL_AUTO(bool) IsCorrelatedWith(param::hstring const& targetId) const;
+        WINRT_IMPL_AUTO(bool) TryGetTransformTo(param::hstring const& targetId, Windows::Foundation::Numerics::float4x4& result) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionDepthCorrelatedCameraIntrinsics>) TryGetDepthCorrelatedCameraIntrinsicsAsync(Windows::Devices::Perception::PerceptionDepthFrameSource const& correlatedDepthFrameSource) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionDepthCorrelatedCoordinateMapper>) TryGetDepthCorrelatedCoordinateMapperAsync(param::hstring const& targetSourceId, Windows::Devices::Perception::PerceptionDepthFrameSource const& correlatedDepthFrameSource) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeResult>) TrySetVideoProfileAsync(Windows::Devices::Perception::PerceptionControlSession const& controlSession, Windows::Devices::Perception::PerceptionVideoProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionColorFrameReader) OpenReader() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrameSource>
     {
@@ -1005,7 +1006,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrameSource2
     {
-        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrameSource2>
     {
@@ -1014,7 +1015,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrameSourceAddedEventArgs
     {
-        [[nodiscard]] auto FrameSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionColorFrameSource) FrameSource() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrameSourceAddedEventArgs>
     {
@@ -1023,7 +1024,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrameSourceRemovedEventArgs
     {
-        [[nodiscard]] auto FrameSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionColorFrameSource) FrameSource() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrameSourceRemovedEventArgs>
     {
@@ -1032,10 +1033,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrameSourceStatics
     {
-        auto CreateWatcher() const;
-        auto FindAllAsync() const;
-        auto FromIdAsync(param::hstring const& id) const;
-        auto RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionColorFrameSourceWatcher) CreateWatcher() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionColorFrameSource>>) FindAllAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionColorFrameSource>) FromIdAsync(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionFrameSourceAccessStatus>) RequestAccessAsync() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrameSourceStatics>
     {
@@ -1044,25 +1045,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionColorFrameSourceWatcher
     {
-        auto SourceAdded(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Devices::Perception::PerceptionColorFrameSourceAddedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceAdded(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Devices::Perception::PerceptionColorFrameSourceAddedEventArgs> const& handler) const;
         using SourceAdded_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher>::remove_SourceAdded>;
         [[nodiscard]] SourceAdded_revoker SourceAdded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Devices::Perception::PerceptionColorFrameSourceAddedEventArgs> const& handler) const;
-        auto SourceAdded(winrt::event_token const& token) const noexcept;
-        auto SourceRemoved(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Devices::Perception::PerceptionColorFrameSourceRemovedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceAdded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceRemoved(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Devices::Perception::PerceptionColorFrameSourceRemovedEventArgs> const& handler) const;
         using SourceRemoved_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher>::remove_SourceRemoved>;
         [[nodiscard]] SourceRemoved_revoker SourceRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Devices::Perception::PerceptionColorFrameSourceRemovedEventArgs> const& handler) const;
-        auto SourceRemoved(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceRemoved(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionColorFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher>
     {
@@ -1071,11 +1072,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionControlSession
     {
-        auto ControlLost(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionControlSession, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ControlLost(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionControlSession, Windows::Foundation::IInspectable> const& handler) const;
         using ControlLost_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionControlSession, &impl::abi_t<Windows::Devices::Perception::IPerceptionControlSession>::remove_ControlLost>;
         [[nodiscard]] ControlLost_revoker ControlLost(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionControlSession, Windows::Foundation::IInspectable> const& handler) const;
-        auto ControlLost(winrt::event_token const& token) const noexcept;
-        auto TrySetPropertyAsync(param::hstring const& name, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) ControlLost(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeResult>) TrySetPropertyAsync(param::hstring const& name, Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionControlSession>
     {
@@ -1084,10 +1085,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthCorrelatedCameraIntrinsics
     {
-        auto UnprojectPixelAtCorrelatedDepth(Windows::Foundation::Point const& pixelCoordinate, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame) const;
-        auto UnprojectPixelsAtCorrelatedDepth(array_view<Windows::Foundation::Point const> sourceCoordinates, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Numerics::float3> results) const;
-        auto UnprojectRegionPixelsAtCorrelatedDepthAsync(Windows::Foundation::Rect const& region, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Numerics::float3> results) const;
-        auto UnprojectAllPixelsAtCorrelatedDepthAsync(Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Numerics::float3> results) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) UnprojectPixelAtCorrelatedDepth(Windows::Foundation::Point const& pixelCoordinate, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame) const;
+        WINRT_IMPL_AUTO(void) UnprojectPixelsAtCorrelatedDepth(array_view<Windows::Foundation::Point const> sourceCoordinates, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Numerics::float3> results) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UnprojectRegionPixelsAtCorrelatedDepthAsync(Windows::Foundation::Rect const& region, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Numerics::float3> results) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UnprojectAllPixelsAtCorrelatedDepthAsync(Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Numerics::float3> results) const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthCorrelatedCameraIntrinsics>
     {
@@ -1096,10 +1097,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthCorrelatedCoordinateMapper
     {
-        auto MapPixelToTarget(Windows::Foundation::Point const& sourcePixelCoordinate, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame) const;
-        auto MapPixelsToTarget(array_view<Windows::Foundation::Point const> sourceCoordinates, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Point> results) const;
-        auto MapRegionOfPixelsToTargetAsync(Windows::Foundation::Rect const& region, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Point> targetCoordinates) const;
-        auto MapAllPixelsToTargetAsync(Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Point> targetCoordinates) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) MapPixelToTarget(Windows::Foundation::Point const& sourcePixelCoordinate, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame) const;
+        WINRT_IMPL_AUTO(void) MapPixelsToTarget(array_view<Windows::Foundation::Point const> sourceCoordinates, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Point> results) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) MapRegionOfPixelsToTargetAsync(Windows::Foundation::Rect const& region, Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Point> targetCoordinates) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) MapAllPixelsToTargetAsync(Windows::Devices::Perception::PerceptionDepthFrame const& depthFrame, array_view<Windows::Foundation::Point> targetCoordinates) const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthCorrelatedCoordinateMapper>
     {
@@ -1108,7 +1109,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrame
     {
-        [[nodiscard]] auto VideoFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoFrame) VideoFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrame>
     {
@@ -1117,8 +1118,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrameArrivedEventArgs
     {
-        [[nodiscard]] auto RelativeTime() const;
-        auto TryOpenFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) RelativeTime() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionDepthFrame) TryOpenFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrameArrivedEventArgs>
     {
@@ -1127,14 +1128,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrameReader
     {
-        auto FrameArrived(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameReader, Windows::Devices::Perception::PerceptionDepthFrameArrivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) FrameArrived(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameReader, Windows::Devices::Perception::PerceptionDepthFrameArrivedEventArgs> const& handler) const;
         using FrameArrived_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameReader, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameReader>::remove_FrameArrived>;
         [[nodiscard]] FrameArrived_revoker FrameArrived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameReader, Windows::Devices::Perception::PerceptionDepthFrameArrivedEventArgs> const& handler) const;
-        auto FrameArrived(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Source() const;
-        [[nodiscard]] auto IsPaused() const;
-        auto IsPaused(bool value) const;
-        auto TryReadLatestFrame() const;
+        WINRT_IMPL_AUTO(void) FrameArrived(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionDepthFrameSource) Source() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPaused() const;
+        WINRT_IMPL_AUTO(void) IsPaused(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionDepthFrame) TryReadLatestFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrameReader>
     {
@@ -1143,45 +1144,45 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrameSource
     {
-        auto AvailableChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) AvailableChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using AvailableChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSource>::remove_AvailableChanged>;
         [[nodiscard]] AvailableChanged_revoker AvailableChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto AvailableChanged(winrt::event_token const& token) const noexcept;
-        auto ActiveChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) AvailableChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ActiveChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using ActiveChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSource>::remove_ActiveChanged>;
         [[nodiscard]] ActiveChanged_revoker ActiveChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto ActiveChanged(winrt::event_token const& token) const noexcept;
-        auto PropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ActiveChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
         using PropertiesChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSource>::remove_PropertiesChanged>;
         [[nodiscard]] PropertiesChanged_revoker PropertiesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
-        auto PropertiesChanged(winrt::event_token const& token) const noexcept;
-        auto VideoProfileChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PropertiesChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) VideoProfileChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using VideoProfileChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSource>::remove_VideoProfileChanged>;
         [[nodiscard]] VideoProfileChanged_revoker VideoProfileChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto VideoProfileChanged(winrt::event_token const& token) const noexcept;
-        auto CameraIntrinsicsChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) VideoProfileChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CameraIntrinsicsChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using CameraIntrinsicsChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSource>::remove_CameraIntrinsicsChanged>;
         [[nodiscard]] CameraIntrinsicsChanged_revoker CameraIntrinsicsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto CameraIntrinsicsChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto DeviceKind() const;
-        [[nodiscard]] auto Available() const;
-        [[nodiscard]] auto Active() const;
-        [[nodiscard]] auto IsControlled() const;
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto SupportedVideoProfiles() const;
-        [[nodiscard]] auto AvailableVideoProfiles() const;
-        [[nodiscard]] auto VideoProfile() const;
-        [[nodiscard]] auto CameraIntrinsics() const;
-        auto AcquireControlSession() const;
-        auto CanControlIndependentlyFrom(param::hstring const& targetId) const;
-        auto IsCorrelatedWith(param::hstring const& targetId) const;
-        auto TryGetTransformTo(param::hstring const& targetId, Windows::Foundation::Numerics::float4x4& result) const;
-        auto TryGetDepthCorrelatedCameraIntrinsicsAsync(Windows::Devices::Perception::PerceptionDepthFrameSource const& target) const;
-        auto TryGetDepthCorrelatedCoordinateMapperAsync(param::hstring const& targetId, Windows::Devices::Perception::PerceptionDepthFrameSource const& depthFrameSourceToMapWith) const;
-        auto TrySetVideoProfileAsync(Windows::Devices::Perception::PerceptionControlSession const& controlSession, Windows::Devices::Perception::PerceptionVideoProfile const& profile) const;
-        auto OpenReader() const;
+        WINRT_IMPL_AUTO(void) CameraIntrinsicsChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Available() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Active() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsControlled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionVideoProfile>) SupportedVideoProfiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionVideoProfile>) AvailableVideoProfiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionVideoProfile) VideoProfile() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::CameraIntrinsics) CameraIntrinsics() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionControlSession) AcquireControlSession() const;
+        WINRT_IMPL_AUTO(bool) CanControlIndependentlyFrom(param::hstring const& targetId) const;
+        WINRT_IMPL_AUTO(bool) IsCorrelatedWith(param::hstring const& targetId) const;
+        WINRT_IMPL_AUTO(bool) TryGetTransformTo(param::hstring const& targetId, Windows::Foundation::Numerics::float4x4& result) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionDepthCorrelatedCameraIntrinsics>) TryGetDepthCorrelatedCameraIntrinsicsAsync(Windows::Devices::Perception::PerceptionDepthFrameSource const& target) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionDepthCorrelatedCoordinateMapper>) TryGetDepthCorrelatedCoordinateMapperAsync(param::hstring const& targetId, Windows::Devices::Perception::PerceptionDepthFrameSource const& depthFrameSourceToMapWith) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeResult>) TrySetVideoProfileAsync(Windows::Devices::Perception::PerceptionControlSession const& controlSession, Windows::Devices::Perception::PerceptionVideoProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionDepthFrameReader) OpenReader() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrameSource>
     {
@@ -1190,7 +1191,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrameSource2
     {
-        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrameSource2>
     {
@@ -1199,7 +1200,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrameSourceAddedEventArgs
     {
-        [[nodiscard]] auto FrameSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionDepthFrameSource) FrameSource() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrameSourceAddedEventArgs>
     {
@@ -1208,7 +1209,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrameSourceRemovedEventArgs
     {
-        [[nodiscard]] auto FrameSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionDepthFrameSource) FrameSource() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrameSourceRemovedEventArgs>
     {
@@ -1217,10 +1218,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrameSourceStatics
     {
-        auto CreateWatcher() const;
-        auto FindAllAsync() const;
-        auto FromIdAsync(param::hstring const& id) const;
-        auto RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher) CreateWatcher() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionDepthFrameSource>>) FindAllAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionDepthFrameSource>) FromIdAsync(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionFrameSourceAccessStatus>) RequestAccessAsync() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrameSourceStatics>
     {
@@ -1229,25 +1230,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionDepthFrameSourceWatcher
     {
-        auto SourceAdded(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Devices::Perception::PerceptionDepthFrameSourceAddedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceAdded(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Devices::Perception::PerceptionDepthFrameSourceAddedEventArgs> const& handler) const;
         using SourceAdded_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher>::remove_SourceAdded>;
         [[nodiscard]] SourceAdded_revoker SourceAdded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Devices::Perception::PerceptionDepthFrameSourceAddedEventArgs> const& handler) const;
-        auto SourceAdded(winrt::event_token const& token) const noexcept;
-        auto SourceRemoved(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Devices::Perception::PerceptionDepthFrameSourceRemovedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceAdded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceRemoved(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Devices::Perception::PerceptionDepthFrameSourceRemovedEventArgs> const& handler) const;
         using SourceRemoved_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher>::remove_SourceRemoved>;
         [[nodiscard]] SourceRemoved_revoker SourceRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Devices::Perception::PerceptionDepthFrameSourceRemovedEventArgs> const& handler) const;
-        auto SourceRemoved(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceRemoved(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionDepthFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher>
     {
@@ -1256,8 +1257,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionFrameSourcePropertiesChangedEventArgs
     {
-        [[nodiscard]] auto CollectionChange() const;
-        [[nodiscard]] auto Key() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::CollectionChange) CollectionChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Key() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionFrameSourcePropertiesChangedEventArgs>
     {
@@ -1266,8 +1267,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionFrameSourcePropertyChangeResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto NewValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) NewValue() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionFrameSourcePropertyChangeResult>
     {
@@ -1276,7 +1277,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrame
     {
-        [[nodiscard]] auto VideoFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoFrame) VideoFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrame>
     {
@@ -1285,8 +1286,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrameArrivedEventArgs
     {
-        [[nodiscard]] auto RelativeTime() const;
-        auto TryOpenFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) RelativeTime() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionInfraredFrame) TryOpenFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrameArrivedEventArgs>
     {
@@ -1295,14 +1296,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrameReader
     {
-        auto FrameArrived(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameReader, Windows::Devices::Perception::PerceptionInfraredFrameArrivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) FrameArrived(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameReader, Windows::Devices::Perception::PerceptionInfraredFrameArrivedEventArgs> const& handler) const;
         using FrameArrived_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameReader, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameReader>::remove_FrameArrived>;
         [[nodiscard]] FrameArrived_revoker FrameArrived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameReader, Windows::Devices::Perception::PerceptionInfraredFrameArrivedEventArgs> const& handler) const;
-        auto FrameArrived(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Source() const;
-        [[nodiscard]] auto IsPaused() const;
-        auto IsPaused(bool value) const;
-        auto TryReadLatestFrame() const;
+        WINRT_IMPL_AUTO(void) FrameArrived(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionInfraredFrameSource) Source() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPaused() const;
+        WINRT_IMPL_AUTO(void) IsPaused(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionInfraredFrame) TryReadLatestFrame() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrameReader>
     {
@@ -1311,45 +1312,45 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrameSource
     {
-        auto AvailableChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) AvailableChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using AvailableChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSource>::remove_AvailableChanged>;
         [[nodiscard]] AvailableChanged_revoker AvailableChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto AvailableChanged(winrt::event_token const& token) const noexcept;
-        auto ActiveChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) AvailableChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ActiveChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using ActiveChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSource>::remove_ActiveChanged>;
         [[nodiscard]] ActiveChanged_revoker ActiveChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto ActiveChanged(winrt::event_token const& token) const noexcept;
-        auto PropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ActiveChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
         using PropertiesChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSource>::remove_PropertiesChanged>;
         [[nodiscard]] PropertiesChanged_revoker PropertiesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Devices::Perception::PerceptionFrameSourcePropertiesChangedEventArgs> const& handler) const;
-        auto PropertiesChanged(winrt::event_token const& token) const noexcept;
-        auto VideoProfileChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PropertiesChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) VideoProfileChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using VideoProfileChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSource>::remove_VideoProfileChanged>;
         [[nodiscard]] VideoProfileChanged_revoker VideoProfileChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto VideoProfileChanged(winrt::event_token const& token) const noexcept;
-        auto CameraIntrinsicsChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) VideoProfileChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CameraIntrinsicsChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
         using CameraIntrinsicsChanged_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSource, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSource>::remove_CameraIntrinsicsChanged>;
         [[nodiscard]] CameraIntrinsicsChanged_revoker CameraIntrinsicsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto CameraIntrinsicsChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto DeviceKind() const;
-        [[nodiscard]] auto Available() const;
-        [[nodiscard]] auto Active() const;
-        [[nodiscard]] auto IsControlled() const;
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto SupportedVideoProfiles() const;
-        [[nodiscard]] auto AvailableVideoProfiles() const;
-        [[nodiscard]] auto VideoProfile() const;
-        [[nodiscard]] auto CameraIntrinsics() const;
-        auto AcquireControlSession() const;
-        auto CanControlIndependentlyFrom(param::hstring const& targetId) const;
-        auto IsCorrelatedWith(param::hstring const& targetId) const;
-        auto TryGetTransformTo(param::hstring const& targetId, Windows::Foundation::Numerics::float4x4& result) const;
-        auto TryGetDepthCorrelatedCameraIntrinsicsAsync(Windows::Devices::Perception::PerceptionDepthFrameSource const& target) const;
-        auto TryGetDepthCorrelatedCoordinateMapperAsync(param::hstring const& targetId, Windows::Devices::Perception::PerceptionDepthFrameSource const& depthFrameSourceToMapWith) const;
-        auto TrySetVideoProfileAsync(Windows::Devices::Perception::PerceptionControlSession const& controlSession, Windows::Devices::Perception::PerceptionVideoProfile const& profile) const;
-        auto OpenReader() const;
+        WINRT_IMPL_AUTO(void) CameraIntrinsicsChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Available() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Active() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsControlled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionVideoProfile>) SupportedVideoProfiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionVideoProfile>) AvailableVideoProfiles() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionVideoProfile) VideoProfile() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::CameraIntrinsics) CameraIntrinsics() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionControlSession) AcquireControlSession() const;
+        WINRT_IMPL_AUTO(bool) CanControlIndependentlyFrom(param::hstring const& targetId) const;
+        WINRT_IMPL_AUTO(bool) IsCorrelatedWith(param::hstring const& targetId) const;
+        WINRT_IMPL_AUTO(bool) TryGetTransformTo(param::hstring const& targetId, Windows::Foundation::Numerics::float4x4& result) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionDepthCorrelatedCameraIntrinsics>) TryGetDepthCorrelatedCameraIntrinsicsAsync(Windows::Devices::Perception::PerceptionDepthFrameSource const& target) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionDepthCorrelatedCoordinateMapper>) TryGetDepthCorrelatedCoordinateMapperAsync(param::hstring const& targetId, Windows::Devices::Perception::PerceptionDepthFrameSource const& depthFrameSourceToMapWith) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionFrameSourcePropertyChangeResult>) TrySetVideoProfileAsync(Windows::Devices::Perception::PerceptionControlSession const& controlSession, Windows::Devices::Perception::PerceptionVideoProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionInfraredFrameReader) OpenReader() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrameSource>
     {
@@ -1358,7 +1359,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrameSource2
     {
-        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrameSource2>
     {
@@ -1367,7 +1368,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrameSourceAddedEventArgs
     {
-        [[nodiscard]] auto FrameSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionInfraredFrameSource) FrameSource() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrameSourceAddedEventArgs>
     {
@@ -1376,7 +1377,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrameSourceRemovedEventArgs
     {
-        [[nodiscard]] auto FrameSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionInfraredFrameSource) FrameSource() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrameSourceRemovedEventArgs>
     {
@@ -1385,10 +1386,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrameSourceStatics
     {
-        auto CreateWatcher() const;
-        auto FindAllAsync() const;
-        auto FromIdAsync(param::hstring const& id) const;
-        auto RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher) CreateWatcher() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Perception::PerceptionInfraredFrameSource>>) FindAllAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionInfraredFrameSource>) FromIdAsync(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Perception::PerceptionFrameSourceAccessStatus>) RequestAccessAsync() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrameSourceStatics>
     {
@@ -1397,25 +1398,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionInfraredFrameSourceWatcher
     {
-        auto SourceAdded(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Devices::Perception::PerceptionInfraredFrameSourceAddedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceAdded(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Devices::Perception::PerceptionInfraredFrameSourceAddedEventArgs> const& handler) const;
         using SourceAdded_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher>::remove_SourceAdded>;
         [[nodiscard]] SourceAdded_revoker SourceAdded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Devices::Perception::PerceptionInfraredFrameSourceAddedEventArgs> const& handler) const;
-        auto SourceAdded(winrt::event_token const& token) const noexcept;
-        auto SourceRemoved(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Devices::Perception::PerceptionInfraredFrameSourceRemovedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceAdded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceRemoved(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Devices::Perception::PerceptionInfraredFrameSourceRemovedEventArgs> const& handler) const;
         using SourceRemoved_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher>::remove_SourceRemoved>;
         [[nodiscard]] SourceRemoved_revoker SourceRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Devices::Perception::PerceptionInfraredFrameSourceRemovedEventArgs> const& handler) const;
-        auto SourceRemoved(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceRemoved(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher, &impl::abi_t<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Perception::PerceptionInfraredFrameSourceWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher>
     {
@@ -1424,12 +1425,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Perception_IPerceptionVideoProfile
     {
-        [[nodiscard]] auto BitmapPixelFormat() const;
-        [[nodiscard]] auto BitmapAlphaMode() const;
-        [[nodiscard]] auto Width() const;
-        [[nodiscard]] auto Height() const;
-        [[nodiscard]] auto FrameDuration() const;
-        auto IsEqual(Windows::Devices::Perception::PerceptionVideoProfile const& other) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapPixelFormat) BitmapPixelFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapAlphaMode) BitmapAlphaMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Width() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) FrameDuration() const;
+        WINRT_IMPL_AUTO(bool) IsEqual(Windows::Devices::Perception::PerceptionVideoProfile const& other) const;
     };
     template <> struct consume<Windows::Devices::Perception::IPerceptionVideoProfile>
     {

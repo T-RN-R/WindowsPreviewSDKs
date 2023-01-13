@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Web_AtomPub_H
 #define WINRT_Windows_Web_AtomPub_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Web.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -16,113 +16,113 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Web.AtomPub.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::RetrieveServiceDocumentAsync(Windows::Foundation::Uri const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::AtomPub::ServiceDocument, Windows::Web::Syndication::RetrievalProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::RetrieveServiceDocumentAsync(Windows::Foundation::Uri const& uri) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->RetrieveServiceDocumentAsync(*(void**)(&uri), &operation));
         return Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::AtomPub::ServiceDocument, Windows::Web::Syndication::RetrievalProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::RetrieveMediaResourceAsync(Windows::Foundation::Uri const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Storage::Streams::IInputStream, Windows::Web::Syndication::RetrievalProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::RetrieveMediaResourceAsync(Windows::Foundation::Uri const& uri) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->RetrieveMediaResourceAsync(*(void**)(&uri), &operation));
         return Windows::Foundation::IAsyncOperationWithProgress<Windows::Storage::Streams::IInputStream, Windows::Web::Syndication::RetrievalProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::RetrieveResourceAsync(Windows::Foundation::Uri const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::RetrievalProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::RetrieveResourceAsync(Windows::Foundation::Uri const& uri) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->RetrieveResourceAsync(*(void**)(&uri), &operation));
         return Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::RetrievalProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::CreateResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& description, Windows::Web::Syndication::SyndicationItem const& item) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::TransferProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::CreateResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& description, Windows::Web::Syndication::SyndicationItem const& item) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->CreateResourceAsync(*(void**)(&uri), *(void**)(&description), *(void**)(&item), &operation));
         return Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::TransferProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::CreateMediaResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& mediaType, param::hstring const& description, Windows::Storage::Streams::IInputStream const& mediaStream) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::TransferProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::CreateMediaResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& mediaType, param::hstring const& description, Windows::Storage::Streams::IInputStream const& mediaStream) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->CreateMediaResourceAsync(*(void**)(&uri), *(void**)(&mediaType), *(void**)(&description), *(void**)(&mediaStream), &operation));
         return Windows::Foundation::IAsyncOperationWithProgress<Windows::Web::Syndication::SyndicationItem, Windows::Web::Syndication::TransferProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::UpdateMediaResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& mediaType, Windows::Storage::Streams::IInputStream const& mediaStream) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::UpdateMediaResourceAsync(Windows::Foundation::Uri const& uri, param::hstring const& mediaType, Windows::Storage::Streams::IInputStream const& mediaStream) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->UpdateMediaResourceAsync(*(void**)(&uri), *(void**)(&mediaType), *(void**)(&mediaStream), &operation));
         return Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::UpdateResourceAsync(Windows::Foundation::Uri const& uri, Windows::Web::Syndication::SyndicationItem const& item) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::UpdateResourceAsync(Windows::Foundation::Uri const& uri, Windows::Web::Syndication::SyndicationItem const& item) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->UpdateResourceAsync(*(void**)(&uri), *(void**)(&item), &operation));
         return Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::UpdateResourceItemAsync(Windows::Web::Syndication::SyndicationItem const& item) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::UpdateResourceItemAsync(Windows::Web::Syndication::SyndicationItem const& item) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->UpdateResourceItemAsync(*(void**)(&item), &operation));
         return Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::DeleteResourceAsync(Windows::Foundation::Uri const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::DeleteResourceAsync(Windows::Foundation::Uri const& uri) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->DeleteResourceAsync(*(void**)(&uri), &operation));
         return Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::DeleteResourceItemAsync(Windows::Web::Syndication::SyndicationItem const& item) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>) consume_Windows_Web_AtomPub_IAtomPubClient<D>::DeleteResourceItemAsync(Windows::Web::Syndication::SyndicationItem const& item) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->DeleteResourceItemAsync(*(void**)(&item), &operation));
         return Windows::Foundation::IAsyncActionWithProgress<Windows::Web::Syndication::TransferProgress>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClient<D>::CancelAsyncOperations() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Web_AtomPub_IAtomPubClient<D>::CancelAsyncOperations() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClient)->CancelAsyncOperations());
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IAtomPubClientFactory<D>::CreateAtomPubClientWithCredentials(Windows::Security::Credentials::PasswordCredential const& serverCredential) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Web::AtomPub::AtomPubClient) consume_Windows_Web_AtomPub_IAtomPubClientFactory<D>::CreateAtomPubClientWithCredentials(Windows::Security::Credentials::PasswordCredential const& serverCredential) const
     {
         void* atomPubClient{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IAtomPubClientFactory)->CreateAtomPubClientWithCredentials(*(void**)(&serverCredential), &atomPubClient));
         return Windows::Web::AtomPub::AtomPubClient{ atomPubClient, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IResourceCollection<D>::Title() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) consume_Windows_Web_AtomPub_IResourceCollection<D>::Title() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IResourceCollection)->get_Title(&value));
         return Windows::Web::Syndication::ISyndicationText{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IResourceCollection<D>::Uri() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_Web_AtomPub_IResourceCollection<D>::Uri() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IResourceCollection)->get_Uri(&value));
         return Windows::Foundation::Uri{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IResourceCollection<D>::Categories() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::Syndication::SyndicationCategory>) consume_Windows_Web_AtomPub_IResourceCollection<D>::Categories() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IResourceCollection)->get_Categories(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Web::Syndication::SyndicationCategory>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IResourceCollection<D>::Accepts() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) consume_Windows_Web_AtomPub_IResourceCollection<D>::Accepts() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IResourceCollection)->get_Accepts(&value));
         return Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IServiceDocument<D>::Workspaces() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::AtomPub::Workspace>) consume_Windows_Web_AtomPub_IServiceDocument<D>::Workspaces() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IServiceDocument)->get_Workspaces(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Web::AtomPub::Workspace>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IWorkspace<D>::Title() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Web::Syndication::ISyndicationText) consume_Windows_Web_AtomPub_IWorkspace<D>::Title() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IWorkspace)->get_Title(&value));
         return Windows::Web::Syndication::ISyndicationText{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Web_AtomPub_IWorkspace<D>::Collections() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::AtomPub::ResourceCollection>) consume_Windows_Web_AtomPub_IWorkspace<D>::Collections() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Web::AtomPub::IWorkspace)->get_Collections(&value));

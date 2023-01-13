@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_Core_H
 #define WINRT_Windows_UI_Core_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -17,87 +17,87 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.UI.Core.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Core_IAcceleratorKeyEventArgs<D>::EventType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreAcceleratorKeyEventType) consume_Windows_UI_Core_IAcceleratorKeyEventArgs<D>::EventType() const
     {
-        Windows::UI::Core::CoreAcceleratorKeyEventType value;
+        Windows::UI::Core::CoreAcceleratorKeyEventType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IAcceleratorKeyEventArgs)->get_EventType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IAcceleratorKeyEventArgs<D>::VirtualKey() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::VirtualKey) consume_Windows_UI_Core_IAcceleratorKeyEventArgs<D>::VirtualKey() const
     {
-        Windows::System::VirtualKey value;
+        Windows::System::VirtualKey value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IAcceleratorKeyEventArgs)->get_VirtualKey(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IAcceleratorKeyEventArgs<D>::KeyStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CorePhysicalKeyStatus) consume_Windows_UI_Core_IAcceleratorKeyEventArgs<D>::KeyStatus() const
     {
-        Windows::UI::Core::CorePhysicalKeyStatus value;
+        Windows::UI::Core::CorePhysicalKeyStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IAcceleratorKeyEventArgs)->get_KeyStatus(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IAcceleratorKeyEventArgs2<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Core_IAcceleratorKeyEventArgs2<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IAcceleratorKeyEventArgs2)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_IAutomationProviderRequestedEventArgs<D>::AutomationProvider() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_UI_Core_IAutomationProviderRequestedEventArgs<D>::AutomationProvider() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IAutomationProviderRequestedEventArgs)->get_AutomationProvider(&value));
         return Windows::Foundation::IInspectable{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_IAutomationProviderRequestedEventArgs<D>::AutomationProvider(Windows::Foundation::IInspectable const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_IAutomationProviderRequestedEventArgs<D>::AutomationProvider(Windows::Foundation::IInspectable const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IAutomationProviderRequestedEventArgs)->put_AutomationProvider(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_IBackRequestedEventArgs<D>::Handled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_IBackRequestedEventArgs<D>::Handled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IBackRequestedEventArgs)->get_Handled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IBackRequestedEventArgs<D>::Handled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_IBackRequestedEventArgs<D>::Handled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IBackRequestedEventArgs)->put_Handled(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICharacterReceivedEventArgs<D>::KeyCode() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Core_ICharacterReceivedEventArgs<D>::KeyCode() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICharacterReceivedEventArgs)->get_KeyCode(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICharacterReceivedEventArgs<D>::KeyStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CorePhysicalKeyStatus) consume_Windows_UI_Core_ICharacterReceivedEventArgs<D>::KeyStatus() const
     {
-        Windows::UI::Core::CorePhysicalKeyStatus value;
+        Windows::UI::Core::CorePhysicalKeyStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICharacterReceivedEventArgs)->get_KeyStatus(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IClosestInteractiveBoundsRequestedEventArgs<D>::PointerPosition() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Point) consume_Windows_UI_Core_IClosestInteractiveBoundsRequestedEventArgs<D>::PointerPosition() const
     {
-        Windows::Foundation::Point value;
+        Windows::Foundation::Point value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IClosestInteractiveBoundsRequestedEventArgs)->get_PointerPosition(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IClosestInteractiveBoundsRequestedEventArgs<D>::SearchBounds() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_UI_Core_IClosestInteractiveBoundsRequestedEventArgs<D>::SearchBounds() const
     {
-        Windows::Foundation::Rect value;
+        Windows::Foundation::Rect value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IClosestInteractiveBoundsRequestedEventArgs)->get_SearchBounds(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IClosestInteractiveBoundsRequestedEventArgs<D>::ClosestInteractiveBounds() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_UI_Core_IClosestInteractiveBoundsRequestedEventArgs<D>::ClosestInteractiveBounds() const
     {
-        Windows::Foundation::Rect value;
+        Windows::Foundation::Rect value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IClosestInteractiveBoundsRequestedEventArgs)->get_ClosestInteractiveBounds(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IClosestInteractiveBoundsRequestedEventArgs<D>::ClosestInteractiveBounds(Windows::Foundation::Rect const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_IClosestInteractiveBoundsRequestedEventArgs<D>::ClosestInteractiveBounds(Windows::Foundation::Rect const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IClosestInteractiveBoundsRequestedEventArgs)->put_ClosestInteractiveBounds(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreAcceleratorKeys<D>::AcceleratorKeyActivated(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreDispatcher, Windows::UI::Core::AcceleratorKeyEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreAcceleratorKeys<D>::AcceleratorKeyActivated(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreDispatcher, Windows::UI::Core::AcceleratorKeyEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreAcceleratorKeys)->add_AcceleratorKeyActivated(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -105,13 +105,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, AcceleratorKeyActivated_revoker>(this, AcceleratorKeyActivated(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreAcceleratorKeys<D>::AcceleratorKeyActivated(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreAcceleratorKeys<D>::AcceleratorKeyActivated(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreAcceleratorKeys)->remove_AcceleratorKeyActivated(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreClosestInteractiveBoundsRequested<D>::ClosestInteractiveBoundsRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreComponentInputSource, Windows::UI::Core::ClosestInteractiveBoundsRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreClosestInteractiveBoundsRequested<D>::ClosestInteractiveBoundsRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreComponentInputSource, Windows::UI::Core::ClosestInteractiveBoundsRequestedEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreClosestInteractiveBoundsRequested)->add_ClosestInteractiveBoundsRequested(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -119,19 +119,19 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ClosestInteractiveBoundsRequested_revoker>(this, ClosestInteractiveBoundsRequested(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreClosestInteractiveBoundsRequested<D>::ClosestInteractiveBoundsRequested(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreClosestInteractiveBoundsRequested<D>::ClosestInteractiveBoundsRequested(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreClosestInteractiveBoundsRequested)->remove_ClosestInteractiveBoundsRequested(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreComponentFocusable<D>::HasFocus() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreComponentFocusable<D>::HasFocus() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreComponentFocusable)->get_HasFocus(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreComponentFocusable<D>::GotFocus(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::CoreWindowEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreComponentFocusable<D>::GotFocus(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::CoreWindowEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreComponentFocusable)->add_GotFocus(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -139,13 +139,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, GotFocus_revoker>(this, GotFocus(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreComponentFocusable<D>::GotFocus(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreComponentFocusable<D>::GotFocus(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreComponentFocusable)->remove_GotFocus(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreComponentFocusable<D>::LostFocus(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::CoreWindowEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreComponentFocusable<D>::LostFocus(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::CoreWindowEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreComponentFocusable)->add_LostFocus(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -153,107 +153,107 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, LostFocus_revoker>(this, LostFocus(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreComponentFocusable<D>::LostFocus(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreComponentFocusable<D>::LostFocus(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreComponentFocusable)->remove_LostFocus(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreCursor<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Core_ICoreCursor<D>::Id() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreCursor)->get_Id(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreCursor<D>::Type() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreCursorType) consume_Windows_UI_Core_ICoreCursor<D>::Type() const
     {
-        Windows::UI::Core::CoreCursorType value;
+        Windows::UI::Core::CoreCursorType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreCursor)->get_Type(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreCursorFactory<D>::CreateCursor(Windows::UI::Core::CoreCursorType const& type, uint32_t id) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreCursor) consume_Windows_UI_Core_ICoreCursorFactory<D>::CreateCursor(Windows::UI::Core::CoreCursorType const& type, uint32_t id) const
     {
         void* cursor{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreCursorFactory)->CreateCursor(static_cast<int32_t>(type), id, &cursor));
         return Windows::UI::Core::CoreCursor{ cursor, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcher<D>::HasThreadAccess() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreDispatcher<D>::HasThreadAccess() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcher)->get_HasThreadAccess(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcher<D>::ProcessEvents(Windows::UI::Core::CoreProcessEventsOption const& options) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreDispatcher<D>::ProcessEvents(Windows::UI::Core::CoreProcessEventsOption const& options) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcher)->ProcessEvents(static_cast<int32_t>(options)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcher<D>::RunAsync(Windows::UI::Core::CoreDispatcherPriority const& priority, Windows::UI::Core::DispatchedHandler const& agileCallback) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Core_ICoreDispatcher<D>::RunAsync(Windows::UI::Core::CoreDispatcherPriority const& priority, Windows::UI::Core::DispatchedHandler const& agileCallback) const
     {
         void* asyncAction{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcher)->RunAsync(static_cast<int32_t>(priority), *(void**)(&agileCallback), &asyncAction));
         return Windows::Foundation::IAsyncAction{ asyncAction, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcher<D>::RunIdleAsync(Windows::UI::Core::IdleDispatchedHandler const& agileCallback) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Core_ICoreDispatcher<D>::RunIdleAsync(Windows::UI::Core::IdleDispatchedHandler const& agileCallback) const
     {
         void* asyncAction{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcher)->RunIdleAsync(*(void**)(&agileCallback), &asyncAction));
         return Windows::Foundation::IAsyncAction{ asyncAction, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcher2<D>::TryRunAsync(Windows::UI::Core::CoreDispatcherPriority const& priority, Windows::UI::Core::DispatchedHandler const& agileCallback) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Core_ICoreDispatcher2<D>::TryRunAsync(Windows::UI::Core::CoreDispatcherPriority const& priority, Windows::UI::Core::DispatchedHandler const& agileCallback) const
     {
         void* asyncOperation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcher2)->TryRunAsync(static_cast<int32_t>(priority), *(void**)(&agileCallback), &asyncOperation));
         return Windows::Foundation::IAsyncOperation<bool>{ asyncOperation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcher2<D>::TryRunIdleAsync(Windows::UI::Core::IdleDispatchedHandler const& agileCallback) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Core_ICoreDispatcher2<D>::TryRunIdleAsync(Windows::UI::Core::IdleDispatchedHandler const& agileCallback) const
     {
         void* asyncOperation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcher2)->TryRunIdleAsync(*(void**)(&agileCallback), &asyncOperation));
         return Windows::Foundation::IAsyncOperation<bool>{ asyncOperation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::CurrentPriority() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreDispatcherPriority) consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::CurrentPriority() const
     {
-        Windows::UI::Core::CoreDispatcherPriority value;
+        Windows::UI::Core::CoreDispatcherPriority value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcherWithTaskPriority)->get_CurrentPriority(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::CurrentPriority(Windows::UI::Core::CoreDispatcherPriority const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::CurrentPriority(Windows::UI::Core::CoreDispatcherPriority const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcherWithTaskPriority)->put_CurrentPriority(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::ShouldYield() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::ShouldYield() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcherWithTaskPriority)->ShouldYield(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::ShouldYield(Windows::UI::Core::CoreDispatcherPriority const& priority) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::ShouldYield(Windows::UI::Core::CoreDispatcherPriority const& priority) const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcherWithTaskPriority)->ShouldYieldToPriority(static_cast<int32_t>(priority), &value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::StopProcessEvents() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreDispatcherWithTaskPriority<D>::StopProcessEvents() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreDispatcherWithTaskPriority)->StopProcessEvents());
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreInputSourceBase<D>::Dispatcher() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreDispatcher) consume_Windows_UI_Core_ICoreInputSourceBase<D>::Dispatcher() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreInputSourceBase)->get_Dispatcher(&value));
         return Windows::UI::Core::CoreDispatcher{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreInputSourceBase<D>::IsInputEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreInputSourceBase<D>::IsInputEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreInputSourceBase)->get_IsInputEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreInputSourceBase<D>::IsInputEnabled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreInputSourceBase<D>::IsInputEnabled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreInputSourceBase)->put_IsInputEnabled(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreInputSourceBase<D>::InputEnabled(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::InputEnabledEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreInputSourceBase<D>::InputEnabled(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::InputEnabledEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreInputSourceBase)->add_InputEnabled(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -261,19 +261,19 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, InputEnabled_revoker>(this, InputEnabled(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreInputSourceBase<D>::InputEnabled(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreInputSourceBase<D>::InputEnabled(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreInputSourceBase)->remove_InputEnabled(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::GetCurrentKeyState(Windows::System::VirtualKey const& virtualKey) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreVirtualKeyStates) consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::GetCurrentKeyState(Windows::System::VirtualKey const& virtualKey) const
     {
-        Windows::UI::Core::CoreVirtualKeyStates KeyState;
+        Windows::UI::Core::CoreVirtualKeyStates KeyState{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreKeyboardInputSource)->GetCurrentKeyState(static_cast<int32_t>(virtualKey), reinterpret_cast<uint32_t*>(&KeyState)));
         return KeyState;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::CharacterReceived(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::CharacterReceivedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::CharacterReceived(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::CharacterReceivedEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreKeyboardInputSource)->add_CharacterReceived(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -281,13 +281,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, CharacterReceived_revoker>(this, CharacterReceived(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::CharacterReceived(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::CharacterReceived(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreKeyboardInputSource)->remove_CharacterReceived(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::KeyDown(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::KeyEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::KeyDown(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::KeyEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreKeyboardInputSource)->add_KeyDown(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -295,13 +295,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, KeyDown_revoker>(this, KeyDown(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::KeyDown(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::KeyDown(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreKeyboardInputSource)->remove_KeyDown(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::KeyUp(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::KeyEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::KeyUp(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::KeyEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreKeyboardInputSource)->add_KeyUp(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -309,49 +309,49 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, KeyUp_revoker>(this, KeyUp(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::KeyUp(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreKeyboardInputSource<D>::KeyUp(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreKeyboardInputSource)->remove_KeyUp(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreKeyboardInputSource2<D>::GetCurrentKeyEventDeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Core_ICoreKeyboardInputSource2<D>::GetCurrentKeyEventDeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreKeyboardInputSource2)->GetCurrentKeyEventDeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::ReleasePointerCapture() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::ReleasePointerCapture() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->ReleasePointerCapture());
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::SetPointerCapture() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::SetPointerCapture() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->SetPointerCapture());
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::HasCapture() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICorePointerInputSource<D>::HasCapture() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->get_HasCapture(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerPosition() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Point) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerPosition() const
     {
-        Windows::Foundation::Point value;
+        Windows::Foundation::Point value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->get_PointerPosition(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerCursor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreCursor) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerCursor() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->get_PointerCursor(&value));
         return Windows::UI::Core::CoreCursor{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerCursor(Windows::UI::Core::CoreCursor const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerCursor(Windows::UI::Core::CoreCursor const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->put_PointerCursor(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerCaptureLost(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerCaptureLost(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->add_PointerCaptureLost(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -359,13 +359,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerCaptureLost_revoker>(this, PointerCaptureLost(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerCaptureLost(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerCaptureLost(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->remove_PointerCaptureLost(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerEntered(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerEntered(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->add_PointerEntered(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -373,13 +373,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerEntered_revoker>(this, PointerEntered(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerEntered(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerEntered(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->remove_PointerEntered(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerExited(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerExited(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->add_PointerExited(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -387,13 +387,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerExited_revoker>(this, PointerExited(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerExited(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerExited(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->remove_PointerExited(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerMoved(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerMoved(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->add_PointerMoved(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -401,13 +401,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerMoved_revoker>(this, PointerMoved(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerMoved(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerMoved(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->remove_PointerMoved(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerPressed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerPressed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->add_PointerPressed(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -415,13 +415,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerPressed_revoker>(this, PointerPressed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerPressed(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerPressed(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->remove_PointerPressed(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerReleased(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerReleased(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->add_PointerReleased(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -429,13 +429,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerReleased_revoker>(this, PointerReleased(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerReleased(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerReleased(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->remove_PointerReleased(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerWheelChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerWheelChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->add_PointerWheelChanged(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -443,19 +443,19 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerWheelChanged_revoker>(this, PointerWheelChanged(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerWheelChanged(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerInputSource<D>::PointerWheelChanged(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource)->remove_PointerWheelChanged(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerInputSource2<D>::DispatcherQueue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) consume_Windows_UI_Core_ICorePointerInputSource2<D>::DispatcherQueue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerInputSource2)->get_DispatcherQueue(&value));
         return Windows::System::DispatcherQueue{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedAway(Windows::Foundation::TypedEventHandler<Windows::UI::Core::ICorePointerRedirector, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedAway(Windows::Foundation::TypedEventHandler<Windows::UI::Core::ICorePointerRedirector, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerRedirector)->add_PointerRoutedAway(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -463,13 +463,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerRoutedAway_revoker>(this, PointerRoutedAway(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedAway(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedAway(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerRedirector)->remove_PointerRoutedAway(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedTo(Windows::Foundation::TypedEventHandler<Windows::UI::Core::ICorePointerRedirector, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedTo(Windows::Foundation::TypedEventHandler<Windows::UI::Core::ICorePointerRedirector, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerRedirector)->add_PointerRoutedTo(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -477,13 +477,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerRoutedTo_revoker>(this, PointerRoutedTo(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedTo(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedTo(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerRedirector)->remove_PointerRoutedTo(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedReleased(Windows::Foundation::TypedEventHandler<Windows::UI::Core::ICorePointerRedirector, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedReleased(Windows::Foundation::TypedEventHandler<Windows::UI::Core::ICorePointerRedirector, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerRedirector)->add_PointerRoutedReleased(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -491,13 +491,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerRoutedReleased_revoker>(this, PointerRoutedReleased(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedReleased(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICorePointerRedirector<D>::PointerRoutedReleased(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICorePointerRedirector)->remove_PointerRoutedReleased(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreTouchHitTesting<D>::TouchHitTesting(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::TouchHitTestingEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreTouchHitTesting<D>::TouchHitTesting(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::UI::Core::TouchHitTestingEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreTouchHitTesting)->add_TouchHitTesting(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -505,107 +505,107 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, TouchHitTesting_revoker>(this, TouchHitTesting(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreTouchHitTesting<D>::TouchHitTesting(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreTouchHitTesting<D>::TouchHitTesting(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreTouchHitTesting)->remove_TouchHitTesting(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::AutomationHostProvider() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_UI_Core_ICoreWindow<D>::AutomationHostProvider() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_AutomationHostProvider(&value));
         return Windows::Foundation::IInspectable{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Bounds() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_UI_Core_ICoreWindow<D>::Bounds() const
     {
-        Windows::Foundation::Rect value;
+        Windows::Foundation::Rect value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_Bounds(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::CustomProperties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) consume_Windows_UI_Core_ICoreWindow<D>::CustomProperties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_CustomProperties(&value));
         return Windows::Foundation::Collections::IPropertySet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Dispatcher() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreDispatcher) consume_Windows_UI_Core_ICoreWindow<D>::Dispatcher() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_Dispatcher(&value));
         return Windows::UI::Core::CoreDispatcher{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::FlowDirection() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindowFlowDirection) consume_Windows_UI_Core_ICoreWindow<D>::FlowDirection() const
     {
-        Windows::UI::Core::CoreWindowFlowDirection value;
+        Windows::UI::Core::CoreWindowFlowDirection value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_FlowDirection(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::FlowDirection(Windows::UI::Core::CoreWindowFlowDirection const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::FlowDirection(Windows::UI::Core::CoreWindowFlowDirection const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->put_FlowDirection(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::IsInputEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreWindow<D>::IsInputEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_IsInputEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::IsInputEnabled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::IsInputEnabled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->put_IsInputEnabled(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerCursor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreCursor) consume_Windows_UI_Core_ICoreWindow<D>::PointerCursor() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_PointerCursor(&value));
         return Windows::UI::Core::CoreCursor{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerCursor(Windows::UI::Core::CoreCursor const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::PointerCursor(Windows::UI::Core::CoreCursor const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->put_PointerCursor(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerPosition() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Point) consume_Windows_UI_Core_ICoreWindow<D>::PointerPosition() const
     {
-        Windows::Foundation::Point value;
+        Windows::Foundation::Point value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_PointerPosition(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Visible() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreWindow<D>::Visible() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->get_Visible(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Activate() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::Activate() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->Activate());
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Close() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::Close() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->Close());
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::GetAsyncKeyState(Windows::System::VirtualKey const& virtualKey) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreVirtualKeyStates) consume_Windows_UI_Core_ICoreWindow<D>::GetAsyncKeyState(Windows::System::VirtualKey const& virtualKey) const
     {
-        Windows::UI::Core::CoreVirtualKeyStates KeyState;
+        Windows::UI::Core::CoreVirtualKeyStates KeyState{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->GetAsyncKeyState(static_cast<int32_t>(virtualKey), reinterpret_cast<uint32_t*>(&KeyState)));
         return KeyState;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::GetKeyState(Windows::System::VirtualKey const& virtualKey) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreVirtualKeyStates) consume_Windows_UI_Core_ICoreWindow<D>::GetKeyState(Windows::System::VirtualKey const& virtualKey) const
     {
-        Windows::UI::Core::CoreVirtualKeyStates KeyState;
+        Windows::UI::Core::CoreVirtualKeyStates KeyState{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->GetKeyState(static_cast<int32_t>(virtualKey), reinterpret_cast<uint32_t*>(&KeyState)));
         return KeyState;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::ReleasePointerCapture() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::ReleasePointerCapture() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->ReleasePointerCapture());
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::SetPointerCapture() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::SetPointerCapture() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->SetPointerCapture());
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Activated(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::WindowActivatedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::Activated(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::WindowActivatedEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_Activated(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -613,13 +613,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Activated_revoker>(this, Activated(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Activated(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::Activated(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_Activated(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::AutomationProviderRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::AutomationProviderRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::AutomationProviderRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::AutomationProviderRequestedEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_AutomationProviderRequested(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -627,13 +627,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, AutomationProviderRequested_revoker>(this, AutomationProviderRequested(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::AutomationProviderRequested(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::AutomationProviderRequested(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_AutomationProviderRequested(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::CharacterReceived(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::CharacterReceivedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::CharacterReceived(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::CharacterReceivedEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_CharacterReceived(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -641,13 +641,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, CharacterReceived_revoker>(this, CharacterReceived(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::CharacterReceived(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::CharacterReceived(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_CharacterReceived(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Closed(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::CoreWindowEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::Closed(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::CoreWindowEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_Closed(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -655,13 +655,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Closed_revoker>(this, Closed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::Closed(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::Closed(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_Closed(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::InputEnabled(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::InputEnabledEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::InputEnabled(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::InputEnabledEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_InputEnabled(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -669,13 +669,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, InputEnabled_revoker>(this, InputEnabled(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::InputEnabled(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::InputEnabled(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_InputEnabled(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::KeyDown(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::KeyEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::KeyDown(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::KeyEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_KeyDown(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -683,13 +683,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, KeyDown_revoker>(this, KeyDown(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::KeyDown(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::KeyDown(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_KeyDown(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::KeyUp(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::KeyEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::KeyUp(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::KeyEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_KeyUp(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -697,13 +697,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, KeyUp_revoker>(this, KeyUp(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::KeyUp(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::KeyUp(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_KeyUp(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerCaptureLost(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::PointerCaptureLost(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_PointerCaptureLost(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -711,13 +711,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerCaptureLost_revoker>(this, PointerCaptureLost(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerCaptureLost(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::PointerCaptureLost(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_PointerCaptureLost(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerEntered(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::PointerEntered(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_PointerEntered(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -725,13 +725,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerEntered_revoker>(this, PointerEntered(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerEntered(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::PointerEntered(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_PointerEntered(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerExited(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::PointerExited(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_PointerExited(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -739,13 +739,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerExited_revoker>(this, PointerExited(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerExited(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::PointerExited(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_PointerExited(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerMoved(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::PointerMoved(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_PointerMoved(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -753,13 +753,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerMoved_revoker>(this, PointerMoved(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerMoved(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::PointerMoved(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_PointerMoved(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerPressed(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::PointerPressed(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_PointerPressed(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -767,13 +767,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerPressed_revoker>(this, PointerPressed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerPressed(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::PointerPressed(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_PointerPressed(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerReleased(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::PointerReleased(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_PointerReleased(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -781,13 +781,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerReleased_revoker>(this, PointerReleased(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerReleased(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::PointerReleased(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_PointerReleased(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::TouchHitTesting(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::TouchHitTestingEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::TouchHitTesting(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::TouchHitTestingEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_TouchHitTesting(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -795,13 +795,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, TouchHitTesting_revoker>(this, TouchHitTesting(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::TouchHitTesting(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::TouchHitTesting(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_TouchHitTesting(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerWheelChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::PointerWheelChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::PointerEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_PointerWheelChanged(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -809,13 +809,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PointerWheelChanged_revoker>(this, PointerWheelChanged(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::PointerWheelChanged(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::PointerWheelChanged(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_PointerWheelChanged(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::SizeChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::WindowSizeChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::SizeChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::WindowSizeChangedEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_SizeChanged(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -823,13 +823,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, SizeChanged_revoker>(this, SizeChanged(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::SizeChanged(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::SizeChanged(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_SizeChanged(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::VisibilityChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::VisibilityChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow<D>::VisibilityChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::VisibilityChangedEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->add_VisibilityChanged(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -837,17 +837,17 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, VisibilityChanged_revoker>(this, VisibilityChanged(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow<D>::VisibilityChanged(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow<D>::VisibilityChanged(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow)->remove_VisibilityChanged(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow2<D>::PointerPosition(Windows::Foundation::Point const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow2<D>::PointerPosition(Windows::Foundation::Point const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow2)->put_PointerPosition(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow3<D>::ClosestInteractiveBoundsRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::ClosestInteractiveBoundsRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow3<D>::ClosestInteractiveBoundsRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::ClosestInteractiveBoundsRequestedEventArgs> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow3)->add_ClosestInteractiveBoundsRequested(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -855,19 +855,19 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ClosestInteractiveBoundsRequested_revoker>(this, ClosestInteractiveBoundsRequested(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow3<D>::ClosestInteractiveBoundsRequested(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow3<D>::ClosestInteractiveBoundsRequested(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow3)->remove_ClosestInteractiveBoundsRequested(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow3<D>::GetCurrentKeyEventDeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Core_ICoreWindow3<D>::GetCurrentKeyEventDeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow3)->GetCurrentKeyEventDeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow4<D>::ResizeStarted(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow4<D>::ResizeStarted(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow4)->add_ResizeStarted(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -875,13 +875,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ResizeStarted_revoker>(this, ResizeStarted(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow4<D>::ResizeStarted(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow4<D>::ResizeStarted(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow4)->remove_ResizeStarted(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow4<D>::ResizeCompleted(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindow4<D>::ResizeCompleted(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token pCookie;
+        winrt::event_token pCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow4)->add_ResizeCompleted(*(void**)(&handler), put_abi(pCookie)));
         return pCookie;
     }
@@ -889,25 +889,25 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ResizeCompleted_revoker>(this, ResizeCompleted(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow4<D>::ResizeCompleted(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindow4<D>::ResizeCompleted(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow4)->remove_ResizeCompleted(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow5<D>::DispatcherQueue() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) consume_Windows_UI_Core_ICoreWindow5<D>::DispatcherQueue() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow5)->get_DispatcherQueue(&value));
         return Windows::System::DispatcherQueue{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindow5<D>::ActivationMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindowActivationMode) consume_Windows_UI_Core_ICoreWindow5<D>::ActivationMode() const
     {
-        Windows::UI::Core::CoreWindowActivationMode value;
+        Windows::UI::Core::CoreWindowActivationMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindow5)->get_ActivationMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::Showing(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::CoreWindowPopupShowingEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindowDialog<D>::Showing(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::CoreWindowPopupShowingEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->add_Showing(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -915,103 +915,103 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Showing_revoker>(this, Showing(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::Showing(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowDialog<D>::Showing(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->remove_Showing(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::MaxSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_UI_Core_ICoreWindowDialog<D>::MaxSize() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->get_MaxSize(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::MinSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_UI_Core_ICoreWindowDialog<D>::MinSize() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->get_MinSize(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::Title() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Core_ICoreWindowDialog<D>::Title() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::Title(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowDialog<D>::Title(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->put_Title(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::IsInteractionDelayed() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Core_ICoreWindowDialog<D>::IsInteractionDelayed() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->get_IsInteractionDelayed(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::IsInteractionDelayed(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowDialog<D>::IsInteractionDelayed(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->put_IsInteractionDelayed(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::Commands() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Popups::IUICommand>) consume_Windows_UI_Core_ICoreWindowDialog<D>::Commands() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->get_Commands(&value));
         return Windows::Foundation::Collections::IVector<Windows::UI::Popups::IUICommand>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::DefaultCommandIndex() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Core_ICoreWindowDialog<D>::DefaultCommandIndex() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->get_DefaultCommandIndex(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::DefaultCommandIndex(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowDialog<D>::DefaultCommandIndex(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->put_DefaultCommandIndex(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::CancelCommandIndex() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Core_ICoreWindowDialog<D>::CancelCommandIndex() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->get_CancelCommandIndex(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::CancelCommandIndex(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowDialog<D>::CancelCommandIndex(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->put_CancelCommandIndex(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::BackButtonCommand() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Popups::UICommandInvokedHandler) consume_Windows_UI_Core_ICoreWindowDialog<D>::BackButtonCommand() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->get_BackButtonCommand(&value));
         return Windows::UI::Popups::UICommandInvokedHandler{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::BackButtonCommand(Windows::UI::Popups::UICommandInvokedHandler const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowDialog<D>::BackButtonCommand(Windows::UI::Popups::UICommandInvokedHandler const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->put_BackButtonCommand(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialog<D>::ShowAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Popups::IUICommand>) consume_Windows_UI_Core_ICoreWindowDialog<D>::ShowAsync() const
     {
         void* asyncInfo{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialog)->ShowAsync(&asyncInfo));
         return Windows::Foundation::IAsyncOperation<Windows::UI::Popups::IUICommand>{ asyncInfo, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowDialogFactory<D>::CreateWithTitle(param::hstring const& title) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindowDialog) consume_Windows_UI_Core_ICoreWindowDialogFactory<D>::CreateWithTitle(param::hstring const& title) const
     {
         void* coreWindowDialog{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowDialogFactory)->CreateWithTitle(*(void**)(&title), &coreWindowDialog));
         return Windows::UI::Core::CoreWindowDialog{ coreWindowDialog, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowEventArgs<D>::Handled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreWindowEventArgs<D>::Handled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowEventArgs)->get_Handled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowEventArgs<D>::Handled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowEventArgs<D>::Handled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowEventArgs)->put_Handled(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::Showing(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::CoreWindowPopupShowingEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ICoreWindowFlyout<D>::Showing(Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow, Windows::UI::Core::CoreWindowPopupShowingEventArgs> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->add_Showing(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -1019,183 +1019,183 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Showing_revoker>(this, Showing(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::Showing(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowFlyout<D>::Showing(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->remove_Showing(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::MaxSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_UI_Core_ICoreWindowFlyout<D>::MaxSize() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->get_MaxSize(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::MinSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_UI_Core_ICoreWindowFlyout<D>::MinSize() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->get_MinSize(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::Title() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Core_ICoreWindowFlyout<D>::Title() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::Title(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowFlyout<D>::Title(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->put_Title(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::IsInteractionDelayed() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Core_ICoreWindowFlyout<D>::IsInteractionDelayed() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->get_IsInteractionDelayed(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::IsInteractionDelayed(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowFlyout<D>::IsInteractionDelayed(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->put_IsInteractionDelayed(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::Commands() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Popups::IUICommand>) consume_Windows_UI_Core_ICoreWindowFlyout<D>::Commands() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->get_Commands(&value));
         return Windows::Foundation::Collections::IVector<Windows::UI::Popups::IUICommand>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::DefaultCommandIndex() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Core_ICoreWindowFlyout<D>::DefaultCommandIndex() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->get_DefaultCommandIndex(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::DefaultCommandIndex(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowFlyout<D>::DefaultCommandIndex(uint32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->put_DefaultCommandIndex(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::BackButtonCommand() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Popups::UICommandInvokedHandler) consume_Windows_UI_Core_ICoreWindowFlyout<D>::BackButtonCommand() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->get_BackButtonCommand(&value));
         return Windows::UI::Popups::UICommandInvokedHandler{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::BackButtonCommand(Windows::UI::Popups::UICommandInvokedHandler const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowFlyout<D>::BackButtonCommand(Windows::UI::Popups::UICommandInvokedHandler const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->put_BackButtonCommand(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyout<D>::ShowAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Popups::IUICommand>) consume_Windows_UI_Core_ICoreWindowFlyout<D>::ShowAsync() const
     {
         void* asyncInfo{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyout)->ShowAsync(&asyncInfo));
         return Windows::Foundation::IAsyncOperation<Windows::UI::Popups::IUICommand>{ asyncInfo, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyoutFactory<D>::Create(Windows::Foundation::Point const& position) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindowFlyout) consume_Windows_UI_Core_ICoreWindowFlyoutFactory<D>::Create(Windows::Foundation::Point const& position) const
     {
         void* coreWindowFlyout{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyoutFactory)->Create(impl::bind_in(position), &coreWindowFlyout));
         return Windows::UI::Core::CoreWindowFlyout{ coreWindowFlyout, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowFlyoutFactory<D>::CreateWithTitle(Windows::Foundation::Point const& position, param::hstring const& title) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindowFlyout) consume_Windows_UI_Core_ICoreWindowFlyoutFactory<D>::CreateWithTitle(Windows::Foundation::Point const& position, param::hstring const& title) const
     {
         void* coreWindowFlyout{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowFlyoutFactory)->CreateWithTitle(impl::bind_in(position), *(void**)(&title), &coreWindowFlyout));
         return Windows::UI::Core::CoreWindowFlyout{ coreWindowFlyout, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowPopupShowingEventArgs<D>::SetDesiredSize(Windows::Foundation::Size const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowPopupShowingEventArgs<D>::SetDesiredSize(Windows::Foundation::Size const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowPopupShowingEventArgs)->SetDesiredSize(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowResizeManager<D>::NotifyLayoutCompleted() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowResizeManager<D>::NotifyLayoutCompleted() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowResizeManager)->NotifyLayoutCompleted());
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowResizeManagerLayoutCapability<D>::ShouldWaitForLayoutCompletion(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ICoreWindowResizeManagerLayoutCapability<D>::ShouldWaitForLayoutCompletion(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowResizeManagerLayoutCapability)->put_ShouldWaitForLayoutCompletion(value));
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowResizeManagerLayoutCapability<D>::ShouldWaitForLayoutCompletion() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_ICoreWindowResizeManagerLayoutCapability<D>::ShouldWaitForLayoutCompletion() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowResizeManagerLayoutCapability)->get_ShouldWaitForLayoutCompletion(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowResizeManagerStatics<D>::GetForCurrentView() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindowResizeManager) consume_Windows_UI_Core_ICoreWindowResizeManagerStatics<D>::GetForCurrentView() const
     {
         void* CoreWindowResizeManager{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowResizeManagerStatics)->GetForCurrentView(&CoreWindowResizeManager));
         return Windows::UI::Core::CoreWindowResizeManager{ CoreWindowResizeManager, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowStatic<D>::GetForCurrentThread() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindow) consume_Windows_UI_Core_ICoreWindowStatic<D>::GetForCurrentThread() const
     {
         void* ppWindow{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowStatic)->GetForCurrentThread(&ppWindow));
         return Windows::UI::Core::CoreWindow{ ppWindow, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowWithContext<D>::UIContext() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::UIContext) consume_Windows_UI_Core_ICoreWindowWithContext<D>::UIContext() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowWithContext)->get_UIContext(&value));
         return Windows::UI::UIContext{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ICoreWindowWithWindowReference<D>::WindowReference() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WindowReference) consume_Windows_UI_Core_ICoreWindowWithWindowReference<D>::WindowReference() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowWithWindowReference)->get_WindowReference(&value));
         return Windows::UI::WindowReference{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_IIdleDispatchedHandlerArgs<D>::IsDispatcherIdle() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_IIdleDispatchedHandlerArgs<D>::IsDispatcherIdle() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IIdleDispatchedHandlerArgs)->get_IsDispatcherIdle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IInitializeWithCoreWindow<D>::Initialize(Windows::UI::Core::CoreWindow const& window) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_IInitializeWithCoreWindow<D>::Initialize(Windows::UI::Core::CoreWindow const& window) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IInitializeWithCoreWindow)->Initialize(*(void**)(&window)));
     }
-    template <typename D> auto consume_Windows_UI_Core_IInputEnabledEventArgs<D>::InputEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_IInputEnabledEventArgs<D>::InputEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IInputEnabledEventArgs)->get_InputEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IKeyEventArgs<D>::VirtualKey() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::VirtualKey) consume_Windows_UI_Core_IKeyEventArgs<D>::VirtualKey() const
     {
-        Windows::System::VirtualKey value;
+        Windows::System::VirtualKey value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IKeyEventArgs)->get_VirtualKey(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IKeyEventArgs<D>::KeyStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CorePhysicalKeyStatus) consume_Windows_UI_Core_IKeyEventArgs<D>::KeyStatus() const
     {
-        Windows::UI::Core::CorePhysicalKeyStatus value;
+        Windows::UI::Core::CorePhysicalKeyStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IKeyEventArgs)->get_KeyStatus(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IKeyEventArgs2<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Core_IKeyEventArgs2<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IKeyEventArgs2)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_IPointerEventArgs<D>::CurrentPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Input::PointerPoint) consume_Windows_UI_Core_IPointerEventArgs<D>::CurrentPoint() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IPointerEventArgs)->get_CurrentPoint(&value));
         return Windows::UI::Input::PointerPoint{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_IPointerEventArgs<D>::KeyModifiers() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::VirtualKeyModifiers) consume_Windows_UI_Core_IPointerEventArgs<D>::KeyModifiers() const
     {
-        Windows::System::VirtualKeyModifiers value;
+        Windows::System::VirtualKeyModifiers value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IPointerEventArgs)->get_KeyModifiers(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IPointerEventArgs<D>::GetIntermediatePoints() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Input::PointerPoint>) consume_Windows_UI_Core_IPointerEventArgs<D>::GetIntermediatePoints() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IPointerEventArgs)->GetIntermediatePoints(&value));
         return Windows::Foundation::Collections::IVector<Windows::UI::Input::PointerPoint>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ISystemNavigationManager<D>::BackRequested(Windows::Foundation::EventHandler<Windows::UI::Core::BackRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Core_ISystemNavigationManager<D>::BackRequested(Windows::Foundation::EventHandler<Windows::UI::Core::BackRequestedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ISystemNavigationManager)->add_BackRequested(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -1203,75 +1203,75 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, BackRequested_revoker>(this, BackRequested(handler));
     }
-    template <typename D> auto consume_Windows_UI_Core_ISystemNavigationManager<D>::BackRequested(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ISystemNavigationManager<D>::BackRequested(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Core::ISystemNavigationManager)->remove_BackRequested(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ISystemNavigationManager2<D>::AppViewBackButtonVisibility() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::AppViewBackButtonVisibility) consume_Windows_UI_Core_ISystemNavigationManager2<D>::AppViewBackButtonVisibility() const
     {
-        Windows::UI::Core::AppViewBackButtonVisibility value;
+        Windows::UI::Core::AppViewBackButtonVisibility value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ISystemNavigationManager2)->get_AppViewBackButtonVisibility(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ISystemNavigationManager2<D>::AppViewBackButtonVisibility(Windows::UI::Core::AppViewBackButtonVisibility const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ISystemNavigationManager2<D>::AppViewBackButtonVisibility(Windows::UI::Core::AppViewBackButtonVisibility const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ISystemNavigationManager2)->put_AppViewBackButtonVisibility(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ISystemNavigationManagerStatics<D>::GetForCurrentView() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::SystemNavigationManager) consume_Windows_UI_Core_ISystemNavigationManagerStatics<D>::GetForCurrentView() const
     {
         void* loader{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ISystemNavigationManagerStatics)->GetForCurrentView(&loader));
         return Windows::UI::Core::SystemNavigationManager{ loader, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::ProximityEvaluation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreProximityEvaluation) consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::ProximityEvaluation() const
     {
-        Windows::UI::Core::CoreProximityEvaluation value;
+        Windows::UI::Core::CoreProximityEvaluation value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ITouchHitTestingEventArgs)->get_ProximityEvaluation(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::ProximityEvaluation(Windows::UI::Core::CoreProximityEvaluation const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::ProximityEvaluation(Windows::UI::Core::CoreProximityEvaluation const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ITouchHitTestingEventArgs)->put_ProximityEvaluation(impl::bind_in(value)));
     }
-    template <typename D> auto consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::Point() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Point) consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::Point() const
     {
-        Windows::Foundation::Point value;
+        Windows::Foundation::Point value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ITouchHitTestingEventArgs)->get_Point(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::BoundingBox() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::BoundingBox() const
     {
-        Windows::Foundation::Rect value;
+        Windows::Foundation::Rect value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ITouchHitTestingEventArgs)->get_BoundingBox(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::EvaluateProximity(Windows::Foundation::Rect const& controlBoundingBox) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreProximityEvaluation) consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::EvaluateProximity(Windows::Foundation::Rect const& controlBoundingBox) const
     {
-        Windows::UI::Core::CoreProximityEvaluation proximityEvaluation;
+        Windows::UI::Core::CoreProximityEvaluation proximityEvaluation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ITouchHitTestingEventArgs)->EvaluateProximityToRect(impl::bind_in(controlBoundingBox), put_abi(proximityEvaluation)));
         return proximityEvaluation;
     }
-    template <typename D> auto consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::EvaluateProximity(array_view<Windows::Foundation::Point const> controlVertices) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreProximityEvaluation) consume_Windows_UI_Core_ITouchHitTestingEventArgs<D>::EvaluateProximity(array_view<Windows::Foundation::Point const> controlVertices) const
     {
-        Windows::UI::Core::CoreProximityEvaluation proximityEvaluation;
+        Windows::UI::Core::CoreProximityEvaluation proximityEvaluation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ITouchHitTestingEventArgs)->EvaluateProximityToPolygon(controlVertices.size(), get_abi(controlVertices), put_abi(proximityEvaluation)));
         return proximityEvaluation;
     }
-    template <typename D> auto consume_Windows_UI_Core_IVisibilityChangedEventArgs<D>::Visible() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_IVisibilityChangedEventArgs<D>::Visible() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IVisibilityChangedEventArgs)->get_Visible(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IWindowActivatedEventArgs<D>::WindowActivationState() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindowActivationState) consume_Windows_UI_Core_IWindowActivatedEventArgs<D>::WindowActivationState() const
     {
-        Windows::UI::Core::CoreWindowActivationState value;
+        Windows::UI::Core::CoreWindowActivationState value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IWindowActivatedEventArgs)->get_WindowActivationState(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Core_IWindowSizeChangedEventArgs<D>::Size() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_UI_Core_IWindowSizeChangedEventArgs<D>::Size() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::IWindowSizeChangedEventArgs)->get_Size(put_abi(value)));
         return value;
     }

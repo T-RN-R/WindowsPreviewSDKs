@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::Printing::PrintTicket
@@ -104,42 +105,40 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::Printing::Workflow::PrintWorkflowXpsDataAvailableEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSetupRequestedEventArgs>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowConfiguration>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSetupRequestedEventArgs>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowObjectModelSourceFileContent>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowObjectModelTargetPackage>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSourceContent>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSpoolStreamContent>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowStreamTarget>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedEventArgs>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedOperation>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowTarget>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowTarget" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowTriggerDetails>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowUIActivatedEventArgs>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowXpsDataAvailableEventArgs>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedStatus>{ L"Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSetupRequestedEventArgs>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSetupRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSetupRequestedEventArgs>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSetupRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowObjectModelSourceFileContent>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelSourceFileContent" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowObjectModelTargetPackage>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelTargetPackage" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSourceContent>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowSourceContent" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSpoolStreamContent>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowSpoolStreamContent" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowStreamTarget>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowStreamTarget" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedEventArgs>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedOperation>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedOperation" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowTarget>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowTarget" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowTriggerDetails>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowUIActivatedEventArgs>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowUIActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowXpsDataAvailableEventArgs>{ L"Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSetupRequestedEventArgs> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowConfiguration> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSetupRequestedEventArgs> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowObjectModelSourceFileContent> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowObjectModelTargetPackage> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSourceContent> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSpoolStreamContent> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowStreamTarget> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedEventArgs> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedOperation> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowTarget> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowTarget";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowTriggerDetails> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowUIActivatedEventArgs> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowXpsDataAvailableEventArgs> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedStatus> = L"Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSession";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSetupRequestedEventArgs> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowBackgroundSetupRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSession";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSetupRequestedEventArgs> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowForegroundSetupRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowObjectModelSourceFileContent> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelSourceFileContent";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowObjectModelTargetPackage> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelTargetPackage";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSourceContent> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowSourceContent";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSpoolStreamContent> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowSpoolStreamContent";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowStreamTarget> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowStreamTarget";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedEventArgs> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedOperation> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowSubmittedOperation";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowTarget> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowTarget";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowTriggerDetails> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowUIActivatedEventArgs> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowUIActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowXpsDataAvailableEventArgs> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs";
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession>{ 0x5B7913BA,0x0C5E,0x528A,{ 0x74,0x58,0x86,0xA4,0x6C,0xBD,0xDC,0x45 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSetupRequestedEventArgs>{ 0x43E97342,0x1750,0x59C9,{ 0x61,0xFB,0x38,0x37,0x48,0xA2,0x03,0x62 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration>{ 0xD0AAC4ED,0xFD4B,0x5DF5,{ 0x4B,0xB6,0x8D,0x0D,0x15,0x9E,0xBE,0x3F } };
@@ -310,16 +309,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowBackgroundSession
     {
-        auto SetupRequested(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSetupRequestedEventArgs> const& setupEventHandler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SetupRequested(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSetupRequestedEventArgs> const& setupEventHandler) const;
         using SetupRequested_revoker = impl::event_revoker<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession, &impl::abi_t<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession>::remove_SetupRequested>;
         [[nodiscard]] SetupRequested_revoker SetupRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSetupRequestedEventArgs> const& setupEventHandler) const;
-        auto SetupRequested(winrt::event_token const& token) const noexcept;
-        auto Submitted(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedEventArgs> const& submittedEventHandler) const;
+        WINRT_IMPL_AUTO(void) SetupRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Submitted(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedEventArgs> const& submittedEventHandler) const;
         using Submitted_revoker = impl::event_revoker<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession, &impl::abi_t<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession>::remove_Submitted>;
         [[nodiscard]] Submitted_revoker Submitted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedEventArgs> const& submittedEventHandler) const;
-        auto Submitted(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
+        WINRT_IMPL_AUTO(void) Submitted(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession>
     {
@@ -328,10 +327,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowBackgroundSetupRequestedEventArgs
     {
-        auto GetUserPrintTicketAsync() const;
-        [[nodiscard]] auto Configuration() const;
-        auto SetRequiresUI() const;
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket>) GetUserPrintTicketAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowConfiguration) Configuration() const;
+        WINRT_IMPL_AUTO(void) SetRequiresUI() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSetupRequestedEventArgs>
     {
@@ -340,9 +339,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowConfiguration
     {
-        [[nodiscard]] auto SourceAppDisplayName() const;
-        [[nodiscard]] auto JobTitle() const;
-        [[nodiscard]] auto SessionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SourceAppDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) JobTitle() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SessionId() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration>
     {
@@ -351,16 +350,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowForegroundSession
     {
-        auto SetupRequested(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSetupRequestedEventArgs> const& setupEventHandler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SetupRequested(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSetupRequestedEventArgs> const& setupEventHandler) const;
         using SetupRequested_revoker = impl::event_revoker<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession, &impl::abi_t<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession>::remove_SetupRequested>;
         [[nodiscard]] SetupRequested_revoker SetupRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSetupRequestedEventArgs> const& setupEventHandler) const;
-        auto SetupRequested(winrt::event_token const& token) const noexcept;
-        auto XpsDataAvailable(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowXpsDataAvailableEventArgs> const& xpsDataAvailableEventHandler) const;
+        WINRT_IMPL_AUTO(void) SetupRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) XpsDataAvailable(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowXpsDataAvailableEventArgs> const& xpsDataAvailableEventHandler) const;
         using XpsDataAvailable_revoker = impl::event_revoker<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession, &impl::abi_t<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession>::remove_XpsDataAvailable>;
         [[nodiscard]] XpsDataAvailable_revoker XpsDataAvailable(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowXpsDataAvailableEventArgs> const& xpsDataAvailableEventHandler) const;
-        auto XpsDataAvailable(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
+        WINRT_IMPL_AUTO(void) XpsDataAvailable(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession>
     {
@@ -369,9 +368,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowForegroundSetupRequestedEventArgs
     {
-        auto GetUserPrintTicketAsync() const;
-        [[nodiscard]] auto Configuration() const;
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket>) GetUserPrintTicketAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowConfiguration) Configuration() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSetupRequestedEventArgs>
     {
@@ -396,9 +395,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowSourceContent
     {
-        auto GetJobPrintTicketAsync() const;
-        auto GetSourceSpoolDataAsStreamContent() const;
-        auto GetSourceSpoolDataAsXpsObjectModel() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket>) GetJobPrintTicketAsync() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowSpoolStreamContent) GetSourceSpoolDataAsStreamContent() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowObjectModelSourceFileContent) GetSourceSpoolDataAsXpsObjectModel() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowSourceContent>
     {
@@ -407,7 +406,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowSpoolStreamContent
     {
-        auto GetInputStream() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) GetInputStream() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowSpoolStreamContent>
     {
@@ -416,7 +415,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowStreamTarget
     {
-        auto GetOutputStream() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) GetOutputStream() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowStreamTarget>
     {
@@ -425,9 +424,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowSubmittedEventArgs
     {
-        [[nodiscard]] auto Operation() const;
-        auto GetTarget(Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket const& jobPrintTicket) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedOperation) Operation() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowTarget) GetTarget(Windows::Graphics::Printing::PrintTicket::WorkflowPrintTicket const& jobPrintTicket) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedEventArgs>
     {
@@ -436,9 +435,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowSubmittedOperation
     {
-        auto Complete(Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedStatus const& status) const;
-        [[nodiscard]] auto Configuration() const;
-        [[nodiscard]] auto XpsContent() const;
+        WINRT_IMPL_AUTO(void) Complete(Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedStatus const& status) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowConfiguration) Configuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowSourceContent) XpsContent() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedOperation>
     {
@@ -447,8 +446,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowTarget
     {
-        [[nodiscard]] auto TargetAsStream() const;
-        [[nodiscard]] auto TargetAsXpsObjectModelPackage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowStreamTarget) TargetAsStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowObjectModelTargetPackage) TargetAsXpsObjectModelPackage() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowTarget>
     {
@@ -457,7 +456,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowTriggerDetails
     {
-        [[nodiscard]] auto PrintWorkflowSession() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession) PrintWorkflowSession() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowTriggerDetails>
     {
@@ -466,7 +465,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowUIActivatedEventArgs
     {
-        [[nodiscard]] auto PrintWorkflowSession() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowForegroundSession) PrintWorkflowSession() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowUIActivatedEventArgs>
     {
@@ -475,8 +474,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowXpsDataAvailableEventArgs
     {
-        [[nodiscard]] auto Operation() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowSubmittedOperation) Operation() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Graphics::Printing::Workflow::IPrintWorkflowXpsDataAvailableEventArgs>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_Xaml_Shapes_H
 #define WINRT_Windows_UI_Xaml_Shapes_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.Xaml.h"
 #include "winrt/impl/Windows.UI.Composition.2.h"
 #include "winrt/impl/Windows.UI.Xaml.2.h"
@@ -14,377 +14,377 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.UI.Xaml.Shapes.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILine<D>::X1() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_ILine<D>::X1() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILine)->get_X1(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILine<D>::X1(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_ILine<D>::X1(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILine)->put_X1(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILine<D>::Y1() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_ILine<D>::Y1() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILine)->get_Y1(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILine<D>::Y1(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_ILine<D>::Y1(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILine)->put_Y1(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILine<D>::X2() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_ILine<D>::X2() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILine)->get_X2(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILine<D>::X2(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_ILine<D>::X2(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILine)->put_X2(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILine<D>::Y2() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_ILine<D>::Y2() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILine)->get_Y2(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILine<D>::Y2(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_ILine<D>::Y2(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILine)->put_Y2(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILineStatics<D>::X1Property() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_ILineStatics<D>::X1Property() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILineStatics)->get_X1Property(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILineStatics<D>::Y1Property() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_ILineStatics<D>::Y1Property() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILineStatics)->get_Y1Property(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILineStatics<D>::X2Property() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_ILineStatics<D>::X2Property() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILineStatics)->get_X2Property(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_ILineStatics<D>::Y2Property() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_ILineStatics<D>::Y2Property() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::ILineStatics)->get_Y2Property(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPath<D>::Data() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Geometry) consume_Windows_UI_Xaml_Shapes_IPath<D>::Data() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPath)->get_Data(&value));
         return Windows::UI::Xaml::Media::Geometry{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPath<D>::Data(Windows::UI::Xaml::Media::Geometry const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IPath<D>::Data(Windows::UI::Xaml::Media::Geometry const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPath)->put_Data(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPathFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Shapes::Path) consume_Windows_UI_Xaml_Shapes_IPathFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPathFactory)->CreateInstance(*(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Shapes::Path{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPathStatics<D>::DataProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IPathStatics<D>::DataProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPathStatics)->get_DataProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolygon<D>::FillRule() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::FillRule) consume_Windows_UI_Xaml_Shapes_IPolygon<D>::FillRule() const
     {
-        Windows::UI::Xaml::Media::FillRule value;
+        Windows::UI::Xaml::Media::FillRule value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolygon)->get_FillRule(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolygon<D>::FillRule(Windows::UI::Xaml::Media::FillRule const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IPolygon<D>::FillRule(Windows::UI::Xaml::Media::FillRule const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolygon)->put_FillRule(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolygon<D>::Points() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PointCollection) consume_Windows_UI_Xaml_Shapes_IPolygon<D>::Points() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolygon)->get_Points(&value));
         return Windows::UI::Xaml::Media::PointCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolygon<D>::Points(Windows::UI::Xaml::Media::PointCollection const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IPolygon<D>::Points(Windows::UI::Xaml::Media::PointCollection const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolygon)->put_Points(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolygonStatics<D>::FillRuleProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IPolygonStatics<D>::FillRuleProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolygonStatics)->get_FillRuleProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolygonStatics<D>::PointsProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IPolygonStatics<D>::PointsProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolygonStatics)->get_PointsProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolyline<D>::FillRule() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::FillRule) consume_Windows_UI_Xaml_Shapes_IPolyline<D>::FillRule() const
     {
-        Windows::UI::Xaml::Media::FillRule value;
+        Windows::UI::Xaml::Media::FillRule value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolyline)->get_FillRule(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolyline<D>::FillRule(Windows::UI::Xaml::Media::FillRule const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IPolyline<D>::FillRule(Windows::UI::Xaml::Media::FillRule const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolyline)->put_FillRule(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolyline<D>::Points() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PointCollection) consume_Windows_UI_Xaml_Shapes_IPolyline<D>::Points() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolyline)->get_Points(&value));
         return Windows::UI::Xaml::Media::PointCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolyline<D>::Points(Windows::UI::Xaml::Media::PointCollection const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IPolyline<D>::Points(Windows::UI::Xaml::Media::PointCollection const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolyline)->put_Points(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolylineStatics<D>::FillRuleProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IPolylineStatics<D>::FillRuleProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolylineStatics)->get_FillRuleProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IPolylineStatics<D>::PointsProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IPolylineStatics<D>::PointsProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IPolylineStatics)->get_PointsProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IRectangle<D>::RadiusX() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_IRectangle<D>::RadiusX() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IRectangle)->get_RadiusX(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IRectangle<D>::RadiusX(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IRectangle<D>::RadiusX(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IRectangle)->put_RadiusX(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IRectangle<D>::RadiusY() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_IRectangle<D>::RadiusY() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IRectangle)->get_RadiusY(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IRectangle<D>::RadiusY(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IRectangle<D>::RadiusY(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IRectangle)->put_RadiusY(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IRectangleStatics<D>::RadiusXProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IRectangleStatics<D>::RadiusXProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IRectangleStatics)->get_RadiusXProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IRectangleStatics<D>::RadiusYProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IRectangleStatics<D>::RadiusYProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IRectangleStatics)->get_RadiusYProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::Fill() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) consume_Windows_UI_Xaml_Shapes_IShape<D>::Fill() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_Fill(&value));
         return Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::Fill(Windows::UI::Xaml::Media::Brush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::Fill(Windows::UI::Xaml::Media::Brush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_Fill(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::Stroke() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) consume_Windows_UI_Xaml_Shapes_IShape<D>::Stroke() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_Stroke(&value));
         return Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::Stroke(Windows::UI::Xaml::Media::Brush const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::Stroke(Windows::UI::Xaml::Media::Brush const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_Stroke(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeMiterLimit() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeMiterLimit() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_StrokeMiterLimit(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeMiterLimit(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeMiterLimit(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_StrokeMiterLimit(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeThickness() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeThickness() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_StrokeThickness(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeThickness(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeThickness(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_StrokeThickness(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeStartLineCap() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PenLineCap) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeStartLineCap() const
     {
-        Windows::UI::Xaml::Media::PenLineCap value;
+        Windows::UI::Xaml::Media::PenLineCap value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_StrokeStartLineCap(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeStartLineCap(Windows::UI::Xaml::Media::PenLineCap const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeStartLineCap(Windows::UI::Xaml::Media::PenLineCap const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_StrokeStartLineCap(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeEndLineCap() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PenLineCap) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeEndLineCap() const
     {
-        Windows::UI::Xaml::Media::PenLineCap value;
+        Windows::UI::Xaml::Media::PenLineCap value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_StrokeEndLineCap(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeEndLineCap(Windows::UI::Xaml::Media::PenLineCap const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeEndLineCap(Windows::UI::Xaml::Media::PenLineCap const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_StrokeEndLineCap(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeLineJoin() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PenLineJoin) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeLineJoin() const
     {
-        Windows::UI::Xaml::Media::PenLineJoin value;
+        Windows::UI::Xaml::Media::PenLineJoin value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_StrokeLineJoin(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeLineJoin(Windows::UI::Xaml::Media::PenLineJoin const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeLineJoin(Windows::UI::Xaml::Media::PenLineJoin const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_StrokeLineJoin(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashOffset() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashOffset() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_StrokeDashOffset(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashOffset(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashOffset(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_StrokeDashOffset(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashCap() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::PenLineCap) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashCap() const
     {
-        Windows::UI::Xaml::Media::PenLineCap value;
+        Windows::UI::Xaml::Media::PenLineCap value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_StrokeDashCap(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashCap(Windows::UI::Xaml::Media::PenLineCap const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashCap(Windows::UI::Xaml::Media::PenLineCap const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_StrokeDashCap(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashArray() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::DoubleCollection) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashArray() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_StrokeDashArray(&value));
         return Windows::UI::Xaml::Media::DoubleCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashArray(Windows::UI::Xaml::Media::DoubleCollection const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::StrokeDashArray(Windows::UI::Xaml::Media::DoubleCollection const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_StrokeDashArray(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::Stretch() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Stretch) consume_Windows_UI_Xaml_Shapes_IShape<D>::Stretch() const
     {
-        Windows::UI::Xaml::Media::Stretch value;
+        Windows::UI::Xaml::Media::Stretch value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_Stretch(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::Stretch(Windows::UI::Xaml::Media::Stretch const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Shapes_IShape<D>::Stretch(Windows::UI::Xaml::Media::Stretch const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->put_Stretch(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape<D>::GeometryTransform() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Transform) consume_Windows_UI_Xaml_Shapes_IShape<D>::GeometryTransform() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape)->get_GeometryTransform(&value));
         return Windows::UI::Xaml::Media::Transform{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShape2<D>::GetAlphaMask() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Xaml_Shapes_IShape2<D>::GetAlphaMask() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShape2)->GetAlphaMask(&result));
         return Windows::UI::Composition::CompositionBrush{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Shapes::Shape) consume_Windows_UI_Xaml_Shapes_IShapeFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeFactory)->CreateInstance(*(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Shapes::Shape{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::FillProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::FillProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_FillProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeMiterLimitProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeMiterLimitProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeMiterLimitProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeThicknessProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeThicknessProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeThicknessProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeStartLineCapProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeStartLineCapProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeStartLineCapProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeEndLineCapProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeEndLineCapProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeEndLineCapProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeLineJoinProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeLineJoinProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeLineJoinProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeDashOffsetProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeDashOffsetProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeDashOffsetProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeDashCapProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeDashCapProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeDashCapProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeDashArrayProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StrokeDashArrayProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StrokeDashArrayProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StretchProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Shapes_IShapeStatics<D>::StretchProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Shapes::IShapeStatics)->get_StretchProperty(&value));
@@ -1141,7 +1141,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Shapes
     protected:
         PathT()
         {
-            impl::call_factory<Path, IPathFactory>([&](IPathFactory const& f) { f.CreateInstance(*this, this->m_inner); });
+            impl::call_factory<Path, IPathFactory>([&](IPathFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstance(*this, this->m_inner); });
         }
     };
     template <typename D, typename... Interfaces>
@@ -1155,7 +1155,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Shapes
     protected:
         ShapeT()
         {
-            impl::call_factory<Shape, IShapeFactory>([&](IShapeFactory const& f) { f.CreateInstance(*this, this->m_inner); });
+            impl::call_factory<Shape, IShapeFactory>([&](IShapeFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstance(*this, this->m_inner); });
         }
     };
 }

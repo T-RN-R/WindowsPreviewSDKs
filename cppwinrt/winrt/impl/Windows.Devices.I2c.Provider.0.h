@@ -1,10 +1,18 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Devices_I2c_Provider_0_H
 #define WINRT_Windows_Devices_I2c_Provider_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+}
 WINRT_EXPORT namespace winrt::Windows::Devices::I2c::Provider
 {
     enum class ProviderI2cBusSpeed : int32_t
@@ -41,17 +49,15 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::I2c::Provider::ProviderI2cSharingMode>{ using type = enum_category; };
     template <> struct category<Windows::Devices::I2c::Provider::ProviderI2cTransferStatus>{ using type = enum_category; };
     template <> struct category<Windows::Devices::I2c::Provider::ProviderI2cTransferResult>{ using type = struct_category<Windows::Devices::I2c::Provider::ProviderI2cTransferStatus, uint32_t>; };
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cConnectionSettings>{ L"Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings" };
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cBusSpeed>{ L"Windows.Devices.I2c.Provider.ProviderI2cBusSpeed" };
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cSharingMode>{ L"Windows.Devices.I2c.Provider.ProviderI2cSharingMode" };
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cTransferStatus>{ L"Windows.Devices.I2c.Provider.ProviderI2cTransferStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cTransferResult>{ L"Windows.Devices.I2c.Provider.ProviderI2cTransferResult" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::II2cControllerProvider>{ L"Windows.Devices.I2c.Provider.II2cControllerProvider" };
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::II2cDeviceProvider>{ L"Windows.Devices.I2c.Provider.II2cDeviceProvider" };
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::II2cProvider>{ L"Windows.Devices.I2c.Provider.II2cProvider" };
-    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::IProviderI2cConnectionSettings>{ L"Windows.Devices.I2c.Provider.IProviderI2cConnectionSettings" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cConnectionSettings> = L"Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings";
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cBusSpeed> = L"Windows.Devices.I2c.Provider.ProviderI2cBusSpeed";
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cSharingMode> = L"Windows.Devices.I2c.Provider.ProviderI2cSharingMode";
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cTransferStatus> = L"Windows.Devices.I2c.Provider.ProviderI2cTransferStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::ProviderI2cTransferResult> = L"Windows.Devices.I2c.Provider.ProviderI2cTransferResult";
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::II2cControllerProvider> = L"Windows.Devices.I2c.Provider.II2cControllerProvider";
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::II2cDeviceProvider> = L"Windows.Devices.I2c.Provider.II2cDeviceProvider";
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::II2cProvider> = L"Windows.Devices.I2c.Provider.II2cProvider";
+    template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::IProviderI2cConnectionSettings> = L"Windows.Devices.I2c.Provider.IProviderI2cConnectionSettings";
     template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cControllerProvider>{ 0x61C2BB82,0x4510,0x4163,{ 0xA8,0x7C,0x4E,0x15,0xA9,0x55,0x89,0x80 } };
     template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cDeviceProvider>{ 0xAD342654,0x57E8,0x453E,{ 0x83,0x29,0xD1,0xE4,0x47,0xD1,0x03,0xA9 } };
     template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cProvider>{ 0x6F13083E,0xBF62,0x4FE2,{ 0xA9,0x5A,0xF0,0x89,0x99,0x66,0x98,0x18 } };
@@ -99,7 +105,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_I2c_Provider_II2cControllerProvider
     {
-        auto GetDeviceProvider(Windows::Devices::I2c::Provider::ProviderI2cConnectionSettings const& settings) const;
+        WINRT_IMPL_AUTO(Windows::Devices::I2c::Provider::II2cDeviceProvider) GetDeviceProvider(Windows::Devices::I2c::Provider::ProviderI2cConnectionSettings const& settings) const;
     };
     template <> struct consume<Windows::Devices::I2c::Provider::II2cControllerProvider>
     {
@@ -108,13 +114,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_I2c_Provider_II2cDeviceProvider
     {
-        [[nodiscard]] auto DeviceId() const;
-        auto Write(array_view<uint8_t const> buffer) const;
-        auto WritePartial(array_view<uint8_t const> buffer) const;
-        auto Read(array_view<uint8_t> buffer) const;
-        auto ReadPartial(array_view<uint8_t> buffer) const;
-        auto WriteRead(array_view<uint8_t const> writeBuffer, array_view<uint8_t> readBuffer) const;
-        auto WriteReadPartial(array_view<uint8_t const> writeBuffer, array_view<uint8_t> readBuffer) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        WINRT_IMPL_AUTO(void) Write(array_view<uint8_t const> buffer) const;
+        WINRT_IMPL_AUTO(Windows::Devices::I2c::Provider::ProviderI2cTransferResult) WritePartial(array_view<uint8_t const> buffer) const;
+        WINRT_IMPL_AUTO(void) Read(array_view<uint8_t> buffer) const;
+        WINRT_IMPL_AUTO(Windows::Devices::I2c::Provider::ProviderI2cTransferResult) ReadPartial(array_view<uint8_t> buffer) const;
+        WINRT_IMPL_AUTO(void) WriteRead(array_view<uint8_t const> writeBuffer, array_view<uint8_t> readBuffer) const;
+        WINRT_IMPL_AUTO(Windows::Devices::I2c::Provider::ProviderI2cTransferResult) WriteReadPartial(array_view<uint8_t const> writeBuffer, array_view<uint8_t> readBuffer) const;
     };
     template <> struct consume<Windows::Devices::I2c::Provider::II2cDeviceProvider>
     {
@@ -123,7 +129,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_I2c_Provider_II2cProvider
     {
-        auto GetControllersAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::I2c::Provider::II2cControllerProvider>>) GetControllersAsync() const;
     };
     template <> struct consume<Windows::Devices::I2c::Provider::II2cProvider>
     {
@@ -132,12 +138,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_I2c_Provider_IProviderI2cConnectionSettings
     {
-        [[nodiscard]] auto SlaveAddress() const;
-        auto SlaveAddress(int32_t value) const;
-        [[nodiscard]] auto BusSpeed() const;
-        auto BusSpeed(Windows::Devices::I2c::Provider::ProviderI2cBusSpeed const& value) const;
-        [[nodiscard]] auto SharingMode() const;
-        auto SharingMode(Windows::Devices::I2c::Provider::ProviderI2cSharingMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SlaveAddress() const;
+        WINRT_IMPL_AUTO(void) SlaveAddress(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::I2c::Provider::ProviderI2cBusSpeed) BusSpeed() const;
+        WINRT_IMPL_AUTO(void) BusSpeed(Windows::Devices::I2c::Provider::ProviderI2cBusSpeed const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::I2c::Provider::ProviderI2cSharingMode) SharingMode() const;
+        WINRT_IMPL_AUTO(void) SharingMode(Windows::Devices::I2c::Provider::ProviderI2cSharingMode const& value) const;
     };
     template <> struct consume<Windows::Devices::I2c::Provider::IProviderI2cConnectionSettings>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,6 +10,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Payments
     struct PaymentAddress;
     struct PaymentCanMakePaymentResult;
     struct PaymentRequest;
+    struct PaymentRequestChangedResult;
     enum class PaymentRequestCompletionStatus : int32_t;
     struct PaymentShippingOption;
     struct PaymentToken;
@@ -17,6 +18,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Payments
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
@@ -47,18 +49,16 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Payments::Provider::PaymentAppManager>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Payments::Provider::PaymentTransaction>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Payments::Provider::PaymentTransactionAcceptResult>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::PaymentAppCanMakePaymentTriggerDetails>{ L"Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::PaymentAppManager>{ L"Windows.ApplicationModel.Payments.Provider.PaymentAppManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::PaymentTransaction>{ L"Windows.ApplicationModel.Payments.Provider.PaymentTransaction" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::PaymentTransactionAcceptResult>{ L"Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppCanMakePaymentTriggerDetails>{ L"Windows.ApplicationModel.Payments.Provider.IPaymentAppCanMakePaymentTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManager>{ L"Windows.ApplicationModel.Payments.Provider.IPaymentAppManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManagerStatics>{ L"Windows.ApplicationModel.Payments.Provider.IPaymentAppManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransaction>{ L"Windows.ApplicationModel.Payments.Provider.IPaymentTransaction" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionAcceptResult>{ L"Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionStatics>{ L"Windows.ApplicationModel.Payments.Provider.IPaymentTransactionStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::PaymentAppCanMakePaymentTriggerDetails> = L"Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::PaymentAppManager> = L"Windows.ApplicationModel.Payments.Provider.PaymentAppManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::PaymentTransaction> = L"Windows.ApplicationModel.Payments.Provider.PaymentTransaction";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::PaymentTransactionAcceptResult> = L"Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppCanMakePaymentTriggerDetails> = L"Windows.ApplicationModel.Payments.Provider.IPaymentAppCanMakePaymentTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManager> = L"Windows.ApplicationModel.Payments.Provider.IPaymentAppManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManagerStatics> = L"Windows.ApplicationModel.Payments.Provider.IPaymentAppManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransaction> = L"Windows.ApplicationModel.Payments.Provider.IPaymentTransaction";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionAcceptResult> = L"Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionStatics> = L"Windows.ApplicationModel.Payments.Provider.IPaymentTransactionStatics";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppCanMakePaymentTriggerDetails>{ 0x0CE201F0,0x8B93,0x4EB6,{ 0x8C,0x46,0x2E,0x4A,0x6C,0x6A,0x26,0xF6 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManager>{ 0x0E47AA53,0x8521,0x4969,{ 0xA9,0x57,0xDF,0x25,0x38,0xA3,0xA9,0x8F } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManagerStatics>{ 0xA341AC28,0xFC89,0x4406,{ 0xB4,0xD9,0x34,0xE7,0xFE,0x79,0xDF,0xB6 } };
@@ -126,8 +126,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_Provider_IPaymentAppCanMakePaymentTriggerDetails
     {
-        [[nodiscard]] auto Request() const;
-        auto ReportCanMakePaymentResult(Windows::ApplicationModel::Payments::PaymentCanMakePaymentResult const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequest) Request() const;
+        WINRT_IMPL_AUTO(void) ReportCanMakePaymentResult(Windows::ApplicationModel::Payments::PaymentCanMakePaymentResult const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::Provider::IPaymentAppCanMakePaymentTriggerDetails>
     {
@@ -136,8 +136,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_Provider_IPaymentAppManager
     {
-        auto RegisterAsync(param::async_iterable<hstring> const& supportedPaymentMethodIds) const;
-        auto UnregisterAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RegisterAsync(param::async_iterable<hstring> const& supportedPaymentMethodIds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UnregisterAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::Provider::IPaymentAppManager>
     {
@@ -146,7 +146,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_Provider_IPaymentAppManagerStatics
     {
-        [[nodiscard]] auto Current() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::Provider::PaymentAppManager) Current() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::Provider::IPaymentAppManagerStatics>
     {
@@ -155,17 +155,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_Provider_IPaymentTransaction
     {
-        [[nodiscard]] auto PaymentRequest() const;
-        [[nodiscard]] auto PayerEmail() const;
-        auto PayerEmail(param::hstring const& value) const;
-        [[nodiscard]] auto PayerName() const;
-        auto PayerName(param::hstring const& value) const;
-        [[nodiscard]] auto PayerPhoneNumber() const;
-        auto PayerPhoneNumber(param::hstring const& value) const;
-        auto UpdateShippingAddressAsync(Windows::ApplicationModel::Payments::PaymentAddress const& shippingAddress) const;
-        auto UpdateSelectedShippingOptionAsync(Windows::ApplicationModel::Payments::PaymentShippingOption const& selectedShippingOption) const;
-        auto AcceptAsync(Windows::ApplicationModel::Payments::PaymentToken const& paymentToken) const;
-        auto Reject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequest) PaymentRequest() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PayerEmail() const;
+        WINRT_IMPL_AUTO(void) PayerEmail(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PayerName() const;
+        WINRT_IMPL_AUTO(void) PayerName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PayerPhoneNumber() const;
+        WINRT_IMPL_AUTO(void) PayerPhoneNumber(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Payments::PaymentRequestChangedResult>) UpdateShippingAddressAsync(Windows::ApplicationModel::Payments::PaymentAddress const& shippingAddress) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Payments::PaymentRequestChangedResult>) UpdateSelectedShippingOptionAsync(Windows::ApplicationModel::Payments::PaymentShippingOption const& selectedShippingOption) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Payments::Provider::PaymentTransactionAcceptResult>) AcceptAsync(Windows::ApplicationModel::Payments::PaymentToken const& paymentToken) const;
+        WINRT_IMPL_AUTO(void) Reject() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::Provider::IPaymentTransaction>
     {
@@ -174,7 +174,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_Provider_IPaymentTransactionAcceptResult
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Payments::PaymentRequestCompletionStatus) Status() const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionAcceptResult>
     {
@@ -183,7 +183,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Payments_Provider_IPaymentTransactionStatics
     {
-        auto FromIdAsync(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Payments::Provider::PaymentTransaction>) FromIdAsync(param::hstring const& id) const;
     };
     template <> struct consume<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,6 +7,7 @@
 #define WINRT_Windows_Security_ExchangeActiveSyncProvisioning_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Security::ExchangeActiveSyncProvisioning
 {
@@ -145,25 +146,23 @@ namespace winrt::impl
     template <> struct category<Windows::Security::ExchangeActiveSyncProvisioning::EasPasswordExpirationResult>{ using type = enum_category; };
     template <> struct category<Windows::Security::ExchangeActiveSyncProvisioning::EasPasswordHistoryResult>{ using type = enum_category; };
     template <> struct category<Windows::Security::ExchangeActiveSyncProvisioning::EasRequireEncryptionResult>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasClientDeviceInformation>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasClientSecurityPolicy>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasComplianceResults>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasDisallowConvenienceLogonResult>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasEncryptionProviderType>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasMaxInactivityTimeLockResult>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasMaxPasswordFailedAttemptsResult>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasMinPasswordComplexCharactersResult>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasMinPasswordLengthResult>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasPasswordExpirationResult>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasPasswordHistoryResult>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasRequireEncryptionResult>{ L"Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation>{ L"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation2>{ L"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation2" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientSecurityPolicy>{ L"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults>{ L"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults" };
-    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults2>{ L"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasClientDeviceInformation> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasClientSecurityPolicy> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasComplianceResults> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasDisallowConvenienceLogonResult> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasEncryptionProviderType> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasMaxInactivityTimeLockResult> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasMaxPasswordFailedAttemptsResult> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasMinPasswordComplexCharactersResult> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasMinPasswordLengthResult> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasPasswordExpirationResult> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasPasswordHistoryResult> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::EasRequireEncryptionResult> = L"Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation> = L"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation2> = L"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientDeviceInformation2";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientSecurityPolicy> = L"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults> = L"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults";
+    template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults2> = L"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults2";
     template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation>{ 0x54DFD981,0x1968,0x4CA3,{ 0xB9,0x58,0xE5,0x95,0xD1,0x65,0x05,0xEB } };
     template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation2>{ 0xFFB35923,0xBB26,0x4D6A,{ 0x81,0xBC,0x16,0x5A,0xEE,0x0A,0xD7,0x54 } };
     template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientSecurityPolicy>{ 0x45B72362,0xDFBA,0x4A9B,{ 0xAC,0xED,0x6F,0xE2,0xAD,0xCB,0x64,0x20 } };
@@ -241,12 +240,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_ExchangeActiveSyncProvisioning_IEasClientDeviceInformation
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto OperatingSystem() const;
-        [[nodiscard]] auto FriendlyName() const;
-        [[nodiscard]] auto SystemManufacturer() const;
-        [[nodiscard]] auto SystemProductName() const;
-        [[nodiscard]] auto SystemSku() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OperatingSystem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FriendlyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemManufacturer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemProductName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemSku() const;
     };
     template <> struct consume<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation>
     {
@@ -255,8 +254,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_ExchangeActiveSyncProvisioning_IEasClientDeviceInformation2
     {
-        [[nodiscard]] auto SystemHardwareVersion() const;
-        [[nodiscard]] auto SystemFirmwareVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemHardwareVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemFirmwareVersion() const;
     };
     template <> struct consume<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation2>
     {
@@ -265,24 +264,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_ExchangeActiveSyncProvisioning_IEasClientSecurityPolicy
     {
-        [[nodiscard]] auto RequireEncryption() const;
-        auto RequireEncryption(bool value) const;
-        [[nodiscard]] auto MinPasswordLength() const;
-        auto MinPasswordLength(uint8_t value) const;
-        [[nodiscard]] auto DisallowConvenienceLogon() const;
-        auto DisallowConvenienceLogon(bool value) const;
-        [[nodiscard]] auto MinPasswordComplexCharacters() const;
-        auto MinPasswordComplexCharacters(uint8_t value) const;
-        [[nodiscard]] auto PasswordExpiration() const;
-        auto PasswordExpiration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto PasswordHistory() const;
-        auto PasswordHistory(uint32_t value) const;
-        [[nodiscard]] auto MaxPasswordFailedAttempts() const;
-        auto MaxPasswordFailedAttempts(uint8_t value) const;
-        [[nodiscard]] auto MaxInactivityTimeLock() const;
-        auto MaxInactivityTimeLock(Windows::Foundation::TimeSpan const& value) const;
-        auto CheckCompliance() const;
-        auto ApplyAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RequireEncryption() const;
+        WINRT_IMPL_AUTO(void) RequireEncryption(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) MinPasswordLength() const;
+        WINRT_IMPL_AUTO(void) MinPasswordLength(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DisallowConvenienceLogon() const;
+        WINRT_IMPL_AUTO(void) DisallowConvenienceLogon(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) MinPasswordComplexCharacters() const;
+        WINRT_IMPL_AUTO(void) MinPasswordComplexCharacters(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) PasswordExpiration() const;
+        WINRT_IMPL_AUTO(void) PasswordExpiration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PasswordHistory() const;
+        WINRT_IMPL_AUTO(void) PasswordHistory(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) MaxPasswordFailedAttempts() const;
+        WINRT_IMPL_AUTO(void) MaxPasswordFailedAttempts(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MaxInactivityTimeLock() const;
+        WINRT_IMPL_AUTO(void) MaxInactivityTimeLock(Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasComplianceResults) CheckCompliance() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::ExchangeActiveSyncProvisioning::EasComplianceResults>) ApplyAsync() const;
     };
     template <> struct consume<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientSecurityPolicy>
     {
@@ -291,15 +290,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_ExchangeActiveSyncProvisioning_IEasComplianceResults
     {
-        [[nodiscard]] auto Compliant() const;
-        [[nodiscard]] auto RequireEncryptionResult() const;
-        [[nodiscard]] auto MinPasswordLengthResult() const;
-        [[nodiscard]] auto DisallowConvenienceLogonResult() const;
-        [[nodiscard]] auto MinPasswordComplexCharactersResult() const;
-        [[nodiscard]] auto PasswordExpirationResult() const;
-        [[nodiscard]] auto PasswordHistoryResult() const;
-        [[nodiscard]] auto MaxPasswordFailedAttemptsResult() const;
-        [[nodiscard]] auto MaxInactivityTimeLockResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Compliant() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasRequireEncryptionResult) RequireEncryptionResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasMinPasswordLengthResult) MinPasswordLengthResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasDisallowConvenienceLogonResult) DisallowConvenienceLogonResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasMinPasswordComplexCharactersResult) MinPasswordComplexCharactersResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasPasswordExpirationResult) PasswordExpirationResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasPasswordHistoryResult) PasswordHistoryResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasMaxPasswordFailedAttemptsResult) MaxPasswordFailedAttemptsResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasMaxInactivityTimeLockResult) MaxInactivityTimeLockResult() const;
     };
     template <> struct consume<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults>
     {
@@ -308,7 +307,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_ExchangeActiveSyncProvisioning_IEasComplianceResults2
     {
-        [[nodiscard]] auto EncryptionProviderType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::ExchangeActiveSyncProvisioning::EasEncryptionProviderType) EncryptionProviderType() const;
     };
     template <> struct consume<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults2>
     {

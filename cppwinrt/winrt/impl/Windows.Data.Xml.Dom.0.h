@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,6 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
@@ -118,48 +119,46 @@ namespace winrt::impl
     template <> struct category<Windows::Data::Xml::Dom::XmlProcessingInstruction>{ using type = class_category; };
     template <> struct category<Windows::Data::Xml::Dom::XmlText>{ using type = class_category; };
     template <> struct category<Windows::Data::Xml::Dom::NodeType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::DtdEntity>{ L"Windows.Data.Xml.Dom.DtdEntity" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::DtdNotation>{ L"Windows.Data.Xml.Dom.DtdNotation" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlAttribute>{ L"Windows.Data.Xml.Dom.XmlAttribute" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlCDataSection>{ L"Windows.Data.Xml.Dom.XmlCDataSection" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlComment>{ L"Windows.Data.Xml.Dom.XmlComment" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlDocument>{ L"Windows.Data.Xml.Dom.XmlDocument" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlDocumentFragment>{ L"Windows.Data.Xml.Dom.XmlDocumentFragment" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlDocumentType>{ L"Windows.Data.Xml.Dom.XmlDocumentType" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlDomImplementation>{ L"Windows.Data.Xml.Dom.XmlDomImplementation" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlElement>{ L"Windows.Data.Xml.Dom.XmlElement" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlEntityReference>{ L"Windows.Data.Xml.Dom.XmlEntityReference" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlLoadSettings>{ L"Windows.Data.Xml.Dom.XmlLoadSettings" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlNamedNodeMap>{ L"Windows.Data.Xml.Dom.XmlNamedNodeMap" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlNodeList>{ L"Windows.Data.Xml.Dom.XmlNodeList" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlProcessingInstruction>{ L"Windows.Data.Xml.Dom.XmlProcessingInstruction" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlText>{ L"Windows.Data.Xml.Dom.XmlText" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::NodeType>{ L"Windows.Data.Xml.Dom.NodeType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IDtdEntity>{ L"Windows.Data.Xml.Dom.IDtdEntity" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IDtdNotation>{ L"Windows.Data.Xml.Dom.IDtdNotation" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlAttribute>{ L"Windows.Data.Xml.Dom.IXmlAttribute" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlCDataSection>{ L"Windows.Data.Xml.Dom.IXmlCDataSection" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlCharacterData>{ L"Windows.Data.Xml.Dom.IXmlCharacterData" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlComment>{ L"Windows.Data.Xml.Dom.IXmlComment" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocument>{ L"Windows.Data.Xml.Dom.IXmlDocument" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentFragment>{ L"Windows.Data.Xml.Dom.IXmlDocumentFragment" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentIO>{ L"Windows.Data.Xml.Dom.IXmlDocumentIO" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentIO2>{ L"Windows.Data.Xml.Dom.IXmlDocumentIO2" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentStatics>{ L"Windows.Data.Xml.Dom.IXmlDocumentStatics" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentType>{ L"Windows.Data.Xml.Dom.IXmlDocumentType" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDomImplementation>{ L"Windows.Data.Xml.Dom.IXmlDomImplementation" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlElement>{ L"Windows.Data.Xml.Dom.IXmlElement" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlEntityReference>{ L"Windows.Data.Xml.Dom.IXmlEntityReference" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlLoadSettings>{ L"Windows.Data.Xml.Dom.IXmlLoadSettings" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNamedNodeMap>{ L"Windows.Data.Xml.Dom.IXmlNamedNodeMap" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNode>{ L"Windows.Data.Xml.Dom.IXmlNode" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNodeList>{ L"Windows.Data.Xml.Dom.IXmlNodeList" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNodeSelector>{ L"Windows.Data.Xml.Dom.IXmlNodeSelector" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNodeSerializer>{ L"Windows.Data.Xml.Dom.IXmlNodeSerializer" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlProcessingInstruction>{ L"Windows.Data.Xml.Dom.IXmlProcessingInstruction" };
-    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlText>{ L"Windows.Data.Xml.Dom.IXmlText" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::DtdEntity> = L"Windows.Data.Xml.Dom.DtdEntity";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::DtdNotation> = L"Windows.Data.Xml.Dom.DtdNotation";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlAttribute> = L"Windows.Data.Xml.Dom.XmlAttribute";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlCDataSection> = L"Windows.Data.Xml.Dom.XmlCDataSection";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlComment> = L"Windows.Data.Xml.Dom.XmlComment";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlDocument> = L"Windows.Data.Xml.Dom.XmlDocument";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlDocumentFragment> = L"Windows.Data.Xml.Dom.XmlDocumentFragment";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlDocumentType> = L"Windows.Data.Xml.Dom.XmlDocumentType";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlDomImplementation> = L"Windows.Data.Xml.Dom.XmlDomImplementation";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlElement> = L"Windows.Data.Xml.Dom.XmlElement";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlEntityReference> = L"Windows.Data.Xml.Dom.XmlEntityReference";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlLoadSettings> = L"Windows.Data.Xml.Dom.XmlLoadSettings";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlNamedNodeMap> = L"Windows.Data.Xml.Dom.XmlNamedNodeMap";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlNodeList> = L"Windows.Data.Xml.Dom.XmlNodeList";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlProcessingInstruction> = L"Windows.Data.Xml.Dom.XmlProcessingInstruction";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::XmlText> = L"Windows.Data.Xml.Dom.XmlText";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::NodeType> = L"Windows.Data.Xml.Dom.NodeType";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IDtdEntity> = L"Windows.Data.Xml.Dom.IDtdEntity";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IDtdNotation> = L"Windows.Data.Xml.Dom.IDtdNotation";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlAttribute> = L"Windows.Data.Xml.Dom.IXmlAttribute";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlCDataSection> = L"Windows.Data.Xml.Dom.IXmlCDataSection";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlCharacterData> = L"Windows.Data.Xml.Dom.IXmlCharacterData";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlComment> = L"Windows.Data.Xml.Dom.IXmlComment";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocument> = L"Windows.Data.Xml.Dom.IXmlDocument";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentFragment> = L"Windows.Data.Xml.Dom.IXmlDocumentFragment";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentIO> = L"Windows.Data.Xml.Dom.IXmlDocumentIO";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentIO2> = L"Windows.Data.Xml.Dom.IXmlDocumentIO2";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentStatics> = L"Windows.Data.Xml.Dom.IXmlDocumentStatics";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDocumentType> = L"Windows.Data.Xml.Dom.IXmlDocumentType";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlDomImplementation> = L"Windows.Data.Xml.Dom.IXmlDomImplementation";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlElement> = L"Windows.Data.Xml.Dom.IXmlElement";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlEntityReference> = L"Windows.Data.Xml.Dom.IXmlEntityReference";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlLoadSettings> = L"Windows.Data.Xml.Dom.IXmlLoadSettings";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNamedNodeMap> = L"Windows.Data.Xml.Dom.IXmlNamedNodeMap";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNode> = L"Windows.Data.Xml.Dom.IXmlNode";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNodeList> = L"Windows.Data.Xml.Dom.IXmlNodeList";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNodeSelector> = L"Windows.Data.Xml.Dom.IXmlNodeSelector";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlNodeSerializer> = L"Windows.Data.Xml.Dom.IXmlNodeSerializer";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlProcessingInstruction> = L"Windows.Data.Xml.Dom.IXmlProcessingInstruction";
+    template <> inline constexpr auto& name_v<Windows::Data::Xml::Dom::IXmlText> = L"Windows.Data.Xml.Dom.IXmlText";
     template <> inline constexpr guid guid_v<Windows::Data::Xml::Dom::IDtdEntity>{ 0x6A0B5FFC,0x63B4,0x480F,{ 0x9E,0x6A,0x8A,0x92,0x81,0x6A,0xAD,0xE4 } };
     template <> inline constexpr guid guid_v<Windows::Data::Xml::Dom::IDtdNotation>{ 0x8CB4E04D,0x6D46,0x4EDB,{ 0xAB,0x73,0xDF,0x83,0xC5,0x1A,0xD3,0x97 } };
     template <> inline constexpr guid guid_v<Windows::Data::Xml::Dom::IXmlAttribute>{ 0xAC144AA4,0xB4F1,0x4DB6,{ 0xB2,0x06,0x8A,0x22,0xC3,0x08,0xDB,0x0A } };
@@ -454,9 +453,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IDtdEntity
     {
-        [[nodiscard]] auto PublicId() const;
-        [[nodiscard]] auto SystemId() const;
-        [[nodiscard]] auto NotationName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) PublicId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) SystemId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) NotationName() const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IDtdEntity>
     {
@@ -465,8 +464,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IDtdNotation
     {
-        [[nodiscard]] auto PublicId() const;
-        [[nodiscard]] auto SystemId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) PublicId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) SystemId() const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IDtdNotation>
     {
@@ -475,10 +474,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlAttribute
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Specified() const;
-        [[nodiscard]] auto Value() const;
-        auto Value(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Specified() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
+        WINRT_IMPL_AUTO(void) Value(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlAttribute>
     {
@@ -495,14 +494,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlCharacterData
     {
-        [[nodiscard]] auto Data() const;
-        auto Data(param::hstring const& value) const;
-        [[nodiscard]] auto Length() const;
-        auto SubstringData(uint32_t offset, uint32_t count) const;
-        auto AppendData(param::hstring const& data) const;
-        auto InsertData(uint32_t offset, param::hstring const& data) const;
-        auto DeleteData(uint32_t offset, uint32_t count) const;
-        auto ReplaceData(uint32_t offset, uint32_t count, param::hstring const& data) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Data() const;
+        WINRT_IMPL_AUTO(void) Data(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Length() const;
+        WINRT_IMPL_AUTO(hstring) SubstringData(uint32_t offset, uint32_t count) const;
+        WINRT_IMPL_AUTO(void) AppendData(param::hstring const& data) const;
+        WINRT_IMPL_AUTO(void) InsertData(uint32_t offset, param::hstring const& data) const;
+        WINRT_IMPL_AUTO(void) DeleteData(uint32_t offset, uint32_t count) const;
+        WINRT_IMPL_AUTO(void) ReplaceData(uint32_t offset, uint32_t count, param::hstring const& data) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlCharacterData>
     {
@@ -519,23 +518,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlDocument
     {
-        [[nodiscard]] auto Doctype() const;
-        [[nodiscard]] auto Implementation() const;
-        [[nodiscard]] auto DocumentElement() const;
-        auto CreateElement(param::hstring const& tagName) const;
-        auto CreateDocumentFragment() const;
-        auto CreateTextNode(param::hstring const& data) const;
-        auto CreateComment(param::hstring const& data) const;
-        auto CreateProcessingInstruction(param::hstring const& target, param::hstring const& data) const;
-        auto CreateAttribute(param::hstring const& name) const;
-        auto CreateEntityReference(param::hstring const& name) const;
-        auto GetElementsByTagName(param::hstring const& tagName) const;
-        auto CreateCDataSection(param::hstring const& data) const;
-        [[nodiscard]] auto DocumentUri() const;
-        auto CreateAttributeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& qualifiedName) const;
-        auto CreateElementNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& qualifiedName) const;
-        auto GetElementById(param::hstring const& elementId) const;
-        auto ImportNode(Windows::Data::Xml::Dom::IXmlNode const& node, bool deep) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocumentType) Doctype() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDomImplementation) Implementation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlElement) DocumentElement() const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlElement) CreateElement(param::hstring const& tagName) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocumentFragment) CreateDocumentFragment() const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlText) CreateTextNode(param::hstring const& data) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlComment) CreateComment(param::hstring const& data) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlProcessingInstruction) CreateProcessingInstruction(param::hstring const& target, param::hstring const& data) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlAttribute) CreateAttribute(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlEntityReference) CreateEntityReference(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlNodeList) GetElementsByTagName(param::hstring const& tagName) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlCDataSection) CreateCDataSection(param::hstring const& data) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DocumentUri() const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlAttribute) CreateAttributeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& qualifiedName) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlElement) CreateElementNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& qualifiedName) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlElement) GetElementById(param::hstring const& elementId) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) ImportNode(Windows::Data::Xml::Dom::IXmlNode const& node, bool deep) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlDocument>
     {
@@ -552,9 +551,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlDocumentIO
     {
-        auto LoadXml(param::hstring const& xml) const;
-        auto LoadXml(param::hstring const& xml, Windows::Data::Xml::Dom::XmlLoadSettings const& loadSettings) const;
-        auto SaveToFileAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(void) LoadXml(param::hstring const& xml) const;
+        WINRT_IMPL_AUTO(void) LoadXml(param::hstring const& xml, Windows::Data::Xml::Dom::XmlLoadSettings const& loadSettings) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveToFileAsync(Windows::Storage::IStorageFile const& file) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlDocumentIO>
     {
@@ -563,8 +562,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlDocumentIO2
     {
-        auto LoadXmlFromBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto LoadXmlFromBuffer(Windows::Storage::Streams::IBuffer const& buffer, Windows::Data::Xml::Dom::XmlLoadSettings const& loadSettings) const;
+        WINRT_IMPL_AUTO(void) LoadXmlFromBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(void) LoadXmlFromBuffer(Windows::Storage::Streams::IBuffer const& buffer, Windows::Data::Xml::Dom::XmlLoadSettings const& loadSettings) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlDocumentIO2>
     {
@@ -573,10 +572,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlDocumentStatics
     {
-        auto LoadFromUriAsync(Windows::Foundation::Uri const& uri) const;
-        auto LoadFromUriAsync(Windows::Foundation::Uri const& uri, Windows::Data::Xml::Dom::XmlLoadSettings const& loadSettings) const;
-        auto LoadFromFileAsync(Windows::Storage::IStorageFile const& file) const;
-        auto LoadFromFileAsync(Windows::Storage::IStorageFile const& file, Windows::Data::Xml::Dom::XmlLoadSettings const& loadSettings) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Data::Xml::Dom::XmlDocument>) LoadFromUriAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Data::Xml::Dom::XmlDocument>) LoadFromUriAsync(Windows::Foundation::Uri const& uri, Windows::Data::Xml::Dom::XmlLoadSettings const& loadSettings) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Data::Xml::Dom::XmlDocument>) LoadFromFileAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Data::Xml::Dom::XmlDocument>) LoadFromFileAsync(Windows::Storage::IStorageFile const& file, Windows::Data::Xml::Dom::XmlLoadSettings const& loadSettings) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlDocumentStatics>
     {
@@ -585,9 +584,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlDocumentType
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Entities() const;
-        [[nodiscard]] auto Notations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlNamedNodeMap) Entities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlNamedNodeMap) Notations() const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlDocumentType>
     {
@@ -596,7 +595,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlDomImplementation
     {
-        auto HasFeature(param::hstring const& feature, Windows::Foundation::IInspectable const& version) const;
+        WINRT_IMPL_AUTO(bool) HasFeature(param::hstring const& feature, Windows::Foundation::IInspectable const& version) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlDomImplementation>
     {
@@ -605,19 +604,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlElement
     {
-        [[nodiscard]] auto TagName() const;
-        auto GetAttribute(param::hstring const& attributeName) const;
-        auto SetAttribute(param::hstring const& attributeName, param::hstring const& attributeValue) const;
-        auto RemoveAttribute(param::hstring const& attributeName) const;
-        auto GetAttributeNode(param::hstring const& attributeName) const;
-        auto SetAttributeNode(Windows::Data::Xml::Dom::XmlAttribute const& newAttribute) const;
-        auto RemoveAttributeNode(Windows::Data::Xml::Dom::XmlAttribute const& attributeNode) const;
-        auto GetElementsByTagName(param::hstring const& tagName) const;
-        auto SetAttributeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& qualifiedName, param::hstring const& value) const;
-        auto GetAttributeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& localName) const;
-        auto RemoveAttributeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& localName) const;
-        auto SetAttributeNodeNS(Windows::Data::Xml::Dom::XmlAttribute const& newAttribute) const;
-        auto GetAttributeNodeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& localName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TagName() const;
+        WINRT_IMPL_AUTO(hstring) GetAttribute(param::hstring const& attributeName) const;
+        WINRT_IMPL_AUTO(void) SetAttribute(param::hstring const& attributeName, param::hstring const& attributeValue) const;
+        WINRT_IMPL_AUTO(void) RemoveAttribute(param::hstring const& attributeName) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlAttribute) GetAttributeNode(param::hstring const& attributeName) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlAttribute) SetAttributeNode(Windows::Data::Xml::Dom::XmlAttribute const& newAttribute) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlAttribute) RemoveAttributeNode(Windows::Data::Xml::Dom::XmlAttribute const& attributeNode) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlNodeList) GetElementsByTagName(param::hstring const& tagName) const;
+        WINRT_IMPL_AUTO(void) SetAttributeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& qualifiedName, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(hstring) GetAttributeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& localName) const;
+        WINRT_IMPL_AUTO(void) RemoveAttributeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& localName) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlAttribute) SetAttributeNodeNS(Windows::Data::Xml::Dom::XmlAttribute const& newAttribute) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlAttribute) GetAttributeNodeNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& localName) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlElement>
     {
@@ -634,16 +633,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlLoadSettings
     {
-        [[nodiscard]] auto MaxElementDepth() const;
-        auto MaxElementDepth(uint32_t value) const;
-        [[nodiscard]] auto ProhibitDtd() const;
-        auto ProhibitDtd(bool value) const;
-        [[nodiscard]] auto ResolveExternals() const;
-        auto ResolveExternals(bool value) const;
-        [[nodiscard]] auto ValidateOnParse() const;
-        auto ValidateOnParse(bool value) const;
-        [[nodiscard]] auto ElementContentWhiteSpace() const;
-        auto ElementContentWhiteSpace(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxElementDepth() const;
+        WINRT_IMPL_AUTO(void) MaxElementDepth(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ProhibitDtd() const;
+        WINRT_IMPL_AUTO(void) ProhibitDtd(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ResolveExternals() const;
+        WINRT_IMPL_AUTO(void) ResolveExternals(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ValidateOnParse() const;
+        WINRT_IMPL_AUTO(void) ValidateOnParse(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ElementContentWhiteSpace() const;
+        WINRT_IMPL_AUTO(void) ElementContentWhiteSpace(bool value) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlLoadSettings>
     {
@@ -652,14 +651,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlNamedNodeMap
     {
-        [[nodiscard]] auto Length() const;
-        auto Item(uint32_t index) const;
-        auto GetNamedItem(param::hstring const& name) const;
-        auto SetNamedItem(Windows::Data::Xml::Dom::IXmlNode const& node) const;
-        auto RemoveNamedItem(param::hstring const& name) const;
-        auto GetNamedItemNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& name) const;
-        auto RemoveNamedItemNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& name) const;
-        auto SetNamedItemNS(Windows::Data::Xml::Dom::IXmlNode const& node) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Length() const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) Item(uint32_t index) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) GetNamedItem(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) SetNamedItem(Windows::Data::Xml::Dom::IXmlNode const& node) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) RemoveNamedItem(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) GetNamedItemNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) RemoveNamedItemNS(Windows::Foundation::IInspectable const& namespaceUri, param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) SetNamedItemNS(Windows::Data::Xml::Dom::IXmlNode const& node) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlNamedNodeMap>
     {
@@ -668,29 +667,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlNode
     {
-        [[nodiscard]] auto NodeValue() const;
-        auto NodeValue(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto NodeType() const;
-        [[nodiscard]] auto NodeName() const;
-        [[nodiscard]] auto ParentNode() const;
-        [[nodiscard]] auto ChildNodes() const;
-        [[nodiscard]] auto FirstChild() const;
-        [[nodiscard]] auto LastChild() const;
-        [[nodiscard]] auto PreviousSibling() const;
-        [[nodiscard]] auto NextSibling() const;
-        [[nodiscard]] auto Attributes() const;
-        auto HasChildNodes() const;
-        [[nodiscard]] auto OwnerDocument() const;
-        auto InsertBefore(Windows::Data::Xml::Dom::IXmlNode const& newChild, Windows::Data::Xml::Dom::IXmlNode const& referenceChild) const;
-        auto ReplaceChild(Windows::Data::Xml::Dom::IXmlNode const& newChild, Windows::Data::Xml::Dom::IXmlNode const& referenceChild) const;
-        auto RemoveChild(Windows::Data::Xml::Dom::IXmlNode const& childNode) const;
-        auto AppendChild(Windows::Data::Xml::Dom::IXmlNode const& newChild) const;
-        auto CloneNode(bool deep) const;
-        [[nodiscard]] auto NamespaceUri() const;
-        [[nodiscard]] auto LocalName() const;
-        [[nodiscard]] auto Prefix() const;
-        auto Normalize() const;
-        auto Prefix(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) NodeValue() const;
+        WINRT_IMPL_AUTO(void) NodeValue(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::NodeType) NodeType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NodeName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) ParentNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlNodeList) ChildNodes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) FirstChild() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) LastChild() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) PreviousSibling() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) NextSibling() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlNamedNodeMap) Attributes() const;
+        WINRT_IMPL_AUTO(bool) HasChildNodes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) OwnerDocument() const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) InsertBefore(Windows::Data::Xml::Dom::IXmlNode const& newChild, Windows::Data::Xml::Dom::IXmlNode const& referenceChild) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) ReplaceChild(Windows::Data::Xml::Dom::IXmlNode const& newChild, Windows::Data::Xml::Dom::IXmlNode const& referenceChild) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) RemoveChild(Windows::Data::Xml::Dom::IXmlNode const& childNode) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) AppendChild(Windows::Data::Xml::Dom::IXmlNode const& newChild) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) CloneNode(bool deep) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) NamespaceUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) LocalName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Prefix() const;
+        WINRT_IMPL_AUTO(void) Normalize() const;
+        WINRT_IMPL_AUTO(void) Prefix(Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlNode>
     {
@@ -699,8 +698,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlNodeList
     {
-        [[nodiscard]] auto Length() const;
-        auto Item(uint32_t index) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Length() const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) Item(uint32_t index) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlNodeList>
     {
@@ -709,10 +708,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlNodeSelector
     {
-        auto SelectSingleNode(param::hstring const& xpath) const;
-        auto SelectNodes(param::hstring const& xpath) const;
-        auto SelectSingleNodeNS(param::hstring const& xpath, Windows::Foundation::IInspectable const& namespaces) const;
-        auto SelectNodesNS(param::hstring const& xpath, Windows::Foundation::IInspectable const& namespaces) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) SelectSingleNode(param::hstring const& xpath) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlNodeList) SelectNodes(param::hstring const& xpath) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlNode) SelectSingleNodeNS(param::hstring const& xpath, Windows::Foundation::IInspectable const& namespaces) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlNodeList) SelectNodesNS(param::hstring const& xpath, Windows::Foundation::IInspectable const& namespaces) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlNodeSelector>
     {
@@ -721,9 +720,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlNodeSerializer
     {
-        auto GetXml() const;
-        [[nodiscard]] auto InnerText() const;
-        auto InnerText(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(hstring) GetXml() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) InnerText() const;
+        WINRT_IMPL_AUTO(void) InnerText(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlNodeSerializer>
     {
@@ -732,9 +731,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlProcessingInstruction
     {
-        [[nodiscard]] auto Target() const;
-        [[nodiscard]] auto Data() const;
-        auto Data(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Target() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Data() const;
+        WINRT_IMPL_AUTO(void) Data(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlProcessingInstruction>
     {
@@ -743,7 +742,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Xml_Dom_IXmlText
     {
-        auto SplitText(uint32_t offset) const;
+        WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::IXmlText) SplitText(uint32_t offset) const;
     };
     template <> struct consume<Windows::Data::Xml::Dom::IXmlText>
     {

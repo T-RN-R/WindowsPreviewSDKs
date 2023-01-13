@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Media_Casting_H
 #define WINRT_Windows_Media_Casting_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Media.h"
 #include "winrt/impl/Windows.Devices.Enumeration.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -16,31 +16,31 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Media.Casting.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::State() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Casting::CastingConnectionState) consume_Windows_Media_Casting_ICastingConnection<D>::State() const
     {
-        Windows::Media::Casting::CastingConnectionState value;
+        Windows::Media::Casting::CastingConnectionState value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->get_State(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::Device() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Casting::CastingDevice) consume_Windows_Media_Casting_ICastingConnection<D>::Device() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->get_Device(&value));
         return Windows::Media::Casting::CastingDevice{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::Source() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Casting::CastingSource) consume_Windows_Media_Casting_ICastingConnection<D>::Source() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->get_Source(&value));
         return Windows::Media::Casting::CastingSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::Source(Windows::Media::Casting::CastingSource const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingConnection<D>::Source(Windows::Media::Casting::CastingSource const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->put_Source(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Casting_ICastingConnection<D>::StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->add_StateChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -48,13 +48,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, StateChanged_revoker>(this, StateChanged(handler));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::StateChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingConnection<D>::StateChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->remove_StateChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Media::Casting::CastingConnectionErrorOccurredEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Casting_ICastingConnection<D>::ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Media::Casting::CastingConnectionErrorOccurredEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->add_ErrorOccurred(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -62,79 +62,79 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ErrorOccurred_revoker>(this, ErrorOccurred(handler));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::ErrorOccurred(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingConnection<D>::ErrorOccurred(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->remove_ErrorOccurred(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::RequestStartCastingAsync(Windows::Media::Casting::CastingSource const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingConnectionErrorStatus>) consume_Windows_Media_Casting_ICastingConnection<D>::RequestStartCastingAsync(Windows::Media::Casting::CastingSource const& value) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->RequestStartCastingAsync(*(void**)(&value), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingConnectionErrorStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnection<D>::DisconnectAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingConnectionErrorStatus>) consume_Windows_Media_Casting_ICastingConnection<D>::DisconnectAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnection)->DisconnectAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingConnectionErrorStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnectionErrorOccurredEventArgs<D>::ErrorStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Casting::CastingConnectionErrorStatus) consume_Windows_Media_Casting_ICastingConnectionErrorOccurredEventArgs<D>::ErrorStatus() const
     {
-        Windows::Media::Casting::CastingConnectionErrorStatus value;
+        Windows::Media::Casting::CastingConnectionErrorStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs)->get_ErrorStatus(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingConnectionErrorOccurredEventArgs<D>::Message() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Casting_ICastingConnectionErrorOccurredEventArgs<D>::Message() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs)->get_Message(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevice<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Casting_ICastingDevice<D>::Id() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevice)->get_Id(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevice<D>::FriendlyName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Casting_ICastingDevice<D>::FriendlyName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevice)->get_FriendlyName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevice<D>::Icon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamWithContentType) consume_Windows_Media_Casting_ICastingDevice<D>::Icon() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevice)->get_Icon(&value));
         return Windows::Storage::Streams::IRandomAccessStreamWithContentType{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevice<D>::GetSupportedCastingPlaybackTypesAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingPlaybackTypes>) consume_Windows_Media_Casting_ICastingDevice<D>::GetSupportedCastingPlaybackTypesAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevice)->GetSupportedCastingPlaybackTypesAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingPlaybackTypes>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevice<D>::CreateCastingConnection() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Casting::CastingConnection) consume_Windows_Media_Casting_ICastingDevice<D>::CreateCastingConnection() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevice)->CreateCastingConnection(&value));
         return Windows::Media::Casting::CastingConnection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::Filter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Casting::CastingDevicePickerFilter) consume_Windows_Media_Casting_ICastingDevicePicker<D>::Filter() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->get_Filter(&value));
         return Windows::Media::Casting::CastingDevicePickerFilter{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::Appearance() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DevicePickerAppearance) consume_Windows_Media_Casting_ICastingDevicePicker<D>::Appearance() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->get_Appearance(&value));
         return Windows::Devices::Enumeration::DevicePickerAppearance{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::CastingDeviceSelected(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Media::Casting::CastingDeviceSelectedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Casting_ICastingDevicePicker<D>::CastingDeviceSelected(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Media::Casting::CastingDeviceSelectedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->add_CastingDeviceSelected(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -142,13 +142,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, CastingDeviceSelected_revoker>(this, CastingDeviceSelected(handler));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::CastingDeviceSelected(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingDevicePicker<D>::CastingDeviceSelected(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->remove_CastingDeviceSelected(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::CastingDevicePickerDismissed(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Casting_ICastingDevicePicker<D>::CastingDevicePickerDismissed(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->add_CastingDevicePickerDismissed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -156,95 +156,95 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, CastingDevicePickerDismissed_revoker>(this, CastingDevicePickerDismissed(handler));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::CastingDevicePickerDismissed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingDevicePicker<D>::CastingDevicePickerDismissed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->remove_CastingDevicePickerDismissed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::Show(Windows::Foundation::Rect const& selection) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingDevicePicker<D>::Show(Windows::Foundation::Rect const& selection) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->Show(impl::bind_in(selection)));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::Show(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingDevicePicker<D>::Show(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->ShowWithPlacement(impl::bind_in(selection), static_cast<int32_t>(preferredPlacement)));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePicker<D>::Hide() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingDevicePicker<D>::Hide() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePicker)->Hide());
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsAudio() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsAudio() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePickerFilter)->get_SupportsAudio(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsAudio(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsAudio(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePickerFilter)->put_SupportsAudio(value));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsVideo() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsVideo() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePickerFilter)->get_SupportsVideo(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsVideo(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsVideo(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePickerFilter)->put_SupportsVideo(value));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsPictures() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsPictures() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePickerFilter)->get_SupportsPictures(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsPictures(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportsPictures(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePickerFilter)->put_SupportsPictures(value));
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportedCastingSources() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Casting::CastingSource>) consume_Windows_Media_Casting_ICastingDevicePickerFilter<D>::SupportedCastingSources() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDevicePickerFilter)->get_SupportedCastingSources(&value));
         return Windows::Foundation::Collections::IVector<Windows::Media::Casting::CastingSource>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDeviceSelectedEventArgs<D>::SelectedCastingDevice() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Casting::CastingDevice) consume_Windows_Media_Casting_ICastingDeviceSelectedEventArgs<D>::SelectedCastingDevice() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDeviceSelectedEventArgs)->get_SelectedCastingDevice(&value));
         return Windows::Media::Casting::CastingDevice{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDeviceStatics<D>::GetDeviceSelector(Windows::Media::Casting::CastingPlaybackTypes const& type) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Casting_ICastingDeviceStatics<D>::GetDeviceSelector(Windows::Media::Casting::CastingPlaybackTypes const& type) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDeviceStatics)->GetDeviceSelector(static_cast<uint32_t>(type), &value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDeviceStatics<D>::GetDeviceSelectorFromCastingSourceAsync(Windows::Media::Casting::CastingSource const& castingSource) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) consume_Windows_Media_Casting_ICastingDeviceStatics<D>::GetDeviceSelectorFromCastingSourceAsync(Windows::Media::Casting::CastingSource const& castingSource) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDeviceStatics)->GetDeviceSelectorFromCastingSourceAsync(*(void**)(&castingSource), &operation));
         return Windows::Foundation::IAsyncOperation<hstring>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDeviceStatics<D>::FromIdAsync(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingDevice>) consume_Windows_Media_Casting_ICastingDeviceStatics<D>::FromIdAsync(param::hstring const& value) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDeviceStatics)->FromIdAsync(*(void**)(&value), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingDevice>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingDeviceStatics<D>::DeviceInfoSupportsCastingAsync(Windows::Devices::Enumeration::DeviceInformation const& device) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Casting_ICastingDeviceStatics<D>::DeviceInfoSupportsCastingAsync(Windows::Devices::Enumeration::DeviceInformation const& device) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingDeviceStatics)->DeviceInfoSupportsCastingAsync(*(void**)(&device), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingSource<D>::PreferredSourceUri() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_Media_Casting_ICastingSource<D>::PreferredSourceUri() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingSource)->get_PreferredSourceUri(&value));
         return Windows::Foundation::Uri{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Casting_ICastingSource<D>::PreferredSourceUri(Windows::Foundation::Uri const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Casting_ICastingSource<D>::PreferredSourceUri(Windows::Foundation::Uri const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Casting::ICastingSource)->put_PreferredSourceUri(*(void**)(&value)));
     }

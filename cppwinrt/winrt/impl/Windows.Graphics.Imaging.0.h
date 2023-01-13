@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,6 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     enum class PropertyType : int32_t;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
@@ -15,6 +16,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
     template <typename T> struct IIterable;
     template <typename K, typename V> struct IKeyValuePair;
     template <typename K, typename V> struct IMap;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::DirectX::Direct3D11
 {
@@ -196,55 +198,53 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::Imaging::BitmapBounds>{ using type = struct_category<uint32_t, uint32_t, uint32_t, uint32_t>; };
     template <> struct category<Windows::Graphics::Imaging::BitmapPlaneDescription>{ using type = struct_category<int32_t, int32_t, int32_t, int32_t>; };
     template <> struct category<Windows::Graphics::Imaging::BitmapSize>{ using type = struct_category<uint32_t, uint32_t>; };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapBuffer>{ L"Windows.Graphics.Imaging.BitmapBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapCodecInformation>{ L"Windows.Graphics.Imaging.BitmapCodecInformation" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapDecoder>{ L"Windows.Graphics.Imaging.BitmapDecoder" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapEncoder>{ L"Windows.Graphics.Imaging.BitmapEncoder" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapFrame>{ L"Windows.Graphics.Imaging.BitmapFrame" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapProperties>{ L"Windows.Graphics.Imaging.BitmapProperties" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapPropertiesView>{ L"Windows.Graphics.Imaging.BitmapPropertiesView" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapPropertySet>{ L"Windows.Graphics.Imaging.BitmapPropertySet" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapTransform>{ L"Windows.Graphics.Imaging.BitmapTransform" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapTypedValue>{ L"Windows.Graphics.Imaging.BitmapTypedValue" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ImageStream>{ L"Windows.Graphics.Imaging.ImageStream" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::PixelDataProvider>{ L"Windows.Graphics.Imaging.PixelDataProvider" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::SoftwareBitmap>{ L"Windows.Graphics.Imaging.SoftwareBitmap" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapAlphaMode>{ L"Windows.Graphics.Imaging.BitmapAlphaMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapBufferAccessMode>{ L"Windows.Graphics.Imaging.BitmapBufferAccessMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapFlip>{ L"Windows.Graphics.Imaging.BitmapFlip" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapInterpolationMode>{ L"Windows.Graphics.Imaging.BitmapInterpolationMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapPixelFormat>{ L"Windows.Graphics.Imaging.BitmapPixelFormat" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapRotation>{ L"Windows.Graphics.Imaging.BitmapRotation" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ColorManagementMode>{ L"Windows.Graphics.Imaging.ColorManagementMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ExifOrientationMode>{ L"Windows.Graphics.Imaging.ExifOrientationMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::JpegSubsamplingMode>{ L"Windows.Graphics.Imaging.JpegSubsamplingMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::PngFilterMode>{ L"Windows.Graphics.Imaging.PngFilterMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::TiffCompressionMode>{ L"Windows.Graphics.Imaging.TiffCompressionMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapBounds>{ L"Windows.Graphics.Imaging.BitmapBounds" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapPlaneDescription>{ L"Windows.Graphics.Imaging.BitmapPlaneDescription" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapSize>{ L"Windows.Graphics.Imaging.BitmapSize" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapBuffer>{ L"Windows.Graphics.Imaging.IBitmapBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapCodecInformation>{ L"Windows.Graphics.Imaging.IBitmapCodecInformation" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapDecoder>{ L"Windows.Graphics.Imaging.IBitmapDecoder" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapDecoderStatics>{ L"Windows.Graphics.Imaging.IBitmapDecoderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapDecoderStatics2>{ L"Windows.Graphics.Imaging.IBitmapDecoderStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapEncoder>{ L"Windows.Graphics.Imaging.IBitmapEncoder" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapEncoderStatics>{ L"Windows.Graphics.Imaging.IBitmapEncoderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapEncoderStatics2>{ L"Windows.Graphics.Imaging.IBitmapEncoderStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapEncoderWithSoftwareBitmap>{ L"Windows.Graphics.Imaging.IBitmapEncoderWithSoftwareBitmap" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapFrame>{ L"Windows.Graphics.Imaging.IBitmapFrame" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapFrameWithSoftwareBitmap>{ L"Windows.Graphics.Imaging.IBitmapFrameWithSoftwareBitmap" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapProperties>{ L"Windows.Graphics.Imaging.IBitmapProperties" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapPropertiesView>{ L"Windows.Graphics.Imaging.IBitmapPropertiesView" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapTransform>{ L"Windows.Graphics.Imaging.IBitmapTransform" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapTypedValue>{ L"Windows.Graphics.Imaging.IBitmapTypedValue" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapTypedValueFactory>{ L"Windows.Graphics.Imaging.IBitmapTypedValueFactory" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IPixelDataProvider>{ L"Windows.Graphics.Imaging.IPixelDataProvider" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ISoftwareBitmap>{ L"Windows.Graphics.Imaging.ISoftwareBitmap" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ISoftwareBitmapFactory>{ L"Windows.Graphics.Imaging.ISoftwareBitmapFactory" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ISoftwareBitmapStatics>{ L"Windows.Graphics.Imaging.ISoftwareBitmapStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapBuffer> = L"Windows.Graphics.Imaging.BitmapBuffer";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapCodecInformation> = L"Windows.Graphics.Imaging.BitmapCodecInformation";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapDecoder> = L"Windows.Graphics.Imaging.BitmapDecoder";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapEncoder> = L"Windows.Graphics.Imaging.BitmapEncoder";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapFrame> = L"Windows.Graphics.Imaging.BitmapFrame";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapProperties> = L"Windows.Graphics.Imaging.BitmapProperties";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapPropertiesView> = L"Windows.Graphics.Imaging.BitmapPropertiesView";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapPropertySet> = L"Windows.Graphics.Imaging.BitmapPropertySet";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapTransform> = L"Windows.Graphics.Imaging.BitmapTransform";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapTypedValue> = L"Windows.Graphics.Imaging.BitmapTypedValue";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ImageStream> = L"Windows.Graphics.Imaging.ImageStream";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::PixelDataProvider> = L"Windows.Graphics.Imaging.PixelDataProvider";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::SoftwareBitmap> = L"Windows.Graphics.Imaging.SoftwareBitmap";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapAlphaMode> = L"Windows.Graphics.Imaging.BitmapAlphaMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapBufferAccessMode> = L"Windows.Graphics.Imaging.BitmapBufferAccessMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapFlip> = L"Windows.Graphics.Imaging.BitmapFlip";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapInterpolationMode> = L"Windows.Graphics.Imaging.BitmapInterpolationMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapPixelFormat> = L"Windows.Graphics.Imaging.BitmapPixelFormat";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapRotation> = L"Windows.Graphics.Imaging.BitmapRotation";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ColorManagementMode> = L"Windows.Graphics.Imaging.ColorManagementMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ExifOrientationMode> = L"Windows.Graphics.Imaging.ExifOrientationMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::JpegSubsamplingMode> = L"Windows.Graphics.Imaging.JpegSubsamplingMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::PngFilterMode> = L"Windows.Graphics.Imaging.PngFilterMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::TiffCompressionMode> = L"Windows.Graphics.Imaging.TiffCompressionMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapBounds> = L"Windows.Graphics.Imaging.BitmapBounds";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapPlaneDescription> = L"Windows.Graphics.Imaging.BitmapPlaneDescription";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::BitmapSize> = L"Windows.Graphics.Imaging.BitmapSize";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapBuffer> = L"Windows.Graphics.Imaging.IBitmapBuffer";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapCodecInformation> = L"Windows.Graphics.Imaging.IBitmapCodecInformation";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapDecoder> = L"Windows.Graphics.Imaging.IBitmapDecoder";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapDecoderStatics> = L"Windows.Graphics.Imaging.IBitmapDecoderStatics";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapDecoderStatics2> = L"Windows.Graphics.Imaging.IBitmapDecoderStatics2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapEncoder> = L"Windows.Graphics.Imaging.IBitmapEncoder";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapEncoderStatics> = L"Windows.Graphics.Imaging.IBitmapEncoderStatics";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapEncoderStatics2> = L"Windows.Graphics.Imaging.IBitmapEncoderStatics2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapEncoderWithSoftwareBitmap> = L"Windows.Graphics.Imaging.IBitmapEncoderWithSoftwareBitmap";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapFrame> = L"Windows.Graphics.Imaging.IBitmapFrame";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapFrameWithSoftwareBitmap> = L"Windows.Graphics.Imaging.IBitmapFrameWithSoftwareBitmap";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapProperties> = L"Windows.Graphics.Imaging.IBitmapProperties";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapPropertiesView> = L"Windows.Graphics.Imaging.IBitmapPropertiesView";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapTransform> = L"Windows.Graphics.Imaging.IBitmapTransform";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapTypedValue> = L"Windows.Graphics.Imaging.IBitmapTypedValue";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IBitmapTypedValueFactory> = L"Windows.Graphics.Imaging.IBitmapTypedValueFactory";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::IPixelDataProvider> = L"Windows.Graphics.Imaging.IPixelDataProvider";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ISoftwareBitmap> = L"Windows.Graphics.Imaging.ISoftwareBitmap";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ISoftwareBitmapFactory> = L"Windows.Graphics.Imaging.ISoftwareBitmapFactory";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Imaging::ISoftwareBitmapStatics> = L"Windows.Graphics.Imaging.ISoftwareBitmapStatics";
     template <> inline constexpr guid guid_v<Windows::Graphics::Imaging::IBitmapBuffer>{ 0xA53E04C4,0x399C,0x438C,{ 0xB2,0x8F,0xA6,0x3A,0x6B,0x83,0xD1,0xA1 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Imaging::IBitmapCodecInformation>{ 0x400CAAF2,0xC4B0,0x4392,{ 0xA3,0xB0,0x6F,0x6F,0x9B,0xA9,0x5C,0xB4 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Imaging::IBitmapDecoder>{ 0xACEF22BA,0x1D74,0x4C91,{ 0x9D,0xFC,0x96,0x20,0x74,0x52,0x33,0xE6 } };
@@ -507,8 +507,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapBuffer
     {
-        auto GetPlaneCount() const;
-        auto GetPlaneDescription(int32_t index) const;
+        WINRT_IMPL_AUTO(int32_t) GetPlaneCount() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapPlaneDescription) GetPlaneDescription(int32_t index) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapBuffer>
     {
@@ -517,10 +517,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapCodecInformation
     {
-        [[nodiscard]] auto CodecId() const;
-        [[nodiscard]] auto FileExtensions() const;
-        [[nodiscard]] auto FriendlyName() const;
-        [[nodiscard]] auto MimeTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) CodecId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) FileExtensions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FriendlyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) MimeTypes() const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapCodecInformation>
     {
@@ -529,11 +529,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapDecoder
     {
-        [[nodiscard]] auto BitmapContainerProperties() const;
-        [[nodiscard]] auto DecoderInformation() const;
-        [[nodiscard]] auto FrameCount() const;
-        auto GetPreviewAsync() const;
-        auto GetFrameAsync(uint32_t frameIndex) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapPropertiesView) BitmapContainerProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapCodecInformation) DecoderInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) FrameCount() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::ImageStream>) GetPreviewAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::BitmapFrame>) GetFrameAsync(uint32_t frameIndex) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapDecoder>
     {
@@ -542,16 +542,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapDecoderStatics
     {
-        [[nodiscard]] auto BmpDecoderId() const;
-        [[nodiscard]] auto JpegDecoderId() const;
-        [[nodiscard]] auto PngDecoderId() const;
-        [[nodiscard]] auto TiffDecoderId() const;
-        [[nodiscard]] auto GifDecoderId() const;
-        [[nodiscard]] auto JpegXRDecoderId() const;
-        [[nodiscard]] auto IcoDecoderId() const;
-        auto GetDecoderInformationEnumerator() const;
-        auto CreateAsync(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
-        auto CreateAsync(winrt::guid const& decoderId, Windows::Storage::Streams::IRandomAccessStream const& stream) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) BmpDecoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) JpegDecoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) PngDecoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) TiffDecoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) GifDecoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) JpegXRDecoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) IcoDecoderId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Imaging::BitmapCodecInformation>) GetDecoderInformationEnumerator() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::BitmapDecoder>) CreateAsync(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::BitmapDecoder>) CreateAsync(winrt::guid const& decoderId, Windows::Storage::Streams::IRandomAccessStream const& stream) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapDecoderStatics>
     {
@@ -560,8 +560,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapDecoderStatics2
     {
-        [[nodiscard]] auto HeifDecoderId() const;
-        [[nodiscard]] auto WebpDecoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) HeifDecoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) WebpDecoderId() const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapDecoderStatics2>
     {
@@ -570,20 +570,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapEncoder
     {
-        [[nodiscard]] auto EncoderInformation() const;
-        [[nodiscard]] auto BitmapProperties() const;
-        [[nodiscard]] auto BitmapContainerProperties() const;
-        [[nodiscard]] auto IsThumbnailGenerated() const;
-        auto IsThumbnailGenerated(bool value) const;
-        [[nodiscard]] auto GeneratedThumbnailWidth() const;
-        auto GeneratedThumbnailWidth(uint32_t value) const;
-        [[nodiscard]] auto GeneratedThumbnailHeight() const;
-        auto GeneratedThumbnailHeight(uint32_t value) const;
-        [[nodiscard]] auto BitmapTransform() const;
-        auto SetPixelData(Windows::Graphics::Imaging::BitmapPixelFormat const& pixelFormat, Windows::Graphics::Imaging::BitmapAlphaMode const& alphaMode, uint32_t width, uint32_t height, double dpiX, double dpiY, array_view<uint8_t const> pixels) const;
-        auto GoToNextFrameAsync() const;
-        auto GoToNextFrameAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, Windows::Graphics::Imaging::BitmapTypedValue>> const& encodingOptions) const;
-        auto FlushAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapCodecInformation) EncoderInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapProperties) BitmapProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapProperties) BitmapContainerProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsThumbnailGenerated() const;
+        WINRT_IMPL_AUTO(void) IsThumbnailGenerated(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) GeneratedThumbnailWidth() const;
+        WINRT_IMPL_AUTO(void) GeneratedThumbnailWidth(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) GeneratedThumbnailHeight() const;
+        WINRT_IMPL_AUTO(void) GeneratedThumbnailHeight(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapTransform) BitmapTransform() const;
+        WINRT_IMPL_AUTO(void) SetPixelData(Windows::Graphics::Imaging::BitmapPixelFormat const& pixelFormat, Windows::Graphics::Imaging::BitmapAlphaMode const& alphaMode, uint32_t width, uint32_t height, double dpiX, double dpiY, array_view<uint8_t const> pixels) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) GoToNextFrameAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) GoToNextFrameAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, Windows::Graphics::Imaging::BitmapTypedValue>> const& encodingOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) FlushAsync() const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapEncoder>
     {
@@ -592,17 +592,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapEncoderStatics
     {
-        [[nodiscard]] auto BmpEncoderId() const;
-        [[nodiscard]] auto JpegEncoderId() const;
-        [[nodiscard]] auto PngEncoderId() const;
-        [[nodiscard]] auto TiffEncoderId() const;
-        [[nodiscard]] auto GifEncoderId() const;
-        [[nodiscard]] auto JpegXREncoderId() const;
-        auto GetEncoderInformationEnumerator() const;
-        auto CreateAsync(winrt::guid const& encoderId, Windows::Storage::Streams::IRandomAccessStream const& stream) const;
-        auto CreateAsync(winrt::guid const& encoderId, Windows::Storage::Streams::IRandomAccessStream const& stream, param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, Windows::Graphics::Imaging::BitmapTypedValue>> const& encodingOptions) const;
-        auto CreateForTranscodingAsync(Windows::Storage::Streams::IRandomAccessStream const& stream, Windows::Graphics::Imaging::BitmapDecoder const& bitmapDecoder) const;
-        auto CreateForInPlacePropertyEncodingAsync(Windows::Graphics::Imaging::BitmapDecoder const& bitmapDecoder) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) BmpEncoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) JpegEncoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) PngEncoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) TiffEncoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) GifEncoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) JpegXREncoderId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Imaging::BitmapCodecInformation>) GetEncoderInformationEnumerator() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::BitmapEncoder>) CreateAsync(winrt::guid const& encoderId, Windows::Storage::Streams::IRandomAccessStream const& stream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::BitmapEncoder>) CreateAsync(winrt::guid const& encoderId, Windows::Storage::Streams::IRandomAccessStream const& stream, param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, Windows::Graphics::Imaging::BitmapTypedValue>> const& encodingOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::BitmapEncoder>) CreateForTranscodingAsync(Windows::Storage::Streams::IRandomAccessStream const& stream, Windows::Graphics::Imaging::BitmapDecoder const& bitmapDecoder) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::BitmapEncoder>) CreateForInPlacePropertyEncodingAsync(Windows::Graphics::Imaging::BitmapDecoder const& bitmapDecoder) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapEncoderStatics>
     {
@@ -611,7 +611,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapEncoderStatics2
     {
-        [[nodiscard]] auto HeifEncoderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) HeifEncoderId() const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapEncoderStatics2>
     {
@@ -620,7 +620,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapEncoderWithSoftwareBitmap
     {
-        auto SetSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& bitmap) const;
+        WINRT_IMPL_AUTO(void) SetSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& bitmap) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapEncoderWithSoftwareBitmap>
     {
@@ -629,18 +629,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapFrame
     {
-        auto GetThumbnailAsync() const;
-        [[nodiscard]] auto BitmapProperties() const;
-        [[nodiscard]] auto BitmapPixelFormat() const;
-        [[nodiscard]] auto BitmapAlphaMode() const;
-        [[nodiscard]] auto DpiX() const;
-        [[nodiscard]] auto DpiY() const;
-        [[nodiscard]] auto PixelWidth() const;
-        [[nodiscard]] auto PixelHeight() const;
-        [[nodiscard]] auto OrientedPixelWidth() const;
-        [[nodiscard]] auto OrientedPixelHeight() const;
-        auto GetPixelDataAsync() const;
-        auto GetPixelDataAsync(Windows::Graphics::Imaging::BitmapPixelFormat const& pixelFormat, Windows::Graphics::Imaging::BitmapAlphaMode const& alphaMode, Windows::Graphics::Imaging::BitmapTransform const& transform, Windows::Graphics::Imaging::ExifOrientationMode const& exifOrientationMode, Windows::Graphics::Imaging::ColorManagementMode const& colorManagementMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::ImageStream>) GetThumbnailAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapPropertiesView) BitmapProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapPixelFormat) BitmapPixelFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapAlphaMode) BitmapAlphaMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DpiX() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DpiY() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PixelWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PixelHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) OrientedPixelWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) OrientedPixelHeight() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::PixelDataProvider>) GetPixelDataAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::PixelDataProvider>) GetPixelDataAsync(Windows::Graphics::Imaging::BitmapPixelFormat const& pixelFormat, Windows::Graphics::Imaging::BitmapAlphaMode const& alphaMode, Windows::Graphics::Imaging::BitmapTransform const& transform, Windows::Graphics::Imaging::ExifOrientationMode const& exifOrientationMode, Windows::Graphics::Imaging::ColorManagementMode const& colorManagementMode) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapFrame>
     {
@@ -649,9 +649,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapFrameWithSoftwareBitmap
     {
-        auto GetSoftwareBitmapAsync() const;
-        auto GetSoftwareBitmapAsync(Windows::Graphics::Imaging::BitmapPixelFormat const& pixelFormat, Windows::Graphics::Imaging::BitmapAlphaMode const& alphaMode) const;
-        auto GetSoftwareBitmapAsync(Windows::Graphics::Imaging::BitmapPixelFormat const& pixelFormat, Windows::Graphics::Imaging::BitmapAlphaMode const& alphaMode, Windows::Graphics::Imaging::BitmapTransform const& transform, Windows::Graphics::Imaging::ExifOrientationMode const& exifOrientationMode, Windows::Graphics::Imaging::ColorManagementMode const& colorManagementMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::SoftwareBitmap>) GetSoftwareBitmapAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::SoftwareBitmap>) GetSoftwareBitmapAsync(Windows::Graphics::Imaging::BitmapPixelFormat const& pixelFormat, Windows::Graphics::Imaging::BitmapAlphaMode const& alphaMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::SoftwareBitmap>) GetSoftwareBitmapAsync(Windows::Graphics::Imaging::BitmapPixelFormat const& pixelFormat, Windows::Graphics::Imaging::BitmapAlphaMode const& alphaMode, Windows::Graphics::Imaging::BitmapTransform const& transform, Windows::Graphics::Imaging::ExifOrientationMode const& exifOrientationMode, Windows::Graphics::Imaging::ColorManagementMode const& colorManagementMode) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapFrameWithSoftwareBitmap>
     {
@@ -660,7 +660,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapProperties
     {
-        auto SetPropertiesAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, Windows::Graphics::Imaging::BitmapTypedValue>> const& propertiesToSet) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetPropertiesAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, Windows::Graphics::Imaging::BitmapTypedValue>> const& propertiesToSet) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapProperties>
     {
@@ -669,7 +669,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapPropertiesView
     {
-        auto GetPropertiesAsync(param::async_iterable<hstring> const& propertiesToRetrieve) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::BitmapPropertySet>) GetPropertiesAsync(param::async_iterable<hstring> const& propertiesToRetrieve) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapPropertiesView>
     {
@@ -678,18 +678,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapTransform
     {
-        [[nodiscard]] auto ScaledWidth() const;
-        auto ScaledWidth(uint32_t value) const;
-        [[nodiscard]] auto ScaledHeight() const;
-        auto ScaledHeight(uint32_t value) const;
-        [[nodiscard]] auto InterpolationMode() const;
-        auto InterpolationMode(Windows::Graphics::Imaging::BitmapInterpolationMode const& value) const;
-        [[nodiscard]] auto Flip() const;
-        auto Flip(Windows::Graphics::Imaging::BitmapFlip const& value) const;
-        [[nodiscard]] auto Rotation() const;
-        auto Rotation(Windows::Graphics::Imaging::BitmapRotation const& value) const;
-        [[nodiscard]] auto Bounds() const;
-        auto Bounds(Windows::Graphics::Imaging::BitmapBounds const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ScaledWidth() const;
+        WINRT_IMPL_AUTO(void) ScaledWidth(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ScaledHeight() const;
+        WINRT_IMPL_AUTO(void) ScaledHeight(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapInterpolationMode) InterpolationMode() const;
+        WINRT_IMPL_AUTO(void) InterpolationMode(Windows::Graphics::Imaging::BitmapInterpolationMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapFlip) Flip() const;
+        WINRT_IMPL_AUTO(void) Flip(Windows::Graphics::Imaging::BitmapFlip const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapRotation) Rotation() const;
+        WINRT_IMPL_AUTO(void) Rotation(Windows::Graphics::Imaging::BitmapRotation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapBounds) Bounds() const;
+        WINRT_IMPL_AUTO(void) Bounds(Windows::Graphics::Imaging::BitmapBounds const& value) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapTransform>
     {
@@ -698,8 +698,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapTypedValue
     {
-        [[nodiscard]] auto Value() const;
-        [[nodiscard]] auto Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::PropertyType) Type() const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapTypedValue>
     {
@@ -708,7 +708,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IBitmapTypedValueFactory
     {
-        auto Create(Windows::Foundation::IInspectable const& value, Windows::Foundation::PropertyType const& type) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapTypedValue) Create(Windows::Foundation::IInspectable const& value, Windows::Foundation::PropertyType const& type) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IBitmapTypedValueFactory>
     {
@@ -717,7 +717,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_IPixelDataProvider
     {
-        auto DetachPixelData() const;
+        WINRT_IMPL_AUTO(com_array<uint8_t>) DetachPixelData() const;
     };
     template <> struct consume<Windows::Graphics::Imaging::IPixelDataProvider>
     {
@@ -726,20 +726,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_ISoftwareBitmap
     {
-        [[nodiscard]] auto BitmapPixelFormat() const;
-        [[nodiscard]] auto BitmapAlphaMode() const;
-        [[nodiscard]] auto PixelWidth() const;
-        [[nodiscard]] auto PixelHeight() const;
-        [[nodiscard]] auto IsReadOnly() const;
-        auto DpiX(double value) const;
-        [[nodiscard]] auto DpiX() const;
-        auto DpiY(double value) const;
-        [[nodiscard]] auto DpiY() const;
-        auto LockBuffer(Windows::Graphics::Imaging::BitmapBufferAccessMode const& mode) const;
-        auto CopyTo(Windows::Graphics::Imaging::SoftwareBitmap const& bitmap) const;
-        auto CopyFromBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto CopyToBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto GetReadOnlyView() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapPixelFormat) BitmapPixelFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapAlphaMode) BitmapAlphaMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PixelWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PixelHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReadOnly() const;
+        WINRT_IMPL_AUTO(void) DpiX(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DpiX() const;
+        WINRT_IMPL_AUTO(void) DpiY(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DpiY() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapBuffer) LockBuffer(Windows::Graphics::Imaging::BitmapBufferAccessMode const& mode) const;
+        WINRT_IMPL_AUTO(void) CopyTo(Windows::Graphics::Imaging::SoftwareBitmap const& bitmap) const;
+        WINRT_IMPL_AUTO(void) CopyFromBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(void) CopyToBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) GetReadOnlyView() const;
     };
     template <> struct consume<Windows::Graphics::Imaging::ISoftwareBitmap>
     {
@@ -748,8 +748,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_ISoftwareBitmapFactory
     {
-        auto Create(Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height) const;
-        auto CreateWithAlpha(Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) Create(Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) CreateWithAlpha(Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::ISoftwareBitmapFactory>
     {
@@ -758,13 +758,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Imaging_ISoftwareBitmapStatics
     {
-        auto Copy(Windows::Graphics::Imaging::SoftwareBitmap const& source) const;
-        auto Convert(Windows::Graphics::Imaging::SoftwareBitmap const& source, Windows::Graphics::Imaging::BitmapPixelFormat const& format) const;
-        auto Convert(Windows::Graphics::Imaging::SoftwareBitmap const& source, Windows::Graphics::Imaging::BitmapPixelFormat const& format, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
-        auto CreateCopyFromBuffer(Windows::Storage::Streams::IBuffer const& source, Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height) const;
-        auto CreateCopyFromBuffer(Windows::Storage::Streams::IBuffer const& source, Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
-        auto CreateCopyFromSurfaceAsync(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface) const;
-        auto CreateCopyFromSurfaceAsync(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) Copy(Windows::Graphics::Imaging::SoftwareBitmap const& source) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) Convert(Windows::Graphics::Imaging::SoftwareBitmap const& source, Windows::Graphics::Imaging::BitmapPixelFormat const& format) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) Convert(Windows::Graphics::Imaging::SoftwareBitmap const& source, Windows::Graphics::Imaging::BitmapPixelFormat const& format, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) CreateCopyFromBuffer(Windows::Storage::Streams::IBuffer const& source, Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) CreateCopyFromBuffer(Windows::Storage::Streams::IBuffer const& source, Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::SoftwareBitmap>) CreateCopyFromSurfaceAsync(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Imaging::SoftwareBitmap>) CreateCopyFromSurfaceAsync(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
     };
     template <> struct consume<Windows::Graphics::Imaging::ISoftwareBitmapStatics>
     {

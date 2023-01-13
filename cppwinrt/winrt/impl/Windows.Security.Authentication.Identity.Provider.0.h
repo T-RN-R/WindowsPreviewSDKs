@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,6 +10,11 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -171,37 +176,35 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorFinishAuthenticationStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistrationStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthentication>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationResult>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageInfo>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageInfo" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorInfo>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistration>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistrationResult>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationMessage>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationScenario>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationScenario" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStage>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStage" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStatus>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDeviceCapabilities>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDeviceFindScope>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresence>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresence" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringMode>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorFinishAuthenticationStatus>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorFinishAuthenticationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistrationStatus>{ L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthentication>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthentication" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationResult>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStageInfo>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStatics>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorInfo>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorInfo2>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistration>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistrationResult>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistrationStatics>{ L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthentication> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationResult> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageInfo> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageInfo";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorInfo> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistration> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistrationResult> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationMessage> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationMessage";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationScenario> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationScenario";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStage> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStage";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStatus> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDeviceCapabilities> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDeviceFindScope> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDeviceFindScope";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresence> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresence";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringMode> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringMode";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorFinishAuthenticationStatus> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorFinishAuthenticationStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistrationStatus> = L"Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthentication> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthentication";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationResult> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStageInfo> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStageInfo";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStatics> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorInfo> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorInfo2> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorInfo2";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistration> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistration";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistrationResult> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistrationStatics> = L"Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationStatics";
     template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthentication>{ 0x020A16E5,0x6A25,0x40A3,{ 0x8C,0x00,0x50,0xA0,0x23,0xF6,0x19,0xD1 } };
     template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationResult>{ 0x9CBB5987,0xEF6D,0x4BC2,{ 0xBF,0x49,0x46,0x17,0x51,0x5A,0x0F,0x9A } };
     template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>{ 0xD4A5EE56,0x7291,0x4073,{ 0xBC,0x1F,0xCC,0xB8,0xF5,0xAF,0xDF,0x96 } };
@@ -325,12 +328,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorAuthentication
     {
-        [[nodiscard]] auto ServiceAuthenticationHmac() const;
-        [[nodiscard]] auto SessionNonce() const;
-        [[nodiscard]] auto DeviceNonce() const;
-        [[nodiscard]] auto DeviceConfigurationData() const;
-        auto FinishAuthenticationAsync(Windows::Storage::Streams::IBuffer const& deviceHmac, Windows::Storage::Streams::IBuffer const& sessionHmac) const;
-        auto AbortAuthenticationAsync(param::hstring const& errorLogMessage) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ServiceAuthenticationHmac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) SessionNonce() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DeviceNonce() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DeviceConfigurationData() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorFinishAuthenticationStatus>) FinishAuthenticationAsync(Windows::Storage::Streams::IBuffer const& deviceHmac, Windows::Storage::Streams::IBuffer const& sessionHmac) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) AbortAuthenticationAsync(param::hstring const& errorLogMessage) const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthentication>
     {
@@ -339,8 +342,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorAuthenticationResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Authentication() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthentication) Authentication() const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationResult>
     {
@@ -349,7 +352,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs
     {
-        [[nodiscard]] auto StageInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageInfo) StageInfo() const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>
     {
@@ -358,9 +361,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorAuthenticationStageInfo
     {
-        [[nodiscard]] auto Stage() const;
-        [[nodiscard]] auto Scenario() const;
-        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStage) Stage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationScenario) Scenario() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStageInfo>
     {
@@ -369,13 +372,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorAuthenticationStatics
     {
-        auto ShowNotificationMessageAsync(param::hstring const& deviceName, Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationMessage const& message) const;
-        auto StartAuthenticationAsync(param::hstring const& deviceId, Windows::Storage::Streams::IBuffer const& serviceAuthenticationNonce) const;
-        auto AuthenticationStageChanged(Windows::Foundation::EventHandler<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowNotificationMessageAsync(param::hstring const& deviceName, Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationMessage const& message) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationResult>) StartAuthenticationAsync(param::hstring const& deviceId, Windows::Storage::Streams::IBuffer const& serviceAuthenticationNonce) const;
+        WINRT_IMPL_AUTO(winrt::event_token) AuthenticationStageChanged(Windows::Foundation::EventHandler<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> const& handler) const;
         using AuthenticationStageChanged_revoker = impl::event_revoker<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStatics, &impl::abi_t<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStatics>::remove_AuthenticationStageChanged>;
         [[nodiscard]] AuthenticationStageChanged_revoker AuthenticationStageChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs> const& handler) const;
-        auto AuthenticationStageChanged(winrt::event_token const& token) const noexcept;
-        auto GetAuthenticationStageInfoAsync() const;
+        WINRT_IMPL_AUTO(void) AuthenticationStageChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorAuthenticationStageInfo>) GetAuthenticationStageInfoAsync() const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorAuthenticationStatics>
     {
@@ -384,10 +387,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics
     {
-        auto RegisterDevicePresenceMonitoringAsync(param::hstring const& deviceId, param::hstring const& deviceInstancePath, Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringMode const& monitoringMode) const;
-        auto RegisterDevicePresenceMonitoringAsync(param::hstring const& deviceId, param::hstring const& deviceInstancePath, Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringMode const& monitoringMode, param::hstring const& deviceFriendlyName, param::hstring const& deviceModelNumber, Windows::Storage::Streams::IBuffer const& deviceConfigurationData) const;
-        auto UnregisterDevicePresenceMonitoringAsync(param::hstring const& deviceId) const;
-        auto IsDevicePresenceMonitoringSupported() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>) RegisterDevicePresenceMonitoringAsync(param::hstring const& deviceId, param::hstring const& deviceInstancePath, Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringMode const& monitoringMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>) RegisterDevicePresenceMonitoringAsync(param::hstring const& deviceId, param::hstring const& deviceInstancePath, Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringMode const& monitoringMode, param::hstring const& deviceFriendlyName, param::hstring const& deviceModelNumber, Windows::Storage::Streams::IBuffer const& deviceConfigurationData) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UnregisterDevicePresenceMonitoringAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(bool) IsDevicePresenceMonitoringSupported() const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics>
     {
@@ -396,10 +399,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorInfo
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto DeviceFriendlyName() const;
-        [[nodiscard]] auto DeviceModelNumber() const;
-        [[nodiscard]] auto DeviceConfigurationData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceFriendlyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceModelNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DeviceConfigurationData() const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorInfo>
     {
@@ -408,9 +411,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorInfo2
     {
-        [[nodiscard]] auto PresenceMonitoringMode() const;
-        auto UpdateDevicePresenceAsync(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresence const& presenceState) const;
-        [[nodiscard]] auto IsAuthenticationSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresenceMonitoringMode) PresenceMonitoringMode() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UpdateDevicePresenceAsync(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDevicePresence const& presenceState) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAuthenticationSupported() const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorInfo2>
     {
@@ -419,8 +422,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorRegistration
     {
-        auto FinishRegisteringDeviceAsync(Windows::Storage::Streams::IBuffer const& deviceConfigurationData) const;
-        auto AbortRegisteringDeviceAsync(param::hstring const& errorLogMessage) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) FinishRegisteringDeviceAsync(Windows::Storage::Streams::IBuffer const& deviceConfigurationData) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) AbortRegisteringDeviceAsync(param::hstring const& errorLogMessage) const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistration>
     {
@@ -429,8 +432,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorRegistrationResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Registration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistrationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistration) Registration() const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistrationResult>
     {
@@ -439,10 +442,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Authentication_Identity_Provider_ISecondaryAuthenticationFactorRegistrationStatics
     {
-        auto RequestStartRegisteringDeviceAsync(param::hstring const& deviceId, Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDeviceCapabilities const& capabilities, param::hstring const& deviceFriendlyName, param::hstring const& deviceModelNumber, Windows::Storage::Streams::IBuffer const& deviceKey, Windows::Storage::Streams::IBuffer const& mutualAuthenticationKey) const;
-        auto FindAllRegisteredDeviceInfoAsync(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDeviceFindScope const& queryType) const;
-        auto UnregisterDeviceAsync(param::hstring const& deviceId) const;
-        auto UpdateDeviceConfigurationDataAsync(param::hstring const& deviceId, Windows::Storage::Streams::IBuffer const& deviceConfigurationData) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorRegistrationResult>) RequestStartRegisteringDeviceAsync(param::hstring const& deviceId, Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDeviceCapabilities const& capabilities, param::hstring const& deviceFriendlyName, param::hstring const& deviceModelNumber, Windows::Storage::Streams::IBuffer const& deviceKey, Windows::Storage::Streams::IBuffer const& mutualAuthenticationKey) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorInfo>>) FindAllRegisteredDeviceInfoAsync(Windows::Security::Authentication::Identity::Provider::SecondaryAuthenticationFactorDeviceFindScope const& queryType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UnregisterDeviceAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UpdateDeviceConfigurationDataAsync(param::hstring const& deviceId, Windows::Storage::Streams::IBuffer const& deviceConfigurationData) const;
     };
     template <> struct consume<Windows::Security::Authentication::Identity::Provider::ISecondaryAuthenticationFactorRegistrationStatics>
     {

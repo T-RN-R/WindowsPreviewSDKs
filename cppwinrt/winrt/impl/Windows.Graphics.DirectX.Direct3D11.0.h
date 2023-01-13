@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -44,14 +44,12 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::DirectX::Direct3D11::Direct3DUsage>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>{ using type = struct_category<int32_t, int32_t>; };
     template <> struct category<Windows::Graphics::DirectX::Direct3D11::Direct3DSurfaceDescription>{ using type = struct_category<int32_t, int32_t, Windows::Graphics::DirectX::DirectXPixelFormat, Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>; };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DBindings>{ L"Windows.Graphics.DirectX.Direct3D11.Direct3DBindings" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DUsage>{ L"Windows.Graphics.DirectX.Direct3D11.Direct3DUsage" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>{ L"Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DSurfaceDescription>{ L"Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice>{ L"Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface>{ L"Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DBindings> = L"Windows.Graphics.DirectX.Direct3D11.Direct3DBindings";
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DUsage> = L"Windows.Graphics.DirectX.Direct3D11.Direct3DUsage";
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription> = L"Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription";
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DSurfaceDescription> = L"Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription";
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice> = L"Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice";
+    template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface> = L"Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface";
     template <> inline constexpr guid guid_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice>{ 0xA37624AB,0x8D5F,0x4650,{ 0x9D,0x3E,0x9E,0xAE,0x3D,0x9B,0xC6,0x70 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface>{ 0x0BF4A146,0x13C1,0x4694,{ 0xBE,0xE3,0x7A,0xBF,0x15,0xEA,0xF5,0x86 } };
     template <> struct abi<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice>
@@ -71,7 +69,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_DirectX_Direct3D11_IDirect3DDevice
     {
-        auto Trim() const;
+        WINRT_IMPL_AUTO(void) Trim() const;
     };
     template <> struct consume<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice>
     {
@@ -80,7 +78,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_DirectX_Direct3D11_IDirect3DSurface
     {
-        [[nodiscard]] auto Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::Direct3DSurfaceDescription) Description() const;
     };
     template <> struct consume<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface>
     {

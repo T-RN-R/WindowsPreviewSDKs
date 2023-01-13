@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -18,10 +18,8 @@ namespace winrt::impl
 {
     template <> struct category<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics>{ using type = interface_category; };
     template <> struct category<Windows::Gaming::Input::Preview::GameControllerProviderInfo>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::Preview::GameControllerProviderInfo>{ L"Windows.Gaming.Input.Preview.GameControllerProviderInfo" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics>{ L"Windows.Gaming.Input.Preview.IGameControllerProviderInfoStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::Preview::GameControllerProviderInfo> = L"Windows.Gaming.Input.Preview.GameControllerProviderInfo";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics> = L"Windows.Gaming.Input.Preview.IGameControllerProviderInfoStatics";
     template <> inline constexpr guid guid_v<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics>{ 0x0BE1E6C5,0xD9BD,0x44EE,{ 0x83,0x62,0x48,0x8B,0x2E,0x46,0x4B,0xFB } };
     template <> struct abi<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics>
     {
@@ -34,8 +32,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_Preview_IGameControllerProviderInfoStatics
     {
-        auto GetParentProviderId(Windows::Gaming::Input::Custom::IGameControllerProvider const& provider) const;
-        auto GetProviderId(Windows::Gaming::Input::Custom::IGameControllerProvider const& provider) const;
+        WINRT_IMPL_AUTO(hstring) GetParentProviderId(Windows::Gaming::Input::Custom::IGameControllerProvider const& provider) const;
+        WINRT_IMPL_AUTO(hstring) GetProviderId(Windows::Gaming::Input::Custom::IGameControllerProvider const& provider) const;
     };
     template <> struct consume<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics>
     {

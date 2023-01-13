@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,11 +10,17 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct Deferral;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     struct Point;
     struct Rect;
     struct Size;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -26,6 +32,10 @@ WINRT_EXPORT namespace winrt::Windows::UI
     struct UIContentRoot;
     struct UIContext;
     struct WindowReference;
+}
+WINRT_EXPORT namespace winrt::Windows::UI::Composition
+{
+    struct IVisualElement;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
 {
@@ -57,13 +67,14 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         Default = 0,
         AlwaysHidden = 1,
     };
-    enum class VisibilityChangedDetails : int32_t
+    enum class VisibilityDetails : int32_t
     {
         Unknown = 0,
         Visible = 1,
         HiddenBySystem = 2,
         HiddenByApp = 3,
-        Minimized = 4,
+        MinimizedBySystem = 4,
+        MinimizedByApp = 5,
     };
     enum class WindowVisibilityState : int32_t
     {
@@ -81,7 +92,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
     struct IAppWindow2;
     struct IAppWindowChangedEventArgs;
     struct IAppWindowChangedEventArgs2;
-    struct IAppWindowChangedEventArgs22;
     struct IAppWindowCloseRequestedEventArgs;
     struct IAppWindowClosedEventArgs;
     struct IAppWindowFrame;
@@ -133,7 +143,6 @@ namespace winrt::impl
     template <> struct category<Windows::UI::WindowManagement::IAppWindow2>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>{ using type = interface_category; };
-    template <> struct category<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowFrame>{ using type = interface_category; };
@@ -183,73 +192,69 @@ namespace winrt::impl
     template <> struct category<Windows::UI::WindowManagement::AppWindowPresentationKind>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::AppWindowShowOptions>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::AppWindowTitleBarVisibility>{ using type = enum_category; };
-    template <> struct category<Windows::UI::WindowManagement::VisibilityChangedDetails>{ using type = enum_category; };
+    template <> struct category<Windows::UI::WindowManagement::VisibilityDetails>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::WindowVisibilityState>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::WindowingEnvironmentKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindow>{ L"Windows.UI.WindowManagement.AppWindow" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowChangedEventArgs>{ L"Windows.UI.WindowManagement.AppWindowChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs>{ L"Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowClosedEventArgs>{ L"Windows.UI.WindowManagement.AppWindowClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowFrame>{ L"Windows.UI.WindowManagement.AppWindowFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPlacement>{ L"Windows.UI.WindowManagement.AppWindowPlacement" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPresentationConfiguration>{ L"Windows.UI.WindowManagement.AppWindowPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPresenter>{ L"Windows.UI.WindowManagement.AppWindowPresenter" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowTitleBar>{ L"Windows.UI.WindowManagement.AppWindowTitleBar" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowTitleBarOcclusion>{ L"Windows.UI.WindowManagement.AppWindowTitleBarOcclusion" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::CompactOverlayPresentationConfiguration>{ L"Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::DefaultPresentationConfiguration>{ L"Windows.UI.WindowManagement.DefaultPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::DisplayRegion>{ L"Windows.UI.WindowManagement.DisplayRegion" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::FullScreenPresentationConfiguration>{ L"Windows.UI.WindowManagement.FullScreenPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::SpanningPresentationConfiguration>{ L"Windows.UI.WindowManagement.SpanningPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowInformation>{ L"Windows.UI.WindowManagement.WindowInformation" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironment>{ L"Windows.UI.WindowManagement.WindowingEnvironment" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentAddedEventArgs>{ L"Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs>{ L"Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentRemovedEventArgs>{ L"Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowClosedReason>{ L"Windows.UI.WindowManagement.AppWindowClosedReason" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowFrameStyle>{ L"Windows.UI.WindowManagement.AppWindowFrameStyle" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPresentationKind>{ L"Windows.UI.WindowManagement.AppWindowPresentationKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowShowOptions>{ L"Windows.UI.WindowManagement.AppWindowShowOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowTitleBarVisibility>{ L"Windows.UI.WindowManagement.AppWindowTitleBarVisibility" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::VisibilityChangedDetails>{ L"Windows.UI.WindowManagement.VisibilityChangedDetails" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowVisibilityState>{ L"Windows.UI.WindowManagement.WindowVisibilityState" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentKind>{ L"Windows.UI.WindowManagement.WindowingEnvironmentKind" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindow>{ L"Windows.UI.WindowManagement.IAppWindow" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindow2>{ L"Windows.UI.WindowManagement.IAppWindow2" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>{ L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>{ L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>{ L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs22" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>{ L"Windows.UI.WindowManagement.IAppWindowCloseRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>{ L"Windows.UI.WindowManagement.IAppWindowClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowFrame>{ L"Windows.UI.WindowManagement.IAppWindowFrame" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowFrameStyle>{ L"Windows.UI.WindowManagement.IAppWindowFrameStyle" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowPlacement>{ L"Windows.UI.WindowManagement.IAppWindowPlacement" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowPresentationConfiguration>{ L"Windows.UI.WindowManagement.IAppWindowPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowPresentationConfigurationFactory>{ L"Windows.UI.WindowManagement.IAppWindowPresentationConfigurationFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowPresenter>{ L"Windows.UI.WindowManagement.IAppWindowPresenter" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowStatics>{ L"Windows.UI.WindowManagement.IAppWindowStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowTitleBar>{ L"Windows.UI.WindowManagement.IAppWindowTitleBar" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion>{ L"Windows.UI.WindowManagement.IAppWindowTitleBarOcclusion" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowTitleBarVisibility>{ L"Windows.UI.WindowManagement.IAppWindowTitleBarVisibility" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::ICompactOverlayPresentationConfiguration>{ L"Windows.UI.WindowManagement.ICompactOverlayPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IDefaultPresentationConfiguration>{ L"Windows.UI.WindowManagement.IDefaultPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IDisplayRegion>{ L"Windows.UI.WindowManagement.IDisplayRegion" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IFullScreenPresentationConfiguration>{ L"Windows.UI.WindowManagement.IFullScreenPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::ISpanningPresentationConfiguration>{ L"Windows.UI.WindowManagement.ISpanningPresentationConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowInformation>{ L"Windows.UI.WindowManagement.IWindowInformation" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowInformationStatics>{ L"Windows.UI.WindowManagement.IWindowInformationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironment>{ L"Windows.UI.WindowManagement.IWindowingEnvironment" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs>{ L"Windows.UI.WindowManagement.IWindowingEnvironmentAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs>{ L"Windows.UI.WindowManagement.IWindowingEnvironmentChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs>{ L"Windows.UI.WindowManagement.IWindowingEnvironmentRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentStatics>{ L"Windows.UI.WindowManagement.IWindowingEnvironmentStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindow> = L"Windows.UI.WindowManagement.AppWindow";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowChangedEventArgs> = L"Windows.UI.WindowManagement.AppWindowChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> = L"Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowClosedEventArgs> = L"Windows.UI.WindowManagement.AppWindowClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowFrame> = L"Windows.UI.WindowManagement.AppWindowFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPlacement> = L"Windows.UI.WindowManagement.AppWindowPlacement";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPresentationConfiguration> = L"Windows.UI.WindowManagement.AppWindowPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPresenter> = L"Windows.UI.WindowManagement.AppWindowPresenter";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowTitleBar> = L"Windows.UI.WindowManagement.AppWindowTitleBar";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowTitleBarOcclusion> = L"Windows.UI.WindowManagement.AppWindowTitleBarOcclusion";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::CompactOverlayPresentationConfiguration> = L"Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::DefaultPresentationConfiguration> = L"Windows.UI.WindowManagement.DefaultPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::DisplayRegion> = L"Windows.UI.WindowManagement.DisplayRegion";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::FullScreenPresentationConfiguration> = L"Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::SpanningPresentationConfiguration> = L"Windows.UI.WindowManagement.SpanningPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowInformation> = L"Windows.UI.WindowManagement.WindowInformation";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironment> = L"Windows.UI.WindowManagement.WindowingEnvironment";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentAddedEventArgs> = L"Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> = L"Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentRemovedEventArgs> = L"Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowClosedReason> = L"Windows.UI.WindowManagement.AppWindowClosedReason";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowFrameStyle> = L"Windows.UI.WindowManagement.AppWindowFrameStyle";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPresentationKind> = L"Windows.UI.WindowManagement.AppWindowPresentationKind";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowShowOptions> = L"Windows.UI.WindowManagement.AppWindowShowOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowTitleBarVisibility> = L"Windows.UI.WindowManagement.AppWindowTitleBarVisibility";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::VisibilityDetails> = L"Windows.UI.WindowManagement.VisibilityDetails";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowVisibilityState> = L"Windows.UI.WindowManagement.WindowVisibilityState";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentKind> = L"Windows.UI.WindowManagement.WindowingEnvironmentKind";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindow> = L"Windows.UI.WindowManagement.IAppWindow";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindow2> = L"Windows.UI.WindowManagement.IAppWindow2";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs> = L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2> = L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs> = L"Windows.UI.WindowManagement.IAppWindowCloseRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowClosedEventArgs> = L"Windows.UI.WindowManagement.IAppWindowClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowFrame> = L"Windows.UI.WindowManagement.IAppWindowFrame";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowFrameStyle> = L"Windows.UI.WindowManagement.IAppWindowFrameStyle";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowPlacement> = L"Windows.UI.WindowManagement.IAppWindowPlacement";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowPresentationConfiguration> = L"Windows.UI.WindowManagement.IAppWindowPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowPresentationConfigurationFactory> = L"Windows.UI.WindowManagement.IAppWindowPresentationConfigurationFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowPresenter> = L"Windows.UI.WindowManagement.IAppWindowPresenter";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowStatics> = L"Windows.UI.WindowManagement.IAppWindowStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowTitleBar> = L"Windows.UI.WindowManagement.IAppWindowTitleBar";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion> = L"Windows.UI.WindowManagement.IAppWindowTitleBarOcclusion";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowTitleBarVisibility> = L"Windows.UI.WindowManagement.IAppWindowTitleBarVisibility";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::ICompactOverlayPresentationConfiguration> = L"Windows.UI.WindowManagement.ICompactOverlayPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IDefaultPresentationConfiguration> = L"Windows.UI.WindowManagement.IDefaultPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IDisplayRegion> = L"Windows.UI.WindowManagement.IDisplayRegion";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IFullScreenPresentationConfiguration> = L"Windows.UI.WindowManagement.IFullScreenPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::ISpanningPresentationConfiguration> = L"Windows.UI.WindowManagement.ISpanningPresentationConfiguration";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowInformation> = L"Windows.UI.WindowManagement.IWindowInformation";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowInformationStatics> = L"Windows.UI.WindowManagement.IWindowInformationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironment> = L"Windows.UI.WindowManagement.IWindowingEnvironment";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs> = L"Windows.UI.WindowManagement.IWindowingEnvironmentAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs> = L"Windows.UI.WindowManagement.IWindowingEnvironmentChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs> = L"Windows.UI.WindowManagement.IWindowingEnvironmentRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentStatics> = L"Windows.UI.WindowManagement.IWindowingEnvironmentStatics";
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindow>{ 0x663014A6,0xB75E,0x5DBD,{ 0x99,0x5C,0xF0,0x11,0x7F,0xA3,0xFB,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindow2>{ 0x06B045F1,0xFB8D,0x5587,{ 0x9D,0x5F,0xC4,0x92,0x75,0x22,0xB1,0x4B } };
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindow2>{ 0x27245398,0x5E04,0x5269,{ 0x9E,0x33,0x5B,0x1E,0x96,0x59,0x3C,0x45 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>{ 0x1DE1F3BE,0xA655,0x55AD,{ 0xB2,0xB6,0xEB,0x24,0x0F,0x88,0x03,0x56 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>{ 0x77071B54,0x3E18,0x520B,{ 0xA9,0x5D,0x55,0xD7,0xB5,0xCB,0x97,0x40 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>{ 0x54D35696,0xACFF,0x5BCD,{ 0x93,0xE9,0x49,0xEB,0x5D,0xBC,0x61,0x73 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>{ 0xE9FF01DA,0xE7A2,0x57A8,{ 0x8B,0x5E,0x39,0xC4,0x00,0x3A,0xFD,0xBB } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>{ 0xCC7DF816,0x9520,0x5A06,{ 0x82,0x1E,0x45,0x6A,0xD8,0xB3,0x58,0xAA } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowFrame>{ 0x9EE22601,0x7E5D,0x52AF,{ 0x84,0x6B,0x01,0xDC,0x6C,0x29,0x65,0x67 } };
@@ -334,7 +339,6 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_WindowReference(void**) noexcept = 0;
-            virtual int32_t __stdcall TryHide(bool) noexcept = 0;
             virtual int32_t __stdcall TryShowAsync(uint32_t, void**) noexcept = 0;
             virtual int32_t __stdcall TryShowAsync2(uint32_t, void*, void**) noexcept = 0;
         };
@@ -358,13 +362,6 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_DidOffsetChange(bool*) noexcept = 0;
-        };
-    };
-    template <> struct abi<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>
-    {
-        struct __declspec(novtable) type : inspectable_abi
-        {
-            virtual int32_t __stdcall get_VisibilityChangedDetails(int32_t*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>
@@ -585,41 +582,41 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindow
     {
-        [[nodiscard]] auto Content() const;
-        [[nodiscard]] auto DispatcherQueue() const;
-        [[nodiscard]] auto Frame() const;
-        [[nodiscard]] auto IsVisible() const;
-        [[nodiscard]] auto PersistedStateId() const;
-        auto PersistedStateId(param::hstring const& value) const;
-        [[nodiscard]] auto Presenter() const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto TitleBar() const;
-        [[nodiscard]] auto UIContext() const;
-        [[nodiscard]] auto WindowingEnvironment() const;
-        auto CloseAsync() const;
-        auto GetPlacement() const;
-        auto GetDisplayRegions() const;
-        auto RequestMoveToDisplayRegion(Windows::UI::WindowManagement::DisplayRegion const& displayRegion) const;
-        auto RequestMoveAdjacentToCurrentView() const;
-        auto RequestMoveAdjacentToWindow(Windows::UI::WindowManagement::AppWindow const& anchorWindow) const;
-        auto RequestMoveRelativeToWindowContent(Windows::UI::WindowManagement::AppWindow const& anchorWindow, Windows::Foundation::Point const& contentOffset) const;
-        auto RequestMoveRelativeToCurrentViewContent(Windows::Foundation::Point const& contentOffset) const;
-        auto RequestMoveRelativeToDisplayRegion(Windows::UI::WindowManagement::DisplayRegion const& displayRegion, Windows::Foundation::Point const& displayRegionOffset) const;
-        auto RequestSize(Windows::Foundation::Size const& frameSize) const;
-        auto TryShowAsync() const;
-        auto Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::UIContentRoot) Content() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) DispatcherQueue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowFrame) Frame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVisible() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PersistedStateId() const;
+        WINRT_IMPL_AUTO(void) PersistedStateId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowPresenter) Presenter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowTitleBar) TitleBar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::UIContext) UIContext() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowingEnvironment) WindowingEnvironment() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) CloseAsync() const;
+        WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowPlacement) GetPlacement() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::DisplayRegion>) GetDisplayRegions() const;
+        WINRT_IMPL_AUTO(void) RequestMoveToDisplayRegion(Windows::UI::WindowManagement::DisplayRegion const& displayRegion) const;
+        WINRT_IMPL_AUTO(void) RequestMoveAdjacentToCurrentView() const;
+        WINRT_IMPL_AUTO(void) RequestMoveAdjacentToWindow(Windows::UI::WindowManagement::AppWindow const& anchorWindow) const;
+        WINRT_IMPL_AUTO(void) RequestMoveRelativeToWindowContent(Windows::UI::WindowManagement::AppWindow const& anchorWindow, Windows::Foundation::Point const& contentOffset) const;
+        WINRT_IMPL_AUTO(void) RequestMoveRelativeToCurrentViewContent(Windows::Foundation::Point const& contentOffset) const;
+        WINRT_IMPL_AUTO(void) RequestMoveRelativeToDisplayRegion(Windows::UI::WindowManagement::DisplayRegion const& displayRegion, Windows::Foundation::Point const& displayRegionOffset) const;
+        WINRT_IMPL_AUTO(void) RequestSize(Windows::Foundation::Size const& frameSize) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryShowAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowChangedEventArgs> const& handler) const;
         using Changed_revoker = impl::event_revoker<Windows::UI::WindowManagement::IAppWindow, &impl::abi_t<Windows::UI::WindowManagement::IAppWindow>::remove_Changed>;
         [[nodiscard]] Changed_revoker Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowChangedEventArgs> const& handler) const;
-        auto Changed(winrt::event_token const& token) const noexcept;
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Changed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowClosedEventArgs> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::UI::WindowManagement::IAppWindow, &impl::abi_t<Windows::UI::WindowManagement::IAppWindow>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowClosedEventArgs> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
-        auto CloseRequested(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CloseRequested(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const& handler) const;
         using CloseRequested_revoker = impl::event_revoker<Windows::UI::WindowManagement::IAppWindow, &impl::abi_t<Windows::UI::WindowManagement::IAppWindow>::remove_CloseRequested>;
         [[nodiscard]] CloseRequested_revoker CloseRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const& handler) const;
-        auto CloseRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) CloseRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindow>
     {
@@ -628,10 +625,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindow2
     {
-        [[nodiscard]] auto WindowReference() const;
-        auto TryHide(bool shownInSwitchers) const;
-        auto TryShowAsync(Windows::UI::WindowManagement::AppWindowShowOptions const& options) const;
-        auto TryShowAsync(Windows::UI::WindowManagement::AppWindowShowOptions const& options, Windows::UI::WindowReference const& anchorWindow) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowReference) WindowReference() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryShowAsync(Windows::UI::WindowManagement::AppWindowShowOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryShowAsync(Windows::UI::WindowManagement::AppWindowShowOptions const& options, Windows::UI::WindowReference const& anchorWindow) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindow2>
     {
@@ -640,14 +636,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs
     {
-        [[nodiscard]] auto DidAvailableWindowPresentationsChange() const;
-        [[nodiscard]] auto DidDisplayRegionsChange() const;
-        [[nodiscard]] auto DidFrameChange() const;
-        [[nodiscard]] auto DidSizeChange() const;
-        [[nodiscard]] auto DidTitleBarChange() const;
-        [[nodiscard]] auto DidVisibilityChange() const;
-        [[nodiscard]] auto DidWindowingEnvironmentChange() const;
-        [[nodiscard]] auto DidWindowPresentationChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidAvailableWindowPresentationsChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidDisplayRegionsChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidFrameChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidSizeChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidTitleBarChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidVisibilityChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidWindowingEnvironmentChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidWindowPresentationChange() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>
     {
@@ -656,27 +652,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs2
     {
-        [[nodiscard]] auto DidOffsetChange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DidOffsetChange() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>
     {
         template <typename D> using type = consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs2<D>;
     };
     template <typename D>
-    struct consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs22
-    {
-        [[nodiscard]] auto VisibilityChangedDetails() const;
-    };
-    template <> struct consume<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>
-    {
-        template <typename D> using type = consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs22<D>;
-    };
-    template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowCloseRequestedEventArgs
     {
-        [[nodiscard]] auto Cancel() const;
-        auto Cancel(bool value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Cancel() const;
+        WINRT_IMPL_AUTO(void) Cancel(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>
     {
@@ -685,7 +672,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowClosedEventArgs
     {
-        [[nodiscard]] auto Reason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowClosedReason) Reason() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>
     {
@@ -694,7 +681,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowFrame
     {
-        [[nodiscard]] auto DragRegionVisuals() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Composition::IVisualElement>) DragRegionVisuals() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowFrame>
     {
@@ -703,8 +690,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowFrameStyle
     {
-        auto GetFrameStyle() const;
-        auto SetFrameStyle(Windows::UI::WindowManagement::AppWindowFrameStyle const& frameStyle) const;
+        WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowFrameStyle) GetFrameStyle() const;
+        WINRT_IMPL_AUTO(void) SetFrameStyle(Windows::UI::WindowManagement::AppWindowFrameStyle const& frameStyle) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowFrameStyle>
     {
@@ -713,9 +700,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowPlacement
     {
-        [[nodiscard]] auto DisplayRegion() const;
-        [[nodiscard]] auto Offset() const;
-        [[nodiscard]] auto Size() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::DisplayRegion) DisplayRegion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Offset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) Size() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowPlacement>
     {
@@ -724,7 +711,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowPresentationConfiguration
     {
-        [[nodiscard]] auto Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowPresentationKind) Kind() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowPresentationConfiguration>
     {
@@ -741,10 +728,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowPresenter
     {
-        auto GetConfiguration() const;
-        auto IsPresentationSupported(Windows::UI::WindowManagement::AppWindowPresentationKind const& presentationKind) const;
-        auto RequestPresentation(Windows::UI::WindowManagement::AppWindowPresentationConfiguration const& configuration) const;
-        auto RequestPresentation(Windows::UI::WindowManagement::AppWindowPresentationKind const& presentationKind) const;
+        WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowPresentationConfiguration) GetConfiguration() const;
+        WINRT_IMPL_AUTO(bool) IsPresentationSupported(Windows::UI::WindowManagement::AppWindowPresentationKind const& presentationKind) const;
+        WINRT_IMPL_AUTO(bool) RequestPresentation(Windows::UI::WindowManagement::AppWindowPresentationConfiguration const& configuration) const;
+        WINRT_IMPL_AUTO(bool) RequestPresentation(Windows::UI::WindowManagement::AppWindowPresentationKind const& presentationKind) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowPresenter>
     {
@@ -753,9 +740,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowStatics
     {
-        auto TryCreateAsync() const;
-        auto ClearAllPersistedState() const;
-        auto ClearPersistedState(param::hstring const& key) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::WindowManagement::AppWindow>) TryCreateAsync() const;
+        WINRT_IMPL_AUTO(void) ClearAllPersistedState() const;
+        WINRT_IMPL_AUTO(void) ClearPersistedState(param::hstring const& key) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowStatics>
     {
@@ -764,34 +751,34 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowTitleBar
     {
-        [[nodiscard]] auto BackgroundColor() const;
-        auto BackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ButtonBackgroundColor() const;
-        auto ButtonBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ButtonForegroundColor() const;
-        auto ButtonForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ButtonHoverBackgroundColor() const;
-        auto ButtonHoverBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ButtonHoverForegroundColor() const;
-        auto ButtonHoverForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ButtonInactiveBackgroundColor() const;
-        auto ButtonInactiveBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ButtonInactiveForegroundColor() const;
-        auto ButtonInactiveForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ButtonPressedBackgroundColor() const;
-        auto ButtonPressedBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ButtonPressedForegroundColor() const;
-        auto ButtonPressedForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ExtendsContentIntoTitleBar() const;
-        auto ExtendsContentIntoTitleBar(bool value) const;
-        [[nodiscard]] auto ForegroundColor() const;
-        auto ForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto InactiveBackgroundColor() const;
-        auto InactiveBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto InactiveForegroundColor() const;
-        auto InactiveForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto IsVisible() const;
-        auto GetTitleBarOcclusions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) BackgroundColor() const;
+        WINRT_IMPL_AUTO(void) BackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ButtonBackgroundColor() const;
+        WINRT_IMPL_AUTO(void) ButtonBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ButtonForegroundColor() const;
+        WINRT_IMPL_AUTO(void) ButtonForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ButtonHoverBackgroundColor() const;
+        WINRT_IMPL_AUTO(void) ButtonHoverBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ButtonHoverForegroundColor() const;
+        WINRT_IMPL_AUTO(void) ButtonHoverForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ButtonInactiveBackgroundColor() const;
+        WINRT_IMPL_AUTO(void) ButtonInactiveBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ButtonInactiveForegroundColor() const;
+        WINRT_IMPL_AUTO(void) ButtonInactiveForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ButtonPressedBackgroundColor() const;
+        WINRT_IMPL_AUTO(void) ButtonPressedBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ButtonPressedForegroundColor() const;
+        WINRT_IMPL_AUTO(void) ButtonPressedForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ExtendsContentIntoTitleBar() const;
+        WINRT_IMPL_AUTO(void) ExtendsContentIntoTitleBar(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ForegroundColor() const;
+        WINRT_IMPL_AUTO(void) ForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) InactiveBackgroundColor() const;
+        WINRT_IMPL_AUTO(void) InactiveBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) InactiveForegroundColor() const;
+        WINRT_IMPL_AUTO(void) InactiveForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVisible() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::AppWindowTitleBarOcclusion>) GetTitleBarOcclusions() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowTitleBar>
     {
@@ -800,7 +787,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowTitleBarOcclusion
     {
-        [[nodiscard]] auto OccludingRect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) OccludingRect() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion>
     {
@@ -809,8 +796,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowTitleBarVisibility
     {
-        auto GetPreferredVisibility() const;
-        auto SetPreferredVisibility(Windows::UI::WindowManagement::AppWindowTitleBarVisibility const& visibilityMode) const;
+        WINRT_IMPL_AUTO(Windows::UI::WindowManagement::AppWindowTitleBarVisibility) GetPreferredVisibility() const;
+        WINRT_IMPL_AUTO(void) SetPreferredVisibility(Windows::UI::WindowManagement::AppWindowTitleBarVisibility const& visibilityMode) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowTitleBarVisibility>
     {
@@ -835,15 +822,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IDisplayRegion
     {
-        [[nodiscard]] auto DisplayMonitorDeviceId() const;
-        [[nodiscard]] auto IsVisible() const;
-        [[nodiscard]] auto WorkAreaOffset() const;
-        [[nodiscard]] auto WorkAreaSize() const;
-        [[nodiscard]] auto WindowingEnvironment() const;
-        auto Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::DisplayRegion, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayMonitorDeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVisible() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) WorkAreaOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) WorkAreaSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowingEnvironment) WindowingEnvironment() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::DisplayRegion, Windows::Foundation::IInspectable> const& handler) const;
         using Changed_revoker = impl::event_revoker<Windows::UI::WindowManagement::IDisplayRegion, &impl::abi_t<Windows::UI::WindowManagement::IDisplayRegion>::remove_Changed>;
         [[nodiscard]] Changed_revoker Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::DisplayRegion, Windows::Foundation::IInspectable> const& handler) const;
-        auto Changed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Changed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::WindowManagement::IDisplayRegion>
     {
@@ -852,8 +839,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IFullScreenPresentationConfiguration
     {
-        [[nodiscard]] auto IsExclusive() const;
-        auto IsExclusive(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsExclusive() const;
+        WINRT_IMPL_AUTO(void) IsExclusive(bool value) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IFullScreenPresentationConfiguration>
     {
@@ -862,7 +849,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_ISpanningPresentationConfiguration
     {
-        auto GetSpanningRects() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::Rect>) GetSpanningRects() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::ISpanningPresentationConfiguration>
     {
@@ -871,8 +858,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IWindowInformation
     {
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto Visibility() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowVisibilityState) Visibility() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IWindowInformation>
     {
@@ -881,7 +868,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IWindowInformationStatics
     {
-        auto FromWindowReference(Windows::UI::WindowReference const& value) const;
+        WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowInformation) FromWindowReference(Windows::UI::WindowReference const& value) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IWindowInformationStatics>
     {
@@ -890,13 +877,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IWindowingEnvironment
     {
-        [[nodiscard]] auto IsEnabled() const;
-        [[nodiscard]] auto Kind() const;
-        auto GetDisplayRegions() const;
-        auto Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::WindowingEnvironment, Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowingEnvironmentKind) Kind() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::DisplayRegion>) GetDisplayRegions() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::WindowingEnvironment, Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const& handler) const;
         using Changed_revoker = impl::event_revoker<Windows::UI::WindowManagement::IWindowingEnvironment, &impl::abi_t<Windows::UI::WindowManagement::IWindowingEnvironment>::remove_Changed>;
         [[nodiscard]] Changed_revoker Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::WindowingEnvironment, Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const& handler) const;
-        auto Changed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Changed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::WindowManagement::IWindowingEnvironment>
     {
@@ -905,7 +892,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IWindowingEnvironmentAddedEventArgs
     {
-        [[nodiscard]] auto WindowingEnvironment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowingEnvironment) WindowingEnvironment() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs>
     {
@@ -922,7 +909,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IWindowingEnvironmentRemovedEventArgs
     {
-        [[nodiscard]] auto WindowingEnvironment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowingEnvironment) WindowingEnvironment() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs>
     {
@@ -931,8 +918,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IWindowingEnvironmentStatics
     {
-        auto FindAll() const;
-        auto FindAll(Windows::UI::WindowManagement::WindowingEnvironmentKind const& kind) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::WindowingEnvironment>) FindAll() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::WindowingEnvironment>) FindAll(Windows::UI::WindowManagement::WindowingEnvironmentKind const& kind) const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IWindowingEnvironmentStatics>
     {

@@ -113,6 +113,21 @@
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 /* Forward Declarations */
+#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Security {
+            namespace Isolation {
+                interface IHostMessageReceivedCallback;
+            } /* Isolation */
+        } /* Security */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback ABI::Windows::Security::Isolation::IHostMessageReceivedCallback
+
+#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback_FWD_DEFINED__
 namespace ABI {
@@ -397,6 +412,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics ABI::Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Security {
+            namespace Isolation {
+                interface IIsolatedWindowsHostMessengerStatics2;
+            } /* Isolation */
+        } /* Security */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2 ABI::Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2
+
+#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
 
 // Parameterized interface forward declarations (C++)
 
@@ -1678,6 +1708,40 @@ namespace ABI {
 
 /*
  *
+ * Delegate Windows.Security.Isolation.HostMessageReceivedCallback
+ *
+ * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
+ *
+ */
+#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
+#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Security {
+            namespace Isolation {
+                MIDL_INTERFACE("faf26ffa-8ce1-4cc1-b278-322d31a5e4a3")
+                IHostMessageReceivedCallback : public IUnknown
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE Invoke(
+                        GUID receiverId,
+                        __FIVectorView_1_IInspectable* message
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IHostMessageReceivedCallback = _uuidof(IHostMessageReceivedCallback);
+            } /* Isolation */
+        } /* Security */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback;
+#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__) */
+#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
+
+/*
+ *
  * Delegate Windows.Security.Isolation.MessageReceivedCallback
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -1821,10 +1885,6 @@ namespace ABI {
                 IIsolatedWindowsEnvironment2 : public IInspectable
                 {
                 public:
-                    virtual HRESULT STDMETHODCALLTYPE GetHostHwnd(
-                        UINT64 containerHwnd,
-                        UINT64* result
-                        ) = 0;
                     virtual HRESULT STDMETHODCALLTYPE PostMessageToReceiverAsync(
                         GUID receiverId,
                         __FIIterable_1_IInspectable* message,
@@ -2558,6 +2618,46 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHo
 
 /*
  *
+ * Interface Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2
+ *
+ * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
+ *
+ * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsHostMessenger
+ *
+ */
+#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
+#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2[] = L"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2";
+namespace ABI {
+    namespace Windows {
+        namespace Security {
+            namespace Isolation {
+                MIDL_INTERFACE("55ef9ebc-0444-42ad-832d-1b89c089d1ca")
+                IIsolatedWindowsHostMessengerStatics2 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE RegisterHostMessageReceiver(
+                        GUID receiverId,
+                        ABI::Windows::Security::Isolation::IHostMessageReceivedCallback* hostMessageReceivedCallback
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE UnregisteHostMessageReceiver(
+                        GUID receiverId
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsHostMessengerStatics2 = _uuidof(IIsolatedWindowsHostMessengerStatics2);
+            } /* Isolation */
+        } /* Security */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2;
+#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
+
+/*
+ *
  * Class Windows.Security.Isolation.IsolatedWindowsEnvironment
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -2846,6 +2946,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2 interface starting with version 2.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -2862,6 +2963,12 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 #else // !defined(__cplusplus)
 /* Forward Declarations */
+#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback;
+
+#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback __x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback;
@@ -2975,6 +3082,12 @@ typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnviron
 typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics;
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2;
+
+#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
 
 // Parameterized interface forward declarations (C)
 
@@ -4974,6 +5087,57 @@ struct __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreatePr
 
 /*
  *
+ * Delegate Windows.Security.Isolation.HostMessageReceivedCallback
+ *
+ * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
+ *
+ */
+#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
+#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__
+typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallbackVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* This);
+    HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* This,
+        GUID receiverId,
+        __FIVectorView_1_IInspectable* message);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallbackVtbl;
+
+interface __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback
+{
+    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallbackVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_Invoke(This, receiverId, message) \
+    ((This)->lpVtbl->Invoke(This, receiverId, message))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback;
+#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__) */
+#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
+
+/*
+ *
  * Delegate Windows.Security.Isolation.MessageReceivedCallback
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -5195,9 +5359,6 @@ typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmen
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
         TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* GetHostHwnd)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
-        UINT64 containerHwnd,
-        UINT64* result);
     HRESULT (STDMETHODCALLTYPE* PostMessageToReceiverAsync)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
         GUID receiverId,
         __FIIterable_1_IInspectable* message,
@@ -5235,9 +5396,6 @@ interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2
 
 #define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_GetHostHwnd(This, containerHwnd, result) \
-    ((This)->lpVtbl->GetHostHwnd(This, containerHwnd, result))
 
 #define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_PostMessageToReceiverAsync(This, receiverId, message, operation) \
     ((This)->lpVtbl->PostMessageToReceiverAsync(This, receiverId, message, operation))
@@ -6575,6 +6733,81 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHo
 
 /*
  *
+ * Interface Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2
+ *
+ * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
+ *
+ * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsHostMessenger
+ *
+ */
+#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
+#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2[] = L"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2";
+typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* RegisterHostMessageReceiver)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
+        GUID receiverId,
+        __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* hostMessageReceivedCallback);
+    HRESULT (STDMETHODCALLTYPE* UnregisteHostMessageReceiver)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
+        GUID receiverId);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2Vtbl;
+
+interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_RegisterHostMessageReceiver(This, receiverId, hostMessageReceivedCallback) \
+    ((This)->lpVtbl->RegisterHostMessageReceiver(This, receiverId, hostMessageReceivedCallback))
+
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_UnregisteHostMessageReceiver(This, receiverId) \
+    ((This)->lpVtbl->UnregisteHostMessageReceiver(This, receiverId))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2;
+#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
+
+/*
+ *
  * Class Windows.Security.Isolation.IsolatedWindowsEnvironment
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -6863,6 +7096,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2 interface starting with version 2.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment

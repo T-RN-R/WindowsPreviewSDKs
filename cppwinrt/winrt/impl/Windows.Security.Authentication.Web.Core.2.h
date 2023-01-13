@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -58,7 +58,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Authentication::Web::Core
         WebTokenRequest(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Authentication::Web::Core::IWebTokenRequest(ptr, take_ownership_from_abi) {}
         WebTokenRequest(Windows::Security::Credentials::WebAccountProvider const& provider, param::hstring const& scope, param::hstring const& clientId);
         WebTokenRequest(Windows::Security::Credentials::WebAccountProvider const& provider, param::hstring const& scope, param::hstring const& clientId, Windows::Security::Authentication::Web::Core::WebTokenRequestPromptType const& promptType);
-        WebTokenRequest(Windows::Security::Credentials::WebAccountProvider const& provider);
+        explicit WebTokenRequest(Windows::Security::Credentials::WebAccountProvider const& provider);
         WebTokenRequest(Windows::Security::Credentials::WebAccountProvider const& provider, param::hstring const& scope);
     };
     struct __declspec(empty_bases) WebTokenRequestResult : Windows::Security::Authentication::Web::Core::IWebTokenRequestResult
@@ -71,7 +71,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Authentication::Web::Core
         WebTokenResponse(std::nullptr_t) noexcept {}
         WebTokenResponse(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Authentication::Web::Core::IWebTokenResponse(ptr, take_ownership_from_abi) {}
         WebTokenResponse();
-        WebTokenResponse(param::hstring const& token);
+        explicit WebTokenResponse(param::hstring const& token);
         WebTokenResponse(param::hstring const& token, Windows::Security::Credentials::WebAccount const& webAccount);
         WebTokenResponse(param::hstring const& token, Windows::Security::Credentials::WebAccount const& webAccount, Windows::Security::Authentication::Web::Core::WebProviderError const& error);
     };

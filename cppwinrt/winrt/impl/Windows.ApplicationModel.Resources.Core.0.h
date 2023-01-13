@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,6 +7,7 @@
 #define WINRT_Windows_ApplicationModel_Resources_Core_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
@@ -21,6 +22,11 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
     struct IStorageFile;
+    struct StorageFile;
+}
+WINRT_EXPORT namespace winrt::Windows::Storage::Streams
+{
+    struct IRandomAccessStream;
 }
 WINRT_EXPORT namespace winrt::Windows::UI
 {
@@ -102,39 +108,37 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Resources::Core::ResourceCandidateKind>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Resources::Core::ResourceQualifierPersistence>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Resources::Core::ResourceLayoutInfo>{ using type = struct_category<uint32_t, uint32_t, uint32_t, uint32_t, int32_t>; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::NamedResource>{ L"Windows.ApplicationModel.Resources.Core.NamedResource" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceCandidate>{ L"Windows.ApplicationModel.Resources.Core.ResourceCandidate" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceCandidateVectorView>{ L"Windows.ApplicationModel.Resources.Core.ResourceCandidateVectorView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceContext>{ L"Windows.ApplicationModel.Resources.Core.ResourceContext" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceContextLanguagesVectorView>{ L"Windows.ApplicationModel.Resources.Core.ResourceContextLanguagesVectorView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceManager>{ L"Windows.ApplicationModel.Resources.Core.ResourceManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceMap>{ L"Windows.ApplicationModel.Resources.Core.ResourceMap" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceMapIterator>{ L"Windows.ApplicationModel.Resources.Core.ResourceMapIterator" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceMapMapView>{ L"Windows.ApplicationModel.Resources.Core.ResourceMapMapView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceMapMapViewIterator>{ L"Windows.ApplicationModel.Resources.Core.ResourceMapMapViewIterator" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifier>{ L"Windows.ApplicationModel.Resources.Core.ResourceQualifier" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifierMapView>{ L"Windows.ApplicationModel.Resources.Core.ResourceQualifierMapView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifierObservableMap>{ L"Windows.ApplicationModel.Resources.Core.ResourceQualifierObservableMap" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifierVectorView>{ L"Windows.ApplicationModel.Resources.Core.ResourceQualifierVectorView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceCandidateKind>{ L"Windows.ApplicationModel.Resources.Core.ResourceCandidateKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifierPersistence>{ L"Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceLayoutInfo>{ L"Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::INamedResource>{ L"Windows.ApplicationModel.Resources.Core.INamedResource" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate>{ L"Windows.ApplicationModel.Resources.Core.IResourceCandidate" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate2>{ L"Windows.ApplicationModel.Resources.Core.IResourceCandidate2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate3>{ L"Windows.ApplicationModel.Resources.Core.IResourceCandidate3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContext>{ L"Windows.ApplicationModel.Resources.Core.IResourceContext" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics>{ L"Windows.ApplicationModel.Resources.Core.IResourceContextStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics2>{ L"Windows.ApplicationModel.Resources.Core.IResourceContextStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics3>{ L"Windows.ApplicationModel.Resources.Core.IResourceContextStatics3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics4>{ L"Windows.ApplicationModel.Resources.Core.IResourceContextStatics4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceManager>{ L"Windows.ApplicationModel.Resources.Core.IResourceManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceManager2>{ L"Windows.ApplicationModel.Resources.Core.IResourceManager2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceManagerStatics>{ L"Windows.ApplicationModel.Resources.Core.IResourceManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceMap>{ L"Windows.ApplicationModel.Resources.Core.IResourceMap" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceQualifier>{ L"Windows.ApplicationModel.Resources.Core.IResourceQualifier" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::NamedResource> = L"Windows.ApplicationModel.Resources.Core.NamedResource";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceCandidate> = L"Windows.ApplicationModel.Resources.Core.ResourceCandidate";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceCandidateVectorView> = L"Windows.ApplicationModel.Resources.Core.ResourceCandidateVectorView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceContext> = L"Windows.ApplicationModel.Resources.Core.ResourceContext";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceContextLanguagesVectorView> = L"Windows.ApplicationModel.Resources.Core.ResourceContextLanguagesVectorView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceManager> = L"Windows.ApplicationModel.Resources.Core.ResourceManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceMap> = L"Windows.ApplicationModel.Resources.Core.ResourceMap";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceMapIterator> = L"Windows.ApplicationModel.Resources.Core.ResourceMapIterator";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceMapMapView> = L"Windows.ApplicationModel.Resources.Core.ResourceMapMapView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceMapMapViewIterator> = L"Windows.ApplicationModel.Resources.Core.ResourceMapMapViewIterator";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifier> = L"Windows.ApplicationModel.Resources.Core.ResourceQualifier";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifierMapView> = L"Windows.ApplicationModel.Resources.Core.ResourceQualifierMapView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifierObservableMap> = L"Windows.ApplicationModel.Resources.Core.ResourceQualifierObservableMap";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifierVectorView> = L"Windows.ApplicationModel.Resources.Core.ResourceQualifierVectorView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceCandidateKind> = L"Windows.ApplicationModel.Resources.Core.ResourceCandidateKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceQualifierPersistence> = L"Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::ResourceLayoutInfo> = L"Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::INamedResource> = L"Windows.ApplicationModel.Resources.Core.INamedResource";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate> = L"Windows.ApplicationModel.Resources.Core.IResourceCandidate";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate2> = L"Windows.ApplicationModel.Resources.Core.IResourceCandidate2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate3> = L"Windows.ApplicationModel.Resources.Core.IResourceCandidate3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContext> = L"Windows.ApplicationModel.Resources.Core.IResourceContext";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics> = L"Windows.ApplicationModel.Resources.Core.IResourceContextStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics2> = L"Windows.ApplicationModel.Resources.Core.IResourceContextStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics3> = L"Windows.ApplicationModel.Resources.Core.IResourceContextStatics3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics4> = L"Windows.ApplicationModel.Resources.Core.IResourceContextStatics4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceManager> = L"Windows.ApplicationModel.Resources.Core.IResourceManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceManager2> = L"Windows.ApplicationModel.Resources.Core.IResourceManager2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceManagerStatics> = L"Windows.ApplicationModel.Resources.Core.IResourceManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceMap> = L"Windows.ApplicationModel.Resources.Core.IResourceMap";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceQualifier> = L"Windows.ApplicationModel.Resources.Core.IResourceQualifier";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::INamedResource>{ 0x1C98C219,0x0B13,0x4240,{ 0x89,0xA5,0xD4,0x95,0xDC,0x18,0x9A,0x00 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate>{ 0xAF5207D9,0xC433,0x4764,{ 0xB3,0xFD,0x8F,0xA6,0xBF,0xBC,0xBA,0xDC } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate2>{ 0x69E5B468,0xF6FC,0x4013,{ 0xAA,0xA2,0xD5,0x3F,0x17,0x57,0xD3,0xB5 } };
@@ -298,12 +302,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_INamedResource
     {
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Candidates() const;
-        auto Resolve() const;
-        auto Resolve(Windows::ApplicationModel::Resources::Core::ResourceContext const& resourceContext) const;
-        auto ResolveAll() const;
-        auto ResolveAll(Windows::ApplicationModel::Resources::Core::ResourceContext const& resourceContext) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Resources::Core::ResourceCandidate>) Candidates() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceCandidate) Resolve() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceCandidate) Resolve(Windows::ApplicationModel::Resources::Core::ResourceContext const& resourceContext) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Resources::Core::ResourceCandidate>) ResolveAll() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Resources::Core::ResourceCandidate>) ResolveAll(Windows::ApplicationModel::Resources::Core::ResourceContext const& resourceContext) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::INamedResource>
     {
@@ -312,13 +316,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceCandidate
     {
-        [[nodiscard]] auto Qualifiers() const;
-        [[nodiscard]] auto IsMatch() const;
-        [[nodiscard]] auto IsMatchAsDefault() const;
-        [[nodiscard]] auto IsDefault() const;
-        [[nodiscard]] auto ValueAsString() const;
-        auto GetValueAsFileAsync() const;
-        auto GetQualifierValue(param::hstring const& qualifierName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Resources::Core::ResourceQualifier>) Qualifiers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMatch() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMatchAsDefault() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDefault() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ValueAsString() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) GetValueAsFileAsync() const;
+        WINRT_IMPL_AUTO(hstring) GetQualifierValue(param::hstring const& qualifierName) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceCandidate>
     {
@@ -327,7 +331,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceCandidate2
     {
-        auto GetValueAsStreamAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStream>) GetValueAsStreamAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceCandidate2>
     {
@@ -336,7 +340,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceCandidate3
     {
-        [[nodiscard]] auto Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceCandidateKind) Kind() const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceCandidate3>
     {
@@ -345,13 +349,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceContext
     {
-        [[nodiscard]] auto QualifierValues() const;
-        auto Reset() const;
-        auto Reset(param::iterable<hstring> const& qualifierNames) const;
-        auto OverrideToMatch(param::iterable<Windows::ApplicationModel::Resources::Core::ResourceQualifier> const& result) const;
-        auto Clone() const;
-        [[nodiscard]] auto Languages() const;
-        auto Languages(param::async_vector_view<hstring> const& languages) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IObservableMap<hstring, hstring>) QualifierValues() const;
+        WINRT_IMPL_AUTO(void) Reset() const;
+        WINRT_IMPL_AUTO(void) Reset(param::iterable<hstring> const& qualifierNames) const;
+        WINRT_IMPL_AUTO(void) OverrideToMatch(param::iterable<Windows::ApplicationModel::Resources::Core::ResourceQualifier> const& result) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceContext) Clone() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Languages() const;
+        WINRT_IMPL_AUTO(void) Languages(param::async_vector_view<hstring> const& languages) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceContext>
     {
@@ -360,7 +364,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceContextStatics
     {
-        auto CreateMatchingContext(param::iterable<Windows::ApplicationModel::Resources::Core::ResourceQualifier> const& result) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceContext) CreateMatchingContext(param::iterable<Windows::ApplicationModel::Resources::Core::ResourceQualifier> const& result) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceContextStatics>
     {
@@ -369,11 +373,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceContextStatics2
     {
-        auto GetForCurrentView() const;
-        auto SetGlobalQualifierValue(param::hstring const& key, param::hstring const& value) const;
-        auto ResetGlobalQualifierValues() const;
-        auto ResetGlobalQualifierValues(param::iterable<hstring> const& qualifierNames) const;
-        auto GetForViewIndependentUse() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceContext) GetForCurrentView() const;
+        WINRT_IMPL_AUTO(void) SetGlobalQualifierValue(param::hstring const& key, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) ResetGlobalQualifierValues() const;
+        WINRT_IMPL_AUTO(void) ResetGlobalQualifierValues(param::iterable<hstring> const& qualifierNames) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceContext) GetForViewIndependentUse() const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceContextStatics2>
     {
@@ -382,7 +386,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceContextStatics3
     {
-        auto SetGlobalQualifierValue(param::hstring const& key, param::hstring const& value, Windows::ApplicationModel::Resources::Core::ResourceQualifierPersistence const& persistence) const;
+        WINRT_IMPL_AUTO(void) SetGlobalQualifierValue(param::hstring const& key, param::hstring const& value, Windows::ApplicationModel::Resources::Core::ResourceQualifierPersistence const& persistence) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceContextStatics3>
     {
@@ -391,7 +395,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceContextStatics4
     {
-        auto GetForUIContext(Windows::UI::UIContext const& context) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceContext) GetForUIContext(Windows::UI::UIContext const& context) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceContextStatics4>
     {
@@ -400,11 +404,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceManager
     {
-        [[nodiscard]] auto MainResourceMap() const;
-        [[nodiscard]] auto AllResourceMaps() const;
-        [[nodiscard]] auto DefaultContext() const;
-        auto LoadPriFiles(param::iterable<Windows::Storage::IStorageFile> const& files) const;
-        auto UnloadPriFiles(param::iterable<Windows::Storage::IStorageFile> const& files) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceMap) MainResourceMap() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::ApplicationModel::Resources::Core::ResourceMap>) AllResourceMaps() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceContext) DefaultContext() const;
+        WINRT_IMPL_AUTO(void) LoadPriFiles(param::iterable<Windows::Storage::IStorageFile> const& files) const;
+        WINRT_IMPL_AUTO(void) UnloadPriFiles(param::iterable<Windows::Storage::IStorageFile> const& files) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceManager>
     {
@@ -413,8 +417,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceManager2
     {
-        auto GetAllNamedResourcesForPackage(param::hstring const& packageName, Windows::ApplicationModel::Resources::Core::ResourceLayoutInfo const& resourceLayoutInfo) const;
-        auto GetAllSubtreesForPackage(param::hstring const& packageName, Windows::ApplicationModel::Resources::Core::ResourceLayoutInfo const& resourceLayoutInfo) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Resources::Core::NamedResource>) GetAllNamedResourcesForPackage(param::hstring const& packageName, Windows::ApplicationModel::Resources::Core::ResourceLayoutInfo const& resourceLayoutInfo) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Resources::Core::ResourceMap>) GetAllSubtreesForPackage(param::hstring const& packageName, Windows::ApplicationModel::Resources::Core::ResourceLayoutInfo const& resourceLayoutInfo) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceManager2>
     {
@@ -423,8 +427,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceManagerStatics
     {
-        [[nodiscard]] auto Current() const;
-        auto IsResourceReference(param::hstring const& resourceReference) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceManager) Current() const;
+        WINRT_IMPL_AUTO(bool) IsResourceReference(param::hstring const& resourceReference) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceManagerStatics>
     {
@@ -433,10 +437,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceMap
     {
-        [[nodiscard]] auto Uri() const;
-        auto GetValue(param::hstring const& resource) const;
-        auto GetValue(param::hstring const& resource, Windows::ApplicationModel::Resources::Core::ResourceContext const& context) const;
-        auto GetSubtree(param::hstring const& reference) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceCandidate) GetValue(param::hstring const& resource) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceCandidate) GetValue(param::hstring const& resource, Windows::ApplicationModel::Resources::Core::ResourceContext const& context) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Resources::Core::ResourceMap) GetSubtree(param::hstring const& reference) const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceMap>
     {
@@ -445,11 +449,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Resources_Core_IResourceQualifier
     {
-        [[nodiscard]] auto QualifierName() const;
-        [[nodiscard]] auto QualifierValue() const;
-        [[nodiscard]] auto IsDefault() const;
-        [[nodiscard]] auto IsMatch() const;
-        [[nodiscard]] auto Score() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) QualifierName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) QualifierValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDefault() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMatch() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Score() const;
     };
     template <> struct consume<Windows::ApplicationModel::Resources::Core::IResourceQualifier>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -15,7 +15,12 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics
 {
@@ -179,52 +184,50 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Miracast::MiracastReceiverSessionStartStatus>{ using type = enum_category; };
     template <> struct category<Windows::Media::Miracast::MiracastReceiverWiFiStatus>{ using type = enum_category; };
     template <> struct category<Windows::Media::Miracast::MiracastTransmitterAuthorizationStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiver>{ L"Windows.Media.Miracast.MiracastReceiver" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverApplySettingsResult>{ L"Windows.Media.Miracast.MiracastReceiverApplySettingsResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverConnection>{ L"Windows.Media.Miracast.MiracastReceiverConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverConnectionCreatedEventArgs>{ L"Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverCursorImageChannel>{ L"Windows.Media.Miracast.MiracastReceiverCursorImageChannel" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverCursorImageChannelSettings>{ L"Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverDisconnectedEventArgs>{ L"Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverGameControllerDevice>{ L"Windows.Media.Miracast.MiracastReceiverGameControllerDevice" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverInputDevices>{ L"Windows.Media.Miracast.MiracastReceiverInputDevices" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverKeyboardDevice>{ L"Windows.Media.Miracast.MiracastReceiverKeyboardDevice" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverMediaSourceCreatedEventArgs>{ L"Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverSession>{ L"Windows.Media.Miracast.MiracastReceiverSession" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverSessionStartResult>{ L"Windows.Media.Miracast.MiracastReceiverSessionStartResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverSettings>{ L"Windows.Media.Miracast.MiracastReceiverSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverStatus>{ L"Windows.Media.Miracast.MiracastReceiverStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverStreamControl>{ L"Windows.Media.Miracast.MiracastReceiverStreamControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverVideoStreamSettings>{ L"Windows.Media.Miracast.MiracastReceiverVideoStreamSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastTransmitter>{ L"Windows.Media.Miracast.MiracastTransmitter" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverApplySettingsStatus>{ L"Windows.Media.Miracast.MiracastReceiverApplySettingsStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverAuthorizationMethod>{ L"Windows.Media.Miracast.MiracastReceiverAuthorizationMethod" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverDisconnectReason>{ L"Windows.Media.Miracast.MiracastReceiverDisconnectReason" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverGameControllerDeviceUsageMode>{ L"Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverListeningStatus>{ L"Windows.Media.Miracast.MiracastReceiverListeningStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverSessionStartStatus>{ L"Windows.Media.Miracast.MiracastReceiverSessionStartStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverWiFiStatus>{ L"Windows.Media.Miracast.MiracastReceiverWiFiStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastTransmitterAuthorizationStatus>{ L"Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiver>{ L"Windows.Media.Miracast.IMiracastReceiver" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverApplySettingsResult>{ L"Windows.Media.Miracast.IMiracastReceiverApplySettingsResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverConnection>{ L"Windows.Media.Miracast.IMiracastReceiverConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverConnectionCreatedEventArgs>{ L"Windows.Media.Miracast.IMiracastReceiverConnectionCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel>{ L"Windows.Media.Miracast.IMiracastReceiverCursorImageChannel" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverCursorImageChannelSettings>{ L"Windows.Media.Miracast.IMiracastReceiverCursorImageChannelSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverDisconnectedEventArgs>{ L"Windows.Media.Miracast.IMiracastReceiverDisconnectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverGameControllerDevice>{ L"Windows.Media.Miracast.IMiracastReceiverGameControllerDevice" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverInputDevices>{ L"Windows.Media.Miracast.IMiracastReceiverInputDevices" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverKeyboardDevice>{ L"Windows.Media.Miracast.IMiracastReceiverKeyboardDevice" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverMediaSourceCreatedEventArgs>{ L"Windows.Media.Miracast.IMiracastReceiverMediaSourceCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverSession>{ L"Windows.Media.Miracast.IMiracastReceiverSession" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverSessionStartResult>{ L"Windows.Media.Miracast.IMiracastReceiverSessionStartResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverSettings>{ L"Windows.Media.Miracast.IMiracastReceiverSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverStatus>{ L"Windows.Media.Miracast.IMiracastReceiverStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverStreamControl>{ L"Windows.Media.Miracast.IMiracastReceiverStreamControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverVideoStreamSettings>{ L"Windows.Media.Miracast.IMiracastReceiverVideoStreamSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastTransmitter>{ L"Windows.Media.Miracast.IMiracastTransmitter" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiver> = L"Windows.Media.Miracast.MiracastReceiver";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverApplySettingsResult> = L"Windows.Media.Miracast.MiracastReceiverApplySettingsResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverConnection> = L"Windows.Media.Miracast.MiracastReceiverConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverConnectionCreatedEventArgs> = L"Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverCursorImageChannel> = L"Windows.Media.Miracast.MiracastReceiverCursorImageChannel";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverCursorImageChannelSettings> = L"Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverDisconnectedEventArgs> = L"Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverGameControllerDevice> = L"Windows.Media.Miracast.MiracastReceiverGameControllerDevice";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverInputDevices> = L"Windows.Media.Miracast.MiracastReceiverInputDevices";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverKeyboardDevice> = L"Windows.Media.Miracast.MiracastReceiverKeyboardDevice";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverMediaSourceCreatedEventArgs> = L"Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverSession> = L"Windows.Media.Miracast.MiracastReceiverSession";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverSessionStartResult> = L"Windows.Media.Miracast.MiracastReceiverSessionStartResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverSettings> = L"Windows.Media.Miracast.MiracastReceiverSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverStatus> = L"Windows.Media.Miracast.MiracastReceiverStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverStreamControl> = L"Windows.Media.Miracast.MiracastReceiverStreamControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverVideoStreamSettings> = L"Windows.Media.Miracast.MiracastReceiverVideoStreamSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastTransmitter> = L"Windows.Media.Miracast.MiracastTransmitter";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverApplySettingsStatus> = L"Windows.Media.Miracast.MiracastReceiverApplySettingsStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverAuthorizationMethod> = L"Windows.Media.Miracast.MiracastReceiverAuthorizationMethod";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverDisconnectReason> = L"Windows.Media.Miracast.MiracastReceiverDisconnectReason";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverGameControllerDeviceUsageMode> = L"Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverListeningStatus> = L"Windows.Media.Miracast.MiracastReceiverListeningStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverSessionStartStatus> = L"Windows.Media.Miracast.MiracastReceiverSessionStartStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastReceiverWiFiStatus> = L"Windows.Media.Miracast.MiracastReceiverWiFiStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::MiracastTransmitterAuthorizationStatus> = L"Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiver> = L"Windows.Media.Miracast.IMiracastReceiver";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverApplySettingsResult> = L"Windows.Media.Miracast.IMiracastReceiverApplySettingsResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverConnection> = L"Windows.Media.Miracast.IMiracastReceiverConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverConnectionCreatedEventArgs> = L"Windows.Media.Miracast.IMiracastReceiverConnectionCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel> = L"Windows.Media.Miracast.IMiracastReceiverCursorImageChannel";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverCursorImageChannelSettings> = L"Windows.Media.Miracast.IMiracastReceiverCursorImageChannelSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverDisconnectedEventArgs> = L"Windows.Media.Miracast.IMiracastReceiverDisconnectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverGameControllerDevice> = L"Windows.Media.Miracast.IMiracastReceiverGameControllerDevice";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverInputDevices> = L"Windows.Media.Miracast.IMiracastReceiverInputDevices";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverKeyboardDevice> = L"Windows.Media.Miracast.IMiracastReceiverKeyboardDevice";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverMediaSourceCreatedEventArgs> = L"Windows.Media.Miracast.IMiracastReceiverMediaSourceCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverSession> = L"Windows.Media.Miracast.IMiracastReceiverSession";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverSessionStartResult> = L"Windows.Media.Miracast.IMiracastReceiverSessionStartResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverSettings> = L"Windows.Media.Miracast.IMiracastReceiverSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverStatus> = L"Windows.Media.Miracast.IMiracastReceiverStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverStreamControl> = L"Windows.Media.Miracast.IMiracastReceiverStreamControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverVideoStreamSettings> = L"Windows.Media.Miracast.IMiracastReceiverVideoStreamSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastTransmitter> = L"Windows.Media.Miracast.IMiracastTransmitter";
     template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiver>{ 0x7A315258,0xE444,0x51B4,{ 0xAF,0xF7,0xB8,0x8D,0xAA,0x12,0x29,0xE0 } };
     template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverApplySettingsResult>{ 0xD0AA6272,0x09CD,0x58E1,{ 0xA4,0xF2,0x5D,0x51,0x43,0xD3,0x12,0xF9 } };
     template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverConnection>{ 0x704B2F36,0xD2E5,0x551F,{ 0xA8,0x54,0xF8,0x22,0xB7,0x91,0x7D,0x28 } };
@@ -479,21 +482,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiver
     {
-        auto GetDefaultSettings() const;
-        auto GetCurrentSettings() const;
-        auto GetCurrentSettingsAsync() const;
-        auto DisconnectAllAndApplySettings(Windows::Media::Miracast::MiracastReceiverSettings const& settings) const;
-        auto DisconnectAllAndApplySettingsAsync(Windows::Media::Miracast::MiracastReceiverSettings const& settings) const;
-        auto GetStatus() const;
-        auto GetStatusAsync() const;
-        auto StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiver, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverSettings) GetDefaultSettings() const;
+        WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverSettings) GetCurrentSettings() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Miracast::MiracastReceiverSettings>) GetCurrentSettingsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverApplySettingsResult) DisconnectAllAndApplySettings(Windows::Media::Miracast::MiracastReceiverSettings const& settings) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Miracast::MiracastReceiverApplySettingsResult>) DisconnectAllAndApplySettingsAsync(Windows::Media::Miracast::MiracastReceiverSettings const& settings) const;
+        WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverStatus) GetStatus() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Miracast::MiracastReceiverStatus>) GetStatusAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiver, Windows::Foundation::IInspectable> const& handler) const;
         using StatusChanged_revoker = impl::event_revoker<Windows::Media::Miracast::IMiracastReceiver, &impl::abi_t<Windows::Media::Miracast::IMiracastReceiver>::remove_StatusChanged>;
         [[nodiscard]] StatusChanged_revoker StatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiver, Windows::Foundation::IInspectable> const& handler) const;
-        auto StatusChanged(winrt::event_token const& token) const noexcept;
-        auto CreateSession(Windows::ApplicationModel::Core::CoreApplicationView const& view) const;
-        auto CreateSessionAsync(Windows::ApplicationModel::Core::CoreApplicationView const& view) const;
-        auto ClearKnownTransmitters() const;
-        auto RemoveKnownTransmitter(Windows::Media::Miracast::MiracastTransmitter const& transmitter) const;
+        WINRT_IMPL_AUTO(void) StatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverSession) CreateSession(Windows::ApplicationModel::Core::CoreApplicationView const& view) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Miracast::MiracastReceiverSession>) CreateSessionAsync(Windows::ApplicationModel::Core::CoreApplicationView const& view) const;
+        WINRT_IMPL_AUTO(void) ClearKnownTransmitters() const;
+        WINRT_IMPL_AUTO(void) RemoveKnownTransmitter(Windows::Media::Miracast::MiracastTransmitter const& transmitter) const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiver>
     {
@@ -502,8 +505,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverApplySettingsResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverApplySettingsStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverApplySettingsResult>
     {
@@ -512,16 +515,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverConnection
     {
-        auto Disconnect(Windows::Media::Miracast::MiracastReceiverDisconnectReason const& reason) const;
-        auto Disconnect(Windows::Media::Miracast::MiracastReceiverDisconnectReason const& reason, param::hstring const& message) const;
-        auto Pause() const;
-        auto PauseAsync() const;
-        auto Resume() const;
-        auto ResumeAsync() const;
-        [[nodiscard]] auto Transmitter() const;
-        [[nodiscard]] auto InputDevices() const;
-        [[nodiscard]] auto CursorImageChannel() const;
-        [[nodiscard]] auto StreamControl() const;
+        WINRT_IMPL_AUTO(void) Disconnect(Windows::Media::Miracast::MiracastReceiverDisconnectReason const& reason) const;
+        WINRT_IMPL_AUTO(void) Disconnect(Windows::Media::Miracast::MiracastReceiverDisconnectReason const& reason, param::hstring const& message) const;
+        WINRT_IMPL_AUTO(void) Pause() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) PauseAsync() const;
+        WINRT_IMPL_AUTO(void) Resume() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ResumeAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastTransmitter) Transmitter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverInputDevices) InputDevices() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverCursorImageChannel) CursorImageChannel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverStreamControl) StreamControl() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverConnection>
     {
@@ -530,9 +533,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverConnectionCreatedEventArgs
     {
-        [[nodiscard]] auto Connection() const;
-        [[nodiscard]] auto Pin() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverConnection) Connection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Pin() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverConnectionCreatedEventArgs>
     {
@@ -541,18 +544,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverCursorImageChannel
     {
-        [[nodiscard]] auto IsEnabled() const;
-        [[nodiscard]] auto MaxImageSize() const;
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto ImageStream() const;
-        auto ImageStreamChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverCursorImageChannel, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::SizeInt32) MaxImageSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::PointInt32) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamWithContentType) ImageStream() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ImageStreamChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverCursorImageChannel, Windows::Foundation::IInspectable> const& handler) const;
         using ImageStreamChanged_revoker = impl::event_revoker<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel, &impl::abi_t<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel>::remove_ImageStreamChanged>;
         [[nodiscard]] ImageStreamChanged_revoker ImageStreamChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverCursorImageChannel, Windows::Foundation::IInspectable> const& handler) const;
-        auto ImageStreamChanged(winrt::event_token const& token) const noexcept;
-        auto PositionChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverCursorImageChannel, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) ImageStreamChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PositionChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverCursorImageChannel, Windows::Foundation::IInspectable> const& handler) const;
         using PositionChanged_revoker = impl::event_revoker<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel, &impl::abi_t<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel>::remove_PositionChanged>;
         [[nodiscard]] PositionChanged_revoker PositionChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverCursorImageChannel, Windows::Foundation::IInspectable> const& handler) const;
-        auto PositionChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) PositionChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel>
     {
@@ -561,10 +564,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverCursorImageChannelSettings
     {
-        [[nodiscard]] auto IsEnabled() const;
-        auto IsEnabled(bool value) const;
-        [[nodiscard]] auto MaxImageSize() const;
-        auto MaxImageSize(Windows::Graphics::SizeInt32 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) IsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::SizeInt32) MaxImageSize() const;
+        WINRT_IMPL_AUTO(void) MaxImageSize(Windows::Graphics::SizeInt32 const& value) const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverCursorImageChannelSettings>
     {
@@ -573,7 +576,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverDisconnectedEventArgs
     {
-        [[nodiscard]] auto Connection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverConnection) Connection() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverDisconnectedEventArgs>
     {
@@ -582,16 +585,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverGameControllerDevice
     {
-        [[nodiscard]] auto TransmitInput() const;
-        auto TransmitInput(bool value) const;
-        [[nodiscard]] auto IsRequestedByTransmitter() const;
-        [[nodiscard]] auto IsTransmittingInput() const;
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Miracast::MiracastReceiverGameControllerDeviceUsageMode const& value) const;
-        auto Changed(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverGameControllerDevice, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) TransmitInput() const;
+        WINRT_IMPL_AUTO(void) TransmitInput(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRequestedByTransmitter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTransmittingInput() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverGameControllerDeviceUsageMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Miracast::MiracastReceiverGameControllerDeviceUsageMode const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Changed(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverGameControllerDevice, Windows::Foundation::IInspectable> const& handler) const;
         using Changed_revoker = impl::event_revoker<Windows::Media::Miracast::IMiracastReceiverGameControllerDevice, &impl::abi_t<Windows::Media::Miracast::IMiracastReceiverGameControllerDevice>::remove_Changed>;
         [[nodiscard]] Changed_revoker Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverGameControllerDevice, Windows::Foundation::IInspectable> const& handler) const;
-        auto Changed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Changed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverGameControllerDevice>
     {
@@ -600,8 +603,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverInputDevices
     {
-        [[nodiscard]] auto Keyboard() const;
-        [[nodiscard]] auto GameController() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverKeyboardDevice) Keyboard() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverGameControllerDevice) GameController() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverInputDevices>
     {
@@ -610,14 +613,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverKeyboardDevice
     {
-        [[nodiscard]] auto TransmitInput() const;
-        auto TransmitInput(bool value) const;
-        [[nodiscard]] auto IsRequestedByTransmitter() const;
-        [[nodiscard]] auto IsTransmittingInput() const;
-        auto Changed(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverKeyboardDevice, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) TransmitInput() const;
+        WINRT_IMPL_AUTO(void) TransmitInput(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRequestedByTransmitter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTransmittingInput() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Changed(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverKeyboardDevice, Windows::Foundation::IInspectable> const& handler) const;
         using Changed_revoker = impl::event_revoker<Windows::Media::Miracast::IMiracastReceiverKeyboardDevice, &impl::abi_t<Windows::Media::Miracast::IMiracastReceiverKeyboardDevice>::remove_Changed>;
         [[nodiscard]] Changed_revoker Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverKeyboardDevice, Windows::Foundation::IInspectable> const& handler) const;
-        auto Changed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Changed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverKeyboardDevice>
     {
@@ -626,10 +629,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverMediaSourceCreatedEventArgs
     {
-        [[nodiscard]] auto Connection() const;
-        [[nodiscard]] auto MediaSource() const;
-        [[nodiscard]] auto CursorImageChannelSettings() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverConnection) Connection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) MediaSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverCursorImageChannelSettings) CursorImageChannelSettings() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverMediaSourceCreatedEventArgs>
     {
@@ -638,24 +641,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverSession
     {
-        auto ConnectionCreated(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverConnectionCreatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ConnectionCreated(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverConnectionCreatedEventArgs> const& handler) const;
         using ConnectionCreated_revoker = impl::event_revoker<Windows::Media::Miracast::IMiracastReceiverSession, &impl::abi_t<Windows::Media::Miracast::IMiracastReceiverSession>::remove_ConnectionCreated>;
         [[nodiscard]] ConnectionCreated_revoker ConnectionCreated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverConnectionCreatedEventArgs> const& handler) const;
-        auto ConnectionCreated(winrt::event_token const& token) const noexcept;
-        auto MediaSourceCreated(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverMediaSourceCreatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ConnectionCreated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) MediaSourceCreated(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverMediaSourceCreatedEventArgs> const& handler) const;
         using MediaSourceCreated_revoker = impl::event_revoker<Windows::Media::Miracast::IMiracastReceiverSession, &impl::abi_t<Windows::Media::Miracast::IMiracastReceiverSession>::remove_MediaSourceCreated>;
         [[nodiscard]] MediaSourceCreated_revoker MediaSourceCreated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverMediaSourceCreatedEventArgs> const& handler) const;
-        auto MediaSourceCreated(winrt::event_token const& token) const noexcept;
-        auto Disconnected(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverDisconnectedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) MediaSourceCreated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Disconnected(Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverDisconnectedEventArgs> const& handler) const;
         using Disconnected_revoker = impl::event_revoker<Windows::Media::Miracast::IMiracastReceiverSession, &impl::abi_t<Windows::Media::Miracast::IMiracastReceiverSession>::remove_Disconnected>;
         [[nodiscard]] Disconnected_revoker Disconnected(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Miracast::MiracastReceiverSession, Windows::Media::Miracast::MiracastReceiverDisconnectedEventArgs> const& handler) const;
-        auto Disconnected(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto AllowConnectionTakeover() const;
-        auto AllowConnectionTakeover(bool value) const;
-        [[nodiscard]] auto MaxSimultaneousConnections() const;
-        auto MaxSimultaneousConnections(int32_t value) const;
-        auto Start() const;
-        auto StartAsync() const;
+        WINRT_IMPL_AUTO(void) Disconnected(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowConnectionTakeover() const;
+        WINRT_IMPL_AUTO(void) AllowConnectionTakeover(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxSimultaneousConnections() const;
+        WINRT_IMPL_AUTO(void) MaxSimultaneousConnections(int32_t value) const;
+        WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverSessionStartResult) Start() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Miracast::MiracastReceiverSessionStartResult>) StartAsync() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverSession>
     {
@@ -664,8 +667,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverSessionStartResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverSessionStartStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverSessionStartResult>
     {
@@ -674,16 +677,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverSettings
     {
-        [[nodiscard]] auto FriendlyName() const;
-        auto FriendlyName(param::hstring const& value) const;
-        [[nodiscard]] auto ModelName() const;
-        auto ModelName(param::hstring const& value) const;
-        [[nodiscard]] auto ModelNumber() const;
-        auto ModelNumber(param::hstring const& value) const;
-        [[nodiscard]] auto AuthorizationMethod() const;
-        auto AuthorizationMethod(Windows::Media::Miracast::MiracastReceiverAuthorizationMethod const& value) const;
-        [[nodiscard]] auto RequireAuthorizationFromKnownTransmitters() const;
-        auto RequireAuthorizationFromKnownTransmitters(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FriendlyName() const;
+        WINRT_IMPL_AUTO(void) FriendlyName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ModelName() const;
+        WINRT_IMPL_AUTO(void) ModelName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ModelNumber() const;
+        WINRT_IMPL_AUTO(void) ModelNumber(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverAuthorizationMethod) AuthorizationMethod() const;
+        WINRT_IMPL_AUTO(void) AuthorizationMethod(Windows::Media::Miracast::MiracastReceiverAuthorizationMethod const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RequireAuthorizationFromKnownTransmitters() const;
+        WINRT_IMPL_AUTO(void) RequireAuthorizationFromKnownTransmitters(bool value) const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverSettings>
     {
@@ -692,11 +695,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverStatus
     {
-        [[nodiscard]] auto ListeningStatus() const;
-        [[nodiscard]] auto WiFiStatus() const;
-        [[nodiscard]] auto IsConnectionTakeoverSupported() const;
-        [[nodiscard]] auto MaxSimultaneousConnections() const;
-        [[nodiscard]] auto KnownTransmitters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverListeningStatus) ListeningStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverWiFiStatus) WiFiStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConnectionTakeoverSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxSimultaneousConnections() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Miracast::MiracastTransmitter>) KnownTransmitters() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverStatus>
     {
@@ -705,12 +708,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverStreamControl
     {
-        auto GetVideoStreamSettings() const;
-        auto GetVideoStreamSettingsAsync() const;
-        auto SuggestVideoStreamSettings(Windows::Media::Miracast::MiracastReceiverVideoStreamSettings const& settings) const;
-        auto SuggestVideoStreamSettingsAsync(Windows::Media::Miracast::MiracastReceiverVideoStreamSettings const& settings) const;
-        [[nodiscard]] auto MuteAudio() const;
-        auto MuteAudio(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastReceiverVideoStreamSettings) GetVideoStreamSettings() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Miracast::MiracastReceiverVideoStreamSettings>) GetVideoStreamSettingsAsync() const;
+        WINRT_IMPL_AUTO(void) SuggestVideoStreamSettings(Windows::Media::Miracast::MiracastReceiverVideoStreamSettings const& settings) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SuggestVideoStreamSettingsAsync(Windows::Media::Miracast::MiracastReceiverVideoStreamSettings const& settings) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) MuteAudio() const;
+        WINRT_IMPL_AUTO(void) MuteAudio(bool value) const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverStreamControl>
     {
@@ -719,10 +722,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastReceiverVideoStreamSettings
     {
-        [[nodiscard]] auto Size() const;
-        auto Size(Windows::Graphics::SizeInt32 const& value) const;
-        [[nodiscard]] auto Bitrate() const;
-        auto Bitrate(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::SizeInt32) Size() const;
+        WINRT_IMPL_AUTO(void) Size(Windows::Graphics::SizeInt32 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Bitrate() const;
+        WINRT_IMPL_AUTO(void) Bitrate(int32_t value) const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastReceiverVideoStreamSettings>
     {
@@ -731,13 +734,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Miracast_IMiracastTransmitter
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto AuthorizationStatus() const;
-        auto AuthorizationStatus(Windows::Media::Miracast::MiracastTransmitterAuthorizationStatus const& value) const;
-        auto GetConnections() const;
-        [[nodiscard]] auto MacAddress() const;
-        [[nodiscard]] auto LastConnectionTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Miracast::MiracastTransmitterAuthorizationStatus) AuthorizationStatus() const;
+        WINRT_IMPL_AUTO(void) AuthorizationStatus(Windows::Media::Miracast::MiracastTransmitterAuthorizationStatus const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Miracast::MiracastReceiverConnection>) GetConnections() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MacAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastConnectionTime() const;
     };
     template <> struct consume<Windows::Media::Miracast::IMiracastTransmitter>
     {

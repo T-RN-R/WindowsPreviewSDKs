@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -19,6 +19,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Email
     struct EmailMessage;
     enum class EmailMessageBodyKind : int32_t;
     struct EmailQueryOptions;
+    struct EmailRecipient;
     struct EmailRecipientResolutionResult;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation
@@ -31,6 +32,11 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
+}
+WINRT_EXPORT namespace winrt::Windows::Security::Cryptography::Certificates
+{
+    struct Certificate;
 }
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Email::DataProvider
 {
@@ -165,72 +171,70 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequestEventArgs>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequest>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequestEventArgs>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection>{ L"Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderTriggerDetails>{ L"Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxCreateFolderRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxCreateFolderRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDeleteFolderRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDeleteFolderRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadAttachmentRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadAttachmentRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadMessageRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadMessageRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxEmptyFolderRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxEmptyFolderRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxForwardMeetingRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxForwardMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxGetAutoReplySettingsRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxGetAutoReplySettingsRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxMoveFolderRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxMoveFolderRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxProposeNewTimeForMeetingRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxProposeNewTimeForMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxResolveRecipientsRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxResolveRecipientsRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxServerSearchReadBatchRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxServerSearchReadBatchRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxSetAutoReplySettingsRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxSetAutoReplySettingsRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxSyncManagerSyncRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxSyncManagerSyncRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequest>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderTriggerDetails>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxCreateFolderRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxCreateFolderRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDeleteFolderRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDeleteFolderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDeleteFolderRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDeleteFolderRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadAttachmentRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadAttachmentRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadMessageRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadMessageRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxEmptyFolderRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxEmptyFolderRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxForwardMeetingRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxForwardMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxForwardMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxForwardMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxGetAutoReplySettingsRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxGetAutoReplySettingsRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxMoveFolderRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxMoveFolderRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxProposeNewTimeForMeetingRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxProposeNewTimeForMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxResolveRecipientsRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxResolveRecipientsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxResolveRecipientsRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxResolveRecipientsRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxServerSearchReadBatchRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxServerSearchReadBatchRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSetAutoReplySettingsRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSetAutoReplySettingsRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSyncManagerSyncRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSyncManagerSyncRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxUpdateMeetingResponseRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxUpdateMeetingResponseRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxValidateCertificatesRequest>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxValidateCertificatesRequestEventArgs>{ L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection> = L"Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderTriggerDetails> = L"Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxCreateFolderRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxCreateFolderRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDeleteFolderRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDeleteFolderRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadAttachmentRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadAttachmentRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadMessageRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadMessageRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxEmptyFolderRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxEmptyFolderRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxForwardMeetingRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxForwardMeetingRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxGetAutoReplySettingsRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxGetAutoReplySettingsRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxMoveFolderRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxMoveFolderRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxProposeNewTimeForMeetingRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxProposeNewTimeForMeetingRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxResolveRecipientsRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxResolveRecipientsRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxServerSearchReadBatchRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxServerSearchReadBatchRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxSetAutoReplySettingsRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxSetAutoReplySettingsRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxSyncManagerSyncRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxSyncManagerSyncRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequest> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection> = L"Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderConnection";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderTriggerDetails> = L"Windows.ApplicationModel.Email.DataProvider.IEmailDataProviderTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxCreateFolderRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxCreateFolderRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxCreateFolderRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDeleteFolderRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDeleteFolderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDeleteFolderRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDeleteFolderRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadAttachmentRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadAttachmentRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadAttachmentRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadMessageRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadMessageRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxDownloadMessageRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxEmptyFolderRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxEmptyFolderRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxEmptyFolderRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxForwardMeetingRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxForwardMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxForwardMeetingRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxForwardMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxGetAutoReplySettingsRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxGetAutoReplySettingsRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxGetAutoReplySettingsRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxMoveFolderRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxMoveFolderRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxMoveFolderRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxProposeNewTimeForMeetingRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxProposeNewTimeForMeetingRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxProposeNewTimeForMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxResolveRecipientsRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxResolveRecipientsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxResolveRecipientsRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxResolveRecipientsRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxServerSearchReadBatchRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxServerSearchReadBatchRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxServerSearchReadBatchRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSetAutoReplySettingsRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSetAutoReplySettingsRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSetAutoReplySettingsRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSyncManagerSyncRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSyncManagerSyncRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxSyncManagerSyncRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxUpdateMeetingResponseRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxUpdateMeetingResponseRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxUpdateMeetingResponseRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxValidateCertificatesRequest> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxValidateCertificatesRequestEventArgs> = L"Windows.ApplicationModel.Email.DataProvider.IEmailMailboxValidateCertificatesRequestEventArgs";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>{ 0x3B9C9DC7,0x37B2,0x4BF0,{ 0xAE,0x30,0x7B,0x64,0x4A,0x1C,0x96,0xE1 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderTriggerDetails>{ 0x8F3E4E50,0x341E,0x45F3,{ 0xBB,0xA0,0x84,0xA0,0x05,0xE1,0x31,0x9A } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxCreateFolderRequest>{ 0x184D3775,0xC921,0x4C39,{ 0xA3,0x09,0xE1,0x6C,0x9F,0x22,0xB0,0x4B } };
@@ -632,67 +636,67 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailDataProviderConnection
     {
-        auto MailboxSyncRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxSyncManagerSyncRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) MailboxSyncRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxSyncManagerSyncRequestEventArgs> const& handler) const;
         using MailboxSyncRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_MailboxSyncRequested>;
         [[nodiscard]] MailboxSyncRequested_revoker MailboxSyncRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxSyncManagerSyncRequestEventArgs> const& handler) const;
-        auto MailboxSyncRequested(winrt::event_token const& token) const noexcept;
-        auto DownloadMessageRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadMessageRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) MailboxSyncRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DownloadMessageRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadMessageRequestEventArgs> const& handler) const;
         using DownloadMessageRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_DownloadMessageRequested>;
         [[nodiscard]] DownloadMessageRequested_revoker DownloadMessageRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadMessageRequestEventArgs> const& handler) const;
-        auto DownloadMessageRequested(winrt::event_token const& token) const noexcept;
-        auto DownloadAttachmentRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadAttachmentRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DownloadMessageRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DownloadAttachmentRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadAttachmentRequestEventArgs> const& handler) const;
         using DownloadAttachmentRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_DownloadAttachmentRequested>;
         [[nodiscard]] DownloadAttachmentRequested_revoker DownloadAttachmentRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadAttachmentRequestEventArgs> const& handler) const;
-        auto DownloadAttachmentRequested(winrt::event_token const& token) const noexcept;
-        auto CreateFolderRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxCreateFolderRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DownloadAttachmentRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CreateFolderRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxCreateFolderRequestEventArgs> const& handler) const;
         using CreateFolderRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_CreateFolderRequested>;
         [[nodiscard]] CreateFolderRequested_revoker CreateFolderRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxCreateFolderRequestEventArgs> const& handler) const;
-        auto CreateFolderRequested(winrt::event_token const& token) const noexcept;
-        auto DeleteFolderRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDeleteFolderRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CreateFolderRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DeleteFolderRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDeleteFolderRequestEventArgs> const& handler) const;
         using DeleteFolderRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_DeleteFolderRequested>;
         [[nodiscard]] DeleteFolderRequested_revoker DeleteFolderRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxDeleteFolderRequestEventArgs> const& handler) const;
-        auto DeleteFolderRequested(winrt::event_token const& token) const noexcept;
-        auto EmptyFolderRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxEmptyFolderRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DeleteFolderRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EmptyFolderRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxEmptyFolderRequestEventArgs> const& handler) const;
         using EmptyFolderRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_EmptyFolderRequested>;
         [[nodiscard]] EmptyFolderRequested_revoker EmptyFolderRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxEmptyFolderRequestEventArgs> const& handler) const;
-        auto EmptyFolderRequested(winrt::event_token const& token) const noexcept;
-        auto MoveFolderRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxMoveFolderRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) EmptyFolderRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) MoveFolderRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxMoveFolderRequestEventArgs> const& handler) const;
         using MoveFolderRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_MoveFolderRequested>;
         [[nodiscard]] MoveFolderRequested_revoker MoveFolderRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxMoveFolderRequestEventArgs> const& handler) const;
-        auto MoveFolderRequested(winrt::event_token const& token) const noexcept;
-        auto UpdateMeetingResponseRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) MoveFolderRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) UpdateMeetingResponseRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequestEventArgs> const& handler) const;
         using UpdateMeetingResponseRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_UpdateMeetingResponseRequested>;
         [[nodiscard]] UpdateMeetingResponseRequested_revoker UpdateMeetingResponseRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequestEventArgs> const& handler) const;
-        auto UpdateMeetingResponseRequested(winrt::event_token const& token) const noexcept;
-        auto ForwardMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxForwardMeetingRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) UpdateMeetingResponseRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ForwardMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxForwardMeetingRequestEventArgs> const& handler) const;
         using ForwardMeetingRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_ForwardMeetingRequested>;
         [[nodiscard]] ForwardMeetingRequested_revoker ForwardMeetingRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxForwardMeetingRequestEventArgs> const& handler) const;
-        auto ForwardMeetingRequested(winrt::event_token const& token) const noexcept;
-        auto ProposeNewTimeForMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxProposeNewTimeForMeetingRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ForwardMeetingRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ProposeNewTimeForMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxProposeNewTimeForMeetingRequestEventArgs> const& handler) const;
         using ProposeNewTimeForMeetingRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_ProposeNewTimeForMeetingRequested>;
         [[nodiscard]] ProposeNewTimeForMeetingRequested_revoker ProposeNewTimeForMeetingRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxProposeNewTimeForMeetingRequestEventArgs> const& handler) const;
-        auto ProposeNewTimeForMeetingRequested(winrt::event_token const& token) const noexcept;
-        auto SetAutoReplySettingsRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxSetAutoReplySettingsRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ProposeNewTimeForMeetingRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SetAutoReplySettingsRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxSetAutoReplySettingsRequestEventArgs> const& handler) const;
         using SetAutoReplySettingsRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_SetAutoReplySettingsRequested>;
         [[nodiscard]] SetAutoReplySettingsRequested_revoker SetAutoReplySettingsRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxSetAutoReplySettingsRequestEventArgs> const& handler) const;
-        auto SetAutoReplySettingsRequested(winrt::event_token const& token) const noexcept;
-        auto GetAutoReplySettingsRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxGetAutoReplySettingsRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SetAutoReplySettingsRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) GetAutoReplySettingsRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxGetAutoReplySettingsRequestEventArgs> const& handler) const;
         using GetAutoReplySettingsRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_GetAutoReplySettingsRequested>;
         [[nodiscard]] GetAutoReplySettingsRequested_revoker GetAutoReplySettingsRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxGetAutoReplySettingsRequestEventArgs> const& handler) const;
-        auto GetAutoReplySettingsRequested(winrt::event_token const& token) const noexcept;
-        auto ResolveRecipientsRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxResolveRecipientsRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) GetAutoReplySettingsRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ResolveRecipientsRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxResolveRecipientsRequestEventArgs> const& handler) const;
         using ResolveRecipientsRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_ResolveRecipientsRequested>;
         [[nodiscard]] ResolveRecipientsRequested_revoker ResolveRecipientsRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxResolveRecipientsRequestEventArgs> const& handler) const;
-        auto ResolveRecipientsRequested(winrt::event_token const& token) const noexcept;
-        auto ValidateCertificatesRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ResolveRecipientsRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ValidateCertificatesRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequestEventArgs> const& handler) const;
         using ValidateCertificatesRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_ValidateCertificatesRequested>;
         [[nodiscard]] ValidateCertificatesRequested_revoker ValidateCertificatesRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequestEventArgs> const& handler) const;
-        auto ValidateCertificatesRequested(winrt::event_token const& token) const noexcept;
-        auto ServerSearchReadBatchRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxServerSearchReadBatchRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ValidateCertificatesRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ServerSearchReadBatchRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxServerSearchReadBatchRequestEventArgs> const& handler) const;
         using ServerSearchReadBatchRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>::remove_ServerSearchReadBatchRequested>;
         [[nodiscard]] ServerSearchReadBatchRequested_revoker ServerSearchReadBatchRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection, Windows::ApplicationModel::Email::DataProvider::EmailMailboxServerSearchReadBatchRequestEventArgs> const& handler) const;
-        auto ServerSearchReadBatchRequested(winrt::event_token const& token) const noexcept;
-        auto Start() const;
+        WINRT_IMPL_AUTO(void) ServerSearchReadBatchRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Start() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderConnection>
     {
@@ -701,7 +705,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailDataProviderTriggerDetails
     {
-        [[nodiscard]] auto Connection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailDataProviderConnection) Connection() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailDataProviderTriggerDetails>
     {
@@ -710,11 +714,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxCreateFolderRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto ParentFolderId() const;
-        [[nodiscard]] auto Name() const;
-        auto ReportCompletedAsync(Windows::ApplicationModel::Email::EmailFolder const& folder) const;
-        auto ReportFailedAsync(Windows::ApplicationModel::Email::EmailMailboxCreateFolderStatus const& status) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ParentFolderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync(Windows::ApplicationModel::Email::EmailFolder const& folder) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync(Windows::ApplicationModel::Email::EmailMailboxCreateFolderStatus const& status) const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxCreateFolderRequest>
     {
@@ -723,8 +727,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxCreateFolderRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxCreateFolderRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxCreateFolderRequestEventArgs>
     {
@@ -733,10 +737,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxDeleteFolderRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailFolderId() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync(Windows::ApplicationModel::Email::EmailMailboxDeleteFolderStatus const& status) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailFolderId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync(Windows::ApplicationModel::Email::EmailMailboxDeleteFolderStatus const& status) const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDeleteFolderRequest>
     {
@@ -745,8 +749,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxDeleteFolderRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxDeleteFolderRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDeleteFolderRequestEventArgs>
     {
@@ -755,11 +759,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxDownloadAttachmentRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailMessageId() const;
-        [[nodiscard]] auto EmailAttachmentId() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMessageId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailAttachmentId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadAttachmentRequest>
     {
@@ -768,8 +772,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxDownloadAttachmentRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadAttachmentRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadAttachmentRequestEventArgs>
     {
@@ -778,10 +782,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxDownloadMessageRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailMessageId() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMessageId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadMessageRequest>
     {
@@ -790,8 +794,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxDownloadMessageRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxDownloadMessageRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxDownloadMessageRequestEventArgs>
     {
@@ -800,10 +804,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxEmptyFolderRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailFolderId() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync(Windows::ApplicationModel::Email::EmailMailboxEmptyFolderStatus const& status) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailFolderId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync(Windows::ApplicationModel::Email::EmailMailboxEmptyFolderStatus const& status) const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxEmptyFolderRequest>
     {
@@ -812,8 +816,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxEmptyFolderRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxEmptyFolderRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxEmptyFolderRequestEventArgs>
     {
@@ -822,15 +826,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxForwardMeetingRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailMessageId() const;
-        [[nodiscard]] auto Recipients() const;
-        [[nodiscard]] auto Subject() const;
-        [[nodiscard]] auto ForwardHeaderType() const;
-        [[nodiscard]] auto ForwardHeader() const;
-        [[nodiscard]] auto Comment() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMessageId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Email::EmailRecipient>) Recipients() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::EmailMessageBodyKind) ForwardHeaderType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ForwardHeader() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Comment() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxForwardMeetingRequest>
     {
@@ -839,8 +843,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxForwardMeetingRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxForwardMeetingRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxForwardMeetingRequestEventArgs>
     {
@@ -849,10 +853,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxGetAutoReplySettingsRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto RequestedFormat() const;
-        auto ReportCompletedAsync(Windows::ApplicationModel::Email::EmailMailboxAutoReplySettings const& autoReplySettings) const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::EmailMailboxAutoReplyMessageResponseKind) RequestedFormat() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync(Windows::ApplicationModel::Email::EmailMailboxAutoReplySettings const& autoReplySettings) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxGetAutoReplySettingsRequest>
     {
@@ -861,8 +865,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxGetAutoReplySettingsRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxGetAutoReplySettingsRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxGetAutoReplySettingsRequestEventArgs>
     {
@@ -871,12 +875,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxMoveFolderRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailFolderId() const;
-        [[nodiscard]] auto NewParentFolderId() const;
-        [[nodiscard]] auto NewFolderName() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailFolderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NewParentFolderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NewFolderName() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxMoveFolderRequest>
     {
@@ -885,8 +889,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxMoveFolderRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxMoveFolderRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxMoveFolderRequestEventArgs>
     {
@@ -895,14 +899,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxProposeNewTimeForMeetingRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailMessageId() const;
-        [[nodiscard]] auto NewStartTime() const;
-        [[nodiscard]] auto NewDuration() const;
-        [[nodiscard]] auto Subject() const;
-        [[nodiscard]] auto Comment() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMessageId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) NewStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) NewDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Comment() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxProposeNewTimeForMeetingRequest>
     {
@@ -911,8 +915,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxProposeNewTimeForMeetingRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxProposeNewTimeForMeetingRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxProposeNewTimeForMeetingRequestEventArgs>
     {
@@ -921,10 +925,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxResolveRecipientsRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto Recipients() const;
-        auto ReportCompletedAsync(param::async_iterable<Windows::ApplicationModel::Email::EmailRecipientResolutionResult> const& resolutionResults) const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Recipients() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync(param::async_iterable<Windows::ApplicationModel::Email::EmailRecipientResolutionResult> const& resolutionResults) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxResolveRecipientsRequest>
     {
@@ -933,8 +937,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxResolveRecipientsRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxResolveRecipientsRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxResolveRecipientsRequestEventArgs>
     {
@@ -943,14 +947,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxServerSearchReadBatchRequest
     {
-        [[nodiscard]] auto SessionId() const;
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailFolderId() const;
-        [[nodiscard]] auto Options() const;
-        [[nodiscard]] auto SuggestedBatchSize() const;
-        auto SaveMessageAsync(Windows::ApplicationModel::Email::EmailMessage const& message) const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync(Windows::ApplicationModel::Email::EmailBatchStatus const& batchStatus) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SessionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailFolderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::EmailQueryOptions) Options() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SuggestedBatchSize() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveMessageAsync(Windows::ApplicationModel::Email::EmailMessage const& message) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync(Windows::ApplicationModel::Email::EmailBatchStatus const& batchStatus) const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxServerSearchReadBatchRequest>
     {
@@ -959,8 +963,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxServerSearchReadBatchRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxServerSearchReadBatchRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxServerSearchReadBatchRequestEventArgs>
     {
@@ -969,10 +973,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxSetAutoReplySettingsRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto AutoReplySettings() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::EmailMailboxAutoReplySettings) AutoReplySettings() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSetAutoReplySettingsRequest>
     {
@@ -981,8 +985,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxSetAutoReplySettingsRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxSetAutoReplySettingsRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSetAutoReplySettingsRequestEventArgs>
     {
@@ -991,9 +995,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxSyncManagerSyncRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSyncManagerSyncRequest>
     {
@@ -1002,8 +1006,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxSyncManagerSyncRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxSyncManagerSyncRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxSyncManagerSyncRequestEventArgs>
     {
@@ -1012,14 +1016,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxUpdateMeetingResponseRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto EmailMessageId() const;
-        [[nodiscard]] auto Response() const;
-        [[nodiscard]] auto Subject() const;
-        [[nodiscard]] auto Comment() const;
-        [[nodiscard]] auto SendUpdate() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMessageId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::EmailMeetingResponseType) Response() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Comment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SendUpdate() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxUpdateMeetingResponseRequest>
     {
@@ -1028,8 +1032,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxUpdateMeetingResponseRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxUpdateMeetingResponseRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxUpdateMeetingResponseRequestEventArgs>
     {
@@ -1038,10 +1042,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxValidateCertificatesRequest
     {
-        [[nodiscard]] auto EmailMailboxId() const;
-        [[nodiscard]] auto Certificates() const;
-        auto ReportCompletedAsync(param::async_iterable<Windows::ApplicationModel::Email::EmailCertificateValidationStatus> const& validationStatuses) const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EmailMailboxId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Security::Cryptography::Certificates::Certificate>) Certificates() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync(param::async_iterable<Windows::ApplicationModel::Email::EmailCertificateValidationStatus> const& validationStatuses) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxValidateCertificatesRequest>
     {
@@ -1050,8 +1054,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Email_DataProvider_IEmailMailboxValidateCertificatesRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Email::DataProvider::EmailMailboxValidateCertificatesRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Email::DataProvider::IEmailMailboxValidateCertificatesRequestEventArgs>
     {

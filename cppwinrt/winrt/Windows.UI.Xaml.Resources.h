@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,30 +6,30 @@
 #ifndef WINRT_Windows_UI_Xaml_Resources_H
 #define WINRT_Windows_UI_Xaml_Resources_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.Xaml.h"
 #include "winrt/impl/Windows.UI.Xaml.Resources.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Resources::CustomXamlResourceLoader) consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderFactory)->CreateInstance(*(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Resources::CustomXamlResourceLoader{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderOverrides<D>::GetResource(param::hstring const& resourceId, param::hstring const& objectType, param::hstring const& propertyName, param::hstring const& propertyType) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderOverrides<D>::GetResource(param::hstring const& resourceId, param::hstring const& objectType, param::hstring const& propertyName, param::hstring const& propertyType) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides)->GetResource(*(void**)(&resourceId), *(void**)(&objectType), *(void**)(&propertyName), *(void**)(&propertyType), &result));
         return Windows::Foundation::IInspectable{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderStatics<D>::Current() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Resources::CustomXamlResourceLoader) consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderStatics<D>::Current() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics)->get_Current(&value));
         return Windows::UI::Xaml::Resources::CustomXamlResourceLoader{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderStatics<D>::Current(Windows::UI::Xaml::Resources::CustomXamlResourceLoader const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderStatics<D>::Current(Windows::UI::Xaml::Resources::CustomXamlResourceLoader const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics)->put_Current(*(void**)(&value)));
     }
@@ -56,7 +56,6 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
 #endif
-#ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
     struct produce<D, Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides> : produce_base<D, Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>
     {
@@ -69,7 +68,6 @@ namespace winrt::impl
         }
         catch (...) { return to_hresult(); }
     };
-#endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
     struct produce<D, Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics> : produce_base<D, Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics>
@@ -95,7 +93,7 @@ template <typename T, typename D>
 struct __declspec(empty_bases) produce_dispatch_to_overridable<T, D, Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>
     : produce_dispatch_to_overridable_base<T, D, Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>
 {
-    auto GetResource(hstring resourceId, hstring objectType, hstring propertyName, hstring propertyType)
+    auto GetResource(hstring const& resourceId, hstring const& objectType, hstring const& propertyName, hstring const& propertyType)
     {
         if (auto overridable = this->shim_overridable())
         {
@@ -121,7 +119,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Resources
     {
         impl::call_factory<CustomXamlResourceLoader, ICustomXamlResourceLoaderStatics>([&](ICustomXamlResourceLoaderStatics const& f) { return f.Current(value); });
     }
-    template <typename D> auto ICustomXamlResourceLoaderOverridesT<D>::GetResource(param::hstring const& resourceId, param::hstring const& objectType, param::hstring const& propertyName, param::hstring const& propertyType) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ICustomXamlResourceLoaderOverridesT<D>::GetResource(param::hstring const& resourceId, param::hstring const& objectType, param::hstring const& propertyName, param::hstring const& propertyType) const
     {
         return shim().template try_as<ICustomXamlResourceLoaderOverrides>().GetResource(resourceId, objectType, propertyName, propertyType);
     }
@@ -136,7 +134,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Resources
     protected:
         CustomXamlResourceLoaderT()
         {
-            impl::call_factory<CustomXamlResourceLoader, ICustomXamlResourceLoaderFactory>([&](ICustomXamlResourceLoaderFactory const& f) { f.CreateInstance(*this, this->m_inner); });
+            impl::call_factory<CustomXamlResourceLoader, ICustomXamlResourceLoaderFactory>([&](ICustomXamlResourceLoaderFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstance(*this, this->m_inner); });
         }
     };
 }

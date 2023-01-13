@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -19,12 +19,16 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
+    template <typename TResult> struct IAsyncOperation;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking
 {
@@ -726,221 +730,219 @@ namespace winrt::impl
     template <> struct category<Windows::Networking::NetworkOperators::UssdResultCode>{ using type = enum_category; };
     template <> struct category<Windows::Networking::NetworkOperators::ESimProfileInstallProgress>{ using type = struct_category<int32_t, int32_t>; };
     template <> struct category<Windows::Networking::NetworkOperators::ProfileUsage>{ using type = struct_category<uint32_t, Windows::Foundation::DateTime>; };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESim>{ L"Windows.Networking.NetworkOperators.ESim" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimAddedEventArgs>{ L"Windows.Networking.NetworkOperators.ESimAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimDiscoverEvent>{ L"Windows.Networking.NetworkOperators.ESimDiscoverEvent" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimDiscoverResult>{ L"Windows.Networking.NetworkOperators.ESimDiscoverResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimDownloadProfileMetadataResult>{ L"Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimManager>{ L"Windows.Networking.NetworkOperators.ESimManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimOperationResult>{ L"Windows.Networking.NetworkOperators.ESimOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimPolicy>{ L"Windows.Networking.NetworkOperators.ESimPolicy" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfile>{ L"Windows.Networking.NetworkOperators.ESimProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileMetadata>{ L"Windows.Networking.NetworkOperators.ESimProfileMetadata" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfilePolicy>{ L"Windows.Networking.NetworkOperators.ESimProfilePolicy" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimRemovedEventArgs>{ L"Windows.Networking.NetworkOperators.ESimRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimServiceInfo>{ L"Windows.Networking.NetworkOperators.ESimServiceInfo" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimUpdatedEventArgs>{ L"Windows.Networking.NetworkOperators.ESimUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimWatcher>{ L"Windows.Networking.NetworkOperators.ESimWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::FdnAccessManager>{ L"Windows.Networking.NetworkOperators.FdnAccessManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::HotspotAuthenticationContext>{ L"Windows.Networking.NetworkOperators.HotspotAuthenticationContext" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::HotspotAuthenticationEventDetails>{ L"Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::HotspotCredentialsAuthenticationResult>{ L"Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::KnownCSimFilePaths>{ L"Windows.Networking.NetworkOperators.KnownCSimFilePaths" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::KnownRuimFilePaths>{ L"Windows.Networking.NetworkOperators.KnownRuimFilePaths" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::KnownSimFilePaths>{ L"Windows.Networking.NetworkOperators.KnownSimFilePaths" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::KnownUSimFilePaths>{ L"Windows.Networking.NetworkOperators.KnownUSimFilePaths" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccount>{ L"Windows.Networking.NetworkOperators.MobileBroadbandAccount" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccountEventArgs>{ L"Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccountUpdatedEventArgs>{ L"Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher>{ L"Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAntennaSar>{ L"Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellCdma>{ L"Windows.Networking.NetworkOperators.MobileBroadbandCellCdma" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellGsm>{ L"Windows.Networking.NetworkOperators.MobileBroadbandCellGsm" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellLte>{ L"Windows.Networking.NetworkOperators.MobileBroadbandCellLte" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellTdscdma>{ L"Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellUmts>{ L"Windows.Networking.NetworkOperators.MobileBroadbandCellUmts" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellsInfo>{ L"Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceInformation>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceService>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceService" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceCommandResult>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceCommandSession>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataReceivedEventArgs>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataSession>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceInformation>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceTriggerDetails>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandModem>{ L"Windows.Networking.NetworkOperators.MobileBroadbandModem" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandModemConfiguration>{ L"Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandModemIsolation>{ L"Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandNetwork>{ L"Windows.Networking.NetworkOperators.MobileBroadbandNetwork" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandNetworkRegistrationStateChange>{ L"Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandNetworkRegistrationStateChangeTriggerDetails>{ L"Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPco>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPco" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPcoDataChangeTriggerDetails>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPin>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPin" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinLockStateChange>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinLockStateChangeTriggerDetails>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinManager>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPinManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinOperationResult>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandRadioStateChange>{ L"Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandRadioStateChangeTriggerDetails>{ L"Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandSarManager>{ L"Windows.Networking.NetworkOperators.MobileBroadbandSarManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandTransmissionStateChangedEventArgs>{ L"Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUicc>{ L"Windows.Networking.NetworkOperators.MobileBroadbandUicc" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccApp>{ L"Windows.Networking.NetworkOperators.MobileBroadbandUiccApp" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppReadRecordResult>{ L"Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppRecordDetailsResult>{ L"Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppsResult>{ L"Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorDataUsageTriggerDetails>{ L"Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorNotificationEventDetails>{ L"Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorTetheringAccessPointConfiguration>{ L"Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorTetheringClient>{ L"Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorTetheringManager>{ L"Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorTetheringOperationResult>{ L"Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProvisionFromXmlDocumentResults>{ L"Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProvisionedProfile>{ L"Windows.Networking.NetworkOperators.ProvisionedProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProvisioningAgent>{ L"Windows.Networking.NetworkOperators.ProvisioningAgent" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringEntitlementCheckTriggerDetails>{ L"Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UssdMessage>{ L"Windows.Networking.NetworkOperators.UssdMessage" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UssdReply>{ L"Windows.Networking.NetworkOperators.UssdReply" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UssdSession>{ L"Windows.Networking.NetworkOperators.UssdSession" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::DataClasses>{ L"Windows.Networking.NetworkOperators.DataClasses" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimAuthenticationPreference>{ L"Windows.Networking.NetworkOperators.ESimAuthenticationPreference" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimDiscoverResultKind>{ L"Windows.Networking.NetworkOperators.ESimDiscoverResultKind" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimOperationStatus>{ L"Windows.Networking.NetworkOperators.ESimOperationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileClass>{ L"Windows.Networking.NetworkOperators.ESimProfileClass" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileMetadataState>{ L"Windows.Networking.NetworkOperators.ESimProfileMetadataState" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileState>{ L"Windows.Networking.NetworkOperators.ESimProfileState" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimState>{ L"Windows.Networking.NetworkOperators.ESimState" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimWatcherStatus>{ L"Windows.Networking.NetworkOperators.ESimWatcherStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::HotspotAuthenticationResponseCode>{ L"Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcherStatus>{ L"Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceType>{ L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandModemStatus>{ L"Windows.Networking.NetworkOperators.MobileBroadbandModemStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinFormat>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPinFormat" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinLockState>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPinLockState" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinType>{ L"Windows.Networking.NetworkOperators.MobileBroadbandPinType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandRadioState>{ L"Windows.Networking.NetworkOperators.MobileBroadbandRadioState" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppOperationStatus>{ L"Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkDeviceStatus>{ L"Windows.Networking.NetworkOperators.NetworkDeviceStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorDataUsageNotificationKind>{ L"Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorEventMessageType>{ L"Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkRegistrationState>{ L"Windows.Networking.NetworkOperators.NetworkRegistrationState" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProfileMediaType>{ L"Windows.Networking.NetworkOperators.ProfileMediaType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringCapability>{ L"Windows.Networking.NetworkOperators.TetheringCapability" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringOperationStatus>{ L"Windows.Networking.NetworkOperators.TetheringOperationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringOperationalState>{ L"Windows.Networking.NetworkOperators.TetheringOperationalState" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringWiFiBand>{ L"Windows.Networking.NetworkOperators.TetheringWiFiBand" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UiccAccessCondition>{ L"Windows.Networking.NetworkOperators.UiccAccessCondition" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UiccAppKind>{ L"Windows.Networking.NetworkOperators.UiccAppKind" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UiccAppRecordKind>{ L"Windows.Networking.NetworkOperators.UiccAppRecordKind" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UssdResultCode>{ L"Windows.Networking.NetworkOperators.UssdResultCode" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileInstallProgress>{ L"Windows.Networking.NetworkOperators.ESimProfileInstallProgress" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProfileUsage>{ L"Windows.Networking.NetworkOperators.ProfileUsage" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESim>{ L"Windows.Networking.NetworkOperators.IESim" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESim2>{ L"Windows.Networking.NetworkOperators.IESim2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimAddedEventArgs>{ L"Windows.Networking.NetworkOperators.IESimAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimDiscoverEvent>{ L"Windows.Networking.NetworkOperators.IESimDiscoverEvent" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimDiscoverResult>{ L"Windows.Networking.NetworkOperators.IESimDiscoverResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimDownloadProfileMetadataResult>{ L"Windows.Networking.NetworkOperators.IESimDownloadProfileMetadataResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimManagerStatics>{ L"Windows.Networking.NetworkOperators.IESimManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimOperationResult>{ L"Windows.Networking.NetworkOperators.IESimOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimPolicy>{ L"Windows.Networking.NetworkOperators.IESimPolicy" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimProfile>{ L"Windows.Networking.NetworkOperators.IESimProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimProfileMetadata>{ L"Windows.Networking.NetworkOperators.IESimProfileMetadata" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimProfilePolicy>{ L"Windows.Networking.NetworkOperators.IESimProfilePolicy" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimRemovedEventArgs>{ L"Windows.Networking.NetworkOperators.IESimRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimServiceInfo>{ L"Windows.Networking.NetworkOperators.IESimServiceInfo" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimUpdatedEventArgs>{ L"Windows.Networking.NetworkOperators.IESimUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimWatcher>{ L"Windows.Networking.NetworkOperators.IESimWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IFdnAccessManagerStatics>{ L"Windows.Networking.NetworkOperators.IFdnAccessManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotAuthenticationContext>{ L"Windows.Networking.NetworkOperators.IHotspotAuthenticationContext" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotAuthenticationContext2>{ L"Windows.Networking.NetworkOperators.IHotspotAuthenticationContext2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotAuthenticationContextStatics>{ L"Windows.Networking.NetworkOperators.IHotspotAuthenticationContextStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotAuthenticationEventDetails>{ L"Windows.Networking.NetworkOperators.IHotspotAuthenticationEventDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotCredentialsAuthenticationResult>{ L"Windows.Networking.NetworkOperators.IHotspotCredentialsAuthenticationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IKnownCSimFilePathsStatics>{ L"Windows.Networking.NetworkOperators.IKnownCSimFilePathsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IKnownRuimFilePathsStatics>{ L"Windows.Networking.NetworkOperators.IKnownRuimFilePathsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IKnownSimFilePathsStatics>{ L"Windows.Networking.NetworkOperators.IKnownSimFilePathsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IKnownUSimFilePathsStatics>{ L"Windows.Networking.NetworkOperators.IKnownUSimFilePathsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccount>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAccount" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccount2>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAccount2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccount3>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAccount3" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccountEventArgs>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAccountEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccountStatics>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAccountStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccountUpdatedEventArgs>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAccountUpdatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAntennaSar>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSar" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAntennaSarFactory>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSarFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellCdma>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandCellCdma" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellGsm>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandCellGsm" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellLte>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandCellLte" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellTdscdma>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandCellTdscdma" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellUmts>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandCellUmts" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellsInfo>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandCellsInfo" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation2>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation3>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation3" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceService>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceService" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceCommandResult>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceCommandResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceCommandSession>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceCommandSession" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceDataReceivedEventArgs>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceDataSession>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataSession" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceInformation>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceInformation" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceTriggerDetails>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModem>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandModem" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModem2>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandModem2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModem3>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandModem3" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemConfiguration>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandModemConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemConfiguration2>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandModemConfiguration2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemIsolation>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolation" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemIsolationFactory>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolationFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemStatics>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandModemStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork2>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork3>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork3" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetworkRegistrationStateChange>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandNetworkRegistrationStateChange" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPco>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandPco" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPcoDataChangeTriggerDetails>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandPcoDataChangeTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPin>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandPin" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPinLockStateChange>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandPinLockStateChange" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPinLockStateChangeTriggerDetails>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandPinLockStateChangeTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPinManager>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandPinManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPinOperationResult>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandPinOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandRadioStateChange>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandRadioStateChange" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandRadioStateChangeTriggerDetails>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandRadioStateChangeTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandSarManager>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandSarManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandTransmissionStateChangedEventArgs>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandTransmissionStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUicc>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandUicc" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUiccApp>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandUiccApp" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppReadRecordResult>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppReadRecordResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppRecordDetailsResult>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppRecordDetailsResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppsResult>{ L"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppsResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorDataUsageTriggerDetails>{ L"Windows.Networking.NetworkOperators.INetworkOperatorDataUsageTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorNotificationEventDetails>{ L"Windows.Networking.NetworkOperators.INetworkOperatorNotificationEventDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringAccessPointConfiguration>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringAccessPointConfiguration2>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringClient>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringClient" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringClientManager>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringClientManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringEntitlementCheck>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringEntitlementCheck" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManager>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics2>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics3>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics4>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics4" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringOperationResult>{ L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IProvisionFromXmlDocumentResults>{ L"Windows.Networking.NetworkOperators.IProvisionFromXmlDocumentResults" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IProvisionedProfile>{ L"Windows.Networking.NetworkOperators.IProvisionedProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IProvisioningAgent>{ L"Windows.Networking.NetworkOperators.IProvisioningAgent" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IProvisioningAgentStaticMethods>{ L"Windows.Networking.NetworkOperators.IProvisioningAgentStaticMethods" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ITetheringEntitlementCheckTriggerDetails>{ L"Windows.Networking.NetworkOperators.ITetheringEntitlementCheckTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdMessage>{ L"Windows.Networking.NetworkOperators.IUssdMessage" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdMessageFactory>{ L"Windows.Networking.NetworkOperators.IUssdMessageFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdReply>{ L"Windows.Networking.NetworkOperators.IUssdReply" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdSession>{ L"Windows.Networking.NetworkOperators.IUssdSession" };
-    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdSessionStatics>{ L"Windows.Networking.NetworkOperators.IUssdSessionStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESim> = L"Windows.Networking.NetworkOperators.ESim";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimAddedEventArgs> = L"Windows.Networking.NetworkOperators.ESimAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimDiscoverEvent> = L"Windows.Networking.NetworkOperators.ESimDiscoverEvent";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimDiscoverResult> = L"Windows.Networking.NetworkOperators.ESimDiscoverResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimDownloadProfileMetadataResult> = L"Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimManager> = L"Windows.Networking.NetworkOperators.ESimManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimOperationResult> = L"Windows.Networking.NetworkOperators.ESimOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimPolicy> = L"Windows.Networking.NetworkOperators.ESimPolicy";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfile> = L"Windows.Networking.NetworkOperators.ESimProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileMetadata> = L"Windows.Networking.NetworkOperators.ESimProfileMetadata";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfilePolicy> = L"Windows.Networking.NetworkOperators.ESimProfilePolicy";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimRemovedEventArgs> = L"Windows.Networking.NetworkOperators.ESimRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimServiceInfo> = L"Windows.Networking.NetworkOperators.ESimServiceInfo";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimUpdatedEventArgs> = L"Windows.Networking.NetworkOperators.ESimUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimWatcher> = L"Windows.Networking.NetworkOperators.ESimWatcher";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::FdnAccessManager> = L"Windows.Networking.NetworkOperators.FdnAccessManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::HotspotAuthenticationContext> = L"Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::HotspotAuthenticationEventDetails> = L"Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::HotspotCredentialsAuthenticationResult> = L"Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::KnownCSimFilePaths> = L"Windows.Networking.NetworkOperators.KnownCSimFilePaths";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::KnownRuimFilePaths> = L"Windows.Networking.NetworkOperators.KnownRuimFilePaths";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::KnownSimFilePaths> = L"Windows.Networking.NetworkOperators.KnownSimFilePaths";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::KnownUSimFilePaths> = L"Windows.Networking.NetworkOperators.KnownUSimFilePaths";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccount> = L"Windows.Networking.NetworkOperators.MobileBroadbandAccount";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccountEventArgs> = L"Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccountUpdatedEventArgs> = L"Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher> = L"Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAntennaSar> = L"Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellCdma> = L"Windows.Networking.NetworkOperators.MobileBroadbandCellCdma";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellGsm> = L"Windows.Networking.NetworkOperators.MobileBroadbandCellGsm";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellLte> = L"Windows.Networking.NetworkOperators.MobileBroadbandCellLte";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellTdscdma> = L"Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellUmts> = L"Windows.Networking.NetworkOperators.MobileBroadbandCellUmts";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandCellsInfo> = L"Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceInformation> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceService> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceService";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceCommandResult> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceCommandSession> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataReceivedEventArgs> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataSession> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceInformation> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceTriggerDetails> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandModem> = L"Windows.Networking.NetworkOperators.MobileBroadbandModem";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandModemConfiguration> = L"Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandModemIsolation> = L"Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandNetwork> = L"Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandNetworkRegistrationStateChange> = L"Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> = L"Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPco> = L"Windows.Networking.NetworkOperators.MobileBroadbandPco";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPcoDataChangeTriggerDetails> = L"Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPin> = L"Windows.Networking.NetworkOperators.MobileBroadbandPin";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinLockStateChange> = L"Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinLockStateChangeTriggerDetails> = L"Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinManager> = L"Windows.Networking.NetworkOperators.MobileBroadbandPinManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinOperationResult> = L"Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandRadioStateChange> = L"Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandRadioStateChangeTriggerDetails> = L"Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandSarManager> = L"Windows.Networking.NetworkOperators.MobileBroadbandSarManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandTransmissionStateChangedEventArgs> = L"Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUicc> = L"Windows.Networking.NetworkOperators.MobileBroadbandUicc";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccApp> = L"Windows.Networking.NetworkOperators.MobileBroadbandUiccApp";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppReadRecordResult> = L"Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppRecordDetailsResult> = L"Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppsResult> = L"Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorDataUsageTriggerDetails> = L"Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorNotificationEventDetails> = L"Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorTetheringAccessPointConfiguration> = L"Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorTetheringClient> = L"Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorTetheringManager> = L"Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorTetheringOperationResult> = L"Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProvisionFromXmlDocumentResults> = L"Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProvisionedProfile> = L"Windows.Networking.NetworkOperators.ProvisionedProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProvisioningAgent> = L"Windows.Networking.NetworkOperators.ProvisioningAgent";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringEntitlementCheckTriggerDetails> = L"Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UssdMessage> = L"Windows.Networking.NetworkOperators.UssdMessage";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UssdReply> = L"Windows.Networking.NetworkOperators.UssdReply";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UssdSession> = L"Windows.Networking.NetworkOperators.UssdSession";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::DataClasses> = L"Windows.Networking.NetworkOperators.DataClasses";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimAuthenticationPreference> = L"Windows.Networking.NetworkOperators.ESimAuthenticationPreference";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimDiscoverResultKind> = L"Windows.Networking.NetworkOperators.ESimDiscoverResultKind";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimOperationStatus> = L"Windows.Networking.NetworkOperators.ESimOperationStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileClass> = L"Windows.Networking.NetworkOperators.ESimProfileClass";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileMetadataState> = L"Windows.Networking.NetworkOperators.ESimProfileMetadataState";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileState> = L"Windows.Networking.NetworkOperators.ESimProfileState";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimState> = L"Windows.Networking.NetworkOperators.ESimState";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimWatcherStatus> = L"Windows.Networking.NetworkOperators.ESimWatcherStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::HotspotAuthenticationResponseCode> = L"Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcherStatus> = L"Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandDeviceType> = L"Windows.Networking.NetworkOperators.MobileBroadbandDeviceType";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandModemStatus> = L"Windows.Networking.NetworkOperators.MobileBroadbandModemStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinFormat> = L"Windows.Networking.NetworkOperators.MobileBroadbandPinFormat";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinLockState> = L"Windows.Networking.NetworkOperators.MobileBroadbandPinLockState";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandPinType> = L"Windows.Networking.NetworkOperators.MobileBroadbandPinType";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandRadioState> = L"Windows.Networking.NetworkOperators.MobileBroadbandRadioState";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppOperationStatus> = L"Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkDeviceStatus> = L"Windows.Networking.NetworkOperators.NetworkDeviceStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorDataUsageNotificationKind> = L"Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkOperatorEventMessageType> = L"Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::NetworkRegistrationState> = L"Windows.Networking.NetworkOperators.NetworkRegistrationState";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProfileMediaType> = L"Windows.Networking.NetworkOperators.ProfileMediaType";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringCapability> = L"Windows.Networking.NetworkOperators.TetheringCapability";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringOperationStatus> = L"Windows.Networking.NetworkOperators.TetheringOperationStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringOperationalState> = L"Windows.Networking.NetworkOperators.TetheringOperationalState";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::TetheringWiFiBand> = L"Windows.Networking.NetworkOperators.TetheringWiFiBand";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UiccAccessCondition> = L"Windows.Networking.NetworkOperators.UiccAccessCondition";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UiccAppKind> = L"Windows.Networking.NetworkOperators.UiccAppKind";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UiccAppRecordKind> = L"Windows.Networking.NetworkOperators.UiccAppRecordKind";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::UssdResultCode> = L"Windows.Networking.NetworkOperators.UssdResultCode";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ESimProfileInstallProgress> = L"Windows.Networking.NetworkOperators.ESimProfileInstallProgress";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ProfileUsage> = L"Windows.Networking.NetworkOperators.ProfileUsage";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESim> = L"Windows.Networking.NetworkOperators.IESim";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESim2> = L"Windows.Networking.NetworkOperators.IESim2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimAddedEventArgs> = L"Windows.Networking.NetworkOperators.IESimAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimDiscoverEvent> = L"Windows.Networking.NetworkOperators.IESimDiscoverEvent";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimDiscoverResult> = L"Windows.Networking.NetworkOperators.IESimDiscoverResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimDownloadProfileMetadataResult> = L"Windows.Networking.NetworkOperators.IESimDownloadProfileMetadataResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimManagerStatics> = L"Windows.Networking.NetworkOperators.IESimManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimOperationResult> = L"Windows.Networking.NetworkOperators.IESimOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimPolicy> = L"Windows.Networking.NetworkOperators.IESimPolicy";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimProfile> = L"Windows.Networking.NetworkOperators.IESimProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimProfileMetadata> = L"Windows.Networking.NetworkOperators.IESimProfileMetadata";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimProfilePolicy> = L"Windows.Networking.NetworkOperators.IESimProfilePolicy";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimRemovedEventArgs> = L"Windows.Networking.NetworkOperators.IESimRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimServiceInfo> = L"Windows.Networking.NetworkOperators.IESimServiceInfo";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimUpdatedEventArgs> = L"Windows.Networking.NetworkOperators.IESimUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IESimWatcher> = L"Windows.Networking.NetworkOperators.IESimWatcher";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IFdnAccessManagerStatics> = L"Windows.Networking.NetworkOperators.IFdnAccessManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotAuthenticationContext> = L"Windows.Networking.NetworkOperators.IHotspotAuthenticationContext";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotAuthenticationContext2> = L"Windows.Networking.NetworkOperators.IHotspotAuthenticationContext2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotAuthenticationContextStatics> = L"Windows.Networking.NetworkOperators.IHotspotAuthenticationContextStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotAuthenticationEventDetails> = L"Windows.Networking.NetworkOperators.IHotspotAuthenticationEventDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IHotspotCredentialsAuthenticationResult> = L"Windows.Networking.NetworkOperators.IHotspotCredentialsAuthenticationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IKnownCSimFilePathsStatics> = L"Windows.Networking.NetworkOperators.IKnownCSimFilePathsStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IKnownRuimFilePathsStatics> = L"Windows.Networking.NetworkOperators.IKnownRuimFilePathsStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IKnownSimFilePathsStatics> = L"Windows.Networking.NetworkOperators.IKnownSimFilePathsStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IKnownUSimFilePathsStatics> = L"Windows.Networking.NetworkOperators.IKnownUSimFilePathsStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccount> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAccount";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccount2> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAccount2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccount3> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAccount3";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccountEventArgs> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAccountEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccountStatics> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAccountStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccountUpdatedEventArgs> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAccountUpdatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAccountWatcher";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAntennaSar> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSar";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandAntennaSarFactory> = L"Windows.Networking.NetworkOperators.IMobileBroadbandAntennaSarFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellCdma> = L"Windows.Networking.NetworkOperators.IMobileBroadbandCellCdma";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellGsm> = L"Windows.Networking.NetworkOperators.IMobileBroadbandCellGsm";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellLte> = L"Windows.Networking.NetworkOperators.IMobileBroadbandCellLte";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellTdscdma> = L"Windows.Networking.NetworkOperators.IMobileBroadbandCellTdscdma";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellUmts> = L"Windows.Networking.NetworkOperators.IMobileBroadbandCellUmts";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandCellsInfo> = L"Windows.Networking.NetworkOperators.IMobileBroadbandCellsInfo";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation2> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation3> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceInformation3";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceService> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceService";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceCommandResult> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceCommandResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceCommandSession> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceCommandSession";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceDataReceivedEventArgs> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceDataSession> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceDataSession";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceInformation> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceInformation";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceTriggerDetails> = L"Windows.Networking.NetworkOperators.IMobileBroadbandDeviceServiceTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModem> = L"Windows.Networking.NetworkOperators.IMobileBroadbandModem";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModem2> = L"Windows.Networking.NetworkOperators.IMobileBroadbandModem2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModem3> = L"Windows.Networking.NetworkOperators.IMobileBroadbandModem3";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemConfiguration> = L"Windows.Networking.NetworkOperators.IMobileBroadbandModemConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemConfiguration2> = L"Windows.Networking.NetworkOperators.IMobileBroadbandModemConfiguration2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemIsolation> = L"Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolation";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemIsolationFactory> = L"Windows.Networking.NetworkOperators.IMobileBroadbandModemIsolationFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandModemStatics> = L"Windows.Networking.NetworkOperators.IMobileBroadbandModemStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork> = L"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork2> = L"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork3> = L"Windows.Networking.NetworkOperators.IMobileBroadbandNetwork3";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetworkRegistrationStateChange> = L"Windows.Networking.NetworkOperators.IMobileBroadbandNetworkRegistrationStateChange";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails> = L"Windows.Networking.NetworkOperators.IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPco> = L"Windows.Networking.NetworkOperators.IMobileBroadbandPco";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPcoDataChangeTriggerDetails> = L"Windows.Networking.NetworkOperators.IMobileBroadbandPcoDataChangeTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPin> = L"Windows.Networking.NetworkOperators.IMobileBroadbandPin";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPinLockStateChange> = L"Windows.Networking.NetworkOperators.IMobileBroadbandPinLockStateChange";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPinLockStateChangeTriggerDetails> = L"Windows.Networking.NetworkOperators.IMobileBroadbandPinLockStateChangeTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPinManager> = L"Windows.Networking.NetworkOperators.IMobileBroadbandPinManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandPinOperationResult> = L"Windows.Networking.NetworkOperators.IMobileBroadbandPinOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandRadioStateChange> = L"Windows.Networking.NetworkOperators.IMobileBroadbandRadioStateChange";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandRadioStateChangeTriggerDetails> = L"Windows.Networking.NetworkOperators.IMobileBroadbandRadioStateChangeTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandSarManager> = L"Windows.Networking.NetworkOperators.IMobileBroadbandSarManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandTransmissionStateChangedEventArgs> = L"Windows.Networking.NetworkOperators.IMobileBroadbandTransmissionStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUicc> = L"Windows.Networking.NetworkOperators.IMobileBroadbandUicc";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUiccApp> = L"Windows.Networking.NetworkOperators.IMobileBroadbandUiccApp";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppReadRecordResult> = L"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppReadRecordResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppRecordDetailsResult> = L"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppRecordDetailsResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppsResult> = L"Windows.Networking.NetworkOperators.IMobileBroadbandUiccAppsResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorDataUsageTriggerDetails> = L"Windows.Networking.NetworkOperators.INetworkOperatorDataUsageTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorNotificationEventDetails> = L"Windows.Networking.NetworkOperators.INetworkOperatorNotificationEventDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringAccessPointConfiguration> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringAccessPointConfiguration2> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringAccessPointConfiguration2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringClient> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringClient";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringClientManager> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringClientManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringEntitlementCheck> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringEntitlementCheck";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManager> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManager";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics2> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics3> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics3";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics4> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics4";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::INetworkOperatorTetheringOperationResult> = L"Windows.Networking.NetworkOperators.INetworkOperatorTetheringOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IProvisionFromXmlDocumentResults> = L"Windows.Networking.NetworkOperators.IProvisionFromXmlDocumentResults";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IProvisionedProfile> = L"Windows.Networking.NetworkOperators.IProvisionedProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IProvisioningAgent> = L"Windows.Networking.NetworkOperators.IProvisioningAgent";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IProvisioningAgentStaticMethods> = L"Windows.Networking.NetworkOperators.IProvisioningAgentStaticMethods";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::ITetheringEntitlementCheckTriggerDetails> = L"Windows.Networking.NetworkOperators.ITetheringEntitlementCheckTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdMessage> = L"Windows.Networking.NetworkOperators.IUssdMessage";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdMessageFactory> = L"Windows.Networking.NetworkOperators.IUssdMessageFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdReply> = L"Windows.Networking.NetworkOperators.IUssdReply";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdSession> = L"Windows.Networking.NetworkOperators.IUssdSession";
+    template <> inline constexpr auto& name_v<Windows::Networking::NetworkOperators::IUssdSessionStatics> = L"Windows.Networking.NetworkOperators.IUssdSessionStatics";
     template <> inline constexpr guid guid_v<Windows::Networking::NetworkOperators::IESim>{ 0x6F6E6E26,0xF123,0x437D,{ 0x8C,0xED,0xDC,0x1D,0x2B,0xC0,0xC3,0xA9 } };
     template <> inline constexpr guid guid_v<Windows::Networking::NetworkOperators::IESim2>{ 0xBD4FD0A0,0xC68F,0x56EB,{ 0xB9,0x9B,0x8F,0x34,0xB8,0x10,0x02,0x99 } };
     template <> inline constexpr guid guid_v<Windows::Networking::NetworkOperators::IESimAddedEventArgs>{ 0x38BD0A58,0x4D5A,0x4D08,{ 0x8D,0xA7,0xE7,0x3E,0xFF,0x36,0x9D,0xDD } };
@@ -2125,20 +2127,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESim
     {
-        [[nodiscard]] auto AvailableMemoryInBytes() const;
-        [[nodiscard]] auto Eid() const;
-        [[nodiscard]] auto FirmwareVersion() const;
-        [[nodiscard]] auto MobileBroadbandModemDeviceId() const;
-        [[nodiscard]] auto Policy() const;
-        [[nodiscard]] auto State() const;
-        auto GetProfiles() const;
-        auto DeleteProfileAsync(param::hstring const& profileId) const;
-        auto DownloadProfileMetadataAsync(param::hstring const& activationCode) const;
-        auto ResetAsync() const;
-        auto ProfileChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESim, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) AvailableMemoryInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Eid() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FirmwareVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MobileBroadbandModemDeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimPolicy) Policy() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimState) State() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::ESimProfile>) GetProfiles() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimOperationResult>) DeleteProfileAsync(param::hstring const& profileId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimDownloadProfileMetadataResult>) DownloadProfileMetadataAsync(param::hstring const& activationCode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimOperationResult>) ResetAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ProfileChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESim, Windows::Foundation::IInspectable> const& handler) const;
         using ProfileChanged_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IESim, &impl::abi_t<Windows::Networking::NetworkOperators::IESim>::remove_ProfileChanged>;
         [[nodiscard]] ProfileChanged_revoker ProfileChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESim, Windows::Foundation::IInspectable> const& handler) const;
-        auto ProfileChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ProfileChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESim>
     {
@@ -2147,10 +2149,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESim2
     {
-        auto Discover() const;
-        auto Discover(param::hstring const& serverAddress, param::hstring const& matchingId) const;
-        auto DiscoverAsync() const;
-        auto DiscoverAsync(param::hstring const& serverAddress, param::hstring const& matchingId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimDiscoverResult) Discover() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimDiscoverResult) Discover(param::hstring const& serverAddress, param::hstring const& matchingId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimDiscoverResult>) DiscoverAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimDiscoverResult>) DiscoverAsync(param::hstring const& serverAddress, param::hstring const& matchingId) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESim2>
     {
@@ -2159,7 +2161,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimAddedEventArgs
     {
-        [[nodiscard]] auto ESim() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESim) ESim() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimAddedEventArgs>
     {
@@ -2168,8 +2170,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimDiscoverEvent
     {
-        [[nodiscard]] auto MatchingId() const;
-        [[nodiscard]] auto RspServerAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MatchingId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RspServerAddress() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimDiscoverEvent>
     {
@@ -2178,10 +2180,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimDiscoverResult
     {
-        [[nodiscard]] auto Events() const;
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto ProfileMetadata() const;
-        [[nodiscard]] auto Result() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::ESimDiscoverEvent>) Events() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimDiscoverResultKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimProfileMetadata) ProfileMetadata() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimOperationResult) Result() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimDiscoverResult>
     {
@@ -2190,8 +2192,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimDownloadProfileMetadataResult
     {
-        [[nodiscard]] auto Result() const;
-        [[nodiscard]] auto ProfileMetadata() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimOperationResult) Result() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimProfileMetadata) ProfileMetadata() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimDownloadProfileMetadataResult>
     {
@@ -2200,12 +2202,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimManagerStatics
     {
-        [[nodiscard]] auto ServiceInfo() const;
-        auto TryCreateESimWatcher() const;
-        auto ServiceInfoChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimServiceInfo) ServiceInfo() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimWatcher) TryCreateESimWatcher() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ServiceInfoChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using ServiceInfoChanged_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IESimManagerStatics, &impl::abi_t<Windows::Networking::NetworkOperators::IESimManagerStatics>::remove_ServiceInfoChanged>;
         [[nodiscard]] ServiceInfoChanged_revoker ServiceInfoChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto ServiceInfoChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ServiceInfoChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimManagerStatics>
     {
@@ -2214,7 +2216,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimOperationResult
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimOperationStatus) Status() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimOperationResult>
     {
@@ -2223,7 +2225,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimPolicy
     {
-        [[nodiscard]] auto ShouldEnableManagingUi() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShouldEnableManagingUi() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimPolicy>
     {
@@ -2232,17 +2234,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimProfile
     {
-        [[nodiscard]] auto Class() const;
-        [[nodiscard]] auto Nickname() const;
-        [[nodiscard]] auto Policy() const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto ProviderIcon() const;
-        [[nodiscard]] auto ProviderId() const;
-        [[nodiscard]] auto ProviderName() const;
-        [[nodiscard]] auto State() const;
-        auto DisableAsync() const;
-        auto EnableAsync() const;
-        auto SetNicknameAsync(param::hstring const& newNickname) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimProfileClass) Class() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Nickname() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimProfilePolicy) Policy() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) ProviderIcon() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimProfileState) State() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimOperationResult>) DisableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimOperationResult>) EnableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimOperationResult>) SetNicknameAsync(param::hstring const& newNickname) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimProfile>
     {
@@ -2251,21 +2253,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimProfileMetadata
     {
-        [[nodiscard]] auto IsConfirmationCodeRequired() const;
-        [[nodiscard]] auto Policy() const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto ProviderIcon() const;
-        [[nodiscard]] auto ProviderId() const;
-        [[nodiscard]] auto ProviderName() const;
-        [[nodiscard]] auto State() const;
-        auto DenyInstallAsync() const;
-        auto ConfirmInstallAsync() const;
-        auto ConfirmInstallAsync(param::hstring const& confirmationCode) const;
-        auto PostponeInstallAsync() const;
-        auto StateChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimProfileMetadata, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConfirmationCodeRequired() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimProfilePolicy) Policy() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) ProviderIcon() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimProfileMetadataState) State() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimOperationResult>) DenyInstallAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Networking::NetworkOperators::ESimOperationResult, Windows::Networking::NetworkOperators::ESimProfileInstallProgress>) ConfirmInstallAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Networking::NetworkOperators::ESimOperationResult, Windows::Networking::NetworkOperators::ESimProfileInstallProgress>) ConfirmInstallAsync(param::hstring const& confirmationCode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ESimOperationResult>) PostponeInstallAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) StateChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimProfileMetadata, Windows::Foundation::IInspectable> const& handler) const;
         using StateChanged_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IESimProfileMetadata, &impl::abi_t<Windows::Networking::NetworkOperators::IESimProfileMetadata>::remove_StateChanged>;
         [[nodiscard]] StateChanged_revoker StateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimProfileMetadata, Windows::Foundation::IInspectable> const& handler) const;
-        auto StateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StateChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimProfileMetadata>
     {
@@ -2274,9 +2276,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimProfilePolicy
     {
-        [[nodiscard]] auto CanDelete() const;
-        [[nodiscard]] auto CanDisable() const;
-        [[nodiscard]] auto IsManagedByEnterprise() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanDelete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanDisable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsManagedByEnterprise() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimProfilePolicy>
     {
@@ -2285,7 +2287,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimRemovedEventArgs
     {
-        [[nodiscard]] auto ESim() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESim) ESim() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimRemovedEventArgs>
     {
@@ -2294,8 +2296,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimServiceInfo
     {
-        [[nodiscard]] auto AuthenticationPreference() const;
-        [[nodiscard]] auto IsESimUiEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimAuthenticationPreference) AuthenticationPreference() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsESimUiEnabled() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimServiceInfo>
     {
@@ -2304,7 +2306,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimUpdatedEventArgs
     {
-        [[nodiscard]] auto ESim() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESim) ESim() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimUpdatedEventArgs>
     {
@@ -2313,29 +2315,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IESimWatcher
     {
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
-        auto Added(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimAddedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ESimWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Added(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimAddedEventArgs> const& handler) const;
         using Added_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IESimWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IESimWatcher>::remove_Added>;
         [[nodiscard]] Added_revoker Added(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimAddedEventArgs> const& handler) const;
-        auto Added(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Added(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IESimWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IESimWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        auto Removed(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimRemovedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Removed(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimRemovedEventArgs> const& handler) const;
         using Removed_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IESimWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IESimWatcher>::remove_Removed>;
         [[nodiscard]] Removed_revoker Removed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimRemovedEventArgs> const& handler) const;
-        auto Removed(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Removed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IESimWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IESimWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        auto Updated(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimUpdatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Updated(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimUpdatedEventArgs> const& handler) const;
         using Updated_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IESimWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IESimWatcher>::remove_Updated>;
         [[nodiscard]] Updated_revoker Updated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::ESimWatcher, Windows::Networking::NetworkOperators::ESimUpdatedEventArgs> const& handler) const;
-        auto Updated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Updated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IESimWatcher>
     {
@@ -2344,7 +2346,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IFdnAccessManagerStatics
     {
-        auto RequestUnlockAsync(param::hstring const& contactListId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestUnlockAsync(param::hstring const& contactListId) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IFdnAccessManagerStatics>
     {
@@ -2353,15 +2355,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IHotspotAuthenticationContext
     {
-        [[nodiscard]] auto WirelessNetworkId() const;
-        [[nodiscard]] auto NetworkAdapter() const;
-        [[nodiscard]] auto RedirectMessageUrl() const;
-        [[nodiscard]] auto RedirectMessageXml() const;
-        [[nodiscard]] auto AuthenticationUrl() const;
-        auto IssueCredentials(param::hstring const& userName, param::hstring const& password, param::hstring const& extraParameters, bool markAsManualConnectOnFailure) const;
-        auto AbortAuthentication(bool markAsManual) const;
-        auto SkipAuthentication() const;
-        auto TriggerAttentionRequired(param::hstring const& packageRelativeApplicationId, param::hstring const& applicationParameters) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) WirelessNetworkId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkAdapter) NetworkAdapter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) RedirectMessageUrl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) RedirectMessageXml() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) AuthenticationUrl() const;
+        WINRT_IMPL_AUTO(void) IssueCredentials(param::hstring const& userName, param::hstring const& password, param::hstring const& extraParameters, bool markAsManualConnectOnFailure) const;
+        WINRT_IMPL_AUTO(void) AbortAuthentication(bool markAsManual) const;
+        WINRT_IMPL_AUTO(void) SkipAuthentication() const;
+        WINRT_IMPL_AUTO(void) TriggerAttentionRequired(param::hstring const& packageRelativeApplicationId, param::hstring const& applicationParameters) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IHotspotAuthenticationContext>
     {
@@ -2370,7 +2372,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IHotspotAuthenticationContext2
     {
-        auto IssueCredentialsAsync(param::hstring const& userName, param::hstring const& password, param::hstring const& extraParameters, bool markAsManualConnectOnFailure) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::HotspotCredentialsAuthenticationResult>) IssueCredentialsAsync(param::hstring const& userName, param::hstring const& password, param::hstring const& extraParameters, bool markAsManualConnectOnFailure) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IHotspotAuthenticationContext2>
     {
@@ -2379,7 +2381,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IHotspotAuthenticationContextStatics
     {
-        auto TryGetAuthenticationContext(param::hstring const& evenToken, Windows::Networking::NetworkOperators::HotspotAuthenticationContext& context) const;
+        WINRT_IMPL_AUTO(bool) TryGetAuthenticationContext(param::hstring const& evenToken, Windows::Networking::NetworkOperators::HotspotAuthenticationContext& context) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IHotspotAuthenticationContextStatics>
     {
@@ -2388,7 +2390,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IHotspotAuthenticationEventDetails
     {
-        [[nodiscard]] auto EventToken() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EventToken() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IHotspotAuthenticationEventDetails>
     {
@@ -2397,10 +2399,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IHotspotCredentialsAuthenticationResult
     {
-        [[nodiscard]] auto HasNetworkErrorOccurred() const;
-        [[nodiscard]] auto ResponseCode() const;
-        [[nodiscard]] auto LogoffUrl() const;
-        [[nodiscard]] auto AuthenticationReplyXml() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasNetworkErrorOccurred() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::HotspotAuthenticationResponseCode) ResponseCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) LogoffUrl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Xml::Dom::XmlDocument) AuthenticationReplyXml() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IHotspotCredentialsAuthenticationResult>
     {
@@ -2409,9 +2411,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IKnownCSimFilePathsStatics
     {
-        [[nodiscard]] auto EFSpn() const;
-        [[nodiscard]] auto Gid1() const;
-        [[nodiscard]] auto Gid2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) EFSpn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) Gid1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) Gid2() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IKnownCSimFilePathsStatics>
     {
@@ -2420,9 +2422,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IKnownRuimFilePathsStatics
     {
-        [[nodiscard]] auto EFSpn() const;
-        [[nodiscard]] auto Gid1() const;
-        [[nodiscard]] auto Gid2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) EFSpn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) Gid1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) Gid2() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IKnownRuimFilePathsStatics>
     {
@@ -2431,10 +2433,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IKnownSimFilePathsStatics
     {
-        [[nodiscard]] auto EFOns() const;
-        [[nodiscard]] auto EFSpn() const;
-        [[nodiscard]] auto Gid1() const;
-        [[nodiscard]] auto Gid2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) EFOns() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) EFSpn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) Gid1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) Gid2() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IKnownSimFilePathsStatics>
     {
@@ -2443,11 +2445,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IKnownUSimFilePathsStatics
     {
-        [[nodiscard]] auto EFSpn() const;
-        [[nodiscard]] auto EFOpl() const;
-        [[nodiscard]] auto EFPnn() const;
-        [[nodiscard]] auto Gid1() const;
-        [[nodiscard]] auto Gid2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) EFSpn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) EFOpl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) EFPnn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) Gid1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) Gid2() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IKnownUSimFilePathsStatics>
     {
@@ -2456,11 +2458,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAccount
     {
-        [[nodiscard]] auto NetworkAccountId() const;
-        [[nodiscard]] auto ServiceProviderGuid() const;
-        [[nodiscard]] auto ServiceProviderName() const;
-        [[nodiscard]] auto CurrentNetwork() const;
-        [[nodiscard]] auto CurrentDeviceInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NetworkAccountId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ServiceProviderGuid() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceProviderName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandNetwork) CurrentNetwork() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandDeviceInformation) CurrentDeviceInformation() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAccount>
     {
@@ -2469,7 +2471,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAccount2
     {
-        auto GetConnectionProfiles() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ConnectionProfile>) GetConnectionProfiles() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAccount2>
     {
@@ -2478,7 +2480,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAccount3
     {
-        [[nodiscard]] auto AccountExperienceUrl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) AccountExperienceUrl() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAccount3>
     {
@@ -2487,7 +2489,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAccountEventArgs
     {
-        [[nodiscard]] auto NetworkAccountId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NetworkAccountId() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAccountEventArgs>
     {
@@ -2496,8 +2498,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAccountStatics
     {
-        [[nodiscard]] auto AvailableNetworkAccountIds() const;
-        auto CreateFromNetworkAccountId(param::hstring const& networkAccountId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) AvailableNetworkAccountIds() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandAccount) CreateFromNetworkAccountId(param::hstring const& networkAccountId) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAccountStatics>
     {
@@ -2506,9 +2508,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAccountUpdatedEventArgs
     {
-        [[nodiscard]] auto NetworkAccountId() const;
-        [[nodiscard]] auto HasDeviceInformationChanged() const;
-        [[nodiscard]] auto HasNetworkChanged() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NetworkAccountId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasDeviceInformationChanged() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasNetworkChanged() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAccountUpdatedEventArgs>
     {
@@ -2517,29 +2519,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAccountWatcher
     {
-        auto AccountAdded(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) AccountAdded(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountEventArgs> const& handler) const;
         using AccountAdded_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher>::remove_AccountAdded>;
         [[nodiscard]] AccountAdded_revoker AccountAdded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountEventArgs> const& handler) const;
-        auto AccountAdded(winrt::event_token const& cookie) const noexcept;
-        auto AccountUpdated(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountUpdatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AccountAdded(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AccountUpdated(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountUpdatedEventArgs> const& handler) const;
         using AccountUpdated_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher>::remove_AccountUpdated>;
         [[nodiscard]] AccountUpdated_revoker AccountUpdated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountUpdatedEventArgs> const& handler) const;
-        auto AccountUpdated(winrt::event_token const& cookie) const noexcept;
-        auto AccountRemoved(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AccountUpdated(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AccountRemoved(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountEventArgs> const& handler) const;
         using AccountRemoved_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher>::remove_AccountRemoved>;
         [[nodiscard]] AccountRemoved_revoker AccountRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Networking::NetworkOperators::MobileBroadbandAccountEventArgs> const& handler) const;
-        auto AccountRemoved(winrt::event_token const& cookie) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) AccountRemoved(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& cookie) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher, &impl::abi_t<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& cookie) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& cookie) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandAccountWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAccountWatcher>
     {
@@ -2548,8 +2550,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAntennaSar
     {
-        [[nodiscard]] auto AntennaIndex() const;
-        [[nodiscard]] auto SarBackoffIndex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) AntennaIndex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SarBackoffIndex() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAntennaSar>
     {
@@ -2558,7 +2560,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandAntennaSarFactory
     {
-        auto CreateWithIndex(int32_t antennaIndex, int32_t sarBackoffIndex) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandAntennaSar) CreateWithIndex(int32_t antennaIndex, int32_t sarBackoffIndex) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandAntennaSarFactory>
     {
@@ -2567,14 +2569,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandCellCdma
     {
-        [[nodiscard]] auto BaseStationId() const;
-        [[nodiscard]] auto BaseStationPNCode() const;
-        [[nodiscard]] auto BaseStationLatitude() const;
-        [[nodiscard]] auto BaseStationLongitude() const;
-        [[nodiscard]] auto BaseStationLastBroadcastGpsTime() const;
-        [[nodiscard]] auto NetworkId() const;
-        [[nodiscard]] auto PilotSignalStrengthInDB() const;
-        [[nodiscard]] auto SystemId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) BaseStationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) BaseStationPNCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) BaseStationLatitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) BaseStationLongitude() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) BaseStationLastBroadcastGpsTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) NetworkId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) PilotSignalStrengthInDB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) SystemId() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandCellCdma>
     {
@@ -2583,13 +2585,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandCellGsm
     {
-        [[nodiscard]] auto BaseStationId() const;
-        [[nodiscard]] auto CellId() const;
-        [[nodiscard]] auto ChannelNumber() const;
-        [[nodiscard]] auto LocationAreaCode() const;
-        [[nodiscard]] auto ProviderId() const;
-        [[nodiscard]] auto ReceivedSignalStrengthInDBm() const;
-        [[nodiscard]] auto TimingAdvanceInBitPeriods() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) BaseStationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) CellId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) ChannelNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) LocationAreaCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) ReceivedSignalStrengthInDBm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) TimingAdvanceInBitPeriods() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandCellGsm>
     {
@@ -2598,14 +2600,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandCellLte
     {
-        [[nodiscard]] auto CellId() const;
-        [[nodiscard]] auto ChannelNumber() const;
-        [[nodiscard]] auto PhysicalCellId() const;
-        [[nodiscard]] auto ProviderId() const;
-        [[nodiscard]] auto ReferenceSignalReceivedPowerInDBm() const;
-        [[nodiscard]] auto ReferenceSignalReceivedQualityInDBm() const;
-        [[nodiscard]] auto TimingAdvanceInBitPeriods() const;
-        [[nodiscard]] auto TrackingAreaCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) CellId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) ChannelNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) PhysicalCellId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) ReferenceSignalReceivedPowerInDBm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) ReferenceSignalReceivedQualityInDBm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) TimingAdvanceInBitPeriods() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) TrackingAreaCode() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandCellLte>
     {
@@ -2614,14 +2616,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandCellTdscdma
     {
-        [[nodiscard]] auto CellId() const;
-        [[nodiscard]] auto CellParameterId() const;
-        [[nodiscard]] auto ChannelNumber() const;
-        [[nodiscard]] auto LocationAreaCode() const;
-        [[nodiscard]] auto PathLossInDB() const;
-        [[nodiscard]] auto ProviderId() const;
-        [[nodiscard]] auto ReceivedSignalCodePowerInDBm() const;
-        [[nodiscard]] auto TimingAdvanceInBitPeriods() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) CellId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) CellParameterId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) ChannelNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) LocationAreaCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) PathLossInDB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) ReceivedSignalCodePowerInDBm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) TimingAdvanceInBitPeriods() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandCellTdscdma>
     {
@@ -2630,14 +2632,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandCellUmts
     {
-        [[nodiscard]] auto CellId() const;
-        [[nodiscard]] auto ChannelNumber() const;
-        [[nodiscard]] auto LocationAreaCode() const;
-        [[nodiscard]] auto PathLossInDB() const;
-        [[nodiscard]] auto PrimaryScramblingCode() const;
-        [[nodiscard]] auto ProviderId() const;
-        [[nodiscard]] auto ReceivedSignalCodePowerInDBm() const;
-        [[nodiscard]] auto SignalToNoiseRatioInDB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) CellId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) ChannelNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) LocationAreaCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) PathLossInDB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) PrimaryScramblingCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) ReceivedSignalCodePowerInDBm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) SignalToNoiseRatioInDB() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandCellUmts>
     {
@@ -2646,16 +2648,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandCellsInfo
     {
-        [[nodiscard]] auto NeighboringCellsCdma() const;
-        [[nodiscard]] auto NeighboringCellsGsm() const;
-        [[nodiscard]] auto NeighboringCellsLte() const;
-        [[nodiscard]] auto NeighboringCellsTdscdma() const;
-        [[nodiscard]] auto NeighboringCellsUmts() const;
-        [[nodiscard]] auto ServingCellsCdma() const;
-        [[nodiscard]] auto ServingCellsGsm() const;
-        [[nodiscard]] auto ServingCellsLte() const;
-        [[nodiscard]] auto ServingCellsTdscdma() const;
-        [[nodiscard]] auto ServingCellsUmts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellCdma>) NeighboringCellsCdma() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellGsm>) NeighboringCellsGsm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellLte>) NeighboringCellsLte() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellTdscdma>) NeighboringCellsTdscdma() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellUmts>) NeighboringCellsUmts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellCdma>) ServingCellsCdma() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellGsm>) ServingCellsGsm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellLte>) ServingCellsLte() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellTdscdma>) ServingCellsTdscdma() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandCellUmts>) ServingCellsUmts() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandCellsInfo>
     {
@@ -2664,20 +2666,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceInformation
     {
-        [[nodiscard]] auto NetworkDeviceStatus() const;
-        [[nodiscard]] auto Manufacturer() const;
-        [[nodiscard]] auto Model() const;
-        [[nodiscard]] auto FirmwareInformation() const;
-        [[nodiscard]] auto CellularClass() const;
-        [[nodiscard]] auto DataClasses() const;
-        [[nodiscard]] auto CustomDataClass() const;
-        [[nodiscard]] auto MobileEquipmentId() const;
-        [[nodiscard]] auto TelephoneNumbers() const;
-        [[nodiscard]] auto SubscriberId() const;
-        [[nodiscard]] auto SimIccId() const;
-        [[nodiscard]] auto DeviceType() const;
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto CurrentRadioState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::NetworkDeviceStatus) NetworkDeviceStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Manufacturer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Model() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FirmwareInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::CellularClass) CellularClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::DataClasses) DataClasses() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CustomDataClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MobileEquipmentId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) TelephoneNumbers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SubscriberId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SimIccId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandDeviceType) DeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandRadioState) CurrentRadioState() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation>
     {
@@ -2686,9 +2688,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceInformation2
     {
-        [[nodiscard]] auto PinManager() const;
-        [[nodiscard]] auto Revision() const;
-        [[nodiscard]] auto SerialNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandPinManager) PinManager() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Revision() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SerialNumber() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation2>
     {
@@ -2697,9 +2699,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceInformation3
     {
-        [[nodiscard]] auto SimSpn() const;
-        [[nodiscard]] auto SimPnn() const;
-        [[nodiscard]] auto SimGid1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SimSpn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SimPnn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SimGid1() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceInformation3>
     {
@@ -2708,10 +2710,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceService
     {
-        [[nodiscard]] auto DeviceServiceId() const;
-        [[nodiscard]] auto SupportedCommands() const;
-        auto OpenDataSession() const;
-        auto OpenCommandSession() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DeviceServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) SupportedCommands() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataSession) OpenDataSession() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceCommandSession) OpenCommandSession() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceService>
     {
@@ -2720,8 +2722,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceServiceCommandResult
     {
-        [[nodiscard]] auto StatusCode() const;
-        [[nodiscard]] auto ResponseData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) StatusCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ResponseData() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceCommandResult>
     {
@@ -2730,9 +2732,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceServiceCommandSession
     {
-        auto SendQueryCommandAsync(uint32_t commandId, Windows::Storage::Streams::IBuffer const& data) const;
-        auto SendSetCommandAsync(uint32_t commandId, Windows::Storage::Streams::IBuffer const& data) const;
-        auto CloseSession() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceCommandResult>) SendQueryCommandAsync(uint32_t commandId, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceCommandResult>) SendSetCommandAsync(uint32_t commandId, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(void) CloseSession() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceCommandSession>
     {
@@ -2741,7 +2743,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceServiceDataReceivedEventArgs
     {
-        [[nodiscard]] auto ReceivedData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ReceivedData() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceDataReceivedEventArgs>
     {
@@ -2750,12 +2752,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceServiceDataSession
     {
-        auto WriteDataAsync(Windows::Storage::Streams::IBuffer const& value) const;
-        auto CloseSession() const;
-        auto DataReceived(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataSession, Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataReceivedEventArgs> const& eventHandler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) WriteDataAsync(Windows::Storage::Streams::IBuffer const& value) const;
+        WINRT_IMPL_AUTO(void) CloseSession() const;
+        WINRT_IMPL_AUTO(winrt::event_token) DataReceived(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataSession, Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataReceivedEventArgs> const& eventHandler) const;
         using DataReceived_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceDataSession, &impl::abi_t<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceDataSession>::remove_DataReceived>;
         [[nodiscard]] DataReceived_revoker DataReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataSession, Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceDataReceivedEventArgs> const& eventHandler) const;
-        auto DataReceived(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(void) DataReceived(winrt::event_token const& eventCookie) const noexcept;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceDataSession>
     {
@@ -2764,9 +2766,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceServiceInformation
     {
-        [[nodiscard]] auto DeviceServiceId() const;
-        [[nodiscard]] auto IsDataReadSupported() const;
-        [[nodiscard]] auto IsDataWriteSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DeviceServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDataReadSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDataWriteSupported() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceInformation>
     {
@@ -2775,9 +2777,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandDeviceServiceTriggerDetails
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto DeviceServiceId() const;
-        [[nodiscard]] auto ReceivedData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DeviceServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ReceivedData() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandDeviceServiceTriggerDetails>
     {
@@ -2786,16 +2788,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandModem
     {
-        [[nodiscard]] auto CurrentAccount() const;
-        [[nodiscard]] auto DeviceInformation() const;
-        [[nodiscard]] auto MaxDeviceServiceCommandSizeInBytes() const;
-        [[nodiscard]] auto MaxDeviceServiceDataSizeInBytes() const;
-        [[nodiscard]] auto DeviceServices() const;
-        auto GetDeviceService(winrt::guid const& deviceServiceId) const;
-        [[nodiscard]] auto IsResetSupported() const;
-        auto ResetAsync() const;
-        auto GetCurrentConfigurationAsync() const;
-        [[nodiscard]] auto CurrentNetwork() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandAccount) CurrentAccount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandDeviceInformation) DeviceInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxDeviceServiceCommandSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxDeviceServiceDataSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandDeviceServiceInformation>) DeviceServices() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandDeviceService) GetDeviceService(winrt::guid const& deviceServiceId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsResetSupported() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ResetAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandModemConfiguration>) GetCurrentConfigurationAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandNetwork) CurrentNetwork() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandModem>
     {
@@ -2804,8 +2806,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandModem2
     {
-        auto GetIsPassthroughEnabledAsync() const;
-        auto SetIsPassthroughEnabledAsync(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsPassthroughEnabledAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandModemStatus>) SetIsPassthroughEnabledAsync(bool value) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandModem2>
     {
@@ -2814,12 +2816,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandModem3
     {
-        auto TryGetPcoAsync() const;
-        [[nodiscard]] auto IsInEmergencyCallMode() const;
-        auto IsInEmergencyCallModeChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandModem, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandPco>) TryGetPcoAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsInEmergencyCallMode() const;
+        WINRT_IMPL_AUTO(winrt::event_token) IsInEmergencyCallModeChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandModem, Windows::Foundation::IInspectable> const& handler) const;
         using IsInEmergencyCallModeChanged_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IMobileBroadbandModem3, &impl::abi_t<Windows::Networking::NetworkOperators::IMobileBroadbandModem3>::remove_IsInEmergencyCallModeChanged>;
         [[nodiscard]] IsInEmergencyCallModeChanged_revoker IsInEmergencyCallModeChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandModem, Windows::Foundation::IInspectable> const& handler) const;
-        auto IsInEmergencyCallModeChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) IsInEmergencyCallModeChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandModem3>
     {
@@ -2828,9 +2830,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandModemConfiguration
     {
-        [[nodiscard]] auto Uicc() const;
-        [[nodiscard]] auto HomeProviderId() const;
-        [[nodiscard]] auto HomeProviderName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandUicc) Uicc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HomeProviderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HomeProviderName() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandModemConfiguration>
     {
@@ -2839,7 +2841,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandModemConfiguration2
     {
-        [[nodiscard]] auto SarManager() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandSarManager) SarManager() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandModemConfiguration2>
     {
@@ -2848,10 +2850,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandModemIsolation
     {
-        auto AddAllowedHost(Windows::Networking::HostName const& host) const;
-        auto AddAllowedHostRange(Windows::Networking::HostName const& first, Windows::Networking::HostName const& last) const;
-        auto ApplyConfigurationAsync() const;
-        auto ClearConfigurationAsync() const;
+        WINRT_IMPL_AUTO(void) AddAllowedHost(Windows::Networking::HostName const& host) const;
+        WINRT_IMPL_AUTO(void) AddAllowedHostRange(Windows::Networking::HostName const& first, Windows::Networking::HostName const& last) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ApplyConfigurationAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearConfigurationAsync() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandModemIsolation>
     {
@@ -2860,7 +2862,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandModemIsolationFactory
     {
-        auto Create(param::hstring const& modemDeviceId, param::hstring const& ruleGroupId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandModemIsolation) Create(param::hstring const& modemDeviceId, param::hstring const& ruleGroupId) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandModemIsolationFactory>
     {
@@ -2869,9 +2871,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandModemStatics
     {
-        auto GetDeviceSelector() const;
-        auto FromId(param::hstring const& deviceId) const;
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandModem) FromId(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandModem) GetDefault() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandModemStatics>
     {
@@ -2880,16 +2882,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandNetwork
     {
-        [[nodiscard]] auto NetworkAdapter() const;
-        [[nodiscard]] auto NetworkRegistrationState() const;
-        [[nodiscard]] auto RegistrationNetworkError() const;
-        [[nodiscard]] auto PacketAttachNetworkError() const;
-        [[nodiscard]] auto ActivationNetworkError() const;
-        [[nodiscard]] auto AccessPointName() const;
-        [[nodiscard]] auto RegisteredDataClass() const;
-        [[nodiscard]] auto RegisteredProviderId() const;
-        [[nodiscard]] auto RegisteredProviderName() const;
-        auto ShowConnectionUI() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkAdapter) NetworkAdapter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::NetworkRegistrationState) NetworkRegistrationState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) RegistrationNetworkError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PacketAttachNetworkError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ActivationNetworkError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AccessPointName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::DataClasses) RegisteredDataClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RegisteredProviderId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RegisteredProviderName() const;
+        WINRT_IMPL_AUTO(void) ShowConnectionUI() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork>
     {
@@ -2898,8 +2900,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandNetwork2
     {
-        auto GetVoiceCallSupportAsync() const;
-        [[nodiscard]] auto RegistrationUiccApps() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetVoiceCallSupportAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandUiccApp>) RegistrationUiccApps() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork2>
     {
@@ -2908,7 +2910,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandNetwork3
     {
-        auto GetCellsInfoAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandCellsInfo>) GetCellsInfoAsync() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandNetwork3>
     {
@@ -2917,8 +2919,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandNetworkRegistrationStateChange
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Network() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandNetwork) Network() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandNetworkRegistrationStateChange>
     {
@@ -2927,7 +2929,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails
     {
-        [[nodiscard]] auto NetworkRegistrationStateChanges() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandNetworkRegistrationStateChange>) NetworkRegistrationStateChanges() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>
     {
@@ -2936,9 +2938,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandPco
     {
-        [[nodiscard]] auto Data() const;
-        [[nodiscard]] auto IsComplete() const;
-        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Data() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsComplete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandPco>
     {
@@ -2947,7 +2949,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandPcoDataChangeTriggerDetails
     {
-        [[nodiscard]] auto UpdatedData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandPco) UpdatedData() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandPcoDataChangeTriggerDetails>
     {
@@ -2956,18 +2958,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandPin
     {
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto LockState() const;
-        [[nodiscard]] auto Format() const;
-        [[nodiscard]] auto Enabled() const;
-        [[nodiscard]] auto MaxLength() const;
-        [[nodiscard]] auto MinLength() const;
-        [[nodiscard]] auto AttemptsRemaining() const;
-        auto EnableAsync(param::hstring const& currentPin) const;
-        auto DisableAsync(param::hstring const& currentPin) const;
-        auto EnterAsync(param::hstring const& currentPin) const;
-        auto ChangeAsync(param::hstring const& currentPin, param::hstring const& newPin) const;
-        auto UnblockAsync(param::hstring const& pinUnblockKey, param::hstring const& newPin) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandPinType) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandPinLockState) LockState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandPinFormat) Format() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) AttemptsRemaining() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandPinOperationResult>) EnableAsync(param::hstring const& currentPin) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandPinOperationResult>) DisableAsync(param::hstring const& currentPin) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandPinOperationResult>) EnterAsync(param::hstring const& currentPin) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandPinOperationResult>) ChangeAsync(param::hstring const& currentPin, param::hstring const& newPin) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandPinOperationResult>) UnblockAsync(param::hstring const& pinUnblockKey, param::hstring const& newPin) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandPin>
     {
@@ -2976,9 +2978,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandPinLockStateChange
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto PinType() const;
-        [[nodiscard]] auto PinLockState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandPinType) PinType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandPinLockState) PinLockState() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandPinLockStateChange>
     {
@@ -2987,7 +2989,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandPinLockStateChangeTriggerDetails
     {
-        [[nodiscard]] auto PinLockStateChanges() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandPinLockStateChange>) PinLockStateChanges() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandPinLockStateChangeTriggerDetails>
     {
@@ -2996,8 +2998,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandPinManager
     {
-        [[nodiscard]] auto SupportedPins() const;
-        auto GetPin(Windows::Networking::NetworkOperators::MobileBroadbandPinType const& pinType) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandPinType>) SupportedPins() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandPin) GetPin(Windows::Networking::NetworkOperators::MobileBroadbandPinType const& pinType) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandPinManager>
     {
@@ -3006,8 +3008,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandPinOperationResult
     {
-        [[nodiscard]] auto IsSuccessful() const;
-        [[nodiscard]] auto AttemptsRemaining() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSuccessful() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) AttemptsRemaining() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandPinOperationResult>
     {
@@ -3016,8 +3018,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandRadioStateChange
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto RadioState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandRadioState) RadioState() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandRadioStateChange>
     {
@@ -3026,7 +3028,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandRadioStateChangeTriggerDetails
     {
-        [[nodiscard]] auto RadioStateChanges() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandRadioStateChange>) RadioStateChanges() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandRadioStateChangeTriggerDetails>
     {
@@ -3035,23 +3037,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandSarManager
     {
-        [[nodiscard]] auto IsBackoffEnabled() const;
-        [[nodiscard]] auto IsWiFiHardwareIntegrated() const;
-        [[nodiscard]] auto IsSarControlledByHardware() const;
-        [[nodiscard]] auto Antennas() const;
-        [[nodiscard]] auto HysteresisTimerPeriod() const;
-        auto TransmissionStateChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandSarManager, Windows::Networking::NetworkOperators::MobileBroadbandTransmissionStateChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBackoffEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsWiFiHardwareIntegrated() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSarControlledByHardware() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandAntennaSar>) Antennas() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) HysteresisTimerPeriod() const;
+        WINRT_IMPL_AUTO(winrt::event_token) TransmissionStateChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandSarManager, Windows::Networking::NetworkOperators::MobileBroadbandTransmissionStateChangedEventArgs> const& handler) const;
         using TransmissionStateChanged_revoker = impl::event_revoker<Windows::Networking::NetworkOperators::IMobileBroadbandSarManager, &impl::abi_t<Windows::Networking::NetworkOperators::IMobileBroadbandSarManager>::remove_TransmissionStateChanged>;
         [[nodiscard]] TransmissionStateChanged_revoker TransmissionStateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::NetworkOperators::MobileBroadbandSarManager, Windows::Networking::NetworkOperators::MobileBroadbandTransmissionStateChangedEventArgs> const& handler) const;
-        auto TransmissionStateChanged(winrt::event_token const& token) const noexcept;
-        auto EnableBackoffAsync() const;
-        auto DisableBackoffAsync() const;
-        auto SetConfigurationAsync(param::async_iterable<Windows::Networking::NetworkOperators::MobileBroadbandAntennaSar> const& antennas) const;
-        auto RevertSarToHardwareControlAsync() const;
-        auto SetTransmissionStateChangedHysteresisAsync(Windows::Foundation::TimeSpan const& timerPeriod) const;
-        auto GetIsTransmittingAsync() const;
-        auto StartTransmissionStateMonitoring() const;
-        auto StopTransmissionStateMonitoring() const;
+        WINRT_IMPL_AUTO(void) TransmissionStateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) EnableBackoffAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DisableBackoffAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetConfigurationAsync(param::async_iterable<Windows::Networking::NetworkOperators::MobileBroadbandAntennaSar> const& antennas) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RevertSarToHardwareControlAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetTransmissionStateChangedHysteresisAsync(Windows::Foundation::TimeSpan const& timerPeriod) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsTransmittingAsync() const;
+        WINRT_IMPL_AUTO(void) StartTransmissionStateMonitoring() const;
+        WINRT_IMPL_AUTO(void) StopTransmissionStateMonitoring() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandSarManager>
     {
@@ -3060,7 +3062,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandTransmissionStateChangedEventArgs
     {
-        [[nodiscard]] auto IsTransmitting() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTransmitting() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandTransmissionStateChangedEventArgs>
     {
@@ -3069,8 +3071,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandUicc
     {
-        [[nodiscard]] auto SimIccId() const;
-        auto GetUiccAppsAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SimIccId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppsResult>) GetUiccAppsAsync() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandUicc>
     {
@@ -3079,10 +3081,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandUiccApp
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Kind() const;
-        auto GetRecordDetailsAsync(param::async_iterable<uint32_t> const& uiccFilePath) const;
-        auto ReadRecordAsync(param::async_iterable<uint32_t> const& uiccFilePath, int32_t recordIndex) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UiccAppKind) Kind() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppRecordDetailsResult>) GetRecordDetailsAsync(param::async_iterable<uint32_t> const& uiccFilePath) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::MobileBroadbandUiccAppReadRecordResult>) ReadRecordAsync(param::async_iterable<uint32_t> const& uiccFilePath, int32_t recordIndex) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandUiccApp>
     {
@@ -3091,8 +3093,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandUiccAppReadRecordResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Data() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandUiccAppOperationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Data() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppReadRecordResult>
     {
@@ -3101,12 +3103,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandUiccAppRecordDetailsResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto RecordCount() const;
-        [[nodiscard]] auto RecordSize() const;
-        [[nodiscard]] auto ReadAccessCondition() const;
-        [[nodiscard]] auto WriteAccessCondition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandUiccAppOperationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UiccAppRecordKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RecordCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RecordSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UiccAccessCondition) ReadAccessCondition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UiccAccessCondition) WriteAccessCondition() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppRecordDetailsResult>
     {
@@ -3115,8 +3117,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IMobileBroadbandUiccAppsResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto UiccApps() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::MobileBroadbandUiccAppOperationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::MobileBroadbandUiccApp>) UiccApps() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IMobileBroadbandUiccAppsResult>
     {
@@ -3125,7 +3127,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorDataUsageTriggerDetails
     {
-        [[nodiscard]] auto NotificationKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::NetworkOperatorDataUsageNotificationKind) NotificationKind() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorDataUsageTriggerDetails>
     {
@@ -3134,12 +3136,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorNotificationEventDetails
     {
-        [[nodiscard]] auto NotificationType() const;
-        [[nodiscard]] auto NetworkAccountId() const;
-        [[nodiscard]] auto EncodingType() const;
-        [[nodiscard]] auto Message() const;
-        [[nodiscard]] auto RuleId() const;
-        [[nodiscard]] auto SmsMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::NetworkOperatorEventMessageType) NotificationType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NetworkAccountId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) EncodingType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RuleId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::ISmsMessage) SmsMessage() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorNotificationEventDetails>
     {
@@ -3148,10 +3150,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringAccessPointConfiguration
     {
-        [[nodiscard]] auto Ssid() const;
-        auto Ssid(param::hstring const& value) const;
-        [[nodiscard]] auto Passphrase() const;
-        auto Passphrase(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Ssid() const;
+        WINRT_IMPL_AUTO(void) Ssid(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Passphrase() const;
+        WINRT_IMPL_AUTO(void) Passphrase(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringAccessPointConfiguration>
     {
@@ -3160,10 +3162,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringAccessPointConfiguration2
     {
-        auto IsBandSupported(Windows::Networking::NetworkOperators::TetheringWiFiBand const& band) const;
-        auto IsBandSupportedAsync(Windows::Networking::NetworkOperators::TetheringWiFiBand const& band) const;
-        [[nodiscard]] auto Band() const;
-        auto Band(Windows::Networking::NetworkOperators::TetheringWiFiBand const& value) const;
+        WINRT_IMPL_AUTO(bool) IsBandSupported(Windows::Networking::NetworkOperators::TetheringWiFiBand const& band) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsBandSupportedAsync(Windows::Networking::NetworkOperators::TetheringWiFiBand const& band) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::TetheringWiFiBand) Band() const;
+        WINRT_IMPL_AUTO(void) Band(Windows::Networking::NetworkOperators::TetheringWiFiBand const& value) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringAccessPointConfiguration2>
     {
@@ -3172,8 +3174,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringClient
     {
-        [[nodiscard]] auto MacAddress() const;
-        [[nodiscard]] auto HostNames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MacAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::HostName>) HostNames() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringClient>
     {
@@ -3182,7 +3184,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringClientManager
     {
-        auto GetTetheringClients() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::NetworkOperators::NetworkOperatorTetheringClient>) GetTetheringClients() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringClientManager>
     {
@@ -3191,7 +3193,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringEntitlementCheck
     {
-        auto AuthorizeTethering(bool allow, param::hstring const& entitlementFailureReason) const;
+        WINRT_IMPL_AUTO(void) AuthorizeTethering(bool allow, param::hstring const& entitlementFailureReason) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringEntitlementCheck>
     {
@@ -3200,13 +3202,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringManager
     {
-        [[nodiscard]] auto MaxClientCount() const;
-        [[nodiscard]] auto ClientCount() const;
-        [[nodiscard]] auto TetheringOperationalState() const;
-        auto GetCurrentAccessPointConfiguration() const;
-        auto ConfigureAccessPointAsync(Windows::Networking::NetworkOperators::NetworkOperatorTetheringAccessPointConfiguration const& configuration) const;
-        auto StartTetheringAsync() const;
-        auto StopTetheringAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxClientCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ClientCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::TetheringOperationalState) TetheringOperationalState() const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::NetworkOperatorTetheringAccessPointConfiguration) GetCurrentAccessPointConfiguration() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ConfigureAccessPointAsync(Windows::Networking::NetworkOperators::NetworkOperatorTetheringAccessPointConfiguration const& configuration) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::NetworkOperatorTetheringOperationResult>) StartTetheringAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::NetworkOperatorTetheringOperationResult>) StopTetheringAsync() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManager>
     {
@@ -3215,8 +3217,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringManagerStatics
     {
-        auto GetTetheringCapability(param::hstring const& networkAccountId) const;
-        auto CreateFromNetworkAccountId(param::hstring const& networkAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::TetheringCapability) GetTetheringCapability(param::hstring const& networkAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::NetworkOperatorTetheringManager) CreateFromNetworkAccountId(param::hstring const& networkAccountId) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics>
     {
@@ -3225,8 +3227,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringManagerStatics2
     {
-        auto GetTetheringCapabilityFromConnectionProfile(Windows::Networking::Connectivity::ConnectionProfile const& profile) const;
-        auto CreateFromConnectionProfile(Windows::Networking::Connectivity::ConnectionProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::TetheringCapability) GetTetheringCapabilityFromConnectionProfile(Windows::Networking::Connectivity::ConnectionProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::NetworkOperatorTetheringManager) CreateFromConnectionProfile(Windows::Networking::Connectivity::ConnectionProfile const& profile) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics2>
     {
@@ -3235,7 +3237,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringManagerStatics3
     {
-        auto CreateFromConnectionProfile(Windows::Networking::Connectivity::ConnectionProfile const& profile, Windows::Networking::Connectivity::NetworkAdapter const& adapter) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::NetworkOperatorTetheringManager) CreateFromConnectionProfile(Windows::Networking::Connectivity::ConnectionProfile const& profile, Windows::Networking::Connectivity::NetworkAdapter const& adapter) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics3>
     {
@@ -3244,11 +3246,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringManagerStatics4
     {
-        auto IsNoConnectionsTimeoutEnabled() const;
-        auto EnableNoConnectionsTimeout() const;
-        auto EnableNoConnectionsTimeoutAsync() const;
-        auto DisableNoConnectionsTimeout() const;
-        auto DisableNoConnectionsTimeoutAsync() const;
+        WINRT_IMPL_AUTO(bool) IsNoConnectionsTimeoutEnabled() const;
+        WINRT_IMPL_AUTO(void) EnableNoConnectionsTimeout() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) EnableNoConnectionsTimeoutAsync() const;
+        WINRT_IMPL_AUTO(void) DisableNoConnectionsTimeout() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DisableNoConnectionsTimeoutAsync() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringManagerStatics4>
     {
@@ -3257,8 +3259,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_INetworkOperatorTetheringOperationResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto AdditionalErrorMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::TetheringOperationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AdditionalErrorMessage() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::INetworkOperatorTetheringOperationResult>
     {
@@ -3267,8 +3269,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IProvisionFromXmlDocumentResults
     {
-        [[nodiscard]] auto AllElementsProvisioned() const;
-        [[nodiscard]] auto ProvisionResultsXml() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllElementsProvisioned() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProvisionResultsXml() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IProvisionFromXmlDocumentResults>
     {
@@ -3277,8 +3279,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IProvisionedProfile
     {
-        auto UpdateCost(Windows::Networking::Connectivity::NetworkCostType const& value) const;
-        auto UpdateUsage(Windows::Networking::NetworkOperators::ProfileUsage const& value) const;
+        WINRT_IMPL_AUTO(void) UpdateCost(Windows::Networking::Connectivity::NetworkCostType const& value) const;
+        WINRT_IMPL_AUTO(void) UpdateUsage(Windows::Networking::NetworkOperators::ProfileUsage const& value) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IProvisionedProfile>
     {
@@ -3287,8 +3289,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IProvisioningAgent
     {
-        auto ProvisionFromXmlDocumentAsync(param::hstring const& provisioningXmlDocument) const;
-        auto GetProvisionedProfile(Windows::Networking::NetworkOperators::ProfileMediaType const& mediaType, param::hstring const& profileName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::ProvisionFromXmlDocumentResults>) ProvisionFromXmlDocumentAsync(param::hstring const& provisioningXmlDocument) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ProvisionedProfile) GetProvisionedProfile(Windows::Networking::NetworkOperators::ProfileMediaType const& mediaType, param::hstring const& profileName) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IProvisioningAgent>
     {
@@ -3297,7 +3299,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IProvisioningAgentStaticMethods
     {
-        auto CreateFromNetworkAccountId(param::hstring const& networkAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::ProvisioningAgent) CreateFromNetworkAccountId(param::hstring const& networkAccountId) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IProvisioningAgentStaticMethods>
     {
@@ -3306,9 +3308,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_ITetheringEntitlementCheckTriggerDetails
     {
-        [[nodiscard]] auto NetworkAccountId() const;
-        auto AllowTethering() const;
-        auto DenyTethering(param::hstring const& entitlementFailureReason) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NetworkAccountId() const;
+        WINRT_IMPL_AUTO(void) AllowTethering() const;
+        WINRT_IMPL_AUTO(void) DenyTethering(param::hstring const& entitlementFailureReason) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::ITetheringEntitlementCheckTriggerDetails>
     {
@@ -3317,12 +3319,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IUssdMessage
     {
-        [[nodiscard]] auto DataCodingScheme() const;
-        auto DataCodingScheme(uint8_t value) const;
-        auto GetPayload() const;
-        auto SetPayload(array_view<uint8_t const> value) const;
-        [[nodiscard]] auto PayloadAsText() const;
-        auto PayloadAsText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) DataCodingScheme() const;
+        WINRT_IMPL_AUTO(void) DataCodingScheme(uint8_t value) const;
+        WINRT_IMPL_AUTO(com_array<uint8_t>) GetPayload() const;
+        WINRT_IMPL_AUTO(void) SetPayload(array_view<uint8_t const> value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PayloadAsText() const;
+        WINRT_IMPL_AUTO(void) PayloadAsText(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IUssdMessage>
     {
@@ -3331,7 +3333,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IUssdMessageFactory
     {
-        auto CreateMessage(param::hstring const& messageText) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UssdMessage) CreateMessage(param::hstring const& messageText) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IUssdMessageFactory>
     {
@@ -3340,8 +3342,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IUssdReply
     {
-        [[nodiscard]] auto ResultCode() const;
-        [[nodiscard]] auto Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UssdResultCode) ResultCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UssdMessage) Message() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IUssdReply>
     {
@@ -3350,8 +3352,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IUssdSession
     {
-        auto SendMessageAndGetReplyAsync(Windows::Networking::NetworkOperators::UssdMessage const& message) const;
-        auto Close() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::NetworkOperators::UssdReply>) SendMessageAndGetReplyAsync(Windows::Networking::NetworkOperators::UssdMessage const& message) const;
+        WINRT_IMPL_AUTO(void) Close() const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IUssdSession>
     {
@@ -3360,8 +3362,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_NetworkOperators_IUssdSessionStatics
     {
-        auto CreateFromNetworkAccountId(param::hstring const& networkAccountId) const;
-        auto CreateFromNetworkInterfaceId(param::hstring const& networkInterfaceId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UssdSession) CreateFromNetworkAccountId(param::hstring const& networkAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::NetworkOperators::UssdSession) CreateFromNetworkInterfaceId(param::hstring const& networkInterfaceId) const;
     };
     template <> struct consume<Windows::Networking::NetworkOperators::IUssdSessionStatics>
     {

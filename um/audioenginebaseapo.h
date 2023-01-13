@@ -95,6 +95,27 @@ typedef interface IAudioSystemEffectsCustomFormats IAudioSystemEffectsCustomForm
 #endif 	/* __IAudioSystemEffectsCustomFormats_FWD_DEFINED__ */
 
 
+#ifndef __IApoAuxiliaryInputConfiguration_FWD_DEFINED__
+#define __IApoAuxiliaryInputConfiguration_FWD_DEFINED__
+typedef interface IApoAuxiliaryInputConfiguration IApoAuxiliaryInputConfiguration;
+
+#endif 	/* __IApoAuxiliaryInputConfiguration_FWD_DEFINED__ */
+
+
+#ifndef __IApoAuxiliaryInputRT_FWD_DEFINED__
+#define __IApoAuxiliaryInputRT_FWD_DEFINED__
+typedef interface IApoAuxiliaryInputRT IApoAuxiliaryInputRT;
+
+#endif 	/* __IApoAuxiliaryInputRT_FWD_DEFINED__ */
+
+
+#ifndef __IApoAcousticEchoCancellation_FWD_DEFINED__
+#define __IApoAcousticEchoCancellation_FWD_DEFINED__
+typedef interface IApoAcousticEchoCancellation IApoAcousticEchoCancellation;
+
+#endif 	/* __IApoAcousticEchoCancellation_FWD_DEFINED__ */
+
+
 /* header files for imported files */
 #include "oaidl.h"
 #include "ocidl.h"
@@ -143,11 +164,14 @@ extern "C"{
 #define APOERR_INVALID_COEFFICIENT               _HRESULT_TYPEDEF_(0x887D000C)
 // an invalid curve parameter was specified
 #define APOERR_INVALID_CURVE_PARAM               _HRESULT_TYPEDEF_(0x887D000D)
+// Invalid auxiliary input index
+#define APOERR_INVALID_INPUTID                   _HRESULT_TYPEDEF_(0x887D000E)
 //
 // Signatures for data structures.
 //
 #define APO_CONNECTION_DESCRIPTOR_SIGNATURE     'ACDS'
 #define APO_CONNECTION_PROPERTY_SIGNATURE       'ACPS'
+#define APO_CONNECTION_PROPERTY_V2_SIGNATURE    'ACP2'
 
 // Min and max framerates for the engine
 #define AUDIO_MIN_FRAMERATE                    10.0     // Minimum frame rate for APOs
@@ -1060,7 +1084,273 @@ EXTERN_C const IID IID_IAudioSystemEffectsCustomFormats;
 #endif 	/* __IAudioSystemEffectsCustomFormats_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_audioenginebaseapo_0000_0008 */
+#ifndef __IApoAuxiliaryInputConfiguration_INTERFACE_DEFINED__
+#define __IApoAuxiliaryInputConfiguration_INTERFACE_DEFINED__
+
+/* interface IApoAuxiliaryInputConfiguration */
+/* [local][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IApoAuxiliaryInputConfiguration;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("4CEB0AAB-FA19-48ED-A857-87771AE1B768")
+    IApoAuxiliaryInputConfiguration : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE AddAuxiliaryInput( 
+            /* [in] */ DWORD dwInputId,
+            /* [in] */ UINT32 cbDataSize,
+            /* [size_is][in] */ BYTE *pbyData,
+            /* [annotation][in] */ 
+            _In_  APO_CONNECTION_DESCRIPTOR *pInputConnection) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE RemoveAuxiliaryInput( 
+            /* [in] */ DWORD dwInputId) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE IsInputFormatSupported( 
+            /* [in] */ IAudioMediaType *pRequestedInputFormat,
+            /* [out] */ IAudioMediaType **ppSupportedInputFormat) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IApoAuxiliaryInputConfigurationVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IApoAuxiliaryInputConfiguration * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IApoAuxiliaryInputConfiguration * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IApoAuxiliaryInputConfiguration * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *AddAuxiliaryInput )( 
+            IApoAuxiliaryInputConfiguration * This,
+            /* [in] */ DWORD dwInputId,
+            /* [in] */ UINT32 cbDataSize,
+            /* [size_is][in] */ BYTE *pbyData,
+            /* [annotation][in] */ 
+            _In_  APO_CONNECTION_DESCRIPTOR *pInputConnection);
+        
+        HRESULT ( STDMETHODCALLTYPE *RemoveAuxiliaryInput )( 
+            IApoAuxiliaryInputConfiguration * This,
+            /* [in] */ DWORD dwInputId);
+        
+        HRESULT ( STDMETHODCALLTYPE *IsInputFormatSupported )( 
+            IApoAuxiliaryInputConfiguration * This,
+            /* [in] */ IAudioMediaType *pRequestedInputFormat,
+            /* [out] */ IAudioMediaType **ppSupportedInputFormat);
+        
+        END_INTERFACE
+    } IApoAuxiliaryInputConfigurationVtbl;
+
+    interface IApoAuxiliaryInputConfiguration
+    {
+        CONST_VTBL struct IApoAuxiliaryInputConfigurationVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IApoAuxiliaryInputConfiguration_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IApoAuxiliaryInputConfiguration_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IApoAuxiliaryInputConfiguration_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IApoAuxiliaryInputConfiguration_AddAuxiliaryInput(This,dwInputId,cbDataSize,pbyData,pInputConnection)	\
+    ( (This)->lpVtbl -> AddAuxiliaryInput(This,dwInputId,cbDataSize,pbyData,pInputConnection) ) 
+
+#define IApoAuxiliaryInputConfiguration_RemoveAuxiliaryInput(This,dwInputId)	\
+    ( (This)->lpVtbl -> RemoveAuxiliaryInput(This,dwInputId) ) 
+
+#define IApoAuxiliaryInputConfiguration_IsInputFormatSupported(This,pRequestedInputFormat,ppSupportedInputFormat)	\
+    ( (This)->lpVtbl -> IsInputFormatSupported(This,pRequestedInputFormat,ppSupportedInputFormat) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IApoAuxiliaryInputConfiguration_INTERFACE_DEFINED__ */
+
+
+#ifndef __IApoAuxiliaryInputRT_INTERFACE_DEFINED__
+#define __IApoAuxiliaryInputRT_INTERFACE_DEFINED__
+
+/* interface IApoAuxiliaryInputRT */
+/* [local][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IApoAuxiliaryInputRT;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("F851809C-C177-49A0-B1B2-B66F017943AB")
+    IApoAuxiliaryInputRT : public IUnknown
+    {
+    public:
+        virtual void STDMETHODCALLTYPE AcceptInput( 
+            /* [annotation][in] */ 
+            _In_  DWORD dwInputId,
+            /* [annotation][in] */ 
+            _In_  const APO_CONNECTION_PROPERTY *pInputConnection) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IApoAuxiliaryInputRTVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IApoAuxiliaryInputRT * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IApoAuxiliaryInputRT * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IApoAuxiliaryInputRT * This);
+        
+        void ( STDMETHODCALLTYPE *AcceptInput )( 
+            IApoAuxiliaryInputRT * This,
+            /* [annotation][in] */ 
+            _In_  DWORD dwInputId,
+            /* [annotation][in] */ 
+            _In_  const APO_CONNECTION_PROPERTY *pInputConnection);
+        
+        END_INTERFACE
+    } IApoAuxiliaryInputRTVtbl;
+
+    interface IApoAuxiliaryInputRT
+    {
+        CONST_VTBL struct IApoAuxiliaryInputRTVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IApoAuxiliaryInputRT_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IApoAuxiliaryInputRT_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IApoAuxiliaryInputRT_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IApoAuxiliaryInputRT_AcceptInput(This,dwInputId,pInputConnection)	\
+    ( (This)->lpVtbl -> AcceptInput(This,dwInputId,pInputConnection) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IApoAuxiliaryInputRT_INTERFACE_DEFINED__ */
+
+
+#ifndef __IApoAcousticEchoCancellation_INTERFACE_DEFINED__
+#define __IApoAcousticEchoCancellation_INTERFACE_DEFINED__
+
+/* interface IApoAcousticEchoCancellation */
+/* [unique][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IApoAcousticEchoCancellation;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("25385759-3236-4101-A943-25693DFB5D2D")
+    IApoAcousticEchoCancellation : public IUnknown
+    {
+    public:
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IApoAcousticEchoCancellationVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            __RPC__in IApoAcousticEchoCancellation * This,
+            /* [in] */ __RPC__in REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            __RPC__in IApoAcousticEchoCancellation * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            __RPC__in IApoAcousticEchoCancellation * This);
+        
+        END_INTERFACE
+    } IApoAcousticEchoCancellationVtbl;
+
+    interface IApoAcousticEchoCancellation
+    {
+        CONST_VTBL struct IApoAcousticEchoCancellationVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IApoAcousticEchoCancellation_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IApoAcousticEchoCancellation_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IApoAcousticEchoCancellation_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IApoAcousticEchoCancellation_INTERFACE_DEFINED__ */
+
+
+/* interface __MIDL_itf_audioenginebaseapo_0000_0011 */
 /* [local] */ 
 
 typedef struct APOInitSystemEffects
@@ -1085,7 +1375,7 @@ typedef struct APOInitSystemEffects2
     BOOL InitializeForDiscoveryOnly;
     } 	APOInitSystemEffects2;
 
-typedef /* [public] */ struct __MIDL___MIDL_itf_audioenginebaseapo_0000_0008_0001
+typedef /* [public] */ struct __MIDL___MIDL_itf_audioenginebaseapo_0000_0011_0001
     {
     LPARAM AddPageParam;
     LPWSTR pwstrEndpointID;
@@ -1126,8 +1416,8 @@ DEFINE_PROPERTYKEY(PKEY_APO_SWFallback_ProcessingModes, 0xd3993a3f, 0x99c2, 0x44
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_audioenginebaseapo_0000_0008_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_audioenginebaseapo_0000_0008_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioenginebaseapo_0000_0011_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioenginebaseapo_0000_0011_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

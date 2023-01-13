@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -48,18 +48,16 @@ namespace winrt::impl
     template <> struct category<Windows::Networking::DomainNameType>{ using type = enum_category; };
     template <> struct category<Windows::Networking::HostNameSortOptions>{ using type = enum_category; };
     template <> struct category<Windows::Networking::HostNameType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Networking::EndpointPair>{ L"Windows.Networking.EndpointPair" };
-    template <> inline constexpr auto& name_v<Windows::Networking::HostName>{ L"Windows.Networking.HostName" };
-    template <> inline constexpr auto& name_v<Windows::Networking::DomainNameType>{ L"Windows.Networking.DomainNameType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::HostNameSortOptions>{ L"Windows.Networking.HostNameSortOptions" };
-    template <> inline constexpr auto& name_v<Windows::Networking::HostNameType>{ L"Windows.Networking.HostNameType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Networking::IEndpointPair>{ L"Windows.Networking.IEndpointPair" };
-    template <> inline constexpr auto& name_v<Windows::Networking::IEndpointPairFactory>{ L"Windows.Networking.IEndpointPairFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::IHostName>{ L"Windows.Networking.IHostName" };
-    template <> inline constexpr auto& name_v<Windows::Networking::IHostNameFactory>{ L"Windows.Networking.IHostNameFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::IHostNameStatics>{ L"Windows.Networking.IHostNameStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Networking::EndpointPair> = L"Windows.Networking.EndpointPair";
+    template <> inline constexpr auto& name_v<Windows::Networking::HostName> = L"Windows.Networking.HostName";
+    template <> inline constexpr auto& name_v<Windows::Networking::DomainNameType> = L"Windows.Networking.DomainNameType";
+    template <> inline constexpr auto& name_v<Windows::Networking::HostNameSortOptions> = L"Windows.Networking.HostNameSortOptions";
+    template <> inline constexpr auto& name_v<Windows::Networking::HostNameType> = L"Windows.Networking.HostNameType";
+    template <> inline constexpr auto& name_v<Windows::Networking::IEndpointPair> = L"Windows.Networking.IEndpointPair";
+    template <> inline constexpr auto& name_v<Windows::Networking::IEndpointPairFactory> = L"Windows.Networking.IEndpointPairFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::IHostName> = L"Windows.Networking.IHostName";
+    template <> inline constexpr auto& name_v<Windows::Networking::IHostNameFactory> = L"Windows.Networking.IHostNameFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::IHostNameStatics> = L"Windows.Networking.IHostNameStatics";
     template <> inline constexpr guid guid_v<Windows::Networking::IEndpointPair>{ 0x33A0AA36,0xF8FA,0x4B30,{ 0xB8,0x56,0x76,0x51,0x7C,0x3B,0xD0,0x6D } };
     template <> inline constexpr guid guid_v<Windows::Networking::IEndpointPairFactory>{ 0xB609D971,0x64E0,0x442B,{ 0xAA,0x6F,0xCC,0x8C,0x8F,0x18,0x1F,0x78 } };
     template <> inline constexpr guid guid_v<Windows::Networking::IHostName>{ 0xBF8ECAAD,0xED96,0x49A7,{ 0x90,0x84,0xD4,0x16,0xCA,0xE8,0x8D,0xCB } };
@@ -117,14 +115,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_IEndpointPair
     {
-        [[nodiscard]] auto LocalHostName() const;
-        auto LocalHostName(Windows::Networking::HostName const& value) const;
-        [[nodiscard]] auto LocalServiceName() const;
-        auto LocalServiceName(param::hstring const& value) const;
-        [[nodiscard]] auto RemoteHostName() const;
-        auto RemoteHostName(Windows::Networking::HostName const& value) const;
-        [[nodiscard]] auto RemoteServiceName() const;
-        auto RemoteServiceName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostName) LocalHostName() const;
+        WINRT_IMPL_AUTO(void) LocalHostName(Windows::Networking::HostName const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LocalServiceName() const;
+        WINRT_IMPL_AUTO(void) LocalServiceName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostName) RemoteHostName() const;
+        WINRT_IMPL_AUTO(void) RemoteHostName(Windows::Networking::HostName const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RemoteServiceName() const;
+        WINRT_IMPL_AUTO(void) RemoteServiceName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Networking::IEndpointPair>
     {
@@ -133,7 +131,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_IEndpointPairFactory
     {
-        auto CreateEndpointPair(Windows::Networking::HostName const& localHostName, param::hstring const& localServiceName, Windows::Networking::HostName const& remoteHostName, param::hstring const& remoteServiceName) const;
+        WINRT_IMPL_AUTO(Windows::Networking::EndpointPair) CreateEndpointPair(Windows::Networking::HostName const& localHostName, param::hstring const& localServiceName, Windows::Networking::HostName const& remoteHostName, param::hstring const& remoteServiceName) const;
     };
     template <> struct consume<Windows::Networking::IEndpointPairFactory>
     {
@@ -142,12 +140,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_IHostName
     {
-        [[nodiscard]] auto IPInformation() const;
-        [[nodiscard]] auto RawName() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto CanonicalName() const;
-        [[nodiscard]] auto Type() const;
-        auto IsEqual(Windows::Networking::HostName const& hostName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Connectivity::IPInformation) IPInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RawName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CanonicalName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostNameType) Type() const;
+        WINRT_IMPL_AUTO(bool) IsEqual(Windows::Networking::HostName const& hostName) const;
     };
     template <> struct consume<Windows::Networking::IHostName>
     {
@@ -156,7 +154,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_IHostNameFactory
     {
-        auto CreateHostName(param::hstring const& hostName) const;
+        WINRT_IMPL_AUTO(Windows::Networking::HostName) CreateHostName(param::hstring const& hostName) const;
     };
     template <> struct consume<Windows::Networking::IHostNameFactory>
     {
@@ -165,7 +163,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_IHostNameStatics
     {
-        auto Compare(param::hstring const& value1, param::hstring const& value2) const;
+        WINRT_IMPL_AUTO(int32_t) Compare(param::hstring const& value1, param::hstring const& value2) const;
     };
     template <> struct consume<Windows::Networking::IHostNameStatics>
     {

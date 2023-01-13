@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -22,6 +22,9 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     template <typename K, typename V> struct IKeyValuePair;
+    template <typename K, typename V> struct IMapView;
+    template <typename K, typename V> struct IMap;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {
@@ -287,76 +290,74 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Display::Core::DisplayWireFormatHdrMetadata>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Display::Core::DisplayPresentationRate>{ using type = struct_category<Windows::Foundation::Numerics::Rational, int32_t>; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayAdapter>{ L"Windows.Devices.Display.Core.DisplayAdapter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayDevice>{ L"Windows.Devices.Display.Core.DisplayDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayFence>{ L"Windows.Devices.Display.Core.DisplayFence" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManager>{ L"Windows.Devices.Display.Core.DisplayManager" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerChangedEventArgs>{ L"Windows.Devices.Display.Core.DisplayManagerChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerDisabledEventArgs>{ L"Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerEnabledEventArgs>{ L"Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerPathsFailedOrInvalidatedEventArgs>{ L"Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerResultWithState>{ L"Windows.Devices.Display.Core.DisplayManagerResultWithState" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayModeInfo>{ L"Windows.Devices.Display.Core.DisplayModeInfo" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPath>{ L"Windows.Devices.Display.Core.DisplayPath" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPrimaryDescription>{ L"Windows.Devices.Display.Core.DisplayPrimaryDescription" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayScanout>{ L"Windows.Devices.Display.Core.DisplayScanout" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplaySource>{ L"Windows.Devices.Display.Core.DisplaySource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayState>{ L"Windows.Devices.Display.Core.DisplayState" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayStateOperationResult>{ L"Windows.Devices.Display.Core.DisplayStateOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplaySurface>{ L"Windows.Devices.Display.Core.DisplaySurface" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTarget>{ L"Windows.Devices.Display.Core.DisplayTarget" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTask>{ L"Windows.Devices.Display.Core.DisplayTask" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTaskPool>{ L"Windows.Devices.Display.Core.DisplayTaskPool" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayView>{ L"Windows.Devices.Display.Core.DisplayView" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormat>{ L"Windows.Devices.Display.Core.DisplayWireFormat" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayBitsPerChannel>{ L"Windows.Devices.Display.Core.DisplayBitsPerChannel" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayDeviceCapability>{ L"Windows.Devices.Display.Core.DisplayDeviceCapability" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerOptions>{ L"Windows.Devices.Display.Core.DisplayManagerOptions" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerResult>{ L"Windows.Devices.Display.Core.DisplayManagerResult" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayModeQueryOptions>{ L"Windows.Devices.Display.Core.DisplayModeQueryOptions" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPathScaling>{ L"Windows.Devices.Display.Core.DisplayPathScaling" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPathStatus>{ L"Windows.Devices.Display.Core.DisplayPathStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayRotation>{ L"Windows.Devices.Display.Core.DisplayRotation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayStateApplyOptions>{ L"Windows.Devices.Display.Core.DisplayStateApplyOptions" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayStateFunctionalizeOptions>{ L"Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayStateOperationStatus>{ L"Windows.Devices.Display.Core.DisplayStateOperationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTargetPersistence>{ L"Windows.Devices.Display.Core.DisplayTargetPersistence" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTaskSignalKind>{ L"Windows.Devices.Display.Core.DisplayTaskSignalKind" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormatColorSpace>{ L"Windows.Devices.Display.Core.DisplayWireFormatColorSpace" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormatEotf>{ L"Windows.Devices.Display.Core.DisplayWireFormatEotf" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormatHdrMetadata>{ L"Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding>{ L"Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPresentationRate>{ L"Windows.Devices.Display.Core.DisplayPresentationRate" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayAdapter>{ L"Windows.Devices.Display.Core.IDisplayAdapter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayAdapterStatics>{ L"Windows.Devices.Display.Core.IDisplayAdapterStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayDevice>{ L"Windows.Devices.Display.Core.IDisplayDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayFence>{ L"Windows.Devices.Display.Core.IDisplayFence" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManager>{ L"Windows.Devices.Display.Core.IDisplayManager" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerChangedEventArgs>{ L"Windows.Devices.Display.Core.IDisplayManagerChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerDisabledEventArgs>{ L"Windows.Devices.Display.Core.IDisplayManagerDisabledEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerEnabledEventArgs>{ L"Windows.Devices.Display.Core.IDisplayManagerEnabledEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerPathsFailedOrInvalidatedEventArgs>{ L"Windows.Devices.Display.Core.IDisplayManagerPathsFailedOrInvalidatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerResultWithState>{ L"Windows.Devices.Display.Core.IDisplayManagerResultWithState" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerStatics>{ L"Windows.Devices.Display.Core.IDisplayManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayModeInfo>{ L"Windows.Devices.Display.Core.IDisplayModeInfo" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayPath>{ L"Windows.Devices.Display.Core.IDisplayPath" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayPrimaryDescription>{ L"Windows.Devices.Display.Core.IDisplayPrimaryDescription" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayPrimaryDescriptionFactory>{ L"Windows.Devices.Display.Core.IDisplayPrimaryDescriptionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayPrimaryDescriptionStatics>{ L"Windows.Devices.Display.Core.IDisplayPrimaryDescriptionStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayScanout>{ L"Windows.Devices.Display.Core.IDisplayScanout" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplaySource>{ L"Windows.Devices.Display.Core.IDisplaySource" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayState>{ L"Windows.Devices.Display.Core.IDisplayState" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayStateOperationResult>{ L"Windows.Devices.Display.Core.IDisplayStateOperationResult" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplaySurface>{ L"Windows.Devices.Display.Core.IDisplaySurface" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayTarget>{ L"Windows.Devices.Display.Core.IDisplayTarget" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayTask>{ L"Windows.Devices.Display.Core.IDisplayTask" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayTaskPool>{ L"Windows.Devices.Display.Core.IDisplayTaskPool" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayView>{ L"Windows.Devices.Display.Core.IDisplayView" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayWireFormat>{ L"Windows.Devices.Display.Core.IDisplayWireFormat" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayWireFormatFactory>{ L"Windows.Devices.Display.Core.IDisplayWireFormatFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayWireFormatStatics>{ L"Windows.Devices.Display.Core.IDisplayWireFormatStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayAdapter> = L"Windows.Devices.Display.Core.DisplayAdapter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayDevice> = L"Windows.Devices.Display.Core.DisplayDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayFence> = L"Windows.Devices.Display.Core.DisplayFence";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManager> = L"Windows.Devices.Display.Core.DisplayManager";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerChangedEventArgs> = L"Windows.Devices.Display.Core.DisplayManagerChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerDisabledEventArgs> = L"Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerEnabledEventArgs> = L"Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerPathsFailedOrInvalidatedEventArgs> = L"Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerResultWithState> = L"Windows.Devices.Display.Core.DisplayManagerResultWithState";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayModeInfo> = L"Windows.Devices.Display.Core.DisplayModeInfo";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPath> = L"Windows.Devices.Display.Core.DisplayPath";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPrimaryDescription> = L"Windows.Devices.Display.Core.DisplayPrimaryDescription";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayScanout> = L"Windows.Devices.Display.Core.DisplayScanout";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplaySource> = L"Windows.Devices.Display.Core.DisplaySource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayState> = L"Windows.Devices.Display.Core.DisplayState";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayStateOperationResult> = L"Windows.Devices.Display.Core.DisplayStateOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplaySurface> = L"Windows.Devices.Display.Core.DisplaySurface";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTarget> = L"Windows.Devices.Display.Core.DisplayTarget";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTask> = L"Windows.Devices.Display.Core.DisplayTask";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTaskPool> = L"Windows.Devices.Display.Core.DisplayTaskPool";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayView> = L"Windows.Devices.Display.Core.DisplayView";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormat> = L"Windows.Devices.Display.Core.DisplayWireFormat";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayBitsPerChannel> = L"Windows.Devices.Display.Core.DisplayBitsPerChannel";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayDeviceCapability> = L"Windows.Devices.Display.Core.DisplayDeviceCapability";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerOptions> = L"Windows.Devices.Display.Core.DisplayManagerOptions";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayManagerResult> = L"Windows.Devices.Display.Core.DisplayManagerResult";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayModeQueryOptions> = L"Windows.Devices.Display.Core.DisplayModeQueryOptions";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPathScaling> = L"Windows.Devices.Display.Core.DisplayPathScaling";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPathStatus> = L"Windows.Devices.Display.Core.DisplayPathStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayRotation> = L"Windows.Devices.Display.Core.DisplayRotation";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayStateApplyOptions> = L"Windows.Devices.Display.Core.DisplayStateApplyOptions";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayStateFunctionalizeOptions> = L"Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayStateOperationStatus> = L"Windows.Devices.Display.Core.DisplayStateOperationStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTargetPersistence> = L"Windows.Devices.Display.Core.DisplayTargetPersistence";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayTaskSignalKind> = L"Windows.Devices.Display.Core.DisplayTaskSignalKind";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormatColorSpace> = L"Windows.Devices.Display.Core.DisplayWireFormatColorSpace";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormatEotf> = L"Windows.Devices.Display.Core.DisplayWireFormatEotf";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormatHdrMetadata> = L"Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding> = L"Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::DisplayPresentationRate> = L"Windows.Devices.Display.Core.DisplayPresentationRate";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayAdapter> = L"Windows.Devices.Display.Core.IDisplayAdapter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayAdapterStatics> = L"Windows.Devices.Display.Core.IDisplayAdapterStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayDevice> = L"Windows.Devices.Display.Core.IDisplayDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayFence> = L"Windows.Devices.Display.Core.IDisplayFence";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManager> = L"Windows.Devices.Display.Core.IDisplayManager";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerChangedEventArgs> = L"Windows.Devices.Display.Core.IDisplayManagerChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerDisabledEventArgs> = L"Windows.Devices.Display.Core.IDisplayManagerDisabledEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerEnabledEventArgs> = L"Windows.Devices.Display.Core.IDisplayManagerEnabledEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerPathsFailedOrInvalidatedEventArgs> = L"Windows.Devices.Display.Core.IDisplayManagerPathsFailedOrInvalidatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerResultWithState> = L"Windows.Devices.Display.Core.IDisplayManagerResultWithState";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayManagerStatics> = L"Windows.Devices.Display.Core.IDisplayManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayModeInfo> = L"Windows.Devices.Display.Core.IDisplayModeInfo";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayPath> = L"Windows.Devices.Display.Core.IDisplayPath";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayPrimaryDescription> = L"Windows.Devices.Display.Core.IDisplayPrimaryDescription";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayPrimaryDescriptionFactory> = L"Windows.Devices.Display.Core.IDisplayPrimaryDescriptionFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayPrimaryDescriptionStatics> = L"Windows.Devices.Display.Core.IDisplayPrimaryDescriptionStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayScanout> = L"Windows.Devices.Display.Core.IDisplayScanout";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplaySource> = L"Windows.Devices.Display.Core.IDisplaySource";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayState> = L"Windows.Devices.Display.Core.IDisplayState";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayStateOperationResult> = L"Windows.Devices.Display.Core.IDisplayStateOperationResult";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplaySurface> = L"Windows.Devices.Display.Core.IDisplaySurface";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayTarget> = L"Windows.Devices.Display.Core.IDisplayTarget";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayTask> = L"Windows.Devices.Display.Core.IDisplayTask";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayTaskPool> = L"Windows.Devices.Display.Core.IDisplayTaskPool";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayView> = L"Windows.Devices.Display.Core.IDisplayView";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayWireFormat> = L"Windows.Devices.Display.Core.IDisplayWireFormat";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayWireFormatFactory> = L"Windows.Devices.Display.Core.IDisplayWireFormatFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::Core::IDisplayWireFormatStatics> = L"Windows.Devices.Display.Core.IDisplayWireFormatStatics";
     template <> inline constexpr guid guid_v<Windows::Devices::Display::Core::IDisplayAdapter>{ 0xA56F5287,0xF000,0x5F2E,{ 0xB5,0xAC,0x37,0x83,0xA2,0xB6,0x9A,0xF5 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Display::Core::IDisplayAdapterStatics>{ 0x1DAC3CDA,0x481F,0x5469,{ 0x84,0x70,0x82,0xC4,0xBA,0x68,0x0A,0x28 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Display::Core::IDisplayDevice>{ 0xA4C9B62C,0x335F,0x5731,{ 0x8C,0xB4,0xC1,0xCC,0xD4,0x73,0x10,0x70 } };
@@ -721,14 +722,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayAdapter
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto DeviceInterfacePath() const;
-        [[nodiscard]] auto SourceCount() const;
-        [[nodiscard]] auto PciVendorId() const;
-        [[nodiscard]] auto PciDeviceId() const;
-        [[nodiscard]] auto PciSubSystemId() const;
-        [[nodiscard]] auto PciRevision() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DisplayAdapterId) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceInterfacePath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SourceCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PciVendorId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PciDeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PciSubSystemId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PciRevision() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<winrt::guid, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayAdapter>
     {
@@ -737,7 +738,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayAdapterStatics
     {
-        auto FromId(Windows::Graphics::DisplayAdapterId const& id) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayAdapter) FromId(Windows::Graphics::DisplayAdapterId const& id) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayAdapterStatics>
     {
@@ -746,13 +747,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayDevice
     {
-        auto CreateScanoutSource(Windows::Devices::Display::Core::DisplayTarget const& target) const;
-        auto CreatePrimary(Windows::Devices::Display::Core::DisplayTarget const& target, Windows::Devices::Display::Core::DisplayPrimaryDescription const& desc) const;
-        auto CreateTaskPool() const;
-        auto CreatePeriodicFence(Windows::Devices::Display::Core::DisplayTarget const& target, Windows::Foundation::TimeSpan const& offsetFromVBlank) const;
-        auto WaitForVBlank(Windows::Devices::Display::Core::DisplaySource const& source) const;
-        auto CreateSimpleScanout(Windows::Devices::Display::Core::DisplaySource const& pSource, Windows::Devices::Display::Core::DisplaySurface const& pSurface, uint32_t SubResourceIndex, uint32_t SyncInterval) const;
-        auto IsCapabilitySupported(Windows::Devices::Display::Core::DisplayDeviceCapability const& capability) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplaySource) CreateScanoutSource(Windows::Devices::Display::Core::DisplayTarget const& target) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplaySurface) CreatePrimary(Windows::Devices::Display::Core::DisplayTarget const& target, Windows::Devices::Display::Core::DisplayPrimaryDescription const& desc) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayTaskPool) CreateTaskPool() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayFence) CreatePeriodicFence(Windows::Devices::Display::Core::DisplayTarget const& target, Windows::Foundation::TimeSpan const& offsetFromVBlank) const;
+        WINRT_IMPL_AUTO(void) WaitForVBlank(Windows::Devices::Display::Core::DisplaySource const& source) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayScanout) CreateSimpleScanout(Windows::Devices::Display::Core::DisplaySource const& pSource, Windows::Devices::Display::Core::DisplaySurface const& pSurface, uint32_t SubResourceIndex, uint32_t SyncInterval) const;
+        WINRT_IMPL_AUTO(bool) IsCapabilitySupported(Windows::Devices::Display::Core::DisplayDeviceCapability const& capability) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayDevice>
     {
@@ -769,33 +770,33 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayManager
     {
-        auto GetCurrentTargets() const;
-        auto GetCurrentAdapters() const;
-        auto TryAcquireTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
-        auto ReleaseTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
-        auto TryReadCurrentStateForAllTargets() const;
-        auto TryAcquireTargetsAndReadCurrentState(param::iterable<Windows::Devices::Display::Core::DisplayTarget> const& targets) const;
-        auto TryAcquireTargetsAndCreateEmptyState(param::iterable<Windows::Devices::Display::Core::DisplayTarget> const& targets) const;
-        auto TryAcquireTargetsAndCreateSubstate(Windows::Devices::Display::Core::DisplayState const& existingState, param::iterable<Windows::Devices::Display::Core::DisplayTarget> const& targets) const;
-        auto CreateDisplayDevice(Windows::Devices::Display::Core::DisplayAdapter const& adapter) const;
-        auto Enabled(Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerEnabledEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Display::Core::DisplayTarget>) GetCurrentTargets() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Display::Core::DisplayAdapter>) GetCurrentAdapters() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayManagerResult) TryAcquireTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
+        WINRT_IMPL_AUTO(void) ReleaseTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayManagerResultWithState) TryReadCurrentStateForAllTargets() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayManagerResultWithState) TryAcquireTargetsAndReadCurrentState(param::iterable<Windows::Devices::Display::Core::DisplayTarget> const& targets) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayManagerResultWithState) TryAcquireTargetsAndCreateEmptyState(param::iterable<Windows::Devices::Display::Core::DisplayTarget> const& targets) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayManagerResultWithState) TryAcquireTargetsAndCreateSubstate(Windows::Devices::Display::Core::DisplayState const& existingState, param::iterable<Windows::Devices::Display::Core::DisplayTarget> const& targets) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayDevice) CreateDisplayDevice(Windows::Devices::Display::Core::DisplayAdapter const& adapter) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Enabled(Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerEnabledEventArgs> const& handler) const;
         using Enabled_revoker = impl::event_revoker<Windows::Devices::Display::Core::IDisplayManager, &impl::abi_t<Windows::Devices::Display::Core::IDisplayManager>::remove_Enabled>;
         [[nodiscard]] Enabled_revoker Enabled(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerEnabledEventArgs> const& handler) const;
-        auto Enabled(winrt::event_token const& token) const noexcept;
-        auto Disabled(Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerDisabledEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Enabled(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Disabled(Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerDisabledEventArgs> const& handler) const;
         using Disabled_revoker = impl::event_revoker<Windows::Devices::Display::Core::IDisplayManager, &impl::abi_t<Windows::Devices::Display::Core::IDisplayManager>::remove_Disabled>;
         [[nodiscard]] Disabled_revoker Disabled(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerDisabledEventArgs> const& handler) const;
-        auto Disabled(winrt::event_token const& token) const noexcept;
-        auto Changed(Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Disabled(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Changed(Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerChangedEventArgs> const& handler) const;
         using Changed_revoker = impl::event_revoker<Windows::Devices::Display::Core::IDisplayManager, &impl::abi_t<Windows::Devices::Display::Core::IDisplayManager>::remove_Changed>;
         [[nodiscard]] Changed_revoker Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerChangedEventArgs> const& handler) const;
-        auto Changed(winrt::event_token const& token) const noexcept;
-        auto PathsFailedOrInvalidated(Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerPathsFailedOrInvalidatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Changed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PathsFailedOrInvalidated(Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerPathsFailedOrInvalidatedEventArgs> const& handler) const;
         using PathsFailedOrInvalidated_revoker = impl::event_revoker<Windows::Devices::Display::Core::IDisplayManager, &impl::abi_t<Windows::Devices::Display::Core::IDisplayManager>::remove_PathsFailedOrInvalidated>;
         [[nodiscard]] PathsFailedOrInvalidated_revoker PathsFailedOrInvalidated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Display::Core::DisplayManager, Windows::Devices::Display::Core::DisplayManagerPathsFailedOrInvalidatedEventArgs> const& handler) const;
-        auto PathsFailedOrInvalidated(winrt::event_token const& token) const noexcept;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) PathsFailedOrInvalidated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayManager>
     {
@@ -804,9 +805,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayManagerChangedEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayManagerChangedEventArgs>
     {
@@ -815,9 +816,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayManagerDisabledEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayManagerDisabledEventArgs>
     {
@@ -826,9 +827,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayManagerEnabledEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayManagerEnabledEventArgs>
     {
@@ -837,9 +838,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayManagerPathsFailedOrInvalidatedEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayManagerPathsFailedOrInvalidatedEventArgs>
     {
@@ -848,9 +849,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayManagerResultWithState
     {
-        [[nodiscard]] auto ErrorCode() const;
-        [[nodiscard]] auto ExtendedErrorCode() const;
-        [[nodiscard]] auto State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayManagerResult) ErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayState) State() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayManagerResultWithState>
     {
@@ -859,7 +860,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayManagerStatics
     {
-        auto Create(Windows::Devices::Display::Core::DisplayManagerOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayManager) Create(Windows::Devices::Display::Core::DisplayManagerOptions const& options) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayManagerStatics>
     {
@@ -868,15 +869,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayModeInfo
     {
-        [[nodiscard]] auto SourceResolution() const;
-        [[nodiscard]] auto IsStereo() const;
-        [[nodiscard]] auto SourcePixelFormat() const;
-        [[nodiscard]] auto TargetResolution() const;
-        [[nodiscard]] auto PresentationRate() const;
-        [[nodiscard]] auto IsInterlaced() const;
-        auto GetWireFormatSupportedBitsPerChannel(Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding const& encoding) const;
-        auto IsWireFormatSupported(Windows::Devices::Display::Core::DisplayWireFormat const& wireFormat) const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::SizeInt32) SourceResolution() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStereo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXPixelFormat) SourcePixelFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::SizeInt32) TargetResolution() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayPresentationRate) PresentationRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsInterlaced() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayBitsPerChannel) GetWireFormatSupportedBitsPerChannel(Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding const& encoding) const;
+        WINRT_IMPL_AUTO(bool) IsWireFormatSupported(Windows::Devices::Display::Core::DisplayWireFormat const& wireFormat) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<winrt::guid, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayModeInfo>
     {
@@ -885,30 +886,30 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayPath
     {
-        [[nodiscard]] auto View() const;
-        [[nodiscard]] auto Target() const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto SourceResolution() const;
-        auto SourceResolution(Windows::Foundation::IReference<Windows::Graphics::SizeInt32> const& value) const;
-        [[nodiscard]] auto SourcePixelFormat() const;
-        auto SourcePixelFormat(Windows::Graphics::DirectX::DirectXPixelFormat const& value) const;
-        [[nodiscard]] auto IsStereo() const;
-        auto IsStereo(bool value) const;
-        [[nodiscard]] auto TargetResolution() const;
-        auto TargetResolution(Windows::Foundation::IReference<Windows::Graphics::SizeInt32> const& value) const;
-        [[nodiscard]] auto PresentationRate() const;
-        auto PresentationRate(Windows::Foundation::IReference<Windows::Devices::Display::Core::DisplayPresentationRate> const& value) const;
-        [[nodiscard]] auto IsInterlaced() const;
-        auto IsInterlaced(Windows::Foundation::IReference<bool> const& value) const;
-        [[nodiscard]] auto WireFormat() const;
-        auto WireFormat(Windows::Devices::Display::Core::DisplayWireFormat const& value) const;
-        [[nodiscard]] auto Rotation() const;
-        auto Rotation(Windows::Devices::Display::Core::DisplayRotation const& value) const;
-        [[nodiscard]] auto Scaling() const;
-        auto Scaling(Windows::Devices::Display::Core::DisplayPathScaling const& value) const;
-        auto FindModes(Windows::Devices::Display::Core::DisplayModeQueryOptions const& flags) const;
-        auto ApplyPropertiesFromMode(Windows::Devices::Display::Core::DisplayModeInfo const& modeResult) const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayView) View() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayTarget) Target() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayPathStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Graphics::SizeInt32>) SourceResolution() const;
+        WINRT_IMPL_AUTO(void) SourceResolution(Windows::Foundation::IReference<Windows::Graphics::SizeInt32> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXPixelFormat) SourcePixelFormat() const;
+        WINRT_IMPL_AUTO(void) SourcePixelFormat(Windows::Graphics::DirectX::DirectXPixelFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStereo() const;
+        WINRT_IMPL_AUTO(void) IsStereo(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Graphics::SizeInt32>) TargetResolution() const;
+        WINRT_IMPL_AUTO(void) TargetResolution(Windows::Foundation::IReference<Windows::Graphics::SizeInt32> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Devices::Display::Core::DisplayPresentationRate>) PresentationRate() const;
+        WINRT_IMPL_AUTO(void) PresentationRate(Windows::Foundation::IReference<Windows::Devices::Display::Core::DisplayPresentationRate> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) IsInterlaced() const;
+        WINRT_IMPL_AUTO(void) IsInterlaced(Windows::Foundation::IReference<bool> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayWireFormat) WireFormat() const;
+        WINRT_IMPL_AUTO(void) WireFormat(Windows::Devices::Display::Core::DisplayWireFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayRotation) Rotation() const;
+        WINRT_IMPL_AUTO(void) Rotation(Windows::Devices::Display::Core::DisplayRotation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayPathScaling) Scaling() const;
+        WINRT_IMPL_AUTO(void) Scaling(Windows::Devices::Display::Core::DisplayPathScaling const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Display::Core::DisplayModeInfo>) FindModes(Windows::Devices::Display::Core::DisplayModeQueryOptions const& flags) const;
+        WINRT_IMPL_AUTO(void) ApplyPropertiesFromMode(Windows::Devices::Display::Core::DisplayModeInfo const& modeResult) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<winrt::guid, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayPath>
     {
@@ -917,13 +918,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayPrimaryDescription
     {
-        [[nodiscard]] auto Width() const;
-        [[nodiscard]] auto Height() const;
-        [[nodiscard]] auto Format() const;
-        [[nodiscard]] auto ColorSpace() const;
-        [[nodiscard]] auto IsStereo() const;
-        [[nodiscard]] auto MultisampleDescription() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Width() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXPixelFormat) Format() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXColorSpace) ColorSpace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStereo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) MultisampleDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<winrt::guid, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayPrimaryDescription>
     {
@@ -932,7 +933,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayPrimaryDescriptionFactory
     {
-        auto CreateInstance(uint32_t width, uint32_t height, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXColorSpace const& colorSpace, bool isStereo, Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription const& multisampleDescription) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayPrimaryDescription) CreateInstance(uint32_t width, uint32_t height, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXColorSpace const& colorSpace, bool isStereo, Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription const& multisampleDescription) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayPrimaryDescriptionFactory>
     {
@@ -941,7 +942,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayPrimaryDescriptionStatics
     {
-        auto CreateWithProperties(param::iterable<Windows::Foundation::Collections::IKeyValuePair<winrt::guid, Windows::Foundation::IInspectable>> const& extraProperties, uint32_t width, uint32_t height, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXColorSpace const& colorSpace, bool isStereo, Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription const& multisampleDescription) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayPrimaryDescription) CreateWithProperties(param::iterable<Windows::Foundation::Collections::IKeyValuePair<winrt::guid, Windows::Foundation::IInspectable>> const& extraProperties, uint32_t width, uint32_t height, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXColorSpace const& colorSpace, bool isStereo, Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription const& multisampleDescription) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayPrimaryDescriptionStatics>
     {
@@ -958,9 +959,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplaySource
     {
-        [[nodiscard]] auto AdapterId() const;
-        [[nodiscard]] auto SourceId() const;
-        auto GetMetadata(winrt::guid const& Key) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DisplayAdapterId) AdapterId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SourceId() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) GetMetadata(winrt::guid const& Key) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplaySource>
     {
@@ -969,20 +970,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayState
     {
-        [[nodiscard]] auto IsReadOnly() const;
-        [[nodiscard]] auto IsStale() const;
-        [[nodiscard]] auto Targets() const;
-        [[nodiscard]] auto Views() const;
-        [[nodiscard]] auto Properties() const;
-        auto ConnectTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
-        auto ConnectTarget(Windows::Devices::Display::Core::DisplayTarget const& target, Windows::Devices::Display::Core::DisplayView const& view) const;
-        auto CanConnectTargetToView(Windows::Devices::Display::Core::DisplayTarget const& target, Windows::Devices::Display::Core::DisplayView const& view) const;
-        auto GetViewForTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
-        auto GetPathForTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
-        auto DisconnectTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
-        auto TryFunctionalize(Windows::Devices::Display::Core::DisplayStateFunctionalizeOptions const& options) const;
-        auto TryApply(Windows::Devices::Display::Core::DisplayStateApplyOptions const& options) const;
-        auto Clone() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReadOnly() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStale() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Display::Core::DisplayTarget>) Targets() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Display::Core::DisplayView>) Views() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<winrt::guid, Windows::Foundation::IInspectable>) Properties() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayPath) ConnectTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayPath) ConnectTarget(Windows::Devices::Display::Core::DisplayTarget const& target, Windows::Devices::Display::Core::DisplayView const& view) const;
+        WINRT_IMPL_AUTO(bool) CanConnectTargetToView(Windows::Devices::Display::Core::DisplayTarget const& target, Windows::Devices::Display::Core::DisplayView const& view) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayView) GetViewForTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayPath) GetPathForTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
+        WINRT_IMPL_AUTO(void) DisconnectTarget(Windows::Devices::Display::Core::DisplayTarget const& target) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayStateOperationResult) TryFunctionalize(Windows::Devices::Display::Core::DisplayStateFunctionalizeOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayStateOperationResult) TryApply(Windows::Devices::Display::Core::DisplayStateApplyOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayState) Clone() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayState>
     {
@@ -991,8 +992,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayStateOperationResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayStateOperationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedErrorCode() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayStateOperationResult>
     {
@@ -1009,20 +1010,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayTarget
     {
-        [[nodiscard]] auto Adapter() const;
-        [[nodiscard]] auto DeviceInterfacePath() const;
-        [[nodiscard]] auto AdapterRelativeId() const;
-        [[nodiscard]] auto IsConnected() const;
-        [[nodiscard]] auto IsVirtualModeEnabled() const;
-        [[nodiscard]] auto IsVirtualTopologyEnabled() const;
-        [[nodiscard]] auto UsageKind() const;
-        [[nodiscard]] auto MonitorPersistence() const;
-        [[nodiscard]] auto StableMonitorId() const;
-        auto TryGetMonitor() const;
-        [[nodiscard]] auto Properties() const;
-        [[nodiscard]] auto IsStale() const;
-        auto IsSame(Windows::Devices::Display::Core::DisplayTarget const& otherTarget) const;
-        auto IsEqual(Windows::Devices::Display::Core::DisplayTarget const& otherTarget) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayAdapter) Adapter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceInterfacePath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) AdapterRelativeId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConnected() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVirtualModeEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVirtualTopologyEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::DisplayMonitorUsageKind) UsageKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayTargetPersistence) MonitorPersistence() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) StableMonitorId() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::DisplayMonitor) TryGetMonitor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<winrt::guid, Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStale() const;
+        WINRT_IMPL_AUTO(bool) IsSame(Windows::Devices::Display::Core::DisplayTarget const& otherTarget) const;
+        WINRT_IMPL_AUTO(bool) IsEqual(Windows::Devices::Display::Core::DisplayTarget const& otherTarget) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayTarget>
     {
@@ -1031,8 +1032,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayTask
     {
-        auto SetScanout(Windows::Devices::Display::Core::DisplayScanout const& scanout) const;
-        auto SetWait(Windows::Devices::Display::Core::DisplayFence const& readyFence, uint64_t readyFenceValue) const;
+        WINRT_IMPL_AUTO(void) SetScanout(Windows::Devices::Display::Core::DisplayScanout const& scanout) const;
+        WINRT_IMPL_AUTO(void) SetWait(Windows::Devices::Display::Core::DisplayFence const& readyFence, uint64_t readyFenceValue) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayTask>
     {
@@ -1041,8 +1042,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayTaskPool
     {
-        auto CreateTask() const;
-        auto ExecuteTask(Windows::Devices::Display::Core::DisplayTask const& task) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayTask) CreateTask() const;
+        WINRT_IMPL_AUTO(void) ExecuteTask(Windows::Devices::Display::Core::DisplayTask const& task) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayTaskPool>
     {
@@ -1051,11 +1052,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayView
     {
-        [[nodiscard]] auto Paths() const;
-        [[nodiscard]] auto ContentResolution() const;
-        auto ContentResolution(Windows::Foundation::IReference<Windows::Graphics::SizeInt32> const& value) const;
-        auto SetPrimaryPath(Windows::Devices::Display::Core::DisplayPath const& path) const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Display::Core::DisplayPath>) Paths() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Graphics::SizeInt32>) ContentResolution() const;
+        WINRT_IMPL_AUTO(void) ContentResolution(Windows::Foundation::IReference<Windows::Graphics::SizeInt32> const& value) const;
+        WINRT_IMPL_AUTO(void) SetPrimaryPath(Windows::Devices::Display::Core::DisplayPath const& path) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<winrt::guid, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayView>
     {
@@ -1064,12 +1065,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayWireFormat
     {
-        [[nodiscard]] auto PixelEncoding() const;
-        [[nodiscard]] auto BitsPerChannel() const;
-        [[nodiscard]] auto ColorSpace() const;
-        [[nodiscard]] auto Eotf() const;
-        [[nodiscard]] auto HdrMetadata() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding) PixelEncoding() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) BitsPerChannel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayWireFormatColorSpace) ColorSpace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayWireFormatEotf) Eotf() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayWireFormatHdrMetadata) HdrMetadata() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<winrt::guid, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayWireFormat>
     {
@@ -1078,7 +1079,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayWireFormatFactory
     {
-        auto CreateInstance(Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding const& pixelEncoding, int32_t bitsPerChannel, Windows::Devices::Display::Core::DisplayWireFormatColorSpace const& colorSpace, Windows::Devices::Display::Core::DisplayWireFormatEotf const& eotf, Windows::Devices::Display::Core::DisplayWireFormatHdrMetadata const& hdrMetadata) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayWireFormat) CreateInstance(Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding const& pixelEncoding, int32_t bitsPerChannel, Windows::Devices::Display::Core::DisplayWireFormatColorSpace const& colorSpace, Windows::Devices::Display::Core::DisplayWireFormatEotf const& eotf, Windows::Devices::Display::Core::DisplayWireFormatHdrMetadata const& hdrMetadata) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayWireFormatFactory>
     {
@@ -1087,7 +1088,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Display_Core_IDisplayWireFormatStatics
     {
-        auto CreateWithProperties(param::iterable<Windows::Foundation::Collections::IKeyValuePair<winrt::guid, Windows::Foundation::IInspectable>> const& extraProperties, Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding const& pixelEncoding, int32_t bitsPerChannel, Windows::Devices::Display::Core::DisplayWireFormatColorSpace const& colorSpace, Windows::Devices::Display::Core::DisplayWireFormatEotf const& eotf, Windows::Devices::Display::Core::DisplayWireFormatHdrMetadata const& hdrMetadata) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Display::Core::DisplayWireFormat) CreateWithProperties(param::iterable<Windows::Foundation::Collections::IKeyValuePair<winrt::guid, Windows::Foundation::IInspectable>> const& extraProperties, Windows::Devices::Display::Core::DisplayWireFormatPixelEncoding const& pixelEncoding, int32_t bitsPerChannel, Windows::Devices::Display::Core::DisplayWireFormatColorSpace const& colorSpace, Windows::Devices::Display::Core::DisplayWireFormatEotf const& eotf, Windows::Devices::Display::Core::DisplayWireFormatHdrMetadata const& hdrMetadata) const;
     };
     template <> struct consume<Windows::Devices::Display::Core::IDisplayWireFormatStatics>
     {

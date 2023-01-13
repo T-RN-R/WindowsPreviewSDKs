@@ -1,13 +1,18 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Data_Text_0_H
 #define WINRT_Windows_Data_Text_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Text::Core
 {
@@ -142,45 +147,43 @@ namespace winrt::impl
     template <> struct category<Windows::Data::Text::TextSegment>{ using type = struct_category<uint32_t, uint32_t>; };
     template <> struct category<Windows::Data::Text::SelectableWordSegmentsTokenizingHandler>{ using type = delegate_category; };
     template <> struct category<Windows::Data::Text::WordSegmentsTokenizingHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::AlternateWordForm>{ L"Windows.Data.Text.AlternateWordForm" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::SelectableWordSegment>{ L"Windows.Data.Text.SelectableWordSegment" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::SelectableWordsSegmenter>{ L"Windows.Data.Text.SelectableWordsSegmenter" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::SemanticTextQuery>{ L"Windows.Data.Text.SemanticTextQuery" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::TextConversionGenerator>{ L"Windows.Data.Text.TextConversionGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::TextPhoneme>{ L"Windows.Data.Text.TextPhoneme" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::TextPredictionGenerator>{ L"Windows.Data.Text.TextPredictionGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::TextReverseConversionGenerator>{ L"Windows.Data.Text.TextReverseConversionGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::UnicodeCharacters>{ L"Windows.Data.Text.UnicodeCharacters" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::WordSegment>{ L"Windows.Data.Text.WordSegment" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::WordsSegmenter>{ L"Windows.Data.Text.WordsSegmenter" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::AlternateNormalizationFormat>{ L"Windows.Data.Text.AlternateNormalizationFormat" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::TextPredictionOptions>{ L"Windows.Data.Text.TextPredictionOptions" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::UnicodeGeneralCategory>{ L"Windows.Data.Text.UnicodeGeneralCategory" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::UnicodeNumericType>{ L"Windows.Data.Text.UnicodeNumericType" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::TextSegment>{ L"Windows.Data.Text.TextSegment" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Data::Text::IAlternateWordForm>{ L"Windows.Data.Text.IAlternateWordForm" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ISelectableWordSegment>{ L"Windows.Data.Text.ISelectableWordSegment" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ISelectableWordsSegmenter>{ L"Windows.Data.Text.ISelectableWordsSegmenter" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ISelectableWordsSegmenterFactory>{ L"Windows.Data.Text.ISelectableWordsSegmenterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ISemanticTextQuery>{ L"Windows.Data.Text.ISemanticTextQuery" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ISemanticTextQueryFactory>{ L"Windows.Data.Text.ISemanticTextQueryFactory" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextConversionGenerator>{ L"Windows.Data.Text.ITextConversionGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextConversionGeneratorFactory>{ L"Windows.Data.Text.ITextConversionGeneratorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextPhoneme>{ L"Windows.Data.Text.ITextPhoneme" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextPredictionGenerator>{ L"Windows.Data.Text.ITextPredictionGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextPredictionGenerator2>{ L"Windows.Data.Text.ITextPredictionGenerator2" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextPredictionGeneratorFactory>{ L"Windows.Data.Text.ITextPredictionGeneratorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextReverseConversionGenerator>{ L"Windows.Data.Text.ITextReverseConversionGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextReverseConversionGenerator2>{ L"Windows.Data.Text.ITextReverseConversionGenerator2" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextReverseConversionGeneratorFactory>{ L"Windows.Data.Text.ITextReverseConversionGeneratorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::IUnicodeCharactersStatics>{ L"Windows.Data.Text.IUnicodeCharactersStatics" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::IWordSegment>{ L"Windows.Data.Text.IWordSegment" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::IWordsSegmenter>{ L"Windows.Data.Text.IWordsSegmenter" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::IWordsSegmenterFactory>{ L"Windows.Data.Text.IWordsSegmenterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::SelectableWordSegmentsTokenizingHandler>{ L"Windows.Data.Text.SelectableWordSegmentsTokenizingHandler" };
-    template <> inline constexpr auto& name_v<Windows::Data::Text::WordSegmentsTokenizingHandler>{ L"Windows.Data.Text.WordSegmentsTokenizingHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Data::Text::AlternateWordForm> = L"Windows.Data.Text.AlternateWordForm";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::SelectableWordSegment> = L"Windows.Data.Text.SelectableWordSegment";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::SelectableWordsSegmenter> = L"Windows.Data.Text.SelectableWordsSegmenter";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::SemanticTextQuery> = L"Windows.Data.Text.SemanticTextQuery";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::TextConversionGenerator> = L"Windows.Data.Text.TextConversionGenerator";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::TextPhoneme> = L"Windows.Data.Text.TextPhoneme";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::TextPredictionGenerator> = L"Windows.Data.Text.TextPredictionGenerator";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::TextReverseConversionGenerator> = L"Windows.Data.Text.TextReverseConversionGenerator";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::UnicodeCharacters> = L"Windows.Data.Text.UnicodeCharacters";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::WordSegment> = L"Windows.Data.Text.WordSegment";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::WordsSegmenter> = L"Windows.Data.Text.WordsSegmenter";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::AlternateNormalizationFormat> = L"Windows.Data.Text.AlternateNormalizationFormat";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::TextPredictionOptions> = L"Windows.Data.Text.TextPredictionOptions";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::UnicodeGeneralCategory> = L"Windows.Data.Text.UnicodeGeneralCategory";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::UnicodeNumericType> = L"Windows.Data.Text.UnicodeNumericType";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::TextSegment> = L"Windows.Data.Text.TextSegment";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::IAlternateWordForm> = L"Windows.Data.Text.IAlternateWordForm";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ISelectableWordSegment> = L"Windows.Data.Text.ISelectableWordSegment";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ISelectableWordsSegmenter> = L"Windows.Data.Text.ISelectableWordsSegmenter";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ISelectableWordsSegmenterFactory> = L"Windows.Data.Text.ISelectableWordsSegmenterFactory";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ISemanticTextQuery> = L"Windows.Data.Text.ISemanticTextQuery";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ISemanticTextQueryFactory> = L"Windows.Data.Text.ISemanticTextQueryFactory";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextConversionGenerator> = L"Windows.Data.Text.ITextConversionGenerator";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextConversionGeneratorFactory> = L"Windows.Data.Text.ITextConversionGeneratorFactory";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextPhoneme> = L"Windows.Data.Text.ITextPhoneme";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextPredictionGenerator> = L"Windows.Data.Text.ITextPredictionGenerator";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextPredictionGenerator2> = L"Windows.Data.Text.ITextPredictionGenerator2";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextPredictionGeneratorFactory> = L"Windows.Data.Text.ITextPredictionGeneratorFactory";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextReverseConversionGenerator> = L"Windows.Data.Text.ITextReverseConversionGenerator";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextReverseConversionGenerator2> = L"Windows.Data.Text.ITextReverseConversionGenerator2";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::ITextReverseConversionGeneratorFactory> = L"Windows.Data.Text.ITextReverseConversionGeneratorFactory";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::IUnicodeCharactersStatics> = L"Windows.Data.Text.IUnicodeCharactersStatics";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::IWordSegment> = L"Windows.Data.Text.IWordSegment";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::IWordsSegmenter> = L"Windows.Data.Text.IWordsSegmenter";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::IWordsSegmenterFactory> = L"Windows.Data.Text.IWordsSegmenterFactory";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::SelectableWordSegmentsTokenizingHandler> = L"Windows.Data.Text.SelectableWordSegmentsTokenizingHandler";
+    template <> inline constexpr auto& name_v<Windows::Data::Text::WordSegmentsTokenizingHandler> = L"Windows.Data.Text.WordSegmentsTokenizingHandler";
     template <> inline constexpr guid guid_v<Windows::Data::Text::IAlternateWordForm>{ 0x47396C1E,0x51B9,0x4207,{ 0x91,0x46,0x24,0x8E,0x63,0x6A,0x1D,0x1D } };
     template <> inline constexpr guid guid_v<Windows::Data::Text::ISelectableWordSegment>{ 0x916A4CB7,0x8AA7,0x4C78,{ 0xB3,0x74,0x5D,0xED,0xB7,0x52,0xE6,0x0B } };
     template <> inline constexpr guid guid_v<Windows::Data::Text::ISelectableWordsSegmenter>{ 0xF6DC31E7,0x4B13,0x45C5,{ 0x88,0x97,0x7D,0x71,0x26,0x9E,0x08,0x5D } };
@@ -403,9 +406,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_IAlternateWordForm
     {
-        [[nodiscard]] auto SourceTextSegment() const;
-        [[nodiscard]] auto AlternateText() const;
-        [[nodiscard]] auto NormalizationFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Text::TextSegment) SourceTextSegment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlternateText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Text::AlternateNormalizationFormat) NormalizationFormat() const;
     };
     template <> struct consume<Windows::Data::Text::IAlternateWordForm>
     {
@@ -414,8 +417,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ISelectableWordSegment
     {
-        [[nodiscard]] auto Text() const;
-        [[nodiscard]] auto SourceTextSegment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Text::TextSegment) SourceTextSegment() const;
     };
     template <> struct consume<Windows::Data::Text::ISelectableWordSegment>
     {
@@ -424,10 +427,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ISelectableWordsSegmenter
     {
-        [[nodiscard]] auto ResolvedLanguage() const;
-        auto GetTokenAt(param::hstring const& text, uint32_t startIndex) const;
-        auto GetTokens(param::hstring const& text) const;
-        auto Tokenize(param::hstring const& text, uint32_t startIndex, Windows::Data::Text::SelectableWordSegmentsTokenizingHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::SelectableWordSegment) GetTokenAt(param::hstring const& text, uint32_t startIndex) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Data::Text::SelectableWordSegment>) GetTokens(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(void) Tokenize(param::hstring const& text, uint32_t startIndex, Windows::Data::Text::SelectableWordSegmentsTokenizingHandler const& handler) const;
     };
     template <> struct consume<Windows::Data::Text::ISelectableWordsSegmenter>
     {
@@ -436,7 +439,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ISelectableWordsSegmenterFactory
     {
-        auto CreateWithLanguage(param::hstring const& language) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::SelectableWordsSegmenter) CreateWithLanguage(param::hstring const& language) const;
     };
     template <> struct consume<Windows::Data::Text::ISelectableWordsSegmenterFactory>
     {
@@ -445,8 +448,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ISemanticTextQuery
     {
-        auto Find(param::hstring const& content) const;
-        auto FindInProperty(param::hstring const& propertyContent, param::hstring const& propertyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Data::Text::TextSegment>) Find(param::hstring const& content) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Data::Text::TextSegment>) FindInProperty(param::hstring const& propertyContent, param::hstring const& propertyName) const;
     };
     template <> struct consume<Windows::Data::Text::ISemanticTextQuery>
     {
@@ -455,8 +458,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ISemanticTextQueryFactory
     {
-        auto Create(param::hstring const& aqsFilter) const;
-        auto CreateWithLanguage(param::hstring const& aqsFilter, param::hstring const& filterLanguage) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::SemanticTextQuery) Create(param::hstring const& aqsFilter) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::SemanticTextQuery) CreateWithLanguage(param::hstring const& aqsFilter, param::hstring const& filterLanguage) const;
     };
     template <> struct consume<Windows::Data::Text::ISemanticTextQueryFactory>
     {
@@ -465,10 +468,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextConversionGenerator
     {
-        [[nodiscard]] auto ResolvedLanguage() const;
-        [[nodiscard]] auto LanguageAvailableButNotInstalled() const;
-        auto GetCandidatesAsync(param::hstring const& input) const;
-        auto GetCandidatesAsync(param::hstring const& input, uint32_t maxCandidates) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) LanguageAvailableButNotInstalled() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) GetCandidatesAsync(param::hstring const& input) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) GetCandidatesAsync(param::hstring const& input, uint32_t maxCandidates) const;
     };
     template <> struct consume<Windows::Data::Text::ITextConversionGenerator>
     {
@@ -477,7 +480,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextConversionGeneratorFactory
     {
-        auto Create(param::hstring const& languageTag) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::TextConversionGenerator) Create(param::hstring const& languageTag) const;
     };
     template <> struct consume<Windows::Data::Text::ITextConversionGeneratorFactory>
     {
@@ -486,8 +489,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextPhoneme
     {
-        [[nodiscard]] auto DisplayText() const;
-        [[nodiscard]] auto ReadingText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ReadingText() const;
     };
     template <> struct consume<Windows::Data::Text::ITextPhoneme>
     {
@@ -496,10 +499,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextPredictionGenerator
     {
-        [[nodiscard]] auto ResolvedLanguage() const;
-        [[nodiscard]] auto LanguageAvailableButNotInstalled() const;
-        auto GetCandidatesAsync(param::hstring const& input) const;
-        auto GetCandidatesAsync(param::hstring const& input, uint32_t maxCandidates) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) LanguageAvailableButNotInstalled() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) GetCandidatesAsync(param::hstring const& input) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) GetCandidatesAsync(param::hstring const& input, uint32_t maxCandidates) const;
     };
     template <> struct consume<Windows::Data::Text::ITextPredictionGenerator>
     {
@@ -508,10 +511,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextPredictionGenerator2
     {
-        auto GetCandidatesAsync(param::hstring const& input, uint32_t maxCandidates, Windows::Data::Text::TextPredictionOptions const& predictionOptions, param::async_iterable<hstring> const& previousStrings) const;
-        auto GetNextWordCandidatesAsync(uint32_t maxCandidates, param::async_iterable<hstring> const& previousStrings) const;
-        [[nodiscard]] auto InputScope() const;
-        auto InputScope(Windows::UI::Text::Core::CoreTextInputScope const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) GetCandidatesAsync(param::hstring const& input, uint32_t maxCandidates, Windows::Data::Text::TextPredictionOptions const& predictionOptions, param::async_iterable<hstring> const& previousStrings) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) GetNextWordCandidatesAsync(uint32_t maxCandidates, param::async_iterable<hstring> const& previousStrings) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::Core::CoreTextInputScope) InputScope() const;
+        WINRT_IMPL_AUTO(void) InputScope(Windows::UI::Text::Core::CoreTextInputScope const& value) const;
     };
     template <> struct consume<Windows::Data::Text::ITextPredictionGenerator2>
     {
@@ -520,7 +523,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextPredictionGeneratorFactory
     {
-        auto Create(param::hstring const& languageTag) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::TextPredictionGenerator) Create(param::hstring const& languageTag) const;
     };
     template <> struct consume<Windows::Data::Text::ITextPredictionGeneratorFactory>
     {
@@ -529,9 +532,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextReverseConversionGenerator
     {
-        [[nodiscard]] auto ResolvedLanguage() const;
-        [[nodiscard]] auto LanguageAvailableButNotInstalled() const;
-        auto ConvertBackAsync(param::hstring const& input) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) LanguageAvailableButNotInstalled() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ConvertBackAsync(param::hstring const& input) const;
     };
     template <> struct consume<Windows::Data::Text::ITextReverseConversionGenerator>
     {
@@ -540,7 +543,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextReverseConversionGenerator2
     {
-        auto GetPhonemesAsync(param::hstring const& input) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Data::Text::TextPhoneme>>) GetPhonemesAsync(param::hstring const& input) const;
     };
     template <> struct consume<Windows::Data::Text::ITextReverseConversionGenerator2>
     {
@@ -549,7 +552,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_ITextReverseConversionGeneratorFactory
     {
-        auto Create(param::hstring const& languageTag) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::TextReverseConversionGenerator) Create(param::hstring const& languageTag) const;
     };
     template <> struct consume<Windows::Data::Text::ITextReverseConversionGeneratorFactory>
     {
@@ -558,23 +561,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_IUnicodeCharactersStatics
     {
-        auto GetCodepointFromSurrogatePair(uint32_t highSurrogate, uint32_t lowSurrogate) const;
-        auto GetSurrogatePairFromCodepoint(uint32_t codepoint, char16_t& highSurrogate, char16_t& lowSurrogate) const;
-        auto IsHighSurrogate(uint32_t codepoint) const;
-        auto IsLowSurrogate(uint32_t codepoint) const;
-        auto IsSupplementary(uint32_t codepoint) const;
-        auto IsNoncharacter(uint32_t codepoint) const;
-        auto IsWhitespace(uint32_t codepoint) const;
-        auto IsAlphabetic(uint32_t codepoint) const;
-        auto IsCased(uint32_t codepoint) const;
-        auto IsUppercase(uint32_t codepoint) const;
-        auto IsLowercase(uint32_t codepoint) const;
-        auto IsIdStart(uint32_t codepoint) const;
-        auto IsIdContinue(uint32_t codepoint) const;
-        auto IsGraphemeBase(uint32_t codepoint) const;
-        auto IsGraphemeExtend(uint32_t codepoint) const;
-        auto GetNumericType(uint32_t codepoint) const;
-        auto GetGeneralCategory(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(uint32_t) GetCodepointFromSurrogatePair(uint32_t highSurrogate, uint32_t lowSurrogate) const;
+        WINRT_IMPL_AUTO(void) GetSurrogatePairFromCodepoint(uint32_t codepoint, char16_t& highSurrogate, char16_t& lowSurrogate) const;
+        WINRT_IMPL_AUTO(bool) IsHighSurrogate(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsLowSurrogate(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsSupplementary(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsNoncharacter(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsWhitespace(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsAlphabetic(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsCased(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsUppercase(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsLowercase(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsIdStart(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsIdContinue(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsGraphemeBase(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(bool) IsGraphemeExtend(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::UnicodeNumericType) GetNumericType(uint32_t codepoint) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::UnicodeGeneralCategory) GetGeneralCategory(uint32_t codepoint) const;
     };
     template <> struct consume<Windows::Data::Text::IUnicodeCharactersStatics>
     {
@@ -583,9 +586,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_IWordSegment
     {
-        [[nodiscard]] auto Text() const;
-        [[nodiscard]] auto SourceTextSegment() const;
-        [[nodiscard]] auto AlternateForms() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Data::Text::TextSegment) SourceTextSegment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Data::Text::AlternateWordForm>) AlternateForms() const;
     };
     template <> struct consume<Windows::Data::Text::IWordSegment>
     {
@@ -594,10 +597,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_IWordsSegmenter
     {
-        [[nodiscard]] auto ResolvedLanguage() const;
-        auto GetTokenAt(param::hstring const& text, uint32_t startIndex) const;
-        auto GetTokens(param::hstring const& text) const;
-        auto Tokenize(param::hstring const& text, uint32_t startIndex, Windows::Data::Text::WordSegmentsTokenizingHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResolvedLanguage() const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::WordSegment) GetTokenAt(param::hstring const& text, uint32_t startIndex) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Data::Text::WordSegment>) GetTokens(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(void) Tokenize(param::hstring const& text, uint32_t startIndex, Windows::Data::Text::WordSegmentsTokenizingHandler const& handler) const;
     };
     template <> struct consume<Windows::Data::Text::IWordsSegmenter>
     {
@@ -606,7 +609,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Data_Text_IWordsSegmenterFactory
     {
-        auto CreateWithLanguage(param::hstring const& language) const;
+        WINRT_IMPL_AUTO(Windows::Data::Text::WordsSegmenter) CreateWithLanguage(param::hstring const& language) const;
     };
     template <> struct consume<Windows::Data::Text::IWordsSegmenterFactory>
     {

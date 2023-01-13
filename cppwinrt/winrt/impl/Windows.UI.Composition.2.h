@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -185,7 +185,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     {
         CompositionEffectSourceParameter(std::nullptr_t) noexcept {}
         CompositionEffectSourceParameter(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::ICompositionEffectSourceParameter(ptr, take_ownership_from_abi) {}
-        CompositionEffectSourceParameter(param::hstring const& name);
+        explicit CompositionEffectSourceParameter(param::hstring const& name);
     };
     struct __declspec(empty_bases) CompositionEllipseGeometry : Windows::UI::Composition::ICompositionEllipseGeometry,
         impl::base<CompositionEllipseGeometry, Windows::UI::Composition::CompositionGeometry, Windows::UI::Composition::CompositionObject>,
@@ -277,7 +277,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     {
         CompositionPath(std::nullptr_t) noexcept {}
         CompositionPath(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::ICompositionPath(ptr, take_ownership_from_abi) {}
-        CompositionPath(Windows::Graphics::IGeometrySource2D const& source);
+        explicit CompositionPath(Windows::Graphics::IGeometrySource2D const& source);
     };
     struct __declspec(empty_bases) CompositionPathGeometry : Windows::UI::Composition::ICompositionPathGeometry,
         impl::base<CompositionPathGeometry, Windows::UI::Composition::CompositionGeometry, Windows::UI::Composition::CompositionObject>,

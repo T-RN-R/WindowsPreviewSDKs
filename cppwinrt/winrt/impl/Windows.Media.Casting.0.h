@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,9 +13,14 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Enumeration
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -88,26 +93,24 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Casting::CastingConnectionErrorStatus>{ using type = enum_category; };
     template <> struct category<Windows::Media::Casting::CastingConnectionState>{ using type = enum_category; };
     template <> struct category<Windows::Media::Casting::CastingPlaybackTypes>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingConnection>{ L"Windows.Media.Casting.CastingConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingConnectionErrorOccurredEventArgs>{ L"Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingDevice>{ L"Windows.Media.Casting.CastingDevice" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingDevicePicker>{ L"Windows.Media.Casting.CastingDevicePicker" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingDevicePickerFilter>{ L"Windows.Media.Casting.CastingDevicePickerFilter" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingDeviceSelectedEventArgs>{ L"Windows.Media.Casting.CastingDeviceSelectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingSource>{ L"Windows.Media.Casting.CastingSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingConnectionErrorStatus>{ L"Windows.Media.Casting.CastingConnectionErrorStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingConnectionState>{ L"Windows.Media.Casting.CastingConnectionState" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingPlaybackTypes>{ L"Windows.Media.Casting.CastingPlaybackTypes" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingConnection>{ L"Windows.Media.Casting.ICastingConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs>{ L"Windows.Media.Casting.ICastingConnectionErrorOccurredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDevice>{ L"Windows.Media.Casting.ICastingDevice" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDevicePicker>{ L"Windows.Media.Casting.ICastingDevicePicker" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDevicePickerFilter>{ L"Windows.Media.Casting.ICastingDevicePickerFilter" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDeviceSelectedEventArgs>{ L"Windows.Media.Casting.ICastingDeviceSelectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDeviceStatics>{ L"Windows.Media.Casting.ICastingDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingSource>{ L"Windows.Media.Casting.ICastingSource" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingConnection> = L"Windows.Media.Casting.CastingConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingConnectionErrorOccurredEventArgs> = L"Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingDevice> = L"Windows.Media.Casting.CastingDevice";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingDevicePicker> = L"Windows.Media.Casting.CastingDevicePicker";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingDevicePickerFilter> = L"Windows.Media.Casting.CastingDevicePickerFilter";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingDeviceSelectedEventArgs> = L"Windows.Media.Casting.CastingDeviceSelectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingSource> = L"Windows.Media.Casting.CastingSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingConnectionErrorStatus> = L"Windows.Media.Casting.CastingConnectionErrorStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingConnectionState> = L"Windows.Media.Casting.CastingConnectionState";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::CastingPlaybackTypes> = L"Windows.Media.Casting.CastingPlaybackTypes";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingConnection> = L"Windows.Media.Casting.ICastingConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs> = L"Windows.Media.Casting.ICastingConnectionErrorOccurredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDevice> = L"Windows.Media.Casting.ICastingDevice";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDevicePicker> = L"Windows.Media.Casting.ICastingDevicePicker";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDevicePickerFilter> = L"Windows.Media.Casting.ICastingDevicePickerFilter";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDeviceSelectedEventArgs> = L"Windows.Media.Casting.ICastingDeviceSelectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDeviceStatics> = L"Windows.Media.Casting.ICastingDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingSource> = L"Windows.Media.Casting.ICastingSource";
     template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingConnection>{ 0xCD951653,0xC2F1,0x4498,{ 0x8B,0x78,0x5F,0xB4,0xCD,0x36,0x40,0xDD } };
     template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs>{ 0xA7FB3C69,0x8719,0x4F00,{ 0x81,0xFB,0x96,0x18,0x63,0xC7,0x9A,0x32 } };
     template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDevice>{ 0xDE721C83,0x4A43,0x4AD1,{ 0xA6,0xD2,0x24,0x92,0xA7,0x96,0xC3,0xF2 } };
@@ -214,20 +217,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Casting_ICastingConnection
     {
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto Device() const;
-        [[nodiscard]] auto Source() const;
-        auto Source(Windows::Media::Casting::CastingSource const& value) const;
-        auto StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Casting::CastingConnectionState) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Casting::CastingDevice) Device() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Casting::CastingSource) Source() const;
+        WINRT_IMPL_AUTO(void) Source(Windows::Media::Casting::CastingSource const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Foundation::IInspectable> const& handler) const;
         using StateChanged_revoker = impl::event_revoker<Windows::Media::Casting::ICastingConnection, &impl::abi_t<Windows::Media::Casting::ICastingConnection>::remove_StateChanged>;
         [[nodiscard]] StateChanged_revoker StateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Foundation::IInspectable> const& handler) const;
-        auto StateChanged(winrt::event_token const& token) const noexcept;
-        auto ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Media::Casting::CastingConnectionErrorOccurredEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) StateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Media::Casting::CastingConnectionErrorOccurredEventArgs> const& handler) const;
         using ErrorOccurred_revoker = impl::event_revoker<Windows::Media::Casting::ICastingConnection, &impl::abi_t<Windows::Media::Casting::ICastingConnection>::remove_ErrorOccurred>;
         [[nodiscard]] ErrorOccurred_revoker ErrorOccurred(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingConnection, Windows::Media::Casting::CastingConnectionErrorOccurredEventArgs> const& handler) const;
-        auto ErrorOccurred(winrt::event_token const& token) const noexcept;
-        auto RequestStartCastingAsync(Windows::Media::Casting::CastingSource const& value) const;
-        auto DisconnectAsync() const;
+        WINRT_IMPL_AUTO(void) ErrorOccurred(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingConnectionErrorStatus>) RequestStartCastingAsync(Windows::Media::Casting::CastingSource const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingConnectionErrorStatus>) DisconnectAsync() const;
     };
     template <> struct consume<Windows::Media::Casting::ICastingConnection>
     {
@@ -236,8 +239,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Casting_ICastingConnectionErrorOccurredEventArgs
     {
-        [[nodiscard]] auto ErrorStatus() const;
-        [[nodiscard]] auto Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Casting::CastingConnectionErrorStatus) ErrorStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
     };
     template <> struct consume<Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs>
     {
@@ -246,11 +249,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Casting_ICastingDevice
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto FriendlyName() const;
-        [[nodiscard]] auto Icon() const;
-        auto GetSupportedCastingPlaybackTypesAsync() const;
-        auto CreateCastingConnection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FriendlyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamWithContentType) Icon() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingPlaybackTypes>) GetSupportedCastingPlaybackTypesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Media::Casting::CastingConnection) CreateCastingConnection() const;
     };
     template <> struct consume<Windows::Media::Casting::ICastingDevice>
     {
@@ -259,19 +262,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Casting_ICastingDevicePicker
     {
-        [[nodiscard]] auto Filter() const;
-        [[nodiscard]] auto Appearance() const;
-        auto CastingDeviceSelected(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Media::Casting::CastingDeviceSelectedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Casting::CastingDevicePickerFilter) Filter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DevicePickerAppearance) Appearance() const;
+        WINRT_IMPL_AUTO(winrt::event_token) CastingDeviceSelected(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Media::Casting::CastingDeviceSelectedEventArgs> const& handler) const;
         using CastingDeviceSelected_revoker = impl::event_revoker<Windows::Media::Casting::ICastingDevicePicker, &impl::abi_t<Windows::Media::Casting::ICastingDevicePicker>::remove_CastingDeviceSelected>;
         [[nodiscard]] CastingDeviceSelected_revoker CastingDeviceSelected(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Media::Casting::CastingDeviceSelectedEventArgs> const& handler) const;
-        auto CastingDeviceSelected(winrt::event_token const& token) const noexcept;
-        auto CastingDevicePickerDismissed(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) CastingDeviceSelected(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CastingDevicePickerDismissed(Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Foundation::IInspectable> const& handler) const;
         using CastingDevicePickerDismissed_revoker = impl::event_revoker<Windows::Media::Casting::ICastingDevicePicker, &impl::abi_t<Windows::Media::Casting::ICastingDevicePicker>::remove_CastingDevicePickerDismissed>;
         [[nodiscard]] CastingDevicePickerDismissed_revoker CastingDevicePickerDismissed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Casting::CastingDevicePicker, Windows::Foundation::IInspectable> const& handler) const;
-        auto CastingDevicePickerDismissed(winrt::event_token const& token) const noexcept;
-        auto Show(Windows::Foundation::Rect const& selection) const;
-        auto Show(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
-        auto Hide() const;
+        WINRT_IMPL_AUTO(void) CastingDevicePickerDismissed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Show(Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(void) Show(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(void) Hide() const;
     };
     template <> struct consume<Windows::Media::Casting::ICastingDevicePicker>
     {
@@ -280,13 +283,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Casting_ICastingDevicePickerFilter
     {
-        [[nodiscard]] auto SupportsAudio() const;
-        auto SupportsAudio(bool value) const;
-        [[nodiscard]] auto SupportsVideo() const;
-        auto SupportsVideo(bool value) const;
-        [[nodiscard]] auto SupportsPictures() const;
-        auto SupportsPictures(bool value) const;
-        [[nodiscard]] auto SupportedCastingSources() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsAudio() const;
+        WINRT_IMPL_AUTO(void) SupportsAudio(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsVideo() const;
+        WINRT_IMPL_AUTO(void) SupportsVideo(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsPictures() const;
+        WINRT_IMPL_AUTO(void) SupportsPictures(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Casting::CastingSource>) SupportedCastingSources() const;
     };
     template <> struct consume<Windows::Media::Casting::ICastingDevicePickerFilter>
     {
@@ -295,7 +298,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Casting_ICastingDeviceSelectedEventArgs
     {
-        [[nodiscard]] auto SelectedCastingDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Casting::CastingDevice) SelectedCastingDevice() const;
     };
     template <> struct consume<Windows::Media::Casting::ICastingDeviceSelectedEventArgs>
     {
@@ -304,10 +307,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Casting_ICastingDeviceStatics
     {
-        auto GetDeviceSelector(Windows::Media::Casting::CastingPlaybackTypes const& type) const;
-        auto GetDeviceSelectorFromCastingSourceAsync(Windows::Media::Casting::CastingSource const& castingSource) const;
-        auto FromIdAsync(param::hstring const& value) const;
-        auto DeviceInfoSupportsCastingAsync(Windows::Devices::Enumeration::DeviceInformation const& device) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(Windows::Media::Casting::CastingPlaybackTypes const& type) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) GetDeviceSelectorFromCastingSourceAsync(Windows::Media::Casting::CastingSource const& castingSource) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Casting::CastingDevice>) FromIdAsync(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) DeviceInfoSupportsCastingAsync(Windows::Devices::Enumeration::DeviceInformation const& device) const;
     };
     template <> struct consume<Windows::Media::Casting::ICastingDeviceStatics>
     {
@@ -316,8 +319,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Casting_ICastingSource
     {
-        [[nodiscard]] auto PreferredSourceUri() const;
-        auto PreferredSourceUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) PreferredSourceUri() const;
+        WINRT_IMPL_AUTO(void) PreferredSourceUri(Windows::Foundation::Uri const& value) const;
     };
     template <> struct consume<Windows::Media::Casting::ICastingSource>
     {

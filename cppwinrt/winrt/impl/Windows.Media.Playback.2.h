@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -38,7 +38,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Playback
     {
         MediaBreak(std::nullptr_t) noexcept {}
         MediaBreak(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Playback::IMediaBreak(ptr, take_ownership_from_abi) {}
-        MediaBreak(Windows::Media::Playback::MediaBreakInsertionMethod const& insertionMethod);
+        explicit MediaBreak(Windows::Media::Playback::MediaBreakInsertionMethod const& insertionMethod);
         MediaBreak(Windows::Media::Playback::MediaBreakInsertionMethod const& insertionMethod, Windows::Foundation::TimeSpan const& presentationPosition);
     };
     struct __declspec(empty_bases) MediaBreakEndedEventArgs : Windows::Media::Playback::IMediaBreakEndedEventArgs
@@ -147,7 +147,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Playback
     {
         MediaPlaybackItem(std::nullptr_t) noexcept {}
         MediaPlaybackItem(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Playback::IMediaPlaybackItem(ptr, take_ownership_from_abi) {}
-        MediaPlaybackItem(Windows::Media::Core::MediaSource const& source);
+        explicit MediaPlaybackItem(Windows::Media::Core::MediaSource const& source);
         MediaPlaybackItem(Windows::Media::Core::MediaSource const& source, Windows::Foundation::TimeSpan const& startTime);
         MediaPlaybackItem(Windows::Media::Core::MediaSource const& source, Windows::Foundation::TimeSpan const& startTime, Windows::Foundation::TimeSpan const& durationLimit);
         static auto FindFromMediaSource(Windows::Media::Core::MediaSource const& source);
@@ -239,7 +239,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Playback
     {
         PlaybackMediaMarker(std::nullptr_t) noexcept {}
         PlaybackMediaMarker(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Playback::IPlaybackMediaMarker(ptr, take_ownership_from_abi) {}
-        PlaybackMediaMarker(Windows::Foundation::TimeSpan const& value);
+        explicit PlaybackMediaMarker(Windows::Foundation::TimeSpan const& value);
         PlaybackMediaMarker(Windows::Foundation::TimeSpan const& value, param::hstring const& mediaMarketType, param::hstring const& text);
     };
     struct __declspec(empty_bases) PlaybackMediaMarkerReachedEventArgs : Windows::Media::Playback::IPlaybackMediaMarkerReachedEventArgs

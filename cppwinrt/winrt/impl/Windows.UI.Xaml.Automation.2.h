@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -27,7 +27,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Automation
         AutomationAnnotation(std::nullptr_t) noexcept {}
         AutomationAnnotation(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Xaml::Automation::IAutomationAnnotation(ptr, take_ownership_from_abi) {}
         AutomationAnnotation();
-        AutomationAnnotation(Windows::UI::Xaml::Automation::AnnotationType const& type);
+        explicit AutomationAnnotation(Windows::UI::Xaml::Automation::AnnotationType const& type);
         AutomationAnnotation(Windows::UI::Xaml::Automation::AnnotationType const& type, Windows::UI::Xaml::UIElement const& element);
         [[nodiscard]] static auto TypeProperty();
         [[nodiscard]] static auto ElementProperty();
