@@ -18740,7 +18740,7 @@ EXTERN_C const IID IID_ID3D12Device9;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("90855797-7a46-4c5e-8677-981761d63588")
+    MIDL_INTERFACE("4c80e962-f032-4f60-bc9e-ebc2cfa1d83c")
     ID3D12Device9 : public ID3D12Device8
     {
     public:
@@ -18752,6 +18752,12 @@ EXTERN_C const IID IID_ID3D12Device9;
         virtual HRESULT STDMETHODCALLTYPE ShaderCacheControl( 
             D3D12_SHADER_CACHE_KIND_FLAGS Kinds,
             D3D12_SHADER_CACHE_CONTROL_FLAGS Control) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE CreateCommandQueue1( 
+            _In_  const D3D12_COMMAND_QUEUE_DESC *pDesc,
+            REFIID CreatorID,
+            REFIID riid,
+            _COM_Outptr_  void **ppCommandQueue) = 0;
         
     };
     
@@ -19256,6 +19262,13 @@ EXTERN_C const IID IID_ID3D12Device9;
             D3D12_SHADER_CACHE_KIND_FLAGS Kinds,
             D3D12_SHADER_CACHE_CONTROL_FLAGS Control);
         
+        HRESULT ( STDMETHODCALLTYPE *CreateCommandQueue1 )( 
+            ID3D12Device9 * This,
+            _In_  const D3D12_COMMAND_QUEUE_DESC *pDesc,
+            REFIID CreatorID,
+            REFIID riid,
+            _COM_Outptr_  void **ppCommandQueue);
+        
         END_INTERFACE
     } ID3D12Device9Vtbl;
 
@@ -19504,6 +19517,9 @@ EXTERN_C const IID IID_ID3D12Device9;
 
 #define ID3D12Device9_ShaderCacheControl(This,Kinds,Control)	\
     ( (This)->lpVtbl -> ShaderCacheControl(This,Kinds,Control) ) 
+
+#define ID3D12Device9_CreateCommandQueue1(This,pDesc,CreatorID,riid,ppCommandQueue)	\
+    ( (This)->lpVtbl -> CreateCommandQueue1(This,pDesc,CreatorID,riid,ppCommandQueue) ) 
 
 #endif /* COBJMACROS */
 
@@ -21360,7 +21376,7 @@ DEFINE_GUID(IID_ID3D12GraphicsCommandList3,0x6FDA83A7,0xB84C,0x4E38,0x9A,0xC8,0x
 DEFINE_GUID(IID_ID3D12MetaCommand,0xDBB84C27,0x36CE,0x4FC9,0xB8,0x01,0xF0,0x48,0xC4,0x6A,0xC5,0x70);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList4,0x8754318e,0xd3a9,0x4541,0x98,0xcf,0x64,0x5b,0x50,0xdc,0x48,0x74);
 DEFINE_GUID(IID_ID3D12ShaderCacheSession,0x28e2495d,0x0f64,0x4ae4,0xa6,0xec,0x12,0x92,0x55,0xdc,0x49,0xa8);
-DEFINE_GUID(IID_ID3D12Device9,0x90855797,0x7a46,0x4c5e,0x86,0x77,0x98,0x17,0x61,0xd6,0x35,0x88);
+DEFINE_GUID(IID_ID3D12Device9,0x4c80e962,0xf032,0x4f60,0xbc,0x9e,0xeb,0xc2,0xcf,0xa1,0xd8,0x3c);
 DEFINE_GUID(IID_ID3D12Tools,0x7071e1f0,0xe84b,0x4b33,0x97,0x4f,0x12,0xfa,0x49,0xde,0x65,0xc5);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList5,0x55050859,0x4024,0x474c,0x87,0xf5,0x64,0x72,0xea,0xee,0x44,0xea);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList6,0xc3827890,0xe548,0x4cfa,0x96,0xcf,0x56,0x89,0xa9,0x37,0x0f,0x80);

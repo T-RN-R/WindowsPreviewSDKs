@@ -2486,6 +2486,7 @@ typedef struct _PERFORMANCE_DESCRIPTOR {
 #define SCSIOP_SERVICE_ACTION_IN16      0x9E
 #define SCSIOP_SERVICE_ACTION_OUT16     0x9F
 
+
 // 32-byte commands
 #define SCSIOP_OPERATION32              0x7F
 

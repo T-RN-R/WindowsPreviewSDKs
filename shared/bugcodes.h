@@ -4402,6 +4402,15 @@ Notes:
 #define DEVICE_DIAGNOSTIC_LOG_LIVEDUMP   ((ULONG)0x000001E1L)
 
 //
+// MessageId: AZURE_DEVICE_FW_DUMP
+//
+// MessageText:
+//
+//  AZURE_DEVICE_FW_DUMP
+//
+#define AZURE_DEVICE_FW_DUMP             ((ULONG)0x000001E2L)
+
+//
 // MessageId: XBOX_VMCTRL_CS_TIMEOUT
 //
 // MessageText:

@@ -977,7 +977,8 @@ typedef enum __WRAPPED__ _STORAGE_PROPERTY_ID {
     StorageDeviceZonedDeviceProperty,
     StorageDeviceUnsafeShutdownCount,
     StorageDeviceEnduranceProperty,
-    StorageDeviceLedStateProperty
+    StorageDeviceLedStateProperty,
+    StorageDeviceSelfEncryptionProperty = 64
 } STORAGE_PROPERTY_ID, *PSTORAGE_PROPERTY_ID;
 
 //
@@ -1531,7 +1532,10 @@ typedef struct __WRAPPED__ _DEVICE_LB_PROVISIONING_DESCRIPTOR {
     UCHAR UnmapGranularityAlignmentValid : 1;
 
     __WRAPPED__
-    UCHAR Reserved0 : 2;
+    UCHAR GetFreeSpaceSupported : 1;        // Supports DeviceDsmAction_GetFreeSpace
+
+    __WRAPPED__
+    UCHAR MapSupported : 1;                 // Supports DeviceDsmAction_Map
 
     __WRAPPED__
     UCHAR Reserved1[7];
@@ -2077,9 +2081,10 @@ typedef enum _STORAGE_PROTOCOL_ATA_DATA_TYPE {
 
 typedef enum _STORAGE_PROTOCOL_UFS_DATA_TYPE {
     UfsDataTypeUnknown = 0,
-    UfsDataTypeQueryDescriptor, // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryAttribute,  // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryFlag,       // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDescriptor,         // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryAttribute,          // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryFlag,               // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDmeAttribute,       // Retrieved by command - QUERY UPIU
     UfsDataTypeMax,
 } STORAGE_PROTOCOL_UFS_DATA_TYPE, *PSTORAGE_PROTOCOL_UFS_DATA_TYPE;
 
@@ -2899,6 +2904,19 @@ typedef struct _STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     ULONGLONG State;
 
 } STORAGE_DEVICE_LED_STATE_DESCRIPTOR, *PSTORAGE_DEVICE_LED_STATE_DESCRIPTOR;
+
+//
+// Output buffer for StorageDeviceSelfEncryptionProperty.
+//
+typedef struct _STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
+
+    ULONG Version;
+
+    ULONG Size;
+
+    BOOLEAN SupportsSelfEncryption;
+
+} STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY, *PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
 
 
 ////////////////////////////////////////////////////////////////////////////////

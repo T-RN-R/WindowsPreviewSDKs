@@ -1132,7 +1132,8 @@ typedef enum __WRAPPED__ _STORAGE_PROPERTY_ID {
     StorageDeviceZonedDeviceProperty,
     StorageDeviceUnsafeShutdownCount,
     StorageDeviceEnduranceProperty,
-    StorageDeviceLedStateProperty
+    StorageDeviceLedStateProperty,
+    StorageDeviceSelfEncryptionProperty = 64
 } STORAGE_PROPERTY_ID, *PSTORAGE_PROPERTY_ID;
 
 //
@@ -1686,7 +1687,10 @@ typedef struct __WRAPPED__ _DEVICE_LB_PROVISIONING_DESCRIPTOR {
     BYTE  UnmapGranularityAlignmentValid : 1;
 
     __WRAPPED__
-    BYTE  Reserved0 : 2;
+    BYTE  GetFreeSpaceSupported : 1;        // Supports DeviceDsmAction_GetFreeSpace
+
+    __WRAPPED__
+    BYTE  MapSupported : 1;                 // Supports DeviceDsmAction_Map
 
     __WRAPPED__
     BYTE  Reserved1[7];
@@ -2230,9 +2234,10 @@ typedef enum _STORAGE_PROTOCOL_ATA_DATA_TYPE {
 
 typedef enum _STORAGE_PROTOCOL_UFS_DATA_TYPE {
     UfsDataTypeUnknown = 0,
-    UfsDataTypeQueryDescriptor, // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryAttribute,  // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryFlag,       // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDescriptor,         // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryAttribute,          // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryFlag,               // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDmeAttribute,       // Retrieved by command - QUERY UPIU
     UfsDataTypeMax,
 } STORAGE_PROTOCOL_UFS_DATA_TYPE, *PSTORAGE_PROTOCOL_UFS_DATA_TYPE;
 
@@ -3052,6 +3057,19 @@ typedef struct _STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     DWORDLONG State;
 
 } STORAGE_DEVICE_LED_STATE_DESCRIPTOR, *PSTORAGE_DEVICE_LED_STATE_DESCRIPTOR;
+
+//
+// Output buffer for StorageDeviceSelfEncryptionProperty.
+//
+typedef struct _STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
+
+    DWORD Version;
+
+    DWORD Size;
+
+    BOOLEAN SupportsSelfEncryption;
+
+} STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY, *PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -10410,6 +10428,9 @@ typedef enum _CHANGER_DEVICE_PROBLEM_TYPE {
 #define FSCTL_ENABLE_PER_IO_FLAGS               CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 267, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #endif /* _WIN64 */
 #endif /* (_WIN32_WINNT >= _WIN32_WINNT_WIN10_RS5) */
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
+#define FSCTL_QUERY_ASYNC_DUPLICATE_EXTENTS_STATUS  CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 268, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#endif
 //
 // AVIO IOCTLS.
 //
@@ -13885,6 +13906,7 @@ typedef enum _CSV_CONTROL_OP {
     CsvControlEnableCaching                      = 0x14,
     CsvControlStartForceDFO                      = 0x15,
     CsvControlStopForceDFO                       = 0x16,
+    CsvControlQueryMdsPathNoPause                = 0x17,
 } CSV_CONTROL_OP, *PCSV_CONTROL_OP;
 
 typedef struct _CSV_CONTROL_PARAM {
@@ -15390,6 +15412,38 @@ typedef struct _DUPLICATE_EXTENTS_DATA_EX32 {
 #endif /* ((NTDDI_VERSION >= NTDDI_WIN10_RS3) && defined(_WIN64)) */
 
 #endif /* (NTDDI_VERSION >= NTDDI_WIN10_RS3) */
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
+
+//
+//=============== FSCTL_QUERY_ASYNC_DUPLICATE_EXTENTS_STATUS ==================
+//
+
+typedef enum _DUPLICATE_EXTENTS_STATE {
+
+    FileSnapStateInactive = 0,
+    FileSnapStateSource,
+    FileSnapStateTarget,
+
+} DUPLICATE_EXTENTS_STATE, *PDUPLICATE_EXTENTS_STATE;
+
+typedef struct _ASYNC_DUPLICATE_EXTENTS_STATUS {
+    
+    DWORD Version;
+    
+    DUPLICATE_EXTENTS_STATE State;
+
+    DWORDLONG SourceFileOffset;
+    DWORDLONG TargetFileOffset;
+    DWORDLONG ByteCount;
+
+    DWORDLONG BytesDuplicated;
+
+} ASYNC_DUPLICATE_EXTENTS_STATUS, *PASYNC_DUPLICATE_EXTENTS_STATUS;
+
+#define ASYNC_DUPLICATE_EXTENTS_STATUS_V1   sizeof(ASYNC_DUPLICATE_EXTENTS_STATUS)
+
+#endif
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_RS2)
 

@@ -8208,7 +8208,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class Threading Model:  Multi Threaded Apartment
  *
- * Class Marshaling Behavior:  Standard - Class marshals using the standard marshaler
+ * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -20646,7 +20646,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class Threading Model:  Multi Threaded Apartment
  *
- * Class Marshaling Behavior:  Standard - Class marshals using the standard marshaler
+ * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000

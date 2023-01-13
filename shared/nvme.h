@@ -1034,7 +1034,8 @@ typedef struct {
         UCHAR   NameSpaceAtomicWriteUnit    : 1;
         UCHAR   DeallocatedOrUnwrittenError : 1;
         UCHAR   SkipReuseUI                 : 1;
-        UCHAR   Reserved                    : 4;
+        UCHAR   NameSpaceIoOptimization     : 1;
+        UCHAR   Reserved                    : 3;
     } NSFEAT;                           // byte 24      M - Namespace Features (NSFEAT)
 
     UCHAR   NLBAF;                      // byte 25      M - Number of LBA Formats (NLBAF)
@@ -1099,7 +1100,13 @@ typedef struct {
 
     UCHAR           NVMCAP[16];         // byte 48:63 O - NVM Capacity (NVMCAP)
 
-    UCHAR           Reserved2[36];      // byte 64:99
+    USHORT          NPWG;               // byte 64:65 O - Namespace Preferred Write Granularity (NPWG)
+    USHORT          NPWA;               // byte 66:67 O - Namespace Preferred Write Alignment (NPWA)
+    USHORT          NPDG;               // byte 68:69 O - Namespace Preferred Deallocate Granularity (NPDG)
+    USHORT          NPDA;               // byte 70:71 O - Namespace Preferred Deallocate Alignment (NPDA)
+    USHORT          NOWS;               // byte 72:73 O - Namespace Optimal Write Size (NOWS)
+
+    UCHAR           Reserved2[26];        // byte 74:99
 
     USHORT          NVMSETID;           // byte 100:101 O - Associated NVM Set Identifier
 

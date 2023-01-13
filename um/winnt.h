@@ -16074,8 +16074,8 @@ typedef enum {
     MonitorRequestReasonBuiltinPanel,
     MonitorRequestReasonDisplayRequiredUnDim,
     MonitorRequestReasonBatteryCountChangeSuppressed,
-    MonitorRequestReasonTerminalInit,
     MonitorRequestReasonResumeModernStandby,
+    MonitorRequestReasonTerminalInit,
     MonitorRequestReasonMax
 } POWER_MONITOR_REQUEST_REASON;
 
@@ -16216,6 +16216,20 @@ typedef enum _POWER_PLATFORM_ROLE {
 typedef struct _POWER_PLATFORM_INFORMATION {
     BOOLEAN AoAc;
 } POWER_PLATFORM_INFORMATION, *PPOWER_PLATFORM_INFORMATION;
+
+//
+// Enum which defines the effective altitude of a power setting.
+//
+
+typedef enum POWER_SETTING_ALTITUDE {
+    ALTITUDE_GROUP_POLICY,
+    ALTITUDE_USER,
+    ALTITUDE_RUNTIME_OVERRIDE,
+    ALTITUDE_PROVISIONING,
+    ALTITUDE_OEM_CUSTOMIZATION,
+    ALTITUDE_INTERNAL_OVERRIDE,
+    ALTITUDE_OS_DEFAULT,
+} POWER_SETTING_ALTITUDE, *PPOWER_SETTING_ALTITUDE;
 
 //
 // System power manager capabilities
