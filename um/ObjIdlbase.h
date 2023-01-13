@@ -438,6 +438,13 @@ typedef interface IAgileReference IAgileReference;
 #endif 	/* __IAgileReference_FWD_DEFINED__ */
 
 
+#ifndef __IMachineGlobalObjectTable_FWD_DEFINED__
+#define __IMachineGlobalObjectTable_FWD_DEFINED__
+typedef interface IMachineGlobalObjectTable IMachineGlobalObjectTable;
+
+#endif 	/* __IMachineGlobalObjectTable_FWD_DEFINED__ */
+
+
 /* header files for imported files */
 #include "unknwnbase.h"
 
@@ -7820,6 +7827,135 @@ EXTERN_C const IID IID_IAgileReference;
 EXTERN_C const GUID  IID_ICallbackWithNoReentrancyToApplicationSTA;
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
+#pragma region Application Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+typedef struct MachineGlobalObjectTableRegistrationToken__
+    {
+    int unused;
+    } 	*MachineGlobalObjectTableRegistrationToken;
+
+
+
+extern RPC_IF_HANDLE __MIDL_itf_objidlbase_0000_0053_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidlbase_0000_0053_v0_0_s_ifspec;
+
+#ifndef __IMachineGlobalObjectTable_INTERFACE_DEFINED__
+#define __IMachineGlobalObjectTable_INTERFACE_DEFINED__
+
+/* interface IMachineGlobalObjectTable */
+/* [unique][uuid][object][local] */ 
+
+
+EXTERN_C const IID IID_IMachineGlobalObjectTable;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("26d709ac-f70b-4421-a96f-d2878fafb00d")
+    IMachineGlobalObjectTable : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE RegisterObject( 
+            /* [in] */ REFCLSID clsid,
+            /* [in] */ LPCWSTR identifier,
+            /* [in] */ IUnknown *object,
+            /* [out] */ MachineGlobalObjectTableRegistrationToken *token) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetObject( 
+            /* [in] */ REFCLSID clsid,
+            /* [in] */ LPCWSTR identifier,
+            /* [in] */ REFIID riid,
+            /* [iid_is][out] */ void **ppv) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE RevokeObject( 
+            /* [in] */ MachineGlobalObjectTableRegistrationToken token) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IMachineGlobalObjectTableVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IMachineGlobalObjectTable * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IMachineGlobalObjectTable * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IMachineGlobalObjectTable * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *RegisterObject )( 
+            IMachineGlobalObjectTable * This,
+            /* [in] */ REFCLSID clsid,
+            /* [in] */ LPCWSTR identifier,
+            /* [in] */ IUnknown *object,
+            /* [out] */ MachineGlobalObjectTableRegistrationToken *token);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetObject )( 
+            IMachineGlobalObjectTable * This,
+            /* [in] */ REFCLSID clsid,
+            /* [in] */ LPCWSTR identifier,
+            /* [in] */ REFIID riid,
+            /* [iid_is][out] */ void **ppv);
+        
+        HRESULT ( STDMETHODCALLTYPE *RevokeObject )( 
+            IMachineGlobalObjectTable * This,
+            /* [in] */ MachineGlobalObjectTableRegistrationToken token);
+        
+        END_INTERFACE
+    } IMachineGlobalObjectTableVtbl;
+
+    interface IMachineGlobalObjectTable
+    {
+        CONST_VTBL struct IMachineGlobalObjectTableVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IMachineGlobalObjectTable_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IMachineGlobalObjectTable_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IMachineGlobalObjectTable_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IMachineGlobalObjectTable_RegisterObject(This,clsid,identifier,object,token)	\
+    ( (This)->lpVtbl -> RegisterObject(This,clsid,identifier,object,token) ) 
+
+#define IMachineGlobalObjectTable_GetObject(This,clsid,identifier,riid,ppv)	\
+    ( (This)->lpVtbl -> GetObject(This,clsid,identifier,riid,ppv) ) 
+
+#define IMachineGlobalObjectTable_RevokeObject(This,token)	\
+    ( (This)->lpVtbl -> RevokeObject(This,token) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IMachineGlobalObjectTable_INTERFACE_DEFINED__ */
+
+
+/* interface __MIDL_itf_objidlbase_0000_0054 */
+/* [local] */ 
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
+#pragma endregion
 #define _OBJIDLBASE_
 #endif
 #if ( _MSC_VER >= 800 )
@@ -7831,8 +7967,8 @@ EXTERN_C const GUID  IID_ICallbackWithNoReentrancyToApplicationSTA;
 #endif
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidlbase_0000_0053_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidlbase_0000_0053_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidlbase_0000_0054_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidlbase_0000_0054_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

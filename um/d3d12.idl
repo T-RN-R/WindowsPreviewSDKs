@@ -4611,6 +4611,7 @@ interface ID3D12DeviceRemovedExtendedDataSettings1
     void SetBreadcrumbContextEnablement(D3D12_DRED_ENABLEMENT Enablement);
 };
 
+
 [uuid(98931D33-5AE8-4791-AA3C-1A73A2934E71), object, local, pointer_default(unique)]
 interface ID3D12DeviceRemovedExtendedData
     : IUnknown

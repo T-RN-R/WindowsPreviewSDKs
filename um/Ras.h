@@ -158,7 +158,7 @@ DECLARE_HANDLE( HRASCONN );
 #define RASCF_IsNotOwner(rascFlags) (((rascFlags) & (RASCF_OwnerKnown | RASCF_OwnerMatch)) == (RASCF_OwnerKnown))
 #endif
 
-#define RAS_MaxIDSize      256
+#define RAS_MaxIDSize               256 
 
 /* Identifies an active RAS connection.  (See RasEnumConnections)
 */

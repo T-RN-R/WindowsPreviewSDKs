@@ -74,6 +74,24 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment)->UnregisterMessageReceiver(impl::bind_in(receiverId)));
     }
+    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2<D>::GetHostHwnd(uint64_t containerHwnd) const
+    {
+        uint64_t result;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment2)->GetHostHwnd(containerHwnd, &result));
+        return result;
+    }
+    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2<D>::PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment2)->PostMessageToReceiverAsync(impl::bind_in(receiverId), *(void**)(&message), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>{ operation, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2<D>::PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment2)->PostMessageToReceiverWithTelemetryAsync(impl::bind_in(receiverId), *(void**)(&message), *(void**)(&telemetryParameters), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>{ operation, take_ownership_from_abi };
+    }
     template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult<D>::Status() const
     {
         Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus value;
@@ -294,6 +312,18 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics)->Unregister(*(void**)(&ownerName)));
     }
+    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult<D>::Status() const
+    {
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult<D>::ExtendedError() const
+    {
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult)->get_ExtendedError(put_abi(value)));
+        return value;
+    }
     template <typename D> auto consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>::State() const
     {
         Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState value;
@@ -478,6 +508,35 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().UnregisterMessageReceiver(*reinterpret_cast<winrt::guid const*>(&receiverId));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironment2> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironment2>
+    {
+        int32_t __stdcall GetHostHwnd(uint64_t containerHwnd, uint64_t* result) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<uint64_t>(this->shim().GetHostHwnd(containerHwnd));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall PostMessageToReceiverAsync(winrt::guid receiverId, void* message, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>>(this->shim().PostMessageToReceiverAsync(*reinterpret_cast<winrt::guid const*>(&receiverId), *reinterpret_cast<Windows::Foundation::Collections::IIterable<Windows::Foundation::IInspectable> const*>(&message)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall PostMessageToReceiverWithTelemetryAsync(winrt::guid receiverId, void* message, void* telemetryParameters, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>>(this->shim().PostMessageToReceiverAsync(*reinterpret_cast<winrt::guid const*>(&receiverId), *reinterpret_cast<Windows::Foundation::Collections::IIterable<Windows::Foundation::IInspectable> const*>(&message), *reinterpret_cast<Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const*>(&telemetryParameters)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -838,6 +897,27 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult>
+    {
+        int32_t __stdcall get_Status(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus>(this->shim().Status());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_ExtendedError(winrt::hresult* value) noexcept final try
+        {
+            zero_abi<winrt::hresult>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::hresult>(this->shim().ExtendedError());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess>
     {
         int32_t __stdcall get_State(int32_t* value) noexcept final try
@@ -1169,6 +1249,7 @@ namespace std
 {
 #ifndef WINRT_LEAN_AND_MEAN
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironment> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironment2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile> : winrt::impl::hash_base {};
@@ -1178,6 +1259,7 @@ namespace std
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult> : winrt::impl::hash_base {};
@@ -1193,6 +1275,7 @@ namespace std
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistration> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationData> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult> : winrt::impl::hash_base {};

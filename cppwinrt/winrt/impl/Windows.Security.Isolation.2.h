@@ -33,7 +33,8 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     {
         return !(left == right);
     }
-    struct __declspec(empty_bases) IsolatedWindowsEnvironment : Windows::Security::Isolation::IIsolatedWindowsEnvironment
+    struct __declspec(empty_bases) IsolatedWindowsEnvironment : Windows::Security::Isolation::IIsolatedWindowsEnvironment,
+        impl::require<IsolatedWindowsEnvironment, Windows::Security::Isolation::IIsolatedWindowsEnvironment2>
     {
         IsolatedWindowsEnvironment(std::nullptr_t) noexcept {}
         IsolatedWindowsEnvironment(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Isolation::IIsolatedWindowsEnvironment(ptr, take_ownership_from_abi) {}
@@ -85,6 +86,11 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     {
         IsolatedWindowsEnvironmentOwnerRegistrationResult(std::nullptr_t) noexcept {}
         IsolatedWindowsEnvironmentOwnerRegistrationResult(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IsolatedWindowsEnvironmentPostMessageResult : Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult
+    {
+        IsolatedWindowsEnvironmentPostMessageResult(std::nullptr_t) noexcept {}
+        IsolatedWindowsEnvironmentPostMessageResult(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IsolatedWindowsEnvironmentProcess : Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess
     {

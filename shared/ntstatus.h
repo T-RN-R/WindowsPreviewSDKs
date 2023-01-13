@@ -25407,6 +25407,15 @@ Notes:
 #define STATUS_QUIC_VER_NEG_FAILURE      ((NTSTATUS)0xC0240001L)
 
 //
+// MessageId: STATUS_QUIC_USER_CANCELED
+//
+// MessageText:
+//
+// The QUIC connection was canceled by the user.
+//
+#define STATUS_QUIC_USER_CANCELED        ((NTSTATUS)0xC0240002L)
+
+//
 // Map a WIN32 error value into an NTSTATUS
 // Note: This assumes that WIN32 errors fall in the range -32k to 32k.
 //

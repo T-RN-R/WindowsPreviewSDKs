@@ -28682,6 +28682,15 @@
 //
 #define ERROR_INSTALL_FULLTRUST_HOSTRUNTIME_REQUIRES_MAIN_PACKAGE_FULLTRUST_CAPABILITY 15663L
 
+//
+// MessageId: ERROR_PACKAGE_LACKS_CAPABILITY_FOR_MANDATORY_STARTUPTASKS
+//
+// MessageText:
+//
+// The package deployment failed because the package requires a capability for mandatory startup tasks.
+//
+#define ERROR_PACKAGE_LACKS_CAPABILITY_FOR_MANDATORY_STARTUPTASKS 15664L
+
 //////////////////////////
 //                      //
 // AppModel Error Codes //
@@ -33288,6 +33297,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The encryptionExclusionFileList file is invalid.
 //
 #define APPX_E_INVALID_ENCRYPTION_EXCLUSION_FILE_LIST _HRESULT_TYPEDEF_(0x80080216L)
+
+//
+// MessageId: APPX_E_INVALID_PACKAGE_FOLDER_ACLS
+//
+// MessageText:
+//
+// The package folder ACLs are invalid. 
+//
+#define APPX_E_INVALID_PACKAGE_FOLDER_ACLS _HRESULT_TYPEDEF_(0x80080217L)
 
 //
 // Codes 0x0300-0x030f are reserved for background task error codes.
@@ -56018,7 +56036,16 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // A transaction is in progress for the database connection.
 //
-#define STATEREPOSITORY_TRANSACTION_IN_PROGRESS _HRESULT_TYPEDEF_(0x00670014L)
+#define STATEREPOSITORY_TRANSACTION_IN_PROGRESS _HRESULT_TYPEDEF_(0x80670014L)
+
+//
+// MessageId: STATEREPOSITORY_E_CACHE_NOT_INIITALIZED
+//
+// MessageText:
+//
+// The StateRepository cache is not initialized.
+//
+#define STATEREPOSITORY_E_CACHE_NOT_INIITALIZED _HRESULT_TYPEDEF_(0x80670015L)
 
 //
 // Spaceport errors
@@ -62870,5 +62897,14 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The QUIC connection failed to negotiate a compatible protocol version.
 //
 #define ERROR_QUIC_VER_NEG_FAILURE       _HRESULT_TYPEDEF_(0x80410001L)
+
+//
+// MessageId: ERROR_QUIC_USER_CANCELED
+//
+// MessageText:
+//
+// The QUIC connection was canceled by the user.
+//
+#define ERROR_QUIC_USER_CANCELED         _HRESULT_TYPEDEF_(0x80410002L)
 
 #endif//_WINERROR_

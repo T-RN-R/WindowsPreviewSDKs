@@ -1235,9 +1235,10 @@ BOOLAPI InternetUnlockRequestFile(
 
 
 #define INTERNET_OPTION_COOKIES_SAME_SITE_LEVEL      187
+#define INTERNET_OPTION_GLOBAL_CALLBACK              188
 
 #define INTERNET_FIRST_OPTION                   INTERNET_OPTION_CALLBACK
-#define INTERNET_LAST_OPTION                    INTERNET_OPTION_COOKIES_SAME_SITE_LEVEL
+#define INTERNET_LAST_OPTION                    INTERNET_OPTION_GLOBAL_CALLBACK
 
 
 //
@@ -3049,7 +3050,9 @@ INTERNETAPI_(DWORD) InternetConfirmZoneCrossing(
 #define ERROR_INTERNET_CLIENT_AUTH_CERT_NEEDED_PROXY (INTERNET_ERROR_BASE + 187)
 #define ERROR_INTERNET_SECURE_FAILURE_PROXY          (INTERNET_ERROR_BASE + 188)
 #define ERROR_INTERNET_HTTP_PROTOCOL_MISMATCH   (INTERNET_ERROR_BASE + 190)
-#define INTERNET_ERROR_LAST                     (INTERNET_ERROR_BASE + 190)
+#define ERROR_INTERNET_GLOBAL_CALLBACK_FAILED   (INTERNET_ERROR_BASE + 191)
+
+#define INTERNET_ERROR_LAST                     (INTERNET_ERROR_BASE + 191)
 
 
 //#endif // !defined(_WINERROR_)
@@ -4078,6 +4081,32 @@ HttpIsHostHstsEnabled(
     _In_z_ PCWSTR pcwszUrl,
     _Out_ PBOOL pfIsHsts
 );
+
+//
+// callback function for INTERNET_OPTION_GLOBAL_CALLBACK option
+//
+
+#define INTERNET_GLOBAL_CALLBACK_SENDING_HTTP_HEADERS          0x00000001
+
+typedef
+DWORD
+(CALLBACK * INTERNET_GLOBAL_NOTIFICATION_CALLBACK)(
+    _In_ HINTERNET hInternet,
+    _In_opt_ PVOID pvContext,
+    _In_ PCSTR pcszUrl,
+    _In_ PCSTR pcszHost,
+    _In_ DWORD dwNotification,
+    _In_opt_ PVOID pvEventData,
+    _In_ DWORD dwEventDataLength
+);
+
+typedef struct _INTERNET_GLOBAL_CALLBACK
+{
+    INTERNET_GLOBAL_NOTIFICATION_CALLBACK pfnGlobalNotificationCallback;
+    DWORD dwNotifications;
+    PVOID pvContext;
+    GUID guidRegistrationId;
+} INTERNET_GLOBAL_CALLBACK;
 
 
 

@@ -3164,8 +3164,11 @@ Return Value:
 --*/
 
 #define DNS_SETTINGS_VERSION1                     0x0001
+#define DNS_SETTINGS_VERSION2                     0x0002
+
 #define DNS_INTERFACE_SETTINGS_VERSION1           0x0001
 #define DNS_INTERFACE_SETTINGS_VERSION2           0x0002
+#define DNS_INTERFACE_SETTINGS_VERSION3           0x0003
 
 #define DNS_SETTING_IPV6                          0x0001
 #define DNS_SETTING_NAMESERVER                    0x0002
@@ -3179,6 +3182,15 @@ Return Value:
 #define DNS_SETTING_PROFILE_NAMESERVER            0x0200
 #define DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES 0x0400
 #define DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST      0x0800
+#define DNS_SETTING_DOH                           0x1000
+
+#define DNS_ENABLE_AUTO_DOH                       0x0001
+
+#define DNS_SERVER_PROPERTY_VERSION1              0x0001
+
+#define DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO       0x0001
+#define DNS_DOH_SERVER_SETTINGS_ENABLE            0x0002
+#define DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP   0x0004
 
 typedef struct _DNS_SETTINGS
 {
@@ -3188,6 +3200,41 @@ typedef struct _DNS_SETTINGS
     PWSTR Domain;
     PWSTR SearchList;
 } DNS_SETTINGS;
+
+typedef struct _DNS_SETTINGS2
+{
+    ULONG Version;
+    ULONG64 Flags;
+    PWSTR Hostname;
+    PWSTR Domain;
+    PWSTR SearchList;
+    ULONG64 SettingFlags;
+} DNS_SETTINGS2;
+
+typedef struct _DNS_DOH_SERVER_SETTINGS
+{
+    PWSTR Template;
+    ULONG64 Flags;
+} DNS_DOH_SERVER_SETTINGS;
+
+typedef union _DNS_SERVER_PROPERTY_TYPES
+{
+    DNS_DOH_SERVER_SETTINGS *DohSettings;
+} DNS_SERVER_PROPERTY_TYPES;
+
+typedef enum _DNS_SERVER_PROPERTY_TYPE
+{
+    DnsServerInvalidProperty = 0,
+    DnsServerDohProperty,
+} DNS_SERVER_PROPERTY_TYPE;
+
+typedef struct _DNS_SERVER_PROPERTY
+{
+    ULONG Version;
+    ULONG ServerIndex;
+    DNS_SERVER_PROPERTY_TYPE Type;
+    DNS_SERVER_PROPERTY_TYPES Property;
+} DNS_SERVER_PROPERTY;
 
 typedef struct _DNS_INTERFACE_SETTINGS
 {
@@ -3206,9 +3253,27 @@ typedef struct _DNS_INTERFACE_SETTINGS
 typedef struct _DNS_INTERFACE_SETTINGS_EX
 {
     DNS_INTERFACE_SETTINGS SettingsV1;
-    ULONG                  DisableUnconstrainedQueries;
-    PWSTR                  SupplementalSearchList;
+    ULONG DisableUnconstrainedQueries;
+    PWSTR SupplementalSearchList;
 } DNS_INTERFACE_SETTINGS_EX;
+
+typedef struct _DNS_INTERFACE_SETTINGS3
+{
+    ULONG Version;
+    ULONG64 Flags;
+    PWSTR Domain;
+    PWSTR NameServer;
+    PWSTR SearchList;
+    ULONG RegistrationEnabled;
+    ULONG RegisterAdapterName;
+    ULONG EnableLLMNR;
+    ULONG QueryAdapterName;
+    PWSTR ProfileNameServer;
+    ULONG DisableUnconstrainedQueries;
+    PWSTR SupplementalSearchList;
+    ULONG cServerProperties;
+    DNS_SERVER_PROPERTY *ServerProperties;
+} DNS_INTERFACE_SETTINGS3;
 
 NETIOAPI_API
 GetDnsSettings(
