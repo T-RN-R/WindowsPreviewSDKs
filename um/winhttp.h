@@ -525,6 +525,15 @@ typedef struct _WINHTTP_RESOLVER_CACHE_CONFIG
     ULONG ulMinCacheEntryTtl;
 
     WINHTTP_SECURE_DNS_SETTING SecureDnsSetting;
+
+    //
+    // If WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_CONN_USE_TTL is set, then ullCOnnResolutionWaitTime
+    // can be used to control how frequently a re-resolution attempt is made for any connection.
+    // It is specified in 100 nanosecond units, and the default is 600000000 (one minute).
+    //
+
+    ULONGLONG ullConnResolutionWaitTime;
+
     ULONGLONG ullFlags;
 } WINHTTP_RESOLVER_CACHE_CONFIG, *PWINHTTP_RESOLVER_CACHE_CONFIG;
 
@@ -702,7 +711,9 @@ typedef struct _WINHTTP_RESOLVER_CACHE_CONFIG
 
 #define WINHTTP_OPTION_BACKGROUND_CONNECTIONS           172
 
-#define WINHTTP_LAST_OPTION                             WINHTTP_OPTION_BACKGROUND_CONNECTIONS
+#define WINHTTP_OPTION_FIRST_AVAILABLE_CONNECTION       173
+
+#define WINHTTP_LAST_OPTION                             WINHTTP_OPTION_FIRST_AVAILABLE_CONNECTION
 
 #define WINHTTP_OPTION_USERNAME                         0x1000
 #define WINHTTP_OPTION_PASSWORD                         0x1001

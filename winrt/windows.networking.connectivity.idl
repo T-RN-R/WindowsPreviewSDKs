@@ -355,7 +355,9 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)]
                 Wpa3Sae               = 11,
                 [contract(Windows.Foundation.UniversalApiContract, 10.0)]
-                Owe                   = 12
+                Owe                   = 12,
+                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+                Wpa3Enterprise        = 13
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -388,7 +390,11 @@ namespace Windows
                 Ccmp        = 6,
                 WpaUseGroup = 7,
                 RsnUseGroup = 8,
-                Ihv         = 9
+                Ihv         = 9,
+                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+                Gcmp        = 10,
+                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+                Gcmp256     = 11
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]

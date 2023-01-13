@@ -58,6 +58,9 @@ typedef enum _DOT11_AUTH_ALGORITHM {
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
     DOT11_AUTH_ALGO_OWE                 = 10,
 #endif
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+    DOT11_AUTH_ALGO_WPA3_ENT            = 11,
+#endif
     DOT11_AUTH_ALGO_IHV_START           = 0x80000000,
     DOT11_AUTH_ALGO_IHV_END             = 0xffffffff
 } DOT11_AUTH_ALGORITHM, * PDOT11_AUTH_ALGORITHM;
@@ -76,6 +79,9 @@ typedef enum _DOT11_AUTH_ALGORITHM {
 #define DOT11_AUTH_ALGORITHM_WPA3_SAE           DOT11_AUTH_ALGO_WPA3_SAE
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #define DOT11_AUTH_ALGORITHM_OWE                DOT11_AUTH_ALGO_OWE
+#endif
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#define DOT11_AUTH_ALGORITHM_WPA3_ENT           DOT11_AUTH_ALGO_WPA3_ENT
 #endif
 // Cipher algorithm Ids (for little endian platform)
 #ifdef __midl

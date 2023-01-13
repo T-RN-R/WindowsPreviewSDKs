@@ -3467,9 +3467,8 @@ typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
 #endif
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
     ProcThreadAttributeMitigationAuditPolicy        = 24,
-#endif
-#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
     ProcThreadAttributeMachineType                  = 25,
+    ProcThreadAttributeComponentFilter              = 26,
 #endif
 } PROC_THREAD_ATTRIBUTE_NUM;
 #endif
@@ -3883,6 +3882,9 @@ typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
 
 #define PROC_THREAD_ATTRIBUTE_MITIGATION_AUDIT_POLICY \
     ProcThreadAttributeValue (ProcThreadAttributeMitigationAuditPolicy, FALSE, TRUE, FALSE)
+
+#define PROC_THREAD_ATTRIBUTE_COMPONENT_FILTER \
+    ProcThreadAttributeValue (ProcThreadAttributeComponentFilter, FALSE, TRUE, FALSE)
 
 //
 // Define the user-mode shadow stack mitigation audit policy options.

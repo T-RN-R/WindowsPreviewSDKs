@@ -10259,6 +10259,15 @@ Notes:
 //
 #define STATUS_HAS_SYSTEM_CRITICAL_FILES ((NTSTATUS)0xC00004BDL)
 
+//
+// MessageId: STATUS_FT_READ_FROM_COPY_FAILURE
+//
+// MessageText:
+//
+// The specified copy of the requested data could not be read.
+//
+#define STATUS_FT_READ_FROM_COPY_FAILURE ((NTSTATUS)0xC00004BEL)
+
 
 //     **** New SYSTEM error codes can be inserted here ****
 
@@ -11265,6 +11274,15 @@ Notes:
 // Enabling driver verification is not supported for a driver with  NMI callback(s) registered.
 //
 #define STATUS_VRF_VOLATILE_NMI_REGISTERED ((NTSTATUS)0xC0000C0EL)
+
+//
+// MessageId: STATUS_VRF_VOLATILE_SETTINGS_CONFLICT
+//
+// MessageText:
+//
+// Volatile verification settings cannot be changed when verification is enabled from boot or DIF volatile verification is enabled.
+//
+#define STATUS_VRF_VOLATILE_SETTINGS_CONFLICT ((NTSTATUS)0xC0000C0FL)
 
 //
 // MessageId: STATUS_DIF_LIVEDUMP_LIMIT_EXCEEDED

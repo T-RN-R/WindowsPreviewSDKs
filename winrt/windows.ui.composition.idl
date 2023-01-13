@@ -280,6 +280,8 @@ namespace Windows
 
             interface ICompositionGraphicsDevice3;
 
+            interface ICompositionGraphicsDevice4;
+
             interface ICompositionLight;
 
             interface ICompositionLight2;
@@ -452,6 +454,8 @@ namespace Windows
 
             interface IQuaternionKeyFrameAnimation;
 
+            interface IRectangleClip;
+
             interface IRedirectVisual;
 
             interface IRenderingDeviceReplacedEventArgs;
@@ -503,6 +507,8 @@ namespace Windows
             interface IVisual2;
 
             interface IVisual3;
+
+            interface IVisual4;
 
             interface IVisualCollection;
 
@@ -678,6 +684,8 @@ namespace Windows
 
             runtimeclass QuaternionKeyFrameAnimation;
 
+            runtimeclass RectangleClip;
+
             runtimeclass RedirectVisual;
 
             runtimeclass RenderingDeviceReplacedEventArgs;
@@ -779,6 +787,8 @@ namespace Windows
                 interface Windows.Foundation.Collections.IVector<Windows.UI.Composition.CompositionShape*>;
 
                 interface Windows.Foundation.Collections.IVector<Windows.UI.Composition.IVisualElement*>;
+
+                interface Windows.Foundation.IAsyncOperation<Windows.UI.Composition.ICompositionSurface*>;
 
                 interface Windows.Foundation.TypedEventHandler<IInspectable*, Windows.UI.Composition.CompositionBatchCompletedEventArgs*>;
 
@@ -1543,6 +1553,14 @@ namespace Windows
                 HRESULT Trim();
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [exclusiveto(Windows.UI.Composition.CompositionGraphicsDevice)]
+            [uuid(5A73BFF9-A97F-4CF5-BA46-98EF358E71B1)]
+            interface ICompositionGraphicsDevice4 : IInspectable
+            {
+                HRESULT CaptureAsync([in] Windows.UI.Composition.Visual* captureVisual, [in] Windows.Graphics.SizeInt32 size, [in] Windows.Graphics.DirectX.DirectXPixelFormat pixelFormat, [in] Windows.Graphics.DirectX.DirectXAlphaMode alphaMode, [in] FLOAT sdrBoost, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.UI.Composition.ICompositionSurface*>** operation);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 3.0)]
             [exclusiveto(Windows.UI.Composition.CompositionLight)]
             [uuid(41A6D7C2-2E5D-4BC1-B09E-8F0A03E3D8D3)]
@@ -2203,11 +2221,14 @@ namespace Windows
 
             [contract(Windows.Foundation.UniversalApiContract, 12.0)]
             [exclusiveto(Windows.UI.Composition.Compositor)]
-            [uuid(542898D1-6C2F-5DB7-BFB8-5D1FE54FB2B4)]
+            [uuid(D3483FAD-9A12-53BA-BFC8-88B7FF7977C6)]
             interface ICompositor7 : IInspectable
             {
                 [propget] HRESULT DispatcherQueue([out] [retval] Windows.System.DispatcherQueue** value);
                 HRESULT CreateAnimationPropertyInfo([out] [retval] Windows.UI.Composition.AnimationPropertyInfo** result);
+                [overload("CreateRectangleClip")] HRESULT CreateRectangleClip([out] [retval] Windows.UI.Composition.RectangleClip** result);
+                [overload("CreateRectangleClip")] HRESULT CreateRectangleClipWithSides([in] FLOAT left, [in] FLOAT top, [in] FLOAT right, [in] FLOAT bottom, [out] [retval] Windows.UI.Composition.RectangleClip** result);
+                [overload("CreateRectangleClip")] HRESULT CreateRectangleClipWithSidesAndRadius([in] FLOAT left, [in] FLOAT top, [in] FLOAT right, [in] FLOAT bottom, [in] Windows.Foundation.Numerics.Vector2 topLeftRadius, [in] Windows.Foundation.Numerics.Vector2 topRightRadius, [in] Windows.Foundation.Numerics.Vector2 bottomLeftRadius, [in] Windows.Foundation.Numerics.Vector2 bottomRightRadius, [out] [retval] Windows.UI.Composition.RectangleClip** result);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
@@ -2523,6 +2544,29 @@ namespace Windows
                 [overload("InsertKeyFrame")] HRESULT InsertKeyFrameWithEasingFunction([in] FLOAT normalizedProgressKey, [in] Windows.Foundation.Numerics.Quaternion value, [in] Windows.UI.Composition.CompositionEasingFunction* easingFunction);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [exclusiveto(Windows.UI.Composition.RectangleClip)]
+            [uuid(B3E7549E-00B4-5B53-8BE8-353F6C433101)]
+            interface IRectangleClip : IInspectable
+            {
+                [propget] HRESULT Bottom([out] [retval] FLOAT* value);
+                [propput] HRESULT Bottom([in] FLOAT value);
+                [propget] HRESULT BottomLeftRadius([out] [retval] Windows.Foundation.Numerics.Vector2* value);
+                [propput] HRESULT BottomLeftRadius([in] Windows.Foundation.Numerics.Vector2 value);
+                [propget] HRESULT BottomRightRadius([out] [retval] Windows.Foundation.Numerics.Vector2* value);
+                [propput] HRESULT BottomRightRadius([in] Windows.Foundation.Numerics.Vector2 value);
+                [propget] HRESULT Left([out] [retval] FLOAT* value);
+                [propput] HRESULT Left([in] FLOAT value);
+                [propget] HRESULT Right([out] [retval] FLOAT* value);
+                [propput] HRESULT Right([in] FLOAT value);
+                [propget] HRESULT Top([out] [retval] FLOAT* value);
+                [propput] HRESULT Top([in] FLOAT value);
+                [propget] HRESULT TopLeftRadius([out] [retval] Windows.Foundation.Numerics.Vector2* value);
+                [propput] HRESULT TopLeftRadius([in] Windows.Foundation.Numerics.Vector2 value);
+                [propget] HRESULT TopRightRadius([out] [retval] Windows.Foundation.Numerics.Vector2* value);
+                [propput] HRESULT TopRightRadius([in] Windows.Foundation.Numerics.Vector2 value);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 7.0)]
             [exclusiveto(Windows.UI.Composition.RedirectVisual)]
             [uuid(8CC6E340-8B75-5422-B06F-09FFE9F8617E)]
@@ -2835,6 +2879,15 @@ namespace Windows
             {
                 [propget] HRESULT IsHitTestVisible([out] [retval] boolean* value);
                 [propput] HRESULT IsHitTestVisible([in] boolean value);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [exclusiveto(Windows.UI.Composition.Visual)]
+            [uuid(9476BF11-E24B-5BF9-9EBE-6274109B2711)]
+            interface IVisual4 : IInspectable
+            {
+                [propget] HRESULT IsPixelSnappingEnabled([out] [retval] boolean* value);
+                [propput] HRESULT IsPixelSnappingEnabled([in] boolean value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 2.0)]
@@ -3171,6 +3224,7 @@ namespace Windows
                 [default] interface Windows.UI.Composition.ICompositionGraphicsDevice;
                 [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.UI.Composition.ICompositionGraphicsDevice2;
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.UI.Composition.ICompositionGraphicsDevice3;
+                [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.UI.Composition.ICompositionGraphicsDevice4;
             }
 
             [composable(Windows.UI.Composition.ICompositionLightFactory, public, Windows.Foundation.UniversalApiContract, 3.0)]
@@ -3617,6 +3671,14 @@ namespace Windows
                 [default] interface Windows.UI.Composition.IQuaternionKeyFrameAnimation;
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [marshaling_behavior(agile)]
+            [threading(both)]
+            runtimeclass RectangleClip : Windows.UI.Composition.CompositionClip
+            {
+                [default] interface Windows.UI.Composition.IRectangleClip;
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 7.0)]
             [marshaling_behavior(agile)]
             [threading(both)]
@@ -3768,6 +3830,7 @@ namespace Windows
                 [default] interface Windows.UI.Composition.IVisual;
                 [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.UI.Composition.IVisual2;
                 [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.Composition.IVisual3;
+                [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.UI.Composition.IVisual4;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 2.0)]

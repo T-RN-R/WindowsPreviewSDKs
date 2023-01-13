@@ -145,6 +145,7 @@ DECLARE_INTERFACE_IID_(ICompositionCapabilitiesInteropFactory, IInspectable, "2C
         ) PURE;
 };
 
+
 #undef INTERFACE
 #define INTERFACE ICompositorDesktopInterop
 DECLARE_INTERFACE_IID_(ICompositorDesktopInterop, IUnknown, "29E691FA-4567-4DCA-B319-D0F207EB6807")
@@ -171,39 +172,9 @@ DECLARE_INTERFACE_IID_(IDesktopWindowTargetInterop, IUnknown, "35DBF59E-E3F9-45B
 };
 
 
-#undef INTERFACE
-#define INTERFACE IDesktopWindowContentBridgeInterop
-DECLARE_INTERFACE_IID_(IDesktopWindowContentBridgeInterop, IUnknown, "37642806-F421-4FD0-9F82-23AE7C776182")
-{
-    IFACEMETHOD(Initialize)(
-        _In_ Windows::UI::Composition::ICompositor* compositor, _In_ HWND parentHwnd) PURE;
-
-    IFACEMETHOD(get_Hwnd)(
-        _Outptr_ HWND * value
-        ) PURE;
-
-    IFACEMETHOD(get_AppliedScaleFactor)(
-        _Out_ float* value
-        ) PURE;
-};
-
 } // namespace Desktop
 
 
-namespace Experimental {
-
-#undef INTERFACE
-#define INTERFACE IExpCompositionContentInterop
-DECLARE_INTERFACE_IID_(IExpCompositionContentInterop, IUnknown, "82A3A131-AE9E-4FE8-A494-FB0C09D3E686")
-{
-    IFACEMETHOD(GetAutomationHostProvider)(
-        _COM_Outptr_ IUnknown ** hostProvider) PURE;
-
-    IFACEMETHOD(SetAutomationHostProvider)(
-        _In_ IUnknown * hostProvider) PURE;
-};
-
-} // namespace Experimental
 
 } // namespace Composition
 } // namespace UI

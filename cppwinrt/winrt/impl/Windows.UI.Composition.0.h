@@ -10,6 +10,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     template <typename T> struct __declspec(empty_bases) IReference;
     struct Size;
     template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
@@ -248,6 +249,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct ICompositionGraphicsDevice;
     struct ICompositionGraphicsDevice2;
     struct ICompositionGraphicsDevice3;
+    struct ICompositionGraphicsDevice4;
     struct ICompositionLight;
     struct ICompositionLight2;
     struct ICompositionLight3;
@@ -334,6 +336,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IPointLight3;
     struct IPowerEasingFunction;
     struct IQuaternionKeyFrameAnimation;
+    struct IRectangleClip;
     struct IRedirectVisual;
     struct IRenderingDeviceReplacedEventArgs;
     struct IScalarKeyFrameAnimation;
@@ -360,6 +363,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IVisual;
     struct IVisual2;
     struct IVisual3;
+    struct IVisual4;
     struct IVisualCollection;
     struct IVisualElement;
     struct IVisualElement2;
@@ -447,6 +451,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct PointLight;
     struct PowerEasingFunction;
     struct QuaternionKeyFrameAnimation;
+    struct RectangleClip;
     struct RedirectVisual;
     struct RenderingDeviceReplacedEventArgs;
     struct ScalarKeyFrameAnimation;
@@ -526,6 +531,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::ICompositionGraphicsDevice>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionGraphicsDevice2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionGraphicsDevice3>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::ICompositionGraphicsDevice4>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionLight>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionLight2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionLight3>{ using type = interface_category; };
@@ -612,6 +618,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IPointLight3>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IPowerEasingFunction>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IQuaternionKeyFrameAnimation>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IRectangleClip>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IRedirectVisual>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IRenderingDeviceReplacedEventArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IScalarKeyFrameAnimation>{ using type = interface_category; };
@@ -638,6 +645,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IVisual>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisual2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisual3>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IVisual4>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisualCollection>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisualElement>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisualElement2>{ using type = interface_category; };
@@ -725,6 +733,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::PointLight>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::PowerEasingFunction>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::QuaternionKeyFrameAnimation>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::RectangleClip>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::RedirectVisual>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::RenderingDeviceReplacedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ScalarKeyFrameAnimation>{ using type = class_category; };
@@ -848,6 +857,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::PointLight> = L"Windows.UI.Composition.PointLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::PowerEasingFunction> = L"Windows.UI.Composition.PowerEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::QuaternionKeyFrameAnimation> = L"Windows.UI.Composition.QuaternionKeyFrameAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::RectangleClip> = L"Windows.UI.Composition.RectangleClip";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::RedirectVisual> = L"Windows.UI.Composition.RedirectVisual";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::RenderingDeviceReplacedEventArgs> = L"Windows.UI.Composition.RenderingDeviceReplacedEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ScalarKeyFrameAnimation> = L"Windows.UI.Composition.ScalarKeyFrameAnimation";
@@ -945,6 +955,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionGraphicsDevice> = L"Windows.UI.Composition.ICompositionGraphicsDevice";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionGraphicsDevice2> = L"Windows.UI.Composition.ICompositionGraphicsDevice2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionGraphicsDevice3> = L"Windows.UI.Composition.ICompositionGraphicsDevice3";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionGraphicsDevice4> = L"Windows.UI.Composition.ICompositionGraphicsDevice4";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionLight> = L"Windows.UI.Composition.ICompositionLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionLight2> = L"Windows.UI.Composition.ICompositionLight2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionLight3> = L"Windows.UI.Composition.ICompositionLight3";
@@ -1031,6 +1042,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IPointLight3> = L"Windows.UI.Composition.IPointLight3";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IPowerEasingFunction> = L"Windows.UI.Composition.IPowerEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IQuaternionKeyFrameAnimation> = L"Windows.UI.Composition.IQuaternionKeyFrameAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IRectangleClip> = L"Windows.UI.Composition.IRectangleClip";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IRedirectVisual> = L"Windows.UI.Composition.IRedirectVisual";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IRenderingDeviceReplacedEventArgs> = L"Windows.UI.Composition.IRenderingDeviceReplacedEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IScalarKeyFrameAnimation> = L"Windows.UI.Composition.IScalarKeyFrameAnimation";
@@ -1057,6 +1069,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisual> = L"Windows.UI.Composition.IVisual";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisual2> = L"Windows.UI.Composition.IVisual2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisual3> = L"Windows.UI.Composition.IVisual3";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisual4> = L"Windows.UI.Composition.IVisual4";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisualCollection> = L"Windows.UI.Composition.IVisualCollection";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisualElement> = L"Windows.UI.Composition.IVisualElement";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisualElement2> = L"Windows.UI.Composition.IVisualElement2";
@@ -1118,6 +1131,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionGraphicsDevice>{ 0xFB22C6E1,0x80A2,0x4667,{ 0x99,0x36,0xDB,0xEA,0xF6,0xEE,0xFE,0x95 } }; // FB22C6E1-80A2-4667-9936-DBEAF6EEFE95
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionGraphicsDevice2>{ 0x0FB8BDF6,0xC0F0,0x4BCC,{ 0x9F,0xB8,0x08,0x49,0x82,0x49,0x0D,0x7D } }; // 0FB8BDF6-C0F0-4BCC-9FB8-084982490D7D
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionGraphicsDevice3>{ 0x37F67514,0xD3EF,0x49D1,{ 0xB6,0x9D,0x0D,0x8E,0xAB,0xEB,0x36,0x26 } }; // 37F67514-D3EF-49D1-B69D-0D8EABEB3626
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionGraphicsDevice4>{ 0x5A73BFF9,0xA97F,0x4CF5,{ 0xBA,0x46,0x98,0xEF,0x35,0x8E,0x71,0xB1 } }; // 5A73BFF9-A97F-4CF5-BA46-98EF358E71B1
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionLight>{ 0x41A6D7C2,0x2E5D,0x4BC1,{ 0xB0,0x9E,0x8F,0x0A,0x03,0xE3,0xD8,0xD3 } }; // 41A6D7C2-2E5D-4BC1-B09E-8F0A03E3D8D3
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionLight2>{ 0xA7BCDA72,0xF35D,0x425D,{ 0x9B,0x98,0x23,0xF4,0x20,0x5F,0x66,0x69 } }; // A7BCDA72-F35D-425D-9B98-23F4205F6669
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionLight3>{ 0x4B0B00E4,0xDF07,0x4959,{ 0xB7,0xA4,0x4F,0x7E,0x42,0x33,0xF8,0x38 } }; // 4B0B00E4-DF07-4959-B7A4-4F7E4233F838
@@ -1172,7 +1186,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor4>{ 0xAE47E78A,0x7910,0x4425,{ 0xA4,0x82,0xA0,0x5B,0x75,0x8A,0xDC,0xE9 } }; // AE47E78A-7910-4425-A482-A05B758ADCE9
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor5>{ 0x48EA31AD,0x7FCD,0x4076,{ 0xA7,0x9C,0x90,0xCC,0x4B,0x85,0x2C,0x9B } }; // 48EA31AD-7FCD-4076-A79C-90CC4B852C9B
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor6>{ 0x7A38B2BD,0xCEC8,0x4EEB,{ 0x83,0x0F,0xD8,0xD0,0x7A,0xED,0xEB,0xC3 } }; // 7A38B2BD-CEC8-4EEB-830F-D8D07AEDEBC3
-    template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor7>{ 0x542898D1,0x6C2F,0x5DB7,{ 0xBF,0xB8,0x5D,0x1F,0xE5,0x4F,0xB2,0xB4 } }; // 542898D1-6C2F-5DB7-BFB8-5D1FE54FB2B4
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor7>{ 0xD3483FAD,0x9A12,0x53BA,{ 0xBF,0xC8,0x88,0xB7,0xFF,0x79,0x77,0xC6 } }; // D3483FAD-9A12-53BA-BFC8-88B7FF7977C6
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositorStatics>{ 0x080DB93E,0x121E,0x4D97,{ 0x8B,0x74,0x1D,0xFC,0xF9,0x19,0x87,0xEA } }; // 080DB93E-121E-4D97-8B74-1DFCF91987EA
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositorWithProjectedShadow>{ 0xA2E6330E,0x8A60,0x5A38,{ 0xBB,0x85,0xB4,0x4E,0xA9,0x01,0x67,0x7C } }; // A2E6330E-8A60-5A38-BB85-B44EA901677C
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositorWithRadialGradient>{ 0x98B9C1A7,0x8E71,0x4B53,{ 0xB4,0xA8,0x69,0xBA,0x5D,0x19,0xDC,0x5B } }; // 98B9C1A7-8E71-4B53-B4A8-69BA5D19DC5B
@@ -1204,6 +1218,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IPointLight3>{ 0x4C0A8367,0xD4E9,0x468A,{ 0x87,0xAE,0x7B,0xA4,0x3A,0xB2,0x94,0x85 } }; // 4C0A8367-D4E9-468A-87AE-7BA43AB29485
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IPowerEasingFunction>{ 0xC3FF53D6,0x138B,0x5815,{ 0x89,0x1A,0xB7,0xF6,0x15,0xCC,0xC5,0x63 } }; // C3FF53D6-138B-5815-891A-B7F615CCC563
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IQuaternionKeyFrameAnimation>{ 0x404E5835,0xECF6,0x4240,{ 0x85,0x20,0x67,0x12,0x79,0xCF,0x36,0xBC } }; // 404E5835-ECF6-4240-8520-671279CF36BC
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IRectangleClip>{ 0xB3E7549E,0x00B4,0x5B53,{ 0x8B,0xE8,0x35,0x3F,0x6C,0x43,0x31,0x01 } }; // B3E7549E-00B4-5B53-8BE8-353F6C433101
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IRedirectVisual>{ 0x8CC6E340,0x8B75,0x5422,{ 0xB0,0x6F,0x09,0xFF,0xE9,0xF8,0x61,0x7E } }; // 8CC6E340-8B75-5422-B06F-09FFE9F8617E
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IRenderingDeviceReplacedEventArgs>{ 0x3A31AC7D,0x28BF,0x4E7A,{ 0x85,0x24,0x71,0x67,0x9D,0x48,0x0F,0x38 } }; // 3A31AC7D-28BF-4E7A-8524-71679D480F38
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IScalarKeyFrameAnimation>{ 0xAE288FA9,0x252C,0x4B95,{ 0xA7,0x25,0xBF,0x85,0xE3,0x80,0x00,0xA1 } }; // AE288FA9-252C-4B95-A725-BF85E38000A1
@@ -1230,6 +1245,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisual>{ 0x117E202D,0xA859,0x4C89,{ 0x87,0x3B,0xC2,0xAA,0x56,0x67,0x88,0xE3 } }; // 117E202D-A859-4C89-873B-C2AA566788E3
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisual2>{ 0x3052B611,0x56C3,0x4C3E,{ 0x8B,0xF3,0xF6,0xE1,0xAD,0x47,0x3F,0x06 } }; // 3052B611-56C3-4C3E-8BF3-F6E1AD473F06
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisual3>{ 0x30BE580D,0xF4B6,0x4AB7,{ 0x80,0xDD,0x37,0x38,0xCB,0xAC,0x9F,0x2C } }; // 30BE580D-F4B6-4AB7-80DD-3738CBAC9F2C
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisual4>{ 0x9476BF11,0xE24B,0x5BF9,{ 0x9E,0xBE,0x62,0x74,0x10,0x9B,0x27,0x11 } }; // 9476BF11-E24B-5BF9-9EBE-6274109B2711
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisualCollection>{ 0x8B745505,0xFD3E,0x4A98,{ 0x84,0xA8,0xE9,0x49,0x46,0x8C,0x6B,0xCB } }; // 8B745505-FD3E-4A98-84A8-E949468C6BCB
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisualElement>{ 0x01E64612,0x1D82,0x42F4,{ 0x8E,0x3F,0xA7,0x22,0xDE,0xD3,0x3F,0xC7 } }; // 01E64612-1D82-42F4-8E3F-A722DED33FC7
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisualElement2>{ 0x993AE8A0,0x6057,0x5E40,{ 0x91,0x8C,0xE0,0x6E,0x0B,0x7E,0x7C,0x64 } }; // 993AE8A0-6057-5E40-918C-E06E0B7E7C64
@@ -1317,6 +1333,7 @@ namespace winrt::impl
     template <> struct default_interface<Windows::UI::Composition::PointLight>{ using type = Windows::UI::Composition::IPointLight; };
     template <> struct default_interface<Windows::UI::Composition::PowerEasingFunction>{ using type = Windows::UI::Composition::IPowerEasingFunction; };
     template <> struct default_interface<Windows::UI::Composition::QuaternionKeyFrameAnimation>{ using type = Windows::UI::Composition::IQuaternionKeyFrameAnimation; };
+    template <> struct default_interface<Windows::UI::Composition::RectangleClip>{ using type = Windows::UI::Composition::IRectangleClip; };
     template <> struct default_interface<Windows::UI::Composition::RedirectVisual>{ using type = Windows::UI::Composition::IRedirectVisual; };
     template <> struct default_interface<Windows::UI::Composition::RenderingDeviceReplacedEventArgs>{ using type = Windows::UI::Composition::IRenderingDeviceReplacedEventArgs; };
     template <> struct default_interface<Windows::UI::Composition::ScalarKeyFrameAnimation>{ using type = Windows::UI::Composition::IScalarKeyFrameAnimation; };
@@ -1832,6 +1849,13 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall CreateMipmapSurface(struct struct_Windows_Graphics_SizeInt32, int32_t, int32_t, void**) noexcept = 0;
             virtual int32_t __stdcall Trim() noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::ICompositionGraphicsDevice4>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall CaptureAsync(void*, struct struct_Windows_Graphics_SizeInt32, int32_t, int32_t, float, void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::ICompositionLight>
@@ -2446,6 +2470,9 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_DispatcherQueue(void**) noexcept = 0;
             virtual int32_t __stdcall CreateAnimationPropertyInfo(void**) noexcept = 0;
+            virtual int32_t __stdcall CreateRectangleClip(void**) noexcept = 0;
+            virtual int32_t __stdcall CreateRectangleClipWithSides(float, float, float, float, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateRectangleClipWithSidesAndRadius(float, float, float, float, Windows::Foundation::Numerics::float2, Windows::Foundation::Numerics::float2, Windows::Foundation::Numerics::float2, Windows::Foundation::Numerics::float2, void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::ICompositorStatics>
@@ -2728,6 +2755,28 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall InsertKeyFrame(float, Windows::Foundation::Numerics::quaternion) noexcept = 0;
             virtual int32_t __stdcall InsertKeyFrameWithEasingFunction(float, Windows::Foundation::Numerics::quaternion, void*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::IRectangleClip>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Bottom(float*) noexcept = 0;
+            virtual int32_t __stdcall put_Bottom(float) noexcept = 0;
+            virtual int32_t __stdcall get_BottomLeftRadius(Windows::Foundation::Numerics::float2*) noexcept = 0;
+            virtual int32_t __stdcall put_BottomLeftRadius(Windows::Foundation::Numerics::float2) noexcept = 0;
+            virtual int32_t __stdcall get_BottomRightRadius(Windows::Foundation::Numerics::float2*) noexcept = 0;
+            virtual int32_t __stdcall put_BottomRightRadius(Windows::Foundation::Numerics::float2) noexcept = 0;
+            virtual int32_t __stdcall get_Left(float*) noexcept = 0;
+            virtual int32_t __stdcall put_Left(float) noexcept = 0;
+            virtual int32_t __stdcall get_Right(float*) noexcept = 0;
+            virtual int32_t __stdcall put_Right(float) noexcept = 0;
+            virtual int32_t __stdcall get_Top(float*) noexcept = 0;
+            virtual int32_t __stdcall put_Top(float) noexcept = 0;
+            virtual int32_t __stdcall get_TopLeftRadius(Windows::Foundation::Numerics::float2*) noexcept = 0;
+            virtual int32_t __stdcall put_TopLeftRadius(Windows::Foundation::Numerics::float2) noexcept = 0;
+            virtual int32_t __stdcall get_TopRightRadius(Windows::Foundation::Numerics::float2*) noexcept = 0;
+            virtual int32_t __stdcall put_TopRightRadius(Windows::Foundation::Numerics::float2) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::IRedirectVisual>
@@ -3016,6 +3065,14 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_IsHitTestVisible(bool*) noexcept = 0;
             virtual int32_t __stdcall put_IsHitTestVisible(bool) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::IVisual4>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_IsPixelSnappingEnabled(bool*) noexcept = 0;
+            virtual int32_t __stdcall put_IsPixelSnappingEnabled(bool) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::IVisualCollection>
@@ -3674,6 +3731,15 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::ICompositionGraphicsDevice3>
     {
         template <typename D> using type = consume_Windows_UI_Composition_ICompositionGraphicsDevice3<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_ICompositionGraphicsDevice4
+    {
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Composition::ICompositionSurface>) CaptureAsync(Windows::UI::Composition::Visual const& captureVisual, Windows::Graphics::SizeInt32 const& size, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode, float sdrBoost) const;
+    };
+    template <> struct consume<Windows::UI::Composition::ICompositionGraphicsDevice4>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_ICompositionGraphicsDevice4<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_ICompositionLight
@@ -4396,6 +4462,9 @@ namespace winrt::impl
     {
         [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) DispatcherQueue() const;
         WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationPropertyInfo) CreateAnimationPropertyInfo() const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) CreateRectangleClip() const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) CreateRectangleClip(float left, float top, float right, float bottom) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) CreateRectangleClip(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 const& topLeftRadius, Windows::Foundation::Numerics::float2 const& topRightRadius, Windows::Foundation::Numerics::float2 const& bottomLeftRadius, Windows::Foundation::Numerics::float2 const& bottomRightRadius) const;
     };
     template <> struct consume<Windows::UI::Composition::ICompositor7>
     {
@@ -4746,6 +4815,30 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_UI_Composition_IQuaternionKeyFrameAnimation<D>;
     };
     template <typename D>
+    struct consume_Windows_UI_Composition_IRectangleClip
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Bottom() const;
+        WINRT_IMPL_AUTO(void) Bottom(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) BottomLeftRadius() const;
+        WINRT_IMPL_AUTO(void) BottomLeftRadius(Windows::Foundation::Numerics::float2 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) BottomRightRadius() const;
+        WINRT_IMPL_AUTO(void) BottomRightRadius(Windows::Foundation::Numerics::float2 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Left() const;
+        WINRT_IMPL_AUTO(void) Left(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Right() const;
+        WINRT_IMPL_AUTO(void) Right(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Top() const;
+        WINRT_IMPL_AUTO(void) Top(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) TopLeftRadius() const;
+        WINRT_IMPL_AUTO(void) TopLeftRadius(Windows::Foundation::Numerics::float2 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) TopRightRadius() const;
+        WINRT_IMPL_AUTO(void) TopRightRadius(Windows::Foundation::Numerics::float2 const& value) const;
+    };
+    template <> struct consume<Windows::UI::Composition::IRectangleClip>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IRectangleClip<D>;
+    };
+    template <typename D>
     struct consume_Windows_UI_Composition_IRedirectVisual
     {
         [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) Source() const;
@@ -5084,6 +5177,16 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::IVisual3>
     {
         template <typename D> using type = consume_Windows_UI_Composition_IVisual3<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_IVisual4
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPixelSnappingEnabled() const;
+        WINRT_IMPL_AUTO(void) IsPixelSnappingEnabled(bool value) const;
+    };
+    template <> struct consume<Windows::UI::Composition::IVisual4>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IVisual4<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_IVisualCollection

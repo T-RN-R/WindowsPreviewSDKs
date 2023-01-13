@@ -11680,6 +11680,18 @@ typedef struct _WOW64_ARCHITECTURE_INFORMATION {
 
 
 //
+// Disable Component Filter information
+//
+
+#define COMPONENT_KTM           0x01
+#define COMPONENT_VALID_FLAGS   (COMPONENT_KTM)
+
+typedef struct _COMPONENT_FILTER {
+    DWORD ComponentFlags;
+} COMPONENT_FILTER, *PCOMPONENT_FILTER;
+
+
+//
 // Page/memory priorities.
 //
 
@@ -12900,6 +12912,9 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 //
 // 11   CET_U                               Supervisor
 //
+// 17   TILE_CONFIG
+// 18   TILE_DATA                           XFD, Large
+//
 // 62   LWP                                 Persistent
 //
 // 63   RZ0                                 Reserved
@@ -12916,6 +12931,8 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 #define XSTATE_AVX512_ZMM                   (7)
 #define XSTATE_IPT                          (8)
 #define XSTATE_CET_U                        (11)
+#define XSTATE_AMX_TILE_CONFIG              (17)
+#define XSTATE_AMX_TILE_DATA                (18)
 #define XSTATE_LWP                          (62)
 #define MAXIMUM_XSTATE_FEATURES             (64)
 
@@ -12939,7 +12956,23 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 
 #define XSTATE_MASK_IPT                     (1ui64 << (XSTATE_IPT))
 #define XSTATE_MASK_CET_U                   (1ui64 << (XSTATE_CET_U))
+#define XSTATE_MASK_AMX_TILE_CONFIG         (1ui64 << (XSTATE_AMX_TILE_CONFIG))
+#define XSTATE_MASK_AMX_TILE_DATA           (1ui64 << (XSTATE_AMX_TILE_DATA))
 #define XSTATE_MASK_LWP                     (1ui64 << (XSTATE_LWP))
+
+#if defined(_AMD64_)
+
+#define XSTATE_MASK_ALLOWED                 (XSTATE_MASK_LEGACY | \
+                                             XSTATE_MASK_AVX | \
+                                             XSTATE_MASK_MPX | \
+                                             XSTATE_MASK_AVX512 | \
+                                             XSTATE_MASK_IPT | \
+                                             XSTATE_MASK_CET_U | \
+                                             XSTATE_MASK_AMX_TILE_CONFIG | \
+                                             XSTATE_MASK_AMX_TILE_DATA | \
+                                             XSTATE_MASK_LWP)
+
+#else
 
 #define XSTATE_MASK_ALLOWED                 (XSTATE_MASK_LEGACY | \
                                              XSTATE_MASK_AVX | \
@@ -12949,10 +12982,14 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
                                              XSTATE_MASK_CET_U | \
                                              XSTATE_MASK_LWP)
 
+#endif
+
 #define XSTATE_MASK_PERSISTENT              ((1ui64 << (XSTATE_MPX_BNDCSR)) | \
                                              XSTATE_MASK_LWP)
 
 #define XSTATE_MASK_USER_VISIBLE_SUPERVISOR (XSTATE_MASK_CET_U)
+
+#define XSTATE_MASK_LARGE_FEATURES          (XSTATE_MASK_AMX_TILE_DATA)
 
 //
 // Flags associated with compaction mask
@@ -12964,10 +13001,15 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 #define XSTATE_ALIGN_BIT                    (1)
 #define XSTATE_ALIGN_MASK                   (1ui64 << (XSTATE_ALIGN_BIT))
 
+#define XSTATE_XFD_BIT                      (2)
+#define XSTATE_XFD_MASK                     (1ui64 << (XSTATE_XFD_BIT))
+
 #define XSTATE_CONTROLFLAG_XSAVEOPT_MASK    (1)
 #define XSTATE_CONTROLFLAG_XSAVEC_MASK      (2)
+#define XSTATE_CONTROLFLAG_XFD_MASK         (4)
 #define XSTATE_CONTROLFLAG_VALID_MASK       (XSTATE_CONTROLFLAG_XSAVEOPT_MASK | \
-                                             XSTATE_CONTROLFLAG_XSAVEC_MASK)
+                                             XSTATE_CONTROLFLAG_XSAVEC_MASK | \
+                                             XSTATE_CONTROLFLAG_XFD_MASK)
 
 //
 // Extended processor state configuration
@@ -12995,6 +13037,7 @@ typedef struct _XSTATE_CONFIGURATION {
         {
             DWORD OptimizedSave : 1;
             DWORD CompactionEnabled : 1;
+            DWORD ExtendedFeatureDisable : 1;
         };
     };
 
@@ -13015,6 +13058,14 @@ typedef struct _XSTATE_CONFIGURATION {
 
     // Mask of all supervisor features that are exposed to user-mode
     DWORD64 EnabledUserVisibleSupervisorFeatures;
+
+    // Mask of features that can be disabled via XFD
+    DWORD64 ExtendedFeatureDisableFeatures;
+
+    // Extra padding that can be repurposed. This is present to reduce the
+    // number of times that fields following this struct in user shared data
+    // need to be shifted.
+    DWORD64 Spare;
 
 } XSTATE_CONFIGURATION, *PXSTATE_CONFIGURATION;
 
@@ -16179,7 +16230,7 @@ typedef enum {
     MonitorRequestReasonWinrt,
     MonitorRequestReasonUserInputKeyboard,
     MonitorRequestReasonUserInputMouse,
-    MonitorRequestReasonUserInputTouch,
+    MonitorRequestReasonUserInputTouchpad,
     MonitorRequestReasonUserInputPen,
     MonitorRequestReasonUserInputAccelerometer,
     MonitorRequestReasonUserInputHid,
@@ -16200,6 +16251,7 @@ typedef enum {
     MonitorRequestReasonTerminalInit,
     MonitorRequestReasonPdcSignalSensorsHumanPresence,          // PDC_SIGNAL_PROVIDER_SENSORS_HUMAN_PRESENCE_MONITOR
     MonitorRequestReasonBatteryPreCritical,
+    MonitorRequestReasonUserInputTouch,
     MonitorRequestReasonMax
 } POWER_MONITOR_REQUEST_REASON;
 
