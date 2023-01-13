@@ -8064,6 +8064,12 @@ EXTERN_C const IID IID_IMFMediaEngineEMENotify;
 /* interface __MIDL_itf_mfmediaengine_0000_0045 */
 /* [local] */ 
 
+#endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
+#pragma endregion
+#pragma region Application Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
 typedef 
 enum MF_MEDIAKEYS_REQUIREMENT
     {
@@ -8072,6 +8078,12 @@ enum MF_MEDIAKEYS_REQUIREMENT
         MF_MEDIAKEYS_REQUIREMENT_NOT_ALLOWED	= 3
     } 	MF_MEDIAKEYS_REQUIREMENT;
 
+#endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
+#pragma endregion
+#pragma region Desktop Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
 
 
 extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0045_v0_0_c_ifspec;
@@ -8415,6 +8427,12 @@ EXTERN_C const IID IID_IMFMediaEngineClassFactory3;
 /* interface __MIDL_itf_mfmediaengine_0000_0048 */
 /* [local] */ 
 
+#endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
+#pragma endregion
+#pragma region Application Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
 EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MF_EME_INITDATATYPES =     { { 0x497d231b, 0x4eb9, 0x4df0, { 0xb4, 0x74, 0xb9, 0xaf, 0xeb, 0x0a, 0xdf, 0x38 } }, PID_FIRST_USABLE+0x00000001 }; 
 EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MF_EME_DISTINCTIVEID =     { { 0x7dc9c4a5, 0x12be, 0x497e, { 0x8b, 0xff, 0x9b, 0x60, 0xb2, 0xdc, 0x58, 0x45 } }, PID_FIRST_USABLE+0x00000002 }; 
 EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MF_EME_PERSISTEDSTATE =    { { 0x5d4df6ae, 0x9af1, 0x4e3d, { 0x95, 0x5b, 0x0e, 0x4b, 0xd2, 0x2f, 0xed, 0xf0 } }, PID_FIRST_USABLE+0x00000003 }; 
@@ -8426,6 +8444,12 @@ EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MF_EME_ROBUSTNESS =  { { 0x9d3d2b9
 EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MF_EME_CONTENTTYPE = { { 0x289fb1fc, 0xd9c4, 0x4cc7, { 0xb2, 0xbe, 0x97, 0x2b, 0x0e, 0x9b, 0x28, 0x3a } }, PID_FIRST_USABLE+0x00000002 }; 
 EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MF_EME_CDM_INPRIVATESTOREPATH = { { 0xec305fd9, 0x039f, 0x4ac8, { 0x98, 0xda, 0xe7, 0x92, 0x1e, 0x00, 0x6a, 0x90 } }, PID_FIRST_USABLE+0x00000001 }; 
 EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MF_EME_CDM_STOREPATH =          { { 0xf795841e, 0x99f9, 0x44d7, { 0xaf, 0xc0, 0xd3, 0x09, 0xc0, 0x4c, 0x94, 0xab } }, PID_FIRST_USABLE+0x00000002 }; 
+#endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
+#pragma endregion
+#pragma region Desktop Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
 
 
 extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0048_v0_0_c_ifspec;
@@ -8789,6 +8813,20 @@ EXTERN_C const IID IID_IMFMediaKeySession2;
 #endif 	/* __IMFMediaKeySession2_INTERFACE_DEFINED__ */
 
 
+/* interface __MIDL_itf_mfmediaengine_0000_0050 */
+/* [local] */ 
+
+#endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
+#pragma endregion
+#pragma region Application Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
+
+
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0050_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0050_v0_0_s_ifspec;
+
 #ifndef __IMFMediaEngineClassFactory4_INTERFACE_DEFINED__
 #define __IMFMediaEngineClassFactory4_INTERFACE_DEFINED__
 
@@ -8883,7 +8921,7 @@ EXTERN_C const IID IID_IMFMediaEngineClassFactory4;
 /* [local] */ 
 
 #endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 #pragma endregion
 
 

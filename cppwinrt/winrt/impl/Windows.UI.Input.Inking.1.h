@@ -8,27 +8,6 @@
 #include "winrt/impl/Windows.UI.Input.Inking.0.h"
 WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
 {
-    struct __declspec(empty_bases) IDelegatedInkBallpointRenderParameters :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<IDelegatedInkBallpointRenderParameters>
-    {
-        IDelegatedInkBallpointRenderParameters(std::nullptr_t = nullptr) noexcept {}
-        IDelegatedInkBallpointRenderParameters(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
-    struct __declspec(empty_bases) IDelegatedInkTrail :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<IDelegatedInkTrail>
-    {
-        IDelegatedInkTrail(std::nullptr_t = nullptr) noexcept {}
-        IDelegatedInkTrail(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
-    struct __declspec(empty_bases) IDelegatedInkTrailPoint :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<IDelegatedInkTrailPoint>
-    {
-        IDelegatedInkTrailPoint(std::nullptr_t = nullptr) noexcept {}
-        IDelegatedInkTrailPoint(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
     struct __declspec(empty_bases) IInkDrawingAttributes :
         Windows::Foundation::IInspectable,
         impl::consume_t<IInkDrawingAttributes>

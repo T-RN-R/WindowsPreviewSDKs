@@ -171,8 +171,6 @@ namespace Windows
 
             interface Windows.Foundation.Collections.IIterable<Windows.Foundation.Point>;
 
-            interface Windows.Foundation.Collections.IIterable<Windows.Foundation.Rect>;
-
             interface Windows.Foundation.Collections.IIterable<Windows.Foundation.Size>;
 
             interface Windows.Foundation.Collections.IIterable<Windows.Foundation.TimeSpan>;
@@ -226,8 +224,6 @@ namespace Windows
             interface Windows.Foundation.Collections.IIterator<Windows.Foundation.IWwwFormUrlDecoderEntry*>;
 
             interface Windows.Foundation.Collections.IIterator<Windows.Foundation.Point>;
-
-            interface Windows.Foundation.Collections.IIterator<Windows.Foundation.Rect>;
 
             interface Windows.Foundation.Collections.IIterator<Windows.Foundation.Size>;
 
@@ -310,8 +306,6 @@ namespace Windows
             interface Windows.Foundation.Collections.IVectorView<Windows.Foundation.IWwwFormUrlDecoderEntry*>;
 
             interface Windows.Foundation.Collections.IVectorView<Windows.Foundation.Point>;
-
-            interface Windows.Foundation.Collections.IVectorView<Windows.Foundation.Rect>;
 
             interface Windows.Foundation.Collections.IVectorView<Windows.Foundation.Size>;
 

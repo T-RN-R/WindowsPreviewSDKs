@@ -5,10 +5,6 @@
 
 #ifndef WINRT_Windows_UI_0_H
 #define WINRT_Windows_UI_0_H
-WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
-{
-    template <typename T> struct __declspec(empty_bases) IVectorView;
-}
 WINRT_EXPORT namespace winrt::Windows::UI
 {
     struct IColorHelper;
@@ -18,15 +14,11 @@ WINRT_EXPORT namespace winrt::Windows::UI
     struct IColorsStatics;
     struct IUIContentRoot;
     struct IUIContext;
-    struct IWindowReference;
-    struct IWindowReferenceStatics;
     struct ColorHelper;
     struct Colors;
     struct UIContentRoot;
     struct UIContext;
-    struct WindowReference;
     struct Color;
-    struct WindowReferenceId;
 }
 namespace winrt::impl
 {
@@ -37,22 +29,16 @@ namespace winrt::impl
     template <> struct category<Windows::UI::IColorsStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::IUIContentRoot>{ using type = interface_category; };
     template <> struct category<Windows::UI::IUIContext>{ using type = interface_category; };
-    template <> struct category<Windows::UI::IWindowReference>{ using type = interface_category; };
-    template <> struct category<Windows::UI::IWindowReferenceStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::ColorHelper>{ using type = class_category; };
     template <> struct category<Windows::UI::Colors>{ using type = class_category; };
     template <> struct category<Windows::UI::UIContentRoot>{ using type = class_category; };
     template <> struct category<Windows::UI::UIContext>{ using type = class_category; };
-    template <> struct category<Windows::UI::WindowReference>{ using type = class_category; };
     template <> struct category<Windows::UI::Color>{ using type = struct_category<uint8_t, uint8_t, uint8_t, uint8_t>; };
-    template <> struct category<Windows::UI::WindowReferenceId>{ using type = struct_category<uint64_t>; };
     template <> inline constexpr auto& name_v<Windows::UI::ColorHelper> = L"Windows.UI.ColorHelper";
     template <> inline constexpr auto& name_v<Windows::UI::Colors> = L"Windows.UI.Colors";
     template <> inline constexpr auto& name_v<Windows::UI::UIContentRoot> = L"Windows.UI.UIContentRoot";
     template <> inline constexpr auto& name_v<Windows::UI::UIContext> = L"Windows.UI.UIContext";
-    template <> inline constexpr auto& name_v<Windows::UI::WindowReference> = L"Windows.UI.WindowReference";
     template <> inline constexpr auto& name_v<Windows::UI::Color> = L"Windows.UI.Color";
-    template <> inline constexpr auto& name_v<Windows::UI::WindowReferenceId> = L"Windows.UI.WindowReferenceId";
     template <> inline constexpr auto& name_v<Windows::UI::IColorHelper> = L"Windows.UI.IColorHelper";
     template <> inline constexpr auto& name_v<Windows::UI::IColorHelperStatics> = L"Windows.UI.IColorHelperStatics";
     template <> inline constexpr auto& name_v<Windows::UI::IColorHelperStatics2> = L"Windows.UI.IColorHelperStatics2";
@@ -60,8 +46,6 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::IColorsStatics> = L"Windows.UI.IColorsStatics";
     template <> inline constexpr auto& name_v<Windows::UI::IUIContentRoot> = L"Windows.UI.IUIContentRoot";
     template <> inline constexpr auto& name_v<Windows::UI::IUIContext> = L"Windows.UI.IUIContext";
-    template <> inline constexpr auto& name_v<Windows::UI::IWindowReference> = L"Windows.UI.IWindowReference";
-    template <> inline constexpr auto& name_v<Windows::UI::IWindowReferenceStatics> = L"Windows.UI.IWindowReferenceStatics";
     template <> inline constexpr guid guid_v<Windows::UI::IColorHelper>{ 0x193CFBE7,0x65C7,0x4540,{ 0xAD,0x08,0x62,0x83,0xBA,0x76,0x87,0x9A } };
     template <> inline constexpr guid guid_v<Windows::UI::IColorHelperStatics>{ 0x8504DBEA,0xFB6A,0x4144,{ 0xA6,0xC2,0x33,0x49,0x9C,0x92,0x84,0xF5 } };
     template <> inline constexpr guid guid_v<Windows::UI::IColorHelperStatics2>{ 0x24D9AF02,0x6EB0,0x4B94,{ 0x85,0x5C,0xFC,0xF0,0x81,0x8D,0x9A,0x16 } };
@@ -69,13 +53,10 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::IColorsStatics>{ 0xCFF52E04,0xCCA6,0x4614,{ 0xA1,0x7E,0x75,0x49,0x10,0xC8,0x4A,0x99 } };
     template <> inline constexpr guid guid_v<Windows::UI::IUIContentRoot>{ 0x1DFCBAC6,0xB36B,0x5CB9,{ 0x9B,0xC5,0x2B,0x7A,0x0E,0xDD,0xC3,0x78 } };
     template <> inline constexpr guid guid_v<Windows::UI::IUIContext>{ 0xBB5CFACD,0x5BD8,0x59D0,{ 0xA5,0x9E,0x1C,0x17,0xA4,0xD6,0xD2,0x43 } };
-    template <> inline constexpr guid guid_v<Windows::UI::IWindowReference>{ 0xF0ACEF4B,0x05E5,0x4232,{ 0xB8,0x66,0xBB,0x23,0xFD,0xE8,0x37,0x4D } };
-    template <> inline constexpr guid guid_v<Windows::UI::IWindowReferenceStatics>{ 0x86A62C7B,0x576F,0x4202,{ 0xA5,0x49,0x49,0x09,0xF1,0xE0,0x7F,0x0E } };
     template <> struct default_interface<Windows::UI::ColorHelper>{ using type = Windows::UI::IColorHelper; };
     template <> struct default_interface<Windows::UI::Colors>{ using type = Windows::UI::IColors; };
     template <> struct default_interface<Windows::UI::UIContentRoot>{ using type = Windows::UI::IUIContentRoot; };
     template <> struct default_interface<Windows::UI::UIContext>{ using type = Windows::UI::IUIContext; };
-    template <> struct default_interface<Windows::UI::WindowReference>{ using type = Windows::UI::IWindowReference; };
     template <> struct abi<Windows::UI::IColorHelper>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -260,22 +241,6 @@ namespace winrt::impl
     {
         struct __declspec(novtable) type : inspectable_abi
         {
-        };
-    };
-    template <> struct abi<Windows::UI::IWindowReference>
-    {
-        struct __declspec(novtable) type : inspectable_abi
-        {
-            virtual int32_t __stdcall get_Id(struct struct_Windows_UI_WindowReferenceId*) noexcept = 0;
-        };
-    };
-    template <> struct abi<Windows::UI::IWindowReferenceStatics>
-    {
-        struct __declspec(novtable) type : inspectable_abi
-        {
-            virtual int32_t __stdcall FindAllTopLevelWindows(void**) noexcept = 0;
-            virtual int32_t __stdcall GetForWindow(uint64_t, void**) noexcept = 0;
-            virtual int32_t __stdcall GetWindowReference(struct struct_Windows_UI_WindowReferenceId, void**) noexcept = 0;
         };
     };
     template <typename D>
@@ -478,26 +443,6 @@ namespace winrt::impl
     {
         template <typename D> using type = consume_Windows_UI_IUIContext<D>;
     };
-    template <typename D>
-    struct consume_Windows_UI_IWindowReference
-    {
-        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowReferenceId) Id() const;
-    };
-    template <> struct consume<Windows::UI::IWindowReference>
-    {
-        template <typename D> using type = consume_Windows_UI_IWindowReference<D>;
-    };
-    template <typename D>
-    struct consume_Windows_UI_IWindowReferenceStatics
-    {
-        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::WindowReference>) FindAllTopLevelWindows() const;
-        WINRT_IMPL_AUTO(Windows::UI::WindowReference) GetForWindow(uint64_t hwnd) const;
-        WINRT_IMPL_AUTO(Windows::UI::WindowReference) GetWindowReference(Windows::UI::WindowReferenceId const& id) const;
-    };
-    template <> struct consume<Windows::UI::IWindowReferenceStatics>
-    {
-        template <typename D> using type = consume_Windows_UI_IWindowReferenceStatics<D>;
-    };
     struct struct_Windows_UI_Color
     {
         uint8_t A;
@@ -508,14 +453,6 @@ namespace winrt::impl
     template <> struct abi<Windows::UI::Color>
     {
         using type = struct_Windows_UI_Color;
-    };
-    struct struct_Windows_UI_WindowReferenceId
-    {
-        uint64_t Value;
-    };
-    template <> struct abi<Windows::UI::WindowReferenceId>
-    {
-        using type = struct_Windows_UI_WindowReferenceId;
     };
 }
 #endif

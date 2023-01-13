@@ -1135,12 +1135,6 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowWithContext)->get_UIContext(&value));
         return Windows::UI::UIContext{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::UI::WindowReference) consume_Windows_UI_Core_ICoreWindowWithWindowReference<D>::WindowReference() const
-    {
-        void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Core::ICoreWindowWithWindowReference)->get_WindowReference(&value));
-        return Windows::UI::WindowReference{ value, take_ownership_from_abi };
-    }
     template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Core_IIdleDispatchedHandlerArgs<D>::IsDispatcherIdle() const
     {
         bool value{};
@@ -2831,20 +2825,6 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, Windows::UI::Core::ICoreWindowWithWindowReference> : produce_base<D, Windows::UI::Core::ICoreWindowWithWindowReference>
-    {
-        int32_t __stdcall get_WindowReference(void** value) noexcept final try
-        {
-            clear_abi(value);
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::UI::WindowReference>(this->shim().WindowReference());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-    };
-#endif
-#ifndef WINRT_LEAN_AND_MEAN
-    template <typename D>
     struct produce<D, Windows::UI::Core::IIdleDispatchedHandlerArgs> : produce_base<D, Windows::UI::Core::IIdleDispatchedHandlerArgs>
     {
         int32_t __stdcall get_IsDispatcherIdle(bool* value) noexcept final try
@@ -3277,7 +3257,6 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Core::ICoreWindowResizeManagerStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Core::ICoreWindowStatic> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Core::ICoreWindowWithContext> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::UI::Core::ICoreWindowWithWindowReference> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Core::IIdleDispatchedHandlerArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Core::IInitializeWithCoreWindow> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Core::IInputEnabledEventArgs> : winrt::impl::hash_base {};

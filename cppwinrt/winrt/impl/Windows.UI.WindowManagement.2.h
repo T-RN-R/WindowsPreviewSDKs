@@ -5,23 +5,18 @@
 
 #ifndef WINRT_Windows_UI_WindowManagement_2_H
 #define WINRT_Windows_UI_WindowManagement_2_H
-#include "winrt/impl/Windows.UI.1.h"
 #include "winrt/impl/Windows.UI.WindowManagement.1.h"
 WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
 {
-    struct __declspec(empty_bases) AppWindow : Windows::UI::WindowManagement::IAppWindow,
-        impl::require<AppWindow, Windows::UI::WindowManagement::IAppWindow2>
+    struct __declspec(empty_bases) AppWindow : Windows::UI::WindowManagement::IAppWindow
     {
         AppWindow(std::nullptr_t) noexcept {}
         AppWindow(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WindowManagement::IAppWindow(ptr, take_ownership_from_abi) {}
-        using Windows::UI::WindowManagement::IAppWindow::TryShowAsync;
-        using impl::consume_t<AppWindow, Windows::UI::WindowManagement::IAppWindow2>::TryShowAsync;
         static auto TryCreateAsync();
         static auto ClearAllPersistedState();
         static auto ClearPersistedState(param::hstring const& key);
     };
-    struct __declspec(empty_bases) AppWindowChangedEventArgs : Windows::UI::WindowManagement::IAppWindowChangedEventArgs,
-        impl::require<AppWindowChangedEventArgs, Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>
+    struct __declspec(empty_bases) AppWindowChangedEventArgs : Windows::UI::WindowManagement::IAppWindowChangedEventArgs
     {
         AppWindowChangedEventArgs(std::nullptr_t) noexcept {}
         AppWindowChangedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WindowManagement::IAppWindowChangedEventArgs(ptr, take_ownership_from_abi) {}
@@ -96,20 +91,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         FullScreenPresentationConfiguration(std::nullptr_t) noexcept {}
         FullScreenPresentationConfiguration(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WindowManagement::IFullScreenPresentationConfiguration(ptr, take_ownership_from_abi) {}
         FullScreenPresentationConfiguration();
-    };
-    struct __declspec(empty_bases) SpanningPresentationConfiguration : Windows::UI::WindowManagement::ISpanningPresentationConfiguration,
-        impl::base<SpanningPresentationConfiguration, Windows::UI::WindowManagement::AppWindowPresentationConfiguration>,
-        impl::require<SpanningPresentationConfiguration, Windows::UI::WindowManagement::IAppWindowPresentationConfiguration>
-    {
-        SpanningPresentationConfiguration(std::nullptr_t) noexcept {}
-        SpanningPresentationConfiguration(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WindowManagement::ISpanningPresentationConfiguration(ptr, take_ownership_from_abi) {}
-        SpanningPresentationConfiguration();
-    };
-    struct __declspec(empty_bases) WindowInformation : Windows::UI::WindowManagement::IWindowInformation
-    {
-        WindowInformation(std::nullptr_t) noexcept {}
-        WindowInformation(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WindowManagement::IWindowInformation(ptr, take_ownership_from_abi) {}
-        static auto FromWindowReference(Windows::UI::WindowReference const& value);
     };
     struct __declspec(empty_bases) WindowingEnvironment : Windows::UI::WindowManagement::IWindowingEnvironment
     {

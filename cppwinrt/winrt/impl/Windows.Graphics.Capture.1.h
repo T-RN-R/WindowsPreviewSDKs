@@ -50,13 +50,6 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
         IGraphicsCaptureItemStatics(std::nullptr_t = nullptr) noexcept {}
         IGraphicsCaptureItemStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) IGraphicsCaptureItemStatics2 :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<IGraphicsCaptureItemStatics2>
-    {
-        IGraphicsCaptureItemStatics2(std::nullptr_t = nullptr) noexcept {}
-        IGraphicsCaptureItemStatics2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
     struct __declspec(empty_bases) IGraphicsCapturePicker :
         Windows::Foundation::IInspectable,
         impl::consume_t<IGraphicsCapturePicker>

@@ -273,13 +273,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::Core
         ICoreWindowWithContext(std::nullptr_t = nullptr) noexcept {}
         ICoreWindowWithContext(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) ICoreWindowWithWindowReference :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<ICoreWindowWithWindowReference>
-    {
-        ICoreWindowWithWindowReference(std::nullptr_t = nullptr) noexcept {}
-        ICoreWindowWithWindowReference(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
     struct __declspec(empty_bases) IIdleDispatchedHandlerArgs :
         Windows::Foundation::IInspectable,
         impl::consume_t<IIdleDispatchedHandlerArgs>

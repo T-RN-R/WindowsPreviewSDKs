@@ -117,7 +117,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Core
         CoreIndependentInputSource(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Core::ICoreInputSourceBase(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) CoreWindow : Windows::UI::Core::ICoreWindow,
-        impl::require<CoreWindow, Windows::UI::Core::ICoreWindow2, Windows::UI::Core::ICorePointerRedirector, Windows::UI::Core::ICoreWindow3, Windows::UI::Core::ICoreWindow4, Windows::UI::Core::ICoreWindow5, Windows::UI::Core::ICoreWindowWithContext, Windows::UI::Core::ICoreWindowWithWindowReference>
+        impl::require<CoreWindow, Windows::UI::Core::ICoreWindow2, Windows::UI::Core::ICorePointerRedirector, Windows::UI::Core::ICoreWindow3, Windows::UI::Core::ICoreWindow4, Windows::UI::Core::ICoreWindow5, Windows::UI::Core::ICoreWindowWithContext>
     {
         CoreWindow(std::nullptr_t) noexcept {}
         CoreWindow(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Core::ICoreWindow(ptr, take_ownership_from_abi) {}
