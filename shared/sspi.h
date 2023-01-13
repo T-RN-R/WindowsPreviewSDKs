@@ -373,7 +373,6 @@ typedef struct _SecBufferDesc {
 #define SECBUFFER_SUBSCRIBE_GENERIC_TLS_EXTENSION 26 // Buffer for subscribing to generic TLS extensions.
 #define SECBUFFER_FLAGS                         27  // ISC/ASC REQ Flags
 #define SECBUFFER_TRAFFIC_SECRETS               28  // Message sequence lengths and corresponding traffic secrets.
-#define SECBUFFER_CERTIFICATE_REQUEST_CONTEXT   29  // TLS 1.3 certificate request context.
 
 #define SECBUFFER_ATTRMASK                      0xF0000000
 #define SECBUFFER_READONLY                      0x80000000  // Buffer is read-only, no checksum
@@ -454,12 +453,6 @@ typedef struct _SEC_DTLS_MTU {
 typedef struct _SEC_FLAGS {
     unsigned long long Flags; // The caller sets ISC/ASC REQ flags; the lower 32 bits are reserved, must be set to 0.
 } SEC_FLAGS, *PSEC_FLAGS;
-
-typedef struct _SEC_CERTIFICATE_REQUEST_CONTEXT {
-    unsigned char cbCertificateRequestContext; // Size in bytes of the rgCertificateRequestContext array.
-    unsigned char rgCertificateRequestContext[ANYSIZE_ARRAY]; // The TLS 1.3 certificate request context.
-} SEC_CERTIFICATE_REQUEST_CONTEXT, *PSEC_CERTIFICATE_REQUEST_CONTEXT;
-
 
 //
 //  Traffic secret types:
@@ -552,14 +545,7 @@ typedef struct _SEC_TRAFFIC_SECRETS {
 #define ISC_REQ_USE_HTTP_STYLE          0x01000000
 #define ISC_REQ_UNVERIFIED_TARGET_NAME  0x20000000
 #define ISC_REQ_CONFIDENTIALITY_ONLY    0x40000000 // honored by SPNEGO/Kerberos
-#define ISC_REQ_MESSAGES                 0x0000000100000000 // Disables the TLS 1.3+ record layer and causes the security context to consume and produce cleartext TLS messages, rather than records.
-// Request that schannel perform server cert chain validation without failing the handshake on errors (deferred),
-// same as SCH_CRED_DEFERRED_CRED_VALIDATION except applies to context not credential handle.
-#define ISC_REQ_DEFERRED_CRED_VALIDATION 0x0000000200000000
-// Prevents the client sending the post_handshake_auth extension in the TLS 1.3 Client Hello.
-#define ISC_REQ_NO_POST_HANDSHAKE_AUTH   0x0000000400000000
-// Request TLS 1.3+ session ticket reuse. Passive observers may be able to track the TLS client across networks.
-#define ISC_REQ_REUSE_SESSION_TICKETS    0x0000000800000000
+#define ISC_REQ_MESSAGES                0x0000000100000000 // Disables the TLS 1.3+ record layer and causes the security context to consume and produce cleartext TLS messages, rather than records.
 
 #define ISC_RET_DELEGATE                0x00000001
 #define ISC_RET_MUTUAL_AUTH             0x00000002
@@ -590,10 +576,7 @@ typedef struct _SEC_TRAFFIC_SECRETS {
 #define ISC_RET_NO_ADDITIONAL_TOKEN     0x02000000 // *INTERNAL*
 #define ISC_RET_REAUTHENTICATION        0x08000000 // *INTERNAL*
 #define ISC_RET_CONFIDENTIALITY_ONLY    0x40000000 // honored by SPNEGO/Kerberos
-#define ISC_RET_MESSAGES                 0x0000000100000000 // Indicates that the TLS 1.3+ record layer is disabled, and the security context consumes and produces cleartext TLS messages, rather than records.
-#define ISC_RET_DEFERRED_CRED_VALIDATION 0x0000000200000000 // Indicates that SCH_CRED_DEFERRED_CRED_VALIDATION/ISC_REQ_DEFERRED_CRED_VALIDATION request will be honored.
-#define ISC_RET_NO_POST_HANDSHAKE_AUTH   0x0000000400000000 // Indicates that the TLS 1.3 Client Hello will not contain the post_handshake_auth extension.
-#define ISC_RET_REUSE_SESSION_TICKETS    0x0000000800000000 // Indicates that the TLS 1.3+ client may reuse session tickets.
+#define ISC_RET_MESSAGES                0x0000000100000000 // Indicates that the TLS 1.3+ record layer is disabled, and the security context consumes and produces cleartext TLS messages, rather than records.
 
 #define ASC_REQ_DELEGATE                0x00000001
 #define ASC_REQ_MUTUAL_AUTH             0x00000002
@@ -623,8 +606,6 @@ typedef struct _SEC_TRAFFIC_SECRETS {
 //      SSP_RET_REAUTHENTICATION        0x08000000  // *INTERNAL*
 #define ASC_REQ_ALLOW_MISSING_BINDINGS  0x10000000
 #define ASC_REQ_MESSAGES                0x0000000100000000 // Disables the TLS 1.3+ record layer and causes the security context to consume and produce cleartext TLS messages, rather than records.
-// Request that the TLS 1.3+ server accept reused session tickets referencing cached TLS sessions.
-#define ASC_REQ_REUSE_SESSION_TICKETS    0x0000000800000000
 
 #define ASC_RET_DELEGATE                0x00000001
 #define ASC_RET_MUTUAL_AUTH             0x00000002
@@ -652,7 +633,6 @@ typedef struct _SEC_TRAFFIC_SECRETS {
 #define ASC_RET_NO_ADDITIONAL_TOKEN     0x02000000  // *INTERNAL*
 //      SSP_RET_REAUTHENTICATION        0x08000000  // *INTERNAL*
 #define ASC_RET_MESSAGES                0x0000000100000000 // Indicates that the TLS 1.3+ record layer is disabled, and the security context consumes and produces cleartext TLS messages, rather than records.
-#define ASC_RET_REUSE_SESSION_TICKETS   0x0000000800000000 // Indicates that the TLS 1.3+ server will allow session ticket reuse.
 
 //
 //  Security Credentials Attributes:
@@ -3182,10 +3162,6 @@ EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_FIDO =
 EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_KEYTAB =
 { 0xd587aae8, 0xf78f, 0x4455, { 0xa1, 0x12, 0xc9, 0x34, 0xbe, 0xee, 0x7c, 0xe1 } };
 
-// {12E52E0F-6F9B-4F83-9020-9DE42B226267}
-EXTERN_C __declspec(selectany) const GUID SEC_WINNT_AUTH_DATA_TYPE_DELEGATION_TOKEN =
-{ 0x12e52e0f, 0x6f9b, 0x4f83, { 0x90, 0x20, 0x9d, 0xe4, 0x2b, 0x22, 0x62, 0x67 } };
-
 typedef struct _SEC_WINNT_AUTH_DATA_PASSWORD {
    SEC_WINNT_AUTH_BYTE_VECTOR UnicodePassword;
 } SEC_WINNT_AUTH_DATA_PASSWORD, PSEC_WINNT_AUTH_DATA_PASSWORD;
@@ -3220,7 +3196,6 @@ typedef struct _SEC_WINNT_AUTH_NGC_DATA {
 #define NGC_DATA_FLAG_KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES     (0x1) //corresponds to KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES
 #define NGC_DATA_FLAG_KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO (0x2) //corresponds to  KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO
 #define NGC_DATA_FLAG_IS_SMARTCARD_DATA                                (0x4)
-#define NGC_DATA_FLAG_IS_CLOUD_TRUST_CRED                              (0x8) // credential should be treated as "cloud trust" - use Cloud TGTs instead of on-prem PKINIT
 
 typedef struct _SEC_WINNT_AUTH_DATA_TYPE_SMARTCARD_CONTEXTS_DATA
 {
@@ -3440,7 +3415,7 @@ SECURITY_STATUS
 SEC_ENTRY
 SspiCopyAuthIdentity(
     _In_ PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData,
-    _Outptr_ _When_(return != 0, __drv_allocatesMem(Mem)) PSEC_WINNT_AUTH_IDENTITY_OPAQUE* AuthDataCopy
+    _Outptr_ PSEC_WINNT_AUTH_IDENTITY_OPAQUE* AuthDataCopy
     );
 
 //
@@ -3451,7 +3426,7 @@ SspiCopyAuthIdentity(
 VOID
 SEC_ENTRY
 SspiFreeAuthIdentity(
-    _In_opt_ __drv_freesMem(Mem) PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData
+    _In_opt_ PSEC_WINNT_AUTH_IDENTITY_OPAQUE AuthData
     );
 
 VOID
@@ -3477,7 +3452,7 @@ SspiEncodeStringsAsAuthIdentity(
     _In_opt_ PCWSTR pszUserName,
     _In_opt_ PCWSTR pszDomainName,
     _In_opt_ PCWSTR pszPackedCredentialsString,
-    _Outptr_ _When_(return != 0, __drv_allocatesMem(Mem)) PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppAuthIdentity
+    _Outptr_ PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppAuthIdentity
     );
 
 SECURITY_STATUS
@@ -3511,7 +3486,7 @@ SEC_ENTRY
 SspiUnmarshalAuthIdentity(
     _In_ unsigned long AuthIdentityLength,
     _In_reads_bytes_(AuthIdentityLength) char* AuthIdentityByteArray,
-    _Outptr_ _When_(return != 0, __drv_allocatesMem(Mem)) PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppAuthIdentity
+    _Outptr_ PSEC_WINNT_AUTH_IDENTITY_OPAQUE* ppAuthIdentity
     );
 
 #endif // NTDDI_VERSION

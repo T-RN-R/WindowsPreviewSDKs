@@ -102,14 +102,14 @@ typedef struct icmp_echo_reply32 {
 #endif // _WIN64
 
 #if (NTDDI_VERSION >= NTDDI_WINXP)
-#include <pshpack1.h>
+#include <packon.h>
 typedef struct _IPV6_ADDRESS_EX {
     USHORT sin6_port;
     ULONG  sin6_flowinfo;
     USHORT sin6_addr[8];
     ULONG  sin6_scope_id;
 } IPV6_ADDRESS_EX, *PIPV6_ADDRESS_EX;
-#include <poppack.h>
+#include <packoff.h>
 
 typedef struct icmpv6_echo_reply_lh {
     IPV6_ADDRESS_EX Address;    // Replying address.

@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_MEDIA_MEDIACONTROLCONTRACT_VERSION)
@@ -1107,21 +1107,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics ABI::Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics
 
 #endif // ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Audio {
-                interface ISpatialAudioFormatSubtypeStatics2;
-            } /* Audio */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2 ABI::Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics2
-
-#endif // ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_FWD_DEFINED__
 
 // Parameterized interface forward declarations (C++)
 
@@ -3357,7 +3342,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioDeviceInputNode = __uuidof(IAudioDeviceInputNode);
+                extern MIDL_CONST_ID IID& IID_IAudioDeviceInputNode = _uuidof(IAudioDeviceInputNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3397,7 +3382,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioDeviceOutputNode = __uuidof(IAudioDeviceOutputNode);
+                extern MIDL_CONST_ID IID& IID_IAudioDeviceOutputNode = _uuidof(IAudioDeviceOutputNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3478,7 +3463,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioFileInputNode = __uuidof(IAudioFileInputNode);
+                extern MIDL_CONST_ID IID& IID_IAudioFileInputNode = _uuidof(IAudioFileInputNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3524,7 +3509,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioFileOutputNode = __uuidof(IAudioFileOutputNode);
+                extern MIDL_CONST_ID IID& IID_IAudioFileOutputNode = _uuidof(IAudioFileOutputNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3560,7 +3545,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioFrameCompletedEventArgs = __uuidof(IAudioFrameCompletedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAudioFrameCompletedEventArgs = _uuidof(IAudioFrameCompletedEventArgs);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3625,7 +3610,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioFrameInputNode = __uuidof(IAudioFrameInputNode);
+                extern MIDL_CONST_ID IID& IID_IAudioFrameInputNode = _uuidof(IAudioFrameInputNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3665,7 +3650,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioFrameOutputNode = __uuidof(IAudioFrameOutputNode);
+                extern MIDL_CONST_ID IID& IID_IAudioFrameOutputNode = _uuidof(IAudioFrameOutputNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3795,7 +3780,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraph = __uuidof(IAudioGraph);
+                extern MIDL_CONST_ID IID& IID_IAudioGraph = _uuidof(IAudioGraph);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3857,7 +3842,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraph2 = __uuidof(IAudioGraph2);
+                extern MIDL_CONST_ID IID& IID_IAudioGraph2 = _uuidof(IAudioGraph2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3899,7 +3884,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraph3 = __uuidof(IAudioGraph3);
+                extern MIDL_CONST_ID IID& IID_IAudioGraph3 = _uuidof(IAudioGraph3);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -3941,7 +3926,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraphConnection = __uuidof(IAudioGraphConnection);
+                extern MIDL_CONST_ID IID& IID_IAudioGraphConnection = _uuidof(IAudioGraphConnection);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4010,7 +3995,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraphSettings = __uuidof(IAudioGraphSettings);
+                extern MIDL_CONST_ID IID& IID_IAudioGraphSettings = _uuidof(IAudioGraphSettings);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4049,7 +4034,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraphSettings2 = __uuidof(IAudioGraphSettings2);
+                extern MIDL_CONST_ID IID& IID_IAudioGraphSettings2 = _uuidof(IAudioGraphSettings2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4086,7 +4071,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraphSettingsFactory = __uuidof(IAudioGraphSettingsFactory);
+                extern MIDL_CONST_ID IID& IID_IAudioGraphSettingsFactory = _uuidof(IAudioGraphSettingsFactory);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4123,7 +4108,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraphStatics = __uuidof(IAudioGraphStatics);
+                extern MIDL_CONST_ID IID& IID_IAudioGraphStatics = _uuidof(IAudioGraphStatics);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4159,7 +4144,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioGraphUnrecoverableErrorOccurredEventArgs = __uuidof(IAudioGraphUnrecoverableErrorOccurredEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAudioGraphUnrecoverableErrorOccurredEventArgs = _uuidof(IAudioGraphUnrecoverableErrorOccurredEventArgs);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4207,7 +4192,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioInputNode = __uuidof(IAudioInputNode);
+                extern MIDL_CONST_ID IID& IID_IAudioInputNode = _uuidof(IAudioInputNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4246,7 +4231,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioInputNode2 = __uuidof(IAudioInputNode2);
+                extern MIDL_CONST_ID IID& IID_IAudioInputNode2 = _uuidof(IAudioInputNode2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4307,7 +4292,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNode = __uuidof(IAudioNode);
+                extern MIDL_CONST_ID IID& IID_IAudioNode = _uuidof(IAudioNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4385,7 +4370,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitter = __uuidof(IAudioNodeEmitter);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitter = _uuidof(IAudioNodeEmitter);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4424,7 +4409,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitter2 = __uuidof(IAudioNodeEmitter2);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitter2 = _uuidof(IAudioNodeEmitter2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4466,7 +4451,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitterConeProperties = __uuidof(IAudioNodeEmitterConeProperties);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitterConeProperties = _uuidof(IAudioNodeEmitterConeProperties);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4511,7 +4496,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitterDecayModel = __uuidof(IAudioNodeEmitterDecayModel);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitterDecayModel = _uuidof(IAudioNodeEmitterDecayModel);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4556,7 +4541,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitterDecayModelStatics = __uuidof(IAudioNodeEmitterDecayModelStatics);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitterDecayModelStatics = _uuidof(IAudioNodeEmitterDecayModelStatics);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4595,7 +4580,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitterFactory = __uuidof(IAudioNodeEmitterFactory);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitterFactory = _uuidof(IAudioNodeEmitterFactory);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4634,7 +4619,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitterNaturalDecayModelProperties = __uuidof(IAudioNodeEmitterNaturalDecayModelProperties);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitterNaturalDecayModelProperties = _uuidof(IAudioNodeEmitterNaturalDecayModelProperties);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4673,7 +4658,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitterShape = __uuidof(IAudioNodeEmitterShape);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitterShape = _uuidof(IAudioNodeEmitterShape);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4715,7 +4700,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeEmitterShapeStatics = __uuidof(IAudioNodeEmitterShapeStatics);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeEmitterShapeStatics = _uuidof(IAudioNodeEmitterShapeStatics);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4772,7 +4757,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeListener = __uuidof(IAudioNodeListener);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeListener = _uuidof(IAudioNodeListener);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4813,7 +4798,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioNodeWithListener = __uuidof(IAudioNodeWithListener);
+                extern MIDL_CONST_ID IID& IID_IAudioNodeWithListener = _uuidof(IAudioNodeWithListener);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4869,7 +4854,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioPlaybackConnection = __uuidof(IAudioPlaybackConnection);
+                extern MIDL_CONST_ID IID& IID_IAudioPlaybackConnection = _uuidof(IAudioPlaybackConnection);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4908,7 +4893,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioPlaybackConnectionOpenResult = __uuidof(IAudioPlaybackConnectionOpenResult);
+                extern MIDL_CONST_ID IID& IID_IAudioPlaybackConnectionOpenResult = _uuidof(IAudioPlaybackConnectionOpenResult);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4948,7 +4933,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioPlaybackConnectionStatics = __uuidof(IAudioPlaybackConnectionStatics);
+                extern MIDL_CONST_ID IID& IID_IAudioPlaybackConnectionStatics = _uuidof(IAudioPlaybackConnectionStatics);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -4991,7 +4976,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioStateMonitor = __uuidof(IAudioStateMonitor);
+                extern MIDL_CONST_ID IID& IID_IAudioStateMonitor = _uuidof(IAudioStateMonitor);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5058,7 +5043,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioStateMonitorStatics = __uuidof(IAudioStateMonitorStatics);
+                extern MIDL_CONST_ID IID& IID_IAudioStateMonitorStatics = _uuidof(IAudioStateMonitorStatics);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5097,7 +5082,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioDeviceInputNodeResult = __uuidof(ICreateAudioDeviceInputNodeResult);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioDeviceInputNodeResult = _uuidof(ICreateAudioDeviceInputNodeResult);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5133,7 +5118,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioDeviceInputNodeResult2 = __uuidof(ICreateAudioDeviceInputNodeResult2);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioDeviceInputNodeResult2 = _uuidof(ICreateAudioDeviceInputNodeResult2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5172,7 +5157,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioDeviceOutputNodeResult = __uuidof(ICreateAudioDeviceOutputNodeResult);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioDeviceOutputNodeResult = _uuidof(ICreateAudioDeviceOutputNodeResult);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5208,7 +5193,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioDeviceOutputNodeResult2 = __uuidof(ICreateAudioDeviceOutputNodeResult2);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioDeviceOutputNodeResult2 = _uuidof(ICreateAudioDeviceOutputNodeResult2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5247,7 +5232,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioFileInputNodeResult = __uuidof(ICreateAudioFileInputNodeResult);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioFileInputNodeResult = _uuidof(ICreateAudioFileInputNodeResult);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5283,7 +5268,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioFileInputNodeResult2 = __uuidof(ICreateAudioFileInputNodeResult2);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioFileInputNodeResult2 = _uuidof(ICreateAudioFileInputNodeResult2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5322,7 +5307,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioFileOutputNodeResult = __uuidof(ICreateAudioFileOutputNodeResult);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioFileOutputNodeResult = _uuidof(ICreateAudioFileOutputNodeResult);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5358,7 +5343,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioFileOutputNodeResult2 = __uuidof(ICreateAudioFileOutputNodeResult2);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioFileOutputNodeResult2 = _uuidof(ICreateAudioFileOutputNodeResult2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5397,7 +5382,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioGraphResult = __uuidof(ICreateAudioGraphResult);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioGraphResult = _uuidof(ICreateAudioGraphResult);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5433,7 +5418,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateAudioGraphResult2 = __uuidof(ICreateAudioGraphResult2);
+                extern MIDL_CONST_ID IID& IID_ICreateAudioGraphResult2 = _uuidof(ICreateAudioGraphResult2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5472,7 +5457,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateMediaSourceAudioInputNodeResult = __uuidof(ICreateMediaSourceAudioInputNodeResult);
+                extern MIDL_CONST_ID IID& IID_ICreateMediaSourceAudioInputNodeResult = _uuidof(ICreateMediaSourceAudioInputNodeResult);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5508,7 +5493,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICreateMediaSourceAudioInputNodeResult2 = __uuidof(ICreateMediaSourceAudioInputNodeResult2);
+                extern MIDL_CONST_ID IID& IID_ICreateMediaSourceAudioInputNodeResult2 = _uuidof(ICreateMediaSourceAudioInputNodeResult2);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5562,7 +5547,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IEchoEffectDefinition = __uuidof(IEchoEffectDefinition);
+                extern MIDL_CONST_ID IID& IID_IEchoEffectDefinition = _uuidof(IEchoEffectDefinition);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5599,7 +5584,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IEchoEffectDefinitionFactory = __uuidof(IEchoEffectDefinitionFactory);
+                extern MIDL_CONST_ID IID& IID_IEchoEffectDefinitionFactory = _uuidof(IEchoEffectDefinitionFactory);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5650,7 +5635,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IEqualizerBand = __uuidof(IEqualizerBand);
+                extern MIDL_CONST_ID IID& IID_IEqualizerBand = _uuidof(IEqualizerBand);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5689,7 +5674,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IEqualizerEffectDefinition = __uuidof(IEqualizerEffectDefinition);
+                extern MIDL_CONST_ID IID& IID_IEqualizerEffectDefinition = _uuidof(IEqualizerEffectDefinition);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5726,7 +5711,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IEqualizerEffectDefinitionFactory = __uuidof(IEqualizerEffectDefinitionFactory);
+                extern MIDL_CONST_ID IID& IID_IEqualizerEffectDefinitionFactory = _uuidof(IEqualizerEffectDefinitionFactory);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5762,7 +5747,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFrameInputNodeQuantumStartedEventArgs = __uuidof(IFrameInputNodeQuantumStartedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IFrameInputNodeQuantumStartedEventArgs = _uuidof(IFrameInputNodeQuantumStartedEventArgs);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5810,7 +5795,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILimiterEffectDefinition = __uuidof(ILimiterEffectDefinition);
+                extern MIDL_CONST_ID IID& IID_ILimiterEffectDefinition = _uuidof(ILimiterEffectDefinition);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5847,7 +5832,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILimiterEffectDefinitionFactory = __uuidof(ILimiterEffectDefinitionFactory);
+                extern MIDL_CONST_ID IID& IID_ILimiterEffectDefinitionFactory = _uuidof(ILimiterEffectDefinitionFactory);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -5929,7 +5914,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceAudioInputNode = __uuidof(IMediaSourceAudioInputNode);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceAudioInputNode = _uuidof(IMediaSourceAudioInputNode);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6103,7 +6088,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IReverbEffectDefinition = __uuidof(IReverbEffectDefinition);
+                extern MIDL_CONST_ID IID& IID_IReverbEffectDefinition = _uuidof(IReverbEffectDefinition);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6140,7 +6125,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IReverbEffectDefinitionFactory = __uuidof(IReverbEffectDefinitionFactory);
+                extern MIDL_CONST_ID IID& IID_IReverbEffectDefinitionFactory = _uuidof(IReverbEffectDefinitionFactory);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6176,7 +6161,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISetDefaultSpatialAudioFormatResult = __uuidof(ISetDefaultSpatialAudioFormatResult);
+                extern MIDL_CONST_ID IID& IID_ISetDefaultSpatialAudioFormatResult = _uuidof(ISetDefaultSpatialAudioFormatResult);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6236,7 +6221,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpatialAudioDeviceConfiguration = __uuidof(ISpatialAudioDeviceConfiguration);
+                extern MIDL_CONST_ID IID& IID_ISpatialAudioDeviceConfiguration = _uuidof(ISpatialAudioDeviceConfiguration);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6273,7 +6258,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpatialAudioDeviceConfigurationStatics = __uuidof(ISpatialAudioDeviceConfigurationStatics);
+                extern MIDL_CONST_ID IID& IID_ISpatialAudioDeviceConfigurationStatics = _uuidof(ISpatialAudioDeviceConfigurationStatics);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6320,7 +6305,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpatialAudioFormatConfiguration = __uuidof(ISpatialAudioFormatConfiguration);
+                extern MIDL_CONST_ID IID& IID_ISpatialAudioFormatConfiguration = _uuidof(ISpatialAudioFormatConfiguration);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6356,7 +6341,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpatialAudioFormatConfigurationStatics = __uuidof(ISpatialAudioFormatConfigurationStatics);
+                extern MIDL_CONST_ID IID& IID_ISpatialAudioFormatConfigurationStatics = _uuidof(ISpatialAudioFormatConfigurationStatics);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6407,7 +6392,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpatialAudioFormatSubtypeStatics = __uuidof(ISpatialAudioFormatSubtypeStatics);
+                extern MIDL_CONST_ID IID& IID_ISpatialAudioFormatSubtypeStatics = _uuidof(ISpatialAudioFormatSubtypeStatics);
             } /* Audio */
         } /* Media */
     } /* Windows */
@@ -6416,42 +6401,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics;
 #endif /* !defined(____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Interface Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics2
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Media.Audio.SpatialAudioFormatSubtype
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Audio_ISpatialAudioFormatSubtypeStatics2[] = L"Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics2";
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Audio {
-                MIDL_INTERFACE("4565e6cb-d95b-5621-b6af-0e8849c57c80")
-                ISpatialAudioFormatSubtypeStatics2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_DTSXForHomeTheater(
-                        HSTRING* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ISpatialAudioFormatSubtypeStatics2 = __uuidof(ISpatialAudioFormatSubtypeStatics2);
-            } /* Audio */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -6741,8 +6690,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.Media.Audio.IAudioNodeEmitterFactory interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.Audio.IAudioNodeEmitter ** Default Interface **
@@ -7337,7 +7286,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics2 interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -7737,12 +7685,6 @@ typedef interface __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatConfigurati
 typedef interface __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics;
 
 #endif // ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2 __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2;
-
-#endif // ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_FWD_DEFINED__
 
 // Parameterized interface forward declarations (C)
 
@@ -16258,75 +16200,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtyp
 
 /*
  *
- * Interface Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics2
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Media.Audio.SpatialAudioFormatSubtype
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Audio_ISpatialAudioFormatSubtypeStatics2[] = L"Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics2";
-typedef struct __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_DTSXForHomeTheater)(__x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2* This,
-        HSTRING* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2Vtbl;
-
-interface __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_get_DTSXForHomeTheater(This, value) \
-    ((This)->lpVtbl->get_DTSXForHomeTheater(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CAudio_CISpatialAudioFormatSubtypeStatics2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.Media.Audio.AudioDeviceInputNode
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -16613,8 +16486,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.Media.Audio.IAudioNodeEmitterFactory interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.Audio.IAudioNodeEmitter ** Default Interface **
@@ -17209,7 +17082,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics2 interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment

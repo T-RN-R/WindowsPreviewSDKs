@@ -498,12 +498,19 @@ wsprintfW(
 #define VK_KANA           0x15
 #define VK_HANGEUL        0x15  /* old name - should be here for compatibility */
 #define VK_HANGUL         0x15
-#define VK_IME_ON         0x16
+
+/*
+ * 0x16 : unassigned
+ */
+
 #define VK_JUNJA          0x17
 #define VK_FINAL          0x18
 #define VK_HANJA          0x19
 #define VK_KANJI          0x19
-#define VK_IME_OFF        0x1A
+
+/*
+ * 0x1A : unassigned
+ */
 
 #define VK_ESCAPE         0x1B
 
@@ -783,8 +790,8 @@ wsprintfW(
  */
 #define WH_MIN              (-1)
 #define WH_MSGFILTER        (-1)
-#define WH_JOURNALRECORD    0   // OBSOLETE: discontinued
-#define WH_JOURNALPLAYBACK  1   // OBSOLETE: discontinued
+#define WH_JOURNALRECORD    0
+#define WH_JOURNALPLAYBACK  1
 #define WH_KEYBOARD         2
 #define WH_GETMESSAGE       3
 #define WH_CALLWNDPROC      4
@@ -1925,10 +1932,6 @@ typedef struct tagMSG {
 #define GWLP_ID             (-12)
 
 /*
- * Used in _GetWindowLongPtr to return internal state of user32 edit control
- */
-
-/*
  * Class field offsets for GetClassLong()
  */
 #define GCL_MENUNAME        (-8)
@@ -2463,6 +2466,7 @@ typedef struct {
 #define WM_DPICHANGED_AFTERPARENT       0x02E3
 #define WM_GETDPISCALEDSIZE             0x02E4
 #endif /* WINVER >= 0x0605 */
+
 
 #define WM_CUT                          0x0300
 #define WM_COPY                         0x0301
@@ -3617,7 +3621,6 @@ UnregisterHotKey(
 #define EWX_BOOTOPTIONS             0x01000000
 #define EWX_ARSO                    0x04000000
 #define EWX_CHECK_SAFE_FOR_SERVER   0x08000000
-#define EWX_SYSTEM_INITIATED        0x10000000
 
 
 #pragma region Desktop Family
@@ -4865,7 +4868,6 @@ IsZoomed(
 /*
  * SetWindowPos Flags
  */
-#define SWP_NONE            0x0000
 #define SWP_NOSIZE          0x0001
 #define SWP_NOMOVE          0x0002
 #define SWP_NOZORDER        0x0004
@@ -4882,8 +4884,8 @@ IsZoomed(
 #define SWP_NOREPOSITION    SWP_NOOWNERZORDER
 
 #if(WINVER >= 0x0400)
-#define SWP_DEFERERASE      0x2000 // same as SWP_DEFERDRAWING
-#define SWP_ASYNCWINDOWPOS  0x4000 // same as SWP_CREATESPB
+#define SWP_DEFERERASE      0x2000
+#define SWP_ASYNCWINDOWPOS  0x4000
 #endif /* WINVER >= 0x0400 */
 
 
@@ -5308,6 +5310,7 @@ DefDlgProcW(
 #define DefDlgProc  DefDlgProcA
 #endif // !UNICODE
 
+
 typedef enum DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
      DCDC_DEFAULT                  = 0x0000,
      DCDC_DISABLE_FONT_UPDATE      = 0x0001,
@@ -5458,21 +5461,6 @@ HANDLE
 WINAPI
 GetClipboardData(
     _In_ UINT uFormat);
-
-typedef struct tagGETCLIPBMETADATA {
-
-    UINT Version; // Currently version 1; increment this value to add more fields.
-    BOOL IsDelayRendered; // Indicates if the data is delay-rendered.
-    BOOL IsSynthetic; // Indicates if the data is produced on-demand from another format (some bitmap/text/metafile).
-
-} GETCLIPBMETADATA, *PGETCLIPBMETADATA;
-
-WINUSERAPI
-BOOL
-WINAPI
-GetClipboardMetadata(
-    UINT format,
-    _Inout_ PGETCLIPBMETADATA metadata);
 
 WINUSERAPI
 UINT
@@ -7408,41 +7396,6 @@ GetSystemMetricsForDpi(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 #ifndef NOMENUS
-/*
- * Menu-specific access flags
- */
-#define MENU_GET_ITEM_INFO      (0x0001) // GetMenuInfo, GetMenuItemInfo
-#define MENU_GET_ITEM_DATA      (0x0002) // Get dwMenuData
-#define MENU_GET_SUBMENU        (0x0004) // Get Sub Menu
-#define MENU_INSERT_MENU        (0x0008) // InsertMenu
-#define MENU_INSERT_ITEM        (0x0010) // InsertMenuItem
-#define MENU_DELETE_MENU        (0x0020) // DeleteMenu, RemoveMenu
-#define MENU_SET_ITEM_INFO      (0x0040) // SetMenuItemInfo, ModifyMenu
-#define MENU_ENABLE_ITEM        (0x0080) // EnableMenuItem
-#define MENU_CHECK_ITEM         (0x0100) // CheckMenuItem
-#define MENU_SET_DEFAULT_ITEM   (0x0200) // SetMenuDefaultItem
-#define MENU_SET_ITEM_DATA      (0x0400) // Set dwMenuData
-#define MENU_SET_SUBMENU        (0x0800) // Set Sub Menu
-
-#define MENU_READ_ACCESS       (STANDARD_RIGHTS_READ   |\
-                                MENU_GET_ITEM_INFO     |\
-                                MENU_GET_ITEM_DATA     |\
-                                MENU_GET_SUBMENU)
-
-#define MENU_WRITE_ACCESS      (STANDARD_RIGHTS_WRITE  |\
-                                MENU_INSERT_MENU            |\
-                                MENU_INSERT_ITEM       |\
-                                MENU_DELETE_MENU            |\
-                                MENU_SET_ITEM_INFO     |\
-                                MENU_ENABLE_ITEM |\
-                                MENU_CHECK_ITEM |\
-                                MENU_SET_DEFAULT_ITEM  |\
-                                MENU_SET_ITEM_DATA     |\
-                                MENU_SET_SUBMENU)
-
-#define MENU_EXECUTE_ACCESS   (STANDARD_RIGHTS_EXECUTE)
-
-#define MENU_ALL_ACCESS (STANDARD_RIGHTS_ALL | MENU_READ_ACCESS | MENU_WRITE_ACCESS | MENU_EXECUTE_ACCESS)
 
 WINUSERAPI
 HMENU
@@ -8776,11 +8729,11 @@ ScrollWindowEx(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
-#define SW_SCROLLCHILDREN   0x0001  /* Scroll children within *lprcScroll. */
-#define SW_INVALIDATE       0x0002  /* Invalidate after scrolling */
-#define SW_ERASE            0x0004  /* If SW_INVALIDATE, don't send WM_ERASEBACKGROUND */
+#define SW_SCROLLCHILDREN           0x0001  /* Scroll children within *lprcScroll. */
+#define SW_INVALIDATE               0x0002  /* Invalidate after scrolling */
+#define SW_ERASE                    0x0004  /* If SW_INVALIDATE, don't send WM_ERASEBACKGROUND */
 #if(WINVER >= 0x0500)
-#define SW_SMOOTHSCROLL     0x0010  /* Use smooth scrolling */
+#define SW_SMOOTHSCROLL             0x0010  /* Use smooth scrolling */
 #endif /* WINVER >= 0x0500 */
 
 #pragma region Desktop Family
@@ -10840,21 +10793,6 @@ typedef struct tagCURSORSHAPE
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
-#pragma region Desktop or Games Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)
-#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
-#define CURSOR_CREATION_SCALING_NONE    1
-#define CURSOR_CREATION_SCALING_DEFAULT 2
-
-WINUSERAPI
-UINT
-WINAPI
-SetThreadCursorCreationScaling(
-    UINT cursorDpi);
-#endif /* NTDDI_VERSION >= NTDDI_WIN10_CO */
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
-#pragma endregion
-
 #define IMAGE_BITMAP        0
 #define IMAGE_ICON          1
 #define IMAGE_CURSOR        2
@@ -11103,9 +11041,9 @@ GetIconInfoExW(
 
 #endif /* OEMRESOURCE */
 
-
-// The ordinal number for the entry point of language drivers.
-#define ORD_LANGDRIVER    1
+#define ORD_LANGDRIVER    1     /* The ordinal number for the entry point of
+                                ** language drivers.
+                                */
 
 #ifndef NOICONS
 
@@ -11674,7 +11612,7 @@ DlgDirSelectComboBoxExW(
  */
 #define DS_ABSALIGN         0x01L
 #define DS_SYSMODAL         0x02L
-#define DS_LOCALEDIT        0x20L   /* 16-bit: Edit items get Local storage. 32-bit and up: meaningless. */
+#define DS_LOCALEDIT        0x20L   /* Edit items get Local storage. */
 #define DS_SETFONT          0x40L   /* User specified font for Dlg controls */
 #define DS_MODALFRAME       0x80L   /* Can be combined with WS_CAPTION  */
 #define DS_NOIDLEMSG        0x100L  /* WM_ENTERIDLE message will not be sent */
@@ -12623,10 +12561,6 @@ typedef struct tagTouchPredictionParameters
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_19H1)
 #endif
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
-/* constants for SPI_{GET|SET}WAKEONINPUTDEVICETYPES */
-#endif // NTDDI_VERSION >= NTDDI_WIN10_CO
 
 
 #if(WINVER >= 0x0500)
@@ -13686,6 +13620,7 @@ EnumDisplayMonitors(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
+
 #ifndef NOWINABLE
 
 #pragma region Desktop Family
@@ -14514,7 +14449,6 @@ SetProcessDpiAwarenessContext(
 
 #endif /* WINVER >= 0x0605 */
 
-
 #if (NTDDI_VERSION >= NTDDI_WIN10_19H1)
 
 WINUSERAPI
@@ -14703,7 +14637,6 @@ typedef struct tagMENUBARINFO
     HWND hwndMenu;       // hwnd of item submenu if one
     BOOL fBarFocused:1;  // bar, popup has the focus
     BOOL fFocused:1;     // item has the focus
-    BOOL fUnused:30;     // reserved
 } MENUBARINFO, *PMENUBARINFO, *LPMENUBARINFO;
 
 WINUSERAPI
@@ -15065,7 +14998,6 @@ typedef struct tagRAWMOUSE {
 #if(WINVER >= 0x0600)
 #define MOUSE_MOVE_NOCOALESCE    0x08  // do not coalesce mouse moves
 #endif /* WINVER >= 0x0600 */
-// NOTE: 0x100 is already claimed by MOUSE_TERMSRV_SRC_SHADOW in ntddmou.w
 
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
@@ -15880,7 +15812,7 @@ GetCIMSSM(
 
 #endif /* WINVER >= 0x0601 */
 
-#if(WINVER >= 0x0602)
+#if(WINVER >= 0x0601)
 
 #pragma region Application Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
@@ -15962,7 +15894,7 @@ SetDisplayAutoRotationPreferences(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
-#endif /* WINVER >= 0x0602 */
+#endif /* WINVER >= 0x0601 */
 
 
 #if(WINVER >= 0x0601)
@@ -15998,61 +15930,6 @@ SetProcessRestrictionExemption(
 /*
  * Ink Feedback APIs
  */
-
-#if(WINVER >= 0x0607)
-
-WINUSERAPI
-BOOL
-WINAPI
-SetAdditionalForegroundBoostProcesses(HWND topLevelWindow,
-                                      DWORD processHandleCount,
-                                      _In_reads_(processHandleCount) HANDLE *processHandleArray);
-
-/* TOOLTIP_DISMISS_FLAGS:
- *
- * These are flags used with the RegisterForTooltipDismissNotification API.
- *
- * TDF_REGISTER -   Used to register tooltip to receive notification of trigger key combination
- *                  via WM_TOOLTIPDISMISS.
- *
- * TDF_UNREGISTER - Used to unregister tooltip from receiving notification of trigger key
- *                  combination via WM_TOOLTIPDISMISS.
- */
-
-typedef enum {
-    TDF_REGISTER                = 0x0001,
-    TDF_UNREGISTER              = 0x0002,
-} TOOLTIP_DISMISS_FLAGS;
-
-WINUSERAPI
-BOOL
-WINAPI
-RegisterForTooltipDismissNotification(HWND hWnd,
-                                      TOOLTIP_DISMISS_FLAGS tdFlags);
-
-/*
- * Support for Accessibility Tooltip Dismissal API:
- *
- * This message notifies apps/frameworks that a trigger event has occurred and they should dismiss the
- * respective tooltip window.
- * This is used with RegisterForTooltipDismissNotification.
- *
- * Note that only kernel mode can originate this message.
- */
-#define WM_TOOLTIPDISMISS               0x0345
-
-#endif /* WINVER >= 0x0607 */
-
-
-#if(WINVER >= 0x0604)
-
-WINUSERAPI
-BOOL
-WINAPI
-IsWindowArranged(
-    _In_ HWND hwnd);
-
-#endif /* WINVER >= 0x0604 */
 
 #if _MSC_VER >= 1200
 #pragma warning(pop)

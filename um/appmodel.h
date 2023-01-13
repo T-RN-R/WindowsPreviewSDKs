@@ -16,6 +16,8 @@
 //
 ////
 
+
+
 #if defined(_MSC_VER)
 #if _MSC_VER > 1000
 #pragma once
@@ -47,8 +49,6 @@ extern "C" {
 
 #pragma region Application Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
-
-/* ---------------------------------------------------------------- */
 
 // Identity Types
 #include <pshpack4.h>
@@ -88,6 +88,7 @@ GetCurrentPackageId(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -96,6 +97,7 @@ GetCurrentPackageFullName(
     _Inout_ UINT32* packageFullNameLength,
     _Out_writes_opt_(*packageFullNameLength) PWSTR packageFullName
     );
+
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -106,6 +108,7 @@ GetCurrentPackageFamilyName(
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -114,6 +117,7 @@ GetCurrentPackagePath(
     _Inout_ UINT32* pathLength,
     _Out_writes_opt_(*pathLength) PWSTR path
     );
+
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -125,6 +129,7 @@ GetPackageId(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -135,8 +140,8 @@ GetPackageFullName(
     _Out_writes_opt_(*packageFullNameLength) PWSTR packageFullName
     );
 
-//TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 
+//TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -148,6 +153,7 @@ GetPackageFullNameFromToken(
     _Out_writes_opt_(*packageFullNameLength) PWSTR packageFullName
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -158,8 +164,8 @@ GetPackageFamilyName(
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
 
-//TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 
+//TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -170,6 +176,7 @@ GetPackageFamilyNameFromToken(
     _Inout_ UINT32* packageFamilyNameLength,
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
+
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -182,6 +189,7 @@ GetPackagePath(
     _Out_writes_opt_(*pathLength) PWSTR path
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -192,6 +200,7 @@ GetPackagePathByFullName(
     _Out_writes_opt_(*pathLength) PWSTR path
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -201,6 +210,7 @@ GetStagedPackagePathByFullName(
     _Inout_ UINT32* pathLength,
     _Out_writes_opt_(*pathLength) PWSTR path
     );
+
 
 #if NTDDI_VERSION >= NTDDI_WIN10_19H1
 typedef enum PackagePathType
@@ -227,6 +237,7 @@ GetPackagePathByFullName2(
     _Out_writes_opt_(*pathLength) PWSTR path
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -237,6 +248,7 @@ GetStagedPackagePathByFullName2(
     _Inout_ UINT32* pathLength,
     _Out_writes_opt_(*pathLength) PWSTR path
     );
+
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -250,6 +262,7 @@ GetCurrentPackageInfo2(
     _Out_opt_ UINT32* count
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -259,6 +272,7 @@ GetCurrentPackagePath2(
     _Inout_ UINT32* pathLength,
     _Out_writes_opt_(*pathLength) PWSTR path
     );
+
 #endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
 
 /* ---------------------------------------------------------------- */
@@ -274,6 +288,7 @@ GetCurrentApplicationUserModelId(
     _Out_writes_opt_(*applicationUserModelIdLength) PWSTR applicationUserModelId
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -284,8 +299,8 @@ GetApplicationUserModelId(
     _Out_writes_opt_(*applicationUserModelIdLength) PWSTR applicationUserModelId
     );
 
-//TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 
+//TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -297,12 +312,12 @@ GetApplicationUserModelIdFromToken(
     _Out_writes_opt_(*applicationUserModelIdLength) PWSTR applicationUserModelId
     );
 
+
 /* ---------------------------------------------------------------- */
 
 // Verification Functions
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
-
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -311,6 +326,7 @@ WINAPI
 VerifyPackageFullName(
     _In_ PCWSTR packageFullName
     );
+
 
 WINBASEAPI
 _Check_return_
@@ -321,6 +337,7 @@ VerifyPackageFamilyName(
     _In_ PCWSTR packageFamilyName
     );
 
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -329,6 +346,7 @@ WINAPI
 VerifyPackageId(
     _In_ const PACKAGE_ID* packageId
     );
+
 
 WINBASEAPI
 _Check_return_
@@ -339,6 +357,7 @@ VerifyApplicationUserModelId(
     _In_ PCWSTR applicationUserModelId
     );
 
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -347,6 +366,7 @@ WINAPI
 VerifyPackageRelativeApplicationId(
     _In_ PCWSTR packageRelativeApplicationId
     );
+
 
 /* ---------------------------------------------------------------- */
 
@@ -364,6 +384,7 @@ PackageIdFromFullName(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer
     );
 
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -374,6 +395,7 @@ PackageFullNameFromId(
     _Inout_ UINT32* packageFullNameLength,
     _Out_writes_opt_(*packageFullNameLength) PWSTR packageFullName
     );
+
 
 WINBASEAPI
 _Check_return_
@@ -386,6 +408,7 @@ PackageFamilyNameFromId(
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
 
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -396,6 +419,7 @@ PackageFamilyNameFromFullName(
     _Inout_ UINT32* packageFamilyNameLength,
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
+
 
 WINBASEAPI
 _Check_return_
@@ -410,6 +434,7 @@ PackageNameAndPublisherIdFromFamilyName(
     _Out_writes_opt_(*packagePublisherIdLength) PWSTR packagePublisherId
     );
 
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -421,6 +446,7 @@ FormatApplicationUserModelId(
     _Inout_ UINT32* applicationUserModelIdLength,
     _Out_writes_opt_(*applicationUserModelIdLength) PWSTR applicationUserModelId
     );
+
 
 WINBASEAPI
 _Check_return_
@@ -434,6 +460,7 @@ ParseApplicationUserModelId(
     _Inout_ UINT32* packageRelativeApplicationIdLength,
     _Out_writes_opt_(*packageRelativeApplicationIdLength) PWSTR packageRelativeApplicationId
     );
+
 
 /* ---------------------------------------------------------------- */
 
@@ -454,8 +481,8 @@ GetPackagesByPackageFamily(
     _Out_writes_opt_(*bufferLength) WCHAR* buffer
     );
 
-/* Any combination of PACKAGE_FILTER_* */
-WINBASEAPI
+
+/* Any combination of PACKAGE_FILTER_* */WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
 _On_failure_(_Unchanged_(*count))
@@ -471,6 +498,7 @@ FindPackagesByPackageFamily(
     _Out_writes_opt_(*bufferLength) WCHAR* buffer,
     _Out_writes_opt_(*count) UINT32* packageProperties
     );
+
 
 typedef enum PackageOrigin
 {
@@ -492,6 +520,7 @@ GetStagedPackageOrigin(
     _In_ PCWSTR packageFullName,
     _Out_ PackageOrigin* origin
     );
+
 
 /* ---------------------------------------------------------------- */
 
@@ -515,10 +544,6 @@ GetStagedPackageOrigin(
 #define PACKAGE_FILTER_STATIC               PACKAGE_PROPERTY_STATIC
 #define PACKAGE_PROPERTY_DYNAMIC            0x00100000
 #define PACKAGE_FILTER_DYNAMIC              PACKAGE_PROPERTY_DYNAMIC
-#if NTDDI_VERSION >= NTDDI_WIN10_MN
-#define PACKAGE_PROPERTY_HOSTRUNTIME        0x00200000
-#define PACKAGE_FILTER_HOSTRUNTIME          PACKAGE_PROPERTY_HOSTRUNTIME
-#endif
 
 #if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WINBLUE)
 #pragma deprecated("PACKAGE_FILTER_ALL_LOADED")
@@ -558,6 +583,7 @@ GetCurrentPackageInfo(
     _Out_opt_ UINT32* count
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -568,8 +594,8 @@ OpenPackageInfoByFullName(
     _Out_ PACKAGE_INFO_REFERENCE* packageInfoReference
     );
 
-//TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 
+//TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -582,6 +608,7 @@ OpenPackageInfoByFullNameForUser(
     _Out_ PACKAGE_INFO_REFERENCE* packageInfoReference
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -589,6 +616,7 @@ WINAPI
 ClosePackageInfo(
     _In_ PACKAGE_INFO_REFERENCE packageInfoReference
     );
+
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -602,6 +630,7 @@ GetPackageInfo(
     _Out_opt_ UINT32* count
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -613,265 +642,6 @@ GetPackageApplicationIds(
     _Out_opt_ UINT32* count
     );
 
-#if NTDDI_VERSION >= NTDDI_WIN10_19H1
-
-WINBASEAPI
-_Success_(return == ERROR_SUCCESS)
-LONG
-WINAPI
-GetPackageInfo2(
-    _In_ PACKAGE_INFO_REFERENCE packageInfoReference,
-    _In_ const UINT32 flags,
-    _In_ PackagePathType packagePathType,
-    _Inout_ UINT32* bufferLength,
-    _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer,
-    _Out_opt_ UINT32* count
-    );
-#endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
-
-WINBASEAPI
-_Check_return_
-HRESULT
-WINAPI
-CheckIsMSIXPackage(
-    _In_ PCWSTR packageFullName,
-    _Out_ BOOL* isMSIXPackage
-    );
-
-/* ---------------------------------------------------------------- */
-
-// Dynamic Dependencies
-
-#if NTDDI_VERSION >= NTDDI_WIN10_CO
-
-typedef enum CreatePackageDependencyOptions
-{
-    CreatePackageDependencyOptions_None = 0,
-
-    /// Disable dependency resolution when pinning a package dependency.
-    CreatePackageDependencyOptions_DoNotVerifyDependencyResolution = 0x00000001,
-
-     /// Define the package dependency for the system, accessible to all users
-     /// (default is the package dependency is defined for a specific user).
-     /// This option requires the caller has adminitrative privileges.
-    CreatePackageDependencyOptions_ScopeIsSystem = 0x00000002,
-} CreatePackageDependencyOptions;
-DEFINE_ENUM_FLAG_OPERATORS(CreatePackageDependencyOptions)
-
-typedef enum PackageDependencyLifetimeKind
-{
-    /// The current process is the lifetime artifact. The package dependency
-    /// is implicitly deleted when the process terminates.
-    PackageDependencyLifetimeKind_Process = 0,
-
-    /// The lifetime artifact is an absolute filename or path.
-    /// The package dependency is implicitly deleted when this is deleted.
-    PackageDependencyLifetimeKind_FilePath = 1,
-
-    /// The lifetime artifact is a registry key in the format
-    /// 'root\\subkey' where root is one of the following: HKLM, HKCU, HKCR, HKU.
-    /// The package dependency is implicitly deleted when this is deleted.
-    PackageDependencyLifetimeKind_RegistryKey = 2,
-} PackageDependencyLifetimeKind;
-
-typedef enum AddPackageDependencyOptions
-{
-    AddPackageDependencyOptions_None                   = 0,
-    AddPackageDependencyOptions_PrependIfRankCollision = 0x00000001,
-} AddPackageDependencyOptions;
-DEFINE_ENUM_FLAG_OPERATORS(AddPackageDependencyOptions)
-
-#define PACKAGE_DEPENDENCY_RANK_DEFAULT 0
-
-typedef enum PackageDependencyProcessorArchitectures
-{
-    PackageDependencyProcessorArchitectures_None    = 0,
-    PackageDependencyProcessorArchitectures_Neutral = 0x00000001,
-    PackageDependencyProcessorArchitectures_X86     = 0x00000002,
-    PackageDependencyProcessorArchitectures_X64     = 0x00000004,
-    PackageDependencyProcessorArchitectures_Arm     = 0x00000008,
-    PackageDependencyProcessorArchitectures_Arm64   = 0x00000010,
-    PackageDependencyProcessorArchitectures_X86A64  = 0x00000020,
-} PackageDependencyProcessorArchitectures;
-DEFINE_ENUM_FLAG_OPERATORS(PackageDependencyProcessorArchitectures)
-
-DECLARE_HANDLE(PACKAGEDEPENDENCY_CONTEXT);
-
-/// Define a package dependency. The criteria for a PackageDependency
-/// (package family name, minimum version, etc)
-/// may match multiple packages, but ensures Deployment won't remove
-/// a package if it's the only one satisfying the PackageDependency.
-///
-/// @note A package matching a PackageDependency pin can still be removed
-///       as long as there's another package that satisfies the PackageDependency.
-///       For example, if Fwk-v1 is installed and a PackageDependency specifies
-///       MinVersion=1 and then Fwk-v2 is installed, Deployment could remove
-///       Fwk-v1 because Fwk-v2 will satisfy the PackageDependency. After Fwk-v1
-///       is removed Deployment won't remove Fwk-v2 because it's the only package
-///       satisfying the PackageDependency. Thus Fwk-v1 and Fwk-v2 (and any other
-///       package matching the PackageDependency) are 'loosely pinned'. Deployment
-///       guarantees it won't remove a package if it would make a PackageDependency
-///       unsatisfied.
-///
-/// A PackageDependency specifies criteria (package family, minimum version, etc)
-/// and not a specific package. Deployment reserves the right to use a different
-/// package (e.g. higher version) to satisfy the PackageDependency if/when
-/// one becomes available.
-///
-/// @param user the user scope of the package dependency. If NULL the caller's
-///        user context is used. MUST be NULL if CreatePackageDependencyOptions_ScopeIsSystem
-///        is specified
-/// @param lifetimeArtifact MUST be NULL if lifetimeKind=PackageDependencyLifetimeKind_Process
-/// @param packageDependencyId allocated via HeapAlloc; use HeapFree to deallocate
-///
-/// @note TryCreatePackageDependency() fails if the PackageDependency cannot be resolved to a specific
-///       package. This package resolution check is skipped if
-///       CreatePackageDependencyOptions_DoNotVerifyDependencyResolution is specified. This is useful
-///       for installers running as user contexts other than the target user (e.g. installers
-///       running as LocalSystem).
-
-WINBASEAPI
-HRESULT
-WINAPI
-TryCreatePackageDependency(
-    PSID user,
-    _In_ PCWSTR packageFamilyName,
-    PACKAGE_VERSION minVersion,
-    PackageDependencyProcessorArchitectures packageDependencyProcessorArchitectures,
-    PackageDependencyLifetimeKind lifetimeKind,
-    PCWSTR lifetimeArtifact,
-    CreatePackageDependencyOptions options,
-    _Outptr_result_maybenull_ PWSTR* packageDependencyId
-    );
-
-/// Undefine a package dependency. Removing a pin on a PackageDependency is typically done at uninstall-time.
-/// This implicitly occurs if the package dependency's 'lifetime artifact' (specified via TryCreatePackageDependency)
-/// is deleted. Packages that are not referenced by other packages and have no pins are elegible to be removed.
-///
-/// @warn DeletePackageDependency() requires the caller have administrative privileges
-///       if the package dependency was pinned with CreatePackageDependencyOptions_ScopeIsSystem.
-
-WINBASEAPI
-HRESULT
-WINAPI
-DeletePackageDependency(
-    _In_ PCWSTR packageDependencyId
-    );
-
-/// Resolve a previously-pinned PackageDependency to a specific package and
-/// add it to the invoking process' package graph. Once the dependency has
-/// been added other code-loading methods (LoadLibrary, CoCreateInstance, etc)
-/// can find the binaries in the resolved package.
-///
-/// Package resolution is specific to a user and can return different values
-/// for different users on a system.
-///
-/// Each successful AddPackageDependency() adds the resolve packaged to the
-/// calling process' package graph, even if already present. There is no
-/// duplicate 'detection' or 'filtering' applied by the API (multiple
-/// references from a package is not harmful). Once resolution is complete
-/// the package dependency stays resolved for that user until the last reference across
-/// all processes for that user is removed via RemovePackageDependency (or
-/// process termination).
-///
-/// AddPackageDependency() adds the resolved package to the caller's package graph,
-/// per the rank specified. A process' package graph is a list of packages sorted by
-/// rank in ascending order (-infinity...0...+infinity). If package(s) are present in the
-/// package graph with the same rank as the call to AddPackageDependency the resolved
-/// package is (by default) added after others of the same rank. To add a package
-/// before others o the same rank, specify AddPackageDependencyOptions_PrependIfRankCollision.
-///
-/// Every AddPackageDependency can be balanced by a RemovePackageDependency
-/// to remove the entry from the package graph. If the process terminates all package
-/// references are removed, but any pins stay behind.
-///
-/// AddPackageDependency adds the resolved package to the process' package
-/// graph, per the rank and options parameters. The process' package
-/// graph is used to search for DLLs (per Dynamic-Link Library Search Order),
-/// WinRT objects and other resources; the caller can now load DLLs, activate
-/// WinRT objects and use other resources from the framework package until
-/// RemovePackageDependency is called. The packageDependencyId parameter
-/// must match a package dependency defined for the calling user or the
-/// system (i.e. pinned with CreatePackageDependencyOptions_ScopeIsSystem) else
-/// an error is returned.
-///
-/// @param packageDependencyContext valid until passed to RemovePackageDependency()
-/// @param packageFullName allocated via HeapAlloc; use HeapFree to deallocate
-
-WINBASEAPI
-HRESULT
-WINAPI
-AddPackageDependency(
-    _In_ PCWSTR packageDependencyId,
-    INT32 rank,
-    AddPackageDependencyOptions options,
-    _Out_ PACKAGEDEPENDENCY_CONTEXT* packageDependencyContext,
-    _Outptr_opt_result_maybenull_ PWSTR* packageFullName
-    );
-
-/// Remove a resolved PackageDependency from the current process' package graph
-/// (i.e. undo AddPackageDependency). Used at runtime (i.e. the moral equivalent
-/// of Windows' RemoveDllDirectory()).
-///
-/// @note This does not unload loaded resources (DLLs etc). After removing
-///        a package dependency any files loaded from the package can continue
-///        to be used; future file resolution will fail to see the removed
-///        package dependency.
-
-WINBASEAPI
-HRESULT
-WINAPI
-RemovePackageDependency(
-    _In_ PACKAGEDEPENDENCY_CONTEXT packageDependencyContext
-    );
-
-/// Return the package full name that would be used if the
-/// PackageDependency were to be resolved. Does not add the
-/// package to the process graph.
-///
-/// @param packageFullName allocated via HeapAlloc; use HeapFree to deallocate.
-///                        If the package dependency cannot be resolved the function
-///                        succeeds but packageFullName is nullptr.
-
-WINBASEAPI
-HRESULT
-WINAPI
-GetResolvedPackageFullNameForPackageDependency(
-    _In_ PCWSTR packageDependencyId,
-    _Outptr_result_maybenull_ PWSTR* packageFullName
-    );
-
-/// Return the package dependency for the context.
-///
-/// @param packageDependencyId allocated via HeapAlloc; use HeapFree to deallocate.
-///                            If the package dependency context cannot be resolved
-///                            the function succeeds but packageDependencyId is nullptr.
-
-WINBASEAPI
-HRESULT
-WINAPI
-GetIdForPackageDependencyContext(
-    _In_ PACKAGEDEPENDENCY_CONTEXT packageDependencyContext,
-    _Outptr_result_maybenull_ PWSTR* packageDependencyId
-    );
-
-#endif // NTDDI_VERSION >= NTDDI_WIN10_CO
-
-#if NTDDI_VERSION >= NTDDI_WIN10_NI
-
-/// Returns the package graph's current revision ID.
-
-WINBASEAPI
-UINT32
-WINAPI
-GetPackageGraphRevisionId(
-    );
-
-#endif // NTDDI_VERSION >= NTDDI_WIN10_NI
-
-/* ---------------------------------------------------------------- */
-
-// Appmodel Policy
 
 typedef enum AppPolicyLifecycleManagement
 {
@@ -888,6 +658,7 @@ AppPolicyGetLifecycleManagement(
     _In_ HANDLE processToken,
     _Out_ AppPolicyLifecycleManagement* policy
     );
+
 
 typedef enum AppPolicyWindowingModel
 {
@@ -907,6 +678,7 @@ AppPolicyGetWindowingModel(
     _Out_ AppPolicyWindowingModel* policy
     );
 
+
 typedef enum AppPolicyMediaFoundationCodecLoading
 {
     AppPolicyMediaFoundationCodecLoading_All = 0,
@@ -922,6 +694,7 @@ AppPolicyGetMediaFoundationCodecLoading(
     _In_ HANDLE processToken,
     _Out_ AppPolicyMediaFoundationCodecLoading* policy
     );
+
 
 typedef enum AppPolicyClrCompat
 {
@@ -941,6 +714,7 @@ AppPolicyGetClrCompat(
     _Out_ AppPolicyClrCompat* policy
     );
 
+
 typedef enum AppPolicyThreadInitializationType
 {
     AppPolicyThreadInitializationType_None = 0,
@@ -956,6 +730,7 @@ AppPolicyGetThreadInitializationType(
     _In_ HANDLE processToken,
     _Out_ AppPolicyThreadInitializationType* policy
     );
+
 
 typedef enum AppPolicyShowDeveloperDiagnostic
 {
@@ -973,6 +748,7 @@ AppPolicyGetShowDeveloperDiagnostic(
     _Out_ AppPolicyShowDeveloperDiagnostic* policy
     );
 
+
 typedef enum AppPolicyProcessTerminationMethod
 {
     AppPolicyProcessTerminationMethod_ExitProcess = 0,
@@ -988,6 +764,7 @@ AppPolicyGetProcessTerminationMethod(
     _In_ HANDLE processToken,
     _Out_ AppPolicyProcessTerminationMethod* policy
     );
+
 
 typedef enum AppPolicyCreateFileAccess
 {
@@ -1005,7 +782,22 @@ AppPolicyGetCreateFileAccess(
     _Out_ AppPolicyCreateFileAccess* policy
     );
 
-/* ---------------------------------------------------------------- */
+
+#if NTDDI_VERSION >= NTDDI_WIN10_19H1
+WINBASEAPI
+_Success_(return == ERROR_SUCCESS)
+LONG
+WINAPI
+GetPackageInfo2(
+    _In_ PACKAGE_INFO_REFERENCE packageInfoReference,
+    _In_ const UINT32 flags,
+    _In_ PackagePathType packagePathType,
+    _Inout_ UINT32* bufferLength,
+    _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer,
+    _Out_opt_ UINT32* count
+    );
+
+#endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 #pragma endregion

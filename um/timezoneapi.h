@@ -7,6 +7,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -64,6 +66,7 @@ SystemTimeToTzSpecificLocalTime(
     _Out_ LPSYSTEMTIME lpLocalTime
     );
 
+
 WINBASEAPI
 _Success_(return != FALSE)
 BOOL
@@ -74,6 +77,7 @@ TzSpecificLocalTimeToSystemTime(
     _Out_ LPSYSTEMTIME lpUniversalTime
     );
 
+
 WINBASEAPI
 _Success_(return != FALSE)
 BOOL
@@ -82,6 +86,7 @@ FileTimeToSystemTime(
     _In_ CONST FILETIME* lpFileTime,
     _Out_ LPSYSTEMTIME lpSystemTime
     );
+
 
 WINBASEAPI
 _Success_(return != FALSE)
@@ -92,6 +97,7 @@ SystemTimeToFileTime(
     _Out_ LPFILETIME lpFileTime
     );
 
+
 WINBASEAPI
 _Success_(return != TIME_ZONE_ID_INVALID)
 DWORD
@@ -100,12 +106,14 @@ GetTimeZoneInformation(
     _Out_ LPTIME_ZONE_INFORMATION lpTimeZoneInformation
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 SetTimeZoneInformation(
     _In_ CONST TIME_ZONE_INFORMATION* lpTimeZoneInformation
     );
+
 
 #if (_WIN32_WINNT >= 0x0600)
 
@@ -115,6 +123,7 @@ WINAPI
 SetDynamicTimeZoneInformation(
     _In_ CONST DYNAMIC_TIME_ZONE_INFORMATION* lpTimeZoneInformation
     );
+
 
 #endif // _WIN32_WINNT >= 0x0600
 
@@ -128,6 +137,7 @@ GetDynamicTimeZoneInformation(
     _Out_ PDYNAMIC_TIME_ZONE_INFORMATION pTimeZoneInformation
     );
 
+
 #endif // _WIN32_WINNT >= 0x0600
 
 #if (_WIN32_WINNT >= 0x0601)
@@ -140,6 +150,7 @@ GetTimeZoneInformationForYear(
     _In_opt_ PDYNAMIC_TIME_ZONE_INFORMATION pdtzi,
     _Out_ LPTIME_ZONE_INFORMATION ptzi
     );
+
 
 #endif // _WIN32_WINNT >= 0x0601
 
@@ -156,6 +167,7 @@ EnumDynamicTimeZoneInformation(
     _Out_ PDYNAMIC_TIME_ZONE_INFORMATION lpTimeZoneInformation
     );
 
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 DWORD
@@ -165,6 +177,7 @@ GetDynamicTimeZoneInformationEffectiveYears(
     _Out_ LPDWORD FirstYear,
     _Out_ LPDWORD LastYear
     );
+
 
 WINBASEAPI
 _Success_(return != FALSE)
@@ -176,6 +189,7 @@ SystemTimeToTzSpecificLocalTimeEx(
     _Out_ LPSYSTEMTIME lpLocalTime
     );
 
+
 WINBASEAPI
 _Success_(return != FALSE)
 BOOL
@@ -185,6 +199,7 @@ TzSpecificLocalTimeToSystemTimeEx(
     _In_ CONST SYSTEMTIME* lpLocalTime,
     _Out_ LPSYSTEMTIME lpUniversalTime
     );
+
 
 #endif /* (_WIN32_WINNT >= _WIN32_WINNT_WIN8) */
 
@@ -200,6 +215,7 @@ LocalFileTimeToLocalSystemTime(
     _Out_ SYSTEMTIME* localSystemTime
     );
 
+
 WINBASEAPI
 _Success_(return != FALSE)
 BOOL
@@ -209,6 +225,7 @@ LocalSystemTimeToLocalFileTime(
     _In_ CONST SYSTEMTIME* localSystemTime,
     _Out_ FILETIME* localFileTime
     );
+
 
 #endif /* (NTDDI_VERSION >= NTDDI_WIN10_RS5) */
 

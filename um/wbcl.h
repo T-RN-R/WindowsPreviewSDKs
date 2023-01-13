@@ -57,13 +57,8 @@ extern "C" {
 #define SIPAEV_EFI_ACTION (0x80000007)
 #define SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB (0x80000008)
 #define SIPAEV_EFI_HANDOFF_TABLES (0x80000009)
-#define SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB2 (0x8000000A)
-#define SIPAEV_EFI_HANDOFF_TABLES2 (0x8000000B)
-#define SIPAEV_EFI_VARIABLE_BOOT2 (0x8000000C)
 #define SIPAEV_EFI_HCRTM_EVENT (0x80000010)
 #define SIPAEV_EFI_VARIABLE_AUTHORITY (0x800000E0)
-#define SIPAEV_EFI_SPDM_FIRMWARE_BLOB (0x800000E1)
-#define SIPAEV_EFI_SPDM_FIRMWARE_CONFIG (0x800000E2)
 //----------------------------------PCR Event Types for Intel TXT
 #define SIPAEV_TXT_EVENT_BASE (0x00000400)
 #define SIPAEV_TXT_PCR_MAPPING (0x00000401)
@@ -397,13 +392,6 @@ extern "C" {
 #define SIPAEVENT_MODULE_SVN               (SIPAEVENTTYPE_LOADEDMODULE + \
                                             0x000b)
 
-#if NTDDI_VERSION >= NTDDI_WIN10_NI
-
-#define SIPAEVENT_MODULE_HSP               (SIPAEVENTTYPE_LOADEDMODULE + \
-                                            0x000c)
-
-#endif //NTDDI_VERSION >= NTDDI_WIN10_NI
-
 //SIPAEVENTTYPE_TRUSTPOINT
 #define SIPAEVENT_QUOTE                    (SIPAEVENTTYPE_NONMEASURED + \
                                             SIPAEVENTTYPE_TRUSTPOINT + \
@@ -458,14 +446,6 @@ extern "C" {
 
 #define SIPAEVENT_VBS_DUMP_USES_AMEROOT    (SIPAEVENTTYPE_VBS + \
                                            0x009)
-
-#if NTDDI_VERSION >= NTDDI_WIN10_VB
-
-#define SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED \
-                                           (SIPAEVENTTYPE_VBS + \
-                                           0x00A)
-
-#endif // NTDDI_VERSION >= NTDDI_WIN10_VB
 
 #if NTDDI_VERSION >= NTDDI_WIN10_RS3
 
@@ -545,9 +525,6 @@ extern "C" {
 #define FVEB_UNLOCK_FLAG_PIN             (0x00000010)
 #define FVEB_UNLOCK_FLAG_EXTERNAL        (0x00000020)
 #define FVEB_UNLOCK_FLAG_RECOVERY        (0x00000040)
-#define FVEB_UNLOCK_FLAG_PASSPHRASE      (0x00000080)
-#define FVEB_UNLOCK_FLAG_NBP             (0x00000100)
-#define FVEB_UNLOCK_FLAG_AUK_OSFVEINFO   (0x00000200)
 
 #define OSDEVICE_TYPE_UNKNOWN                       (0x00000000)
 #define OSDEVICE_TYPE_BLOCKIO_HARDDISK              (0x00010001)
@@ -561,7 +538,6 @@ extern "C" {
 #define OSDEVICE_TYPE_UDP                           (0x00030000)
 #define OSDEVICE_TYPE_VMBUS                         (0x00040000)
 #define OSDEVICE_TYPE_COMPOSITE                     (0x00050000)
-#define OSDEVICE_TYPE_CIMFS                         (0x00060000)
 
 
 //--------------------------------------------------WBCL header
@@ -635,51 +611,17 @@ typedef struct _WBCL_Iterator
   // points to the table in the header that contains the mapping of algorithm ids to digest sizes.
   PVOID     digestSizes;
 
-  // Supported algorithm bitmap for the log
-  UINT32    supportedAlgorithms;
-
   // Hash algorithm ID used for the log. The value corresponds to one of the TPM 2.0 ALG_ID values.
   WBCL_DIGEST_ALG_ID    hashAlgorithm;
 } WBCL_Iterator, *PWBCL_Iterator;
 
-//
-// The maximum allowed length of the binary name.
-//
-
-#define MAX_HSP_UPGRADE_FILENAME_LENGTH (64)
-
-#if NTDDI_VERSION >= NTDDI_WIN10_NI
-
-#define WBCL_MAX_HSP_UPGRADE_HASH_LEN   (64)
-
-typedef struct _HSP_UPGRADE_IMAGEDATA
-{
-  UINT16    hashAlgID;
-  UINT16    digestSize;
-  BYTE      digest[WBCL_MAX_HSP_UPGRADE_HASH_LEN];
-  WCHAR     fileName[MAX_HSP_UPGRADE_FILENAME_LENGTH];
-} HSP_UPGRADE_IMAGEDATA, *PHSP_UPGRADE_IMAGEDATA;
-
-#endif //NTDDI_VERSION >= NTDDI_WIN10_NI
-
 #if NTDDI_VERSION >= NTDDI_WIN10
 
 HRESULT
-WbclApiDetectSipaHashAlgID(
-    _In_bytecount_(logSize) PVOID pLogBuffer,
-    _In_                    UINT32 logSize,
-    _Out_                   UINT16* algID);
-
-HRESULT
-WbclApiSetPreferredHashAlgID(
-    _In_   UINT16 algID,
-    _Out_   WBCL_Iterator* pWbclIterator);
-
-HRESULT
 WbclApiInitIterator(
-    _In_bytecount_(logSize) PVOID  pLogBuffer,
-    _In_                    UINT32 logSize,
-    _Out_                   WBCL_Iterator* pWbclIterator);
+    _In_    PVOID  pLogBuffer,
+    _In_    UINT32 logSize,
+    _Out_   WBCL_Iterator* pWbclIterator);
 
 HRESULT
 WbclApiGetCurrentElement(
@@ -948,5 +890,5 @@ typedef struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1
 }
 #endif
 
-#endif // _WBCL_H
+#endif _WBCL_H
 

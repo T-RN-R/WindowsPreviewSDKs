@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_MEDIA_MEDIACONTROLCONTRACT_VERSION)
@@ -538,23 +538,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo3 ABI::Windows::Media::Capture::Frames::IMediaFrameSourceInfo3
 
 #endif // ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo3_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Capture {
-                namespace Frames {
-                    interface IMediaFrameSourceInfo4;
-                } /* Frames */
-            } /* Capture */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4 ABI::Windows::Media::Capture::Frames::IMediaFrameSourceInfo4
-
-#endif // ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMultiSourceMediaFrameArrivedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMultiSourceMediaFrameArrivedEventArgs_FWD_DEFINED__
@@ -2383,9 +2366,6 @@ namespace ABI {
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
                         MediaFrameSourceKind_Image = 5,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-                        MediaFrameSourceKind_Metadata = 6,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
                     };
                 } /* Frames */
             } /* Capture */
@@ -2484,7 +2464,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IAudioMediaFrame = __uuidof(IAudioMediaFrame);
+                    extern MIDL_CONST_ID IID& IID_IAudioMediaFrame = _uuidof(IAudioMediaFrame);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2525,7 +2505,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IBufferMediaFrame = __uuidof(IBufferMediaFrame);
+                    extern MIDL_CONST_ID IID& IID_IBufferMediaFrame = _uuidof(IBufferMediaFrame);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2574,7 +2554,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IDepthMediaFrame = __uuidof(IDepthMediaFrame);
+                    extern MIDL_CONST_ID IID& IID_IDepthMediaFrame = _uuidof(IDepthMediaFrame);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2615,7 +2595,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IDepthMediaFrame2 = __uuidof(IDepthMediaFrame2);
+                    extern MIDL_CONST_ID IID& IID_IDepthMediaFrame2 = _uuidof(IDepthMediaFrame2);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2656,7 +2636,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IDepthMediaFrameFormat = __uuidof(IDepthMediaFrameFormat);
+                    extern MIDL_CONST_ID IID& IID_IDepthMediaFrameFormat = _uuidof(IDepthMediaFrameFormat);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2700,7 +2680,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInfraredMediaFrame = __uuidof(IInfraredMediaFrame);
+                    extern MIDL_CONST_ID IID& IID_IInfraredMediaFrame = _uuidof(IInfraredMediaFrame);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2735,7 +2715,7 @@ namespace ABI {
                     public:
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameArrivedEventArgs = __uuidof(IMediaFrameArrivedEventArgs);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameArrivedEventArgs = _uuidof(IMediaFrameArrivedEventArgs);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2785,7 +2765,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameFormat = __uuidof(IMediaFrameFormat);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameFormat = _uuidof(IMediaFrameFormat);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2823,7 +2803,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameFormat2 = __uuidof(IMediaFrameFormat2);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameFormat2 = _uuidof(IMediaFrameFormat2);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2877,7 +2857,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameReader = __uuidof(IMediaFrameReader);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameReader = _uuidof(IMediaFrameReader);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2918,7 +2898,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameReader2 = __uuidof(IMediaFrameReader2);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameReader2 = _uuidof(IMediaFrameReader2);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -2980,7 +2960,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameReference = __uuidof(IMediaFrameReference);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameReference = _uuidof(IMediaFrameReference);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3018,7 +2998,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameReference2 = __uuidof(IMediaFrameReference2);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameReference2 = _uuidof(IMediaFrameReference2);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3080,7 +3060,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSource = __uuidof(IMediaFrameSource);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSource = _uuidof(IMediaFrameSource);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3127,7 +3107,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceController = __uuidof(IMediaFrameSourceController);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceController = _uuidof(IMediaFrameSourceController);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3175,7 +3155,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceController2 = __uuidof(IMediaFrameSourceController2);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceController2 = _uuidof(IMediaFrameSourceController2);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3213,7 +3193,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceController3 = __uuidof(IMediaFrameSourceController3);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceController3 = _uuidof(IMediaFrameSourceController3);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3254,7 +3234,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceGetPropertyResult = __uuidof(IMediaFrameSourceGetPropertyResult);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceGetPropertyResult = _uuidof(IMediaFrameSourceGetPropertyResult);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3298,7 +3278,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceGroup = __uuidof(IMediaFrameSourceGroup);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceGroup = _uuidof(IMediaFrameSourceGroup);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3343,7 +3323,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceGroupStatics = __uuidof(IMediaFrameSourceGroupStatics);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceGroupStatics = _uuidof(IMediaFrameSourceGroupStatics);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3399,7 +3379,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceInfo = __uuidof(IMediaFrameSourceInfo);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceInfo = _uuidof(IMediaFrameSourceInfo);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3440,7 +3420,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceInfo2 = __uuidof(IMediaFrameSourceInfo2);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceInfo2 = _uuidof(IMediaFrameSourceInfo2);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3479,7 +3459,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceInfo3 = __uuidof(IMediaFrameSourceInfo3);
+                    extern MIDL_CONST_ID IID& IID_IMediaFrameSourceInfo3 = _uuidof(IMediaFrameSourceInfo3);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3489,44 +3469,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo3;
 #endif /* !defined(____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo3_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
-
-/*
- *
- * Interface Windows.Media.Capture.Frames.IMediaFrameSourceInfo4
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
- *
- * Interface is a part of the implementation of type Windows.Media.Capture.Frames.MediaFrameSourceInfo
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-#if !defined(____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Capture_Frames_IMediaFrameSourceInfo4[] = L"Windows.Media.Capture.Frames.IMediaFrameSourceInfo4";
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Capture {
-                namespace Frames {
-                    MIDL_INTERFACE("4817d721-85eb-470c-8f37-43ca5498e41d")
-                    IMediaFrameSourceInfo4 : public IInspectable
-                    {
-                    public:
-                        virtual HRESULT STDMETHODCALLTYPE get_IsShareable(
-                            boolean* value
-                            ) = 0;
-                    };
-
-                    MIDL_CONST_ID IID& IID_IMediaFrameSourceInfo4 = __uuidof(IMediaFrameSourceInfo4);
-                } /* Frames */
-            } /* Capture */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -3552,7 +3494,7 @@ namespace ABI {
                     public:
                     };
 
-                    MIDL_CONST_ID IID& IID_IMultiSourceMediaFrameArrivedEventArgs = __uuidof(IMultiSourceMediaFrameArrivedEventArgs);
+                    extern MIDL_CONST_ID IID& IID_IMultiSourceMediaFrameArrivedEventArgs = _uuidof(IMultiSourceMediaFrameArrivedEventArgs);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3606,7 +3548,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMultiSourceMediaFrameReader = __uuidof(IMultiSourceMediaFrameReader);
+                    extern MIDL_CONST_ID IID& IID_IMultiSourceMediaFrameReader = _uuidof(IMultiSourceMediaFrameReader);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3647,7 +3589,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMultiSourceMediaFrameReader2 = __uuidof(IMultiSourceMediaFrameReader2);
+                    extern MIDL_CONST_ID IID& IID_IMultiSourceMediaFrameReader2 = _uuidof(IMultiSourceMediaFrameReader2);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3689,7 +3631,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMultiSourceMediaFrameReference = __uuidof(IMultiSourceMediaFrameReference);
+                    extern MIDL_CONST_ID IID& IID_IMultiSourceMediaFrameReference = _uuidof(IMultiSourceMediaFrameReference);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3748,7 +3690,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVideoMediaFrame = __uuidof(IVideoMediaFrame);
+                    extern MIDL_CONST_ID IID& IID_IVideoMediaFrame = _uuidof(IVideoMediaFrame);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -3795,7 +3737,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVideoMediaFrameFormat = __uuidof(IVideoMediaFrameFormat);
+                    extern MIDL_CONST_ID IID& IID_IVideoMediaFrameFormat = _uuidof(IVideoMediaFrameFormat);
                 } /* Frames */
             } /* Capture */
         } /* Media */
@@ -4100,7 +4042,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.Media.Capture.Frames.IMediaFrameSourceInfo ** Default Interface **
  *    Windows.Media.Capture.Frames.IMediaFrameSourceInfo2
  *    Windows.Media.Capture.Frames.IMediaFrameSourceInfo3
- *    Windows.Media.Capture.Frames.IMediaFrameSourceInfo4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -4361,12 +4302,6 @@ typedef interface __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInf
 typedef interface __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo3 __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo3;
 
 #endif // ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo3_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4 __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4;
-
-#endif // ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMultiSourceMediaFrameArrivedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMultiSourceMediaFrameArrivedEventArgs_FWD_DEFINED__
@@ -6849,9 +6784,6 @@ enum __x_ABI_CWindows_CMedia_CCapture_CFrames_CMediaFrameSourceKind
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
     MediaFrameSourceKind_Image = 5,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-    MediaFrameSourceKind_Metadata = 6,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
 
@@ -8740,75 +8672,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSour
 
 /*
  *
- * Interface Windows.Media.Capture.Frames.IMediaFrameSourceInfo4
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
- *
- * Interface is a part of the implementation of type Windows.Media.Capture.Frames.MediaFrameSourceInfo
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-#if !defined(____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Capture_Frames_IMediaFrameSourceInfo4[] = L"Windows.Media.Capture.Frames.IMediaFrameSourceInfo4";
-typedef struct __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_IsShareable)(__x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4* This,
-        boolean* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4Vtbl;
-
-interface __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4
-{
-    CONST_VTBL struct __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_get_IsShareable(This, value) \
-    ((This)->lpVtbl->get_IsShareable(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CCapture_CFrames_CIMediaFrameSourceInfo4_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-
-/*
- *
  * Interface Windows.Media.Capture.Frames.IMultiSourceMediaFrameArrivedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 4.0
@@ -9593,7 +9456,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.Media.Capture.Frames.IMediaFrameSourceInfo ** Default Interface **
  *    Windows.Media.Capture.Frames.IMediaFrameSourceInfo2
  *    Windows.Media.Capture.Frames.IMediaFrameSourceInfo3
- *    Windows.Media.Capture.Frames.IMediaFrameSourceInfo4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *

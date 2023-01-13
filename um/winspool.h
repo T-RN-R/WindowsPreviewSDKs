@@ -1,4 +1,3 @@
-
 /*++
 
 Copyright (c) 1990-1998  Microsoft Corporation
@@ -511,10 +510,6 @@ typedef LPJOB_INFO_4A LPJOB_INFO_4;
     #define JOB_CONTROL_RELEASE        9
 #endif // (NTDDI_VERSION >= NTDDI_VISTA)
 
-#if (NTDDI_VERSION >= NTDDI_WIN10)
-    #define JOB_CONTROL_SEND_TOAST     10
-#endif // (NTDDI_VERSION >= NTDDI_WIN10)
-
 #define JOB_STATUS_PAUSED               0x00000001
 #define JOB_STATUS_ERROR                0x00000002
 #define JOB_STATUS_DELETING             0x00000004
@@ -574,7 +569,6 @@ typedef PDRIVER_INFO_1A PDRIVER_INFO_1;
 typedef LPDRIVER_INFO_1A LPDRIVER_INFO_1;
 #endif // UNICODE
 
-
 typedef struct _DRIVER_INFO_2A {
     DWORD   cVersion;
     LPSTR     pName;              // QMS 810
@@ -600,7 +594,6 @@ typedef DRIVER_INFO_2A DRIVER_INFO_2;
 typedef PDRIVER_INFO_2A PDRIVER_INFO_2;
 typedef LPDRIVER_INFO_2A LPDRIVER_INFO_2;
 #endif // UNICODE
-
 
 typedef struct _DRIVER_INFO_3A {
     DWORD   cVersion;
@@ -3786,7 +3779,6 @@ typedef PCORE_PRINTER_DRIVERA PCORE_PRINTER_DRIVER;
 #define GetPrinterDriver2  GetPrinterDriver2A
 #endif // !UNICODE
 
-
 #endif // (NTDDI_VERSION >= NTDDI_VISTA)
 
 #if (NTDDI_VERSION >= NTDDI_WIN7)
@@ -3902,4 +3894,3 @@ GetPrintOutputInfo(
 
 
 #endif // _WINSPOOL_
-

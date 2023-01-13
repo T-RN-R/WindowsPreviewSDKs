@@ -1,14 +1,12 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Devices_Sensors_Custom_H
 #define WINRT_Windows_Devices_Sensors_Custom_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.220418.1"), "Mismatched C++/WinRT headers.");
-#define CPPWINRT_VERSION "2.0.220418.1"
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Devices.Sensors.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -18,106 +16,106 @@ namespace winrt::impl
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::GetCurrentReading() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor)->GetCurrentReading(&value));
-        return winrt::Windows::Devices::Sensors::Custom::CustomSensorReading{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor)->GetCurrentReading(&value));
+        return Windows::Devices::Sensors::Custom::CustomSensorReading{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::MinimumReportInterval() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor)->get_MinimumReportInterval(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor)->get_MinimumReportInterval(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReportInterval(uint32_t value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor)->put_ReportInterval(value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor)->put_ReportInterval(value));
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReportInterval() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor)->get_ReportInterval(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor)->get_ReportInterval(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::DeviceId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor)->get_DeviceId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Custom::CustomSensor, winrt::Windows::Devices::Sensors::Custom::CustomSensorReadingChangedEventArgs> const& handler) const
+    template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReadingChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Custom::CustomSensor, Windows::Devices::Sensors::Custom::CustomSensorReadingChangedEventArgs> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor)->add_ReadingChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReadingChanged_revoker consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Custom::CustomSensor, winrt::Windows::Devices::Sensors::Custom::CustomSensorReadingChangedEventArgs> const& handler) const
+    template <typename D> typename consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReadingChanged_revoker consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReadingChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Custom::CustomSensor, Windows::Devices::Sensors::Custom::CustomSensorReadingChangedEventArgs> const& handler) const
     {
         return impl::make_event_revoker<D, ReadingChanged_revoker>(this, ReadingChanged(handler));
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor<D>::ReadingChanged(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor)->remove_ReadingChanged(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor)->remove_ReadingChanged(impl::bind_in(token)));
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor2<D>::ReportLatency(uint32_t value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor2)->put_ReportLatency(value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor2)->put_ReportLatency(value));
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor2<D>::ReportLatency() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor2)->get_ReportLatency(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor2)->get_ReportLatency(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensor2<D>::MaxBatchSize() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensor2)->get_MaxBatchSize(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensor2)->get_MaxBatchSize(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensorReading<D>::Timestamp() const
     {
-        winrt::Windows::Foundation::DateTime value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensorReading)->get_Timestamp(put_abi(value)));
+        Windows::Foundation::DateTime value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensorReading)->get_Timestamp(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensorReading<D>::Properties() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensorReading)->get_Properties(&value));
-        return winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensorReading)->get_Properties(&value));
+        return Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensorReading2<D>::PerformanceCount() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensorReading2)->get_PerformanceCount(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensorReading2)->get_PerformanceCount(&value));
+        return Windows::Foundation::IReference<Windows::Foundation::TimeSpan>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensorReadingChangedEventArgs<D>::Reading() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs)->get_Reading(&value));
-        return winrt::Windows::Devices::Sensors::Custom::CustomSensorReading{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs)->get_Reading(&value));
+        return Windows::Devices::Sensors::Custom::CustomSensorReading{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensorStatics<D>::GetDeviceSelector(winrt::guid const& interfaceId) const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensorStatics)->GetDeviceSelector(impl::bind_in(interfaceId), &result));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensorStatics)->GetDeviceSelector(impl::bind_in(interfaceId), &result));
         return hstring{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Devices_Sensors_Custom_ICustomSensorStatics<D>::FromIdAsync(param::hstring const& sensorId) const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Sensors::Custom::ICustomSensorStatics)->FromIdAsync(*(void**)(&sensorId), &result));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Custom::CustomSensor>{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Sensors::Custom::ICustomSensorStatics)->FromIdAsync(*(void**)(&sensorId), &result));
+        return Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Custom::CustomSensor>{ result, take_ownership_from_abi };
     }
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensor> : produce_base<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensor>
+    struct produce<D, Windows::Devices::Sensors::Custom::ICustomSensor> : produce_base<D, Windows::Devices::Sensors::Custom::ICustomSensor>
     {
         int32_t __stdcall GetCurrentReading(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Devices::Sensors::Custom::CustomSensorReading>(this->shim().GetCurrentReading());
+            *value = detach_from<Windows::Devices::Sensors::Custom::CustomSensorReading>(this->shim().GetCurrentReading());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -154,7 +152,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().ReadingChanged(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Custom::CustomSensor, winrt::Windows::Devices::Sensors::Custom::CustomSensorReadingChangedEventArgs> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().ReadingChanged(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Devices::Sensors::Custom::CustomSensor, Windows::Devices::Sensors::Custom::CustomSensorReadingChangedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -168,7 +166,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensor2> : produce_base<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensor2>
+    struct produce<D, Windows::Devices::Sensors::Custom::ICustomSensor2> : produce_base<D, Windows::Devices::Sensors::Custom::ICustomSensor2>
     {
         int32_t __stdcall put_ReportLatency(uint32_t value) noexcept final try
         {
@@ -195,13 +193,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensorReading> : produce_base<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensorReading>
+    struct produce<D, Windows::Devices::Sensors::Custom::ICustomSensorReading> : produce_base<D, Windows::Devices::Sensors::Custom::ICustomSensorReading>
     {
         int32_t __stdcall get_Timestamp(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::DateTime>(value);
+            zero_abi<Windows::Foundation::DateTime>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::DateTime>(this->shim().Timestamp());
+            *value = detach_from<Windows::Foundation::DateTime>(this->shim().Timestamp());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -209,7 +207,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>>(this->shim().Properties());
+            *value = detach_from<Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>>(this->shim().Properties());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -217,13 +215,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensorReading2> : produce_base<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensorReading2>
+    struct produce<D, Windows::Devices::Sensors::Custom::ICustomSensorReading2> : produce_base<D, Windows::Devices::Sensors::Custom::ICustomSensorReading2>
     {
         int32_t __stdcall get_PerformanceCount(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>>(this->shim().PerformanceCount());
+            *value = detach_from<Windows::Foundation::IReference<Windows::Foundation::TimeSpan>>(this->shim().PerformanceCount());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -231,13 +229,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs> : produce_base<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs>
+    struct produce<D, Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs> : produce_base<D, Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs>
     {
         int32_t __stdcall get_Reading(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Devices::Sensors::Custom::CustomSensorReading>(this->shim().Reading());
+            *value = detach_from<Windows::Devices::Sensors::Custom::CustomSensorReading>(this->shim().Reading());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -245,7 +243,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensorStatics> : produce_base<D, winrt::Windows::Devices::Sensors::Custom::ICustomSensorStatics>
+    struct produce<D, Windows::Devices::Sensors::Custom::ICustomSensorStatics> : produce_base<D, Windows::Devices::Sensors::Custom::ICustomSensorStatics>
     {
         int32_t __stdcall GetDeviceSelector(winrt::guid interfaceId, void** result) noexcept final try
         {
@@ -259,7 +257,7 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Custom::CustomSensor>>(this->shim().FromIdAsync(*reinterpret_cast<hstring const*>(&sensorId)));
+            *result = detach_from<Windows::Foundation::IAsyncOperation<Windows::Devices::Sensors::Custom::CustomSensor>>(this->shim().FromIdAsync(*reinterpret_cast<hstring const*>(&sensorId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -289,8 +287,6 @@ namespace std
     template<> struct hash<winrt::Windows::Devices::Sensors::Custom::CustomSensor> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Sensors::Custom::CustomSensorReading> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Sensors::Custom::CustomSensorReadingChangedEventArgs> : winrt::impl::hash_base {};
-#endif
-#ifdef __cpp_lib_format
 #endif
 }
 #endif

@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_GLOBALIZATION_GLOBALIZATIONJAPANESEPHONETICANALYZERCONTRACT_VERSION)
@@ -374,6 +374,23 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics ABI::Windows::UI::Text::Core::ICoreTextServicesManagerStatics
 
 #endif // ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Text {
+                namespace Core {
+                    interface ICoreTextServicesManagerStatics2;
+                } /* Core */
+            } /* Text */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2 ABI::Windows::UI::Text::Core::ICoreTextServicesManagerStatics2
+
+#endif // ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesStatics_FWD_DEFINED__
@@ -1159,6 +1176,18 @@ namespace ABI {
         namespace UI {
             namespace Text {
                 namespace Core {
+                    typedef enum TextCompositionKind : int TextCompositionKind;
+                } /* Core */
+            } /* Text */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Text {
+                namespace Core {
                     typedef struct CoreTextRange CoreTextRange;
                 } /* Core */
             } /* Text */
@@ -1442,6 +1471,35 @@ namespace ABI {
 
 /*
  *
+ * Struct Windows.UI.Text.Core.TextCompositionKind
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Text {
+                namespace Core {
+                    enum TextCompositionKind : int
+                    {
+                        TextCompositionKind_Default = 0,
+                        TextCompositionKind_Suggestion = 1,
+                    };
+                } /* Core */
+            } /* Text */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+/*
+ *
  * Struct Windows.UI.Text.Core.CoreTextRange
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -1498,7 +1556,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextCompositionCompletedEventArgs = __uuidof(ICoreTextCompositionCompletedEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextCompositionCompletedEventArgs = _uuidof(ICoreTextCompositionCompletedEventArgs);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1539,7 +1597,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextCompositionSegment = __uuidof(ICoreTextCompositionSegment);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextCompositionSegment = _uuidof(ICoreTextCompositionSegment);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1580,7 +1638,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextCompositionStartedEventArgs = __uuidof(ICoreTextCompositionStartedEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextCompositionStartedEventArgs = _uuidof(ICoreTextCompositionStartedEventArgs);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1713,7 +1771,7 @@ namespace ABI {
                         virtual HRESULT STDMETHODCALLTYPE NotifyLayoutChanged(void) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextEditContext = __uuidof(ICoreTextEditContext);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextEditContext = _uuidof(ICoreTextEditContext);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1755,7 +1813,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextEditContext2 = __uuidof(ICoreTextEditContext2);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextEditContext2 = _uuidof(ICoreTextEditContext2);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1820,7 +1878,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextFormatUpdatingEventArgs = __uuidof(ICoreTextFormatUpdatingEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextFormatUpdatingEventArgs = _uuidof(ICoreTextFormatUpdatingEventArgs);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1867,7 +1925,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextLayoutBounds = __uuidof(ICoreTextLayoutBounds);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextLayoutBounds = _uuidof(ICoreTextLayoutBounds);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1914,7 +1972,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextLayoutRequest = __uuidof(ICoreTextLayoutRequest);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextLayoutRequest = _uuidof(ICoreTextLayoutRequest);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1952,7 +2010,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextLayoutRequest2 = __uuidof(ICoreTextLayoutRequest2);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextLayoutRequest2 = _uuidof(ICoreTextLayoutRequest2);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -1990,7 +2048,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextLayoutRequestedEventArgs = __uuidof(ICoreTextLayoutRequestedEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextLayoutRequestedEventArgs = _uuidof(ICoreTextLayoutRequestedEventArgs);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2037,7 +2095,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextSelectionRequest = __uuidof(ICoreTextSelectionRequest);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextSelectionRequest = _uuidof(ICoreTextSelectionRequest);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2075,7 +2133,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextSelectionRequestedEventArgs = __uuidof(ICoreTextSelectionRequestedEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextSelectionRequestedEventArgs = _uuidof(ICoreTextSelectionRequestedEventArgs);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2125,7 +2183,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextSelectionUpdatingEventArgs = __uuidof(ICoreTextSelectionUpdatingEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextSelectionUpdatingEventArgs = _uuidof(ICoreTextSelectionUpdatingEventArgs);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2173,7 +2231,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextServicesManager = __uuidof(ICoreTextServicesManager);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextServicesManager = _uuidof(ICoreTextServicesManager);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2211,7 +2269,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextServicesManagerStatics = __uuidof(ICoreTextServicesManagerStatics);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextServicesManagerStatics = _uuidof(ICoreTextServicesManagerStatics);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2221,6 +2279,48 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics;
 #endif /* !defined(____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+/*
+ *
+ * Interface Windows.UI.Text.Core.ICoreTextServicesManagerStatics2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ * Interface is a part of the implementation of type Windows.UI.Text.Core.CoreTextServicesManager
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if !defined(____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Text_Core_ICoreTextServicesManagerStatics2[] = L"Windows.UI.Text.Core.ICoreTextServicesManagerStatics2";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Text {
+                namespace Core {
+                    MIDL_INTERFACE("cc0f5d2d-eb7d-50c7-8532-02492081fa31")
+                    ICoreTextServicesManagerStatics2 : public IInspectable
+                    {
+                    public:
+                        virtual HRESULT STDMETHODCALLTYPE get_TextCompositionKind(
+                            ABI::Windows::UI::Text::Core::TextCompositionKind* value
+                            ) = 0;
+                    };
+
+                    extern MIDL_CONST_ID IID& IID_ICoreTextServicesManagerStatics2 = _uuidof(ICoreTextServicesManagerStatics2);
+                } /* Core */
+            } /* Text */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2;
+#endif /* !defined(____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
 
 /*
  *
@@ -2249,7 +2349,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextServicesStatics = __uuidof(ICoreTextServicesStatics);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextServicesStatics = _uuidof(ICoreTextServicesStatics);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2299,7 +2399,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextTextRequest = __uuidof(ICoreTextTextRequest);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextTextRequest = _uuidof(ICoreTextTextRequest);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2337,7 +2437,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextTextRequestedEventArgs = __uuidof(ICoreTextTextRequestedEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextTextRequestedEventArgs = _uuidof(ICoreTextTextRequestedEventArgs);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2396,7 +2496,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICoreTextTextUpdatingEventArgs = __uuidof(ICoreTextTextUpdatingEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICoreTextTextUpdatingEventArgs = _uuidof(ICoreTextTextUpdatingEventArgs);
                 } /* Core */
             } /* Text */
         } /* UI */
@@ -2645,6 +2745,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * RuntimeClass contains static methods.
  *   Static Methods exist on the Windows.UI.Text.Core.ICoreTextServicesManagerStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.Text.Core.ICoreTextServicesManagerStatics2 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Text.Core.ICoreTextServicesManager ** Default Interface **
@@ -2807,6 +2908,12 @@ typedef interface __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManager __x
 typedef interface __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics;
 
 #endif // ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2 __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2;
+
+#endif // ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesStatics_FWD_DEFINED__
@@ -3736,6 +3843,8 @@ typedef enum __x_ABI_CWindows_CUI_CText_CCore_CCoreTextSelectionUpdatingResult _
 
 typedef enum __x_ABI_CWindows_CUI_CText_CCore_CCoreTextTextUpdatingResult __x_ABI_CWindows_CUI_CText_CCore_CCoreTextTextUpdatingResult;
 
+typedef enum __x_ABI_CWindows_CUI_CText_CCore_CTextCompositionKind __x_ABI_CWindows_CUI_CText_CCore_CTextCompositionKind;
+
 typedef struct __x_ABI_CWindows_CUI_CText_CCore_CCoreTextRange __x_ABI_CWindows_CUI_CText_CCore_CCoreTextRange;
 
 /*
@@ -3903,6 +4012,25 @@ enum __x_ABI_CWindows_CUI_CText_CCore_CCoreTextTextUpdatingResult
     CoreTextTextUpdatingResult_Failed = 1,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+/*
+ *
+ * Struct Windows.UI.Text.Core.TextCompositionKind
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+enum __x_ABI_CWindows_CUI_CText_CCore_CTextCompositionKind
+{
+    TextCompositionKind_Default = 0,
+    TextCompositionKind_Suggestion = 1,
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
 
 /*
  *
@@ -5266,6 +5394,79 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManage
 
 /*
  *
+ * Interface Windows.UI.Text.Core.ICoreTextServicesManagerStatics2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ * Interface is a part of the implementation of type Windows.UI.Text.Core.CoreTextServicesManager
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if !defined(____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Text_Core_ICoreTextServicesManagerStatics2[] = L"Windows.UI.Text.Core.ICoreTextServicesManagerStatics2";
+typedef struct __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_TextCompositionKind)(__x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2* This,
+        enum __x_ABI_CWindows_CUI_CText_CCore_CTextCompositionKind* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2Vtbl;
+
+interface __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_get_TextCompositionKind(This, value) \
+    ((This)->lpVtbl->get_TextCompositionKind(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2;
+#endif /* !defined(____x_ABI_CWindows_CUI_CText_CCore_CICoreTextServicesManagerStatics2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+/*
+ *
  * Interface Windows.UI.Text.Core.ICoreTextServicesStatics
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -5833,6 +6034,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * RuntimeClass contains static methods.
  *   Static Methods exist on the Windows.UI.Text.Core.ICoreTextServicesManagerStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.Text.Core.ICoreTextServicesManagerStatics2 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Text.Core.ICoreTextServicesManager ** Default Interface **

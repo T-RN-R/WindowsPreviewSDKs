@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -104,7 +104,6 @@
 #include "EventToken.h"
 #include "windowscontracts.h"
 #include "Windows.Foundation.h"
-#include "Windows.Graphics.h"
 #include "Windows.Storage.Streams.h"
 // Importing Collections header
 #include <windows.foundation.collections.h>
@@ -395,36 +394,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics ABI::Windows::Graphics::Display::IDisplayPropertiesStatics
 
 #endif // ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_FWD_DEFINED__
-#define ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Graphics {
-            namespace Display {
-                interface IDisplayServices;
-            } /* Display */
-        } /* Graphics */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices ABI::Windows::Graphics::Display::IDisplayServices
-
-#endif // ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Graphics {
-            namespace Display {
-                interface IDisplayServicesStatics;
-            } /* Display */
-        } /* Graphics */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics ABI::Windows::Graphics::Display::IDisplayServicesStatics
-
-#endif // ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_FWD_DEFINED__
 
 // Parameterized interface forward declarations (C++)
 
@@ -838,14 +807,6 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Graphics {
-            typedef struct DisplayId DisplayId;
-        } /* Graphics */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Graphics {
             namespace Display {
                 typedef enum AdvancedColorKind : int AdvancedColorKind;
             } /* Display */
@@ -1251,7 +1212,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayPropertiesEventHandler = __uuidof(IDisplayPropertiesEventHandler);
+                extern MIDL_CONST_ID IID& IID_IDisplayPropertiesEventHandler = _uuidof(IDisplayPropertiesEventHandler);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1319,7 +1280,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAdvancedColorInfo = __uuidof(IAdvancedColorInfo);
+                extern MIDL_CONST_ID IID& IID_IAdvancedColorInfo = _uuidof(IAdvancedColorInfo);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1396,7 +1357,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBrightnessOverride = __uuidof(IBrightnessOverride);
+                extern MIDL_CONST_ID IID& IID_IBrightnessOverride = _uuidof(IBrightnessOverride);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1435,7 +1396,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBrightnessOverrideSettings = __uuidof(IBrightnessOverrideSettings);
+                extern MIDL_CONST_ID IID& IID_IBrightnessOverrideSettings = _uuidof(IBrightnessOverrideSettings);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1480,7 +1441,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBrightnessOverrideSettingsStatics = __uuidof(IBrightnessOverrideSettingsStatics);
+                extern MIDL_CONST_ID IID& IID_IBrightnessOverrideSettingsStatics = _uuidof(IBrightnessOverrideSettingsStatics);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1523,7 +1484,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBrightnessOverrideStatics = __uuidof(IBrightnessOverrideStatics);
+                extern MIDL_CONST_ID IID& IID_IBrightnessOverrideStatics = _uuidof(IBrightnessOverrideStatics);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1559,7 +1520,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IColorOverrideSettings = __uuidof(IColorOverrideSettings);
+                extern MIDL_CONST_ID IID& IID_IColorOverrideSettings = _uuidof(IColorOverrideSettings);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1596,7 +1557,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IColorOverrideSettingsStatics = __uuidof(IColorOverrideSettingsStatics);
+                extern MIDL_CONST_ID IID& IID_IColorOverrideSettingsStatics = _uuidof(IColorOverrideSettingsStatics);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1673,7 +1634,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayEnhancementOverride = __uuidof(IDisplayEnhancementOverride);
+                extern MIDL_CONST_ID IID& IID_IDisplayEnhancementOverride = _uuidof(IDisplayEnhancementOverride);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1715,7 +1676,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayEnhancementOverrideCapabilities = __uuidof(IDisplayEnhancementOverrideCapabilities);
+                extern MIDL_CONST_ID IID& IID_IDisplayEnhancementOverrideCapabilities = _uuidof(IDisplayEnhancementOverrideCapabilities);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1751,7 +1712,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayEnhancementOverrideCapabilitiesChangedEventArgs = __uuidof(IDisplayEnhancementOverrideCapabilitiesChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IDisplayEnhancementOverrideCapabilitiesChangedEventArgs = _uuidof(IDisplayEnhancementOverrideCapabilitiesChangedEventArgs);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1787,7 +1748,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayEnhancementOverrideStatics = __uuidof(IDisplayEnhancementOverrideStatics);
+                extern MIDL_CONST_ID IID& IID_IDisplayEnhancementOverrideStatics = _uuidof(IDisplayEnhancementOverrideStatics);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1872,7 +1833,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayInformation = __uuidof(IDisplayInformation);
+                extern MIDL_CONST_ID IID& IID_IDisplayInformation = _uuidof(IDisplayInformation);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1911,7 +1872,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayInformation2 = __uuidof(IDisplayInformation2);
+                extern MIDL_CONST_ID IID& IID_IDisplayInformation2 = _uuidof(IDisplayInformation2);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1947,7 +1908,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayInformation3 = __uuidof(IDisplayInformation3);
+                extern MIDL_CONST_ID IID& IID_IDisplayInformation3 = _uuidof(IDisplayInformation3);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -1986,7 +1947,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayInformation4 = __uuidof(IDisplayInformation4);
+                extern MIDL_CONST_ID IID& IID_IDisplayInformation4 = _uuidof(IDisplayInformation4);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -2029,7 +1990,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayInformation5 = __uuidof(IDisplayInformation5);
+                extern MIDL_CONST_ID IID& IID_IDisplayInformation5 = _uuidof(IDisplayInformation5);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -2078,7 +2039,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayInformationStatics = __uuidof(IDisplayInformationStatics);
+                extern MIDL_CONST_ID IID& IID_IDisplayInformationStatics = _uuidof(IDisplayInformationStatics);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -2227,7 +2188,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayPropertiesStatics = __uuidof(IDisplayPropertiesStatics);
+                extern MIDL_CONST_ID IID& IID_IDisplayPropertiesStatics = _uuidof(IDisplayPropertiesStatics);
             } /* Display */
         } /* Graphics */
     } /* Windows */
@@ -2236,76 +2197,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics;
 #endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Graphics.Display.IDisplayServices
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Graphics.Display.DisplayServices
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Display_IDisplayServices[] = L"Windows.Graphics.Display.IDisplayServices";
-namespace ABI {
-    namespace Windows {
-        namespace Graphics {
-            namespace Display {
-                MIDL_INTERFACE("1b54f32b-890d-5747-bd26-fdbdeb0c8a71")
-                IDisplayServices : public IInspectable
-                {
-                public:
-                };
-
-                MIDL_CONST_ID IID& IID_IDisplayServices = __uuidof(IDisplayServices);
-            } /* Display */
-        } /* Graphics */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices;
-#endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.Graphics.Display.IDisplayServicesStatics
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Graphics.Display.DisplayServices
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Display_IDisplayServicesStatics[] = L"Windows.Graphics.Display.IDisplayServicesStatics";
-namespace ABI {
-    namespace Windows {
-        namespace Graphics {
-            namespace Display {
-                MIDL_INTERFACE("dc2096bf-730a-5560-b461-91c13d692e0c")
-                IDisplayServicesStatics : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE FindAll(
-                        UINT32* resultLength,
-                        ABI::Windows::Graphics::DisplayId** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IDisplayServicesStatics = __uuidof(IDisplayServicesStatics);
-            } /* Display */
-        } /* Graphics */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics;
-#endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -2514,30 +2405,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
-/*
- *
- * Class Windows.Graphics.Display.DisplayServices
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Display.IDisplayServicesStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
- *
- * Class implements the following interfaces:
- *    Windows.Graphics.Display.IDisplayServices ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_Graphics_Display_DisplayServices_DEFINED
-#define RUNTIMECLASS_Windows_Graphics_Display_DisplayServices_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Graphics_Display_DisplayServices[] = L"Windows.Graphics.Display.DisplayServices";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
 #else // !defined(__cplusplus)
 /* Forward Declarations */
 #ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesEventHandler_FWD_DEFINED__
@@ -2653,18 +2520,6 @@ typedef interface __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayInformationStatic
 typedef interface __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics;
 
 #endif // ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_FWD_DEFINED__
-#define ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices;
-
-#endif // ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics;
-
-#endif // ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_FWD_DEFINED__
 
 // Parameterized interface forward declarations (C)
 
@@ -3421,8 +3276,6 @@ typedef interface __x_ABI_CWindows_CFoundation_CIPropertyValue __x_ABI_CWindows_
 #endif // ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
 
 typedef struct __x_ABI_CWindows_CFoundation_CPoint __x_ABI_CWindows_CFoundation_CPoint;
-
-typedef struct __x_ABI_CWindows_CGraphics_CDisplayId __x_ABI_CWindows_CGraphics_CDisplayId;
 
 typedef enum __x_ABI_CWindows_CGraphics_CDisplay_CAdvancedColorKind __x_ABI_CWindows_CGraphics_CDisplay_CAdvancedColorKind;
 
@@ -5480,140 +5333,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesSt
 
 /*
  *
- * Interface Windows.Graphics.Display.IDisplayServices
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Graphics.Display.DisplayServices
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Display_IDisplayServices[] = L"Windows.Graphics.Display.IDisplayServices";
-typedef struct __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices* This,
-        TrustLevel* trustLevel);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesVtbl;
-
-interface __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices
-{
-    CONST_VTBL struct __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices;
-#endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServices_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.Graphics.Display.IDisplayServicesStatics
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Graphics.Display.DisplayServices
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Display_IDisplayServicesStatics[] = L"Windows.Graphics.Display.IDisplayServicesStatics";
-typedef struct __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStaticsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* FindAll)(__x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics* This,
-        UINT32* resultLength,
-        struct __x_ABI_CWindows_CGraphics_CDisplayId** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStaticsVtbl;
-
-interface __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics
-{
-    CONST_VTBL struct __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStaticsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_FindAll(This, resultLength, result) \
-    ((This)->lpVtbl->FindAll(This, resultLength, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics;
-#endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayServicesStatics_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.Graphics.Display.AdvancedColorInfo
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -5818,30 +5537,6 @@ DEPRECATED("DisplayProperties may be altered or unavailable for releases after W
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Graphics_Display_DisplayProperties[] = L"Windows.Graphics.Display.DisplayProperties";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Class Windows.Graphics.Display.DisplayServices
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Display.IDisplayServicesStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
- *
- * Class implements the following interfaces:
- *    Windows.Graphics.Display.IDisplayServices ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_Graphics_Display_DisplayServices_DEFINED
-#define RUNTIMECLASS_Windows_Graphics_Display_DisplayServices_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Graphics_Display_DisplayServices[] = L"Windows.Graphics.Display.DisplayServices";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 #endif // defined(__cplusplus)
 #pragma pop_macro("MIDL_CONST_ID")

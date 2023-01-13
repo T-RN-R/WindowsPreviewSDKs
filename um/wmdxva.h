@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -125,22 +117,18 @@ EXTERN_C const IID IID_IWMPlayerTimestampHook;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWMPlayerTimestampHook * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWMPlayerTimestampHook * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWMPlayerTimestampHook * This);
         
-        DECLSPEC_XFGVIRT(IWMPlayerTimestampHook, MapTimestamp)
         HRESULT ( STDMETHODCALLTYPE *MapTimestamp )( 
             IWMPlayerTimestampHook * This,
             /* [in] */ REFERENCE_TIME rtIn,
@@ -216,32 +204,26 @@ EXTERN_C const IID IID_IWMCodecAMVideoAccelerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWMCodecAMVideoAccelerator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWMCodecAMVideoAccelerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWMCodecAMVideoAccelerator * This);
         
-        DECLSPEC_XFGVIRT(IWMCodecAMVideoAccelerator, SetAcceleratorInterface)
         HRESULT ( STDMETHODCALLTYPE *SetAcceleratorInterface )( 
             IWMCodecAMVideoAccelerator * This,
             /* [in] */ IAMVideoAccelerator *pIAMVA);
         
-        DECLSPEC_XFGVIRT(IWMCodecAMVideoAccelerator, NegotiateConnection)
         HRESULT ( STDMETHODCALLTYPE *NegotiateConnection )( 
             IWMCodecAMVideoAccelerator * This,
             /* [in] */ DMO_MEDIA_TYPE *pMediaType);
         
-        DECLSPEC_XFGVIRT(IWMCodecAMVideoAccelerator, SetPlayerNotify)
         HRESULT ( STDMETHODCALLTYPE *SetPlayerNotify )( 
             IWMCodecAMVideoAccelerator * This,
             /* [in] */ IWMPlayerTimestampHook *pHook);
@@ -320,28 +302,23 @@ EXTERN_C const IID IID_IWMCodecVideoAccelerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWMCodecVideoAccelerator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWMCodecVideoAccelerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWMCodecVideoAccelerator * This);
         
-        DECLSPEC_XFGVIRT(IWMCodecVideoAccelerator, NegotiateConnection)
         HRESULT ( STDMETHODCALLTYPE *NegotiateConnection )( 
             IWMCodecVideoAccelerator * This,
             /* [in] */ IAMVideoAccelerator *pIAMVA,
             /* [in] */ DMO_MEDIA_TYPE *pMediaType);
         
-        DECLSPEC_XFGVIRT(IWMCodecVideoAccelerator, SetPlayerNotify)
         HRESULT ( STDMETHODCALLTYPE *SetPlayerNotify )( 
             IWMCodecVideoAccelerator * This,
             /* [in] */ IWMPlayerTimestampHook *pHook);

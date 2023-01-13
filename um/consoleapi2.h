@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -71,6 +73,7 @@ FillConsoleOutputCharacterW(
     _In_ COORD dwWriteCoord,
     _Out_ LPDWORD lpNumberOfCharsWritten
     );
+
 #ifdef UNICODE
 #define FillConsoleOutputCharacter  FillConsoleOutputCharacterW
 #else
@@ -88,6 +91,7 @@ FillConsoleOutputAttribute(
     _Out_ LPDWORD lpNumberOfAttrsWritten
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -95,6 +99,7 @@ GenerateConsoleCtrlEvent(
     _In_ DWORD dwCtrlEvent,
     _In_ DWORD dwProcessGroupId
     );
+
 
 WINBASEAPI
 HANDLE
@@ -107,12 +112,14 @@ CreateConsoleScreenBuffer(
     _Reserved_ LPVOID lpScreenBufferData
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 SetConsoleActiveScreenBuffer(
     _In_ HANDLE hConsoleOutput
     );
+
 
 WINBASEAPI
 BOOL
@@ -121,6 +128,7 @@ FlushConsoleInputBuffer(
     _In_ HANDLE hConsoleInput
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -128,12 +136,14 @@ SetConsoleCP(
     _In_ UINT wCodePageID
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 SetConsoleOutputCP(
     _In_ UINT wCodePageID
     );
+
 
 typedef struct _CONSOLE_CURSOR_INFO {
     DWORD  dwSize;
@@ -148,6 +158,7 @@ GetConsoleCursorInfo(
     _Out_ PCONSOLE_CURSOR_INFO lpConsoleCursorInfo
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -155,6 +166,7 @@ SetConsoleCursorInfo(
     _In_ HANDLE hConsoleOutput,
     _In_ CONST CONSOLE_CURSOR_INFO* lpConsoleCursorInfo
     );
+
 
 typedef struct _CONSOLE_SCREEN_BUFFER_INFO {
     COORD dwSize;
@@ -171,6 +183,7 @@ GetConsoleScreenBufferInfo(
     _In_ HANDLE hConsoleOutput,
     _Out_ PCONSOLE_SCREEN_BUFFER_INFO lpConsoleScreenBufferInfo
     );
+
 
 typedef struct _CONSOLE_SCREEN_BUFFER_INFOEX {
     ULONG cbSize;
@@ -192,6 +205,7 @@ GetConsoleScreenBufferInfoEx(
     _Inout_ PCONSOLE_SCREEN_BUFFER_INFOEX lpConsoleScreenBufferInfoEx
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -199,6 +213,7 @@ SetConsoleScreenBufferInfoEx(
     _In_ HANDLE hConsoleOutput,
     _In_ PCONSOLE_SCREEN_BUFFER_INFOEX lpConsoleScreenBufferInfoEx
     );
+
 
 WINBASEAPI
 BOOL
@@ -208,6 +223,7 @@ SetConsoleScreenBufferSize(
     _In_ COORD dwSize
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -216,12 +232,14 @@ SetConsoleCursorPosition(
     _In_ COORD dwCursorPosition
     );
 
+
 WINBASEAPI
 COORD
 WINAPI
 GetLargestConsoleWindowSize(
     _In_ HANDLE hConsoleOutput
     );
+
 
 WINBASEAPI
 BOOL
@@ -231,6 +249,7 @@ SetConsoleTextAttribute(
     _In_ WORD wAttributes
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -239,6 +258,7 @@ SetConsoleWindowInfo(
     _In_ BOOL bAbsolute,
     _In_ CONST SMALL_RECT* lpConsoleWindow
     );
+
 
 WINBASEAPI
 BOOL
@@ -261,6 +281,7 @@ WriteConsoleOutputCharacterW(
     _In_ COORD dwWriteCoord,
     _Out_ LPDWORD lpNumberOfCharsWritten
     );
+
 #ifdef UNICODE
 #define WriteConsoleOutputCharacter  WriteConsoleOutputCharacterW
 #else
@@ -277,6 +298,7 @@ WriteConsoleOutputAttribute(
     _In_ COORD dwWriteCoord,
     _Out_ LPDWORD lpNumberOfAttrsWritten
     );
+
 
 WINBASEAPI
 BOOL
@@ -299,6 +321,7 @@ ReadConsoleOutputCharacterW(
     _In_ COORD dwReadCoord,
     _Out_ LPDWORD lpNumberOfCharsRead
     );
+
 #ifdef UNICODE
 #define ReadConsoleOutputCharacter  ReadConsoleOutputCharacterW
 #else
@@ -315,6 +338,7 @@ ReadConsoleOutputAttribute(
     _In_ COORD dwReadCoord,
     _Out_ LPDWORD lpNumberOfAttrsRead
     );
+
 
 WINBASEAPI
 BOOL
@@ -335,6 +359,7 @@ WriteConsoleInputW(
     _In_ DWORD nLength,
     _Out_ LPDWORD lpNumberOfEventsWritten
     );
+
 #ifdef UNICODE
 #define WriteConsoleInput  WriteConsoleInputW
 #else
@@ -362,6 +387,7 @@ ScrollConsoleScreenBufferW(
     _In_ COORD dwDestinationOrigin,
     _In_ CONST CHAR_INFO* lpFill
     );
+
 #ifdef UNICODE
 #define ScrollConsoleScreenBuffer  ScrollConsoleScreenBufferW
 #else
@@ -389,6 +415,7 @@ WriteConsoleOutputW(
     _In_ COORD dwBufferCoord,
     _Inout_ PSMALL_RECT lpWriteRegion
     );
+
 #ifdef UNICODE
 #define WriteConsoleOutput  WriteConsoleOutputW
 #else
@@ -416,11 +443,13 @@ ReadConsoleOutputW(
     _In_ COORD dwBufferCoord,
     _Inout_ PSMALL_RECT lpReadRegion
     );
+
 #ifdef UNICODE
 #define ReadConsoleOutput  ReadConsoleOutputW
 #else
 #define ReadConsoleOutput  ReadConsoleOutputA
 #endif // !UNICODE
+
 
 WINBASEAPI
 DWORD
@@ -437,6 +466,7 @@ GetConsoleTitleW(
     _Out_writes_(nSize) LPWSTR lpConsoleTitle,
     _In_ DWORD nSize
     );
+
 #ifdef UNICODE
 #define GetConsoleTitle  GetConsoleTitleW
 #else
@@ -460,12 +490,13 @@ GetConsoleOriginalTitleW(
     _Out_writes_(nSize) LPWSTR lpConsoleTitle,
     _In_ DWORD nSize
     );
+
 #ifdef UNICODE
 #define GetConsoleOriginalTitle  GetConsoleOriginalTitleW
 #else
 #define GetConsoleOriginalTitle  GetConsoleOriginalTitleA
 #endif // !UNICODE
-
+    
 #endif /* _WIN32_WINNT >= 0x0600 */
 
 WINBASEAPI
@@ -481,6 +512,7 @@ WINAPI
 SetConsoleTitleW(
     _In_ LPCWSTR lpConsoleTitle
     );
+
 #ifdef UNICODE
 #define SetConsoleTitle  SetConsoleTitleW
 #else

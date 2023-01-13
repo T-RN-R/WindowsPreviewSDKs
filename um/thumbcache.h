@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -178,14 +170,13 @@ typedef struct WTS_THUMBNAILID
     BYTE rgbKey[ 16 ];
     } 	WTS_THUMBNAILID;
 
-#define WTS_E_FAILEDEXTRACTION                     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB200)
-#define WTS_E_EXTRACTIONTIMEDOUT                   MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB201)
-#define WTS_E_SURROGATEUNAVAILABLE                 MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB202)
-#define WTS_E_FASTEXTRACTIONNOTSUPPORTED           MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB203)
-#define WTS_E_DATAFILEUNAVAILABLE                  MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB204)
-#define WTS_E_EXTRACTIONPENDING                    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB205)
-#define WTS_E_EXTRACTIONBLOCKED                    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB206)
-#define WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB207)
+#define WTS_E_FAILEDEXTRACTION           MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB200)
+#define WTS_E_EXTRACTIONTIMEDOUT         MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB201)
+#define WTS_E_SURROGATEUNAVAILABLE       MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB202)
+#define WTS_E_FASTEXTRACTIONNOTSUPPORTED MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB203)
+#define WTS_E_DATAFILEUNAVAILABLE        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB204)
+#define WTS_E_EXTRACTIONPENDING          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB205)
+#define WTS_E_EXTRACTIONBLOCKED          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB206)
 
 
 extern RPC_IF_HANDLE __MIDL_itf_thumbcache_0000_0000_v0_0_c_ifspec;
@@ -231,43 +222,35 @@ EXTERN_C const IID IID_ISharedBitmap;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ISharedBitmap * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ISharedBitmap * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ISharedBitmap * This);
         
-        DECLSPEC_XFGVIRT(ISharedBitmap, GetSharedBitmap)
         HRESULT ( STDMETHODCALLTYPE *GetSharedBitmap )( 
             __RPC__in ISharedBitmap * This,
             /* [out] */ __RPC__deref_out_opt HBITMAP *phbm);
         
-        DECLSPEC_XFGVIRT(ISharedBitmap, GetSize)
         HRESULT ( STDMETHODCALLTYPE *GetSize )( 
             __RPC__in ISharedBitmap * This,
             /* [out] */ __RPC__out SIZE *pSize);
         
-        DECLSPEC_XFGVIRT(ISharedBitmap, GetFormat)
         HRESULT ( STDMETHODCALLTYPE *GetFormat )( 
             __RPC__in ISharedBitmap * This,
             /* [out] */ __RPC__out WTS_ALPHATYPE *pat);
         
-        DECLSPEC_XFGVIRT(ISharedBitmap, InitializeBitmap)
         HRESULT ( STDMETHODCALLTYPE *InitializeBitmap )( 
             __RPC__in ISharedBitmap * This,
             /* [in] */ __RPC__in HBITMAP hbm,
             /* [in] */ WTS_ALPHATYPE wtsAT);
         
-        DECLSPEC_XFGVIRT(ISharedBitmap, Detach)
         HRESULT ( STDMETHODCALLTYPE *Detach )( 
             __RPC__in ISharedBitmap * This,
             /* [out] */ __RPC__deref_out_opt HBITMAP *phbm);
@@ -364,22 +347,18 @@ EXTERN_C const IID IID_IThumbnailCache;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IThumbnailCache * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IThumbnailCache * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IThumbnailCache * This);
         
-        DECLSPEC_XFGVIRT(IThumbnailCache, GetThumbnail)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *GetThumbnail )( 
             IThumbnailCache * This,
             /* [in] */ IShellItem *pShellItem,
@@ -392,7 +371,6 @@ EXTERN_C const IID IID_IThumbnailCache;
             /* [annotation][unique][out] */ 
             _Out_opt_  WTS_THUMBNAILID *pThumbnailID);
         
-        DECLSPEC_XFGVIRT(IThumbnailCache, GetThumbnailByID)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *GetThumbnailByID )( 
             IThumbnailCache * This,
             /* [in] */ WTS_THUMBNAILID thumbnailID,
@@ -503,22 +481,18 @@ EXTERN_C const IID IID_IThumbnailProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IThumbnailProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IThumbnailProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IThumbnailProvider * This);
         
-        DECLSPEC_XFGVIRT(IThumbnailProvider, GetThumbnail)
         HRESULT ( STDMETHODCALLTYPE *GetThumbnail )( 
             __RPC__in IThumbnailProvider * This,
             /* [in] */ UINT cx,
@@ -589,22 +563,18 @@ EXTERN_C const IID IID_IThumbnailSettings;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IThumbnailSettings * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IThumbnailSettings * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IThumbnailSettings * This);
         
-        DECLSPEC_XFGVIRT(IThumbnailSettings, SetContext)
         HRESULT ( STDMETHODCALLTYPE *SetContext )( 
             __RPC__in IThumbnailSettings * This,
             /* [in] */ WTS_CONTEXTFLAGS dwContext);
@@ -675,22 +645,18 @@ EXTERN_C const IID IID_IThumbnailCachePrimer;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IThumbnailCachePrimer * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IThumbnailCachePrimer * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IThumbnailCachePrimer * This);
         
-        DECLSPEC_XFGVIRT(IThumbnailCachePrimer, PageInThumbnail)
         HRESULT ( STDMETHODCALLTYPE *PageInThumbnail )( 
             __RPC__in IThumbnailCachePrimer * This,
             /* [in] */ __RPC__in_opt IShellItem *psi,

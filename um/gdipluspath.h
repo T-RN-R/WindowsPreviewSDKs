@@ -888,9 +888,9 @@ protected:
         SetNativePath(nativePath);
     }
 
-    VOID SetNativePath(GpPath *nativePathArg)
+    VOID SetNativePath(GpPath *nativePath)
     {
-        this->nativePath = nativePathArg;
+        this->nativePath = nativePath;
     }
 
     Status SetStatus(Status status) const
@@ -1075,9 +1075,9 @@ private:
     GraphicsPathIterator& operator=(const GraphicsPathIterator &);
 
 protected:
-    VOID SetNativeIterator(GpPathIterator *nativeIteratorArg)
+    VOID SetNativeIterator(GpPathIterator *nativeIterator)
     {
-        this->nativeIterator = nativeIteratorArg;
+        this->nativeIterator = nativeIterator;
     }
 
     Status SetStatus(Status status) const

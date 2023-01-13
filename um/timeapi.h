@@ -1,10 +1,12 @@
 /********************************************************************************
 *                                                                               *
-* timerapi.h -- ApiSet Contract for api-ms-win-mm-time-l1-1-0                   *
+* timerapi.h -- ApiSet Contract for api-ms-win-mm-time-l1-1-0                   *  
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
+
+
 
 #ifdef _MSC_VER
 #pragma once
@@ -16,6 +18,7 @@
 #include <apiset.h>
 #include <apisetcconv.h>
 
+
 #include <mmsyscom.h>
 
 #ifdef __cplusplus
@@ -25,7 +28,7 @@ extern "C" {
 #pragma region Desktop Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
-#ifndef MMNOTIMER
+#ifndef MMNOTIMER  
 /****************************************************************************
 
                             Timer support
@@ -37,6 +40,7 @@ extern "C" {
 #define TIMERR_NOCANDO        (TIMERR_BASE+1)      /* request not completed */
 #define TIMERR_STRUCT         (TIMERR_BASE+33)     /* time struct size */
 
+
 /* timer device capabilities data structure */
 typedef struct timecaps_tag {
     UINT    wPeriodMin;     /* minimum period supported  */
@@ -44,7 +48,6 @@ typedef struct timecaps_tag {
 } TIMECAPS, *PTIMECAPS, NEAR *NPTIMECAPS, FAR *LPTIMECAPS;
 
 /* timer function prototypes */
-
 WINMMAPI
 MMRESULT
 WINAPI
@@ -52,18 +55,18 @@ timeGetSystemTime(
     _Out_writes_bytes_(cbmmt) LPMMTIME pmmt,
     _In_ UINT cbmmt
     );
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
-
 WINMMAPI
 DWORD
 WINAPI
 timeGetTime(
     void
     );
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
-
 WINMMAPI
 MMRESULT
 WINAPI
@@ -86,7 +89,8 @@ timeEndPeriod(
     _In_ UINT uPeriod
     );
 
-#endif  /* ifndef MMNOTIMER */
+
+#endif  /* ifndef MMNOTIMER */  
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -96,4 +100,5 @@ timeEndPeriod(
 #endif
 
 #endif // _TIMERAPI_H_
+
 

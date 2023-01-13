@@ -1,6 +1,6 @@
 /* Header file automatically generated from winrtbase.idl */
 /*
- * File built with Microsoft(R) MIDLRT Compiler Engine Version 10.00.0231 
+ * File built with Microsoft(R) MIDLRT Compiler Engine Version 10.00.0229 
  */
 
 #pragma warning( disable: 4049 )  /* more than 64k source lines */
@@ -60,20 +60,20 @@
 
 // /ns_prefix optional state
 #if defined(MIDL_NS_PREFIX)
-#if defined(__cplusplus) && !defined(CINTERFACE)
+#if defined(__cplusplus)
 #define ABI_PARAMETER(x) ABI::x
 #define ABI_NAMESPACE_BEGIN namespace ABI {
 #define ABI_NAMESPACE_END }
-#else // !defined(__cplusplus) || defined(CINTERFACE)
+#else // !defined(__cplusplus)
 #define C_ABI_PARAMETER(x) ABI_CONCAT(__x_ABI_C, x)
 #endif // !defined(__cplusplus)
 #define C_IID(x) ABI_CONCAT(IID___x_ABI_C, x)
 #else
-#if defined(__cplusplus) && !defined(CINTERFACE)
+#if defined(__cplusplus)
 #define ABI_PARAMETER(x) x
 #define ABI_NAMESPACE_BEGIN 
 #define ABI_NAMESPACE_END 
-#else // !defined(__cplusplus) || defined(CINTERFACE)
+#else // !defined(__cplusplus)
 #define C_ABI_PARAMETER(x) ABI_CONCAT(__x_, x)
 #endif // !defined(__cplusplus)
 #define C_IID(x) ABI_CONCAT(IID___x_, x)

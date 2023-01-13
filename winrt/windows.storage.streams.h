@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -110,8 +110,6 @@
 #include "Windows.Foundation.h"
 #include "Windows.Storage.h"
 #include "Windows.System.h"
-// Importing Collections header
-#include <windows.foundation.collections.h>
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 /* Forward Declarations */
@@ -309,21 +307,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CStorage_CStreams_CIOutputStream ABI::Windows::Storage::Streams::IOutputStream
 
 #endif // ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                interface IPropertySetSerializer;
-            } /* Streams */
-        } /* Storage */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer ABI::Windows::Storage::Streams::IPropertySetSerializer
-
-#endif // ____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
@@ -971,21 +954,6 @@ typedef IAsyncOperationProgressHandler<ABI::Windows::Storage::Streams::IBuffer*,
 
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
-#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            namespace Collections {
-                interface IPropertySet;
-            } /* Collections */
-        } /* Foundation */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet ABI::Windows::Foundation::Collections::IPropertySet
-
-#endif // ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-
 namespace ABI {
     namespace Windows {
         namespace Foundation {
@@ -1336,7 +1304,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBuffer = __uuidof(IBuffer);
+                extern MIDL_CONST_ID IID& IID_IBuffer = _uuidof(IBuffer);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1373,7 +1341,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBufferFactory = __uuidof(IBufferFactory);
+                extern MIDL_CONST_ID IID& IID_IBufferFactory = _uuidof(IBufferFactory);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1414,7 +1382,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBufferStatics = __uuidof(IBufferStatics);
+                extern MIDL_CONST_ID IID& IID_IBufferStatics = _uuidof(IBufferStatics);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1448,7 +1416,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContentTypeProvider = __uuidof(IContentTypeProvider);
+                extern MIDL_CONST_ID IID& IID_IContentTypeProvider = _uuidof(IContentTypeProvider);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1561,7 +1529,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDataReader = __uuidof(IDataReader);
+                extern MIDL_CONST_ID IID& IID_IDataReader = _uuidof(IDataReader);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1598,7 +1566,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDataReaderFactory = __uuidof(IDataReaderFactory);
+                extern MIDL_CONST_ID IID& IID_IDataReaderFactory = _uuidof(IDataReaderFactory);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1635,7 +1603,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDataReaderStatics = __uuidof(IDataReaderStatics);
+                extern MIDL_CONST_ID IID& IID_IDataReaderStatics = _uuidof(IDataReaderStatics);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1752,7 +1720,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDataWriter = __uuidof(IDataWriter);
+                extern MIDL_CONST_ID IID& IID_IDataWriter = _uuidof(IDataWriter);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1789,7 +1757,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDataWriterFactory = __uuidof(IDataWriterFactory);
+                extern MIDL_CONST_ID IID& IID_IDataWriterFactory = _uuidof(IDataWriterFactory);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1870,7 +1838,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileRandomAccessStreamStatics = __uuidof(IFileRandomAccessStreamStatics);
+                extern MIDL_CONST_ID IID& IID_IFileRandomAccessStreamStatics = _uuidof(IFileRandomAccessStreamStatics);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1910,7 +1878,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInputStream = __uuidof(IInputStream);
+                extern MIDL_CONST_ID IID& IID_IInputStream = _uuidof(IInputStream);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1944,7 +1912,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInputStreamReference = __uuidof(IInputStreamReference);
+                extern MIDL_CONST_ID IID& IID_IInputStreamReference = _uuidof(IInputStreamReference);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1985,7 +1953,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IOutputStream = __uuidof(IOutputStream);
+                extern MIDL_CONST_ID IID& IID_IOutputStream = _uuidof(IOutputStream);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -1994,45 +1962,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CStreams_CIOutputStream;
 #endif /* !defined(____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Storage.Streams.IPropertySetSerializer
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_Streams_IPropertySetSerializer[] = L"Windows.Storage.Streams.IPropertySetSerializer";
-namespace ABI {
-    namespace Windows {
-        namespace Storage {
-            namespace Streams {
-                MIDL_INTERFACE("6e8ebf1c-ef3d-4376-b20e-5be638aeac77")
-                IPropertySetSerializer : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE Serialize(
-                        ABI::Windows::Foundation::Collections::IPropertySet* propertySet,
-                        ABI::Windows::Storage::Streams::IBuffer** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE Deserialize(
-                        ABI::Windows::Foundation::Collections::IPropertySet* propertySet,
-                        ABI::Windows::Storage::Streams::IBuffer* buffer
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IPropertySetSerializer = __uuidof(IPropertySetSerializer);
-            } /* Streams */
-        } /* Storage */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer;
-#endif /* !defined(____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *
@@ -2089,7 +2018,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRandomAccessStream = __uuidof(IRandomAccessStream);
+                extern MIDL_CONST_ID IID& IID_IRandomAccessStream = _uuidof(IRandomAccessStream);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -2123,7 +2052,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRandomAccessStreamReference = __uuidof(IRandomAccessStreamReference);
+                extern MIDL_CONST_ID IID& IID_IRandomAccessStreamReference = _uuidof(IRandomAccessStreamReference);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -2168,7 +2097,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRandomAccessStreamReferenceStatics = __uuidof(IRandomAccessStreamReferenceStatics);
+                extern MIDL_CONST_ID IID& IID_IRandomAccessStreamReferenceStatics = _uuidof(IRandomAccessStreamReferenceStatics);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -2217,7 +2146,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRandomAccessStreamStatics = __uuidof(IRandomAccessStreamStatics);
+                extern MIDL_CONST_ID IID& IID_IRandomAccessStreamStatics = _uuidof(IRandomAccessStreamStatics);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -2255,7 +2184,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IRandomAccessStreamWithContentType = __uuidof(IRandomAccessStreamWithContentType);
+                extern MIDL_CONST_ID IID& IID_IRandomAccessStreamWithContentType = _uuidof(IRandomAccessStreamWithContentType);
             } /* Streams */
         } /* Storage */
     } /* Windows */
@@ -2658,12 +2587,6 @@ typedef interface __x_ABI_CWindows_CStorage_CStreams_CIInputStreamReference __x_
 typedef interface __x_ABI_CWindows_CStorage_CStreams_CIOutputStream __x_ABI_CWindows_CStorage_CStreams_CIOutputStream;
 
 #endif // ____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_FWD_DEFINED__
-#define ____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer;
-
-#endif // ____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStream_FWD_DEFINED__
@@ -3992,12 +3915,6 @@ interface __FIAsyncOperationProgressHandler_2_Windows__CStorage__CStreams__CIBuf
 
 #endif // ____FIAsyncOperationProgressHandler_2_Windows__CStorage__CStreams__CIBuffer_UINT32_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet;
-
-#endif // ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
 
 typedef struct __x_ABI_CWindows_CFoundation_CDateTime __x_ABI_CWindows_CFoundation_CDateTime;
 
@@ -5351,80 +5268,6 @@ interface __x_ABI_CWindows_CStorage_CStreams_CIOutputStream
 EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CStreams_CIOutputStream;
 #endif /* !defined(____x_ABI_CWindows_CStorage_CStreams_CIOutputStream_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Storage.Streams.IPropertySetSerializer
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Storage_Streams_IPropertySetSerializer[] = L"Windows.Storage.Streams.IPropertySetSerializer";
-typedef struct __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializerVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* Serialize)(__x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer* This,
-        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* propertySet,
-        __x_ABI_CWindows_CStorage_CStreams_CIBuffer** result);
-    HRESULT (STDMETHODCALLTYPE* Deserialize)(__x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer* This,
-        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* propertySet,
-        __x_ABI_CWindows_CStorage_CStreams_CIBuffer* buffer);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializerVtbl;
-
-interface __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer
-{
-    CONST_VTBL struct __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializerVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_Serialize(This, propertySet, result) \
-    ((This)->lpVtbl->Serialize(This, propertySet, result))
-
-#define __x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_Deserialize(This, propertySet, buffer) \
-    ((This)->lpVtbl->Deserialize(This, propertySet, buffer))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer;
-#endif /* !defined(____x_ABI_CWindows_CStorage_CStreams_CIPropertySetSerializer_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *

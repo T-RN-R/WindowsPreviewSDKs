@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -37,14 +37,6 @@
 #pragma once
 #endif
 
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
-#endif
-
 /* Forward Declarations */ 
 
 #ifndef __IPrintDocumentPackageTarget_FWD_DEFINED__
@@ -52,13 +44,6 @@
 typedef interface IPrintDocumentPackageTarget IPrintDocumentPackageTarget;
 
 #endif 	/* __IPrintDocumentPackageTarget_FWD_DEFINED__ */
-
-
-#ifndef __IPrintDocumentPackageTarget2_FWD_DEFINED__
-#define __IPrintDocumentPackageTarget2_FWD_DEFINED__
-typedef interface IPrintDocumentPackageTarget2 IPrintDocumentPackageTarget2;
-
-#endif 	/* __IPrintDocumentPackageTarget2_FWD_DEFINED__ */
 
 
 #ifndef __IPrintDocumentPackageStatusEvent_FWD_DEFINED__
@@ -181,35 +166,29 @@ EXTERN_C const IID IID_IPrintDocumentPackageTarget;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IPrintDocumentPackageTarget * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IPrintDocumentPackageTarget * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IPrintDocumentPackageTarget * This);
         
-        DECLSPEC_XFGVIRT(IPrintDocumentPackageTarget, GetPackageTargetTypes)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetPackageTargetTypes )( 
             __RPC__in IPrintDocumentPackageTarget * This,
             /* [out] */ __RPC__out UINT32 *targetCount,
             /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*targetCount) GUID **targetTypes);
         
-        DECLSPEC_XFGVIRT(IPrintDocumentPackageTarget, GetPackageTarget)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetPackageTarget )( 
             __RPC__in IPrintDocumentPackageTarget * This,
             /* [in] */ __RPC__in REFGUID guidTargetType,
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][out] */ __RPC__deref_out_opt void **ppvTarget);
         
-        DECLSPEC_XFGVIRT(IPrintDocumentPackageTarget, Cancel)
         HRESULT ( STDMETHODCALLTYPE *Cancel )( 
             __RPC__in IPrintDocumentPackageTarget * This);
         
@@ -256,104 +235,7 @@ EXTERN_C const IID IID_IPrintDocumentPackageTarget;
 #endif 	/* __IPrintDocumentPackageTarget_INTERFACE_DEFINED__ */
 
 
-#ifndef __IPrintDocumentPackageTarget2_INTERFACE_DEFINED__
-#define __IPrintDocumentPackageTarget2_INTERFACE_DEFINED__
-
-/* interface IPrintDocumentPackageTarget2 */
-/* [helpstring][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IPrintDocumentPackageTarget2;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("c560298a-535c-48f9-866a-632540660cb4")
-    IPrintDocumentPackageTarget2 : public IUnknown
-    {
-    public:
-        virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE GetIsTargetIppPrinter( 
-            /* [out] */ __RPC__out BOOL *isIppPrinter) = 0;
-        
-        virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE GetTargetIppPrintDevice( 
-            /* [in] */ __RPC__in REFIID riid,
-            /* [iid_is][out] */ __RPC__deref_out_opt void **ppvTarget) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IPrintDocumentPackageTarget2Vtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IPrintDocumentPackageTarget2 * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IPrintDocumentPackageTarget2 * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IPrintDocumentPackageTarget2 * This);
-        
-        DECLSPEC_XFGVIRT(IPrintDocumentPackageTarget2, GetIsTargetIppPrinter)
-        /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetIsTargetIppPrinter )( 
-            __RPC__in IPrintDocumentPackageTarget2 * This,
-            /* [out] */ __RPC__out BOOL *isIppPrinter);
-        
-        DECLSPEC_XFGVIRT(IPrintDocumentPackageTarget2, GetTargetIppPrintDevice)
-        /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetTargetIppPrintDevice )( 
-            __RPC__in IPrintDocumentPackageTarget2 * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [iid_is][out] */ __RPC__deref_out_opt void **ppvTarget);
-        
-        END_INTERFACE
-    } IPrintDocumentPackageTarget2Vtbl;
-
-    interface IPrintDocumentPackageTarget2
-    {
-        CONST_VTBL struct IPrintDocumentPackageTarget2Vtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IPrintDocumentPackageTarget2_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IPrintDocumentPackageTarget2_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IPrintDocumentPackageTarget2_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IPrintDocumentPackageTarget2_GetIsTargetIppPrinter(This,isIppPrinter)	\
-    ( (This)->lpVtbl -> GetIsTargetIppPrinter(This,isIppPrinter) ) 
-
-#define IPrintDocumentPackageTarget2_GetTargetIppPrintDevice(This,riid,ppvTarget)	\
-    ( (This)->lpVtbl -> GetTargetIppPrintDevice(This,riid,ppvTarget) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IPrintDocumentPackageTarget2_INTERFACE_DEFINED__ */
-
-
-/* interface __MIDL_itf_documenttarget_0000_0002 */
+/* interface __MIDL_itf_documenttarget_0000_0001 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
@@ -369,7 +251,7 @@ enum PrintDocumentPackageCompletion
         PrintDocumentPackageCompletion_Failed	= ( PrintDocumentPackageCompletion_Canceled + 1 ) 
     } 	PrintDocumentPackageCompletion;
 
-typedef /* [public][public] */ struct __MIDL___MIDL_itf_documenttarget_0000_0002_0001
+typedef /* [public][public] */ struct __MIDL___MIDL_itf_documenttarget_0000_0001_0001
     {
     UINT32 JobId;
     INT32 CurrentDocument;
@@ -381,8 +263,8 @@ typedef /* [public][public] */ struct __MIDL___MIDL_itf_documenttarget_0000_0002
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0002_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0002_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0001_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0001_v0_0_s_ifspec;
 
 #ifndef __IPrintDocumentPackageStatusEvent_INTERFACE_DEFINED__
 #define __IPrintDocumentPackageStatusEvent_INTERFACE_DEFINED__
@@ -411,34 +293,28 @@ EXTERN_C const IID IID_IPrintDocumentPackageStatusEvent;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IPrintDocumentPackageStatusEvent * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IPrintDocumentPackageStatusEvent * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IPrintDocumentPackageStatusEvent * This);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             __RPC__in IPrintDocumentPackageStatusEvent * This,
             /* [out] */ __RPC__out UINT *pctinfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             __RPC__in IPrintDocumentPackageStatusEvent * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ __RPC__deref_out_opt ITypeInfo **ppTInfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             __RPC__in IPrintDocumentPackageStatusEvent * This,
             /* [in] */ __RPC__in REFIID riid,
@@ -447,7 +323,6 @@ EXTERN_C const IID IID_IPrintDocumentPackageStatusEvent;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ __RPC__out_ecount_full(cNames) DISPID *rgDispId);
         
-        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IPrintDocumentPackageStatusEvent * This,
             /* [annotation][in] */ 
@@ -467,7 +342,6 @@ EXTERN_C const IID IID_IPrintDocumentPackageStatusEvent;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
-        DECLSPEC_XFGVIRT(IPrintDocumentPackageStatusEvent, PackageStatusUpdated)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *PackageStatusUpdated )( 
             __RPC__in IPrintDocumentPackageStatusEvent * This,
             /* [in] */ __RPC__in PrintDocumentPackageStatus *packageStatus);
@@ -553,22 +427,18 @@ EXTERN_C const IID IID_IPrintDocumentPackageTargetFactory;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IPrintDocumentPackageTargetFactory * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IPrintDocumentPackageTargetFactory * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IPrintDocumentPackageTargetFactory * This);
         
-        DECLSPEC_XFGVIRT(IPrintDocumentPackageTargetFactory, CreateDocumentPackageTargetForPrintJob)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *CreateDocumentPackageTargetForPrintJob )( 
             __RPC__in IPrintDocumentPackageTargetFactory * This,
             /* [string][in] */ __RPC__in_string LPCWSTR printerName,
@@ -614,15 +484,15 @@ EXTERN_C const IID IID_IPrintDocumentPackageTargetFactory;
 #endif 	/* __IPrintDocumentPackageTargetFactory_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_documenttarget_0000_0004 */
+/* interface __MIDL_itf_documenttarget_0000_0003 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0004_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0004_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0003_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0003_v0_0_s_ifspec;
 
 
 #ifndef __PrintDocumentTargetLib_LIBRARY_DEFINED__
@@ -663,7 +533,7 @@ PrintDocumentPackageTargetFactory;
 #endif
 #endif /* __PrintDocumentTargetLib_LIBRARY_DEFINED__ */
 
-/* interface __MIDL_itf_documenttarget_0000_0005 */
+/* interface __MIDL_itf_documenttarget_0000_0004 */
 /* [local] */ 
 
 DEFINE_GUID(ID_DOCUMENTPACKAGETARGET_MSXPS,   0x9cae40a8, 0xded1, 0x41c9, 0xa9, 0xfd, 0xd7, 0x35, 0xef, 0x33, 0xae, 0xda);
@@ -674,8 +544,8 @@ DEFINE_GUID(ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D, 0x63dbd720, 0x8b14, 0x4577
 #endif // (NTDDI_VERSION >= NTDDI_WINBLUE)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0005_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0005_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0004_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_documenttarget_0000_0004_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

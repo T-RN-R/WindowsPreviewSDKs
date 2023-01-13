@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_ApplicationModel_DataTransfer_ShareTarget_0_H
 #define WINRT_Windows_ApplicationModel_DataTransfer_ShareTarget_0_H
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::DataTransfer
@@ -25,25 +24,27 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::DataTransfer::ShareTarg
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::ShareOperation> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation2";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation3";
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>{ 0x603E4308,0xF0BE,0x4ADC,{ 0xAC,0xC9,0x8B,0x27,0xAB,0x9C,0xF5,0x56 } }; // 603E4308-F0BE-4ADC-ACC9-8B27AB9CF556
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>{ 0x2246BAB8,0xD0F8,0x41C1,{ 0xA8,0x2A,0x41,0x37,0xDB,0x65,0x04,0xFB } }; // 2246BAB8-D0F8-41C1-A82A-4137DB6504FB
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>{ 0x0FFB97C1,0x9778,0x4A09,{ 0x8E,0x5B,0xCB,0x5E,0x48,0x2D,0x05,0x55 } }; // 0FFB97C1-9778-4A09-8E5B-CB5E482D0555
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>{ 0x5EF6B382,0xB7A7,0x4571,{ 0xA2,0xA6,0x99,0x4A,0x03,0x49,0x88,0xB2 } }; // 5EF6B382-B7A7-4571-A2A6-994A034988B2
-    template <> struct default_interface<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink>{ using type = winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>{ using type = winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation; };
-    template <> struct abi<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>
+    template <> struct category<Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>{ using type = class_category; };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink>{ L"Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>{ L"Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>{ L"Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>{ L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>{ L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation2" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>{ L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation3" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>{ 0x603E4308,0xF0BE,0x4ADC,{ 0xAC,0xC9,0x8B,0x27,0xAB,0x9C,0xF5,0x56 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>{ 0x2246BAB8,0xD0F8,0x41C1,{ 0xA8,0x2A,0x41,0x37,0xDB,0x65,0x04,0xFB } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>{ 0x0FFB97C1,0x9778,0x4A09,{ 0x8E,0x5B,0xCB,0x5E,0x48,0x2D,0x05,0x55 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>{ 0x5EF6B382,0xB7A7,0x4571,{ 0xA2,0xA6,0x99,0x4A,0x03,0x49,0x88,0xB2 } };
+    template <> struct default_interface<Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink>{ using type = Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink; };
+    template <> struct default_interface<Windows::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>{ using type = Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation; };
+    template <> struct abi<Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -57,7 +58,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_SupportedFileTypes(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>
+    template <> struct abi<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -72,14 +73,14 @@ namespace winrt::impl
             virtual int32_t __stdcall ReportError(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>
+    template <> struct abi<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall DismissUI() noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>
+    template <> struct abi<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -92,13 +93,13 @@ namespace winrt::impl
         [[nodiscard]] auto Title() const;
         auto Title(param::hstring const& value) const;
         [[nodiscard]] auto Thumbnail() const;
-        auto Thumbnail(winrt::Windows::Storage::Streams::RandomAccessStreamReference const& value) const;
+        auto Thumbnail(Windows::Storage::Streams::RandomAccessStreamReference const& value) const;
         [[nodiscard]] auto Id() const;
         auto Id(param::hstring const& value) const;
         [[nodiscard]] auto SupportedDataFormats() const;
         [[nodiscard]] auto SupportedFileTypes() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>
+    template <> struct consume<Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_DataTransfer_ShareTarget_IQuickLink<D>;
     };
@@ -111,11 +112,11 @@ namespace winrt::impl
         auto ReportStarted() const;
         auto ReportDataRetrieved() const;
         auto ReportSubmittedBackgroundTask() const;
-        auto ReportCompleted(winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink const& quicklink) const;
+        auto ReportCompleted(Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink const& quicklink) const;
         auto ReportCompleted() const;
         auto ReportError(param::hstring const& value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>
+    template <> struct consume<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_DataTransfer_ShareTarget_IShareOperation<D>;
     };
@@ -124,7 +125,7 @@ namespace winrt::impl
     {
         auto DismissUI() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>
+    template <> struct consume<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_DataTransfer_ShareTarget_IShareOperation2<D>;
     };
@@ -133,7 +134,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto Contacts() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>
+    template <> struct consume<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_DataTransfer_ShareTarget_IShareOperation3<D>;
     };

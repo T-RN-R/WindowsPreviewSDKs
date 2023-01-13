@@ -22,22 +22,16 @@
 ;   PROLOG_STACK_ALLOC <amount>
 ;   PROLOG_SAVE_REG
 ;   PROLOG_SAVE_REG_PAIR
-;   PROLOG_SAVE_REG_PAIR_NO_FP
 ;   PROLOG_NOP <operation>
-;   PROLOG_SAVE_NEXT_PAIR <operation>
 ;   PROLOG_PUSH_TRAP_FRAME
 ;   PROLOG_PUSH_MACHINE_FRAME
 ;   PROLOG_PUSH_CONTEXT
-;   PROLOG_PUSH_EC_CONTEXT
-;   PROLOG_SIGN_RETURN_ADDRESS
 ;
 ;   EPILOG_STACK_FREE <amount>
 ;   EPILOG_RECOVER_SP <offset>
 ;   EPILOG_RESTORE_REG
 ;   EPILOG_RESTORE_REG_PAIR
 ;   EPILOG_NOP <operation>
-;   EPILOG_RESTORE_NEXT_PAIR <operation>
-;   EPILOG_AUTHENTICATE_RETURN_ADDRESS
 ;   EPILOG_RETURN
 ;
 
@@ -50,8 +44,7 @@
 
         ; result from __ParseOffset
         GBLA __ParsedOffsetAbs
-        GBLA __ParsedOffsetShifted3
-        GBLA __ParsedOffsetShifted4
+        GBLA __ParsedOffsetShifted
         GBLA __ParsedOffsetPreinc
         GBLS __ParsedOffsetRawString
         GBLS __ParsedOffsetString
@@ -71,7 +64,6 @@
         GBLL __EpilogStartNotDefined
         GBLA __RunningIndex
         GBLS __RunningLabel
-        GBLS __FuncExceptionHandler
 
 
         ;
@@ -206,19 +198,20 @@ __EpilogStartNotDefined SETL {true}
 
 RString SETS    "$Reg"
 
-        IF (RString:LEFT:1 == "q") || (RString:LEFT:1 == "v")
-
-RString  SETS    RString:RIGHT:(:LEN:RString - 1)
-__ParsedRegNumber SETA  64 + $RString
-
-        ELIF RString:LEFT:1 == "d"
+        IF RString:LEFT:1 == "d"
 
 RString  SETS    RString:RIGHT:(:LEN:RString - 1)
 __ParsedRegNumber SETA  32 + $RString
+        IF (__ParsedRegNumber < (32 + 8) || (__ParsedRegNumber >= 32 + 16))
+        INFO    1, "$Name: Invalid floating-point register ($Reg)"
+        ENDIF
 
         ELSE
 
 __ParsedRegNumber SETA  :RCONST:$RString
+        IF (__ParsedRegNumber < 19 || __ParsedRegNumber >= 31)
+        INFO    1, "$Name: Invalid integer register ($Reg)"
+        ENDIF
 
         ENDIF
 
@@ -295,10 +288,9 @@ __ParsedOffsetString SETS "[sp, #":CC:OffsStr:CC:"]"
 
         ENDIF
 
-__ParsedOffsetShifted3 SETA __ParsedOffsetAbs:SHR:3 - __ParsedOffsetPreinc
-__ParsedOffsetShifted4 SETA __ParsedOffsetAbs:SHR:4 - __ParsedOffsetPreinc
+__ParsedOffsetShifted SETA __ParsedOffsetAbs:SHR:3 - __ParsedOffsetPreinc
 
-        IF __ParsedOffsetAbs != ((__ParsedOffsetShifted3 + __ParsedOffsetPreinc):SHL:3) || __ParsedOffsetShifted3 >= 0x40
+        IF __ParsedOffsetAbs != ((__ParsedOffsetShifted + __ParsedOffsetPreinc):SHL:3) || __ParsedOffsetShifted >= 0x40
         INFO    1, "$Name: invalid offset $Offset"
         MEXIT
         ENDIF
@@ -321,7 +313,6 @@ __ParsedOffsetShifted4 SETA __ParsedOffsetAbs:SHR:4 - __ParsedOffsetPreinc
 
         LCLA    ByteVal
         LCLA    ByteVal2
-        LCLA    ByteVal3
         LCLA    RegNum
 
         __ParseRegisterNumber $Name, $Reg1
@@ -331,32 +322,13 @@ RegNum  SETA    __ParsedRegNumber
 
         IF (RegNum >= 19) && (RegNum <= 30)
 ByteVal SETA 0xd0:OR:(__ParsedOffsetPreinc:SHL:2):OR:((RegNum - 19):SHR:2)
-ByteVal2 SETA (((RegNum - 19):AND:3):SHL:6):OR:__ParsedOffsetShifted3
+ByteVal2 SETA (((RegNum - 19):AND:3):SHL:6):OR:__ParsedOffsetShifted
 __ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2):CC:",0x":CC:((:STR:ByteVal2):RIGHT:2)
 
         ELIF (RegNum >= 40) && (RegNum <= 47)
 ByteVal SETA 0xdc:OR:(__ParsedOffsetPreinc:SHL:1):OR:((RegNum - 40):SHR:2)
-ByteVal2 SETA (((RegNum - 40):AND:3):SHL:6):OR:__ParsedOffsetShifted3
+ByteVal2 SETA (((RegNum - 40):AND:3):SHL:6):OR:__ParsedOffsetShifted
 __ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2):CC:",0x":CC:((:STR:ByteVal2):RIGHT:2)
-
-#if defined(_M_ARM64EC) || ENABLE_SAVE_ANY_REG
-        ELIF (RegNum < 96)
-        ; 11100111 ' 0pxrrrrr ' ffoooooo
-        ; p: 0/1 - single/pair
-        ; x: 0/1 - positive offset / negative offset with writeback
-        ; r: register number
-        ; f: 00/01/10 - X / D / Q
-        ; o: offset * 16 for x=1 or p=1 or f=Q / else offset * 8
-ByteVal SETA 0xe7
-ByteVal2 SETA 0x00:OR:(__ParsedOffsetPreinc:SHL:5):OR:(RegNum:AND:31)
-ByteVal3 SETA (RegNum:AND:0x60):SHL:1
-        IF (RegNum >= 64) || (__ParsedOffsetPreinc != 0)
-ByteVal3 SETA ByteVal3:OR:__ParsedOffsetShifted4
-        ELSE
-ByteVal3 SETA ByteVal3:OR:__ParsedOffsetShifted3
-        ENDIF
-__ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2):CC:",0x":CC:((:STR:ByteVal2):RIGHT:2):CC:",0x":CC:((:STR:ByteVal3):RIGHT:2)
-#endif
 
         ELSE
         INFO    1, "$Name: Unsupported register: $Reg1"
@@ -379,7 +351,6 @@ __ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2):CC:",0x":CC:((:STR:ByteVal
 
         LCLA    ByteVal
         LCLA    ByteVal2
-        LCLA    ByteVal3
         LCLA    RegNum1
         LCLA    RegNum2
 
@@ -394,42 +365,28 @@ RegNum2 SETA    __ParsedRegNumber
 __RegPairWasFpLr SETL {false}
 
         IF (RegNum1 == 29) && (RegNum2 == 30)
-ByteVal SETA    (0x40+(__ParsedOffsetPreinc*0x40)):OR:__ParsedOffsetShifted3
+ByteVal SETA    (0x40+(__ParsedOffsetPreinc*0x40)):OR:__ParsedOffsetShifted
 __ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2)
 __RegPairWasFpLr SETL {true}
 
         ELIF (RegNum1 == 19) && (RegNum2 == 20) && (__ParsedOffsetPreinc != 0)
-ByteVal SETA    0x20:OR:(__ParsedOffsetShifted3 + 1)
+ByteVal SETA    0x20:OR:(__ParsedOffsetShifted + 1)
 __ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2)
 
         ELIF (RegNum1 >= 19) && (RegNum1 <= 30) && (((RegNum1 - 19):AND:1) == 0) && (RegNum2 == 30) && (__ParsedOffsetPreinc == 0)
 ByteVal SETA 0xd6:OR:((RegNum1 - 19):SHR:3)
-ByteVal2 SETA ((((RegNum1 - 19):SHR:1):AND:3):SHL:6):OR:__ParsedOffsetShifted3
+ByteVal2 SETA ((((RegNum1 - 19):SHR:1):AND:3):SHL:6):OR:__ParsedOffsetShifted
 __ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2):CC:",0x":CC:((:STR:ByteVal2):RIGHT:2)
 
         ELIF (RegNum1 >= 19) && (RegNum1 <= 30) && (RegNum2 == (RegNum1 + 1))
 ByteVal SETA 0xc8:OR:(__ParsedOffsetPreinc:SHL:2):OR:((RegNum1 - 19):SHR:2)
-ByteVal2 SETA (((RegNum1 - 19):AND:3):SHL:6):OR:__ParsedOffsetShifted3
+ByteVal2 SETA (((RegNum1 - 19):AND:3):SHL:6):OR:__ParsedOffsetShifted
 __ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2):CC:",0x":CC:((:STR:ByteVal2):RIGHT:2)
 
         ELIF (RegNum1 >= 40) && (RegNum1 <= 47) && (RegNum2 == (RegNum1 + 1))
 ByteVal SETA 0xd8:OR:(__ParsedOffsetPreinc:SHL:1):OR:((RegNum1 - 40):SHR:2)
-ByteVal2 SETA (((RegNum1 - 40):AND:3):SHL:6):OR:__ParsedOffsetShifted3
+ByteVal2 SETA (((RegNum1 - 40):AND:3):SHL:6):OR:__ParsedOffsetShifted
 __ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2):CC:",0x":CC:((:STR:ByteVal2):RIGHT:2)
-
-#if defined(_M_ARM64EC) || ENABLE_SAVE_ANY_REG
-        ELIF (RegNum2 == (RegNum1 + 1))
-        ; 11100111 ' 0pxrrrrr ' ffoooooo
-        ; p: 0/1 - single/pair
-        ; x: 0/1 - positive offset / negative offset with writeback
-        ; r: register number
-        ; f: 00/01/10 - X / D / Q
-        ; o: offset * 16 for x=1 or p=1 or f=Q / else offset * 8
-ByteVal SETA 0xe7
-ByteVal2 SETA 0x40:OR:(__ParsedOffsetPreinc:SHL:5):OR:(RegNum1:AND:31)
-ByteVal3 SETA ((RegNum1:AND:0x60):SHL:1):OR:(__ParsedOffsetAbs:SHR:4 - __ParsedOffsetPreinc)
-__ComputedCodes SETS "0x":CC:((:STR:ByteVal):RIGHT:2):CC:",0x":CC:((:STR:ByteVal2):RIGHT:2):CC:",0x":CC:((:STR:ByteVal3):RIGHT:2)
-#endif
 
         ELSE
         INFO    1, "$Name: Unsupported register pair: $Reg1, $Reg2"
@@ -540,7 +497,7 @@ __ComputedCodes SETS "0xE0,0x":CC:((:STR:Byte1):RIGHT:2):CC:",0x":CC:((:STR:Byte
 
         IF (__ParsedOffsetAbs != 0) && (__ParsedOffsetPreinc == 0)
         __EmitRunningLabelAndOpcode add fp, sp, $__ParsedOffsetRawString
-__ComputedCodes SETS "0xe2,0x":CC:((:STR:__ParsedOffsetShifted3):RIGHT:2):CC:",":CC:__ComputedCodes
+__ComputedCodes SETS "0xe2,0x":CC:((:STR:__ParsedOffsetShifted):RIGHT:2):CC:",":CC:__ComputedCodes
         ELSE
 
         __EmitRunningLabelAndOpcode mov fp, sp
@@ -614,22 +571,6 @@ __ComputedCodes SETS "0xE3"
 
 
         ;
-        ; Macro for saving the next pair of registers
-        ;
-
-        MACRO
-        PROLOG_SAVE_NEXT_PAIR $O1,$O2,$O3,$O4
-
-__ComputedCodes SETS "0xE6"
-
-        __EmitRunningLabelAndOpcode $O1,$O2,$O3,$O4
-        __DeclarePrologEnd
-        __AppendPrologCodes
-
-        MEND
-
-
-        ;
         ; Macro for indicating a trap frame lives above us
         ;
 
@@ -658,7 +599,7 @@ __ComputedCodes SETS "0xE9"
 
 
         ;
-        ; Macro for indicating a ARM64_NT_CONTEXT lives above us
+        ; Macro for indicating a context lives above us
         ;
 
         MACRO
@@ -666,36 +607,6 @@ __ComputedCodes SETS "0xE9"
         __DeclarePrologEnd
 
 __ComputedCodes SETS "0xEA"
-        __AppendPrologCodes
-
-        MEND
-
-
-        ;
-        ; Macro for indicating a ARM64EC_NT_CONTEXT lives above us
-        ;
-
-        MACRO
-        PROLOG_PUSH_EC_CONTEXT
-        __DeclarePrologEnd
-
-__ComputedCodes SETS "0xEB"
-        __AppendPrologCodes
-
-        MEND
-
-
-        ;
-        ; Macro for signing the return address in the prolog
-        ;
-
-        MACRO
-        PROLOG_SIGN_RETURN_ADDRESS
-
-__ComputedCodes SETS "0xFC"
-
-        __EmitRunningLabelAndOpcode pacibsp
-        __DeclarePrologEnd
         __AppendPrologCodes
 
         MEND
@@ -811,38 +722,6 @@ __ComputedCodes SETS "0xE3"
 
 
         ;
-        ; Macro for restoring the next pair of registers
-        ;
-
-        MACRO
-        EPILOG_RESTORE_NEXT_PAIR $O1,$O2,$O3,$O4
-
-__ComputedCodes SETS "0xE6"
-
-        __DeclareEpilogStart
-        __EmitRunningLabelAndOpcode $O1,$O2,$O3,$O4
-        __AppendEpilogCodes
-
-        MEND
-
-
-        ;
-        ; Macro for authenticating the return address in the epilog
-        ;
-
-        MACRO
-        EPILOG_AUTHENTICATE_RETURN_ADDRESS
-
-__ComputedCodes SETS "0xFC"
-
-        __DeclareEpilogStart
-        __EmitRunningLabelAndOpcode autibsp
-        __AppendEpilogCodes
-
-        MEND
-
-
-        ;
         ; Macro for a bx lr-style return in the epilog
         ;
 
@@ -857,25 +736,6 @@ __ComputedCodes SETS "0xE4"
         __DeclareEpilogEnd
 
         MEND
-
-
-        ;
-        ; Macro for generic end of epilog such as direct
-        ; (b) or indirect (br) tail calls.
-        ; 
-
-        MACRO
-        EPILOG_END $O1,$O2,$O3,$O4
-
-__ComputedCodes SETS "0xE4"
-
-        __DeclareEpilogStart
-        __EmitRunningLabelAndOpcode $O1,$O2,$O3,$O4
-        __AppendEpilogCodes
-        __DeclareEpilogEnd
-
-        MEND
-
 
         ;
         ; Emit an opcode indicating that the unwind address of this function
@@ -902,7 +762,7 @@ __ComputedCodes SETS "0xEC, 0XE4"
         ;
 
         MACRO
-        __ResetUnwindState $ExceptHandler
+        __ResetUnwindState
 __PrologUnwindString SETS ""
 __EpilogUnwindCount SETA 0
 __Epilog1UnwindString SETS ""
@@ -910,10 +770,6 @@ __Epilog2UnwindString SETS ""
 __Epilog3UnwindString SETS ""
 __Epilog4UnwindString SETS ""
 __EpilogStartNotDefined SETL {true}
-__FuncExceptionHandler SETS ""
-        IF "$ExceptHandler" != ""
-__FuncExceptionHandler SETS "|$ExceptHandler|"
-        ENDIF
         MEND
 
 
@@ -987,11 +843,19 @@ __PrologUnwindString SETS "0xE4"
         ; Switch to the .xdata section, aligned to a DWORD
         ;
 
-        IF __FuncComDat != ""
+#if defined(_CHPE_X86_ARM64_)
+
+        LCLS    __FuncXDataArea
+
+__FuncXDataArea SETS "|.xdata|{$__FuncXDataLabel}"
+
         AREA    $__FuncXDataArea,ALIGN=2,READONLY,ASSOC=$__FuncArea
-        ELSE
-        AREA    $__FuncXDataArea,ALIGN=2,READONLY
-        ENDIF
+
+#else
+
+        AREA    |.xdata|,ALIGN=2,READONLY
+
+#endif
 
         ALIGN   4
 

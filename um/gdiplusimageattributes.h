@@ -365,9 +365,9 @@ protected:
         lastResult = status;
     }
 
-    VOID SetNativeImageAttr(GpImageAttributes* nativeImageAttrArg)
+    VOID SetNativeImageAttr(GpImageAttributes* nativeImageAttr)
     {
-        this->nativeImageAttr = nativeImageAttrArg;
+        this->nativeImageAttr = nativeImageAttr;
     }
     
     Status SetStatus(Status status) const

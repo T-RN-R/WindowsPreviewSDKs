@@ -50,6 +50,10 @@ Abstract:
 
 // begin_wioctlguids
 
+#ifndef __WRAPPED__
+#define __WRAPPED__
+#endif
+
 DEFINE_GUID(GUID_DEVINTERFACE_DISK,                   0x53f56307L, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
 DEFINE_GUID(GUID_DEVINTERFACE_CDROM,                  0x53f56308L, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
 DEFINE_GUID(GUID_DEVINTERFACE_PARTITION,              0x53f5630aL, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
@@ -62,7 +66,6 @@ DEFINE_GUID(GUID_DEVINTERFACE_CDCHANGER,              0x53f56312L, 0xb6bf, 0x11d
 DEFINE_GUID(GUID_DEVINTERFACE_STORAGEPORT,            0x2accfe60L, 0xc130, 0x11d2, 0xb0, 0x82, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
 DEFINE_GUID(GUID_DEVINTERFACE_VMLUN,                  0x6f416619L, 0x9f29, 0x42a5, 0xb2, 0x0b, 0x37, 0xe2, 0x19, 0xca, 0x02, 0xb0);
 DEFINE_GUID(GUID_DEVINTERFACE_SES,                    0x1790c9ecL, 0x47d5, 0x4df3, 0xb5, 0xaf, 0x9a, 0xdf, 0x3c, 0xf2, 0x3e, 0x48);
-DEFINE_GUID(GUID_DEVINTERFACE_ZNSDISK,                0xb87941c5L, 0xffdb, 0x43c7, 0xb6, 0xb1, 0x20, 0xb6, 0x32, 0xf0, 0xb1, 0x09);
 
 #define  WDI_STORAGE_PREDICT_FAILURE_DPS_GUID        {0xe9f2d03aL, 0x747c, 0x41c2, {0xbb, 0x9a, 0x02, 0xc6, 0x2b, 0x6d, 0x5f, 0xcb}};
 
@@ -84,6 +87,10 @@ DEFINE_GUID(GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB,    0x27447c21L, 0xbcc3, 0x4d0
 
 // begin_wioctlobsoleteguids
 
+#ifndef __WRAPPED__
+#define __WRAPPED__
+#endif
+
 #define DiskClassGuid               GUID_DEVINTERFACE_DISK
 #define CdRomClassGuid              GUID_DEVINTERFACE_CDROM
 #define PartitionClassGuid          GUID_DEVINTERFACE_PARTITION
@@ -101,6 +108,10 @@ DEFINE_GUID(GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB,    0x27447c21L, 0xbcc3, 0x4d0
 
 // begin_tcioctlguids
 
+#ifndef __WRAPPED__
+#define __WRAPPED__
+#endif
+
 //
 // GUID, identifying crash dump section, containing device information or driver information. These GUIDs are used both to identify secondary dump section in the crashdump
 // and in IOCTL to identify why section is requested by the user mode application
@@ -114,8 +125,10 @@ DEFINE_GUID(GUID_DEVICEDUMP_DRIVER_STORAGE_PORT,        0xda82441d,0x7142,0x4bc1
 
 // end_tcioctlguids
 
-#endif
 
+
+
+#endif
 
 //
 // Interface DEVPROPKEY
@@ -128,6 +141,10 @@ DEFINE_GUID(GUID_DEVICEDUMP_DRIVER_STORAGE_PORT,        0xda82441d,0x7142,0x4bc1
 #ifdef DEFINE_DEVPROPKEY
 
 // begin_wioctldevpropkeys
+
+#ifndef __WRAPPED__
+#define __WRAPPED__
+#endif
 
 //
 // Properties associated with the volume interface.
@@ -146,6 +163,10 @@ DEFINE_DEVPROPKEY(DEVPKEY_Storage_Gpt_Name,           0x4d1ebee8, 0x803, 0x4774,
 #endif
 
 // begin_winioctl
+
+#ifndef __WRAPPED__
+#define __WRAPPED__
+#endif
 
 #ifndef _NTDDSTOR_H_
 #define _NTDDSTOR_H_
@@ -180,10 +201,6 @@ extern "C" {
 #define IOCTL_STORAGE_RESERVE                 CTL_CODE(IOCTL_STORAGE_BASE, 0x0204, METHOD_BUFFERED, FILE_READ_ACCESS)
 #define IOCTL_STORAGE_RELEASE                 CTL_CODE(IOCTL_STORAGE_BASE, 0x0205, METHOD_BUFFERED, FILE_READ_ACCESS)
 #define IOCTL_STORAGE_FIND_NEW_DEVICES        CTL_CODE(IOCTL_STORAGE_BASE, 0x0206, METHOD_BUFFERED, FILE_READ_ACCESS)
-
-// end_winioctl
-#define IOCTL_STORAGE_MANAGE_BYPASS_IO        CTL_CODE(IOCTL_STORAGE_BASE, 0x0230, METHOD_BUFFERED, FILE_ANY_ACCESS)
-// begin_winioctl
 
 #define IOCTL_STORAGE_EJECTION_CONTROL        CTL_CODE(IOCTL_STORAGE_BASE, 0x0250, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define IOCTL_STORAGE_MCN_CONTROL             CTL_CODE(IOCTL_STORAGE_BASE, 0x0251, METHOD_BUFFERED, FILE_ANY_ACCESS)
@@ -238,11 +255,11 @@ extern "C" {
 
 #define IOCTL_STORAGE_PROTOCOL_COMMAND              CTL_CODE(IOCTL_STORAGE_BASE, 0x04F0, METHOD_BUFFERED, FILE_READ_ACCESS | FILE_WRITE_ACCESS)
 
-
-#define IOCTL_STORAGE_SET_PROPERTY                  CTL_CODE(IOCTL_STORAGE_BASE, 0x04FF, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 #define IOCTL_STORAGE_QUERY_PROPERTY                CTL_CODE(IOCTL_STORAGE_BASE, 0x0500, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define IOCTL_STORAGE_MANAGE_DATA_SET_ATTRIBUTES    CTL_CODE(IOCTL_STORAGE_BASE, 0x0501, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 #define IOCTL_STORAGE_GET_LB_PROVISIONING_MAP_RESOURCES  CTL_CODE(IOCTL_STORAGE_BASE, 0x0502, METHOD_BUFFERED, FILE_READ_ACCESS)
+
+#define IOCTL_STORAGE_SET_PROPERTY                  CTL_CODE(IOCTL_STORAGE_BASE, 0x0503, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 
 //
 // IOCTLs 0x0503 to 0x0580 reserved for Enhanced Storage devices.
@@ -253,9 +270,9 @@ extern "C" {
 // deletion or recoverability of the data on the storage device after command completion. This IOCTL is limited
 // to data disks in regular Windows. In WinPE, this IOCTL is supported for both boot and data disks.
 //
-// This IOCTL has an optional input and returns no output other than status. Callers should first call
-// FSCTL_LOCK_VOLUME before calling this ioctl to flush out cached data in upper layers. No waiting of outstanding
-// request completion is done before issuing the command to the device.
+// Initial implementation requires no input and returns no output other than status. Callers should first
+// call FSCTL_LOCK_VOLUME before calling this ioctl to flush out cached data in upper layers. No waiting of
+// outstanding request completion is done before issuing the command to the device.
 //
 #define IOCTL_STORAGE_REINITIALIZE_MEDIA    CTL_CODE(IOCTL_STORAGE_BASE, 0x0590, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 
@@ -582,6 +599,10 @@ typedef struct _CLASS_MEDIA_CHANGE_CONTEXT {
 
 // begin_ntminitape
 
+#ifndef __WRAPPED__
+#define __WRAPPED__
+#endif
+
 typedef struct _TAPE_STATISTICS {
     ULONG Version;
     ULONG Flags;
@@ -725,7 +746,7 @@ typedef enum _STORAGE_MEDIA_TYPE {
 // Bus types below 128 (0x80) are reserved for Microsoft use
 //
 
-typedef enum _STORAGE_BUS_TYPE {
+typedef enum __WRAPPED__ _STORAGE_BUS_TYPE {
     BusTypeUnknown = 0x00,
     BusTypeScsi,
     BusTypeAtapi,
@@ -746,7 +767,6 @@ typedef enum _STORAGE_BUS_TYPE {
     BusTypeNvme,
     BusTypeSCM,
     BusTypeUfs,
-    BusTypeNvmeof,
     BusTypeMax,
     BusTypeMaxReserved = 0x7F
 } STORAGE_BUS_TYPE, *PSTORAGE_BUS_TYPE;
@@ -917,11 +937,11 @@ typedef enum _STORAGE_SET_TYPE {
 // define some initial property id's
 //
 
-typedef enum _STORAGE_PROPERTY_ID {
+typedef enum __WRAPPED__ _STORAGE_PROPERTY_ID {
     StorageDeviceProperty = 0,
     StorageAdapterProperty,
     StorageDeviceIdProperty,
-    StorageDeviceUniqueIdProperty,                  // See storduid.h for details
+    StorageDeviceUniqueIdProperty,              // See storduid.h for details
     StorageDeviceWriteCacheProperty,
     StorageMiniportProperty,
     StorageAccessAlignmentProperty,
@@ -957,11 +977,8 @@ typedef enum _STORAGE_PROPERTY_ID {
     StorageDeviceZonedDeviceProperty,
     StorageDeviceUnsafeShutdownCount,
     StorageDeviceEnduranceProperty,
-    StorageDeviceLedStateProperty,
-    StorageDeviceSelfEncryptionProperty = 64,
-    StorageFruIdProperty,
+    StorageDeviceLedStateProperty
 } STORAGE_PROPERTY_ID, *PSTORAGE_PROPERTY_ID;
-
 
 //
 // Query structure - additional parameters for specific queries can follow
@@ -1022,10 +1039,12 @@ typedef struct _STORAGE_PROPERTY_SET {
 // as their first element or should contain these two elements
 //
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_DESCRIPTOR_HEADER {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_DESCRIPTOR_HEADER {
 
+    __WRAPPED__
     ULONG Version;
 
+    __WRAPPED__
     ULONG Size;
 
 } STORAGE_DESCRIPTOR_HEADER, *PSTORAGE_DESCRIPTOR_HEADER;
@@ -1038,12 +1057,13 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DESCRIPTOR_HEADER {
 // will result in an error
 //
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_DEVICE_DESCRIPTOR {
 
     //
     // Sizeof(STORAGE_DEVICE_DESCRIPTOR)
     //
 
+    __WRAPPED__
     ULONG Version;
 
     //
@@ -1051,18 +1071,21 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // data and id strings
     //
 
+    __WRAPPED__
     ULONG Size;
 
     //
     // The SCSI-2 device type
     //
 
+    __WRAPPED__
     UCHAR DeviceType;
 
     //
     // The SCSI-2 device type modifier (if any) - this may be zero
     //
 
+    __WRAPPED__
     UCHAR DeviceTypeModifier;
 
     //
@@ -1070,6 +1093,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // field should be ignored for media-less devices
     //
 
+    __WRAPPED__
     BOOLEAN RemovableMedia;
 
     //
@@ -1078,6 +1102,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // of the port driver.
     //
 
+    __WRAPPED__
     BOOLEAN CommandQueueing;
 
     //
@@ -1085,6 +1110,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // vendor id string.  For devices with no such ID this will be zero
     //
 
+    __WRAPPED__
     ULONG VendorIdOffset;
 
     //
@@ -1092,6 +1118,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // product id string.  For devices with no such ID this will be zero
     //
 
+    __WRAPPED__
     ULONG ProductIdOffset;
 
     //
@@ -1100,6 +1127,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // zero
     //
 
+    __WRAPPED__
     ULONG ProductRevisionOffset;
 
     //
@@ -1107,6 +1135,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // serial number.  For devices with no serial number this will be zero
     //
 
+    __WRAPPED__
     ULONG SerialNumberOffset;
 
     //
@@ -1115,6 +1144,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // (if any)
     //
 
+    __WRAPPED__
     STORAGE_BUS_TYPE BusType;
 
     //
@@ -1122,12 +1152,14 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
     // this descriptor
     //
 
+    __WRAPPED__
     ULONG RawPropertiesLength;
 
     //
     // Place holder for the first byte of the bus specific property data
     //
 
+    __WRAPPED__
     UCHAR RawDeviceProperties[1];
 
 } STORAGE_DEVICE_DESCRIPTOR, *PSTORAGE_DEVICE_DESCRIPTOR;
@@ -1141,40 +1173,54 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_DESCRIPTOR {
 // forward the request to the underlying bus
 //
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_ADAPTER_DESCRIPTOR {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_ADAPTER_DESCRIPTOR {
 
+    __WRAPPED__
     ULONG Version;
 
+    __WRAPPED__
     ULONG Size;
 
+    __WRAPPED__
     ULONG MaximumTransferLength;
 
+    __WRAPPED__
     ULONG MaximumPhysicalPages;
 
+    __WRAPPED__
     ULONG AlignmentMask;
 
+    __WRAPPED__
     BOOLEAN AdapterUsesPio;
 
+    __WRAPPED__
     BOOLEAN AdapterScansDown;
 
+    __WRAPPED__
     BOOLEAN CommandQueueing;
 
+    __WRAPPED__
     BOOLEAN AcceleratedTransfer;
 
 #if (NTDDI_VERSION < NTDDI_WINXP)
     BOOLEAN BusType;
 #else
+    __WRAPPED__
     UCHAR BusType;
 #endif
 
+    __WRAPPED__
     USHORT BusMajorVersion;
 
+    __WRAPPED__
     USHORT BusMinorVersion;
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
 
+    __WRAPPED__
     UCHAR SrbType;
 
+    __WRAPPED__
     UCHAR AddressType;
 #endif
 
@@ -1200,12 +1246,13 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_ADAPTER_DESCRIPTOR {
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
 
     //
     // Sizeof(STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR)
     //
 
+    __WRAPPED__
     ULONG Version;
 
     //
@@ -1213,36 +1260,42 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     // data and id strings
     //
 
+    __WRAPPED__
     ULONG Size;
 
     //
     // The number of bytes in a cache line of the device
     //
 
+    __WRAPPED__
     ULONG BytesPerCacheLine;
 
     //
     // The address offset neccessary for proper cache access alignment in bytes
     //
 
+    __WRAPPED__
     ULONG BytesOffsetForCacheAlignment;
 
     //
     // The number of bytes in a physical sector of the device
     //
 
+    __WRAPPED__
     ULONG BytesPerLogicalSector;
 
     //
     // The number of bytes in an addressable logical sector (LBA)of the device
     //
 
+    __WRAPPED__
     ULONG BytesPerPhysicalSector;
 
     //
     // The address offset neccessary for proper sector access alignment in bytes
     //
 
+    __WRAPPED__
     ULONG BytesOffsetForSectorAlignment;
 
 } STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR, *PSTORAGE_ACCESS_ALIGNMENT_DESCRIPTOR;
@@ -1270,7 +1323,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR
 } STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR, *PSTORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR;
 
 
-typedef enum _STORAGE_PORT_CODE_SET {
+typedef enum __WRAPPED__ _STORAGE_PORT_CODE_SET {
     StoragePortCodeSetReserved  = 0,
     StoragePortCodeSetStorport  = 1,
     StoragePortCodeSetSCSIport  = 2,
@@ -1285,52 +1338,40 @@ typedef enum _STORAGE_PORT_CODE_SET {
 #define STORAGE_MINIPORT_DESCRIPTOR_V1_SIZE     RTL_SIZEOF_THROUGH_FIELD(STORAGE_MINIPORT_DESCRIPTOR, IoTimeoutValue)
 #endif
 
-#pragma warning(push)
-#pragma warning(disable:4201) // nameless struct/unions
-#pragma warning(disable:4214) // bit fields other than int to disable this around the struct
+typedef struct __WRAPPED__ _STORAGE_MINIPORT_DESCRIPTOR {
 
-typedef struct _STORAGE_MINIPORT_DESCRIPTOR {
-
+    __WRAPPED__
     ULONG Version;
 
+    __WRAPPED__
     ULONG Size;
 
+    __WRAPPED__
     STORAGE_PORT_CODE_SET Portdriver;
 
+    __WRAPPED__
     BOOLEAN LUNResetSupported;
 
+    __WRAPPED__
     BOOLEAN TargetResetSupported;
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
+    __WRAPPED__
     USHORT  IoTimeoutValue;
 #endif
 
 #if (NTDDI_VERSION >= NTDDI_WINBLUE)
+    __WRAPPED__
     BOOLEAN ExtraIoInfoSupported;
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
-
-    union {
-        struct {
-            UCHAR LogicalPoFxForDisk : 1;
-            UCHAR ForwardIo : 1;
-            UCHAR Reserved : 6;
-        } DUMMYSTRUCTNAME;
-        UCHAR AsUCHAR;
-    } Flags;
-
-    UCHAR   Reserved0[2];
-
-#else
+    __WRAPPED__
     UCHAR   Reserved0[3];
-#endif
 
+    __WRAPPED__
     ULONG   Reserved1;
 #endif
 
 } STORAGE_MINIPORT_DESCRIPTOR, *PSTORAGE_MINIPORT_DESCRIPTOR;
-
-#pragma warning(pop)
 
 //
 // Storage identification descriptor.
@@ -1338,14 +1379,14 @@ typedef struct _STORAGE_MINIPORT_DESCRIPTOR {
 // device identifier page.
 //
 
-typedef enum _STORAGE_IDENTIFIER_CODE_SET {
+typedef enum __WRAPPED__ _STORAGE_IDENTIFIER_CODE_SET {
     StorageIdCodeSetReserved = 0,
     StorageIdCodeSetBinary = 1,
     StorageIdCodeSetAscii = 2,
     StorageIdCodeSetUtf8 = 3
 } STORAGE_IDENTIFIER_CODE_SET, *PSTORAGE_IDENTIFIER_CODE_SET;
 
-typedef enum _STORAGE_IDENTIFIER_TYPE {
+typedef enum __WRAPPED__ _STORAGE_IDENTIFIER_TYPE {
     StorageIdTypeVendorSpecific = 0,
     StorageIdTypeVendorId = 1,
     StorageIdTypeEUI64 = 2,
@@ -1361,26 +1402,30 @@ typedef enum _STORAGE_IDENTIFIER_TYPE {
 #define StorageIdTypeNAA StorageIdTypeFCPHName
 
 // NAA formats (Used with StorageIdTypeNAA)
-typedef enum _STORAGE_ID_NAA_FORMAT {
+typedef enum __WRAPPED__ _STORAGE_ID_NAA_FORMAT {
         StorageIdNAAFormatIEEEExtended = 2,
         StorageIdNAAFormatIEEERegistered = 3,
         StorageIdNAAFormatIEEEERegisteredExtended = 5
 } STORAGE_ID_NAA_FORMAT, *PSTORAGE_ID_NAA_FORMAT;
 
-typedef enum _STORAGE_ASSOCIATION_TYPE {
+typedef enum __WRAPPED__ _STORAGE_ASSOCIATION_TYPE {
     StorageIdAssocDevice = 0,
     StorageIdAssocPort = 1,
     StorageIdAssocTarget = 2
 } STORAGE_ASSOCIATION_TYPE, *PSTORAGE_ASSOCIATION_TYPE;
 
-typedef struct _STORAGE_IDENTIFIER {
+typedef struct __WRAPPED__ _STORAGE_IDENTIFIER {
 
+    __WRAPPED__
     STORAGE_IDENTIFIER_CODE_SET CodeSet;
 
+    __WRAPPED__
     STORAGE_IDENTIFIER_TYPE Type;
 
+    __WRAPPED__
     USHORT IdentifierSize;
 
+    __WRAPPED__
     USHORT NextOffset;
 
     //
@@ -1388,26 +1433,31 @@ typedef struct _STORAGE_IDENTIFIER {
     // the above layout not changing.
     //
 
+    __WRAPPED__
     STORAGE_ASSOCIATION_TYPE Association;
 
     //
     // The identifier is a variable length array of bytes.
     //
 
+    __WRAPPED__
     UCHAR Identifier[1];
 
 } STORAGE_IDENTIFIER, *PSTORAGE_IDENTIFIER;
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_ID_DESCRIPTOR {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_DEVICE_ID_DESCRIPTOR {
 
+    __WRAPPED__
     ULONG Version;
 
+    __WRAPPED__
     ULONG Size;
 
     //
     // The number of identifiers reported by the device.
     //
 
+    __WRAPPED__
     ULONG NumberOfIdentifiers;
 
     //
@@ -1416,19 +1466,22 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_ID_DESCRIPTOR {
     // variable length structures so we're forced to just pretend.
     //
 
+    __WRAPPED__
     UCHAR Identifiers[1];
 
 } STORAGE_DEVICE_ID_DESCRIPTOR, *PSTORAGE_DEVICE_ID_DESCRIPTOR;
 
 // output buffer for   StorageDeviceSeekPenaltyProperty & PropertyStandardQuery
-typedef struct _DEVICE_SEEK_PENALTY_DESCRIPTOR {
+typedef struct __WRAPPED__ _DEVICE_SEEK_PENALTY_DESCRIPTOR {
 
+    __WRAPPED__
     ULONG       Version;          // keep compatible with STORAGE_DESCRIPTOR_HEADER
 
+    __WRAPPED__
     ULONG       Size;             // keep compatible with STORAGE_DESCRIPTOR_HEADER
 
+    __WRAPPED__
     BOOLEAN     IncursSeekPenalty;
-
 } DEVICE_SEEK_PENALTY_DESCRIPTOR, *PDEVICE_SEEK_PENALTY_DESCRIPTOR;
 
 // output buffer for   StorageDeviceWriteAggregationProperty & PropertyStandardQuery
@@ -1440,12 +1493,15 @@ typedef struct _DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
 } DEVICE_WRITE_AGGREGATION_DESCRIPTOR, *PDEVICE_WRITE_AGGREGATION_DESCRIPTOR;
 
 // output buffer for   StorageDeviceTrimProperty & PropertyStandardQuery
-typedef struct _DEVICE_TRIM_DESCRIPTOR {
+typedef struct __WRAPPED__ _DEVICE_TRIM_DESCRIPTOR {
 
+    __WRAPPED__
     ULONG       Version;          // keep compatible with STORAGE_DESCRIPTOR_HEADER
 
+    __WRAPPED__
     ULONG       Size;             // keep compatible with STORAGE_DESCRIPTOR_HEADER
 
+    __WRAPPED__
     BOOLEAN     TrimEnabled;
 
 } DEVICE_TRIM_DESCRIPTOR, *PDEVICE_TRIM_DESCRIPTOR;
@@ -1455,34 +1511,43 @@ typedef struct _DEVICE_TRIM_DESCRIPTOR {
 //
 // Output buffer for StorageDeviceLBProvisioningProperty & PropertyStandardQuery
 //
-typedef struct _DEVICE_LB_PROVISIONING_DESCRIPTOR {
-
+typedef struct __WRAPPED__ _DEVICE_LB_PROVISIONING_DESCRIPTOR {
+    __WRAPPED__
     ULONG       Version;          // keep compatible with STORAGE_DESCRIPTOR_HEADER
 
+    __WRAPPED__
     ULONG       Size;             // keep compatible with STORAGE_DESCRIPTOR_HEADER
 
+    __WRAPPED__
     UCHAR ThinProvisioningEnabled : 1;
 
+    __WRAPPED__
     UCHAR ThinProvisioningReadZeros : 1;
 
+    __WRAPPED__
     UCHAR AnchorSupported : 3;
 
+    __WRAPPED__
     UCHAR UnmapGranularityAlignmentValid : 1;
 
-    UCHAR GetFreeSpaceSupported : 1;        // Supports DeviceDsmAction_GetFreeSpace
+    __WRAPPED__
+    UCHAR Reserved0 : 2;
 
-    UCHAR MapSupported : 1;                 // Supports DeviceDsmAction_Map
-
+    __WRAPPED__
     UCHAR Reserved1[7];
 
+    __WRAPPED__
     ULONGLONG OptimalUnmapGranularity;      // Granularity in bytes.
 
+    __WRAPPED__
     ULONGLONG UnmapGranularityAlignment;    // Granularity alignment in bytes.
 
 #if (NTDDI_VERSION >= NTDDI_WINBLUE)
 
+    __WRAPPED__
     ULONG MaxUnmapLbaCount;                 // Max LBAs that can be unmapped in a single UNMAP command, in logical blocks.
 
+    __WRAPPED__
     ULONG MaxUnmapBlockDescriptorCount;     // Max number of descriptors allowed in a single UNMAP command.
 
 #endif
@@ -1554,13 +1619,14 @@ typedef struct _DEVICE_COPY_OFFLOAD_DESCRIPTOR {
 // Output buffer for StorageDeviceResiliencyProperty & PropertyStandardQuery
 //
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
 
     //
     // Size of this structure serves
     // as the version
     //
 
+    __WRAPPED__
     ULONG Version;
 
     //
@@ -1568,6 +1634,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     // all the variable sized fields
     //
 
+    __WRAPPED__
     ULONG Size;
 
     //
@@ -1575,6 +1642,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     // this descriptor
     //
 
+    __WRAPPED__
     ULONG NameOffset;
 
     //
@@ -1582,6 +1650,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     // data that are available
     //
 
+    __WRAPPED__
     ULONG NumberOfLogicalCopies;
 
     //
@@ -1589,6 +1658,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     // data that are stored
     //
 
+    __WRAPPED__
     ULONG NumberOfPhysicalCopies;
 
     //
@@ -1596,6 +1666,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     // without leading to  data loss
     //
 
+    __WRAPPED__
     ULONG PhysicalDiskRedundancy;
 
     //
@@ -1603,6 +1674,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     // with this descriptor
     //
 
+    __WRAPPED__
     ULONG NumberOfColumns;
 
     //
@@ -1610,6 +1682,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     // this descriptor, in bytes
     //
 
+    __WRAPPED__
     ULONG Interleave;
 
 } STORAGE_DEVICE_RESILIENCY_DESCRIPTOR, *PSTORAGE_DEVICE_RESILIENCY_DESCRIPTOR;
@@ -1918,13 +1991,14 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_TIERING_DESCRIPTOR {
 // Output buffer for StorageDeviceFaultDomainProperty & PropertyStandardQuery
 //
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
 
     //
     // Size of this structure serves
     // as the version
     //
 
+    __WRAPPED__
     ULONG Version;
 
     //
@@ -1932,12 +2006,14 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR
     // all the variable sized fields
     //
 
+    __WRAPPED__
     ULONG Size;
 
     //
     // Number of fault domains
     //
 
+    __WRAPPED__
     ULONG NumberOfFaultDomains;
 
     //
@@ -1945,6 +2021,7 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR
     //
 
     _Field_size_(NumberOfFaultDomains)
+    __WRAPPED__
     GUID FaultDomainIds[ANYSIZE_ARRAY];
 
 } STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR, *PSTORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR;
@@ -1975,12 +2052,9 @@ typedef enum _STORAGE_PROTOCOL_NVME_DATA_TYPE {
 
     NVMeDataTypeIdentify,       // Retrieved by command - IDENTIFY CONTROLLER or IDENTIFY NAMESPACE
                                 // Corresponding values in STORAGE_PROTOCOL_SPECIFIC_DATA,
-                                //      ProtocolDataRequestValue - CNS as defined in NVME_IDENTIFY_CNS_CODES
-                                //      ProtocolDataRequestSubValue - Namespace Id
-                                //      ProtocolDataRequestSubValue2 - CNS Specific Id (CNSID)
-                                //      ProtocolDataRequestSubValue3 - Controller Id (CNTID)
-                                //      ProtocolDataRequestSubValue4 - Command Set Identifier (CSI)
-
+                                //      ProtocolDataRequestValue - Defined in NVME_IDENTIFY_CNS_CODES
+                                //      ProtocolDataRequestSubValue - For NVME_IDENTIFY_CNS_SPECIFIC_NAMESPACE,
+                                //                                    specifies namespace Id
 
     NVMeDataTypeLogPage,        // Retrieved by command - GET LOG PAGE
                                 // Corresponding values in STORAGE_PROTOCOL_SPECIFIC_DATA,
@@ -2003,40 +2077,11 @@ typedef enum _STORAGE_PROTOCOL_ATA_DATA_TYPE {
 
 typedef enum _STORAGE_PROTOCOL_UFS_DATA_TYPE {
     UfsDataTypeUnknown = 0,
-    UfsDataTypeQueryDescriptor,         // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryAttribute,          // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryFlag,               // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryDmeAttribute,       // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryDmePeerAttribute,   // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDescriptor, // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryAttribute,  // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryFlag,       // Retrieved by command - QUERY UPIU
     UfsDataTypeMax,
 } STORAGE_PROTOCOL_UFS_DATA_TYPE, *PSTORAGE_PROTOCOL_UFS_DATA_TYPE;
-
-//
-// Below definition is used to specify particular command fields when querying
-// NVMeDataTypeLogPage, and this definition maps to ProtocolDataRequestSubValue4
-// field in STORAGE_PROTOCOL_SPECIFIC_DATA.
-//
-#pragma warning(push)
-#pragma warning(disable:4201) // nameless struct/unions
-#pragma warning(disable:4214) // bit fields other than int to disable this around the struct
-
-typedef union _STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
-
-    struct {
-
-        ULONG RetainAsynEvent   :  1;
-        ULONG LogSpecificField  :  4;
-        ULONG Reserved0         :  3;
-        ULONG UUIDIndex         :  7;
-        ULONG Reserved          : 17;
-
-    } DUMMYSTRUCTNAME;
-
-    ULONG AsUlong;
-
-} STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE, *PSTORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE;
-
-#pragma warning(pop)
 
 //
 // Protocol Data should follow this data structure in the same buffer.
@@ -2058,8 +2103,7 @@ typedef struct _STORAGE_PROTOCOL_SPECIFIC_DATA {
     ULONG   ProtocolDataRequestSubValue2; // First additional data sub request value
 
     ULONG   ProtocolDataRequestSubValue3; // Second additional data sub request value
-    ULONG   ProtocolDataRequestSubValue4; // Third additional data sub request value
-
+    ULONG   Reserved;
 } STORAGE_PROTOCOL_SPECIFIC_DATA, *PSTORAGE_PROTOCOL_SPECIFIC_DATA;
 
 //
@@ -2583,16 +2627,19 @@ typedef struct _STORAGE_DEVICE_MANAGEMENT_STATUS {
 
 #define STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH (128)
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_ADAPTER_SERIAL_NUMBER {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_ADAPTER_SERIAL_NUMBER {
 
+    __WRAPPED__
     ULONG Version;
 
+    __WRAPPED__
     ULONG Size;
 
     //
     // NULL-terminated Unicode string of the adapter's serial number.
     //
 
+    __WRAPPED__
     WCHAR SerialNumber[STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH];
 
 } STORAGE_ADAPTER_SERIAL_NUMBER, *PSTORAGE_ADAPTER_SERIAL_NUMBER;
@@ -2604,14 +2651,14 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_ADAPTER_SERIAL_NUMBER {
 // Output buffer for StorageDeviceZonedDeviceProperty & PropertyStandardQuery
 //
 
-typedef enum _STORAGE_ZONED_DEVICE_TYPES {
+typedef enum __WRAPPED__ _STORAGE_ZONED_DEVICE_TYPES {
     ZonedDeviceTypeUnknown = 0,
     ZonedDeviceTypeHostManaged,
     ZonedDeviceTypeHostAware,
     ZonedDeviceTypeDeviceManaged,
 } STORAGE_ZONED_DEVICE_TYPES, *PSTORAGE_ZONED_DEVICE_TYPES;
 
-typedef enum _STORAGE_ZONE_TYPES {
+typedef enum __WRAPPED__ _STORAGE_ZONE_TYPES {
     ZoneTypeUnknown = 0,
     ZoneTypeConventional = 1,
     ZoneTypeSequentialWriteRequired = 2,
@@ -2619,22 +2666,26 @@ typedef enum _STORAGE_ZONE_TYPES {
     ZoneTypeMax
 } STORAGE_ZONE_TYPES, *PSTORAGE_ZONE_TYPES;
 
-typedef struct _STORAGE_ZONE_GROUP {
+typedef struct __WRAPPED__ _STORAGE_ZONE_GROUP {
 
-    ULONG ZoneCount;                // Count of zones in this group.
+        __WRAPPED__
+        ULONG ZoneCount;                // Count of zones in this group.
 
-    STORAGE_ZONE_TYPES ZoneType;
+        __WRAPPED__
+        STORAGE_ZONE_TYPES ZoneType;
 
-    ULONGLONG ZoneSize;             // In Bytes
+        __WRAPPED__
+        ULONGLONG ZoneSize;             // In Bytes
 
 } STORAGE_ZONE_GROUP, *PSTORAGE_ZONE_GROUP;
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_ZONED_DEVICE_DESCRIPTOR {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_ZONED_DEVICE_DESCRIPTOR {
 
     //
     // Size of this structure serves as the version
     //
 
+    __WRAPPED__
     ULONG Version;
 
     //
@@ -2642,18 +2693,21 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_ZONED_DEVICE_DESCRIPTOR {
     // to store complete data.
     //
 
+    __WRAPPED__
     ULONG Size;
 
     //
     // Zoned device type
     //
 
+    __WRAPPED__
     STORAGE_ZONED_DEVICE_TYPES DeviceType;
 
     //
     // Total zone count
     //
 
+    __WRAPPED__
     ULONG ZoneCount;
 
     //
@@ -2686,8 +2740,10 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_ZONED_DEVICE_DESCRIPTOR {
     // The zone layout starts from the first zone, and groups together zones with same type and size.
     //
 
+    __WRAPPED__
     ULONG ZoneGroupCount;
 
+    __WRAPPED__
     STORAGE_ZONE_GROUP ZoneGroup[ANYSIZE_ARRAY];
 
 } STORAGE_ZONED_DEVICE_DESCRIPTOR, *PSTORAGE_ZONED_DEVICE_DESCRIPTOR;
@@ -2699,14 +2755,18 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_ZONED_DEVICE_DESCRIPTOR {
 
 #pragma warning(push)
 #pragma warning(disable:4201) // nameless struct/unions
-typedef struct _DEVICE_LOCATION {
+typedef struct __WRAPPED__ _DEVICE_LOCATION {
 
+    __WRAPPED__
     ULONG Socket;
 
+    __WRAPPED__
     ULONG Slot;
 
+    __WRAPPED__
     ULONG Adapter;
 
+    __WRAPPED__
     ULONG Port;
 
     union {
@@ -2732,14 +2792,18 @@ typedef struct _DEVICE_LOCATION {
 } DEVICE_LOCATION, *PDEVICE_LOCATION;
 #pragma warning(pop)
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_DEVICE_LOCATION_DESCRIPTOR {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_DEVICE_LOCATION_DESCRIPTOR {
 
+    __WRAPPED__
     ULONG Version;
 
+    __WRAPPED__
     ULONG Size;
 
+    __WRAPPED__
     DEVICE_LOCATION Location;
 
+    __WRAPPED__
     ULONG StringOffset;
 
 } STORAGE_DEVICE_LOCATION_DESCRIPTOR, *PSTORAGE_DEVICE_LOCATION_DESCRIPTOR;
@@ -2836,77 +2900,6 @@ typedef struct _STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
 
 } STORAGE_DEVICE_LED_STATE_DESCRIPTOR, *PSTORAGE_DEVICE_LED_STATE_DESCRIPTOR;
 
-//
-// Output buffer for StorageDeviceSelfEncryptionProperty.
-//
-
-// Version 1 of the structure
-// Note: This version only checks if the storage device
-//       is eDrive capable to keep it backward compatible.
-//       To handle both eDrive and native TCG implementations
-//       use Version 2 of the structure.
-typedef struct _STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
-
-    ULONG Version; // Sizeof(STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY)
-
-    ULONG Size;
-
-    BOOLEAN SupportsSelfEncryption;
-
-} STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY, *PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
-
-
-typedef enum _STORAGE_ENCRYPTION_TYPE {
-
-    StorageEncryptionTypeUnknown  = 0x00,
-    StorageEncryptionTypeEDrive   = 0x01,
-    StorageEncryptionTypeTcgOpal  = 0x02,
-
-} STORAGE_ENCRYPTION_TYPE, *PSTORAGE_ENCRYPTION_TYPE;
-
-// Version 2 of the structure
-// Note: This version handles both eDrive and native TCG implementations.
-//       To check if a storage device supports a native TCG implementation,
-//       a client must use this version of the structure.
-typedef struct _STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
-
-    ULONG Version; // Sizeof(STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2)
-
-    ULONG Size;
-
-    BOOLEAN SupportsSelfEncryption;
-
-    STORAGE_ENCRYPTION_TYPE EncryptionType;
-
-} STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2, *PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2;
-
-//
-// Output buffer for StorageFruIdProperty.
-//
-typedef struct _STORAGE_FRU_ID_DESCRIPTOR {
-
-    //
-    // Sizeof(STORAGE_FRU_ID_DESCRIPTOR)
-    //
-
-    ULONG Version;
-
-    //
-    // Total size of the data.
-    // Should be >= sizeof(STORAGE_FRU_ID_DESCRIPTOR)
-    //
-
-    ULONG Size;
-
-    //
-    // The identifier is a variable length array of bytes.
-    //
-
-    ULONG IdentifierSize;
-    UCHAR Identifier[ANYSIZE_ARRAY];
-
-} STORAGE_FRU_ID_DESCRIPTOR, *PSTORAGE_FRU_ID_DESCRIPTOR;
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -2965,7 +2958,6 @@ typedef ULONG DEVICE_DATA_MANAGEMENT_SET_ACTION, DEVICE_DSM_ACTION;
 #define DeviceDsmAction_GetFreeSpace            (0x0000001Bu | DeviceDsmActionFlag_NonDestructive)
 #define DeviceDsmAction_ConversionQuery         (0x0000001Cu | DeviceDsmActionFlag_NonDestructive)
 #define DeviceDsmAction_VdtSet                  (0x0000001Du)
-#define DeviceDsmAction_QueryPreferLocalRepair  (0x0000001Eu | DeviceDsmActionFlag_NonDestructive)
 
 //
 // DEVICE_DSM_INPUT.Flags
@@ -3558,34 +3550,6 @@ typedef struct _DEVICE_DATA_SET_REPAIR_OUTPUT {
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-// DeviceDsmAction_QueryPreferLocalRepair
-//
-
-typedef struct _DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT {
-
-    ULONG Version;
-    BOOLEAN PreferLocalRepair;
-
-} DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT, *PDEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT;
-
-//
-// SingleRange    - No
-// ParameterBlock - No
-// Output         - Yes
-// OutputBlock    - Yes
-//
-
-#define DeviceDsmDefinition_QueryPreferLocalRepair {DeviceDsmAction_QueryPreferLocalRepair, \
-                                                    FALSE,                                  \
-                                                    0,                                      \
-                                                    0,                                      \
-                                                    TRUE,                                   \
-                                                    __alignof(DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT), \
-                                                    sizeof(DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT)}
-
-
-////////////////////////////////////////////////////////////////////////////////
-//
 // DeviceDsmAction_Scrub
 //
 
@@ -3621,8 +3585,6 @@ typedef struct _DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     //
 
     DEVICE_DSM_RANGE ParityExtent;
-
-    ULONGLONG BytesScrubbed;
 
 } DEVICE_DATA_SET_SCRUB_EX_OUTPUT, *PDEVICE_DATA_SET_SCRUB_EX_OUTPUT,
   DEVICE_DSM_SCRUB_OUTPUT2, *PDEVICE_DSM_SCRUB_OUTPUT2;
@@ -4097,11 +4059,7 @@ typedef struct _DEVICE_DSM_REPORT_ZONES_DATA {
 
     ULONG Size;
 
-    //
-    // Represents the number of ZoneDescriptors.
-    //
     ULONG ZoneCount;
-
     STORAGE_ZONES_ATTRIBUTES Attributes;
 
     ULONG Reserved0;
@@ -4240,8 +4198,8 @@ typedef struct _DEVICE_STORAGE_RANGE_ATTRIBUTES {
             //
 
             ULONG IsRangeBad : 1;
-        } DUMMYSTRUCTNAME;
-    } DUMMYUNIONNAME;
+        };
+    };
 
     ULONG Reserved;
 
@@ -4599,7 +4557,7 @@ VOID
 DeviceDsmInitializeInput (
     _In_ PDEVICE_DSM_DEFINITION Definition,
     _Out_writes_bytes_(InputLength) PDEVICE_DSM_INPUT Input,
-    _In_ _In_range_(>=, sizeof(DEVICE_DSM_INPUT)) ULONG InputLength,
+    _In_ ULONG InputLength,
     _In_ ULONG Flags,
     _In_reads_bytes_opt_(ParameterBlockLength) PVOID Parameters,
     _In_ ULONG ParameterBlockLength
@@ -4640,7 +4598,7 @@ FORCEINLINE
 BOOLEAN
 DeviceDsmAddDataSetRange (
     _Inout_updates_bytes_(InputLength) PDEVICE_DSM_INPUT Input,
-    _In_ _In_range_(>=, sizeof(DEVICE_DSM_INPUT)) ULONG InputLength,
+    _In_ ULONG InputLength,
     _In_ LONGLONG Offset,
     _In_ ULONGLONG Length
     )
@@ -4703,7 +4661,7 @@ BOOLEAN
 DeviceDsmValidateInput (
     _In_ PDEVICE_DSM_DEFINITION Definition,
     _In_reads_bytes_(InputLength) PDEVICE_DSM_INPUT Input,
-    _In_  _In_range_(>=, sizeof(DEVICE_DSM_INPUT)) ULONG InputLength
+    _In_ _Pre_satisfies_(InputLength >= sizeof(DEVICE_DSM_INPUT)) ULONG InputLength
     )
 {
     ULONG   Max   = 0;
@@ -4872,7 +4830,7 @@ VOID
 DeviceDsmInitializeOutput (
     _In_ PDEVICE_DSM_DEFINITION Definition,
     _Out_writes_bytes_(OutputLength) PDEVICE_DSM_OUTPUT Output,
-    _In_  _In_range_(>=, sizeof(DEVICE_DSM_OUTPUT)) ULONG OutputLength,
+    _In_ ULONG OutputLength,
     _In_ ULONG Flags
     )
 {
@@ -4901,7 +4859,7 @@ BOOLEAN
 DeviceDsmValidateOutput (
     _In_ PDEVICE_DSM_DEFINITION Definition,
     _In_reads_bytes_(OutputLength) PDEVICE_DSM_OUTPUT Output,
-    _In_ _In_range_(>=, sizeof(DEVICE_DSM_OUTPUT)) ULONG OutputLength
+    _In_ _Pre_satisfies_(OutputLength >= sizeof(DEVICE_DSM_OUTPUT)) ULONG OutputLength
     )
 {
     ULONG   Max   = 0;
@@ -5153,12 +5111,6 @@ typedef enum _STORAGE_DIAGNOSTIC_TARGET_TYPE {
 } STORAGE_DIAGNOSTIC_TARGET_TYPE, *PSTORAGE_DIAGNOSTIC_TARGET_TYPE;
 
 //
-// Indicate the target of the request other than the device handle/object itself.
-// This is used in "Flags" field of data structures.
-//
-#define STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST     0x00000001
-
-//
 // STORAGE_DIAGNOSTIC_REQUEST
 //
 
@@ -5171,8 +5123,8 @@ typedef struct _STORAGE_DIAGNOSTIC_REQUEST {
     // (In case adding variable-sized buffer in future.)
     ULONG Size;
 
-    // Request flag.
-    ULONG Flags;
+    // Reserved for future use.
+    ULONG Reserved;
 
     // Request target type. See definitions for STORAGE_DIAGNOSTIC_TARGET_TYPE.
     STORAGE_DIAGNOSTIC_TARGET_TYPE TargetType;
@@ -5298,9 +5250,7 @@ typedef struct _REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
 typedef enum _DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
     DeviceInternalStatusDataRequestTypeUndefined = 0,
     DeviceCurrentInternalStatusDataHeader,
-    DeviceCurrentInternalStatusData,
-    DeviceSavedInternalStatusDataHeader,
-    DeviceSavedInternalStatusData
+    DeviceCurrentInternalStatusData
 } DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE, *PDEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE;
 
 typedef enum _DEVICE_INTERNAL_STATUS_DATA_SET {
@@ -5344,55 +5294,6 @@ typedef struct _DEVICE_INTERNAL_STATUS_DATA {
     UCHAR StatusData[ANYSIZE_ARRAY];
 
 } DEVICE_INTERNAL_STATUS_DATA, *PDEVICE_INTERNAL_STATUS_DATA;
-
-//
-// IOCTL_STORAGE_REINITIALIZE_MEDIA
-//
-// Input Buffer :
-//      STORAGE_REINITIALIZE_MEDIA - Optional
-// Output Buffer :
-//      None
-//
-
-typedef enum _STORAGE_SANITIZE_METHOD {
-    StorageSanitizeMethodDefault = 0,
-    StorageSanitizeMethodBlockErase,
-    StorageSanitizeMethodCryptoErase
-} STORAGE_SANITIZE_METHOD, *PSTORAGE_SANITIZE_METHOD;
-
-#pragma warning(push)
-#pragma warning(disable:4214) // bit fields other than int to disable this around the struct
-
-typedef struct _STORAGE_REINITIALIZE_MEDIA {
-
-    ULONG Version;
-
-    ULONG Size;
-
-    ULONG TimeoutInSeconds;
-
-    //
-    // The SanitizeOption field is only applicable to NVMe devices.
-    //
-    struct {
-
-        //
-        // This field specifies the sanitize method defined in STORAGE_SANITIZE_METHOD enum.
-        //
-        ULONG SanitizeMethod : 4;
-
-        //
-        // This field specifies if unrestricted sanitize exit is allowed or not.
-        // By default unrestricted sanitize exit is allowed.
-        //
-        ULONG DisallowUnrestrictedSanitizeExit : 1;
-
-        ULONG Reserved : 27;
-    } SanitizeOption;
-
-} STORAGE_REINITIALIZE_MEDIA, *PSTORAGE_REINITIALIZE_MEDIA;
-
-#pragma warning(pop)
 
 
 #pragma warning(push)
@@ -5468,38 +5369,39 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_READ_CAPACITY {
 // about the target device.
 //
 
-typedef enum _WRITE_CACHE_TYPE {
+typedef enum __WRAPPED__ _WRITE_CACHE_TYPE {
     WriteCacheTypeUnknown,
     WriteCacheTypeNone,
     WriteCacheTypeWriteBack,
     WriteCacheTypeWriteThrough
 } WRITE_CACHE_TYPE;
 
-typedef enum _WRITE_CACHE_ENABLE {
+typedef enum __WRAPPED__ _WRITE_CACHE_ENABLE {
     WriteCacheEnableUnknown,
     WriteCacheDisabled,
     WriteCacheEnabled
 } WRITE_CACHE_ENABLE;
 
-typedef enum _WRITE_CACHE_CHANGE {
+typedef enum __WRAPPED__ _WRITE_CACHE_CHANGE {
     WriteCacheChangeUnknown,
     WriteCacheNotChangeable,
     WriteCacheChangeable
 } WRITE_CACHE_CHANGE;
 
-typedef enum _WRITE_THROUGH {
+typedef enum __WRAPPED__ _WRITE_THROUGH {
     WriteThroughUnknown,
     WriteThroughNotSupported,
     WriteThroughSupported
 } WRITE_THROUGH;
 
-typedef _Struct_size_bytes_(Size) struct _STORAGE_WRITE_CACHE_PROPERTY {
+typedef _Struct_size_bytes_(Size) struct __WRAPPED__ _STORAGE_WRITE_CACHE_PROPERTY {
 
     //
     // The version number
     // Size of STORAGE_WRITE_CACHE_PROPERTY structure
     //
 
+    __WRAPPED__
     ULONG Version;
 
     //
@@ -5507,48 +5409,56 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_WRITE_CACHE_PROPERTY {
     // Size of STORAGE_WRITE_CACHE_PROPERTY structure
     //
 
+    __WRAPPED__
     ULONG Size;
 
     //
     // Current write cache type
     //
 
+    __WRAPPED__
     WRITE_CACHE_TYPE WriteCacheType;
 
     //
     // Current write cache value
     //
 
+    __WRAPPED__
     WRITE_CACHE_ENABLE WriteCacheEnabled;
 
     //
     // Device write cache change capability
     //
 
+    __WRAPPED__
     WRITE_CACHE_CHANGE WriteCacheChangeable;
 
     //
     // Device write through support capability
     //
 
+    __WRAPPED__
     WRITE_THROUGH WriteThroughSupported;
 
     //
     // Device flush cache capability
     //
 
+    __WRAPPED__
     BOOLEAN FlushCacheSupported;
 
     //
     // User selected power protection option through registry
     //
 
+    __WRAPPED__
     BOOLEAN UserDefinedPowerProtection;
 
     //
     // Device has battery backup for write cache
     //
 
+    __WRAPPED__
     BOOLEAN NVCacheEnabled;
 
 } STORAGE_WRITE_CACHE_PROPERTY, *PSTORAGE_WRITE_CACHE_PROPERTY;
@@ -6295,12 +6205,6 @@ typedef _Struct_size_bytes_(Size) struct _STORAGE_COUNTERS {
 #define STORAGE_HW_FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT                  0x00000004
 
 //
-// Indicate that any existing firmware in slot should be replaced with the downloaded image.
-// Only valid for IOCTL_STORAGE_FIRMWARE_ACTIVATE.
-//
-#define STORAGE_HW_FIRMWARE_REQUEST_FLAG_REPLACE_EXISTING_IMAGE         0x40000000
-
-//
 // Indicate that the existing firmware in slot should be activated.
 // Only valid for IOCTL_STORAGE_FIRMWARE_ACTIVATE.
 //
@@ -6333,48 +6237,67 @@ typedef struct _STORAGE_HW_FIRMWARE_INFO_QUERY {
 
 #define STORAGE_HW_FIRMWARE_REVISION_LENGTH             16
 
-typedef struct _STORAGE_HW_FIRMWARE_SLOT_INFO {
+typedef struct __WRAPPED__ _STORAGE_HW_FIRMWARE_SLOT_INFO {
 
+    __WRAPPED__
     ULONG   Version;            // sizeof(STORAGE_HW_FIRMWARE_SLOT_INFO)
 
+    __WRAPPED__
     ULONG   Size;               // size the data contained in STORAGE_HW_FIRMWARE_SLOT_INFO.
 
+    __WRAPPED__
     UCHAR   SlotNumber;
 
+    __WRAPPED__
     UCHAR   ReadOnly : 1;
 
+    __WRAPPED__
     UCHAR   Reserved0 : 7;
 
+    __WRAPPED__
     UCHAR   Reserved1[6];
 
+    __WRAPPED__
     UCHAR   Revision[STORAGE_HW_FIRMWARE_REVISION_LENGTH];
 
 } STORAGE_HW_FIRMWARE_SLOT_INFO, *PSTORAGE_HW_FIRMWARE_SLOT_INFO;
 
-typedef struct _STORAGE_HW_FIRMWARE_INFO {
+typedef struct __WRAPPED__ _STORAGE_HW_FIRMWARE_INFO {
 
+    __WRAPPED__
     ULONG   Version;            // sizeof(STORAGE_HW_FIRMWARE_INFO)
 
+    __WRAPPED__
     ULONG   Size;               // size of the whole buffer including slot[]
 
+    __WRAPPED__
     UCHAR   SupportUpgrade : 1;
 
+    __WRAPPED__
     UCHAR   Reserved0 : 7;
 
+    __WRAPPED__
     UCHAR   SlotCount;
 
+    __WRAPPED__
     UCHAR   ActiveSlot;
 
+    __WRAPPED__
     UCHAR   PendingActivateSlot;
 
+    __WRAPPED__
     BOOLEAN FirmwareShared;     // The firmware applies to both device and adapter. For example: PCIe SSD.
 
+    __WRAPPED__
     UCHAR   Reserved[3];
 
+    __WRAPPED__
     ULONG   ImagePayloadAlignment;  // Number of bytes. Max: PAGE_SIZE. The transfer size should be multiple of this unit size. Some protocol requires at least sector size. 0 means the value is not valid.
 
+    __WRAPPED__
     ULONG   ImagePayloadMaxSize;    // for a single command.
 
+    __WRAPPED__
     STORAGE_HW_FIRMWARE_SLOT_INFO Slot[ANYSIZE_ARRAY];
 
 } STORAGE_HW_FIRMWARE_INFO, *PSTORAGE_HW_FIRMWARE_INFO;
@@ -6596,253 +6519,6 @@ typedef struct _STORAGE_ATTRIBUTE_MGMT {
 
 } STORAGE_ATTRIBUTE_MGMT, *PSTORAGE_ATTRIBUTE_MGMT;
 
-// end_winioctl
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
-
-//
-// Defines the bit for each supported features in storage drivers
-// The supported features is defined in "StorageSupportedFeatures" as a DWORD value under
-// "Parameters" registry key of the driver
-//
-
-//
-// Bypass IO feature. If set, the driver understands bypass IO and supports bypass IO related IOCTL(s).
-//
-#define STORAGE_SUPPORTED_FEATURES_BYPASS_IO    0x00000001
-
-
-//
-// Supported Features Mask. This is "OR" of all defined bits of supported features.
-//
-#define STORAGE_SUPPORTED_FEATURES_MASK         (STORAGE_SUPPORTED_FEATURES_BYPASS_IO)
-
-#pragma warning(push)
-#pragma warning(disable:4201) // nameless struct/unions
-
-//
-//          ======= IOCTL_STORAGE_MANAGE_BYPASS_IO ======
-//
-
-//
-//  This IOCTL is used to control BypassIO operations in all layers of the
-//  volume and storage stacks
-//
-
-//
-//  Defines the various operations supported by the BypassIO IOCTL
-//
-
-typedef enum _BPIO_OPERATIONS {
-
-    //
-    //  This is a request to enable BypassIO for the given volume/disk (device)
-    //  which means a driver may not see all reads/writes for that stack.
-    //
-    //  On the pre-operation, if a driver can support BypassIO for the given
-    //  device it should forward the request down the stack.
-    //
-    //  On the pre-operation if a driver CAN NOT support BypassIO for the given
-    //  device they should complete the FSCTL with STATUS_SUCCESS and update the
-    //  BPIO_OUTPUT structure with appropriate OpStatus, FailingDriverNames,
-    //  and FailureReason reasons.
-    //
-    //  During the post-operation they can see if all drivers below them are
-    //  capable of supporting BypassIO.  If yes, the driver should preserve any
-    //  needed state for the file and continue completion processing. It is the
-    //  drivers responsibility to maintain state to properly handle requests that
-    //  may not be compatible with the BypassIO enabled state.
-    //
-    //  During the post-operation processing if a driver determines they can no
-    //  longer support BypassIO, they can call <TBD> to inform the stack below them
-    //  that BypassIO is now disabled.  They should set appropriate state as to
-    //  why it can not be supported.
-    //
-
-    BPIO_OP_ENABLE = 1,
-
-    //
-    //  This is a request to disable BypassIO for the given volume/disk.  It allows
-    //  a  driver to cleanup any associated BypassIO state.
-    //
-    //  This can be received by a driver that currently does not have BypassIO
-    //  enabled.  It should be ignored.
-    //
-    //  This operation should not be failed.
-    //
-
-    BPIO_OP_DISABLE = 2,
-
-    //
-    //  This is an informational request to see if BypassIO can be enabled for
-    //  the given volume/disk.  This should be processed the same as an ENABLE operation
-    //  with the appropriate fields in the BPIO_OUTPUT structure filled out.  The
-    //  only difference is that the driver does not enter the ENABLE state.
-    //
-
-    BPIO_OP_QUERY = 3
-
-} BPIO_OPERATIONS;
-
-
-//
-//  Defines the BypassIO INPUT flags
-//
-
-typedef enum _BPIO_INFLAGS {
-
-    BPIO_INFL_NONE = 0
-
-} BPIO_INFLAGS;
-DEFINE_ENUM_FLAG_OPERATORS( BPIO_INFLAGS )
-
-//
-//  Defines the INPUT structure for IOCTL_STORAGE_MANAGE_BYPASS_IO
-//
-
-typedef struct _BPIO_INPUT {
-
-    //
-    // Size of this structure serves
-    // as the version.
-    //
-    ULONG Version;
-
-    //
-    // Size of this structure plus
-    // all the variable sized fields.
-    //
-    ULONG Size;
-
-    //
-    //  The BypassIO operation being requested.
-    //
-
-    BPIO_OPERATIONS Operation;
-
-    //
-    //  Input flags for this operation.
-    //
-
-    BPIO_INFLAGS InFlags;
-
-    ULONGLONG Reserved2;
-
-} BPIO_INPUT, *PBPIO_INPUT;
-
-
-//
-//  Defines the BypassIO OUTPUT flags
-//
-
-typedef enum _BPIO_OUTFLAGS {
-
-    BPIO_OUTFL_NONE = 0
-
-} BPIO_OUTFLAGS;
-DEFINE_ENUM_FLAG_OPERATORS( BPIO_OUTFLAGS )
-
-//
-//  This structure defines operation specific outputs for both the ENABLE
-//  and QUERY operations
-//
-
-typedef struct _BPIO_RESULTS {
-
-    //
-    //  A status code that will be available to users which identifies WHY
-    //  the specified driver can't support BypassIO.  This should only be
-    //  set by the first driver to fail the request.
-    //
-
-    LONG OpStatus;      // This should be NTSTATUS but it is not always available
-
-    //
-    //  Receives the name of the driver that failed the request.  For diagnostic
-    //  reasons it is required that drivers store their name when failing an
-    //  ENABLE/QUERY requests.  The name should match the actual name of the driver
-    //  used by the system with extension.  Ex: "ntfs.sys".
-    //
-    //  FailingDriversNameLen contains the length of the string in CHARACTERS.
-    //  No one should assume the string is NULL terminated.
-    //
-
-    USHORT FailingDriverNameLen;
-    WCHAR FailingDriverName[32];
-
-    //
-    //  Receives a reasonable description of why the driver can not support the
-    //  ENABLE/QUERY request.  This string is used for diagnostic reasons and should
-    //  identify the WHY.
-    //
-    //  This string should be in English and does not need to be localized.
-    //
-    //  FailureReasonLen contains the length of the string in CHARACTERS.
-    //  No one should assume the strings is NULL terminated.
-    //
-
-    USHORT FailureReasonLen;
-    WCHAR FailureReason[128];
-
-} BPIO_RESULTS, *PBPIO_RESULTS;
-
-//
-//  Defines the variable sized OUTPUT structure for IOCTL_STORAGE_MANAGE_BYPASS_IO
-//
-
-typedef struct _BPIO_OUTPUT {
-
-    //
-    // Size of this structure serves
-    // as the version.
-    //
-    ULONG Version;
-
-    //
-    // Size of this structure plus
-    // all the variable sized fields.
-    //
-    ULONG Size;
-
-    //
-    //  The BypassIO operation being requested.  This should be set to the
-    //  same value passed in the input structure
-    //
-
-    BPIO_OPERATIONS Operation;
-
-    //
-    //  Output flags for this operation.
-    //
-
-    BPIO_OUTFLAGS OutFlags;
-
-    ULONGLONG Reserved2;    //reserved for future expansion
-
-    //
-    //  This defines operation specific outputs
-    //
-
-    union {
-
-        BPIO_RESULTS Enable;
-        BPIO_RESULTS Query;
-    };
-
-} BPIO_OUTPUT, *PBPIO_OUTPUT;
-
-#define BPIO_OUTPUT_ENABLE_SIZE          (sizeof(BPIO_OUTPUT))
-#define BPIO_OUTPUT_QUERY_SIZE           (sizeof(BPIO_OUTPUT))
-#define BPIO_OUTPUT_DISABLE_SIZE         ((size_t)FIELD_OFFSET(BPIO_OUTPUT, Enable))
-#define BPIO_OUTPUT_VOLUME_DISABLE_SIZE  ((size_t)FIELD_OFFSET(BPIO_OUTPUT, Enable))
-
-#pragma warning(pop)
-
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO)
-
-// begin_winioctl
-
-
 #if _MSC_VER >= 1200
 #pragma warning(pop)
 #endif
@@ -6850,6 +6526,7 @@ typedef struct _BPIO_OUTPUT {
 #if defined __cplusplus && !defined __ALT_GENERATOR__
 }
 #endif
+
 
 #endif // _NTDDSTOR_H_
 // end_winioctl

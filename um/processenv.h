@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -15,6 +17,7 @@
 
 #include <apiset.h>
 #include <apisetcconv.h>
+
 
 #include <minwindef.h>
 
@@ -31,6 +34,7 @@ WINAPI
 SetEnvironmentStringsW(
     _In_ _Pre_ _NullNull_terminated_ LPWCH NewEnvironment
     );
+
 #ifdef UNICODE
 #define SetEnvironmentStrings  SetEnvironmentStringsW
 #endif
@@ -48,6 +52,7 @@ GetStdHandle(
     _In_ DWORD nStdHandle
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -55,6 +60,7 @@ SetStdHandle(
     _In_ DWORD nStdHandle,
     _In_ HANDLE hHandle
     );
+
 
 #if (_WIN32_WINNT >= 0x0600)
 
@@ -66,6 +72,7 @@ SetStdHandleEx(
     _In_ HANDLE hHandle,
     _Out_opt_ PHANDLE phPrevValue
     );
+
 
 #endif // _WIN32_WINNT >= 0x0600
 
@@ -88,6 +95,7 @@ WINAPI
 GetCommandLineW(
     VOID
     );
+
 #ifdef UNICODE
 #define GetCommandLine  GetCommandLineW
 #else
@@ -102,6 +110,7 @@ GetEnvironmentStrings(
     VOID
     );
 
+
 WINBASEAPI
 _NullNull_terminated_
 LPWCH
@@ -109,6 +118,7 @@ WINAPI
 GetEnvironmentStringsW(
     VOID
     );
+
 
 #ifdef UNICODE
 #define GetEnvironmentStrings  GetEnvironmentStringsW
@@ -129,6 +139,7 @@ WINAPI
 FreeEnvironmentStringsW(
     _In_ _Pre_ _NullNull_terminated_ LPWCH penv
     );
+
 #ifdef UNICODE
 #define FreeEnvironmentStrings  FreeEnvironmentStringsW
 #else
@@ -154,6 +165,7 @@ GetEnvironmentVariableW(
     _Out_writes_to_opt_(nSize,return + 1) LPWSTR lpBuffer,
     _In_ DWORD nSize
     );
+
 #ifdef UNICODE
 #define GetEnvironmentVariable  GetEnvironmentVariableW
 #else
@@ -175,6 +187,7 @@ SetEnvironmentVariableW(
     _In_ LPCWSTR lpName,
     _In_opt_ LPCWSTR lpValue
     );
+
 #ifdef UNICODE
 #define SetEnvironmentVariable  SetEnvironmentVariableW
 #else
@@ -200,6 +213,7 @@ ExpandEnvironmentStringsW(
     _Out_writes_to_opt_(nSize,return) LPWSTR lpDst,
     _In_ DWORD nSize
     );
+
 #ifdef UNICODE
 #define ExpandEnvironmentStrings  ExpandEnvironmentStringsW
 #else
@@ -219,6 +233,7 @@ WINAPI
 SetCurrentDirectoryW(
     _In_ LPCWSTR lpPathName
     );
+
 #ifdef UNICODE
 #define SetCurrentDirectory  SetCurrentDirectoryW
 #else
@@ -242,6 +257,7 @@ GetCurrentDirectoryW(
     _In_ DWORD nBufferLength,
     _Out_writes_to_opt_(nBufferLength,return + 1) LPWSTR lpBuffer
     );
+
 #ifdef UNICODE
 #define GetCurrentDirectory  GetCurrentDirectoryW
 #else
@@ -266,6 +282,7 @@ SearchPathW(
     _Out_opt_ LPWSTR* lpFilePart
     );
 
+
 #ifdef UNICODE
 #define SearchPath  SearchPathW
 #else
@@ -283,6 +300,7 @@ SearchPathA(
     _Out_writes_to_opt_(nBufferLength,return + 1) LPSTR lpBuffer,
     _Out_opt_ LPSTR* lpFilePart
     );
+
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
@@ -304,6 +322,7 @@ WINAPI
 NeedCurrentDirectoryForExePathW(
     _In_ LPCWSTR ExeName
     );
+
 #ifdef UNICODE
 #define NeedCurrentDirectoryForExePath  NeedCurrentDirectoryForExePathW
 #else

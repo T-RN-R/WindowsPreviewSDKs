@@ -16,7 +16,7 @@ HRESULT
 WINAPI
 PerceptionDeviceCreateFactory(
     _In_ REFIID riid,
-    _COM_Outptr_ LPVOID* ppFactory);
+    _Outptr_ LPVOID* ppFactory);
 
 #if NTDDI_VERSION >= NTDDI_WIN10_VB
 

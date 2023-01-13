@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -138,22 +130,18 @@ EXTERN_C const IID IID_IRestrictedErrorInfo;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IRestrictedErrorInfo * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IRestrictedErrorInfo * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IRestrictedErrorInfo * This);
         
-        DECLSPEC_XFGVIRT(IRestrictedErrorInfo, GetErrorDetails)
         HRESULT ( STDMETHODCALLTYPE *GetErrorDetails )( 
             __RPC__in IRestrictedErrorInfo * This,
             /* [out] */ __RPC__deref_out_opt BSTR *description,
@@ -161,7 +149,6 @@ EXTERN_C const IID IID_IRestrictedErrorInfo;
             /* [out] */ __RPC__deref_out_opt BSTR *restrictedDescription,
             /* [out] */ __RPC__deref_out_opt BSTR *capabilitySid);
         
-        DECLSPEC_XFGVIRT(IRestrictedErrorInfo, GetReference)
         HRESULT ( STDMETHODCALLTYPE *GetReference )( 
             __RPC__in IRestrictedErrorInfo * This,
             /* [out] */ __RPC__deref_out_opt BSTR *reference);
@@ -233,22 +220,18 @@ EXTERN_C const IID IID_ILanguageExceptionErrorInfo;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ILanguageExceptionErrorInfo * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ILanguageExceptionErrorInfo * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ILanguageExceptionErrorInfo * This);
         
-        DECLSPEC_XFGVIRT(ILanguageExceptionErrorInfo, GetLanguageException)
         HRESULT ( STDMETHODCALLTYPE *GetLanguageException )( 
             __RPC__in ILanguageExceptionErrorInfo * This,
             /* [out] */ __RPC__deref_out_opt IUnknown **languageException);
@@ -317,22 +300,18 @@ EXTERN_C const IID IID_ILanguageExceptionTransform;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ILanguageExceptionTransform * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ILanguageExceptionTransform * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ILanguageExceptionTransform * This);
         
-        DECLSPEC_XFGVIRT(ILanguageExceptionTransform, GetTransformedRestrictedErrorInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTransformedRestrictedErrorInfo )( 
             __RPC__in ILanguageExceptionTransform * This,
             /* [out] */ __RPC__deref_out_opt IRestrictedErrorInfo **restrictedErrorInfo);
@@ -403,22 +382,18 @@ EXTERN_C const IID IID_ILanguageExceptionStackBackTrace;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ILanguageExceptionStackBackTrace * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ILanguageExceptionStackBackTrace * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ILanguageExceptionStackBackTrace * This);
         
-        DECLSPEC_XFGVIRT(ILanguageExceptionStackBackTrace, GetStackBackTrace)
         HRESULT ( STDMETHODCALLTYPE *GetStackBackTrace )( 
             __RPC__in ILanguageExceptionStackBackTrace * This,
             /* [in] */ ULONG maxFramesToCapture,
@@ -495,37 +470,30 @@ EXTERN_C const IID IID_ILanguageExceptionErrorInfo2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ILanguageExceptionErrorInfo2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ILanguageExceptionErrorInfo2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ILanguageExceptionErrorInfo2 * This);
         
-        DECLSPEC_XFGVIRT(ILanguageExceptionErrorInfo, GetLanguageException)
         HRESULT ( STDMETHODCALLTYPE *GetLanguageException )( 
             __RPC__in ILanguageExceptionErrorInfo2 * This,
             /* [out] */ __RPC__deref_out_opt IUnknown **languageException);
         
-        DECLSPEC_XFGVIRT(ILanguageExceptionErrorInfo2, GetPreviousLanguageExceptionErrorInfo)
         HRESULT ( STDMETHODCALLTYPE *GetPreviousLanguageExceptionErrorInfo )( 
             __RPC__in ILanguageExceptionErrorInfo2 * This,
             /* [out] */ __RPC__deref_out_opt ILanguageExceptionErrorInfo2 **previousLanguageExceptionErrorInfo);
         
-        DECLSPEC_XFGVIRT(ILanguageExceptionErrorInfo2, CapturePropagationContext)
         HRESULT ( STDMETHODCALLTYPE *CapturePropagationContext )( 
             __RPC__in ILanguageExceptionErrorInfo2 * This,
             /* [in] */ __RPC__in_opt IUnknown *languageException);
         
-        DECLSPEC_XFGVIRT(ILanguageExceptionErrorInfo2, GetPropagationContextHead)
         HRESULT ( STDMETHODCALLTYPE *GetPropagationContextHead )( 
             __RPC__in ILanguageExceptionErrorInfo2 * This,
             /* [out] */ __RPC__deref_out_opt ILanguageExceptionErrorInfo2 **propagatedLanguageExceptionErrorInfoHead);

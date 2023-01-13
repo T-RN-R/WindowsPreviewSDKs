@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -151,34 +143,28 @@ EXTERN_C const IID IID_IAMVideoAcceleratorNotify;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAMVideoAcceleratorNotify * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAMVideoAcceleratorNotify * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAMVideoAcceleratorNotify * This);
         
-        DECLSPEC_XFGVIRT(IAMVideoAcceleratorNotify, GetUncompSurfacesInfo)
         HRESULT ( STDMETHODCALLTYPE *GetUncompSurfacesInfo )( 
             IAMVideoAcceleratorNotify * This,
             /* [in] */ const GUID *pGuid,
             /* [annotation][out][in] */ 
             _Inout_  LPAMVAUncompBufferInfo pUncompBufferInfo);
         
-        DECLSPEC_XFGVIRT(IAMVideoAcceleratorNotify, SetUncompSurfacesInfo)
         HRESULT ( STDMETHODCALLTYPE *SetUncompSurfacesInfo )( 
             IAMVideoAcceleratorNotify * This,
             /* [in] */ DWORD dwActualUncompSurfacesAllocated);
         
-        DECLSPEC_XFGVIRT(IAMVideoAcceleratorNotify, GetCreateVideoAcceleratorData)
         HRESULT ( STDMETHODCALLTYPE *GetCreateVideoAcceleratorData )( 
             IAMVideoAcceleratorNotify * This,
             /* [in] */ const GUID *pGuid,
@@ -325,22 +311,18 @@ EXTERN_C const IID IID_IAMVideoAccelerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAMVideoAccelerator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAMVideoAccelerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAMVideoAccelerator * This);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, GetVideoAcceleratorGUIDs)
         HRESULT ( STDMETHODCALLTYPE *GetVideoAcceleratorGUIDs )( 
             IAMVideoAccelerator * This,
             /* [annotation][out][in] */ 
@@ -348,7 +330,6 @@ EXTERN_C const IID IID_IAMVideoAccelerator;
             /* [annotation][out][in] */ 
             _Out_writes_to_opt_(*pdwNumGuidsSupported, *pdwNumGuidsSupported)  LPGUID pGuidsSupported);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, GetUncompFormatsSupported)
         HRESULT ( STDMETHODCALLTYPE *GetUncompFormatsSupported )( 
             IAMVideoAccelerator * This,
             /* [in] */ const GUID *pGuid,
@@ -357,7 +338,6 @@ EXTERN_C const IID IID_IAMVideoAccelerator;
             /* [annotation][out][in] */ 
             _Out_writes_to_opt_(*pdwNumFormatsSupported, *pdwNumFormatsSupported)  LPDDPIXELFORMAT pFormatsSupported);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, GetInternalMemInfo)
         HRESULT ( STDMETHODCALLTYPE *GetInternalMemInfo )( 
             IAMVideoAccelerator * This,
             /* [in] */ const GUID *pGuid,
@@ -365,7 +345,6 @@ EXTERN_C const IID IID_IAMVideoAccelerator;
             /* [annotation][out][in] */ 
             _Inout_  LPAMVAInternalMemInfo pamvaInternalMemInfo);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, GetCompBufferInfo)
         HRESULT ( STDMETHODCALLTYPE *GetCompBufferInfo )( 
             IAMVideoAccelerator * This,
             /* [in] */ const GUID *pGuid,
@@ -375,7 +354,6 @@ EXTERN_C const IID IID_IAMVideoAccelerator;
             /* [annotation][out] */ 
             _Out_writes_to_opt_(*pdwNumTypesCompBuffers, *pdwNumTypesCompBuffers)  LPAMVACompBufferInfo pamvaCompBufferInfo);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, GetInternalCompBufferInfo)
         HRESULT ( STDMETHODCALLTYPE *GetInternalCompBufferInfo )( 
             IAMVideoAccelerator * This,
             /* [annotation][out][in] */ 
@@ -383,17 +361,14 @@ EXTERN_C const IID IID_IAMVideoAccelerator;
             /* [annotation][out] */ 
             _Out_writes_to_opt_(*pdwNumTypesCompBuffers, *pdwNumTypesCompBuffers)  LPAMVACompBufferInfo pamvaCompBufferInfo);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, BeginFrame)
         HRESULT ( STDMETHODCALLTYPE *BeginFrame )( 
             IAMVideoAccelerator * This,
             /* [in] */ const AMVABeginFrameInfo *amvaBeginFrameInfo);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, EndFrame)
         HRESULT ( STDMETHODCALLTYPE *EndFrame )( 
             IAMVideoAccelerator * This,
             /* [in] */ const AMVAEndFrameInfo *pEndFrameInfo);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, GetBuffer)
         HRESULT ( STDMETHODCALLTYPE *GetBuffer )( 
             IAMVideoAccelerator * This,
             /* [in] */ DWORD dwTypeIndex,
@@ -404,13 +379,11 @@ EXTERN_C const IID IID_IAMVideoAccelerator;
             /* [annotation][out] */ 
             _Out_  LONG *lpStride);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, ReleaseBuffer)
         HRESULT ( STDMETHODCALLTYPE *ReleaseBuffer )( 
             IAMVideoAccelerator * This,
             /* [in] */ DWORD dwTypeIndex,
             /* [in] */ DWORD dwBufferIndex);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, Execute)
         HRESULT ( STDMETHODCALLTYPE *Execute )( 
             IAMVideoAccelerator * This,
             /* [in] */ DWORD dwFunction,
@@ -422,14 +395,12 @@ EXTERN_C const IID IID_IAMVideoAccelerator;
             /* [annotation][in] */ 
             _In_reads_(dwNumBuffers)  const AMVABUFFERINFO *pamvaBufferInfo);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, QueryRenderStatus)
         HRESULT ( STDMETHODCALLTYPE *QueryRenderStatus )( 
             IAMVideoAccelerator * This,
             /* [in] */ DWORD dwTypeIndex,
             /* [in] */ DWORD dwBufferIndex,
             /* [in] */ DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IAMVideoAccelerator, DisplayFrame)
         HRESULT ( STDMETHODCALLTYPE *DisplayFrame )( 
             IAMVideoAccelerator * This,
             /* [in] */ DWORD dwFlipToIndex,

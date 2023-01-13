@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -359,22 +351,18 @@ EXTERN_C const IID IID_IMFTransform;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IMFTransform * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IMFTransform * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IMFTransform * This);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetStreamLimits)
         HRESULT ( STDMETHODCALLTYPE *GetStreamLimits )( 
             __RPC__in IMFTransform * This,
             /* [out] */ __RPC__out DWORD *pdwInputMinimum,
@@ -382,13 +370,11 @@ EXTERN_C const IID IID_IMFTransform;
             /* [out] */ __RPC__out DWORD *pdwOutputMinimum,
             /* [out] */ __RPC__out DWORD *pdwOutputMaximum);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetStreamCount)
         HRESULT ( STDMETHODCALLTYPE *GetStreamCount )( 
             __RPC__in IMFTransform * This,
             /* [out] */ __RPC__out DWORD *pcInputStreams,
             /* [out] */ __RPC__out DWORD *pcOutputStreams);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetStreamIDs)
         HRESULT ( STDMETHODCALLTYPE *GetStreamIDs )( 
             __RPC__in IMFTransform * This,
             DWORD dwInputIDArraySize,
@@ -396,123 +382,103 @@ EXTERN_C const IID IID_IMFTransform;
             DWORD dwOutputIDArraySize,
             /* [size_is][out] */ __RPC__out_ecount_full(dwOutputIDArraySize) DWORD *pdwOutputIDs);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetInputStreamInfo)
         HRESULT ( STDMETHODCALLTYPE *GetInputStreamInfo )( 
             __RPC__in IMFTransform * This,
             DWORD dwInputStreamID,
             /* [out] */ __RPC__out MFT_INPUT_STREAM_INFO *pStreamInfo);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetOutputStreamInfo)
         HRESULT ( STDMETHODCALLTYPE *GetOutputStreamInfo )( 
             __RPC__in IMFTransform * This,
             DWORD dwOutputStreamID,
             /* [out] */ __RPC__out MFT_OUTPUT_STREAM_INFO *pStreamInfo);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetAttributes)
         HRESULT ( STDMETHODCALLTYPE *GetAttributes )( 
             __RPC__in IMFTransform * This,
             /* [out] */ __RPC__deref_out_opt IMFAttributes **pAttributes);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetInputStreamAttributes)
         HRESULT ( STDMETHODCALLTYPE *GetInputStreamAttributes )( 
             __RPC__in IMFTransform * This,
             DWORD dwInputStreamID,
             /* [out] */ __RPC__deref_out_opt IMFAttributes **pAttributes);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetOutputStreamAttributes)
         HRESULT ( STDMETHODCALLTYPE *GetOutputStreamAttributes )( 
             __RPC__in IMFTransform * This,
             DWORD dwOutputStreamID,
             /* [out] */ __RPC__deref_out_opt IMFAttributes **pAttributes);
         
-        DECLSPEC_XFGVIRT(IMFTransform, DeleteInputStream)
         HRESULT ( STDMETHODCALLTYPE *DeleteInputStream )( 
             __RPC__in IMFTransform * This,
             DWORD dwStreamID);
         
-        DECLSPEC_XFGVIRT(IMFTransform, AddInputStreams)
         HRESULT ( STDMETHODCALLTYPE *AddInputStreams )( 
             __RPC__in IMFTransform * This,
             DWORD cStreams,
             /* [in] */ __RPC__in DWORD *adwStreamIDs);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetInputAvailableType)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailableType )( 
             __RPC__in IMFTransform * This,
             DWORD dwInputStreamID,
             DWORD dwTypeIndex,
             /* [out] */ __RPC__deref_out_opt IMFMediaType **ppType);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetOutputAvailableType)
         HRESULT ( STDMETHODCALLTYPE *GetOutputAvailableType )( 
             __RPC__in IMFTransform * This,
             DWORD dwOutputStreamID,
             DWORD dwTypeIndex,
             /* [out] */ __RPC__deref_out_opt IMFMediaType **ppType);
         
-        DECLSPEC_XFGVIRT(IMFTransform, SetInputType)
         HRESULT ( STDMETHODCALLTYPE *SetInputType )( 
             __RPC__in IMFTransform * This,
             DWORD dwInputStreamID,
             /* [in] */ __RPC__in_opt IMFMediaType *pType,
             DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMFTransform, SetOutputType)
         HRESULT ( STDMETHODCALLTYPE *SetOutputType )( 
             __RPC__in IMFTransform * This,
             DWORD dwOutputStreamID,
             /* [in] */ __RPC__in_opt IMFMediaType *pType,
             DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetInputCurrentType)
         HRESULT ( STDMETHODCALLTYPE *GetInputCurrentType )( 
             __RPC__in IMFTransform * This,
             DWORD dwInputStreamID,
             /* [out] */ __RPC__deref_out_opt IMFMediaType **ppType);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetOutputCurrentType)
         HRESULT ( STDMETHODCALLTYPE *GetOutputCurrentType )( 
             __RPC__in IMFTransform * This,
             DWORD dwOutputStreamID,
             /* [out] */ __RPC__deref_out_opt IMFMediaType **ppType);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetInputStatus)
         HRESULT ( STDMETHODCALLTYPE *GetInputStatus )( 
             __RPC__in IMFTransform * This,
             DWORD dwInputStreamID,
             /* [out] */ __RPC__out DWORD *pdwFlags);
         
-        DECLSPEC_XFGVIRT(IMFTransform, GetOutputStatus)
         HRESULT ( STDMETHODCALLTYPE *GetOutputStatus )( 
             __RPC__in IMFTransform * This,
             /* [out] */ __RPC__out DWORD *pdwFlags);
         
-        DECLSPEC_XFGVIRT(IMFTransform, SetOutputBounds)
         HRESULT ( STDMETHODCALLTYPE *SetOutputBounds )( 
             __RPC__in IMFTransform * This,
             LONGLONG hnsLowerBound,
             LONGLONG hnsUpperBound);
         
-        DECLSPEC_XFGVIRT(IMFTransform, ProcessEvent)
         HRESULT ( STDMETHODCALLTYPE *ProcessEvent )( 
             __RPC__in IMFTransform * This,
             DWORD dwInputStreamID,
             /* [in] */ __RPC__in_opt IMFMediaEvent *pEvent);
         
-        DECLSPEC_XFGVIRT(IMFTransform, ProcessMessage)
         HRESULT ( STDMETHODCALLTYPE *ProcessMessage )( 
             __RPC__in IMFTransform * This,
             MFT_MESSAGE_TYPE eMessage,
             ULONG_PTR ulParam);
         
-        DECLSPEC_XFGVIRT(IMFTransform, ProcessInput)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *ProcessInput )( 
             IMFTransform * This,
             DWORD dwInputStreamID,
             IMFSample *pSample,
             DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMFTransform, ProcessOutput)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *ProcessOutput )( 
             IMFTransform * This,
             DWORD dwFlags,
@@ -864,28 +830,23 @@ EXTERN_C const IID IID_IMFDeviceTransform;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFDeviceTransform * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFDeviceTransform * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFDeviceTransform * This);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, InitializeTransform)
         HRESULT ( STDMETHODCALLTYPE *InitializeTransform )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
             _In_  IMFAttributes *pAttributes);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetInputAvailableType)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailableType )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -895,7 +856,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _COM_Outptr_  IMFMediaType **pMediaType);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetInputCurrentType)
         HRESULT ( STDMETHODCALLTYPE *GetInputCurrentType )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -903,7 +863,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _COM_Outptr_  IMFMediaType **pMediaType);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetInputStreamAttributes)
         HRESULT ( STDMETHODCALLTYPE *GetInputStreamAttributes )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -911,7 +870,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _COM_Outptr_  IMFAttributes **ppAttributes);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetOutputAvailableType)
         HRESULT ( STDMETHODCALLTYPE *GetOutputAvailableType )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -921,7 +879,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _COM_Outptr_  IMFMediaType **pMediaType);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetOutputCurrentType)
         HRESULT ( STDMETHODCALLTYPE *GetOutputCurrentType )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -929,7 +886,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _COM_Outptr_  IMFMediaType **pMediaType);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetOutputStreamAttributes)
         HRESULT ( STDMETHODCALLTYPE *GetOutputStreamAttributes )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -937,7 +893,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _COM_Outptr_  IMFAttributes **ppAttributes);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetStreamCount)
         HRESULT ( STDMETHODCALLTYPE *GetStreamCount )( 
             IMFDeviceTransform * This,
             /* [annotation][out] */ 
@@ -945,7 +900,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _Out_  DWORD *pcOutputStreams);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetStreamIDs)
         HRESULT ( STDMETHODCALLTYPE *GetStreamIDs )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -957,7 +911,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _Out_  DWORD *pdwOutputStreamIds);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, ProcessEvent)
         HRESULT ( STDMETHODCALLTYPE *ProcessEvent )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -965,7 +918,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][in] */ 
             _In_  IMFMediaEvent *pEvent);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, ProcessInput)
         HRESULT ( STDMETHODCALLTYPE *ProcessInput )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -975,7 +927,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][in] */ 
             _In_  DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, ProcessMessage)
         HRESULT ( STDMETHODCALLTYPE *ProcessMessage )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -983,7 +934,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][in] */ 
             _In_  ULONG_PTR ulParam);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, ProcessOutput)
         HRESULT ( STDMETHODCALLTYPE *ProcessOutput )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -995,7 +945,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _Out_  DWORD *pdwStatus);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, SetInputStreamState)
         HRESULT ( STDMETHODCALLTYPE *SetInputStreamState )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -1007,7 +956,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][in] */ 
             _In_  DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetInputStreamState)
         HRESULT ( STDMETHODCALLTYPE *GetInputStreamState )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -1015,7 +963,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _Out_  DeviceStreamState *value);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, SetOutputStreamState)
         HRESULT ( STDMETHODCALLTYPE *SetOutputStreamState )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -1027,7 +974,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][in] */ 
             _In_  DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetOutputStreamState)
         HRESULT ( STDMETHODCALLTYPE *GetOutputStreamState )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -1035,7 +981,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _Out_  DeviceStreamState *value);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, GetInputStreamPreferredState)
         HRESULT ( STDMETHODCALLTYPE *GetInputStreamPreferredState )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -1045,7 +990,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][out] */ 
             _COM_Outptr_  IMFMediaType **ppMediaType);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, FlushInputStream)
         HRESULT ( STDMETHODCALLTYPE *FlushInputStream )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -1053,7 +997,6 @@ EXTERN_C const IID IID_IMFDeviceTransform;
             /* [annotation][in] */ 
             _In_  DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransform, FlushOutputStream)
         HRESULT ( STDMETHODCALLTYPE *FlushOutputStream )( 
             IMFDeviceTransform * This,
             /* [annotation][in] */ 
@@ -1196,22 +1139,18 @@ EXTERN_C const IID IID_IMFDeviceTransformCallback;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFDeviceTransformCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFDeviceTransformCallback * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFDeviceTransformCallback * This);
         
-        DECLSPEC_XFGVIRT(IMFDeviceTransformCallback, OnBufferSent)
         HRESULT ( STDMETHODCALLTYPE *OnBufferSent )( 
             IMFDeviceTransformCallback * This,
             /* [annotation][in] */ 
@@ -1283,7 +1222,6 @@ EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_SHARED_WITHOUT_MUTEX = { 0x39
 EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_ALLOW_DYNAMIC_YUV_TEXTURE = { 0xce06d49f, 0x613, 0x4b9d, { 0x86, 0xa6, 0xd8, 0xc4, 0xf9, 0xc1, 0x0, 0x75 } };
 EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_HW_PROTECTED =    { 0x3a8ba9d9, 0x92ca, 0x4307, { 0xa3, 0x91, 0x69, 0x99, 0xdb, 0xf3, 0xb6, 0xce } };
 EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_BUFFERS_PER_SAMPLE =    { 0x873c5171, 0x1e3d, 0x4e25, { 0x98, 0x8d, 0xb4, 0x33, 0xce, 0x04, 0x19, 0x83 } };
-EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_ALLOCATE_DISPLAYABLE_RESOURCES = { 0xeeface6d, 0x2ea9, 0x4adf, { 0xbb, 0xdf, 0x7b, 0xbc, 0x48, 0x2a, 0x1b, 0x6d } };
 EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER =  { 0xef80833f, 0xf8fa, 0x44d9, { 0x80, 0xd8, 0x41, 0xed, 0x62, 0x32, 0x67, 0xc } };
 EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL =  { 0xa24e30d7, 0xde25, 0x4558, { 0xbb, 0xfb, 0x71, 0x7, 0xa, 0x2d, 0x33, 0x2e } };
 EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS =  { 0xd8980deb, 0xa48, 0x425f, { 0x86, 0x23, 0x61, 0x1d, 0xb4, 0x1d, 0x38, 0x10 } };

@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -125,38 +117,31 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IProtectionPolicyManagerInterop * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IProtectionPolicyManagerInterop * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IProtectionPolicyManagerInterop * This);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetIids)
         HRESULT ( STDMETHODCALLTYPE *GetIids )( 
             __RPC__in IProtectionPolicyManagerInterop * This,
             /* [out] */ __RPC__out ULONG *iidCount,
             /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*iidCount) IID **iids);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetRuntimeClassName)
         HRESULT ( STDMETHODCALLTYPE *GetRuntimeClassName )( 
             __RPC__in IProtectionPolicyManagerInterop * This,
             /* [out] */ __RPC__deref_out_opt HSTRING *className);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetTrustLevel)
         HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )( 
             __RPC__in IProtectionPolicyManagerInterop * This,
             /* [out] */ __RPC__out TrustLevel *trustLevel);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop, RequestAccessForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -165,7 +150,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop, GetForWindow)
         HRESULT ( STDMETHODCALLTYPE *GetForWindow )( 
             __RPC__in IProtectionPolicyManagerInterop * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -287,38 +271,31 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetIids)
         HRESULT ( STDMETHODCALLTYPE *GetIids )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [out] */ __RPC__out ULONG *iidCount,
             /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*iidCount) IID **iids);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetRuntimeClassName)
         HRESULT ( STDMETHODCALLTYPE *GetRuntimeClassName )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [out] */ __RPC__deref_out_opt HSTRING *className);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetTrustLevel)
         HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [out] */ __RPC__out TrustLevel *trustLevel);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop2, RequestAccessForAppWithWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessForAppWithWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -327,7 +304,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop2;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop2, RequestAccessWithAuditingInfoForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessWithAuditingInfoForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -337,7 +313,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop2;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop2, RequestAccessWithMessageForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessWithMessageForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -348,7 +323,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop2;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop2, RequestAccessForAppWithAuditingInfoForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessForAppWithAuditingInfoForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -358,7 +332,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop2;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop2, RequestAccessForAppWithMessageForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessForAppWithMessageForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop2 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -508,38 +481,31 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetIids)
         HRESULT ( STDMETHODCALLTYPE *GetIids )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [out] */ __RPC__out ULONG *iidCount,
             /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*iidCount) IID **iids);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetRuntimeClassName)
         HRESULT ( STDMETHODCALLTYPE *GetRuntimeClassName )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [out] */ __RPC__deref_out_opt HSTRING *className);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetTrustLevel)
         HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [out] */ __RPC__out TrustLevel *trustLevel);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop3, RequestAccessWithBehaviorForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessWithBehaviorForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -551,7 +517,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop3;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop3, RequestAccessForAppWithBehaviorForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessForAppWithBehaviorForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -563,7 +528,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop3;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop3, RequestAccessToFilesForAppForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessToFilesForAppForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -573,7 +537,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop3;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop3, RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -585,7 +548,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop3;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop3, RequestAccessToFilesForProcessForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessToFilesForProcessForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [in] */ __RPC__in HWND appWindow,
@@ -595,7 +557,6 @@ EXTERN_C const IID IID_IProtectionPolicyManagerInterop3;
             /* [in] */ __RPC__in REFIID riid,
             /* [iid_is][retval][out] */ __RPC__deref_out_opt void **asyncOperation);
         
-        DECLSPEC_XFGVIRT(IProtectionPolicyManagerInterop3, RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync)
         HRESULT ( STDMETHODCALLTYPE *RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync )( 
             __RPC__in IProtectionPolicyManagerInterop3 * This,
             /* [in] */ __RPC__in HWND appWindow,

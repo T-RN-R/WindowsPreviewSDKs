@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -34,6 +36,7 @@ QueryThreadCycleTime(
     _Out_ PULONG64 CycleTime
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -42,6 +45,7 @@ QueryProcessCycleTime(
     _Out_ PULONG64 CycleTime
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -49,6 +53,7 @@ QueryIdleProcessorCycleTime(
     _Inout_ PULONG BufferLength,
     _Out_writes_bytes_opt_(*BufferLength) PULONG64 ProcessorIdleCycleTime
     );
+
 
 #endif
 
@@ -63,6 +68,7 @@ QueryIdleProcessorCycleTimeEx(
     _Out_writes_bytes_opt_(*BufferLength) PULONG64 ProcessorIdleCycleTime
     );
 
+    
 #endif // (_WIN32_WINNT >= 0x0601)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
@@ -78,6 +84,7 @@ QueryInterruptTimePrecise(
     _Out_ PULONGLONG lpInterruptTimePrecise
     );
 
+
 WINBASEAPI
 VOID
 WINAPI
@@ -85,12 +92,14 @@ QueryUnbiasedInterruptTimePrecise(
     _Out_ PULONGLONG lpUnbiasedInterruptTimePrecise
     );
 
+
 WINBASEAPI
 VOID
 WINAPI
 QueryInterruptTime(
     _Out_ PULONGLONG lpInterruptTime
     );
+
 
 #if (_WIN32_WINNT >= 0x0601)
 
@@ -101,6 +110,7 @@ QueryUnbiasedInterruptTime(
     _Out_ PULONGLONG UnbiasedTime
     );
 
+
 #endif // (_WIN32_WINNT >= 0x0601)
 
 WINBASEAPI
@@ -109,6 +119,7 @@ WINAPI
 QueryAuxiliaryCounterFrequency(
     _Out_ PULONGLONG lpAuxiliaryCounterFrequency
     );
+
 
 WINBASEAPI
 HRESULT
@@ -119,6 +130,7 @@ ConvertAuxiliaryCounterToPerformanceCounter(
     _Out_opt_ PULONGLONG lpConversionError
     );
 
+
 WINBASEAPI
 HRESULT
 WINAPI
@@ -127,6 +139,7 @@ ConvertPerformanceCounterToAuxiliaryCounter(
     _Out_ PULONGLONG lpAuxiliaryCounterValue,
     _Out_opt_ PULONGLONG lpConversionError
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion

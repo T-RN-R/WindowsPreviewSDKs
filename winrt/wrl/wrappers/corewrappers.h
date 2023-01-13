@@ -811,12 +811,6 @@ public:
     HString(_In_ const HString&) = delete;
     HString& operator=(_In_ const HString&) = delete;
 
-    // HSTRING operator
-    operator HSTRING() const throw()
-    {
-        return hstr_;
-    }
-
     ~HString() throw()
     {
         Release();
@@ -968,11 +962,6 @@ public:
         return hstr_ != nullptr;
     }
 
-    UINT32 Length() const throw()
-    {
-        return ::WindowsGetStringLen(hstr_);
-    }
-
     const wchar_t* GetRawBuffer(_Out_opt_ unsigned int* length) const
     {
         return ::WindowsGetStringRawBuffer(hstr_, length);
@@ -983,83 +972,11 @@ public:
         return ::WindowsDuplicateString(hstr_, str);
     }
 
-    // Duplicate from another String.
-    HRESULT Duplicate(const HString& other) throw()
-    {
-        HSTRING local;
-        HRESULT hr = ::WindowsDuplicateString(other, &local);
-        return ReleaseAndAssignOnSuccess(hr, local, *this);
-    }
-
-    bool IsEmpty() const throw()
-    {
-        return hstr_ == nullptr;
-    } 
-
-    HRESULT Concat(const HString& string, HString& newString) const throw()
-    {
-        HSTRING local;
-        HRESULT hr = ::WindowsConcatString(hstr_, string, &local);
-        return ReleaseAndAssignOnSuccess(hr, local, newString);
-    }
-
-    HRESULT TrimStart(const HString& trimString, HString& newString) const throw()
-    {
-        HSTRING local;
-        HRESULT hr = ::WindowsTrimStringStart(hstr_, trimString, &local);
-        return ReleaseAndAssignOnSuccess(hr, local, newString);
-    }
-
-    HRESULT TrimEnd(const HString& trimString, HString& newString) const throw()
-    {
-        HSTRING local;
-        HRESULT hr = ::WindowsTrimStringEnd(hstr_, trimString, &local);
-        return ReleaseAndAssignOnSuccess(hr, local, newString);
-    }
-
-    HRESULT Substring(UINT32 startIndex, HString& newString) const throw()
-    {
-        HSTRING local;
-        HRESULT hr = ::WindowsSubstring(hstr_, startIndex, &local);
-        return ReleaseAndAssignOnSuccess(hr, local, newString);
-    }
-
-    HRESULT Substring(UINT32 startIndex, UINT32 length, HString& newString) const throw()
-    {
-        HSTRING local;
-        HRESULT hr = ::WindowsSubstringWithSpecifiedLength(hstr_, startIndex, length, &local);
-        return ReleaseAndAssignOnSuccess(hr, local, newString);
-    }
-
-    HRESULT Replace(const HString& stringReplaced, const HString& stringReplaceWith, HString& newString) const throw()
-    {
-        HSTRING local;
-        HRESULT hr = ::WindowsReplaceString(hstr_, stringReplaced, stringReplaceWith, &local);
-        return ReleaseAndAssignOnSuccess(hr, local, newString);
-    }
-
     template<unsigned int sizeDest>
     static HStringReference MakeReference(wchar_t const (&str)[sizeDest]) throw();
 
     template<unsigned int sizeDest>
     static HStringReference MakeReference(wchar_t const (&str)[sizeDest], unsigned int len) throw();
-
-private:
-
-    // Always returns the passed in HRESULT. If the HRESULT indicates success, frees any previous target string,
-    // over-writes and takes ownership of new value
-    static HRESULT ReleaseAndAssignOnSuccess(HRESULT hr, HSTRING newValue, HString& target)
-    {
-        if (SUCCEEDED(hr))
-        {
-            // InterlockedExchangePointer wouldn't have much value, unless we also modified
-            // all readers of *target to insert a ReadBarrier.
-            *target.ReleaseAndGetAddressOf() = newValue;
-        }
-
-        return hr;
-    }
-
 protected:
     HSTRING hstr_;
 };
@@ -1067,12 +984,6 @@ protected:
 class HStringReference
 {
 private:
-    // const HString& operator
-    const HString& AsString() const throw()
-    {
-        return reinterpret_cast<const HString&>(hstr_);
-    }
-
     void CreateReference(const wchar_t* str, unsigned int bufferLen, unsigned int len)
     {
         __WRL_ASSERT__(len < bufferLen);
@@ -1199,12 +1110,6 @@ public:
         return hstr_;
     }
 
-    // const HString& operator
-    operator const HString&() const throw()
-    {
-        return AsString();
-    }
-
     const wchar_t* GetRawBuffer(_Out_opt_ unsigned int* length) const
     {
         return ::WindowsGetStringRawBuffer(hstr_, length);
@@ -1213,43 +1118,6 @@ public:
     HRESULT CopyTo(_Outptr_result_maybenull_ _Result_nullonfailure_ HSTRING *str) const throw()
     {
         return ::WindowsDuplicateString(hstr_, str);
-    }
-
-    // Concatenation
-    HRESULT Concat(const HString& otherString, HString& newString)  const throw()
-    {
-        return AsString().Concat(otherString, newString);
-    }
-
-    HRESULT TrimStart(const HString& trimString, HString& newString) const throw()
-    {
-        return AsString().TrimStart(trimString, newString);
-    }
-
-    HRESULT TrimEnd(const HString& trimString, HString& newString) const throw()
-    {
-        return AsString().TrimEnd(trimString, newString);
-    }
-
-    HRESULT Substring(UINT32 startIndex, HString& newString) const throw()
-    {
-        return AsString().Substring(startIndex, newString);
-    }
-
-    HRESULT Substring(UINT32 startIndex, UINT32 length, HString& newString) const throw()
-    {
-        return AsString().Substring(startIndex, length, newString);
-    }
-
-    HRESULT Replace(const HString& stringReplaced, const HString& stringReplaceWith, HString& newString) const throw()
-    {
-        return AsString().Replace(stringReplaced, stringReplaceWith, newString);
-    }
-    
-    // Data Access
-    UINT32 Length() const throw()
-    {
-        return AsString().Length();
     }
 
     friend class HString;

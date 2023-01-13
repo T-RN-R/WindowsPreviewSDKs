@@ -110,6 +110,11 @@ typedef struct _WIN32_FIND_DATAA {
     DWORD dwReserved1;
     _Field_z_ CHAR   cFileName[ MAX_PATH ];
     _Field_z_ CHAR   cAlternateFileName[ 14 ];
+#ifdef _MAC
+    DWORD dwFileType;
+    DWORD dwCreatorType;
+    WORD  wFinderFlags;
+#endif
 } WIN32_FIND_DATAA, *PWIN32_FIND_DATAA, *LPWIN32_FIND_DATAA;
 typedef struct _WIN32_FIND_DATAW {
     DWORD dwFileAttributes;
@@ -122,6 +127,11 @@ typedef struct _WIN32_FIND_DATAW {
     DWORD dwReserved1;
     _Field_z_ WCHAR  cFileName[ MAX_PATH ];
     _Field_z_ WCHAR  cAlternateFileName[ 14 ];
+#ifdef _MAC
+    DWORD dwFileType;
+    DWORD dwCreatorType;
+    WORD  wFinderFlags;
+#endif
 } WIN32_FIND_DATAW, *PWIN32_FIND_DATAW, *LPWIN32_FIND_DATAW;
 #ifdef UNICODE
 typedef WIN32_FIND_DATAW WIN32_FIND_DATA;
@@ -158,13 +168,8 @@ typedef enum _FINDEX_SEARCH_OPS {
 #if(_WIN32_WINNT >= 0x0400)
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 typedef enum _READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    ReadDirectoryNotifyInformation           = 1,
-    ReadDirectoryNotifyExtendedInformation, // 2
-#if (NTDDI_VERSION >= NTDDI_WIN10_NI)
-    ReadDirectoryNotifyFullInformation,     // 3
-#endif
-                                            // add new classes above
-    ReadDirectoryNotifyMaximumInformation
+    ReadDirectoryNotifyInformation         = 1,
+    ReadDirectoryNotifyExtendedInformation // 2
 } READ_DIRECTORY_NOTIFY_INFORMATION_CLASS, *PREAD_DIRECTORY_NOTIFY_INFORMATION_CLASS;
 #endif
 #endif /* _WIN32_WINNT >= 0x0400 */
@@ -209,20 +214,7 @@ typedef enum _FILE_INFO_BY_HANDLE_CLASS {
 #endif
     MaximumFileInfoByHandleClass
 } FILE_INFO_BY_HANDLE_CLASS, *PFILE_INFO_BY_HANDLE_CLASS;
-
-#endif // (NTDDI_VERSION >= NTDDI_LONGHORN)
-
-#if defined(NTDDI_WIN10_NI) && (NTDDI_VERSION >= NTDDI_WIN10_NI)
-
-typedef enum _FILE_INFO_BY_NAME_CLASS {
-    FileStatByNameInfo,
-    FileStatLxByNameInfo,
-    FileCaseSensitiveByNameInfo,
-    FileStatBasicByNameInfo,
-    MaximumFileInfoByNameClass
-} FILE_INFO_BY_NAME_CLASS, *PFILE_INFO_BY_NAME_CLASS;
-
-#endif // defined(NTDDI_WIN10_NI) && (NTDDI_VERSION >= NTDDI_WIN10_NI)
+#endif
 
 typedef RTL_CRITICAL_SECTION CRITICAL_SECTION;
 typedef PRTL_CRITICAL_SECTION PCRITICAL_SECTION;

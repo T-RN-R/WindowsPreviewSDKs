@@ -125,8 +125,6 @@ Tbsi_Physical_Presence_Command(
     _Out_writes_bytes_(*pcbOutput) PBYTE pabOutput,
     _Out_ PUINT32 pcbOutput);
 
-#endif // (NTDDI_VERSION >= NTDDI_VISTA)
-
 #if (NTDDI_VERSION >= NTDDI_VISTASP1)
 
 _Success_(return == TBS_SUCCESS)
@@ -224,8 +222,6 @@ Tbsi_Get_OwnerAuth(
 TBS_RESULT WINAPI
 Tbsi_Revoke_Attestation();
 
-#endif // (NTDDI_VERSION >= NTDDI_WIN8)
-
 #if (NTDDI_VERSION >= NTDDI_WINBLUE)
 
 #ifndef _NTDDK_
@@ -248,15 +244,11 @@ GetDeviceIDString(
 
 #endif // ifndef _NTDDK_
 
-#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)
-
 #if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
 
 TBS_RESULT WINAPI
 Tbsi_Create_Windows_Key(
     __in TBS_HANDLE keyHandle);
-
-#endif // (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS4)
 
@@ -286,12 +278,13 @@ Tbsi_Get_TCG_Log_Ex(
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS4)
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_NI)
+#endif // (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
 
-inline BOOL WINAPI
-Tbsi_Is_Tpm_Present();
+#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)
 
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_NI)
+#endif // (NTDDI_VERSION >= NTDDI_WIN8)
+
+#endif // (NTDDI_VERSION >= NTDDI_VISTA)
 
 #if defined(__cplusplus)
 }

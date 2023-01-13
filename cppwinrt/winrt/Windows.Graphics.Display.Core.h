@@ -1,14 +1,12 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Graphics_Display_Core_H
 #define WINRT_Windows_Graphics_Display_Core_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.220418.1"), "Mismatched C++/WinRT headers.");
-#define CPPWINRT_VERSION "2.0.220418.1"
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Graphics.Display.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -18,140 +16,140 @@ namespace winrt::impl
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::GetSupportedDisplayModes() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation)->GetSupportedDisplayModes(&result));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Graphics::Display::Core::HdmiDisplayMode>{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformation)->GetSupportedDisplayModes(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::Graphics::Display::Core::HdmiDisplayMode>{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::GetCurrentDisplayMode() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation)->GetCurrentDisplayMode(&result));
-        return winrt::Windows::Graphics::Display::Core::HdmiDisplayMode{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformation)->GetCurrentDisplayMode(&result));
+        return Windows::Graphics::Display::Core::HdmiDisplayMode{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::SetDefaultDisplayModeAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation)->SetDefaultDisplayModeAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformation)->SetDefaultDisplayModeAsync(&operation));
+        return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::RequestSetCurrentDisplayModeAsync(winrt::Windows::Graphics::Display::Core::HdmiDisplayMode const& mode) const
+    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::RequestSetCurrentDisplayModeAsync(Windows::Graphics::Display::Core::HdmiDisplayMode const& mode) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation)->RequestSetCurrentDisplayModeAsync(*(void**)(&mode), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformation)->RequestSetCurrentDisplayModeAsync(*(void**)(&mode), &operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::RequestSetCurrentDisplayModeAsync(winrt::Windows::Graphics::Display::Core::HdmiDisplayMode const& mode, winrt::Windows::Graphics::Display::Core::HdmiDisplayHdrOption const& hdrOption) const
+    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::RequestSetCurrentDisplayModeAsync(Windows::Graphics::Display::Core::HdmiDisplayMode const& mode, Windows::Graphics::Display::Core::HdmiDisplayHdrOption const& hdrOption) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation)->RequestSetCurrentDisplayModeWithHdrAsync(*(void**)(&mode), static_cast<int32_t>(hdrOption), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformation)->RequestSetCurrentDisplayModeWithHdrAsync(*(void**)(&mode), static_cast<int32_t>(hdrOption), &operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::RequestSetCurrentDisplayModeAsync(winrt::Windows::Graphics::Display::Core::HdmiDisplayMode const& mode, winrt::Windows::Graphics::Display::Core::HdmiDisplayHdrOption const& hdrOption, winrt::Windows::Graphics::Display::Core::HdmiDisplayHdr2086Metadata const& hdrMetadata) const
+    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::RequestSetCurrentDisplayModeAsync(Windows::Graphics::Display::Core::HdmiDisplayMode const& mode, Windows::Graphics::Display::Core::HdmiDisplayHdrOption const& hdrOption, Windows::Graphics::Display::Core::HdmiDisplayHdr2086Metadata const& hdrMetadata) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation)->RequestSetCurrentDisplayModeWithHdrAndMetadataAsync(*(void**)(&mode), static_cast<int32_t>(hdrOption), impl::bind_in(hdrMetadata), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformation)->RequestSetCurrentDisplayModeWithHdrAndMetadataAsync(*(void**)(&mode), static_cast<int32_t>(hdrOption), impl::bind_in(hdrMetadata), &operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::DisplayModesChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Graphics::Display::Core::HdmiDisplayInformation, winrt::Windows::Foundation::IInspectable> const& value) const
+    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::DisplayModesChanged(Windows::Foundation::TypedEventHandler<Windows::Graphics::Display::Core::HdmiDisplayInformation, Windows::Foundation::IInspectable> const& value) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation)->add_DisplayModesChanged(*(void**)(&value), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformation)->add_DisplayModesChanged(*(void**)(&value), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::DisplayModesChanged_revoker consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::DisplayModesChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Graphics::Display::Core::HdmiDisplayInformation, winrt::Windows::Foundation::IInspectable> const& value) const
+    template <typename D> typename consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::DisplayModesChanged_revoker consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::DisplayModesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Display::Core::HdmiDisplayInformation, Windows::Foundation::IInspectable> const& value) const
     {
         return impl::make_event_revoker<D, DisplayModesChanged_revoker>(this, DisplayModesChanged(value));
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformation<D>::DisplayModesChanged(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation)->remove_DisplayModesChanged(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformation)->remove_DisplayModesChanged(impl::bind_in(token)));
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayInformationStatics<D>::GetForCurrentView() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics)->GetForCurrentView(&result));
-        return winrt::Windows::Graphics::Display::Core::HdmiDisplayInformation{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics)->GetForCurrentView(&result));
+        return Windows::Graphics::Display::Core::HdmiDisplayInformation{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::ResolutionWidthInRawPixels() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_ResolutionWidthInRawPixels(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_ResolutionWidthInRawPixels(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::ResolutionHeightInRawPixels() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_ResolutionHeightInRawPixels(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_ResolutionHeightInRawPixels(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::RefreshRate() const
     {
-        double value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_RefreshRate(&value));
+        double value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_RefreshRate(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::StereoEnabled() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_StereoEnabled(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_StereoEnabled(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::BitsPerPixel() const
     {
-        uint16_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_BitsPerPixel(&value));
+        uint16_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_BitsPerPixel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::IsEqual(winrt::Windows::Graphics::Display::Core::HdmiDisplayMode const& mode) const
+    template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::IsEqual(Windows::Graphics::Display::Core::HdmiDisplayMode const& mode) const
     {
-        bool result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->IsEqual(*(void**)(&mode), &result));
+        bool result;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->IsEqual(*(void**)(&mode), &result));
         return result;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::ColorSpace() const
     {
-        winrt::Windows::Graphics::Display::Core::HdmiDisplayColorSpace value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_ColorSpace(reinterpret_cast<int32_t*>(&value)));
+        Windows::Graphics::Display::Core::HdmiDisplayColorSpace value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_ColorSpace(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::PixelEncoding() const
     {
-        winrt::Windows::Graphics::Display::Core::HdmiDisplayPixelEncoding value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_PixelEncoding(reinterpret_cast<int32_t*>(&value)));
+        Windows::Graphics::Display::Core::HdmiDisplayPixelEncoding value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_PixelEncoding(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::IsSdrLuminanceSupported() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_IsSdrLuminanceSupported(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_IsSdrLuminanceSupported(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::IsSmpte2084Supported() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_IsSmpte2084Supported(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_IsSmpte2084Supported(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode<D>::Is2086MetadataSupported() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_Is2086MetadataSupported(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode)->get_Is2086MetadataSupported(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Graphics_Display_Core_IHdmiDisplayMode2<D>::IsDolbyVisionLowLatencySupported() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode2)->get_IsDolbyVisionLowLatencySupported(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Display::Core::IHdmiDisplayMode2)->get_IsDolbyVisionLowLatencySupported(&value));
         return value;
     }
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation> : produce_base<D, winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformation>
+    struct produce<D, Windows::Graphics::Display::Core::IHdmiDisplayInformation> : produce_base<D, Windows::Graphics::Display::Core::IHdmiDisplayInformation>
     {
         int32_t __stdcall GetSupportedDisplayModes(void** result) noexcept final try
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Graphics::Display::Core::HdmiDisplayMode>>(this->shim().GetSupportedDisplayModes());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Graphics::Display::Core::HdmiDisplayMode>>(this->shim().GetSupportedDisplayModes());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -159,7 +157,7 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Graphics::Display::Core::HdmiDisplayMode>(this->shim().GetCurrentDisplayMode());
+            *result = detach_from<Windows::Graphics::Display::Core::HdmiDisplayMode>(this->shim().GetCurrentDisplayMode());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -167,7 +165,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncAction>(this->shim().SetDefaultDisplayModeAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncAction>(this->shim().SetDefaultDisplayModeAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -175,7 +173,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<bool>>(this->shim().RequestSetCurrentDisplayModeAsync(*reinterpret_cast<winrt::Windows::Graphics::Display::Core::HdmiDisplayMode const*>(&mode)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().RequestSetCurrentDisplayModeAsync(*reinterpret_cast<Windows::Graphics::Display::Core::HdmiDisplayMode const*>(&mode)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -183,7 +181,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<bool>>(this->shim().RequestSetCurrentDisplayModeAsync(*reinterpret_cast<winrt::Windows::Graphics::Display::Core::HdmiDisplayMode const*>(&mode), *reinterpret_cast<winrt::Windows::Graphics::Display::Core::HdmiDisplayHdrOption const*>(&hdrOption)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().RequestSetCurrentDisplayModeAsync(*reinterpret_cast<Windows::Graphics::Display::Core::HdmiDisplayMode const*>(&mode), *reinterpret_cast<Windows::Graphics::Display::Core::HdmiDisplayHdrOption const*>(&hdrOption)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -191,7 +189,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<bool>>(this->shim().RequestSetCurrentDisplayModeAsync(*reinterpret_cast<winrt::Windows::Graphics::Display::Core::HdmiDisplayMode const*>(&mode), *reinterpret_cast<winrt::Windows::Graphics::Display::Core::HdmiDisplayHdrOption const*>(&hdrOption), *reinterpret_cast<winrt::Windows::Graphics::Display::Core::HdmiDisplayHdr2086Metadata const*>(&hdrMetadata)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().RequestSetCurrentDisplayModeAsync(*reinterpret_cast<Windows::Graphics::Display::Core::HdmiDisplayMode const*>(&mode), *reinterpret_cast<Windows::Graphics::Display::Core::HdmiDisplayHdrOption const*>(&hdrOption), *reinterpret_cast<Windows::Graphics::Display::Core::HdmiDisplayHdr2086Metadata const*>(&hdrMetadata)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -199,7 +197,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().DisplayModesChanged(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Graphics::Display::Core::HdmiDisplayInformation, winrt::Windows::Foundation::IInspectable> const*>(&value)));
+            *token = detach_from<winrt::event_token>(this->shim().DisplayModesChanged(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Graphics::Display::Core::HdmiDisplayInformation, Windows::Foundation::IInspectable> const*>(&value)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -213,13 +211,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics> : produce_base<D, winrt::Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics>
+    struct produce<D, Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics> : produce_base<D, Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics>
     {
         int32_t __stdcall GetForCurrentView(void** result) noexcept final try
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Graphics::Display::Core::HdmiDisplayInformation>(this->shim().GetForCurrentView());
+            *result = detach_from<Windows::Graphics::Display::Core::HdmiDisplayInformation>(this->shim().GetForCurrentView());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -227,7 +225,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode> : produce_base<D, winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode>
+    struct produce<D, Windows::Graphics::Display::Core::IHdmiDisplayMode> : produce_base<D, Windows::Graphics::Display::Core::IHdmiDisplayMode>
     {
         int32_t __stdcall get_ResolutionWidthInRawPixels(uint32_t* value) noexcept final try
         {
@@ -267,21 +265,21 @@ namespace winrt::impl
         int32_t __stdcall IsEqual(void* mode, bool* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<bool>(this->shim().IsEqual(*reinterpret_cast<winrt::Windows::Graphics::Display::Core::HdmiDisplayMode const*>(&mode)));
+            *result = detach_from<bool>(this->shim().IsEqual(*reinterpret_cast<Windows::Graphics::Display::Core::HdmiDisplayMode const*>(&mode)));
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_ColorSpace(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Graphics::Display::Core::HdmiDisplayColorSpace>(this->shim().ColorSpace());
+            *value = detach_from<Windows::Graphics::Display::Core::HdmiDisplayColorSpace>(this->shim().ColorSpace());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_PixelEncoding(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Graphics::Display::Core::HdmiDisplayPixelEncoding>(this->shim().PixelEncoding());
+            *value = detach_from<Windows::Graphics::Display::Core::HdmiDisplayPixelEncoding>(this->shim().PixelEncoding());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -310,7 +308,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode2> : produce_base<D, winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode2>
+    struct produce<D, Windows::Graphics::Display::Core::IHdmiDisplayMode2> : produce_base<D, Windows::Graphics::Display::Core::IHdmiDisplayMode2>
     {
         int32_t __stdcall get_IsDolbyVisionLowLatencySupported(bool* value) noexcept final try
         {
@@ -326,7 +324,7 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Display::Core
 {
     inline auto HdmiDisplayInformation::GetForCurrentView()
     {
-        return impl::call_factory_cast<winrt::Windows::Graphics::Display::Core::HdmiDisplayInformation(*)(IHdmiDisplayInformationStatics const&), HdmiDisplayInformation, IHdmiDisplayInformationStatics>([](IHdmiDisplayInformationStatics const& f) { return f.GetForCurrentView(); });
+        return impl::call_factory_cast<Windows::Graphics::Display::Core::HdmiDisplayInformation(*)(IHdmiDisplayInformationStatics const&), HdmiDisplayInformation, IHdmiDisplayInformationStatics>([](IHdmiDisplayInformationStatics const& f) { return f.GetForCurrentView(); });
     }
 }
 namespace std
@@ -338,8 +336,6 @@ namespace std
     template<> struct hash<winrt::Windows::Graphics::Display::Core::IHdmiDisplayMode2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Display::Core::HdmiDisplayInformation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Display::Core::HdmiDisplayMode> : winrt::impl::hash_base {};
-#endif
-#ifdef __cpp_lib_format
 #endif
 }
 #endif

@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -158,22 +150,18 @@ EXTERN_C const IID IID_IPhraseSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IPhraseSink * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IPhraseSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IPhraseSink * This);
         
-        DECLSPEC_XFGVIRT(IPhraseSink, PutSmallPhrase)
         HRESULT ( STDMETHODCALLTYPE *PutSmallPhrase )( 
             IPhraseSink * This,
             /* [size_is][in] */ const WCHAR *pwcNoun,
@@ -182,7 +170,6 @@ EXTERN_C const IID IID_IPhraseSink;
             /* [in] */ ULONG cwcModifier,
             /* [in] */ ULONG ulAttachmentType);
         
-        DECLSPEC_XFGVIRT(IPhraseSink, PutPhrase)
         HRESULT ( STDMETHODCALLTYPE *PutPhrase )( 
             IPhraseSink * This,
             /* [size_is][in] */ const WCHAR *pwcPhrase,
@@ -284,22 +271,18 @@ EXTERN_C const IID IID_IWordSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWordSink * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWordSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWordSink * This);
         
-        DECLSPEC_XFGVIRT(IWordSink, PutWord)
         HRESULT ( STDMETHODCALLTYPE *PutWord )( 
             IWordSink * This,
             /* [in] */ ULONG cwc,
@@ -307,7 +290,6 @@ EXTERN_C const IID IID_IWordSink;
             /* [in] */ ULONG cwcSrcLen,
             /* [in] */ ULONG cwcSrcPos);
         
-        DECLSPEC_XFGVIRT(IWordSink, PutAltWord)
         HRESULT ( STDMETHODCALLTYPE *PutAltWord )( 
             IWordSink * This,
             /* [in] */ ULONG cwc,
@@ -315,15 +297,12 @@ EXTERN_C const IID IID_IWordSink;
             /* [in] */ ULONG cwcSrcLen,
             /* [in] */ ULONG cwcSrcPos);
         
-        DECLSPEC_XFGVIRT(IWordSink, StartAltPhrase)
         HRESULT ( STDMETHODCALLTYPE *StartAltPhrase )( 
             IWordSink * This);
         
-        DECLSPEC_XFGVIRT(IWordSink, EndAltPhrase)
         HRESULT ( STDMETHODCALLTYPE *EndAltPhrase )( 
             IWordSink * This);
         
-        DECLSPEC_XFGVIRT(IWordSink, PutBreak)
         HRESULT ( STDMETHODCALLTYPE *PutBreak )( 
             IWordSink * This,
             /* [in] */ WORDREP_BREAK_TYPE breakType);
@@ -447,36 +426,30 @@ EXTERN_C const IID IID_IWordBreaker;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWordBreaker * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWordBreaker * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWordBreaker * This);
         
-        DECLSPEC_XFGVIRT(IWordBreaker, Init)
         HRESULT ( STDMETHODCALLTYPE *Init )( 
             IWordBreaker * This,
             /* [in] */ BOOL fQuery,
             /* [in] */ ULONG ulMaxTokenSize,
             /* [out] */ BOOL *pfLicense);
         
-        DECLSPEC_XFGVIRT(IWordBreaker, BreakText)
         HRESULT ( STDMETHODCALLTYPE *BreakText )( 
             IWordBreaker * This,
             /* [in] */ TEXT_SOURCE *pTextSource,
             /* [in] */ IWordSink *pWordSink,
             /* [in] */ IPhraseSink *pPhraseSink);
         
-        DECLSPEC_XFGVIRT(IWordBreaker, ComposePhrase)
         HRESULT ( STDMETHODCALLTYPE *ComposePhrase )( 
             IWordBreaker * This,
             /* [size_is][in] */ const WCHAR *pwcNoun,
@@ -487,7 +460,6 @@ EXTERN_C const IID IID_IWordBreaker;
             /* [size_is][out] */ WCHAR *pwcPhrase,
             /* [out][in] */ ULONG *pcwcPhrase);
         
-        DECLSPEC_XFGVIRT(IWordBreaker, GetLicenseToUse)
         HRESULT ( STDMETHODCALLTYPE *GetLicenseToUse )( 
             IWordBreaker * This,
             /* [string][out] */ const WCHAR **ppwcsLicense);
@@ -570,28 +542,23 @@ EXTERN_C const IID IID_IWordFormSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWordFormSink * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWordFormSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWordFormSink * This);
         
-        DECLSPEC_XFGVIRT(IWordFormSink, PutAltWord)
         HRESULT ( STDMETHODCALLTYPE *PutAltWord )( 
             IWordFormSink * This,
             /* [size_is][in] */ const WCHAR *pwcInBuf,
             /* [in] */ ULONG cwc);
         
-        DECLSPEC_XFGVIRT(IWordFormSink, PutWord)
         HRESULT ( STDMETHODCALLTYPE *PutWord )( 
             IWordFormSink * This,
             /* [size_is][in] */ const WCHAR *pwcInBuf,
@@ -673,35 +640,29 @@ EXTERN_C const IID IID_IStemmer;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IStemmer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IStemmer * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IStemmer * This);
         
-        DECLSPEC_XFGVIRT(IStemmer, Init)
         HRESULT ( STDMETHODCALLTYPE *Init )( 
             IStemmer * This,
             /* [in] */ ULONG ulMaxTokenSize,
             /* [out] */ BOOL *pfLicense);
         
-        DECLSPEC_XFGVIRT(IStemmer, GenerateWordForms)
         HRESULT ( STDMETHODCALLTYPE *GenerateWordForms )( 
             IStemmer * This,
             /* [in] */ const WCHAR *pwcInBuf,
             /* [in] */ ULONG cwc,
             /* [in] */ IWordFormSink *pStemSink);
         
-        DECLSPEC_XFGVIRT(IStemmer, GetLicenseToUse)
         HRESULT ( STDMETHODCALLTYPE *GetLicenseToUse )( 
             IStemmer * This,
             /* [string][out] */ const WCHAR **ppwcsLicense);
@@ -795,34 +756,28 @@ EXTERN_C const IID IID_ISimpleCommandCreator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISimpleCommandCreator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISimpleCommandCreator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISimpleCommandCreator * This);
         
-        DECLSPEC_XFGVIRT(ISimpleCommandCreator, CreateICommand)
         HRESULT ( STDMETHODCALLTYPE *CreateICommand )( 
             ISimpleCommandCreator * This,
             IUnknown **ppIUnknown,
             IUnknown *pOuterUnk);
         
-        DECLSPEC_XFGVIRT(ISimpleCommandCreator, VerifyCatalog)
         HRESULT ( STDMETHODCALLTYPE *VerifyCatalog )( 
             ISimpleCommandCreator * This,
             const WCHAR *pwszMachine,
             const WCHAR *pwszCatalogName);
         
-        DECLSPEC_XFGVIRT(ISimpleCommandCreator, GetDefaultCatalog)
         HRESULT ( STDMETHODCALLTYPE *GetDefaultCatalog )( 
             ISimpleCommandCreator * This,
             WCHAR *pwszCatalogName,
@@ -930,22 +885,18 @@ EXTERN_C const IID IID_IColumnMapper;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IColumnMapper * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IColumnMapper * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IColumnMapper * This);
         
-        DECLSPEC_XFGVIRT(IColumnMapper, GetPropInfoFromName)
         HRESULT ( STDMETHODCALLTYPE *GetPropInfoFromName )( 
             IColumnMapper * This,
             /* [string][in] */ const WCHAR *wcsPropName,
@@ -953,7 +904,6 @@ EXTERN_C const IID IID_IColumnMapper;
             /* [out] */ DBTYPE *pPropType,
             /* [out] */ unsigned int *puiWidth);
         
-        DECLSPEC_XFGVIRT(IColumnMapper, GetPropInfoFromId)
         HRESULT ( STDMETHODCALLTYPE *GetPropInfoFromId )( 
             IColumnMapper * This,
             /* [in] */ const DBID *pPropId,
@@ -961,7 +911,6 @@ EXTERN_C const IID IID_IColumnMapper;
             /* [out] */ DBTYPE *pPropType,
             /* [out] */ unsigned int *puiWidth);
         
-        DECLSPEC_XFGVIRT(IColumnMapper, EnumPropInfo)
         HRESULT ( STDMETHODCALLTYPE *EnumPropInfo )( 
             IColumnMapper * This,
             /* [in] */ ULONG iEntry,
@@ -970,7 +919,6 @@ EXTERN_C const IID IID_IColumnMapper;
             /* [out] */ DBTYPE *pPropType,
             /* [out] */ unsigned int *puiWidth);
         
-        DECLSPEC_XFGVIRT(IColumnMapper, IsMapUpToDate)
         HRESULT ( STDMETHODCALLTYPE *IsMapUpToDate )( 
             IColumnMapper * This);
         
@@ -1063,22 +1011,18 @@ EXTERN_C const IID IID_IColumnMapperCreator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IColumnMapperCreator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IColumnMapperCreator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IColumnMapperCreator * This);
         
-        DECLSPEC_XFGVIRT(IColumnMapperCreator, GetColumnMapper)
         HRESULT ( STDMETHODCALLTYPE *GetColumnMapper )( 
             IColumnMapperCreator * This,
             /* [string][in] */ const WCHAR *wcsMachineName,

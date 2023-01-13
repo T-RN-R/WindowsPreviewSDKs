@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -180,28 +172,23 @@ EXTERN_C const IID IID_IFhTarget;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IFhTarget * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IFhTarget * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IFhTarget * This);
         
-        DECLSPEC_XFGVIRT(IFhTarget, GetStringProperty)
         HRESULT ( STDMETHODCALLTYPE *GetStringProperty )( 
             __RPC__in IFhTarget * This,
             /* [in] */ FH_TARGET_PROPERTY_TYPE PropertyType,
             /* [out] */ __RPC__deref_out_opt BSTR *PropertyValue);
         
-        DECLSPEC_XFGVIRT(IFhTarget, GetNumericalProperty)
         HRESULT ( STDMETHODCALLTYPE *GetNumericalProperty )( 
             __RPC__in IFhTarget * This,
             /* [in] */ FH_TARGET_PROPERTY_TYPE PropertyType,
@@ -285,26 +272,21 @@ EXTERN_C const IID IID_IFhScopeIterator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IFhScopeIterator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IFhScopeIterator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IFhScopeIterator * This);
         
-        DECLSPEC_XFGVIRT(IFhScopeIterator, MoveToNextItem)
         HRESULT ( STDMETHODCALLTYPE *MoveToNextItem )( 
             __RPC__in IFhScopeIterator * This);
         
-        DECLSPEC_XFGVIRT(IFhScopeIterator, GetItem)
         HRESULT ( STDMETHODCALLTYPE *GetItem )( 
             __RPC__in IFhScopeIterator * This,
             /* [out] */ __RPC__deref_out_opt BSTR *Item);
@@ -486,93 +468,76 @@ EXTERN_C const IID IID_IFhConfigMgr;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IFhConfigMgr * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IFhConfigMgr * This);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, LoadConfiguration)
         HRESULT ( STDMETHODCALLTYPE *LoadConfiguration )( 
             __RPC__in IFhConfigMgr * This);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, CreateDefaultConfiguration)
         HRESULT ( STDMETHODCALLTYPE *CreateDefaultConfiguration )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ BOOL OverwriteIfExists);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, SaveConfiguration)
         HRESULT ( STDMETHODCALLTYPE *SaveConfiguration )( 
             __RPC__in IFhConfigMgr * This);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, AddRemoveExcludeRule)
         HRESULT ( STDMETHODCALLTYPE *AddRemoveExcludeRule )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ BOOL Add,
             /* [in] */ FH_PROTECTED_ITEM_CATEGORY Category,
             /* [in] */ __RPC__in BSTR Item);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, GetIncludeExcludeRules)
         HRESULT ( STDMETHODCALLTYPE *GetIncludeExcludeRules )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ BOOL Include,
             /* [in] */ FH_PROTECTED_ITEM_CATEGORY Category,
             /* [out] */ __RPC__deref_out_opt IFhScopeIterator **Iterator);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, GetLocalPolicy)
         HRESULT ( STDMETHODCALLTYPE *GetLocalPolicy )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ FH_LOCAL_POLICY_TYPE LocalPolicyType,
             /* [out] */ __RPC__out ULONGLONG *PolicyValue);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, SetLocalPolicy)
         HRESULT ( STDMETHODCALLTYPE *SetLocalPolicy )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ FH_LOCAL_POLICY_TYPE LocalPolicyType,
             /* [in] */ ULONGLONG PolicyValue);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, GetBackupStatus)
         HRESULT ( STDMETHODCALLTYPE *GetBackupStatus )( 
             __RPC__in IFhConfigMgr * This,
             /* [out] */ __RPC__out FH_BACKUP_STATUS *BackupStatus);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, SetBackupStatus)
         HRESULT ( STDMETHODCALLTYPE *SetBackupStatus )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ FH_BACKUP_STATUS BackupStatus);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, GetDefaultTarget)
         HRESULT ( STDMETHODCALLTYPE *GetDefaultTarget )( 
             __RPC__in IFhConfigMgr * This,
             /* [out] */ __RPC__deref_out_opt IFhTarget **DefaultTarget);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, ValidateTarget)
         HRESULT ( STDMETHODCALLTYPE *ValidateTarget )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ __RPC__in BSTR TargetUrl,
             /* [out] */ __RPC__out PFH_DEVICE_VALIDATION_RESULT ValidationResult);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, ProvisionAndSetNewTarget)
         HRESULT ( STDMETHODCALLTYPE *ProvisionAndSetNewTarget )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ __RPC__in BSTR TargetUrl,
             /* [in] */ __RPC__in BSTR TargetName);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, ChangeDefaultTargetRecommendation)
         HRESULT ( STDMETHODCALLTYPE *ChangeDefaultTargetRecommendation )( 
             __RPC__in IFhConfigMgr * This,
             /* [in] */ BOOL Recommend);
         
-        DECLSPEC_XFGVIRT(IFhConfigMgr, QueryProtectionStatus)
         HRESULT ( STDMETHODCALLTYPE *QueryProtectionStatus )( 
             __RPC__in IFhConfigMgr * This,
             /* [out] */ __RPC__out DWORD *ProtectionState,
@@ -706,33 +671,27 @@ EXTERN_C const IID IID_IFhReassociation;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IFhReassociation * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IFhReassociation * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IFhReassociation * This);
         
-        DECLSPEC_XFGVIRT(IFhReassociation, ValidateTarget)
         HRESULT ( STDMETHODCALLTYPE *ValidateTarget )( 
             __RPC__in IFhReassociation * This,
             /* [in] */ __RPC__in BSTR TargetUrl,
             /* [out] */ __RPC__out PFH_DEVICE_VALIDATION_RESULT ValidationResult);
         
-        DECLSPEC_XFGVIRT(IFhReassociation, ScanTargetForConfigurations)
         HRESULT ( STDMETHODCALLTYPE *ScanTargetForConfigurations )( 
             __RPC__in IFhReassociation * This,
             /* [in] */ __RPC__in BSTR TargetUrl);
         
-        DECLSPEC_XFGVIRT(IFhReassociation, GetConfigurationDetails)
         HRESULT ( STDMETHODCALLTYPE *GetConfigurationDetails )( 
             __RPC__in IFhReassociation * This,
             /* [in] */ DWORD Index,
@@ -740,12 +699,10 @@ EXTERN_C const IID IID_IFhReassociation;
             /* [out] */ __RPC__deref_out_opt BSTR *PcName,
             /* [out] */ __RPC__out FILETIME *BackupTime);
         
-        DECLSPEC_XFGVIRT(IFhReassociation, SelectConfiguration)
         HRESULT ( STDMETHODCALLTYPE *SelectConfiguration )( 
             __RPC__in IFhReassociation * This,
             /* [in] */ DWORD Index);
         
-        DECLSPEC_XFGVIRT(IFhReassociation, PerformReassociation)
         HRESULT ( STDMETHODCALLTYPE *PerformReassociation )( 
             __RPC__in IFhReassociation * This,
             /* [in] */ BOOL OverwriteIfExists);

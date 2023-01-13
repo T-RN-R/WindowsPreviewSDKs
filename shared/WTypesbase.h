@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -31,14 +31,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -391,7 +383,6 @@ enum tagCLSCTX
         CLSCTX_ACTIVATE_AAA_AS_IU	= 0x800000,
         CLSCTX_RESERVED6	= 0x1000000,
         CLSCTX_ACTIVATE_ARM32_SERVER	= 0x2000000,
-        CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION	= 0x4000000,
         CLSCTX_PS_DLL	= 0x80000000
     } 	CLSCTX;
 
@@ -415,7 +406,6 @@ enum tagCLSCTX
     CLSCTX_ACTIVATE_AAA_AS_IU | \
     CLSCTX_RESERVED6 | \
     CLSCTX_ACTIVATE_ARM32_SERVER | \
-    CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION | \
     CLSCTX_PS_DLL)
 typedef 
 enum tagMSHLFLAGS
@@ -438,7 +428,7 @@ enum tagMSHCTX
         MSHCTX_DIFFERENTMACHINE	= 2,
         MSHCTX_INPROC	= 3,
         MSHCTX_CROSSCTX	= 4,
-        MSHCTX_CONTAINER	= 5
+        MSHCTX_RESERVED1	= 5
     } 	MSHCTX;
 
 typedef struct _BYTE_BLOB

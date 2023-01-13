@@ -62,7 +62,7 @@ Revision History:
 
 // begin_ntminitape
 
-// begin_storport begin_privstorport
+// begin_storport begin_storportp
 
 //
 // Calculate the byte offset of a field in a structure of type type.
@@ -1270,20 +1270,6 @@ typedef union _CDB {
 
     } SET_TIMESTAMP;
 
-    struct _REPORT_SUPPORTED_OPERATION_CODES {
-        UCHAR OperationCode;                            // 0xA3 SCSIOP_MAINTENANCE_IN
-        UCHAR ServiceAction                     : 5;    // 0x0C SERVICE_ACTION_REPORT_SUPPORTED_OPERATION_CODES
-        UCHAR Reserved0                         : 3;
-        UCHAR ReportOptions                     : 3;
-        UCHAR Reserved1                         : 4;
-        UCHAR ReturnCommandTimeoutsDescriptor   : 1;
-        UCHAR RequestedOperationCode;
-        UCHAR RequestedServiceAction[2];
-        UCHAR AllocationLength[4];
-        UCHAR Reserved2;
-        UCHAR Control;
-    } REPORT_SUPPORTED_OPERATION_CODES;
-
     //
     // MMC / SFF-8090 commands
     //
@@ -1370,32 +1356,27 @@ typedef union _CDB {
 
     struct _READ16 {
         UCHAR OperationCode;      // 0x88 - SCSIOP_READ16
-        UCHAR DurationLimitDescriptor2      : 1;
-        UCHAR Reserved1                     : 1;
-        UCHAR RebuildAssistRecoveryControl  : 1;
-        UCHAR ForceUnitAccess               : 1;
-        UCHAR DisablePageOut                : 1;
-        UCHAR ReadProtect                   : 3;
+        UCHAR Reserved1         : 3;
+        UCHAR ForceUnitAccess   : 1;
+        UCHAR DisablePageOut    : 1;
+        UCHAR ReadProtect       : 3;
         UCHAR LogicalBlock[8];
         UCHAR TransferLength[4];
-        UCHAR Group                         : 6;
-        UCHAR DurationLimitDescriptor0      : 1;
-        UCHAR DurationLimitDescriptor1      : 1;
+        UCHAR Reserved2         : 7;
+        UCHAR Streaming         : 1;
         UCHAR Control;
     } READ16;
 
     struct _WRITE16 {
         UCHAR OperationCode;      // 0x8A - SCSIOP_WRITE16
-        UCHAR DurationLimitDescriptor2      : 1;
-        UCHAR Reserved1                     : 2;
-        UCHAR ForceUnitAccess               : 1;
-        UCHAR DisablePageOut                : 1;
-        UCHAR WriteProtect                  : 3;
+        UCHAR Reserved1         : 3;
+        UCHAR ForceUnitAccess   : 1;
+        UCHAR DisablePageOut    : 1;
+        UCHAR WriteProtect      : 3;
         UCHAR LogicalBlock[8];
         UCHAR TransferLength[4];
-        UCHAR Group                         : 6;
-        UCHAR DurationLimitDescriptor0      : 1;
-        UCHAR DurationLimitDescriptor1      : 1;
+        UCHAR Reserved2         : 7;
+        UCHAR Streaming         : 1;
         UCHAR Control;
     } WRITE16;
 
@@ -1603,35 +1584,11 @@ typedef union _CDB32 {
         UCHAR Reserved2        : 3;
         UCHAR AdditionalCDBLength;
         UCHAR ServiceAction[2];
-        UCHAR Reserved3;
-        UCHAR DurationLimitDescriptor0  : 1;
-        UCHAR DurationLimitDescriptor1  : 1;
-        UCHAR DurationLimitDescriptor2  : 1;
-        UCHAR Reserved4                 : 5;
+        UCHAR Reserved3[2];
         UCHAR LogicalBlock[8];
-        UCHAR Reserved5[8];
+        UCHAR Reserved4[8];
         UCHAR TransferLength[4];
     } CDB32GENERIC;
-
-    struct _XDWRITEREAD32 {
-        UCHAR OperationCode;        // 0x7F - SCSIOP_OPERATION32
-        UCHAR Control;
-        UCHAR Reserved1[4];
-        UCHAR Group            : 5;
-        UCHAR Reserved2        : 3;
-        UCHAR AdditionalCDBLength;  // 0x18
-        UCHAR ServiceAction[2];     // 0x0007 - SERVICE_ACTION_XDWRITEREAD
-        UCHAR XorProtectionInfo : 1;
-        UCHAR Reservede         : 1;
-        UCHAR DisableWrite      : 1;
-        UCHAR ForceUnitAccess   : 1;
-        UCHAR DisablePageOut    : 1;
-        UCHAR WriteProtect      : 1;
-        UCHAR Reserved4;
-        UCHAR LogicalBlock[8];
-        UCHAR Reserved5[8];
-        UCHAR TransferLength[4];
-    } XDWRITEREAD32;
 
     ULONG AsUlong[8];
     UCHAR AsByte[32];
@@ -2334,18 +2291,6 @@ typedef struct _PERFORMANCE_DESCRIPTOR {
 #define MODE_SENSE_DEFAULT_VAULES       0x80
 #define MODE_SENSE_SAVED_VALUES         0xc0
 
-//
-// Page Control for MODE_SENSE/MODE_SENSE10
-//
-#define MODE_SENSE_CURRENT_VALUES_PAGE_CONTROL      0
-#define MODE_SENSE_CHANGEABLE_VALUES_PAGE_CONTROL   1
-#define MODE_SENSE_DEFAULT_VALUES_PAGE_CONTROL      2
-#define MODE_SENSE_SAVED_VALUES_PAGE_CONTROL        3
-
-#define MODE_SUBPAGE_COMMAND_DURATION_LIMIT_A_MODE      0x03
-#define MODE_SUBPAGE_COMMAND_DURATION_LIMIT_B_MODE      0x04
-#define MODE_SUBPAGE_COMMAND_DURATION_LIMIT_T2A_MODE    0x07
-#define MODE_SUBPAGE_COMMAND_DURATION_LIMIT_T2B_MODE    0x08
 
 //
 // SCSI CDB operation codes
@@ -2541,7 +2486,6 @@ typedef struct _PERFORMANCE_DESCRIPTOR {
 #define SCSIOP_SERVICE_ACTION_IN16      0x9E
 #define SCSIOP_SERVICE_ACTION_OUT16     0x9F
 
-
 // 32-byte commands
 #define SCSIOP_OPERATION32              0x7F
 
@@ -2624,7 +2568,6 @@ typedef struct _PERFORMANCE_DESCRIPTOR {
 //
 
 #define SERVICE_ACTION_REPORT_TIMESTAMP                                         0x0F
-#define SERVICE_ACTION_REPORT_SUPPORTED_OPERATION_CODES                         0x0C
 
 //
 // SCSIOP_MAINTENANCE_OUT - 0xA4
@@ -2781,13 +2724,6 @@ typedef struct _SCSI_EXTENDED_MESSAGE {
 
 typedef USHORT VERSION_DESCRIPTOR, *PVERSION_DESCRIPTOR;
 
-#define HOT_PLUGGABLE_NO_INFORMATION_PROVIDED      0x0
-#define HOT_PLUGGABLE_REMOVE_AS_SINGLE_OBJECT      0x1 
-#define HOT_PLUGGABLE_NOT_REMOVE_FROM_SCSI_DOMAIN  0x2
-#define HOT_PLUGGABLE_RESERVED                     0x3
-
-#define HOT_PLUGGABLE_FIELD_SHIFT  0x4
-
 #if (NTDDI_VERSION < NTDDI_WINXP)
 typedef struct _INQUIRYDATA {
     UCHAR DeviceType : 5;
@@ -2823,18 +2759,8 @@ typedef struct _INQUIRYDATA {
 typedef struct _INQUIRYDATA {
     UCHAR DeviceType : 5;
     UCHAR DeviceTypeQualifier : 3;
-    union {
-        struct {
-            UCHAR DeviceTypeModifier : 7;
-            UCHAR ReservedField1 : 1;
-        };
-        struct {
-            UCHAR ReservedField2 : 4;
-            UCHAR HotPluggable : 2;
-            UCHAR LU_CONG: 1;
-            UCHAR RemovableMedia : 1;
-        };
-    };
+    UCHAR DeviceTypeModifier : 7;
+    UCHAR RemovableMedia : 1;
     union {
         UCHAR Versions;
         struct {
@@ -3322,28 +3248,12 @@ typedef struct _VPD_SUPPORTED_PAGES_PAGE {
 #define LOG_PAGE_CODE_READ_ERROR_COUNTERS           0x03
 #define LOG_PAGE_CODE_LOGICAL_BLOCK_PROVISIONING    0x0C
 #define LOG_PAGE_CODE_TEMPERATURE                   0x0D
-#define LOG_PAGE_CODE_ENVIRONMENTAL_REPORTING       0x0D
 #define LOG_PAGE_CODE_STARTSTOP_CYCLE_COUNTERS      0x0E
-#define LOG_PAGE_CODE_UTILIZATION                   0x0E
 #define LOG_PAGE_CODE_SELFTEST_RESULTS              0x10
 #define LOG_PAGE_CODE_SOLID_STATE_MEDIA             0x11
 #define LOG_PAGE_CODE_BACKGROUND_SCAN_RESULTS       0x15
-#define LOG_PAGE_CODE_PERFORMANCE_AND_STATISTICS    0x19
 #define LOG_PAGE_CODE_INFORMATIONAL_EXCEPTIONS      0x2F
 
-#define LOG_SUBPAGE_CODE_WRITE_ERROR_COUNTERS       0x00
-#define LOG_SUBPAGE_CODE_READ_ERROR_COUNTERS        0x00
-#define LOG_SUBPAGE_CODE_LOGICAL_BLOCK_PROVISIONING 0x00
-#define LOG_SUBPAGE_CODE_TEMPERATURE                0x00
-#define LOG_SUBPAGE_CODE_ENVIRONMENTAL_REPORTING    0x01
-#define LOG_SUBPAGE_CODE_STARTSTOP_CYCLE_COUNTERS   0x00
-#define LOG_SUBPAGE_CODE_UTILIZATION                0x01
-#define LOG_SUBPAGE_CODE_SELFTEST_RESULTS           0x00
-#define LOG_SUBPAGE_CODE_SOLID_STATE_MEDIA          0x00
-#define LOG_SUBPAGE_CODE_BACKGROUND_SCAN_RESULTS    0x00
-#define LOG_SUBPAGE_CODE_INFORMATIONAL_EXCEPTIONS   0x00
-#define LOG_SUBPAGE_CODE_COMMAND_DURATION_LIMIT_STATISTICS  0x21
-#define LOG_SUBPAGE_CODE_SUPPORTED_SUBPAGES         0xFF
 
 #pragma pack(push, log_page, 1)
 
@@ -3384,9 +3294,9 @@ typedef struct _LOG_PARAMETER {
         struct _THRESHOLD_RESOURCE_COUNT {
 
             UCHAR ResourceCount[4];             // Bytes 4-7
-            UCHAR Scope : 2;                    // Byte  8, bit 0-1
-            UCHAR Reserved1 : 6;                // Byte  8, bit 2-7
-            UCHAR Reserved2[3];                 // Byte  9
+            UCHAR Scope : 2;                    // Byte  5, bit 0-1
+            UCHAR Reserved1 : 6;                // Byte  5, bit 2-7
+            UCHAR Reserved2[3];                 // Byte  6
 
         } THRESHOLD_RESOURCE_COUNT;
 
@@ -3403,12 +3313,6 @@ typedef struct _LOG_PARAMETER {
             UCHAR Week[2];                      // Bytes 8-9
 
         } DATE_OF_MANUFACTURE;
-
-        struct _WORKLOAD_UTILIZATION {
-
-            UCHAR WorkloadUtilization[2];       // Bytes 4-5
-
-        } WORKLOAD_UTILIZATION;
 
         struct _SELF_TEST_RESULTS {
 
@@ -3543,8 +3447,6 @@ typedef struct _LOG_PAGE_LOGICAL_BLOCK_PROVISIONING {
 
 #define RESERVATION_ACTION_READ_KEYS                    0x00
 #define RESERVATION_ACTION_READ_RESERVATIONS            0x01
-#define RESERVATION_ACTION_REPORT_CAPABILITIES          0x02
-#define RESERVATION_ACTION_READ_FULL_STATUS             0x03
 
 #define RESERVATION_ACTION_REGISTER                     0x00
 #define RESERVATION_ACTION_RESERVE                      0x01
@@ -3553,8 +3455,6 @@ typedef struct _LOG_PAGE_LOGICAL_BLOCK_PROVISIONING {
 #define RESERVATION_ACTION_PREEMPT                      0x04
 #define RESERVATION_ACTION_PREEMPT_ABORT                0x05
 #define RESERVATION_ACTION_REGISTER_IGNORE_EXISTING     0x06
-#define RESERVATION_ACTION_REGISTER_AND_MOVE            0x07
-#define RESERVATION_ACTION_REPLACE_LOST_RESERVATION     0x08
 
 #define RESERVATION_SCOPE_LU                            0x00
 #define RESERVATION_SCOPE_ELEMENT                       0x02
@@ -3563,8 +3463,6 @@ typedef struct _LOG_PAGE_LOGICAL_BLOCK_PROVISIONING {
 #define RESERVATION_TYPE_EXCLUSIVE                      0x03
 #define RESERVATION_TYPE_WRITE_EXCLUSIVE_REGISTRANTS    0x05
 #define RESERVATION_TYPE_EXCLUSIVE_REGISTRANTS          0x06
-#define RESERVATION_TYPE_WRITE_EXCLUSIVE_ALL_REGISTRANTS    0x07
-#define RESERVATION_TYPE_EXCLUSIVE_ALL_REGISTRANTS      0x08
 
 //
 // Structures for reserve in command.
@@ -3595,67 +3493,6 @@ typedef struct {
     PRI_RESERVATION_DESCRIPTOR Reservations[0];
 #endif
 } PRI_RESERVATION_LIST, *PPRI_RESERVATION_LIST;
-
-typedef struct {
-    UCHAR ReservationKey[8];
-    UCHAR Reserved[4];
-    UCHAR ReservationHolder : 1;
-    UCHAR AllTargetPorts : 1;
-    UCHAR Reserved1 : 6;
-    UCHAR Type : 4;
-    UCHAR Scope : 4;
-    UCHAR Reserved2[4];
-    UCHAR RelativeTargetPortIdentifier[2];
-    UCHAR AdditionalDescriptorLength[4];
-} PRI_FULL_STATUS_DESCRIPTOR_HEADER, *PPRI_FULL_STATUS_DESCRIPTOR_HEADER;
-
-typedef struct {
-    PRI_FULL_STATUS_DESCRIPTOR_HEADER Header;
-    UCHAR TransportID[ANYSIZE_ARRAY];
-} PRI_FULL_STATUS_DESCRIPTOR, *PPRI_FULL_STATUS_DESCRIPTOR;
-
-typedef struct {
-    UCHAR Generation[4];
-    UCHAR AdditionalLength[4];
-} PRI_FULL_STATUS_LIST_HEADER, *PPRI_FULL_STATUS_LIST_HEADER;
-
-typedef struct {
-    UCHAR Generation[4];
-    UCHAR AdditionalLength[4];
-
-    //
-    // Since TransportID could be different sizes,
-    // we use PRI_FULL_STATUS_DESCRIPTOR_HEADER rather than PRI_FULL_STATUS_DESCRIPTOR
-    // as a place holder here.
-    //
-    PRI_FULL_STATUS_DESCRIPTOR_HEADER FullStatusDescriptors[ANYSIZE_ARRAY];
-} PRI_FULL_STATUS_LIST, *PPRI_FULL_STATUS_LIST;
-
-typedef struct {
-    UCHAR Length[2];
-    UCHAR PersistThroughPowerLossCapable : 1;
-    UCHAR Reserved : 1;
-    UCHAR AllTargetPortsCapable : 1;
-    UCHAR SpecifyInitiatorPortsCapable : 1;
-    UCHAR CompatibleReservationHandling : 1;
-    UCHAR Reserved1 : 2;
-    UCHAR ReplaceLostReservationCapable : 1;
-    UCHAR PersistThroughPowerLossActivated : 1;
-    UCHAR Reserved2 : 3;
-    UCHAR AllowCommands : 3;
-    UCHAR TypeMaskValid : 1;
-    UCHAR Reserved3 : 1;
-    UCHAR WriteExclusive : 1;
-    UCHAR Reserved4 : 1;
-    UCHAR ExclusiveAccess : 1;
-    UCHAR Reserved5 : 1;
-    UCHAR WriteExclusiveRegistrantsOnly : 1;
-    UCHAR ExclusiveAccessRegistrantsOnly : 1;
-    UCHAR WriteExclusiveAllRegistrants : 1;
-    UCHAR ExclusiveAccessAllRegistrants : 1;
-    UCHAR Reserved6 : 7;
-    UCHAR Reserved7[2];
-} PRI_REPORT_CAPABILITIES, *PPRI_REPORT_CAPABILITIES;
 #pragma pack(pop, reserve_in_stuff)
 
 //
@@ -3668,11 +3505,8 @@ typedef struct {
     UCHAR ServiceActionReservationKey[8];
     UCHAR ScopeSpecificAddress[4];
     UCHAR ActivatePersistThroughPowerLoss : 1;
-    UCHAR Reserved1 : 1;
-    UCHAR AllTargetPorts : 1;
-    UCHAR SpecifyInitiatorPorts : 1;
-    UCHAR Reserved2 : 4;
-    UCHAR Reserved3;
+    UCHAR Reserved1 : 7;
+    UCHAR Reserved2;
     UCHAR Obsolete[2];
 } PRO_PARAMETER_LIST, *PPRO_PARAMETER_LIST;
 #pragma pack(pop, reserve_out_stuff)
@@ -3707,77 +3541,6 @@ typedef struct {
 
 } ST_PARAMETER_DATA, *PST_PARAMETER_DATA;
 #pragma pack(pop, set_timestamp_stuff)
-
-//
-// Report supported operation codes Definitions.
-//
-
-#define REPORT_SUPPORTED_OPERATION_CODES_REPORTING_OPTIONS_ALL              0x0
-#define REPORT_SUPPORTED_OPERATION_CODES_REPORTING_OPTIONS_OP               0x1
-#define REPORT_SUPPORTED_OPERATION_CODES_REPORTING_OPTIONS_OP_SA            0x2
-#define REPORT_SUPPORTED_OPERATION_CODES_REPORTING_OPTIONS_OP_SA_OVERWRITE  0x3
-
-#define REPORT_SUPPORTED_OPERATION_CODES_SUPPORT_NOT_AVAILABLE      0x0
-#define REPORT_SUPPORTED_OPERATION_CODES_SUPPORT_NONE               0x1
-#define REPORT_SUPPORTED_OPERATION_CODES_SUPPORT_SUPPORT_STANDARD   0x3
-#define REPORT_SUPPORTED_OPERATION_CODES_SUPPORT_SUPPORT_VENDOR     0x5
-
-//
-// Structure for report supported operation codes.
-//
-
-#pragma pack(push, report_supported_operation_codes, 1)
-typedef struct {
-
-    UCHAR DescriptorLength[2];      // 0x0A
-    UCHAR Reserved;
-    UCHAR CommandSpecific;
-    UCHAR NominalCommandProcessingTimeoutInSec[4];
-    UCHAR RecommendedCommandTimeoutInSec[4];
-
-} RS_COMMAND_TIMEOUTS_DESCRIPTOR, *PRS_COMMAND_TIMEOUTS_DESCRIPTOR;
-
-typedef struct {
-
-    UCHAR ReadWriteCommandDurationLimitsPage    : 1;
-    UCHAR Reserved                              : 7;
-    UCHAR Support                               : 3;
-    UCHAR CommandDurationLimitPage              : 2;
-    UCHAR MultipleLogicalUnits                  : 2;
-    UCHAR CommandTimeoutsDescriptorPresent      : 1;
-    UCHAR CdbSize[2];
-    UCHAR CdbUsageData[ANYSIZE_ARRAY];
-//#if !defined(__midl)
-//    RS_COMMAND_TIMEOUTS_DESCRIPTOR CommandTimeoutsDescriptor[0];
-//#endif
-
-} RS_ONE_COMMAND_PARAMETER_DATA, *PRS_ONE_COMMAND_PARAMETER_DATA;
-
-typedef struct {
-
-    UCHAR OperationCode;
-    UCHAR Reserved;
-    UCHAR ServiceAction[2];
-    UCHAR Reserved1;
-    UCHAR ServiceActionValid                    : 1;
-    UCHAR CommandTimeoutsDescriptorPresent      : 1;
-    UCHAR CommandDurationLimitPage              : 2;
-    UCHAR MultipleLogicalUnits                  : 2;
-    UCHAR ReadWriteCommandDurationLimitsPage    : 1;
-    UCHAR Reserved2 : 1;
-    UCHAR CdbLength[2];
-//#if !defined(__midl)
-//    RS_COMMAND_TIMEOUTS_DESCRIPTOR CommandTimeoutsDescriptor[0];
-//#endif
-} RS_COMMAND_DESCRIPTOR, *PRS_COMMAND_DESCRIPTOR;
-
-typedef struct {
-
-    UCHAR CommandDataLength[4];
-    RS_COMMAND_DESCRIPTOR CommandDescriptor[ANYSIZE_ARRAY];
-
-} RS_ALL_COMMANDS_PARAMETER_DATA, *PRS_ALL_COMMANDS_PARAMETER_DATA;
-#pragma pack(pop, report_supported_operation_codes)
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
 
@@ -5320,87 +5083,6 @@ typedef struct _LUN_LIST {
 
 //
 // end C/DVD 0.9 mode page definitions
-
-//
-// Define Mode Subpage header.
-//
-#pragma pack(push, mode_page_subpage_header, 1)
-typedef struct _MODE_PAGE_SUBPAGE_HEADER {
-    UCHAR PageCode      : 6;
-    UCHAR SubPageFormat : 1;
-    UCHAR PageSavable   : 1;
-    UCHAR SubPageCode;
-    UCHAR PageLength[2];
-} MODE_PAGE_SUBPAGE_HEADER, *PMODE_PAGE_SUBPAGE_HEADER;
-#pragma pack(pop, mode_page_subpage_header)
-
-//
-// Define Command Duration Limit Mode Subpages.
-//
-
-#define COMMAND_DURATION_LIMIT_T2_UNIT_NONE     0
-#define COMMAND_DURATION_LIMIT_T2_UNIT_500NS    0x06
-#define COMMAND_DURATION_LIMIT_T2_UNIT_1US      0x08
-#define COMMAND_DURATION_LIMIT_T2_UNIT_10MS     0x0A
-#define COMMAND_DURATION_LIMIT_T2_UNIT_500MS    0x0E
-
-#define DURATION_LIMIT_T2_DESCRIPTOR_COUNT      7
-
-#define COMMAND_DURATION_LIMIT_T2_POLICY_DO_NOTHING                     0
-#define COMMAND_DURATION_LIMIT_T2_POLICY_CONTINUE_WITH_NEXT             0x01
-#define COMMAND_DURATION_LIMIT_T2_POLICY_CONTINUE                       0x02
-#define COMMAND_DURATION_LIMIT_T2_POLICY_COMPLETE_DATA_UNAVAILABLE      0x0D
-#define COMMAND_DURATION_LIMIT_T2_POLICY_ABORT_TIMEOUT_PARTIAL_TRANSFER 0x0E
-#define COMMAND_DURATION_LIMIT_T2_POLICY_AOBRT_TIMEOUT                  0x0F
-
-#pragma pack(push, mode_page_command_duration_limit_subpages, 1)
-typedef struct _T2_COMMAND_DURATION_LIMIT_DESCRIPTOR {
-    UCHAR T2CDLUNITS    : 4;
-    UCHAR Reserved      : 4;
-    UCHAR Reserved1;
-    UCHAR MAX_INACTIVE_TIME[2];
-    UCHAR MAX_ACTIVE_TIME[2];
-    UCHAR MAX_ACTIVE_TIME_POLICY    : 4;
-    UCHAR MAX_INACTIVE_TIME_POLICY  : 4;
-    UCHAR Reserved2[3];
-    UCHAR COMMAND_DURATION_GUIDELINE[2];
-    UCHAR Reserved3[2];
-    UCHAR COMMAND_DURATION_GUIDELINE_POLICY : 4;
-    UCHAR Reserved4                         : 4;
-    UCHAR BypassSequestration   : 1;
-    UCHAR Reserved5             : 7;
-    UCHAR Reserved6[16];
-} T2_COMMAND_DURATION_LIMIT_DESCRIPTOR, *PT2_COMMAND_DURATION_LIMIT_DESCRIPTOR;
-
-typedef struct _MODE_COMMAND_DURATION_LIMIT_PAGE_T2A_SUBPAGE {
-    UCHAR PageCode      : 6;    // 0x0A
-    UCHAR SubPageFormat : 1;
-    UCHAR PageSavable   : 1;
-    UCHAR SubPageCode;          // 0x07
-    UCHAR PageLength[2];        // Page length is 0x00E4 for T2A subpage
-    UCHAR Reserved[3];
-    UCHAR Reserved1                         : 4;
-    UCHAR PerfvsCommandDurationGuidelines   : 4;
-    T2_COMMAND_DURATION_LIMIT_DESCRIPTOR T2CommandDurationLimitDescriptors[DURATION_LIMIT_T2_DESCRIPTOR_COUNT];
-} MODE_COMMAND_DURATION_LIMIT_PAGE_T2A_SUBPAGE, *PMODE_COMMAND_DURATION_LIMIT_PAGE_T2A_SUBPAGE;
-
-C_ASSERT(sizeof(MODE_COMMAND_DURATION_LIMIT_PAGE_T2A_SUBPAGE) == (0xE4 + sizeof(MODE_PAGE_SUBPAGE_HEADER)));
-
-typedef struct _MODE_COMMAND_DURATION_LIMIT_PAGE_T2B_SUBPAGE {
-    UCHAR PageCode      : 6;    // 0x0A
-    UCHAR SubPageFormat : 1;
-    UCHAR PageSavable   : 1;
-    UCHAR SubPageCode;          // 0x08
-    UCHAR PageLength[2];        // Page length is 0x00E4 for T2B subpage
-    UCHAR Reserved[3];
-    UCHAR Reserved1             : 4;
-    UCHAR PerfvsLatencyControls : 4;
-    T2_COMMAND_DURATION_LIMIT_DESCRIPTOR T2CommandDurationLimitDescriptors[DURATION_LIMIT_T2_DESCRIPTOR_COUNT];
-} MODE_COMMAND_DURATION_LIMIT_PAGE_T2B_SUBPAGE, *PMODE_COMMAND_DURATION_LIMIT_PAGE_T2B_SUBPAGE;
-
-C_ASSERT(sizeof(MODE_COMMAND_DURATION_LIMIT_PAGE_T2B_SUBPAGE) == (0xE4 + sizeof(MODE_PAGE_SUBPAGE_HEADER)));
-
-#pragma pack(pop, mode_page_command_duration_limit_subpages)
 
 //
 // Mode parameter list block descriptor -
@@ -7306,7 +6988,7 @@ Returns:
 // [END] Collections of SCSI utiltiy functions
 //
 
-// end_storport end_privstorport
+// end_storport end_storportp
 
 // end_ntminitape
 

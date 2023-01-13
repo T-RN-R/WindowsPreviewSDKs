@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -123,27 +115,22 @@ EXTERN_C const IID IID_ITipAutoCompleteProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ITipAutoCompleteProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ITipAutoCompleteProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ITipAutoCompleteProvider * This);
         
-        DECLSPEC_XFGVIRT(ITipAutoCompleteProvider, UpdatePendingText)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *UpdatePendingText )( 
             __RPC__in ITipAutoCompleteProvider * This,
             /* [in] */ __RPC__in BSTR bstrPendingText);
         
-        DECLSPEC_XFGVIRT(ITipAutoCompleteProvider, Show)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *Show )( 
             __RPC__in ITipAutoCompleteProvider * This,
             /* [in] */ BOOL fShow);
@@ -232,38 +219,31 @@ EXTERN_C const IID IID_ITipAutoCompleteClient;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ITipAutoCompleteClient * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ITipAutoCompleteClient * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ITipAutoCompleteClient * This);
         
-        DECLSPEC_XFGVIRT(ITipAutoCompleteClient, AdviseProvider)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *AdviseProvider )( 
             __RPC__in ITipAutoCompleteClient * This,
             /* [in] */ __RPC__in HWND hWndField,
             /* [in] */ __RPC__in_opt ITipAutoCompleteProvider *pIProvider);
         
-        DECLSPEC_XFGVIRT(ITipAutoCompleteClient, UnadviseProvider)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *UnadviseProvider )( 
             __RPC__in ITipAutoCompleteClient * This,
             /* [in] */ __RPC__in HWND hWndField,
             /* [in] */ __RPC__in_opt ITipAutoCompleteProvider *pIProvider);
         
-        DECLSPEC_XFGVIRT(ITipAutoCompleteClient, UserSelection)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *UserSelection )( 
             __RPC__in ITipAutoCompleteClient * This);
         
-        DECLSPEC_XFGVIRT(ITipAutoCompleteClient, PreferredRects)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *PreferredRects )( 
             __RPC__in ITipAutoCompleteClient * This,
             /* [in] */ __RPC__in RECT *prcACList,
@@ -271,7 +251,6 @@ EXTERN_C const IID IID_ITipAutoCompleteClient;
             /* [out] */ __RPC__out RECT *prcModifiedACList,
             /* [out] */ __RPC__out BOOL *pfShownAboveTip);
         
-        DECLSPEC_XFGVIRT(ITipAutoCompleteClient, RequestShowUI)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *RequestShowUI )( 
             __RPC__in ITipAutoCompleteClient * This,
             /* [in] */ __RPC__in HWND hWndList,

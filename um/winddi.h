@@ -1,4 +1,3 @@
-
 /*++
 
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -1179,7 +1178,7 @@ typedef struct  tagCDDDXGK_REDIRBITMAPPRESENTINFO
 //
 //     * The CMY_INVERTED Mode has all non-black, non white indices centered
 //       and even distributed within the total 256 palette indices.  For
-//       example, if a CMY=333 levels then it has total 3x3x3=27 indices,
+//       example; if a CMY=333 levels then it has total 3x3x3=27 indices,
 //       these 27 indices will be centered by packing 114 black indices at
 //       begining and packing 114 white indices at end to ensure that ROP
 //       will be correct rendered.
@@ -1590,8 +1589,6 @@ typedef struct _FONTOBJ
     PVOID      pvProducer;
 } FONTOBJ;
 
-
-
 typedef struct _BLENDOBJ
 {
     BLENDFUNCTION BlendFunction;
@@ -1687,29 +1684,12 @@ typedef struct _PATHOBJ
     ULONG   cCurves;
 } PATHOBJ;
 
-#ifdef PRIVATE_HDEV
-#define SURFOBJ_GET_HDEV(pso)               ((pso)->private_hdev)
-#define SURFOBJ_SET_HDEV(pso, hdevNew)      ((pso)->private_hdev = (hdevNew))
-#define SURFOBJ_GET_DHPDEV(pso)              ((pso)->private_dhpdev)
-#define SURFOBJ_SET_DHPDEV(pso, dhpdevNew)   ((pso)->private_dhpdev = (dhpdevNew))
-#else
-#define SURFOBJ_GET_HDEV(pso)               ((pso)->hdev)
-#define SURFOBJ_SET_HDEV(pso, hdevNew)      ((pso)->hdev = (hdevNew))
-#define SURFOBJ_GET_DHPDEV(pso)              ((pso)->dhpdev)
-#define SURFOBJ_SET_DHPDEV(pso, dhpdevNew)   ((pso)->dhpdev = (dhpdevNew))
-#endif
-
 typedef struct _SURFOBJ
 {
     DHSURF  dhsurf;
     HSURF   hsurf;
-#ifdef PRIVATE_HDEV
-    DHPDEV  private_dhpdev;
-    HDEV    private_hdev;
-#else
     DHPDEV  dhpdev;
     HDEV    hdev;
-#endif
     SIZEL   sizlBitmap;
     ULONG   cjBits;
     _Field_size_bytes_(cjBits) PVOID   pvBits;
@@ -2886,7 +2866,6 @@ BOOL APIENTRY DrvUnloadFontFile(
     ULONG_PTR   iFile
     );
 
-_Success_(return != DDI_ERROR)
 LONG APIENTRY DrvQueryTrueTypeTable(
     ULONG_PTR   iFile,
     ULONG      ulFont,
@@ -3215,7 +3194,6 @@ ULONG APIENTRY DrvGetGlyphMode(
     _In_                FONTOBJ *
     );
 
-_Success_(return == 1)
 ULONG APIENTRY DrvFontManagement(
     _In_                SURFOBJ *pso,
     _In_opt_            FONTOBJ *pfo,
@@ -4828,7 +4806,6 @@ EngQuerySystemAttribute(
 #define ENG_FNT_CACHE_READ_FAULT    0x1
 #define ENG_FNT_CACHE_WRITE_FAULT   0x2
 
-_Success_(return != nullptr)
 ENGAPI
 _Post_writable_byte_size_(*pulSize)
 PVOID APIENTRY  EngFntCacheLookUp(

@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -386,21 +386,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIFullScreenPresentationConfiguration_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace WindowManagement {
-                interface IWindowServicesStatics;
-            } /* WindowManagement */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics ABI::Windows::UI::WindowManagement::IWindowServicesStatics
-
-#endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
 namespace ABI {
@@ -665,68 +650,6 @@ typedef IIterable<ABI::Windows::UI::Composition::IVisualElement*> __FIIterable_1
 namespace ABI {
     namespace Windows {
         namespace UI {
-            typedef struct WindowId WindowId;
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-#ifndef DEF___FIIterator_1_Windows__CUI__CWindowId_USE
-#define DEF___FIIterator_1_Windows__CUI__CWindowId_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
-template <>
-struct __declspec(uuid("ba0a30a1-c082-5671-ac07-7aaa4f269670"))
-IIterator<struct ABI::Windows::UI::WindowId> : IIterator_impl<struct ABI::Windows::UI::WindowId>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.Collections.IIterator`1<Windows.UI.WindowId>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IIterator<struct ABI::Windows::UI::WindowId> __FIIterator_1_Windows__CUI__CWindowId_t;
-#define __FIIterator_1_Windows__CUI__CWindowId ABI::Windows::Foundation::Collections::__FIIterator_1_Windows__CUI__CWindowId_t
-/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIIterator_1_Windows__CUI__CWindowId_USE */
-
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-#ifndef DEF___FIIterable_1_Windows__CUI__CWindowId_USE
-#define DEF___FIIterable_1_Windows__CUI__CWindowId_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
-template <>
-struct __declspec(uuid("745698bf-22ad-5c0d-b0e0-07d35a1c9719"))
-IIterable<struct ABI::Windows::UI::WindowId> : IIterable_impl<struct ABI::Windows::UI::WindowId>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.Collections.IIterable`1<Windows.UI.WindowId>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IIterable<struct ABI::Windows::UI::WindowId> __FIIterable_1_Windows__CUI__CWindowId_t;
-#define __FIIterable_1_Windows__CUI__CWindowId ABI::Windows::Foundation::Collections::__FIIterable_1_Windows__CUI__CWindowId_t
-/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIIterable_1_Windows__CUI__CWindowId_USE */
-
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
             namespace WindowManagement {
                 class AppWindowTitleBarOcclusion;
             } /* WindowManagement */
@@ -942,33 +865,6 @@ typedef IVectorView<ABI::Windows::UI::Composition::IVisualElement*> __FIVectorVi
 #endif /* DEF___FIVectorView_1_Windows__CUI__CComposition__CIVisualElement_USE */
 
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-#ifndef DEF___FIVectorView_1_Windows__CUI__CWindowId_USE
-#define DEF___FIVectorView_1_Windows__CUI__CWindowId_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
-template <>
-struct __declspec(uuid("f49e7371-b31a-5620-a42e-7e969003f0ff"))
-IVectorView<struct ABI::Windows::UI::WindowId> : IVectorView_impl<struct ABI::Windows::UI::WindowId>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.Collections.IVectorView`1<Windows.UI.WindowId>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IVectorView<struct ABI::Windows::UI::WindowId> __FIVectorView_1_Windows__CUI__CWindowId_t;
-#define __FIVectorView_1_Windows__CUI__CWindowId ABI::Windows::Foundation::Collections::__FIVectorView_1_Windows__CUI__CWindowId_t
-/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIVectorView_1_Windows__CUI__CWindowId_USE */
-
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
 
@@ -1761,7 +1657,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindow = __uuidof(IAppWindow);
+                extern MIDL_CONST_ID IID& IID_IAppWindow = _uuidof(IAppWindow);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -1818,7 +1714,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowChangedEventArgs = __uuidof(IAppWindowChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppWindowChangedEventArgs = _uuidof(IAppWindowChangedEventArgs);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -1860,7 +1756,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowCloseRequestedEventArgs = __uuidof(IAppWindowCloseRequestedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppWindowCloseRequestedEventArgs = _uuidof(IAppWindowCloseRequestedEventArgs);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -1896,7 +1792,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowClosedEventArgs = __uuidof(IAppWindowClosedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppWindowClosedEventArgs = _uuidof(IAppWindowClosedEventArgs);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -1932,7 +1828,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowFrame = __uuidof(IAppWindowFrame);
+                extern MIDL_CONST_ID IID& IID_IAppWindowFrame = _uuidof(IAppWindowFrame);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -1971,7 +1867,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowFrameStyle = __uuidof(IAppWindowFrameStyle);
+                extern MIDL_CONST_ID IID& IID_IAppWindowFrameStyle = _uuidof(IAppWindowFrameStyle);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2013,7 +1909,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowPlacement = __uuidof(IAppWindowPlacement);
+                extern MIDL_CONST_ID IID& IID_IAppWindowPlacement = _uuidof(IAppWindowPlacement);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2049,7 +1945,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowPresentationConfiguration = __uuidof(IAppWindowPresentationConfiguration);
+                extern MIDL_CONST_ID IID& IID_IAppWindowPresentationConfiguration = _uuidof(IAppWindowPresentationConfiguration);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2082,7 +1978,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowPresentationConfigurationFactory = __uuidof(IAppWindowPresentationConfigurationFactory);
+                extern MIDL_CONST_ID IID& IID_IAppWindowPresentationConfigurationFactory = _uuidof(IAppWindowPresentationConfigurationFactory);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2130,7 +2026,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowPresenter = __uuidof(IAppWindowPresenter);
+                extern MIDL_CONST_ID IID& IID_IAppWindowPresenter = _uuidof(IAppWindowPresenter);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2170,7 +2066,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowStatics = __uuidof(IAppWindowStatics);
+                extern MIDL_CONST_ID IID& IID_IAppWindowStatics = _uuidof(IAppWindowStatics);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2287,7 +2183,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowTitleBar = __uuidof(IAppWindowTitleBar);
+                extern MIDL_CONST_ID IID& IID_IAppWindowTitleBar = _uuidof(IAppWindowTitleBar);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2323,7 +2219,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowTitleBarOcclusion = __uuidof(IAppWindowTitleBarOcclusion);
+                extern MIDL_CONST_ID IID& IID_IAppWindowTitleBarOcclusion = _uuidof(IAppWindowTitleBarOcclusion);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2362,7 +2258,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppWindowTitleBarVisibility = __uuidof(IAppWindowTitleBarVisibility);
+                extern MIDL_CONST_ID IID& IID_IAppWindowTitleBarVisibility = _uuidof(IAppWindowTitleBarVisibility);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2395,7 +2291,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompactOverlayPresentationConfiguration = __uuidof(ICompactOverlayPresentationConfiguration);
+                extern MIDL_CONST_ID IID& IID_ICompactOverlayPresentationConfiguration = _uuidof(ICompactOverlayPresentationConfiguration);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2428,7 +2324,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IDefaultPresentationConfiguration = __uuidof(IDefaultPresentationConfiguration);
+                extern MIDL_CONST_ID IID& IID_IDefaultPresentationConfiguration = _uuidof(IDefaultPresentationConfiguration);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2483,7 +2379,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDisplayRegion = __uuidof(IDisplayRegion);
+                extern MIDL_CONST_ID IID& IID_IDisplayRegion = _uuidof(IDisplayRegion);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2522,7 +2418,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFullScreenPresentationConfiguration = __uuidof(IFullScreenPresentationConfiguration);
+                extern MIDL_CONST_ID IID& IID_IFullScreenPresentationConfiguration = _uuidof(IFullScreenPresentationConfiguration);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2531,42 +2427,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CWindowManagement_CIFullScreenPresentationConfiguration;
 #endif /* !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIFullScreenPresentationConfiguration_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-/*
- *
- * Interface Windows.UI.WindowManagement.IWindowServicesStatics
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.WindowManagement.WindowServices
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_WindowManagement_IWindowServicesStatics[] = L"Windows.UI.WindowManagement.IWindowServicesStatics";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace WindowManagement {
-                MIDL_INTERFACE("cff4d519-50a6-5c64-97f6-c2d96add7f42")
-                IWindowServicesStatics : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE FindAllTopLevelWindowIds(
-                        __FIVectorView_1_Windows__CUI__CWindowId** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IWindowServicesStatics = __uuidof(IWindowServicesStatics);
-            } /* WindowManagement */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics;
-#endif /* !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -2607,7 +2467,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWindowingEnvironment = __uuidof(IWindowingEnvironment);
+                extern MIDL_CONST_ID IID& IID_IWindowingEnvironment = _uuidof(IWindowingEnvironment);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2643,7 +2503,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWindowingEnvironmentAddedEventArgs = __uuidof(IWindowingEnvironmentAddedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IWindowingEnvironmentAddedEventArgs = _uuidof(IWindowingEnvironmentAddedEventArgs);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2676,7 +2536,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IWindowingEnvironmentChangedEventArgs = __uuidof(IWindowingEnvironmentChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IWindowingEnvironmentChangedEventArgs = _uuidof(IWindowingEnvironmentChangedEventArgs);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2712,7 +2572,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWindowingEnvironmentRemovedEventArgs = __uuidof(IWindowingEnvironmentRemovedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IWindowingEnvironmentRemovedEventArgs = _uuidof(IWindowingEnvironmentRemovedEventArgs);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -2752,7 +2612,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWindowingEnvironmentStatics = __uuidof(IWindowingEnvironmentStatics);
+                extern MIDL_CONST_ID IID& IID_IWindowingEnvironmentStatics = _uuidof(IWindowingEnvironmentStatics);
             } /* WindowManagement */
         } /* UI */
     } /* Windows */
@@ -3054,27 +2914,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.UI.WindowManagement.WindowServices
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.WindowManagement.IWindowServicesStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_WindowManagement_WindowServices_DEFINED
-#define RUNTIMECLASS_Windows_UI_WindowManagement_WindowServices_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_WindowManagement_WindowServices[] = L"Windows.UI.WindowManagement.WindowServices";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.UI.WindowManagement.WindowingEnvironment
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 8.0
@@ -3263,12 +3102,6 @@ typedef interface __x_ABI_CWindows_CUI_CWindowManagement_CIDisplayRegion __x_ABI
 typedef interface __x_ABI_CWindows_CUI_CWindowManagement_CIFullScreenPresentationConfiguration __x_ABI_CWindows_CUI_CWindowManagement_CIFullScreenPresentationConfiguration;
 
 #endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIFullScreenPresentationConfiguration_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics;
-
-#endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
@@ -3700,153 +3533,6 @@ interface __FIIterable_1_Windows__CUI__CComposition__CIVisualElement
 
 #endif // ____FIIterable_1_Windows__CUI__CComposition__CIVisualElement_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-typedef struct __x_ABI_CWindows_CUI_CWindowId __x_ABI_CWindows_CUI_CWindowId;
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____FIIterator_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__)
-#define ____FIIterator_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__
-
-typedef interface __FIIterator_1_Windows__CUI__CWindowId __FIIterator_1_Windows__CUI__CWindowId;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIIterator_1_Windows__CUI__CWindowId;
-
-typedef struct __FIIterator_1_Windows__CUI__CWindowIdVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterator_1_Windows__CUI__CWindowId* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterator_1_Windows__CUI__CWindowId* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIIterator_1_Windows__CUI__CWindowId* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterator_1_Windows__CUI__CWindowId* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterator_1_Windows__CUI__CWindowId* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterator_1_Windows__CUI__CWindowId* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Current)(__FIIterator_1_Windows__CUI__CWindowId* This,
-        struct __x_ABI_CWindows_CUI_CWindowId* result);
-    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__FIIterator_1_Windows__CUI__CWindowId* This,
-        boolean* result);
-    HRESULT (STDMETHODCALLTYPE* MoveNext)(__FIIterator_1_Windows__CUI__CWindowId* This,
-        boolean* result);
-    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIIterator_1_Windows__CUI__CWindowId* This,
-        UINT32 itemsLength,
-        struct __x_ABI_CWindows_CUI_CWindowId* items,
-        UINT32* result);
-
-    END_INTERFACE
-} __FIIterator_1_Windows__CUI__CWindowIdVtbl;
-
-interface __FIIterator_1_Windows__CUI__CWindowId
-{
-    CONST_VTBL struct __FIIterator_1_Windows__CUI__CWindowIdVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIIterator_1_Windows__CUI__CWindowId_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_get_Current(This, result) \
-    ((This)->lpVtbl->get_Current(This, result))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_get_HasCurrent(This, result) \
-    ((This)->lpVtbl->get_HasCurrent(This, result))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_MoveNext(This, result) \
-    ((This)->lpVtbl->MoveNext(This, result))
-
-#define __FIIterator_1_Windows__CUI__CWindowId_GetMany(This, itemsLength, items, result) \
-    ((This)->lpVtbl->GetMany(This, itemsLength, items, result))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIIterator_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____FIIterable_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__)
-#define ____FIIterable_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__
-
-typedef interface __FIIterable_1_Windows__CUI__CWindowId __FIIterable_1_Windows__CUI__CWindowId;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIIterable_1_Windows__CUI__CWindowId;
-
-typedef struct __FIIterable_1_Windows__CUI__CWindowIdVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterable_1_Windows__CUI__CWindowId* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterable_1_Windows__CUI__CWindowId* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIIterable_1_Windows__CUI__CWindowId* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterable_1_Windows__CUI__CWindowId* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterable_1_Windows__CUI__CWindowId* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterable_1_Windows__CUI__CWindowId* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* First)(__FIIterable_1_Windows__CUI__CWindowId* This,
-        __FIIterator_1_Windows__CUI__CWindowId** result);
-
-    END_INTERFACE
-} __FIIterable_1_Windows__CUI__CWindowIdVtbl;
-
-interface __FIIterable_1_Windows__CUI__CWindowId
-{
-    CONST_VTBL struct __FIIterable_1_Windows__CUI__CWindowIdVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIIterable_1_Windows__CUI__CWindowId_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIIterable_1_Windows__CUI__CWindowId_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIIterable_1_Windows__CUI__CWindowId_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIIterable_1_Windows__CUI__CWindowId_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __FIIterable_1_Windows__CUI__CWindowId_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __FIIterable_1_Windows__CUI__CWindowId_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __FIIterable_1_Windows__CUI__CWindowId_First(This, result) \
-    ((This)->lpVtbl->First(This, result))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIIterable_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
 #if !defined(____FIIterator_1_Windows__CUI__CWindowManagement__CAppWindowTitleBarOcclusion_INTERFACE_DEFINED__)
@@ -4367,91 +4053,6 @@ interface __FIVectorView_1_Windows__CUI__CComposition__CIVisualElement
 
 #endif // ____FIVectorView_1_Windows__CUI__CComposition__CIVisualElement_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____FIVectorView_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__)
-#define ____FIVectorView_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__
-
-typedef interface __FIVectorView_1_Windows__CUI__CWindowId __FIVectorView_1_Windows__CUI__CWindowId;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIVectorView_1_Windows__CUI__CWindowId;
-
-typedef struct __FIVectorView_1_Windows__CUI__CWindowIdVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIVectorView_1_Windows__CUI__CWindowId* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIVectorView_1_Windows__CUI__CWindowId* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIVectorView_1_Windows__CUI__CWindowId* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIVectorView_1_Windows__CUI__CWindowId* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIVectorView_1_Windows__CUI__CWindowId* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIVectorView_1_Windows__CUI__CWindowId* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* GetAt)(__FIVectorView_1_Windows__CUI__CWindowId* This,
-        UINT32 index,
-        struct __x_ABI_CWindows_CUI_CWindowId* result);
-    HRESULT (STDMETHODCALLTYPE* get_Size)(__FIVectorView_1_Windows__CUI__CWindowId* This,
-        UINT32* result);
-    HRESULT (STDMETHODCALLTYPE* IndexOf)(__FIVectorView_1_Windows__CUI__CWindowId* This,
-        struct __x_ABI_CWindows_CUI_CWindowId value,
-        UINT32* index,
-        boolean* result);
-    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIVectorView_1_Windows__CUI__CWindowId* This,
-        UINT32 startIndex,
-        UINT32 itemsLength,
-        struct __x_ABI_CWindows_CUI_CWindowId* items,
-        UINT32* result);
-
-    END_INTERFACE
-} __FIVectorView_1_Windows__CUI__CWindowIdVtbl;
-
-interface __FIVectorView_1_Windows__CUI__CWindowId
-{
-    CONST_VTBL struct __FIVectorView_1_Windows__CUI__CWindowIdVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_GetAt(This, index, result) \
-    ((This)->lpVtbl->GetAt(This, index, result))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_get_Size(This, result) \
-    ((This)->lpVtbl->get_Size(This, result))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_IndexOf(This, value, index, result) \
-    ((This)->lpVtbl->IndexOf(This, value, index, result))
-
-#define __FIVectorView_1_Windows__CUI__CWindowId_GetMany(This, startIndex, itemsLength, items, result) \
-    ((This)->lpVtbl->GetMany(This, startIndex, itemsLength, items, result))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIVectorView_1_Windows__CUI__CWindowId_INTERFACE_DEFINED__
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
 #if !defined(____FIVectorView_1_Windows__CUI__CWindowManagement__CAppWindowTitleBarOcclusion_INTERFACE_DEFINED__)
@@ -6919,75 +6520,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CWindowManagement_CIFullScreenPresen
 
 /*
  *
- * Interface Windows.UI.WindowManagement.IWindowServicesStatics
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.WindowManagement.WindowServices
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_WindowManagement_IWindowServicesStatics[] = L"Windows.UI.WindowManagement.IWindowServicesStatics";
-typedef struct __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStaticsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* FindAllTopLevelWindowIds)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics* This,
-        __FIVectorView_1_Windows__CUI__CWindowId** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStaticsVtbl;
-
-interface __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStaticsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_FindAllTopLevelWindowIds(This, result) \
-    ((This)->lpVtbl->FindAllTopLevelWindowIds(This, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics;
-#endif /* !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIWindowServicesStatics_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.UI.WindowManagement.IWindowingEnvironment
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 8.0
@@ -7642,27 +7174,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_WindowManagement_FullScreenPresentationConfiguration[] = L"Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-/*
- *
- * Class Windows.UI.WindowManagement.WindowServices
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.WindowManagement.IWindowServicesStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_WindowManagement_WindowServices_DEFINED
-#define RUNTIMECLASS_Windows_UI_WindowManagement_WindowServices_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_WindowManagement_WindowServices[] = L"Windows.UI.WindowManagement.WindowServices";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *

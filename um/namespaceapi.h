@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -36,6 +38,7 @@ CreatePrivateNamespaceW(
     _In_ LPCWSTR lpAliasPrefix
     );
 
+
 WINBASEAPI
 HANDLE
 WINAPI
@@ -43,6 +46,7 @@ OpenPrivateNamespaceW(
     _In_ LPVOID lpBoundaryDescriptor,
     _In_ LPCWSTR lpAliasPrefix
     );
+
 
 WINBASEAPI
 BOOLEAN
@@ -52,6 +56,7 @@ ClosePrivateNamespace(
     _In_ ULONG Flags
     );
 
+
 WINBASEAPI
 HANDLE
 WINAPI
@@ -59,6 +64,7 @@ CreateBoundaryDescriptorW(
     _In_ LPCWSTR Name,
     _In_ ULONG Flags
     );
+
 
 WINBASEAPI
 BOOL
@@ -68,12 +74,14 @@ AddSIDToBoundaryDescriptor(
     _In_ PSID RequiredSid
     );
 
+
 WINBASEAPI
 VOID
 WINAPI
 DeleteBoundaryDescriptor(
     _In_ HANDLE BoundaryDescriptor
     );
+
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion

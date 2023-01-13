@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -275,22 +267,18 @@ EXTERN_C const IID IID_IWSDXMLContext;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWSDXMLContext * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWSDXMLContext * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWSDXMLContext * This);
         
-        DECLSPEC_XFGVIRT(IWSDXMLContext, AddNamespace)
         HRESULT ( STDMETHODCALLTYPE *AddNamespace )( 
             IWSDXMLContext * This,
             /* [annotation][in] */ 
@@ -300,7 +288,6 @@ EXTERN_C const IID IID_IWSDXMLContext;
             /* [annotation][out] */ 
             _Outptr_opt_  WSDXML_NAMESPACE **ppNamespace);
         
-        DECLSPEC_XFGVIRT(IWSDXMLContext, AddNameToNamespace)
         HRESULT ( STDMETHODCALLTYPE *AddNameToNamespace )( 
             IWSDXMLContext * This,
             /* [annotation][in] */ 
@@ -310,7 +297,6 @@ EXTERN_C const IID IID_IWSDXMLContext;
             /* [annotation][out] */ 
             _Outptr_opt_  WSDXML_NAME **ppName);
         
-        DECLSPEC_XFGVIRT(IWSDXMLContext, SetNamespaces)
         HRESULT ( STDMETHODCALLTYPE *SetNamespaces )( 
             IWSDXMLContext * This,
             /* [annotation][size_is][in] */ 
@@ -318,7 +304,6 @@ EXTERN_C const IID IID_IWSDXMLContext;
             /* [in] */ WORD wNamespacesCount,
             /* [in] */ BYTE bLayerNumber);
         
-        DECLSPEC_XFGVIRT(IWSDXMLContext, SetTypes)
         HRESULT ( STDMETHODCALLTYPE *SetTypes )( 
             IWSDXMLContext * This,
             /* [annotation][size_is][in] */ 

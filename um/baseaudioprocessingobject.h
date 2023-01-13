@@ -290,7 +290,7 @@ public:
         va_end(va);
     }
 
-    operator const APO_REG_PROPERTIES&() const
+    operator APO_REG_PROPERTIES&() const
     {
         return m_Properties;
     }

@@ -7,6 +7,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -35,12 +37,14 @@ AllocConsole(
     VOID
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 FreeConsole(
     VOID
     );
+
 
 #if (_WIN32_WINNT >= 0x0500)
 
@@ -50,6 +54,7 @@ WINAPI
 AttachConsole(
     _In_ DWORD dwProcessId
     );
+
 
 #define ATTACH_PARENT_PROCESS ((DWORD)-1)
 
@@ -62,12 +67,14 @@ GetConsoleCP(
     VOID
     );
 
+
 WINBASEAPI
 UINT
 WINAPI
 GetConsoleOutputCP(
     VOID
     );
+
 
 //
 // Input Mode flags:
@@ -102,6 +109,7 @@ GetConsoleMode(
     _Out_ LPDWORD lpMode
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -110,6 +118,7 @@ SetConsoleMode(
     _In_ DWORD dwMode
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -117,6 +126,7 @@ GetNumberOfConsoleInputEvents(
     _In_ HANDLE hConsoleInput,
     _Out_ LPDWORD lpNumberOfEvents
     );
+
 
 WINBASEAPI
 _Success_(return != FALSE)
@@ -139,6 +149,7 @@ ReadConsoleInputW(
     _In_ DWORD nLength,
     _Out_ _Deref_out_range_(<=, nLength) LPDWORD lpNumberOfEventsRead
     );
+
 #ifdef UNICODE
 #define ReadConsoleInput  ReadConsoleInputW
 #else
@@ -146,6 +157,8 @@ ReadConsoleInputW(
 #endif // !UNICODE
 
 // end_consoleapi_h
+
+
 
 #ifndef UNICODE
 #define PeekConsoleInput  PeekConsoleInputA
@@ -172,6 +185,7 @@ PeekConsoleInputW(
     _In_ DWORD nLength,
     _Out_ LPDWORD lpNumberOfEventsRead
     );
+
 #ifdef UNICODE
 #define PeekConsoleInput  PeekConsoleInputW
 #else
@@ -191,7 +205,7 @@ BOOL
 WINAPI
 ReadConsoleA(
     _In_ HANDLE hConsoleInput,
-    _Out_writes_bytes_to_(nNumberOfCharsToRead * sizeof(CHAR), *lpNumberOfCharsRead * sizeof(TCHAR%)) LPVOID lpBuffer,
+    _Out_writes_bytes_to_(nNumberOfCharsToRead * sizeof(TCHAR%), *lpNumberOfCharsRead * sizeof(TCHAR%)) LPVOID lpBuffer,
     _In_ DWORD nNumberOfCharsToRead,
     _Out_ _Deref_out_range_(<=, nNumberOfCharsToRead) LPDWORD lpNumberOfCharsRead,
     _In_opt_ PCONSOLE_READCONSOLE_CONTROL pInputControl
@@ -203,11 +217,12 @@ BOOL
 WINAPI
 ReadConsoleW(
     _In_ HANDLE hConsoleInput,
-    _Out_writes_bytes_to_(nNumberOfCharsToRead * sizeof(WCHAR), *lpNumberOfCharsRead * sizeof(TCHAR%)) LPVOID lpBuffer,
+    _Out_writes_bytes_to_(nNumberOfCharsToRead * sizeof(TCHAR%), *lpNumberOfCharsRead * sizeof(TCHAR%)) LPVOID lpBuffer,
     _In_ DWORD nNumberOfCharsToRead,
     _Out_ _Deref_out_range_(<=, nNumberOfCharsToRead) LPDWORD lpNumberOfCharsRead,
     _In_opt_ PCONSOLE_READCONSOLE_CONTROL pInputControl
     );
+
 #ifdef UNICODE
 #define ReadConsole  ReadConsoleW
 #else
@@ -235,6 +250,7 @@ WriteConsoleW(
     _Out_opt_ LPDWORD lpNumberOfCharsWritten,
     _Reserved_ LPVOID lpReserved
     );
+
 #ifdef UNICODE
 #define WriteConsole  WriteConsoleW
 #else
@@ -271,6 +287,8 @@ SetConsoleCtrlHandler(
     _In_ BOOL Add
     );
 
+
+
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -293,6 +311,7 @@ CreatePseudoConsole(
     _Out_ HPCON* phPC
     );
 
+
 WINBASEAPI
 HRESULT
 WINAPI
@@ -301,12 +320,14 @@ ResizePseudoConsole(
     _In_ COORD size
     );
 
+
 WINBASEAPI
 VOID
 WINAPI
 ClosePseudoConsole(
     _In_ HPCON hPC
     );
+
 
 #endif
 

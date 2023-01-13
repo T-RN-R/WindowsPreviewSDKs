@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -124,22 +116,18 @@ EXTERN_C const IID IID_IDeviceRequestCompletionCallback;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IDeviceRequestCompletionCallback * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IDeviceRequestCompletionCallback * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IDeviceRequestCompletionCallback * This);
         
-        DECLSPEC_XFGVIRT(IDeviceRequestCompletionCallback, RequestCompletion)
         HRESULT ( STDMETHODCALLTYPE *RequestCompletion )( 
             __RPC__in IDeviceRequestCompletionCallback * This,
             /* [in] */ HRESULT requestResult,
@@ -240,22 +228,18 @@ EXTERN_C const IID IID_IDeviceIoControl;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDeviceIoControl * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDeviceIoControl * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDeviceIoControl * This);
         
-        DECLSPEC_XFGVIRT(IDeviceIoControl, DeviceIoControlSync)
         HRESULT ( STDMETHODCALLTYPE *DeviceIoControlSync )( 
             IDeviceIoControl * This,
             /* [annotation][in] */ 
@@ -271,7 +255,6 @@ EXTERN_C const IID IID_IDeviceIoControl;
             /* [annotation][out] */ 
             _Out_  DWORD *bytesReturned);
         
-        DECLSPEC_XFGVIRT(IDeviceIoControl, DeviceIoControlAsync)
         HRESULT ( STDMETHODCALLTYPE *DeviceIoControlAsync )( 
             IDeviceIoControl * This,
             /* [annotation][in] */ 
@@ -289,7 +272,6 @@ EXTERN_C const IID IID_IDeviceIoControl;
             /* [annotation][out] */ 
             _Out_opt_  ULONG_PTR *cancelContext);
         
-        DECLSPEC_XFGVIRT(IDeviceIoControl, CancelOperation)
         HRESULT ( STDMETHODCALLTYPE *CancelOperation )( 
             IDeviceIoControl * This,
             /* [annotation][in] */ 
@@ -376,36 +358,29 @@ EXTERN_C const IID IID_ICreateDeviceAccessAsync;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ICreateDeviceAccessAsync * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ICreateDeviceAccessAsync * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ICreateDeviceAccessAsync * This);
         
-        DECLSPEC_XFGVIRT(ICreateDeviceAccessAsync, Cancel)
         HRESULT ( STDMETHODCALLTYPE *Cancel )( 
             ICreateDeviceAccessAsync * This);
         
-        DECLSPEC_XFGVIRT(ICreateDeviceAccessAsync, Wait)
         HRESULT ( STDMETHODCALLTYPE *Wait )( 
             ICreateDeviceAccessAsync * This,
             /* [annotation][in] */ 
             _In_  DWORD timeout);
         
-        DECLSPEC_XFGVIRT(ICreateDeviceAccessAsync, Close)
         HRESULT ( STDMETHODCALLTYPE *Close )( 
             ICreateDeviceAccessAsync * This);
         
-        DECLSPEC_XFGVIRT(ICreateDeviceAccessAsync, GetResult)
         HRESULT ( STDMETHODCALLTYPE *GetResult )( 
             ICreateDeviceAccessAsync * This,
             /* [annotation][in] */ 

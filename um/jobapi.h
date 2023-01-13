@@ -1,10 +1,12 @@
 /********************************************************************************
 *                                                                               *
-* jobapiset.h -- ApiSet Contract for api-ms-win-core-job-l1                     *
+* jobapiset.h -- ApiSet Contract for api-ms-win-core-job-l1                     *  
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
+
+
 
 #ifdef _MSC_VER
 #pragma once
@@ -35,6 +37,7 @@ IsProcessInJob(
     _In_opt_ HANDLE JobHandle,
     _Out_ PBOOL Result
     );
+
 
 #endif
 

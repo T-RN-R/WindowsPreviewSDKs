@@ -1,5 +1,7 @@
 // Copyright (C) Microsoft Corporation. All rights reserved.
 
+
+
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -20,6 +22,7 @@
 DECLARE_HANDLE(ROPARAMIIDHANDLE);
 //struct ROPARAMIIDHANDLE__; typedef struct ROPARAMIIDHANDLE__ *ROPARAMIIDHANDLE;
 
+ 
 struct IRoSimpleMetaDataBuilder
 {
     STDMETHOD(SetWinRtInterface)(
@@ -44,7 +47,7 @@ struct IRoSimpleMetaDataBuilder
         _In_reads_(elementCount) const PCWSTR*   defaultInterfaceNameElements) = 0;
     STDMETHOD(SetStruct)(
         PCWSTR                          name,
-        UINT32                          numFields,
+        UINT32                          numFields, 
         _In_reads_(numFields) const PCWSTR*  fieldTypeNames) = 0;
     STDMETHOD(SetEnum)(
         PCWSTR name,
@@ -65,6 +68,7 @@ struct IRoMetaDataLocator
     ) const = 0;
 };
 
+ 
 STDAPI
 RoGetParameterizedTypeInstanceIID(
     UINT32 nameElementCount,
@@ -74,53 +78,56 @@ RoGetParameterizedTypeInstanceIID(
     _Outptr_opt_ ROPARAMIIDHANDLE* pExtra
     );
 
+
 STDAPI_(void)
 RoFreeParameterizedTypeExtra(
     _In_ ROPARAMIIDHANDLE extra
     );
+
 
 STDAPI_(PCSTR)
 RoParameterizedTypeExtraGetTypeSignature(
     _In_ ROPARAMIIDHANDLE extra
     );
 
+
 #ifdef __cplusplus
 
-namespace Ro { namespace detail
+namespace Ro { namespace detail 
 {
-    // private type used in helper function
+    // private type used in helper function 
     template <typename Fn>
     struct _Locator;
 }} // namespace Ro::detail
 
-namespace Ro
+namespace Ro 
 {
     // helper function to create IRoMetaDataLocator from lambda expression
     template <typename Fn>
     Ro::detail::_Locator<Fn> Locator(const Fn& fn);
 } // namespace Ro
 
-namespace Ro { namespace detail
+namespace Ro { namespace detail 
 {
     template <typename Fn>
     struct _Locator : IRoMetaDataLocator
     {
         Fn _fn;
 
-        _Locator(const Fn& fn)
+        _Locator(const Fn& fn) 
         : _fn(fn)
         {
         }
 
-        //
+        // 
         // Parameters:
         //   nameElement
-        //     a metadata typeref name to resolve.
+        //     a metadata typeref name to resolve.  
         //     Eg: "N1.N2.IFoo", or "W.F.C.IVector`1".
         //   pushMetaData
-        //     data sink for providing information about the
+        //     data sink for providing information about the 
         //     type information for nameElement
-        //
+        // 
         IFACEMETHOD(Locate)(
             PCWSTR name,
             IRoSimpleMetaDataBuilder& pushMetaData) const

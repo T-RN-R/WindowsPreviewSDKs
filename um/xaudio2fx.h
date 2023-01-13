@@ -7,7 +7,10 @@
  *
  **************************************************************************/
 
+#ifdef _MSC_VER
 #pragma once
+#endif
+
 #ifndef __XAUDIO2FX_INCLUDED__
 #define __XAUDIO2FX_INCLUDED__
 
@@ -335,8 +338,8 @@ __inline void ReverbConvertI3DL2ToNative
     }
     pNative->ReverbDelay = (BYTE)reverbDelay;
 
-    pNative->ReflectionsGain = (float)pI3DL2->Reflections / 100.0f;
-    pNative->ReverbGain = (float)pI3DL2->Reverb / 100.0f;
+    pNative->ReflectionsGain = pI3DL2->Reflections / 100.0f;
+    pNative->ReverbGain = pI3DL2->Reverb / 100.0f;
     pNative->EarlyDiffusion = (BYTE)(15.0f * pI3DL2->Diffusion / 100.0f);
     pNative->LateDiffusion = pNative->EarlyDiffusion;
     pNative->Density = pI3DL2->Density;

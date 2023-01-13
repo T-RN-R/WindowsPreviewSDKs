@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifndef _APISETSRPEXT_
 #define _APISETSRPEXT_
 
@@ -55,16 +57,19 @@ SrpCreateThreadNetworkContext(
     _Out_ HTHREAD_NETWORK_CONTEXT* threadNetworkContext
     );
 
+
 STDAPI
 SrpCloseThreadNetworkContext(
     _Inout_ HTHREAD_NETWORK_CONTEXT* threadNetworkContext
     );
+
 
 STDAPI
 SrpSetTokenEnterpriseId(
     _In_ HANDLE tokenHandle,
     _In_opt_ PCWSTR enterpriseId
     );
+
 
 STDAPI
 SrpGetEnterpriseIds(
@@ -74,15 +79,18 @@ SrpGetEnterpriseIds(
     _Out_ PULONG enterpriseIdCount
     );
 
+
 STDAPI
 SrpEnablePermissiveModeFileEncryption(
     _In_opt_ PCWSTR enterpriseId
     );
 
+
 STDAPI
 SrpDisablePermissiveModeFileEncryption(
     VOID
     );
+
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD */
 
@@ -102,11 +110,13 @@ SrpGetEnterprisePolicy(
     _Out_ ENTERPRISE_DATA_POLICIES* policyFlags
     );
 
+
 NTSTATUS
 SrpIsTokenService(
     _In_ HANDLE TokenHandle,
     _Out_ BOOLEAN* IsTokenService
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
@@ -124,43 +134,11 @@ SrpDoesPolicyAllowAppExecution(
     _Out_ BOOL* isAllowed
     );
 
-struct _SRP_REQUEST;
-typedef struct _SRP_REQUEST *PSRP_REQUEST;
-
-NTSTATUS
-SrpIsAllowed(
-    _In_ PSRP_REQUEST FileInfo
-    );
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD */
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 #pragma endregion
-
-typedef enum
-{
-    SRPHOSTING_TYPE_NONE = 0,
-    SRPHOSTING_TYPE_WINHTTP = 1,
-    SRPHOSTING_TYPE_WININET = 2
-} SRPHOSTING_TYPE;
-
-typedef enum
-{
-   SRPHOSTING_VERSION1 = 1
-}  SRPHOSTING_VERSION;
-
-STDAPI
-SrpHostingInitialize(
-    _In_ SRPHOSTING_VERSION Version,
-    _In_ SRPHOSTING_TYPE Type,
-    _In_ VOID* pvData,
-    _In_ ULONG cbData
-);
-
-VOID
-SrpHostingTerminate(
-    _In_ SRPHOSTING_TYPE Type
-);
 
 #ifdef __cplusplus
 }
@@ -168,8 +146,11 @@ SrpHostingTerminate(
 
 #endif // APISETSRPEXT
 
+
 #ifndef ext_ms_win_security_srp_l1_1_1_query_routines
 #define ext_ms_win_security_srp_l1_1_1_query_routines
+
+
 
 //
 //Private Extension API Query Routines
@@ -180,6 +161,7 @@ extern "C" {
 #endif
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)
+
 
 BOOLEAN
 __stdcall
@@ -219,6 +201,7 @@ IsSrpDisablePermissiveModeFileEncryptionPresent(
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD */
 
+
 BOOLEAN
 __stdcall
 IsSrpGetEnterprisePolicyPresent(
@@ -233,19 +216,15 @@ IsSrpIsTokenServicePresent(
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)
 
+
 BOOLEAN
 __stdcall
 IsSrpDoesPolicyAllowAppExecutionPresent(
     VOID
     );
 
-BOOLEAN
-__stdcall
-IsSrpIsAllowedPresent(
-    VOID
-    );
-
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD */
+
 
 #ifdef __cplusplus
 }

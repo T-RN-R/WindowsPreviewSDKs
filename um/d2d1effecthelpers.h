@@ -234,7 +234,7 @@ HRESULT DeducingStringSetter(
     UINT32 dataSize
     )
 {
-    (void)dataSize;
+    dataSize;
 
     return (static_cast<C *>(effect)->*callback)(reinterpret_cast<PCWSTR>(data));
 }

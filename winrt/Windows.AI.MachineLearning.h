@@ -88,7 +88,7 @@
 //  API Contract Inclusion Definitions
 #if !defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
 #if !defined(WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION)
-#define WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION 0x50000
+#define WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION 0x30000
 #endif // defined(WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
@@ -96,7 +96,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_MEDIA_MEDIACONTROLCONTRACT_VERSION)
@@ -137,21 +137,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor ABI::Windows::AI::MachineLearning::IImageFeatureDescriptor
 
 #endif // ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace AI {
-            namespace MachineLearning {
-                interface IImageFeatureDescriptor2;
-            } /* MachineLearning */
-        } /* AI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2 ABI::Windows::AI::MachineLearning::IImageFeatureDescriptor2
-
-#endif // ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureValue_FWD_DEFINED__
 #define ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureValue_FWD_DEFINED__
@@ -407,21 +392,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2 ABI::Windows::AI::MachineLearning::ILearningModelSessionOptions2
 
 #endif // ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace AI {
-            namespace MachineLearning {
-                interface ILearningModelSessionOptions3;
-            } /* MachineLearning */
-        } /* AI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3 ABI::Windows::AI::MachineLearning::ILearningModelSessionOptions3
-
-#endif // ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelStatics_FWD_DEFINED__
@@ -2519,16 +2489,6 @@ namespace ABI {
     namespace Windows {
         namespace AI {
             namespace MachineLearning {
-                typedef enum LearningModelPixelRange : int LearningModelPixelRange;
-            } /* MachineLearning */
-        } /* AI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace AI {
-            namespace MachineLearning {
                 typedef enum TensorKind : int TensorKind;
             } /* MachineLearning */
         } /* AI */
@@ -2768,30 +2728,6 @@ namespace ABI {
 
 /*
  *
- * Struct Windows.AI.MachineLearning.LearningModelPixelRange
- *
- * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 5.0
- *
- */
-#if WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x50000
-namespace ABI {
-    namespace Windows {
-        namespace AI {
-            namespace MachineLearning {
-                enum LearningModelPixelRange : int
-                {
-                    LearningModelPixelRange_ZeroTo255 = 0,
-                    LearningModelPixelRange_ZeroToOne = 1,
-                    LearningModelPixelRange_MinusOneToOne = 2,
-                };
-            } /* MachineLearning */
-        } /* AI */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x50000
-
-/*
- *
  * Struct Windows.AI.MachineLearning.TensorKind
  *
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
@@ -2862,7 +2798,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IImageFeatureDescriptor = __uuidof(IImageFeatureDescriptor);
+                extern MIDL_CONST_ID IID& IID_IImageFeatureDescriptor = _uuidof(IImageFeatureDescriptor);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -2871,42 +2807,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor;
 #endif /* !defined(____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor_INTERFACE_DEFINED__) */
 #endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.AI.MachineLearning.IImageFeatureDescriptor2
- *
- * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 5.0
- *
- * Interface is a part of the implementation of type Windows.AI.MachineLearning.ImageFeatureDescriptor
- *
- */
-#if WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x50000
-#if !defined(____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_AI_MachineLearning_IImageFeatureDescriptor2[] = L"Windows.AI.MachineLearning.IImageFeatureDescriptor2";
-namespace ABI {
-    namespace Windows {
-        namespace AI {
-            namespace MachineLearning {
-                MIDL_INTERFACE("2b27cca7-d533-5862-bb98-1611b155b0e1")
-                IImageFeatureDescriptor2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_PixelRange(
-                        ABI::Windows::AI::MachineLearning::LearningModelPixelRange* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IImageFeatureDescriptor2 = __uuidof(IImageFeatureDescriptor2);
-            } /* MachineLearning */
-        } /* AI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2;
-#endif /* !defined(____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x50000
 
 /*
  *
@@ -2934,7 +2834,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IImageFeatureValue = __uuidof(IImageFeatureValue);
+                extern MIDL_CONST_ID IID& IID_IImageFeatureValue = _uuidof(IImageFeatureValue);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -2971,7 +2871,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IImageFeatureValueStatics = __uuidof(IImageFeatureValueStatics);
+                extern MIDL_CONST_ID IID& IID_IImageFeatureValueStatics = _uuidof(IImageFeatureValueStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3028,7 +2928,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModel = __uuidof(ILearningModel);
+                extern MIDL_CONST_ID IID& IID_ILearningModel = _uuidof(ILearningModel);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3071,7 +2971,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Clear(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelBinding = __uuidof(ILearningModelBinding);
+                extern MIDL_CONST_ID IID& IID_ILearningModelBinding = _uuidof(ILearningModelBinding);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3108,7 +3008,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelBindingFactory = __uuidof(ILearningModelBindingFactory);
+                extern MIDL_CONST_ID IID& IID_ILearningModelBindingFactory = _uuidof(ILearningModelBindingFactory);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3147,7 +3047,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelDevice = __uuidof(ILearningModelDevice);
+                extern MIDL_CONST_ID IID& IID_ILearningModelDevice = _uuidof(ILearningModelDevice);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3184,7 +3084,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelDeviceFactory = __uuidof(ILearningModelDeviceFactory);
+                extern MIDL_CONST_ID IID& IID_ILearningModelDeviceFactory = _uuidof(ILearningModelDeviceFactory);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3221,7 +3121,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelDeviceStatics = __uuidof(ILearningModelDeviceStatics);
+                extern MIDL_CONST_ID IID& IID_ILearningModelDeviceStatics = _uuidof(ILearningModelDeviceStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3266,7 +3166,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelEvaluationResult = __uuidof(ILearningModelEvaluationResult);
+                extern MIDL_CONST_ID IID& IID_ILearningModelEvaluationResult = _uuidof(ILearningModelEvaluationResult);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3309,7 +3209,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelFeatureDescriptor = __uuidof(ILearningModelFeatureDescriptor);
+                extern MIDL_CONST_ID IID& IID_ILearningModelFeatureDescriptor = _uuidof(ILearningModelFeatureDescriptor);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3343,7 +3243,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelFeatureValue = __uuidof(ILearningModelFeatureValue);
+                extern MIDL_CONST_ID IID& IID_ILearningModelFeatureValue = _uuidof(ILearningModelFeatureValue);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3374,7 +3274,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelOperatorProvider = __uuidof(ILearningModelOperatorProvider);
+                extern MIDL_CONST_ID IID& IID_ILearningModelOperatorProvider = _uuidof(ILearningModelOperatorProvider);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3436,7 +3336,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelSession = __uuidof(ILearningModelSession);
+                extern MIDL_CONST_ID IID& IID_ILearningModelSession = _uuidof(ILearningModelSession);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3478,7 +3378,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelSessionFactory = __uuidof(ILearningModelSessionFactory);
+                extern MIDL_CONST_ID IID& IID_ILearningModelSessionFactory = _uuidof(ILearningModelSessionFactory);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3517,7 +3417,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelSessionFactory2 = __uuidof(ILearningModelSessionFactory2);
+                extern MIDL_CONST_ID IID& IID_ILearningModelSessionFactory2 = _uuidof(ILearningModelSessionFactory2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3556,7 +3456,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelSessionOptions = __uuidof(ILearningModelSessionOptions);
+                extern MIDL_CONST_ID IID& IID_ILearningModelSessionOptions = _uuidof(ILearningModelSessionOptions);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3595,7 +3495,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelSessionOptions2 = __uuidof(ILearningModelSessionOptions2);
+                extern MIDL_CONST_ID IID& IID_ILearningModelSessionOptions2 = _uuidof(ILearningModelSessionOptions2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3604,43 +3504,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2;
 #endif /* !defined(____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.AI.MachineLearning.ILearningModelSessionOptions3
- *
- * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.AI.MachineLearning.LearningModelSessionOptions
- *
- */
-#if WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_AI_MachineLearning_ILearningModelSessionOptions3[] = L"Windows.AI.MachineLearning.ILearningModelSessionOptions3";
-namespace ABI {
-    namespace Windows {
-        namespace AI {
-            namespace MachineLearning {
-                MIDL_INTERFACE("58e15cee-d8c2-56fc-92e8-76d751081086")
-                ILearningModelSessionOptions3 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE OverrideNamedDimension(
-                        HSTRING name,
-                        UINT32 dimension
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ILearningModelSessionOptions3 = __uuidof(ILearningModelSessionOptions3);
-            } /* MachineLearning */
-        } /* AI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3;
-#endif /* !defined(____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -3701,7 +3564,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILearningModelStatics = __uuidof(ILearningModelStatics);
+                extern MIDL_CONST_ID IID& IID_ILearningModelStatics = _uuidof(ILearningModelStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3740,7 +3603,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMapFeatureDescriptor = __uuidof(IMapFeatureDescriptor);
+                extern MIDL_CONST_ID IID& IID_IMapFeatureDescriptor = _uuidof(IMapFeatureDescriptor);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3776,7 +3639,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISequenceFeatureDescriptor = __uuidof(ISequenceFeatureDescriptor);
+                extern MIDL_CONST_ID IID& IID_ISequenceFeatureDescriptor = _uuidof(ISequenceFeatureDescriptor);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3816,7 +3679,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensor = __uuidof(ITensor);
+                extern MIDL_CONST_ID IID& IID_ITensor = _uuidof(ITensor);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3852,7 +3715,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorBoolean = __uuidof(ITensorBoolean);
+                extern MIDL_CONST_ID IID& IID_ITensorBoolean = _uuidof(ITensorBoolean);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3903,7 +3766,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorBooleanStatics = __uuidof(ITensorBooleanStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorBooleanStatics = _uuidof(ITensorBooleanStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3949,7 +3812,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorBooleanStatics2 = __uuidof(ITensorBooleanStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorBooleanStatics2 = _uuidof(ITensorBooleanStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -3985,7 +3848,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorDouble = __uuidof(ITensorDouble);
+                extern MIDL_CONST_ID IID& IID_ITensorDouble = _uuidof(ITensorDouble);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4036,7 +3899,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorDoubleStatics = __uuidof(ITensorDoubleStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorDoubleStatics = _uuidof(ITensorDoubleStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4082,7 +3945,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorDoubleStatics2 = __uuidof(ITensorDoubleStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorDoubleStatics2 = _uuidof(ITensorDoubleStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4121,7 +3984,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorFeatureDescriptor = __uuidof(ITensorFeatureDescriptor);
+                extern MIDL_CONST_ID IID& IID_ITensorFeatureDescriptor = _uuidof(ITensorFeatureDescriptor);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4157,7 +4020,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorFloat = __uuidof(ITensorFloat);
+                extern MIDL_CONST_ID IID& IID_ITensorFloat = _uuidof(ITensorFloat);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4193,7 +4056,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorFloat16Bit = __uuidof(ITensorFloat16Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorFloat16Bit = _uuidof(ITensorFloat16Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4244,7 +4107,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorFloat16BitStatics = __uuidof(ITensorFloat16BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorFloat16BitStatics = _uuidof(ITensorFloat16BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4290,7 +4153,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorFloat16BitStatics2 = __uuidof(ITensorFloat16BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorFloat16BitStatics2 = _uuidof(ITensorFloat16BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4341,7 +4204,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorFloatStatics = __uuidof(ITensorFloatStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorFloatStatics = _uuidof(ITensorFloatStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4387,7 +4250,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorFloatStatics2 = __uuidof(ITensorFloatStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorFloatStatics2 = _uuidof(ITensorFloatStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4423,7 +4286,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt16Bit = __uuidof(ITensorInt16Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorInt16Bit = _uuidof(ITensorInt16Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4474,7 +4337,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt16BitStatics = __uuidof(ITensorInt16BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorInt16BitStatics = _uuidof(ITensorInt16BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4520,7 +4383,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt16BitStatics2 = __uuidof(ITensorInt16BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorInt16BitStatics2 = _uuidof(ITensorInt16BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4556,7 +4419,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt32Bit = __uuidof(ITensorInt32Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorInt32Bit = _uuidof(ITensorInt32Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4607,7 +4470,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt32BitStatics = __uuidof(ITensorInt32BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorInt32BitStatics = _uuidof(ITensorInt32BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4653,7 +4516,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt32BitStatics2 = __uuidof(ITensorInt32BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorInt32BitStatics2 = _uuidof(ITensorInt32BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4689,7 +4552,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt64Bit = __uuidof(ITensorInt64Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorInt64Bit = _uuidof(ITensorInt64Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4740,7 +4603,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt64BitStatics = __uuidof(ITensorInt64BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorInt64BitStatics = _uuidof(ITensorInt64BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4786,7 +4649,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt64BitStatics2 = __uuidof(ITensorInt64BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorInt64BitStatics2 = _uuidof(ITensorInt64BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4822,7 +4685,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt8Bit = __uuidof(ITensorInt8Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorInt8Bit = _uuidof(ITensorInt8Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4873,7 +4736,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt8BitStatics = __uuidof(ITensorInt8BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorInt8BitStatics = _uuidof(ITensorInt8BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4919,7 +4782,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorInt8BitStatics2 = __uuidof(ITensorInt8BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorInt8BitStatics2 = _uuidof(ITensorInt8BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -4955,7 +4818,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorString = __uuidof(ITensorString);
+                extern MIDL_CONST_ID IID& IID_ITensorString = _uuidof(ITensorString);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5006,7 +4869,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorStringStatics = __uuidof(ITensorStringStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorStringStatics = _uuidof(ITensorStringStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5046,7 +4909,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorStringStatics2 = __uuidof(ITensorStringStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorStringStatics2 = _uuidof(ITensorStringStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5082,7 +4945,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt16Bit = __uuidof(ITensorUInt16Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt16Bit = _uuidof(ITensorUInt16Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5133,7 +4996,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt16BitStatics = __uuidof(ITensorUInt16BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt16BitStatics = _uuidof(ITensorUInt16BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5179,7 +5042,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt16BitStatics2 = __uuidof(ITensorUInt16BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt16BitStatics2 = _uuidof(ITensorUInt16BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5215,7 +5078,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt32Bit = __uuidof(ITensorUInt32Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt32Bit = _uuidof(ITensorUInt32Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5266,7 +5129,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt32BitStatics = __uuidof(ITensorUInt32BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt32BitStatics = _uuidof(ITensorUInt32BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5312,7 +5175,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt32BitStatics2 = __uuidof(ITensorUInt32BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt32BitStatics2 = _uuidof(ITensorUInt32BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5348,7 +5211,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt64Bit = __uuidof(ITensorUInt64Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt64Bit = _uuidof(ITensorUInt64Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5399,7 +5262,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt64BitStatics = __uuidof(ITensorUInt64BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt64BitStatics = _uuidof(ITensorUInt64BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5445,7 +5308,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt64BitStatics2 = __uuidof(ITensorUInt64BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt64BitStatics2 = _uuidof(ITensorUInt64BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5481,7 +5344,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt8Bit = __uuidof(ITensorUInt8Bit);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt8Bit = _uuidof(ITensorUInt8Bit);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5532,7 +5395,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt8BitStatics = __uuidof(ITensorUInt8BitStatics);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt8BitStatics = _uuidof(ITensorUInt8BitStatics);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5578,7 +5441,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITensorUInt8BitStatics2 = __uuidof(ITensorUInt8BitStatics2);
+                extern MIDL_CONST_ID IID& IID_ITensorUInt8BitStatics2 = _uuidof(ITensorUInt8BitStatics2);
             } /* MachineLearning */
         } /* AI */
     } /* Windows */
@@ -5596,7 +5459,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CITensorUInt8BitSta
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.IImageFeatureDescriptor ** Default Interface **
- *    Windows.AI.MachineLearning.IImageFeatureDescriptor2
  *    Windows.AI.MachineLearning.ILearningModelFeatureDescriptor
  *
  * Class Marshaling Behavior:  Agile - Class is agile
@@ -5769,7 +5631,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ILearningModelSessionOptions ** Default Interface **
  *    Windows.AI.MachineLearning.ILearningModelSessionOptions2
- *    Windows.AI.MachineLearning.ILearningModelSessionOptions3
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -5830,8 +5691,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.AI.MachineLearning.ITensorBooleanStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *   Static Methods exist on the Windows.AI.MachineLearning.ITensorBooleanStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
+ *   Static Methods exist on the Windows.AI.MachineLearning.ITensorBooleanStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ITensorBoolean ** Default Interface **
@@ -5908,8 +5769,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.AI.MachineLearning.ITensorFloatStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *   Static Methods exist on the Windows.AI.MachineLearning.ITensorFloatStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
+ *   Static Methods exist on the Windows.AI.MachineLearning.ITensorFloatStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ITensorFloat ** Default Interface **
@@ -6111,8 +5972,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt16BitStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt16BitStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
+ *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt16BitStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ITensorUInt16Bit ** Default Interface **
@@ -6198,8 +6059,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt8BitStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt8BitStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
+ *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt8BitStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ITensorUInt8Bit ** Default Interface **
@@ -6227,12 +6088,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 typedef interface __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor;
 
 #endif // ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2 __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2;
-
-#endif // ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureValue_FWD_DEFINED__
 #define ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureValue_FWD_DEFINED__
@@ -6335,12 +6190,6 @@ typedef interface __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOp
 typedef interface __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2 __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2;
 
 #endif // ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3 __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3;
-
-#endif // ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelStatics_FWD_DEFINED__
@@ -10287,8 +10136,6 @@ typedef enum __x_ABI_CWindows_CAI_CMachineLearning_CLearningModelDeviceKind __x_
 
 typedef enum __x_ABI_CWindows_CAI_CMachineLearning_CLearningModelFeatureKind __x_ABI_CWindows_CAI_CMachineLearning_CLearningModelFeatureKind;
 
-typedef enum __x_ABI_CWindows_CAI_CMachineLearning_CLearningModelPixelRange __x_ABI_CWindows_CAI_CMachineLearning_CLearningModelPixelRange;
-
 typedef enum __x_ABI_CWindows_CAI_CMachineLearning_CTensorKind __x_ABI_CWindows_CAI_CMachineLearning_CTensorKind;
 
 /*
@@ -10325,22 +10172,6 @@ enum __x_ABI_CWindows_CAI_CMachineLearning_CLearningModelFeatureKind
     LearningModelFeatureKind_Image = 3,
 };
 #endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.AI.MachineLearning.LearningModelPixelRange
- *
- * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 5.0
- *
- */
-#if WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x50000
-enum __x_ABI_CWindows_CAI_CMachineLearning_CLearningModelPixelRange
-{
-    LearningModelPixelRange_ZeroTo255 = 0,
-    LearningModelPixelRange_ZeroToOne = 1,
-    LearningModelPixelRange_MinusOneToOne = 2,
-};
-#endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x50000
 
 /*
  *
@@ -10454,75 +10285,6 @@ interface __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor
 EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor;
 #endif /* !defined(____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor_INTERFACE_DEFINED__) */
 #endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.AI.MachineLearning.IImageFeatureDescriptor2
- *
- * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 5.0
- *
- * Interface is a part of the implementation of type Windows.AI.MachineLearning.ImageFeatureDescriptor
- *
- */
-#if WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x50000
-#if !defined(____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_AI_MachineLearning_IImageFeatureDescriptor2[] = L"Windows.AI.MachineLearning.IImageFeatureDescriptor2";
-typedef struct __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_PixelRange)(__x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2* This,
-        enum __x_ABI_CWindows_CAI_CMachineLearning_CLearningModelPixelRange* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2Vtbl;
-
-interface __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_get_PixelRange(This, value) \
-    ((This)->lpVtbl->get_PixelRange(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2;
-#endif /* !defined(____x_ABI_CWindows_CAI_CMachineLearning_CIImageFeatureDescriptor2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x50000
 
 /*
  *
@@ -11830,76 +11592,6 @@ interface __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2
 EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2;
 #endif /* !defined(____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.AI.MachineLearning.ILearningModelSessionOptions3
- *
- * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.AI.MachineLearning.LearningModelSessionOptions
- *
- */
-#if WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_AI_MachineLearning_ILearningModelSessionOptions3[] = L"Windows.AI.MachineLearning.ILearningModelSessionOptions3";
-typedef struct __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* OverrideNamedDimension)(__x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3* This,
-        HSTRING name,
-        UINT32 dimension);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3Vtbl;
-
-interface __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3
-{
-    CONST_VTBL struct __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_OverrideNamedDimension(This, name, dimension) \
-    ((This)->lpVtbl->OverrideNamedDimension(This, name, dimension))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3;
-#endif /* !defined(____x_ABI_CWindows_CAI_CMachineLearning_CILearningModelSessionOptions3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_AI_MACHINELEARNING_MACHINELEARNINGCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -15429,7 +15121,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CAI_CMachineLearning_CITensorUInt8BitSta
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.IImageFeatureDescriptor ** Default Interface **
- *    Windows.AI.MachineLearning.IImageFeatureDescriptor2
  *    Windows.AI.MachineLearning.ILearningModelFeatureDescriptor
  *
  * Class Marshaling Behavior:  Agile - Class is agile
@@ -15602,7 +15293,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ILearningModelSessionOptions ** Default Interface **
  *    Windows.AI.MachineLearning.ILearningModelSessionOptions2
- *    Windows.AI.MachineLearning.ILearningModelSessionOptions3
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -15663,8 +15353,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.AI.MachineLearning.ITensorBooleanStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *   Static Methods exist on the Windows.AI.MachineLearning.ITensorBooleanStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
+ *   Static Methods exist on the Windows.AI.MachineLearning.ITensorBooleanStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ITensorBoolean ** Default Interface **
@@ -15741,8 +15431,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.AI.MachineLearning.ITensorFloatStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *   Static Methods exist on the Windows.AI.MachineLearning.ITensorFloatStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
+ *   Static Methods exist on the Windows.AI.MachineLearning.ITensorFloatStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ITensorFloat ** Default Interface **
@@ -15944,8 +15634,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt16BitStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt16BitStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
+ *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt16BitStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ITensorUInt16Bit ** Default Interface **
@@ -16031,8 +15721,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.AI.MachineLearning.MachineLearningContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt8BitStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt8BitStatics2 interface starting with version 2.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
+ *   Static Methods exist on the Windows.AI.MachineLearning.ITensorUInt8BitStatics interface starting with version 1.0 of the Windows.AI.MachineLearning.MachineLearningContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.AI.MachineLearning.ITensorUInt8Bit ** Default Interface **

@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -39,6 +41,7 @@ typedef PTOP_LEVEL_EXCEPTION_FILTER LPTOP_LEVEL_EXCEPTION_FILTER;
 //
 
 WINBASEAPI
+__analysis_noreturn
 VOID
 WINAPI
 RaiseException(
@@ -47,6 +50,7 @@ RaiseException(
     _In_ DWORD nNumberOfArguments,
     _In_reads_opt_(nNumberOfArguments) CONST ULONG_PTR* lpArguments
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -62,6 +66,7 @@ UnhandledExceptionFilter(
     _In_ struct _EXCEPTION_POINTERS* ExceptionInfo
     );
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -75,6 +80,7 @@ SetUnhandledExceptionFilter(
     _In_opt_ LPTOP_LEVEL_EXCEPTION_FILTER lpTopLevelExceptionFilter
     );
 
+
 #ifndef _M_CEE_PURE
 
 WINBASEAPI
@@ -86,6 +92,7 @@ GetLastError(
     VOID
     );
 
+
 #endif
 
 WINBASEAPI
@@ -95,11 +102,12 @@ SetLastError(
     _In_ DWORD dwErrCode
     );
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
-#pragma region Application Family or OneCore Family or Games Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+#pragma region Application Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 #if (_WIN32_WINNT >= 0x0600)
 
@@ -110,7 +118,14 @@ GetErrorMode(
     VOID
     );
 
+
 #endif // (_WIN32_WINNT >= 0x0600)
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
+#pragma endregion
+
+#pragma region Application Family or OneCore Family or Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 WINBASEAPI
 UINT
@@ -118,6 +133,7 @@ WINAPI
 SetErrorMode(
     _In_ UINT uMode
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -136,12 +152,14 @@ AddVectoredExceptionHandler(
     _In_ PVECTORED_EXCEPTION_HANDLER Handler
     );
 
+
 WINBASEAPI
 ULONG
 WINAPI
 RemoveVectoredExceptionHandler(
     _In_ PVOID Handle
     );
+
 
 WINBASEAPI
 _Ret_maybenull_
@@ -152,12 +170,14 @@ AddVectoredContinueHandler(
     _In_ PVECTORED_EXCEPTION_HANDLER Handler
     );
 
+
 WINBASEAPI
 ULONG
 WINAPI
 RemoveVectoredContinueHandler(
     _In_ PVOID Handle
     );
+
 
 #endif // (_WIN32_WINNT >= 0x0501)
 
@@ -173,12 +193,13 @@ RestoreLastError(
     _In_ DWORD dwErrCode
     );
 
+
 typedef VOID (WINAPI* PRESTORE_LAST_ERROR)(DWORD);
 #define RESTORE_LAST_ERROR_NAME_A      "RestoreLastError"
 #define RESTORE_LAST_ERROR_NAME_W     L"RestoreLastError"
 #define RESTORE_LAST_ERROR_NAME   TEXT("RestoreLastError")
 
-#endif
+#endif 
 #endif
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -195,6 +216,7 @@ RaiseFailFastException(
     _In_opt_ PCONTEXT pContextRecord,
     _In_ DWORD dwFlags
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -217,6 +239,7 @@ FatalAppExitW(
     _In_ UINT uAction,
     _In_ LPCWSTR lpMessageText
     );
+
 #ifdef UNICODE
 #define FatalAppExit  FatalAppExitW
 #else
@@ -236,6 +259,7 @@ GetThreadErrorMode(
     VOID
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -243,6 +267,7 @@ SetThreadErrorMode(
     _In_ DWORD dwNewMode,
     _In_opt_ LPDWORD lpOldMode
     );
+
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -256,6 +281,7 @@ WINAPI
 TerminateProcessOnMemoryExhaustion(
     _In_ SIZE_T FailedAllocationSize
     );
+
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion

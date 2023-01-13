@@ -166,7 +166,7 @@ __inline void FreeRecipDesc(_Inout_updates_opt_(nRecipDesc) MapiRecipDesc* pReci
         {
             delete[] pRecipDesc[i].lpszName;
             delete[] pRecipDesc[i].lpszAddress;
-            delete[] static_cast<BYTE*>(pRecipDesc[i].lpEntryID);
+            delete[] pRecipDesc[i].lpEntryID;
 
             pRecipDesc[i].ulReserved = 0;
             pRecipDesc[i].ulRecipClass = 0;
@@ -904,7 +904,7 @@ __inline bool GetDefaultMailClientExePath(HKEY hkeyRoot, _Out_ PWSTR* exePath)
                 if (REG_EXPAND_SZ == valueType)
                 {
                     lResult = ExpandEnvironmentStringsW(shellCommand, expandedPath, ARRAYSIZE(expandedPath));
-                    if (lResult > 0 && lResult <= static_cast<LRESULT>(ARRAYSIZE(shellCommand)))
+                    if (lResult > 0 && lResult <= ARRAYSIZE(shellCommand))
                     {
                         wcscpy_s(shellCommand, ARRAYSIZE(shellCommand), expandedPath);
                     }

@@ -10,7 +10,6 @@ import "AsyncInfo.idl";
 import "EventToken.idl";
 import "windowscontracts.idl";
 import "Windows.Foundation.idl";
-import "Windows.ApplicationModel.Activation.idl";
 import "Windows.Networking.idl";
 import "Windows.Networking.Sockets.idl";
 import "Windows.Security.Credentials.idl";
@@ -18,28 +17,6 @@ import "Windows.Security.Cryptography.Certificates.idl";
 import "Windows.Storage.Streams.idl";
 
 // Forward Declare
-namespace Windows
-{
-    namespace ApplicationModel
-    {
-        namespace Activation
-        {
-            interface IActivatedEventArgs;
-
-            interface IActivatedEventArgsWithUser;
-        }
-    }
-}
-namespace Windows
-{
-    namespace Foundation
-    {
-        namespace Collections
-        {
-            runtimeclass ValueSet;
-        }
-    }
-}
 namespace Windows
 {
     namespace Foundation
@@ -143,10 +120,6 @@ namespace Windows
 
             interface IVpnChannel4;
 
-            interface IVpnChannel5;
-
-            interface IVpnChannel6;
-
             interface IVpnChannelActivityEventArgs;
 
             interface IVpnChannelActivityStateChangedArgs;
@@ -189,10 +162,6 @@ namespace Windows
 
             interface IVpnDomainNameInfoFactory;
 
-            interface IVpnForegroundActivatedEventArgs;
-
-            interface IVpnForegroundActivationOperation;
-
             interface IVpnInterfaceId;
 
             interface IVpnInterfaceIdFactory;
@@ -228,8 +197,6 @@ namespace Windows
             interface IVpnPlugInProfile;
 
             interface IVpnPlugInProfile2;
-
-            interface IVpnPlugInReconnectTransport;
 
             interface IVpnProfile;
 
@@ -280,10 +247,6 @@ namespace Windows
             runtimeclass VpnDomainNameAssignment;
 
             runtimeclass VpnDomainNameInfo;
-
-            runtimeclass VpnForegroundActivatedEventArgs;
-
-            runtimeclass VpnForegroundActivationOperation;
 
             runtimeclass VpnInterfaceId;
 
@@ -622,25 +585,6 @@ namespace Windows
                 [propget] HRESULT CurrentRequestTransportContext([out] [retval] IInspectable** context);
             }
 
-            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-            [exclusiveto(Windows.Networking.Vpn.VpnChannel)]
-            [uuid(DE7A0992-8384-4FBC-882C-1FD23124CD3B)]
-            interface IVpnChannel5 : IInspectable
-            {
-                HRESULT AppendVpnReceivePacketBuffer([in] Windows.Networking.Vpn.VpnPacketBuffer* decapsulatedPacketBuffer);
-                HRESULT AppendVpnSendPacketBuffer([in] Windows.Networking.Vpn.VpnPacketBuffer* encapsulatedPacketBuffer);
-                HRESULT FlushVpnReceivePacketBuffers();
-                HRESULT FlushVpnSendPacketBuffers();
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
-            [exclusiveto(Windows.Networking.Vpn.VpnChannel)]
-            [uuid(55843696-BD63-49C5-ABCA-5DA77885551A)]
-            interface IVpnChannel6 : IInspectable
-            {
-                HRESULT ActivateForeground([in] HSTRING packageRelativeAppId, [in] Windows.Foundation.Collections.ValueSet* sharedContext, [out] [retval] Windows.Foundation.Collections.ValueSet** result);
-            }
-
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             [exclusiveto(Windows.Networking.Vpn.VpnChannelActivityEventArgs)]
             [uuid(A36C88F2-AFDC-4775-855D-D4AC0A35FC55)]
@@ -860,24 +804,6 @@ namespace Windows
                 HRESULT CreateVpnDomainNameInfo([in] HSTRING name, [in] Windows.Networking.Vpn.VpnDomainNameType nameType, [in] Windows.Foundation.Collections.IIterable<Windows.Networking.HostName*>* dnsServerList, [in] Windows.Foundation.Collections.IIterable<Windows.Networking.HostName*>* proxyServerList, [out] [retval] Windows.Networking.Vpn.VpnDomainNameInfo** domainNameInfo);
             }
 
-            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
-            [exclusiveto(Windows.Networking.Vpn.VpnForegroundActivatedEventArgs)]
-            [uuid(85B465B0-CADB-4D70-AC92-543A24DC9EBC)]
-            interface IVpnForegroundActivatedEventArgs : IInspectable
-            {
-                [propget] HRESULT ProfileName([out] [retval] HSTRING* name);
-                [propget] HRESULT SharedContext([out] [retval] Windows.Foundation.Collections.ValueSet** sharedContext);
-                [propget] HRESULT ActivationOperation([out] [retval] Windows.Networking.Vpn.VpnForegroundActivationOperation** activationOperation);
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
-            [exclusiveto(Windows.Networking.Vpn.VpnForegroundActivationOperation)]
-            [uuid(9E010D57-F17A-4BD5-9B6D-F984F1297D3C)]
-            interface IVpnForegroundActivationOperation : IInspectable
-            {
-                HRESULT Complete([in] Windows.Foundation.Collections.ValueSet* result);
-            }
-
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             [exclusiveto(Windows.Networking.Vpn.VpnInterfaceId)]
             [uuid(9E2DDCA2-1712-4CE4-B179-8C652C6D1011)]
@@ -1083,13 +1009,6 @@ namespace Windows
                 [propget] HRESULT ConnectionStatus([out] [retval] Windows.Networking.Vpn.VpnManagementConnectionStatus* value);
             }
 
-            [contract(Windows.Foundation.UniversalApiContract, 15.0)]
-            [uuid(9D5A1092-BB46-4D34-9D88-F217893076F4)]
-            interface IVpnPlugInReconnectTransport : IInspectable
-            {
-                HRESULT ReconnectTransport([in] Windows.Networking.Vpn.VpnChannel* channel, [in] IInspectable* context);
-            }
-
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             [uuid(7875B751-B0D7-43DB-8A93-D3FE2479E56A)]
             interface IVpnProfile : IInspectable
@@ -1205,8 +1124,6 @@ namespace Windows
                 [default] interface Windows.Networking.Vpn.IVpnChannel;
                 [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Networking.Vpn.IVpnChannel2;
                 [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.Networking.Vpn.IVpnChannel4;
-                [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.Networking.Vpn.IVpnChannel5;
-                [contract(Windows.Foundation.UniversalApiContract, 13.0)] interface Windows.Networking.Vpn.IVpnChannel6;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -1349,22 +1266,6 @@ namespace Windows
             {
                 [default] interface Windows.Networking.Vpn.IVpnDomainNameInfo;
                 [contract(Windows.Foundation.UniversalApiContract, 3.0)] interface Windows.Networking.Vpn.IVpnDomainNameInfo2;
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
-            [marshaling_behavior(agile)]
-            runtimeclass VpnForegroundActivatedEventArgs
-            {
-                [default] interface Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs;
-                interface Windows.ApplicationModel.Activation.IActivatedEventArgs;
-                interface Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser;
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
-            [marshaling_behavior(agile)]
-            runtimeclass VpnForegroundActivationOperation
-            {
-                [default] interface Windows.Networking.Vpn.IVpnForegroundActivationOperation;
             }
 
             [activatable(Windows.Networking.Vpn.IVpnInterfaceIdFactory, Windows.Foundation.UniversalApiContract, 1.0)]

@@ -129,12 +129,12 @@ typedef NTSTATUS *PNTSTATUS;
 #define KDF_SALT                0xF
 #define KDF_ITERATION_COUNT     0x10
 //
-//
+//  
 // Parameters for BCrypt(/NCrypt)KeyDerivation:
-// Generic parameters:
+// Generic parameters: 
 // KDF_GENERIC_PARAMETER and KDF_HASH_ALGORITHM are the generic parameters that can be passed for the following KDF algorithms:
-// BCRYPT/NCRYPT_SP800108_CTR_HMAC_ALGORITHM
-//      KDF_GENERIC_PARAMETER = KDF_LABEL||0x00||KDF_CONTEXT
+// BCRYPT/NCRYPT_SP800108_CTR_HMAC_ALGORITHM 
+//      KDF_GENERIC_PARAMETER = KDF_LABEL||0x00||KDF_CONTEXT 
 // BCRYPT/NCRYPT_SP80056A_CONCAT_ALGORITHM
 //      KDF_GENERIC_PARAMETER = KDF_ALGORITHMID || KDF_PARTYUINFO || KDF_PARTYVINFO {|| KDF_SUPPPUBINFO } {|| KDF_SUPPPRIVINFO }
 // BCRYPT/NCRYPT_PBKDF2_ALGORITHM
@@ -149,7 +149,7 @@ typedef NTSTATUS *PNTSTATUS;
 //      KDF_GENERIC_PARAMETER = Not used
 //
 // KDF specific parameters:
-// For BCRYPT/NCRYPT_SP800108_CTR_HMAC_ALGORITHM:
+// For BCRYPT/NCRYPT_SP800108_CTR_HMAC_ALGORITHM: 
 //      KDF_HASH_ALGORITHM, KDF_LABEL and KDF_CONTEXT are required
 // For BCRYPT/NCRYPT_SP80056A_CONCAT_ALGORITHM:
 //      KDF_HASH_ALGORITHM, KDF_ALGORITHMID, KDF_PARTYUINFO, KDF_PARTYVINFO are required
@@ -376,10 +376,6 @@ typedef struct _BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO
 #define BCRYPT_PROV_DISPATCH        0x00000001  // BCryptOpenAlgorithmProvider
 
 #define BCRYPT_BLOCK_PADDING        0x00000001  // BCryptEncrypt/Decrypt
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
-#define BCRYPT_GENERATE_IV          0x00000020  // BCryptGenerateSymmetricKey BCryptEncrypt
-#endif
 
 // RSA padding schemes
 #define BCRYPT_PAD_NONE             0x00000001
@@ -772,10 +768,10 @@ typedef enum {
 } BCRYPT_HASH_OPERATION_TYPE;
 
 typedef struct _BCRYPT_MULTI_HASH_OPERATION {
-                            ULONG                           iHash;          // index of hash object
+                            ULONG                           iHash;          // index of hash object 
                             BCRYPT_HASH_OPERATION_TYPE      hashOperation;  // operation to be performed
     _Field_size_(cbBuffer)  PUCHAR                          pbBuffer;       // data to be hashed, or result buffer
-                            ULONG                           cbBuffer;
+                            ULONG                           cbBuffer;       
 } BCRYPT_MULTI_HASH_OPERATION;
 
 // Enum to specify type of multi-operation is passed to BCryptProcesMultiOperations
@@ -847,10 +843,6 @@ typedef struct _BCRYPT_MULTI_OBJECT_LENGTH_STRUCT
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS4)
 #define BCRYPT_HKDF_ALGORITHM                   L"HKDF"
-#endif
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
-#define BCRYPT_CHACHA20_POLY1305_ALGORITHM      L"CHACHA20_POLY1305"
 #endif
 
 //
@@ -943,10 +935,6 @@ typedef struct _BCRYPT_MULTI_OBJECT_LENGTH_STRUCT
 
 #endif
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
-#define BCRYPT_CHACHA20_POLY1305_ALG_HANDLE     ((BCRYPT_ALG_HANDLE) 0x000003A1)
-#endif
-
 //
 // Primitive algorithm provider functions.
 //
@@ -996,8 +984,8 @@ typedef struct _BCRYPT_MULTI_OBJECT_LENGTH_STRUCT
 
 //
 // The EXTENDED_KEYSIZE flag extends the supported set of key sizes.
-//
-// The original design has a per-algorithm maximum key size, and
+// 
+// The original design has a per-algorithm maximum key size, and 
 // BCryptGenerateSymmetricKey truncates any longer input to the maximum key size for that
 // algorithm. Some callers depend on this feature and pass in large buffers.
 // This makes it impossible to silently extend the supported key size without breaking
@@ -1019,11 +1007,11 @@ typedef struct _BCRYPT_MULTI_OBJECT_LENGTH_STRUCT
 // Starting in Redstone 1 (summer 2016 release of Win10) this flag has the following effect on the
 //  Microsoft default algorithm provider.
 // - BCryptGenerateSymmetricKey when generating an XTS-AES key with this flag specified and FIPS mode enabled
-//      will verify that the two halves of the key are not identical. If they are, an error is returned.
+//      will verify that the two halves of the key are not identical. If they are, an error is returned. 
 //      This is actually incompatible with the NIST SP 800-38E and IEEE Std 1619-2007 definitions
-//      of XTS-AES. Rather than change the standard, NIST added this requirement in the FIPS 140-2
+//      of XTS-AES. Rather than change the standard, NIST added this requirement in the FIPS 140-2 
 //      implementation guidance.
-//      This check breaks existing usage of the algorithm, which is why we only perform the check when the
+//      This check breaks existing usage of the algorithm, which is why we only perform the check when the 
 //      caller explicitly asks for it.
 //      Use of this flag  for any algorithm other than XTS-AES generates an error.
 // Note that this flag is not supported for BCryptImportKey.
@@ -1037,8 +1025,8 @@ NTSTATUS
 WINAPI
 BCryptOpenAlgorithmProvider(
     _Out_       BCRYPT_ALG_HANDLE   *phAlgorithm,
-    _In_z_      LPCWSTR pszAlgId,
-    _In_opt_z_  LPCWSTR pszImplementation,
+    _In_        LPCWSTR pszAlgId,
+    _In_opt_    LPCWSTR pszImplementation,
     _In_        ULONG   dwFlags);
 
 
@@ -1085,13 +1073,13 @@ _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptEnumProviders(
-    _In_z_  LPCWSTR pszAlgId,
+    _In_    LPCWSTR pszAlgId,
     _Out_   ULONG   *pImplCount,
     _Out_   BCRYPT_PROVIDER_NAME    **ppImplList,
     _In_    ULONG   dwFlags);
 
 
-// Unused flags. Kept for backward compatibility.
+// Unused flags. Kept for backward compatibility. 
 //   "Flags for use with BCryptGetProperty and BCryptSetProperty"
 #define BCRYPT_PUBLIC_KEY_FLAG                  0x00000001
 #define BCRYPT_PRIVATE_KEY_FLAG                 0x00000002
@@ -1101,7 +1089,7 @@ NTSTATUS
 WINAPI
 BCryptGetProperty(
     _In_                                        BCRYPT_HANDLE   hObject,
-    _In_z_                                      LPCWSTR pszProperty,
+    _In_                                        LPCWSTR pszProperty,
     _Out_writes_bytes_to_opt_(cbOutput, *pcbResult) PUCHAR   pbOutput,
     _In_                                        ULONG   cbOutput,
     _Out_                                       ULONG   *pcbResult,
@@ -1113,7 +1101,7 @@ NTSTATUS
 WINAPI
 BCryptSetProperty(
     _Inout_                 BCRYPT_HANDLE   hObject,
-    _In_z_                  LPCWSTR pszProperty,
+    _In_                    LPCWSTR pszProperty,
     _In_reads_bytes_(cbInput)    PUCHAR   pbInput,
     _In_                    ULONG   cbInput,
     _In_                    ULONG   dwFlags);
@@ -1196,7 +1184,7 @@ WINAPI
 BCryptExportKey(
     _In_                                        BCRYPT_KEY_HANDLE   hKey,
     _In_opt_                                    BCRYPT_KEY_HANDLE   hExportKey,
-    _In_z_                                      LPCWSTR pszBlobType,
+    _In_                                        LPCWSTR pszBlobType,
     _Out_writes_bytes_to_opt_(cbOutput, *pcbResult) PUCHAR   pbOutput,
     _In_                                        ULONG   cbOutput,
     _Out_                                       ULONG   *pcbResult,
@@ -1209,7 +1197,7 @@ WINAPI
 BCryptImportKey(
     _In_                                BCRYPT_ALG_HANDLE hAlgorithm,
     _In_opt_                            BCRYPT_KEY_HANDLE hImportKey,
-    _In_z_                              LPCWSTR pszBlobType,
+    _In_                                LPCWSTR pszBlobType,
     _Out_                               BCRYPT_KEY_HANDLE *phKey,
     _Out_writes_bytes_all_opt_(cbKeyObject)  PUCHAR   pbKeyObject,
     _In_                                ULONG   cbKeyObject,
@@ -1219,20 +1207,13 @@ BCryptImportKey(
 
 
 #define BCRYPT_NO_KEY_VALIDATION    0x00000008
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
-#define BCRYPT_KEY_VALIDATION_RANGE             0x00000010  // BCryptImportKeyPair
-#define BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER   0x00000018  // BCryptImportKeyPair & BCryptFinalizeKeyPair
-#define BCRYPT_KEY_VALIDATION_REGENERATE        0x00000020  // BCryptImportKeyPair
-#endif
-
 _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptImportKeyPair(
     _In_                            BCRYPT_ALG_HANDLE hAlgorithm,
     _In_opt_                        BCRYPT_KEY_HANDLE hImportKey,
-    _In_z_                          LPCWSTR pszBlobType,
+    _In_                            LPCWSTR pszBlobType,
     _Out_                           BCRYPT_KEY_HANDLE *phKey,
     _In_reads_bytes_(cbInput)            PUCHAR   pbInput,
     _In_                            ULONG   cbInput,
@@ -1312,7 +1293,7 @@ NTSTATUS
 WINAPI
 BCryptDeriveKey(
     _In_        BCRYPT_SECRET_HANDLE hSharedSecret,
-    _In_z_      LPCWSTR              pwszKDF,
+    _In_        LPCWSTR              pwszKDF,
     _In_opt_    BCryptBufferDesc     *pParameterList,
     _Out_writes_bytes_to_opt_(cbDerivedKey, *pcbResult) PUCHAR pbDerivedKey,
     _In_        ULONG                cbDerivedKey,
@@ -1705,18 +1686,24 @@ _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptQueryProviderRegistration(
-    _In_z_ LPCWSTR pszProvider,
+    _In_ LPCWSTR pszProvider,
     _In_ ULONG dwMode,
     _In_ ULONG dwInterface,
     _Inout_ ULONG* pcbBuffer,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PCRYPT_PROVIDER_REG *ppBuffer);
+    _Inout_
+        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+    PCRYPT_PROVIDER_REG *ppBuffer);
 
 _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptEnumRegisteredProviders(
     _Inout_ ULONG* pcbBuffer,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PCRYPT_PROVIDERS *ppBuffer);
+    _Inout_
+        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+    PCRYPT_PROVIDERS *ppBuffer);
 
 //
 // Context Configuration Functions
@@ -1726,7 +1713,7 @@ NTSTATUS
 WINAPI
 BCryptCreateContext(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_opt_ PCRYPT_CONTEXT_CONFIG pConfig); // Optional
 
 _Must_inspect_result_
@@ -1734,7 +1721,7 @@ NTSTATUS
 WINAPI
 BCryptDeleteContext(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext);
+    _In_ LPCWSTR pszContext);
 
 _Must_inspect_result_
 NTSTATUS
@@ -1742,14 +1729,17 @@ WINAPI
 BCryptEnumContexts(
     _In_ ULONG dwTable,
     _Inout_ ULONG* pcbBuffer,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PCRYPT_CONTEXTS *ppBuffer);
+    _Inout_
+        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+    PCRYPT_CONTEXTS *ppBuffer);
 
 _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptConfigureContext(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ PCRYPT_CONTEXT_CONFIG pConfig);
 
 _Must_inspect_result_
@@ -1757,18 +1747,21 @@ NTSTATUS
 WINAPI
 BCryptQueryContextConfiguration(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _Inout_ ULONG* pcbBuffer,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PCRYPT_CONTEXT_CONFIG *ppBuffer);
+    _Inout_
+        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+    PCRYPT_CONTEXT_CONFIG *ppBuffer);
 
 _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptAddContextFunction(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ ULONG dwInterface,
-    _In_z_ LPCWSTR pszFunction,
+    _In_ LPCWSTR pszFunction,
     _In_ ULONG dwPosition);
 
 _Must_inspect_result_
@@ -1776,28 +1769,31 @@ NTSTATUS
 WINAPI
 BCryptRemoveContextFunction(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ ULONG dwInterface,
-    _In_z_ LPCWSTR pszFunction);
+    _In_ LPCWSTR pszFunction);
 
 _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptEnumContextFunctions(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ ULONG dwInterface,
     _Inout_ ULONG* pcbBuffer,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PCRYPT_CONTEXT_FUNCTIONS *ppBuffer);
+    _Inout_
+        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+    PCRYPT_CONTEXT_FUNCTIONS *ppBuffer);
 
 _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptConfigureContextFunction(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ ULONG dwInterface,
-    _In_z_ LPCWSTR pszFunction,
+    _In_ LPCWSTR pszFunction,
     _In_ PCRYPT_CONTEXT_FUNCTION_CONFIG pConfig);
 
 _Must_inspect_result_
@@ -1805,11 +1801,14 @@ NTSTATUS
 WINAPI
 BCryptQueryContextFunctionConfiguration(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ ULONG dwInterface,
-    _In_z_ LPCWSTR pszFunction,
+    _In_ LPCWSTR pszFunction,
     _Inout_ ULONG* pcbBuffer,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PCRYPT_CONTEXT_FUNCTION_CONFIG *ppBuffer);
+    _Inout_
+        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+    PCRYPT_CONTEXT_FUNCTION_CONFIG *ppBuffer);
 
 
 _Must_inspect_result_
@@ -1817,21 +1816,24 @@ NTSTATUS
 WINAPI
 BCryptEnumContextFunctionProviders(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ ULONG dwInterface,
-    _In_z_ LPCWSTR pszFunction,
+    _In_ LPCWSTR pszFunction,
     _Inout_ ULONG* pcbBuffer,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PCRYPT_CONTEXT_FUNCTION_PROVIDERS *ppBuffer);
+    _Inout_
+        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+    PCRYPT_CONTEXT_FUNCTION_PROVIDERS *ppBuffer);
 
 _Must_inspect_result_
 NTSTATUS
 WINAPI
 BCryptSetContextFunctionProperty(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ ULONG dwInterface,
-    _In_z_ LPCWSTR pszFunction,
-    _In_z_ LPCWSTR pszProperty,
+    _In_ LPCWSTR pszFunction,
+    _In_ LPCWSTR pszProperty,
     _In_ ULONG cbValue,
     _In_reads_bytes_opt_(cbValue) PUCHAR pbValue);
 
@@ -1840,12 +1842,15 @@ NTSTATUS
 WINAPI
 BCryptQueryContextFunctionProperty(
     _In_ ULONG dwTable,
-    _In_z_ LPCWSTR pszContext,
+    _In_ LPCWSTR pszContext,
     _In_ ULONG dwInterface,
-    _In_z_ LPCWSTR pszFunction,
-    _In_z_ LPCWSTR pszProperty,
+    _In_ LPCWSTR pszFunction,
+    _In_ LPCWSTR pszProperty,
     _Inout_ ULONG* pcbValue,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PUCHAR *ppbValue);
+    _Inout_
+        _When_(_Old_(*ppbValue) != NULL, _At_(*ppbValue, _Out_writes_bytes_to_(*pcbValue, *pcbValue)))
+        _When_(_Old_(*ppbValue) == NULL, _Outptr_result_bytebuffer_all_(*pcbValue))
+    PUCHAR *ppbValue);
 
 #endif //#ifndef KERNEL_MODE_CNG
 
@@ -1887,14 +1892,17 @@ BCryptUnregisterConfigChangeNotify(
 _Must_inspect_result_
 NTSTATUS WINAPI
 BCryptResolveProviders(
-    _In_opt_z_ LPCWSTR pszContext,
+    _In_opt_ LPCWSTR pszContext,
     _In_opt_ ULONG dwInterface,
-    _In_opt_z_ LPCWSTR pszFunction,
-    _In_opt_z_ LPCWSTR pszProvider,
+    _In_opt_ LPCWSTR pszFunction,
+    _In_opt_ LPCWSTR pszProvider,
     _In_ ULONG dwMode,
     _In_ ULONG dwFlags,
     _Inout_ ULONG* pcbBuffer,
-    _Outptr_opt_result_bytebuffer_all_maybenull_(*pcbBuffer) PCRYPT_PROVIDER_REFS *ppBuffer);
+    _Inout_
+        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+    PCRYPT_PROVIDER_REFS *ppBuffer);
 
 #endif /* WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM */
 #pragma endregion
@@ -1910,13 +1918,13 @@ WINAPI
 BCryptGetFipsAlgorithmMode(
     _Out_ BOOLEAN *pfEnabled
     );
-
+    
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)*/
 #pragma endregion
 
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-
+    
 BOOLEAN
 CngGetFipsAlgorithmMode(
     VOID

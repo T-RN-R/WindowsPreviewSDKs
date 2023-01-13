@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -31,14 +31,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -204,34 +196,28 @@ EXTERN_C const IID IID_IInkDivider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IInkDivider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IInkDivider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IInkDivider * This);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             __RPC__in IInkDivider * This,
             /* [out] */ __RPC__out UINT *pctinfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             __RPC__in IInkDivider * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ __RPC__deref_out_opt ITypeInfo **ppTInfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             __RPC__in IInkDivider * This,
             /* [in] */ __RPC__in REFIID riid,
@@ -240,7 +226,6 @@ EXTERN_C const IID IID_IInkDivider;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ __RPC__out_ecount_full(cNames) DISPID *rgDispId);
         
-        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IInkDivider * This,
             /* [annotation][in] */ 
@@ -260,37 +245,30 @@ EXTERN_C const IID IID_IInkDivider;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
-        DECLSPEC_XFGVIRT(IInkDivider, get_Strokes)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Strokes )( 
             __RPC__in IInkDivider * This,
             /* [retval][out] */ __RPC__deref_out_opt IInkStrokes **Strokes);
         
-        DECLSPEC_XFGVIRT(IInkDivider, putref_Strokes)
         /* [helpcontext][helpstring][id][propputref] */ HRESULT ( STDMETHODCALLTYPE *putref_Strokes )( 
             __RPC__in IInkDivider * This,
             /* [in] */ __RPC__in_opt IInkStrokes *Strokes);
         
-        DECLSPEC_XFGVIRT(IInkDivider, get_RecognizerContext)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RecognizerContext )( 
             __RPC__in IInkDivider * This,
             /* [retval][out] */ __RPC__deref_out_opt IInkRecognizerContext **RecognizerContext);
         
-        DECLSPEC_XFGVIRT(IInkDivider, putref_RecognizerContext)
         /* [helpcontext][helpstring][id][propputref] */ HRESULT ( STDMETHODCALLTYPE *putref_RecognizerContext )( 
             __RPC__in IInkDivider * This,
             /* [in] */ __RPC__in_opt IInkRecognizerContext *RecognizerContext);
         
-        DECLSPEC_XFGVIRT(IInkDivider, get_LineHeight)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LineHeight )( 
             __RPC__in IInkDivider * This,
             /* [retval][out] */ __RPC__out LONG *LineHeight);
         
-        DECLSPEC_XFGVIRT(IInkDivider, put_LineHeight)
         /* [helpcontext][helpstring][id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LineHeight )( 
             __RPC__in IInkDivider * This,
             /* [in] */ LONG LineHeight);
         
-        DECLSPEC_XFGVIRT(IInkDivider, Divide)
         /* [helpcontext][helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Divide )( 
             __RPC__in IInkDivider * This,
             /* [retval][out] */ __RPC__deref_out_opt IInkDivisionResult **InkDivisionResult);
@@ -394,34 +372,28 @@ EXTERN_C const IID IID_IInkDivisionResult;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IInkDivisionResult * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IInkDivisionResult * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IInkDivisionResult * This);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             __RPC__in IInkDivisionResult * This,
             /* [out] */ __RPC__out UINT *pctinfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             __RPC__in IInkDivisionResult * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ __RPC__deref_out_opt ITypeInfo **ppTInfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             __RPC__in IInkDivisionResult * This,
             /* [in] */ __RPC__in REFIID riid,
@@ -430,7 +402,6 @@ EXTERN_C const IID IID_IInkDivisionResult;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ __RPC__out_ecount_full(cNames) DISPID *rgDispId);
         
-        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IInkDivisionResult * This,
             /* [annotation][in] */ 
@@ -450,12 +421,10 @@ EXTERN_C const IID IID_IInkDivisionResult;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
-        DECLSPEC_XFGVIRT(IInkDivisionResult, get_Strokes)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Strokes )( 
             __RPC__in IInkDivisionResult * This,
             /* [retval][out] */ __RPC__deref_out_opt IInkStrokes **Strokes);
         
-        DECLSPEC_XFGVIRT(IInkDivisionResult, ResultByType)
         /* [helpcontext][helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *ResultByType )( 
             __RPC__in IInkDivisionResult * This,
             /* [in] */ InkDivisionType divisionType,
@@ -550,34 +519,28 @@ EXTERN_C const IID IID_IInkDivisionUnit;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IInkDivisionUnit * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IInkDivisionUnit * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IInkDivisionUnit * This);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             __RPC__in IInkDivisionUnit * This,
             /* [out] */ __RPC__out UINT *pctinfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             __RPC__in IInkDivisionUnit * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ __RPC__deref_out_opt ITypeInfo **ppTInfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             __RPC__in IInkDivisionUnit * This,
             /* [in] */ __RPC__in REFIID riid,
@@ -586,7 +549,6 @@ EXTERN_C const IID IID_IInkDivisionUnit;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ __RPC__out_ecount_full(cNames) DISPID *rgDispId);
         
-        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IInkDivisionUnit * This,
             /* [annotation][in] */ 
@@ -606,22 +568,18 @@ EXTERN_C const IID IID_IInkDivisionUnit;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
-        DECLSPEC_XFGVIRT(IInkDivisionUnit, get_Strokes)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Strokes )( 
             __RPC__in IInkDivisionUnit * This,
             /* [retval][out] */ __RPC__deref_out_opt IInkStrokes **Strokes);
         
-        DECLSPEC_XFGVIRT(IInkDivisionUnit, get_DivisionType)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DivisionType )( 
             __RPC__in IInkDivisionUnit * This,
             /* [retval][out] */ __RPC__out InkDivisionType *divisionType);
         
-        DECLSPEC_XFGVIRT(IInkDivisionUnit, get_RecognizedString)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RecognizedString )( 
             __RPC__in IInkDivisionUnit * This,
             /* [retval][out] */ __RPC__deref_out_opt BSTR *RecoString);
         
-        DECLSPEC_XFGVIRT(IInkDivisionUnit, get_RotationTransform)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RotationTransform )( 
             __RPC__in IInkDivisionUnit * This,
             /* [retval][out] */ __RPC__deref_out_opt IInkTransform **RotationTransform);
@@ -719,34 +677,28 @@ EXTERN_C const IID IID_IInkDivisionUnits;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IInkDivisionUnits * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IInkDivisionUnits * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IInkDivisionUnits * This);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             __RPC__in IInkDivisionUnits * This,
             /* [out] */ __RPC__out UINT *pctinfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             __RPC__in IInkDivisionUnits * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ __RPC__deref_out_opt ITypeInfo **ppTInfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             __RPC__in IInkDivisionUnits * This,
             /* [in] */ __RPC__in REFIID riid,
@@ -755,7 +707,6 @@ EXTERN_C const IID IID_IInkDivisionUnits;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ __RPC__out_ecount_full(cNames) DISPID *rgDispId);
         
-        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IInkDivisionUnits * This,
             /* [annotation][in] */ 
@@ -775,17 +726,14 @@ EXTERN_C const IID IID_IInkDivisionUnits;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
-        DECLSPEC_XFGVIRT(IInkDivisionUnits, get_Count)
         /* [helpcontext][helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Count )( 
             __RPC__in IInkDivisionUnits * This,
             /* [retval][out] */ __RPC__out long *Count);
         
-        DECLSPEC_XFGVIRT(IInkDivisionUnits, get__NewEnum)
         /* [helpcontext][helpstring][restricted][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get__NewEnum )( 
             __RPC__in IInkDivisionUnits * This,
             /* [retval][out] */ __RPC__deref_out_opt IUnknown **_NewEnum);
         
-        DECLSPEC_XFGVIRT(IInkDivisionUnits, Item)
         /* [helpcontext][helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Item )( 
             __RPC__in IInkDivisionUnits * This,
             /* [in] */ long Index,

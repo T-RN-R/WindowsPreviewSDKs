@@ -1603,28 +1603,6 @@ DEFINE_GUID(MF_CAPTURE_METADATA_SCANLINE_DIRECTION,
 #define MFCAPTURE_METADATA_SCAN_BOTTOM_TOP         0x00000002
 #define MFCAPTURE_METADATA_SCANLINE_VERTICAL       0x00000004
 
-// {276F72A2-59C8-4F69-97B4-068B8C0EC044}
-// Value type: BLOB
-// Reports the current Digital Window as a DigitalWindowSetting structure.
-DEFINE_GUID(MF_CAPTURE_METADATA_DIGITALWINDOW,
-    0x276f72a2, 0x59c8, 0x4f69, 0x97, 0xb4, 0x6, 0x8b, 0x8c, 0xe, 0xc0, 0x44);
-
-// Digital Window Region
-typedef struct tagDigitalWindowSetting {
-    double      OriginX;
-    double      OriginY;
-    double      WindowSize;
-} DigitalWindowSetting;
-
-// {03F14DD3-75DD-433A-A8E2-1E3F5F2A50A0}
-// Value type: BLOB
-// Reports the background segmentation mask BackgroundSegmentationMask structure.
-// Refer to the KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK struct in ksmedia.h
-DEFINE_GUID(MF_CAPTURE_METADATA_FRAME_BACKGROUND_MASK, 
-0x3f14dd3, 0x75dd, 0x433a, 0xa8, 0xe2, 0x1e, 0x3f, 0x5f, 0x2a, 0x50, 0xa0);
-
-
-
 typedef struct tagFaceRectInfoBlobHeader
 {
     ULONG Size;     // Size of this header + all FaceRectInfo following
@@ -2164,7 +2142,6 @@ DEFINE_MEDIATYPE_GUID( MFVideoFormat_YVU9,      FCC('YVU9') );
 DEFINE_MEDIATYPE_GUID( MFVideoFormat_UYVY,      FCC('UYVY') );
 DEFINE_MEDIATYPE_GUID( MFVideoFormat_NV11,      FCC('NV11') );
 DEFINE_MEDIATYPE_GUID( MFVideoFormat_NV12,      FCC('NV12') );
-DEFINE_MEDIATYPE_GUID( MFVideoFormat_NV21,      FCC('NV21') );
 DEFINE_MEDIATYPE_GUID( MFVideoFormat_YV12,      FCC('YV12') );
 DEFINE_MEDIATYPE_GUID( MFVideoFormat_I420,      FCC('I420') );
 DEFINE_MEDIATYPE_GUID( MFVideoFormat_IYUV,      FCC('IYUV') );
@@ -2223,10 +2200,6 @@ DEFINE_MEDIATYPE_GUID(MFVideoFormat_A16B16G16R16F, D3DFMT_A16B16G16R16F);
 DEFINE_MEDIATYPE_GUID(MFVideoFormat_VP10,       FCC('VP10'));
 DEFINE_MEDIATYPE_GUID(MFVideoFormat_AV1,        FCC('AV01'));
 #endif
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
-DEFINE_MEDIATYPE_GUID(MFVideoFormat_Theora,     FCC('theo')); // {6F656874-0000-0010-8000-00AA00389B71}
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
 
 #if (WDK_NTDDI_VERSION >= NTDDI_WIN10)
 //
@@ -2292,11 +2265,8 @@ DEFINE_MEDIATYPE_GUID( MFAudioFormat_Float,             WAVE_FORMAT_IEEE_FLOAT )
 
 // MFAudioFormat_DTS is for S/PDIF-encapsulated DTS core streams. It is the same as KSDATAFORMAT_SUBTYPE_IEC61937_DTS in ksmedia.h.
 // Use MEDIASUBTYPE_DTS2 (defined in wmcodecdsp.h) for raw DTS core streams.
-// MFAudioFormat_DTS_RAW (same as MEDIASUBTYPE_DTS) can also be used for raw DTS core streams. While the values for MEDIASUBTYPE_DTS and
-// MEDIASUBTYPE_DTS2 are different, the stream type is the same.
-//
-// If DTS extension substreams may be present, use MFAudioFormat_DTS_HD (same as MEDIASUBTYPE_DTS_HD) for Master Audio,
-// and MEDIASUBTYPE_DTS_HD_HRA for High Resolution Audio and other extension substream variants.
+// If DTS extension substreams may be present, use MEDIASUBTYPE_DTS_HD instead for Master Audio, and MEDIASUBTYPE_DTS_HD_HRA for
+// High Resolution Audio and other extension substream variants.
 // (KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD is the S/PDIF media subtype for MEDIASUBTYPE_DTS_HD and MEDIASUBTYPE_DTS_HD_HRA.)
 DEFINE_MEDIATYPE_GUID( MFAudioFormat_DTS,               WAVE_FORMAT_DTS );
 
@@ -2322,43 +2292,15 @@ DEFINE_MEDIATYPE_GUID( MFAudioFormat_FLAC,              WAVE_FORMAT_FLAC );
 DEFINE_MEDIATYPE_GUID( MFAudioFormat_ALAC,              WAVE_FORMAT_ALAC );
 DEFINE_MEDIATYPE_GUID( MFAudioFormat_Opus,              WAVE_FORMAT_OPUS );
 #endif
-DEFINE_MEDIATYPE_GUID( MFAudioFormat_Dolby_AC4,         WAVE_FORMAT_DOLBY_AC4 );
 
 // These audio types are not derived from an existing wFormatTag 
 DEFINE_GUID(MFAudioFormat_Dolby_AC3, // == MEDIASUBTYPE_DOLBY_AC3 defined in ksuuids.h
 0xe06d802c, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x05f, 0x6c, 0xbb, 0xea);
 DEFINE_GUID(MFAudioFormat_Dolby_DDPlus, // == MEDIASUBTYPE_DOLBY_DDPLUS defined in wmcodecdsp.h
 0xa7fb87af, 0x2d02, 0x42fb, 0xa4, 0xd4, 0x5, 0xcd, 0x93, 0x84, 0x3b, 0xdd);
-
-// {36b7927c-3d87-4a2a-9196-a21ad9e935e6}
-// AC-4 bitstream versions 0 and 1.
-// This audio media type is normally used as an alternate media type (the primary being MFAudioFormat_Dolby_AC4)
-// to allow a MFT to register support for only version 0 and 1 of the AC-4 bistream.
-DEFINE_GUID(MFAudioFormat_Dolby_AC4_V1,
-0x36b7927c, 0x3d87, 0x4a2a, 0x91, 0x96, 0xa2, 0x1a, 0xd9, 0xe9, 0x35, 0xe6);
-
-// {7998b2a0-17dd-49b6-8dfa-9b278552a2ac}
-// AC-4 bitstream version 2. (Supports Immersive Stereo.)
-// This audio media type is normally used as an alternate media type (the primary being MFAudioFormat_Dolby_AC4)
-// to allow a MFT to register support for only version 2 of the AC-4 bistream.
-DEFINE_GUID(MFAudioFormat_Dolby_AC4_V2,
-0x7998b2a0, 0x17dd, 0x49b6, 0x8d, 0xfa, 0x9b, 0x27, 0x85, 0x52, 0xa2, 0xac);
-
-// {9d8dccc6-d156-4fb8-979c-a85be7d21dfa}
-// This format is used for AC-4 streams that use ac4_syncframe and the optional crc
-// at the end of each frame. The frames might not be aligned with IMFSample boundaries.
-DEFINE_GUID(MFAudioFormat_Dolby_AC4_V1_ES,
-0x9d8dccc6, 0xd156, 0x4fb8, 0x97, 0x9c, 0xa8, 0x5b, 0xe7, 0xd2, 0x1d, 0xfa);
-
-// {7e58c9f9-b070-45f4-8ccd-a99a0417c1ac}
-// This format is used for AC-4 version 2 bit streams (may include Immersive Stereo) that use ac4_syncframe
-// and the optional crc at the end of each frame. The frames might not be aligned with IMFSample boundaries.
-DEFINE_GUID(MFAudioFormat_Dolby_AC4_V2_ES,
-0x7e58c9f9, 0xb070, 0x45f4, 0x8c, 0xcd, 0xa9, 0x9a, 0x04, 0x17, 0xc1, 0xac);
-
 DEFINE_GUID(MFAudioFormat_Vorbis,      // {8D2FD10B-5841-4a6b-8905-588FEC1ADED9}
 0x8D2FD10B, 0x5841, 0x4a6b, 0x89, 0x05, 0x58, 0x8F, 0xEC, 0x1A, 0xDE, 0xD9);
-DEFINE_GUID(MFAudioFormat_DTS_RAW, // == MEDIASUBTYPE_DTS defined in ksuuids.h
+DEFINE_GUID(MFAudioFormat_DTS_RAW, // == MEDIASUBTYPE_DTS defined in wmcodecdsp.h
 0xE06D8033, 0xDB46, 0x11CF, 0xB4, 0xD1, 0x00, 0x80, 0x5F, 0x6C, 0xBB, 0xEA);
 DEFINE_GUID(MFAudioFormat_DTS_HD, // == MEDIASUBTYPE_DTS_HD defined in wmcodecdsp.h
 0xA2E58EB7, 0x0FA9, 0x48BB, 0xA4, 0x0C, 0xFA, 0x0E, 0x15, 0x6D, 0x06, 0x45);
@@ -2934,10 +2876,6 @@ DEFINE_GUID( MF_MT_SPATIAL_AUDIO_MIN_METADATA_ITEM_OFFSET_SPACING,
 // {6842F6E7-D43E-4EBB-9C9C-C96F41784863} MF_MT_SPATIAL_AUDIO_DATA_PRESENT {UINT32 (BOOL)}
 DEFINE_GUID( MF_MT_SPATIAL_AUDIO_DATA_PRESENT, 
     0x6842f6e7, 0xd43e, 0x4ebb, 0x9c, 0x9c, 0xc9, 0x6f, 0x41, 0x78, 0x48, 0x63 );
-
-// {4EACAB51-FFE5-421A-A2A7-8B7409A1CAC4} MF_MT_SPATIAL_AUDIO_IS_PREVIRTUALIZED {UINT32 (BOOL)}
-DEFINE_GUID(MF_MT_SPATIAL_AUDIO_IS_PREVIRTUALIZED,
-    0x4eacab51, 0xffe5, 0x421a, 0xa2, 0xa7, 0x8b, 0x74, 0x09, 0xa1, 0xca, 0xc4 );
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS2)
 
@@ -3643,13 +3581,6 @@ DEFINE_GUID(AM_MEDIA_TYPE_REPRESENTATION,
 DEFINE_GUID(FORMAT_MFVideoFormat,
 0xaed4ab2d, 0x7326, 0x43cb, 0x94, 0x64, 0xc8, 0x79, 0xca, 0xb9, 0xc4, 0x3d);
 
-#if (WINVER >= _WIN32_WINNT_FE)
-// {2C8FA20C-82BB-4782-90A0-98A2A5BD8EF8}
-DEFINE_GUID(MFMediaType_Metadata, 
-0x2c8fa20c, 0x82bb, 0x4782, 0x90, 0xa0, 0x98, 0xa2, 0xa5, 0xbd, 0x8e, 0xf8);
-#endif // (WINVER >= _WIN32_WINNT_FE)
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////  Media Type functions //////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -3727,7 +3658,6 @@ MFCreateWaveFormatExFromMFMediaType(
     _Out_opt_   UINT32*         pcbSize,
     _In_        UINT32          Flags = MFWaveFormatExConvertFlag_Normal
     );
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -3766,7 +3696,6 @@ MFInitMediaTypeFromMPEG2VideoInfo(
     _In_opt_                const GUID*             pSubtype = NULL
     );
 
-#ifndef NOBITMAP
 STDAPI
 MFCalculateBitmapImageSize(
     _In_reads_bytes_(cbBufSize)  const BITMAPINFOHEADER* pBMIH,
@@ -3774,7 +3703,6 @@ MFCalculateBitmapImageSize(
     _Out_                   UINT32*                 pcbImageSize,
     _Out_opt_               BOOL*                   pbKnown = NULL
     );
-#endif // NOBITMAP
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -3831,7 +3759,6 @@ MFInitMediaTypeFromMPEG2VideoInfo(
     _In_opt_                const GUID*             pSubtype
     );
 
-#ifndef NOBITMAP
 STDAPI
 MFCalculateBitmapImageSize(
     _In_reads_bytes_(cbBufSize)  const BITMAPINFOHEADER* pBMIH,
@@ -3839,14 +3766,13 @@ MFCalculateBitmapImageSize(
     _Out_                   UINT32*                 pcbImageSize,
     _Out_opt_               BOOL*                   pbKnown
     );
-#endif // NOBITMAP
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
 #endif /* cplusplus */
 
-#pragma region Application Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
+#pragma region Desktop Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)
 
 STDAPI
 MFCalculateImageSize(
@@ -3871,6 +3797,18 @@ MFAverageTimePerFrameToFrameRate(
     );
 
 STDAPI
+MFInitMediaTypeFromMFVideoFormat(
+    _In_                    IMFMediaType*           pMFType,
+    _In_reads_bytes_(cbBufSize)  const MFVIDEOFORMAT*    pMFVF,
+    _In_                    UINT32                  cbBufSize
+    );
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
+#pragma endregion
+
+#pragma region Application Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
+STDAPI
 MFInitMediaTypeFromWaveFormatEx(
     _In_                    IMFMediaType*           pMFType,
     _In_reads_bytes_(cbBufSize)  const WAVEFORMATEX*     pWaveFormat,
@@ -3881,13 +3819,6 @@ MFInitMediaTypeFromWaveFormatEx(
 
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)
-STDAPI
-MFInitMediaTypeFromMFVideoFormat(
-    _In_                    IMFMediaType*           pMFType,
-    _In_reads_bytes_(cbBufSize)  const MFVIDEOFORMAT*    pMFVF,
-    _In_                    UINT32                  cbBufSize
-    );
-
 STDAPI
 MFInitMediaTypeFromAMMediaType(
     _In_    IMFMediaType*           pMFType,
@@ -3952,12 +3883,6 @@ MFUnwrapMediaType(
     _Out_   IMFMediaType **  ppOrig
     );
 
-STDAPI MFGetStrideForBitmapInfoHeader(
-    DWORD format,
-    DWORD dwWidth,
-    _Out_ LONG* pStride
-    );
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -4008,7 +3933,6 @@ MFIsFormatYUV(
 //
 //  These depend on BITMAPINFOHEADER being defined
 //
-#ifndef NOBITMAP
 STDAPI MFCreateVideoMediaTypeFromBitMapInfoHeader(
     _In_ const BITMAPINFOHEADER* pbmihBitMapInfoHeader,
     DWORD dwPixelAspectRatioX,
@@ -4020,7 +3944,12 @@ STDAPI MFCreateVideoMediaTypeFromBitMapInfoHeader(
     DWORD dwMaxBitRate,
     _Out_ IMFVideoMediaType** ppIVideoMediaType
     );
-#endif // NOBITMAP
+
+STDAPI MFGetStrideForBitmapInfoHeader(
+    DWORD format,
+    DWORD dwWidth,
+    _Out_ LONG* pStride
+    );
 
 STDAPI MFGetPlaneSize(
     DWORD format,
@@ -4030,7 +3959,6 @@ STDAPI MFGetPlaneSize(
     );
 
 #if (WINVER >= _WIN32_WINNT_WIN7)
-#ifndef NOBITMAP
 //
 // MFCreateVideoMediaTypeFromBitMapInfoHeaderEx
 //
@@ -4047,7 +3975,6 @@ STDAPI MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(
     DWORD dwMaxBitRate,
     _Out_ IMFVideoMediaType** ppIVideoMediaType
     );
-#endif // NOBITMAP
 #endif // (WINVER >= _WIN32_WINNT_WIN7)
 
 //

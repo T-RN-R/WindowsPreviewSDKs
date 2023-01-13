@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -187,22 +179,18 @@ EXTERN_C const IID IID_IMFReadWriteClassFactory;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFReadWriteClassFactory * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFReadWriteClassFactory * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFReadWriteClassFactory * This);
         
-        DECLSPEC_XFGVIRT(IMFReadWriteClassFactory, CreateInstanceFromURL)
         HRESULT ( STDMETHODCALLTYPE *CreateInstanceFromURL )( 
             IMFReadWriteClassFactory * This,
             /* [annotation][in] */ 
@@ -216,7 +204,6 @@ EXTERN_C const IID IID_IMFReadWriteClassFactory;
             /* [annotation][iid_is][out] */ 
             _Out_  LPVOID *ppvObject);
         
-        DECLSPEC_XFGVIRT(IMFReadWriteClassFactory, CreateInstanceFromObject)
         HRESULT ( STDMETHODCALLTYPE *CreateInstanceFromObject )( 
             IMFReadWriteClassFactory * This,
             /* [annotation][in] */ 
@@ -441,22 +428,18 @@ EXTERN_C const IID IID_IMFSourceReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSourceReader * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSourceReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSourceReader * This);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetStreamSelection)
         HRESULT ( STDMETHODCALLTYPE *GetStreamSelection )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -464,7 +447,6 @@ EXTERN_C const IID IID_IMFSourceReader;
             /* [annotation][out] */ 
             _Out_  BOOL *pfSelected);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, SetStreamSelection)
         HRESULT ( STDMETHODCALLTYPE *SetStreamSelection )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -472,7 +454,6 @@ EXTERN_C const IID IID_IMFSourceReader;
             /* [annotation][in] */ 
             _In_  BOOL fSelected);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetNativeMediaType)
         HRESULT ( STDMETHODCALLTYPE *GetNativeMediaType )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -482,7 +463,6 @@ EXTERN_C const IID IID_IMFSourceReader;
             /* [annotation][out] */ 
             _Out_  IMFMediaType **ppMediaType);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetCurrentMediaType)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentMediaType )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -490,7 +470,6 @@ EXTERN_C const IID IID_IMFSourceReader;
             /* [annotation][out] */ 
             _Out_  IMFMediaType **ppMediaType);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, SetCurrentMediaType)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentMediaType )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -500,7 +479,6 @@ EXTERN_C const IID IID_IMFSourceReader;
             /* [annotation][in] */ 
             _In_  IMFMediaType *pMediaType);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, SetCurrentPosition)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentPosition )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -508,7 +486,6 @@ EXTERN_C const IID IID_IMFSourceReader;
             /* [annotation][in] */ 
             _In_  REFPROPVARIANT varPosition);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, ReadSample)
         HRESULT ( STDMETHODCALLTYPE *ReadSample )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -524,13 +501,11 @@ EXTERN_C const IID IID_IMFSourceReader;
             /* [annotation][out] */ 
             _Out_opt_  IMFSample **ppSample);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, Flush)
         HRESULT ( STDMETHODCALLTYPE *Flush )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetServiceForStream)
         HRESULT ( STDMETHODCALLTYPE *GetServiceForStream )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -542,7 +517,6 @@ EXTERN_C const IID IID_IMFSourceReader;
             /* [annotation][out] */ 
             _Out_  LPVOID *ppvObject);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetPresentationAttribute)
         HRESULT ( STDMETHODCALLTYPE *GetPresentationAttribute )( 
             IMFSourceReader * This,
             /* [annotation][in] */ 
@@ -681,22 +655,18 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSourceReaderEx * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSourceReaderEx * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSourceReaderEx * This);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetStreamSelection)
         HRESULT ( STDMETHODCALLTYPE *GetStreamSelection )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -704,7 +674,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][out] */ 
             _Out_  BOOL *pfSelected);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, SetStreamSelection)
         HRESULT ( STDMETHODCALLTYPE *SetStreamSelection )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -712,7 +681,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][in] */ 
             _In_  BOOL fSelected);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetNativeMediaType)
         HRESULT ( STDMETHODCALLTYPE *GetNativeMediaType )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -722,7 +690,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][out] */ 
             _Out_  IMFMediaType **ppMediaType);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetCurrentMediaType)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentMediaType )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -730,7 +697,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][out] */ 
             _Out_  IMFMediaType **ppMediaType);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, SetCurrentMediaType)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentMediaType )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -740,7 +706,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][in] */ 
             _In_  IMFMediaType *pMediaType);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, SetCurrentPosition)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentPosition )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -748,7 +713,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][in] */ 
             _In_  REFPROPVARIANT varPosition);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, ReadSample)
         HRESULT ( STDMETHODCALLTYPE *ReadSample )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -764,13 +728,11 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][out] */ 
             _Out_opt_  IMFSample **ppSample);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, Flush)
         HRESULT ( STDMETHODCALLTYPE *Flush )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetServiceForStream)
         HRESULT ( STDMETHODCALLTYPE *GetServiceForStream )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -782,7 +744,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][out] */ 
             _Out_  LPVOID *ppvObject);
         
-        DECLSPEC_XFGVIRT(IMFSourceReader, GetPresentationAttribute)
         HRESULT ( STDMETHODCALLTYPE *GetPresentationAttribute )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -792,7 +753,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][out] */ 
             _Out_  PROPVARIANT *pvarAttribute);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderEx, SetNativeMediaType)
         HRESULT ( STDMETHODCALLTYPE *SetNativeMediaType )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -802,7 +762,6 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][out] */ 
             _Out_  DWORD *pdwStreamFlags);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderEx, AddTransformForStream)
         HRESULT ( STDMETHODCALLTYPE *AddTransformForStream )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -810,13 +769,11 @@ EXTERN_C const IID IID_IMFSourceReaderEx;
             /* [annotation][in] */ 
             _In_  IUnknown *pTransformOrActivate);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderEx, RemoveAllTransformsForStream)
         HRESULT ( STDMETHODCALLTYPE *RemoveAllTransformsForStream )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderEx, GetTransformForStream)
         HRESULT ( STDMETHODCALLTYPE *GetTransformForStream )( 
             IMFSourceReaderEx * This,
             /* [annotation][in] */ 
@@ -964,22 +921,18 @@ EXTERN_C const IID IID_IMFSourceReaderCallback;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSourceReaderCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSourceReaderCallback * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSourceReaderCallback * This);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderCallback, OnReadSample)
         HRESULT ( STDMETHODCALLTYPE *OnReadSample )( 
             IMFSourceReaderCallback * This,
             /* [annotation][in] */ 
@@ -993,13 +946,11 @@ EXTERN_C const IID IID_IMFSourceReaderCallback;
             /* [annotation][in] */ 
             _In_opt_  IMFSample *pSample);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderCallback, OnFlush)
         HRESULT ( STDMETHODCALLTYPE *OnFlush )( 
             IMFSourceReaderCallback * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderCallback, OnEvent)
         HRESULT ( STDMETHODCALLTYPE *OnEvent )( 
             IMFSourceReaderCallback * This,
             /* [annotation][in] */ 
@@ -1082,22 +1033,18 @@ EXTERN_C const IID IID_IMFSourceReaderCallback2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSourceReaderCallback2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSourceReaderCallback2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSourceReaderCallback2 * This);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderCallback, OnReadSample)
         HRESULT ( STDMETHODCALLTYPE *OnReadSample )( 
             IMFSourceReaderCallback2 * This,
             /* [annotation][in] */ 
@@ -1111,13 +1058,11 @@ EXTERN_C const IID IID_IMFSourceReaderCallback2;
             /* [annotation][in] */ 
             _In_opt_  IMFSample *pSample);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderCallback, OnFlush)
         HRESULT ( STDMETHODCALLTYPE *OnFlush )( 
             IMFSourceReaderCallback2 * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderCallback, OnEvent)
         HRESULT ( STDMETHODCALLTYPE *OnEvent )( 
             IMFSourceReaderCallback2 * This,
             /* [annotation][in] */ 
@@ -1125,11 +1070,9 @@ EXTERN_C const IID IID_IMFSourceReaderCallback2;
             /* [annotation][in] */ 
             _In_  IMFMediaEvent *pEvent);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderCallback2, OnTransformChange)
         HRESULT ( STDMETHODCALLTYPE *OnTransformChange )( 
             IMFSourceReaderCallback2 * This);
         
-        DECLSPEC_XFGVIRT(IMFSourceReaderCallback2, OnStreamError)
         HRESULT ( STDMETHODCALLTYPE *OnStreamError )( 
             IMFSourceReaderCallback2 * This,
             /* [annotation][in] */ 
@@ -1333,22 +1276,18 @@ EXTERN_C const IID IID_IMFSinkWriter;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSinkWriter * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSinkWriter * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSinkWriter * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, AddStream)
         HRESULT ( STDMETHODCALLTYPE *AddStream )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
@@ -1356,7 +1295,6 @@ EXTERN_C const IID IID_IMFSinkWriter;
             /* [annotation][out] */ 
             _Out_  DWORD *pdwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, SetInputMediaType)
         HRESULT ( STDMETHODCALLTYPE *SetInputMediaType )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
@@ -1366,11 +1304,9 @@ EXTERN_C const IID IID_IMFSinkWriter;
             /* [annotation][in] */ 
             _In_opt_  IMFAttributes *pEncodingParameters);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, BeginWriting)
         HRESULT ( STDMETHODCALLTYPE *BeginWriting )( 
             IMFSinkWriter * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, WriteSample)
         HRESULT ( STDMETHODCALLTYPE *WriteSample )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
@@ -1378,7 +1314,6 @@ EXTERN_C const IID IID_IMFSinkWriter;
             /* [annotation][in] */ 
             _In_  IMFSample *pSample);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, SendStreamTick)
         HRESULT ( STDMETHODCALLTYPE *SendStreamTick )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
@@ -1386,7 +1321,6 @@ EXTERN_C const IID IID_IMFSinkWriter;
             /* [annotation][in] */ 
             _In_  LONGLONG llTimestamp);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, PlaceMarker)
         HRESULT ( STDMETHODCALLTYPE *PlaceMarker )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
@@ -1394,23 +1328,19 @@ EXTERN_C const IID IID_IMFSinkWriter;
             /* [annotation][in] */ 
             _In_  LPVOID pvContext);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, NotifyEndOfSegment)
         HRESULT ( STDMETHODCALLTYPE *NotifyEndOfSegment )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, Flush)
         HRESULT ( STDMETHODCALLTYPE *Flush )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, Finalize)
         HRESULT ( STDMETHODCALLTYPE *Finalize )( 
             IMFSinkWriter * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, GetServiceForStream)
         HRESULT ( STDMETHODCALLTYPE *GetServiceForStream )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
@@ -1422,7 +1352,6 @@ EXTERN_C const IID IID_IMFSinkWriter;
             /* [annotation][out] */ 
             _Out_  LPVOID *ppvObject);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, GetStatistics)
         HRESULT ( STDMETHODCALLTYPE *GetStatistics )( 
             IMFSinkWriter * This,
             /* [annotation][in] */ 
@@ -1540,22 +1469,18 @@ EXTERN_C const IID IID_IMFSinkWriterEx;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSinkWriterEx * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSinkWriterEx * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSinkWriterEx * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, AddStream)
         HRESULT ( STDMETHODCALLTYPE *AddStream )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
@@ -1563,7 +1488,6 @@ EXTERN_C const IID IID_IMFSinkWriterEx;
             /* [annotation][out] */ 
             _Out_  DWORD *pdwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, SetInputMediaType)
         HRESULT ( STDMETHODCALLTYPE *SetInputMediaType )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
@@ -1573,11 +1497,9 @@ EXTERN_C const IID IID_IMFSinkWriterEx;
             /* [annotation][in] */ 
             _In_opt_  IMFAttributes *pEncodingParameters);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, BeginWriting)
         HRESULT ( STDMETHODCALLTYPE *BeginWriting )( 
             IMFSinkWriterEx * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, WriteSample)
         HRESULT ( STDMETHODCALLTYPE *WriteSample )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
@@ -1585,7 +1507,6 @@ EXTERN_C const IID IID_IMFSinkWriterEx;
             /* [annotation][in] */ 
             _In_  IMFSample *pSample);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, SendStreamTick)
         HRESULT ( STDMETHODCALLTYPE *SendStreamTick )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
@@ -1593,7 +1514,6 @@ EXTERN_C const IID IID_IMFSinkWriterEx;
             /* [annotation][in] */ 
             _In_  LONGLONG llTimestamp);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, PlaceMarker)
         HRESULT ( STDMETHODCALLTYPE *PlaceMarker )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
@@ -1601,23 +1521,19 @@ EXTERN_C const IID IID_IMFSinkWriterEx;
             /* [annotation][in] */ 
             _In_  LPVOID pvContext);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, NotifyEndOfSegment)
         HRESULT ( STDMETHODCALLTYPE *NotifyEndOfSegment )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, Flush)
         HRESULT ( STDMETHODCALLTYPE *Flush )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
             _In_  DWORD dwStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, Finalize)
         HRESULT ( STDMETHODCALLTYPE *Finalize )( 
             IMFSinkWriterEx * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, GetServiceForStream)
         HRESULT ( STDMETHODCALLTYPE *GetServiceForStream )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
@@ -1629,7 +1545,6 @@ EXTERN_C const IID IID_IMFSinkWriterEx;
             /* [annotation][out] */ 
             _Out_  LPVOID *ppvObject);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriter, GetStatistics)
         HRESULT ( STDMETHODCALLTYPE *GetStatistics )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
@@ -1637,7 +1552,6 @@ EXTERN_C const IID IID_IMFSinkWriterEx;
             /* [annotation][out] */ 
             _Out_  MF_SINK_WRITER_STATISTICS *pStats);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterEx, GetTransformForStream)
         HRESULT ( STDMETHODCALLTYPE *GetTransformForStream )( 
             IMFSinkWriterEx * This,
             /* [annotation][in] */ 
@@ -1758,22 +1672,18 @@ EXTERN_C const IID IID_IMFSinkWriterEncoderConfig;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSinkWriterEncoderConfig * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSinkWriterEncoderConfig * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSinkWriterEncoderConfig * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterEncoderConfig, SetTargetMediaType)
         HRESULT ( STDMETHODCALLTYPE *SetTargetMediaType )( 
             IMFSinkWriterEncoderConfig * This,
             /* [annotation][in] */ 
@@ -1783,7 +1693,6 @@ EXTERN_C const IID IID_IMFSinkWriterEncoderConfig;
             /* [annotation][in] */ 
             _In_opt_  IMFAttributes *pEncodingParameters);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterEncoderConfig, PlaceEncodingParameters)
         HRESULT ( STDMETHODCALLTYPE *PlaceEncodingParameters )( 
             IMFSinkWriterEncoderConfig * This,
             /* [annotation][in] */ 
@@ -1874,28 +1783,23 @@ EXTERN_C const IID IID_IMFSinkWriterCallback;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSinkWriterCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSinkWriterCallback * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSinkWriterCallback * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterCallback, OnFinalize)
         HRESULT ( STDMETHODCALLTYPE *OnFinalize )( 
             IMFSinkWriterCallback * This,
             /* [annotation][in] */ 
             _In_  HRESULT hrStatus);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterCallback, OnMarker)
         HRESULT ( STDMETHODCALLTYPE *OnMarker )( 
             IMFSinkWriterCallback * This,
             /* [annotation][in] */ 
@@ -1975,28 +1879,23 @@ EXTERN_C const IID IID_IMFSinkWriterCallback2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMFSinkWriterCallback2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMFSinkWriterCallback2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFSinkWriterCallback2 * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterCallback, OnFinalize)
         HRESULT ( STDMETHODCALLTYPE *OnFinalize )( 
             IMFSinkWriterCallback2 * This,
             /* [annotation][in] */ 
             _In_  HRESULT hrStatus);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterCallback, OnMarker)
         HRESULT ( STDMETHODCALLTYPE *OnMarker )( 
             IMFSinkWriterCallback2 * This,
             /* [annotation][in] */ 
@@ -2004,11 +1903,9 @@ EXTERN_C const IID IID_IMFSinkWriterCallback2;
             /* [annotation][in] */ 
             _In_  LPVOID pvContext);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterCallback2, OnTransformChange)
         HRESULT ( STDMETHODCALLTYPE *OnTransformChange )( 
             IMFSinkWriterCallback2 * This);
         
-        DECLSPEC_XFGVIRT(IMFSinkWriterCallback2, OnStreamError)
         HRESULT ( STDMETHODCALLTYPE *OnStreamError )( 
             IMFSinkWriterCallback2 * This,
             /* [annotation][in] */ 

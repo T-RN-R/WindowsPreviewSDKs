@@ -1260,8 +1260,6 @@ typedef struct _KDDEBUGGER_DATA64 {
     // pad to a quad boundary
     //
     USHORT  PaeEnabled:1;
-    USHORT  KiBugCheckRecoveryActive:1; // Windows 10 Manganese Addition
-    USHORT  PagingLevels:4;
 
     //
     // Address of the kernel callout routine.
@@ -1493,21 +1491,6 @@ typedef struct _KDDEBUGGER_DATA64 {
     ULONG     RetpolineStubFunctionTableSize;
     ULONG     RetpolineStubOffset;
     ULONG     RetpolineStubSize;
-
-    // Windows 10 Iron Addition
-
-    USHORT OffsetEProcessMmHotPatchContext;
-
-    // Windows 11 Cobalt Addition
-
-    ULONG   OffsetKThreadShadowStackLimit;
-    ULONG   OffsetKThreadShadowStackBase;
-    ULONG64 ShadowStackEnabled;
-
-    // Windows 11 Nickel Addition
-
-    ULONG64 PointerAuthMask;
-    USHORT  OffsetPrcbExceptionStack;
 
 } KDDEBUGGER_DATA64, *PKDDEBUGGER_DATA64;
 

@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -38,6 +40,7 @@ QueueUserWorkItem(
     _In_ ULONG Flags
     );
 
+
 WINBASEAPI
 _Must_inspect_result_
 BOOL
@@ -46,6 +49,7 @@ UnregisterWaitEx(
     _In_ HANDLE WaitHandle,
     _In_opt_ HANDLE CompletionEvent
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -61,6 +65,7 @@ CreateTimerQueue(
     VOID
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -74,6 +79,7 @@ CreateTimerQueueTimer(
     _In_ ULONG Flags
     );
 
+
 WINBASEAPI
 _Must_inspect_result_
 BOOL
@@ -85,6 +91,7 @@ ChangeTimerQueueTimer(
     _In_ ULONG Period
     );
 
+
 WINBASEAPI
 _Must_inspect_result_
 BOOL
@@ -95,13 +102,6 @@ DeleteTimerQueueTimer(
     _In_opt_ HANDLE CompletionEvent
     );
 
-WINBASEAPI
-_Must_inspect_result_
-BOOL
-WINAPI
-DeleteTimerQueue(
-    _In_ HANDLE TimerQueue
-    );
 
 WINBASEAPI
 _Must_inspect_result_
@@ -111,6 +111,7 @@ DeleteTimerQueueEx(
     _In_ HANDLE TimerQueue,
     _In_opt_ HANDLE CompletionEvent
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion

@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -151,22 +143,18 @@ EXTERN_C const IID IID_IDisplayDeviceInterop;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDisplayDeviceInterop * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDisplayDeviceInterop * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDisplayDeviceInterop * This);
         
-        DECLSPEC_XFGVIRT(IDisplayDeviceInterop, CreateSharedHandle)
         HRESULT ( STDMETHODCALLTYPE *CreateSharedHandle )( 
             IDisplayDeviceInterop * This,
             /* [in] */ IInspectable *pObject,
@@ -175,7 +163,6 @@ EXTERN_C const IID IID_IDisplayDeviceInterop;
             /* [in] */ HSTRING Name,
             /* [retval][out] */ HANDLE *pHandle);
         
-        DECLSPEC_XFGVIRT(IDisplayDeviceInterop, OpenSharedHandle)
         HRESULT ( STDMETHODCALLTYPE *OpenSharedHandle )( 
             IDisplayDeviceInterop * This,
             /* [in] */ HANDLE NTHandle,
@@ -252,27 +239,22 @@ EXTERN_C const IID IID_IDisplayPathInterop;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDisplayPathInterop * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDisplayPathInterop * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDisplayPathInterop * This);
         
-        DECLSPEC_XFGVIRT(IDisplayPathInterop, CreateSourcePresentationHandle)
         HRESULT ( STDMETHODCALLTYPE *CreateSourcePresentationHandle )( 
             IDisplayPathInterop * This,
             /* [retval][out] */ HANDLE *pValue);
         
-        DECLSPEC_XFGVIRT(IDisplayPathInterop, GetSourceId)
         HRESULT ( STDMETHODCALLTYPE *GetSourceId )( 
             IDisplayPathInterop * This,
             /* [retval][out] */ UINT *pSourceId);

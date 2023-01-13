@@ -1226,31 +1226,6 @@ DWORD64
     _In_ LPADDRESS64 lpaddr
     );
 
-// Target Attributes:
-//
-
-// Asks the caller to return a 64-bit mask which indicates which bits in a code address are PAC
-// bits.  This attribute is only relevant for ARM64 debug targets.  The attribute data must be the address
-// for which the PAC mask is being fetched.  This allows the caller to deal with differences in PAC masks for
-// ARM64 EL0/1/2.  If PAC is disabled or the attribute does not apply, FALSE should be returned from the attribute 
-// getter.  If the special value TARGET_ATTRIBUTE_PACMASK_LIVETARGET is returned, the PAC mask for the call 
-// is assumed to be the same as the PAC mask for the currently running process.
-//
-#define TARGET_ATTRIBUTE_PACMASK 0x00000001
-
-// Target Attribute Special Values:
-//
-#define TARGET_ATTRIBUTE_PACMASK_LIVETARGET 0xFFFFFFFFFFFFFFFFull
-
-typedef
-BOOL
-(__stdcall *PGET_TARGET_ATTRIBUTE_VALUE64)(
-    _In_ HANDLE hProcess,
-    _In_ DWORD Attribute,
-    _In_ DWORD64 AttributeData,
-    _Out_ DWORD64 *AttributeValue
-    );
-
 BOOL
 IMAGEAPI
 StackWalk64(
@@ -1289,29 +1264,12 @@ StackWalkEx(
     _In_ DWORD Flags
     );
 
-BOOL
-IMAGEAPI
-StackWalk2(
-    _In_ DWORD MachineType,
-    _In_ HANDLE hProcess,
-    _In_ HANDLE hThread,
-    _Inout_ LPSTACKFRAME_EX StackFrame,
-    _Inout_ PVOID ContextRecord,
-    _In_opt_ PREAD_PROCESS_MEMORY_ROUTINE64 ReadMemoryRoutine,
-    _In_opt_ PFUNCTION_TABLE_ACCESS_ROUTINE64 FunctionTableAccessRoutine,
-    _In_opt_ PGET_MODULE_BASE_ROUTINE64 GetModuleBaseRoutine,
-    _In_opt_ PTRANSLATE_ADDRESS_ROUTINE64 TranslateAddress,
-    _In_opt_ PGET_TARGET_ATTRIBUTE_VALUE64 GetTargetAttributeValue,
-    _In_ DWORD Flags
-    );
-
 #if !defined(_IMAGEHLP_SOURCE_) && defined(_IMAGEHLP64)
 
 #define PREAD_PROCESS_MEMORY_ROUTINE PREAD_PROCESS_MEMORY_ROUTINE64
 #define PFUNCTION_TABLE_ACCESS_ROUTINE PFUNCTION_TABLE_ACCESS_ROUTINE64
 #define PGET_MODULE_BASE_ROUTINE PGET_MODULE_BASE_ROUTINE64
 #define PTRANSLATE_ADDRESS_ROUTINE PTRANSLATE_ADDRESS_ROUTINE64
-#define PGET_TARGET_ATTRIBUTE_VALUE PGET_TARGET_ATTRIBUTE_VALUE64
 
 #define StackWalk StackWalk64
 
@@ -1393,11 +1351,6 @@ GetTimestampForLoadedLibrary(
     _In_ HMODULE Module
     );
 
-#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS) */
-#pragma endregion
-
-#pragma region Desktop Family or Games Family
-#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS  | WINAPI_PARTITION_GAMES)
 //
 // typedefs for function pointers
 //
@@ -1523,11 +1476,6 @@ typedef BOOL
 
 #endif
 
-#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES) */
-#pragma endregion
-
-#pragma region Desktop Family
-#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
 
 // values found in SYMBOL_INFO.Tag
 //
@@ -1616,8 +1564,6 @@ enum SymTagEnum
 #define SYMFLAG_SYNTHETIC_ZEROBASE  0x00200000
 #define SYMFLAG_PUBLIC_CODE         0x00400000
 #define SYMFLAG_REGREL_ALIASINDIR   0x00800000
-#define SYMFLAG_FIXUP_ARM64X        0x01000000
-#define SYMFLAG_GLOBAL              0x02000000
 
 // this resets SymNext/Prev to the beginning
 // of the module passed in the address field
@@ -1725,10 +1671,6 @@ typedef struct _IMAGEHLP_SYMBOLW64_PACKAGE {
 // module data structure
 //
 
-//
-// ANSI Module Information
-//
-
 typedef struct _IMAGEHLP_MODULE64 {
     DWORD    SizeOfStruct;           // set to sizeof(IMAGEHLP_MODULE64)
     DWORD64  BaseOfImage;            // base load address of module
@@ -1760,16 +1702,6 @@ typedef struct _IMAGEHLP_MODULE64 {
     DWORD    Reserved;               // Padding - don't remove.
 } IMAGEHLP_MODULE64, *PIMAGEHLP_MODULE64;
 
-// (Extended) ANSI version of IMAGEHLP_MODULE64 that supports Search Hints
-typedef struct _IMAGEHLP_MODULE64_EX {
-    IMAGEHLP_MODULE64 Module;
-    DWORD    RegionFlags;            // Region Search Flags - IMAGEHLP_MODULE_REGION_XXX
-} IMAGEHLP_MODULE64_EX, *PIMAGEHLP_MODULE64_EX;
-
-//
-// WIDE Module Information
-//
-
 typedef struct _IMAGEHLP_MODULEW64 {
     DWORD    SizeOfStruct;           // set to sizeof(IMAGEHLP_MODULE64)
     DWORD64  BaseOfImage;            // base load address of module
@@ -1800,20 +1732,6 @@ typedef struct _IMAGEHLP_MODULEW64 {
     DWORD    MachineType;            // IMAGE_FILE_MACHINE_XXX from ntimage.h and winnt.h
     DWORD    Reserved;               // Padding - don't remove.
 } IMAGEHLP_MODULEW64, *PIMAGEHLP_MODULEW64;
-
-// (Extended) WIDE version of IMAGEHLP_MODULEW64 that supports Search Hints
-typedef struct _IMAGEHLP_MODULEW64_EX {
-    IMAGEHLP_MODULEW64 Module;
-    DWORD    RegionFlags;            // Region Search Flags - IMAGEHLP_MODULE_REGION_XXX
-} IMAGEHLP_MODULEW64_EX, *PIMAGEHLP_MODULEW64_EX;
-
-
-#define IMAGEHLP_MODULE_REGION_DLLBASE       0x01
-#define IMAGEHLP_MODULE_REGION_DLLRANGE      0x02
-#define IMAGEHLP_MODULE_REGION_ADDITIONAL    0x04
-#define IMAGEHLP_MODULE_REGION_JIT           0x08
-#define IMAGEHLP_MODULE_REGION_ALL           0xFF
-
 
 #if !defined(_IMAGEHLP_SOURCE_) && defined(_IMAGEHLP64)
 #define IMAGEHLP_MODULE IMAGEHLP_MODULE64
@@ -1889,6 +1807,12 @@ typedef struct _IMAGEHLP_LINEW {
 } IMAGEHLP_LINEW, *PIMAGEHLP_LINEW;
 #endif
 
+#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES) */
+#pragma endregion
+
+#pragma region Desktop Family
+#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
+
 //
 // source file structure
 //
@@ -1902,12 +1826,6 @@ typedef struct _SOURCEFILEW {
     DWORD64  ModBase;                // base address of loaded module
     PWSTR    FileName;               // full filename of source
 } SOURCEFILEW, *PSOURCEFILEW;
-
-#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES) */
-#pragma endregion
-
-#pragma region Desktop Family
-#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
 
 //
 // data structures used for registered symbol callbacks
@@ -1931,7 +1849,6 @@ typedef struct _SOURCEFILEW {
 #define CBA_CHECK_ENGOPT_DISALLOW_NETWORK_PATHS 0x70000000
 #define CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE 0x80000000
 #define CBA_XML_LOG                             0x90000000
-#define CBA_MAP_JIT_SYMBOL                      0xA0000000
 
 
 typedef struct _IMAGEHLP_CBA_READ_MEMORY {
@@ -2030,24 +1947,12 @@ typedef struct _IMAGEHLP_DUPLICATE_SYMBOL {
 } IMAGEHLP_DUPLICATE_SYMBOL, *PIMAGEHLP_DUPLICATE_SYMBOL;
 #endif
 
-typedef struct _IMAGEHLP_JIT_SYMBOL_MAP {
-    DWORD            SizeOfStruct;           // set to sizeof(IMAGEHLP_JIT_SYMBOL_MAP)
-    DWORD64          Address;                // address to map to JIT association with an image
-    DWORD64          BaseOfImage;            // base load address (0 == unmapped)
-} IMAGEHLP_JIT_SYMBOLMAP, *PIMAGEHLP_JIT_SYMBOLMAP;
-
 // If dbghelp ever needs to display graphical UI, it will use this as the parent window.
 
 BOOL
 IMAGEAPI
 SymSetParentWindow(
     _In_ HWND hwnd
-    );
-
-BOOL
-IMAGEAPI
-SymGetParentWindow(
-    _Out_ HWND * pHwnd
     );
 
 PCHAR
@@ -2157,7 +2062,6 @@ typedef enum {
     SYMOPT_EX_DISABLEACCESSTIMEUPDATE, // Disable File Last Access Time on Symbols
     SYMOPT_EX_LASTVALIDDEBUGDIRECTORY, // For entries with multiple debug directories: prefer the last to the first
     SYMOPT_EX_NOIMPLICITPATTERNSEARCH, // For SymEnum* APIs: never implicitly run a pattern search without explicit pattern characters
-    SYMOPT_EX_NEVERLOADSYMBOLS,        // Never try to load and parse symbols 
     SYMOPT_EX_MAX                      // Unused
 } IMAGEHLP_EXTENDED_OPTIONS;
 
@@ -2179,17 +2083,17 @@ SymGetOptions(
     VOID
     );
 
-BOOL
-IMAGEAPI
-SymCleanup(
-    _In_ HANDLE hProcess
-    );
-
 #endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
+
+BOOL
+IMAGEAPI
+SymCleanup(
+    _In_ HANDLE hProcess
+    );
 
 // Returns the value of the extended option
 BOOL
@@ -2200,12 +2104,6 @@ SymGetExtendedOption(_In_ IMAGEHLP_EXTENDED_OPTIONS option);
 BOOL
 IMAGEAPI
 SymSetExtendedOption(_In_ IMAGEHLP_EXTENDED_OPTIONS option, _In_ BOOL value);
-
-#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS) */
-#pragma endregion
-
-#pragma region Desktop Family or Games Family
-#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES)
 
 BOOL
 IMAGEAPI
@@ -2337,6 +2235,12 @@ EnumerateLoadedModules(
     _In_opt_ PVOID UserContext
     );
 #endif
+
+#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS) */
+#pragma endregion
+
+#pragma region Desktop Family or Games Family
+#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES)
 
 PVOID
 IMAGEAPI
@@ -2813,18 +2717,6 @@ SymGetSourceFileToken(
 
 BOOL
 IMAGEAPI
-SymGetSourceFileTokenByTokenName(
-    _In_ HANDLE hProcess,
-    _In_ ULONG64 Base,
-    _In_ PCSTR FileSpec,
-    _In_ PCSTR TokenName,
-    _In_opt_ PCSTR TokenParameters,
-    _Outptr_ PVOID *Token,
-    _Out_ DWORD *Size
-    );
-
-BOOL
-IMAGEAPI
 SymGetSourceFileChecksumW(
     _In_ HANDLE hProcess,
     _In_ ULONG64 Base,
@@ -2859,18 +2751,6 @@ SymGetSourceFileTokenW(
 
 BOOL
 IMAGEAPI
-SymGetSourceFileTokenByTokenNameW(
-    _In_ HANDLE hProcess,
-    _In_ ULONG64 Base,
-    _In_ PCWSTR FileSpec,
-    _In_ PCWSTR TokenName,
-    _In_opt_ PCWSTR TokenParameters,
-    _Outptr_ PVOID *Token,
-    _Out_ DWORD *Size
-    );
-
-BOOL
-IMAGEAPI
 SymGetSourceFileFromToken(
     _In_ HANDLE hProcess,
     _In_ PVOID Token,
@@ -2881,31 +2761,9 @@ SymGetSourceFileFromToken(
 
 BOOL
 IMAGEAPI
-SymGetSourceFileFromTokenByTokenName(
-    _In_ HANDLE hProcess,
-    _In_ PVOID Token,
-    _In_opt_ PCSTR TokenName,
-    _In_opt_ PCSTR Params,
-    _Out_writes_(Size) PSTR FilePath,
-    _In_ DWORD Size
-    );
-
-BOOL
-IMAGEAPI
 SymGetSourceFileFromTokenW(
     _In_ HANDLE hProcess,
     _In_ PVOID Token,
-    _In_opt_ PCWSTR Params,
-    _Out_writes_(Size) PWSTR FilePath,
-    _In_ DWORD Size
-    );
-
-BOOL
-IMAGEAPI
-SymGetSourceFileFromTokenByTokenNameW(
-    _In_ HANDLE hProcess,
-    _In_ PVOID Token,
-    _In_opt_ PCWSTR TokenName,
     _In_opt_ PCWSTR Params,
     _Out_writes_(Size) PWSTR FilePath,
     _In_ DWORD Size
@@ -3157,12 +3015,6 @@ typedef struct _MODULE_TYPE_INFO { // AKA TYPTYP
     BYTE        data[1];
 } MODULE_TYPE_INFO, *PMODULE_TYPE_INFO;
 
-#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS) */
-#pragma endregion
-
-#pragma region Desktop Family or Games Family
-#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES)
-
 typedef struct _SYMBOL_INFO {
     ULONG       SizeOfStruct;
     ULONG       TypeIndex;        // Type Index of symbol
@@ -3208,12 +3060,6 @@ typedef struct _SYMBOL_INFO_PACKAGEW {
     SYMBOL_INFOW si;
     WCHAR        name[MAX_SYM_NAME + 1];
 } SYMBOL_INFO_PACKAGEW, *PSYMBOL_INFO_PACKAGEW;
-
-#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES) */
-#pragma endregion
-
-#pragma region Desktop Family
-#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
 
 typedef struct _IMAGEHLP_STACK_FRAME
 {
@@ -3276,12 +3122,6 @@ SymEnumProcesses(
     _In_ PVOID UserContext
     );
 
-#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS) */
-#pragma endregion
-
-#pragma region Desktop Family or Games Family
-#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES)
-
 BOOL
 IMAGEAPI
 SymFromAddr(
@@ -3299,12 +3139,6 @@ SymFromAddrW(
     _Out_opt_ PDWORD64 Displacement,
     _Inout_ PSYMBOL_INFOW Symbol
     );
-
-#endif /* WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS | WINAPI_PARTITION_GAMES) */
-#pragma endregion
-
-#pragma region Desktop Family
-#if WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
 
 BOOL
 IMAGEAPI
@@ -3575,7 +3409,6 @@ typedef enum _IMAGEHLP_SYMBOL_TYPE_INFO {
     TI_GET_IS_REFERENCE,
     TI_GET_INDIRECTVIRTUALBASECLASS,
     TI_GET_VIRTUALBASETABLETYPE,
-    TI_GET_OBJECTPOINTERTYPE,
     IMAGEHLP_SYMBOL_TYPE_INFO_MAX,
 } IMAGEHLP_SYMBOL_TYPE_INFO;
 
@@ -4209,7 +4042,7 @@ typedef BOOL (WINAPI *PSYMBOLSERVERSETHTTPAUTHHEADER)(_In_ PCWSTR pszAuthHeader)
 #define SSRVACTION_XMLOUTPUT        7
 #define SSRVACTION_CHECKSUMSTATUS   8
 
-#endif // WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
+#endif WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
 #pragma endregion
 
 #pragma region Application Family or OneCore Family or Games Family
@@ -4276,11 +4109,12 @@ typedef BOOL (WINAPI *PSYMBOLSERVERSETHTTPAUTHHEADER)(_In_ PCWSTR pszAuthHeader)
  #define SymGetSourceFileToken             SymGetSourceFileTokenW
  #define SymGetSourceFileFromToken         SymGetSourceFileFromTokenW
  #define SymGetSourceVarFromToken          SymGetSourceVarFromTokenW
- #define SymGetSourceFileTokenByTokenName  SymGetSourceFileTokenByTokenNameW
+ #define SymGetSourceFileToken             SymGetSourceFileTokenW
  #define SymGetFileLineOffsets64           SymGetFileLineOffsetsW64
  #define SymFindFileInPath                 SymFindFileInPathW
  #define SymMatchFileName                  SymMatchFileNameW
- #define SymGetSourceFileFromTokenByTokenName SymGetSourceFileFromTokenByTokenNameW
+ #define SymGetSourceFileFromToken         SymGetSourceFileFromTokenW
+ #define SymGetSourceVarFromToken          SymGetSourceVarFromTokenW
  #define SymGetModuleInfo64                SymGetModuleInfoW64
  #define SymAddSourceStream                SymAddSourceStreamW
  #define SymSrvIsStore                     SymSrvIsStoreW
@@ -4327,7 +4161,7 @@ typedef BOOL (WINAPI *PSYMBOLSERVERSETHTTPAUTHHEADER)(_In_ PCWSTR pszAuthHeader)
  #define PSYMBOLSERVERPINGPROC             PSYMBOLSERVERPINGPROCW
 
 #pragma endregion
-#endif // WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
+#endif WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
 
 
 // -----------------------------------------------------------------
@@ -4618,7 +4452,6 @@ RangeMapFree(
 #define IMAGEHLP_RMAP_BIG_ENDIAN                    0x00000002
 #define IMAGEHLP_RMAP_IGNORE_MISCOMPARE             0x00000004
 
-#define IMAGEHLP_RMAP_FIXUP_ARM64X                  0x10000000
 #define IMAGEHLP_RMAP_LOAD_RW_DATA_SECTIONS         0x20000000
 #define IMAGEHLP_RMAP_OMIT_SHARED_RW_DATA_SECTIONS  0x40000000
 #define IMAGEHLP_RMAP_FIXUP_IMAGEBASE               0x80000000

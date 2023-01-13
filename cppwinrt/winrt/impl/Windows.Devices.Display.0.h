@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Devices_Display_0_H
 #define WINRT_Windows_Devices_Display_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
@@ -53,27 +52,29 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::Devices::Display::IDisplayMonitor>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Devices::Display::IDisplayMonitor2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Devices::Display::IDisplayMonitorStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Devices::Display::DisplayMonitor>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Devices::Display::DisplayMonitorConnectionKind>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Devices::Display::DisplayMonitorDescriptorKind>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Devices::Display::DisplayMonitorPhysicalConnectorKind>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Devices::Display::DisplayMonitorUsageKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::Devices::Display::DisplayMonitor> = L"Windows.Devices.Display.DisplayMonitor";
-    template <> inline constexpr auto& name_v<winrt::Windows::Devices::Display::DisplayMonitorConnectionKind> = L"Windows.Devices.Display.DisplayMonitorConnectionKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::Devices::Display::DisplayMonitorDescriptorKind> = L"Windows.Devices.Display.DisplayMonitorDescriptorKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::Devices::Display::DisplayMonitorPhysicalConnectorKind> = L"Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::Devices::Display::DisplayMonitorUsageKind> = L"Windows.Devices.Display.DisplayMonitorUsageKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::Devices::Display::IDisplayMonitor> = L"Windows.Devices.Display.IDisplayMonitor";
-    template <> inline constexpr auto& name_v<winrt::Windows::Devices::Display::IDisplayMonitor2> = L"Windows.Devices.Display.IDisplayMonitor2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Devices::Display::IDisplayMonitorStatics> = L"Windows.Devices.Display.IDisplayMonitorStatics";
-    template <> inline constexpr guid guid_v<winrt::Windows::Devices::Display::IDisplayMonitor>{ 0x1F6B15D4,0x1D01,0x4C51,{ 0x87,0xE2,0x6F,0x95,0x4A,0x77,0x2B,0x59 } }; // 1F6B15D4-1D01-4C51-87E2-6F954A772B59
-    template <> inline constexpr guid guid_v<winrt::Windows::Devices::Display::IDisplayMonitor2>{ 0x023018E6,0xCB23,0x5830,{ 0x96,0xDF,0xA7,0xBF,0x6E,0x60,0x25,0x77 } }; // 023018E6-CB23-5830-96DF-A7BF6E602577
-    template <> inline constexpr guid guid_v<winrt::Windows::Devices::Display::IDisplayMonitorStatics>{ 0x6EAE698F,0xA228,0x4C05,{ 0x82,0x1D,0xB6,0x95,0xD6,0x67,0xDE,0x8E } }; // 6EAE698F-A228-4C05-821D-B695D667DE8E
-    template <> struct default_interface<winrt::Windows::Devices::Display::DisplayMonitor>{ using type = winrt::Windows::Devices::Display::IDisplayMonitor; };
-    template <> struct abi<winrt::Windows::Devices::Display::IDisplayMonitor>
+    template <> struct category<Windows::Devices::Display::IDisplayMonitor>{ using type = interface_category; };
+    template <> struct category<Windows::Devices::Display::IDisplayMonitor2>{ using type = interface_category; };
+    template <> struct category<Windows::Devices::Display::IDisplayMonitorStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Devices::Display::DisplayMonitor>{ using type = class_category; };
+    template <> struct category<Windows::Devices::Display::DisplayMonitorConnectionKind>{ using type = enum_category; };
+    template <> struct category<Windows::Devices::Display::DisplayMonitorDescriptorKind>{ using type = enum_category; };
+    template <> struct category<Windows::Devices::Display::DisplayMonitorPhysicalConnectorKind>{ using type = enum_category; };
+    template <> struct category<Windows::Devices::Display::DisplayMonitorUsageKind>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::DisplayMonitor>{ L"Windows.Devices.Display.DisplayMonitor" };
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::DisplayMonitorConnectionKind>{ L"Windows.Devices.Display.DisplayMonitorConnectionKind" };
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::DisplayMonitorDescriptorKind>{ L"Windows.Devices.Display.DisplayMonitorDescriptorKind" };
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::DisplayMonitorPhysicalConnectorKind>{ L"Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind" };
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::DisplayMonitorUsageKind>{ L"Windows.Devices.Display.DisplayMonitorUsageKind" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::IDisplayMonitor>{ L"Windows.Devices.Display.IDisplayMonitor" };
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::IDisplayMonitor2>{ L"Windows.Devices.Display.IDisplayMonitor2" };
+    template <> inline constexpr auto& name_v<Windows::Devices::Display::IDisplayMonitorStatics>{ L"Windows.Devices.Display.IDisplayMonitorStatics" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitor>{ 0x1F6B15D4,0x1D01,0x4C51,{ 0x87,0xE2,0x6F,0x95,0x4A,0x77,0x2B,0x59 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitor2>{ 0x023018E6,0xCB23,0x5830,{ 0x96,0xDF,0xA7,0xBF,0x6E,0x60,0x25,0x77 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitorStatics>{ 0x6EAE698F,0xA228,0x4C05,{ 0x82,0x1D,0xB6,0x95,0xD6,0x67,0xDE,0x8E } };
+    template <> struct default_interface<Windows::Devices::Display::DisplayMonitor>{ using type = Windows::Devices::Display::IDisplayMonitor; };
+    template <> struct abi<Windows::Devices::Display::IDisplayMonitor>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -89,24 +90,24 @@ namespace winrt::impl
             virtual int32_t __stdcall get_PhysicalSizeInInches(void**) noexcept = 0;
             virtual int32_t __stdcall get_RawDpiX(float*) noexcept = 0;
             virtual int32_t __stdcall get_RawDpiY(float*) noexcept = 0;
-            virtual int32_t __stdcall get_RedPrimary(winrt::Windows::Foundation::Point*) noexcept = 0;
-            virtual int32_t __stdcall get_GreenPrimary(winrt::Windows::Foundation::Point*) noexcept = 0;
-            virtual int32_t __stdcall get_BluePrimary(winrt::Windows::Foundation::Point*) noexcept = 0;
-            virtual int32_t __stdcall get_WhitePoint(winrt::Windows::Foundation::Point*) noexcept = 0;
+            virtual int32_t __stdcall get_RedPrimary(Windows::Foundation::Point*) noexcept = 0;
+            virtual int32_t __stdcall get_GreenPrimary(Windows::Foundation::Point*) noexcept = 0;
+            virtual int32_t __stdcall get_BluePrimary(Windows::Foundation::Point*) noexcept = 0;
+            virtual int32_t __stdcall get_WhitePoint(Windows::Foundation::Point*) noexcept = 0;
             virtual int32_t __stdcall get_MaxLuminanceInNits(float*) noexcept = 0;
             virtual int32_t __stdcall get_MinLuminanceInNits(float*) noexcept = 0;
             virtual int32_t __stdcall get_MaxAverageFullFrameLuminanceInNits(float*) noexcept = 0;
             virtual int32_t __stdcall GetDescriptor(int32_t, uint32_t* __resultSize, uint8_t**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Devices::Display::IDisplayMonitor2>
+    template <> struct abi<Windows::Devices::Display::IDisplayMonitor2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_IsDolbyVisionSupportedInHdrMode(bool*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Devices::Display::IDisplayMonitorStatics>
+    template <> struct abi<Windows::Devices::Display::IDisplayMonitorStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -137,9 +138,9 @@ namespace winrt::impl
         [[nodiscard]] auto MaxLuminanceInNits() const;
         [[nodiscard]] auto MinLuminanceInNits() const;
         [[nodiscard]] auto MaxAverageFullFrameLuminanceInNits() const;
-        auto GetDescriptor(winrt::Windows::Devices::Display::DisplayMonitorDescriptorKind const& descriptorKind) const;
+        auto GetDescriptor(Windows::Devices::Display::DisplayMonitorDescriptorKind const& descriptorKind) const;
     };
-    template <> struct consume<winrt::Windows::Devices::Display::IDisplayMonitor>
+    template <> struct consume<Windows::Devices::Display::IDisplayMonitor>
     {
         template <typename D> using type = consume_Windows_Devices_Display_IDisplayMonitor<D>;
     };
@@ -148,7 +149,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto IsDolbyVisionSupportedInHdrMode() const;
     };
-    template <> struct consume<winrt::Windows::Devices::Display::IDisplayMonitor2>
+    template <> struct consume<Windows::Devices::Display::IDisplayMonitor2>
     {
         template <typename D> using type = consume_Windows_Devices_Display_IDisplayMonitor2<D>;
     };
@@ -159,7 +160,7 @@ namespace winrt::impl
         auto FromIdAsync(param::hstring const& deviceId) const;
         auto FromInterfaceIdAsync(param::hstring const& deviceInterfaceId) const;
     };
-    template <> struct consume<winrt::Windows::Devices::Display::IDisplayMonitorStatics>
+    template <> struct consume<Windows::Devices::Display::IDisplayMonitorStatics>
     {
         template <typename D> using type = consume_Windows_Devices_Display_IDisplayMonitorStatics<D>;
     };

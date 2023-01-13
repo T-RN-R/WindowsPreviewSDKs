@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_PHONE_PHONECONTRACT_VERSION)
@@ -854,7 +854,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICallAnswerEventArgs = __uuidof(ICallAnswerEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICallAnswerEventArgs = _uuidof(ICallAnswerEventArgs);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -892,7 +892,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICallRejectEventArgs = __uuidof(ICallRejectEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICallRejectEventArgs = _uuidof(ICallRejectEventArgs);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -930,7 +930,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICallStateChangeEventArgs = __uuidof(ICallStateChangeEventArgs);
+                    extern MIDL_CONST_ID IID& IID_ICallStateChangeEventArgs = _uuidof(ICallStateChangeEventArgs);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -968,7 +968,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IMuteChangeEventArgs = __uuidof(IMuteChangeEventArgs);
+                    extern MIDL_CONST_ID IID& IID_IMuteChangeEventArgs = _uuidof(IMuteChangeEventArgs);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1013,7 +1013,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IQuerySeamlessUpgradeSupportOperation = __uuidof(IQuerySeamlessUpgradeSupportOperation);
+                    extern MIDL_CONST_ID IID& IID_IQuerySeamlessUpgradeSupportOperation = _uuidof(IQuerySeamlessUpgradeSupportOperation);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1084,7 +1084,7 @@ namespace ABI {
                         virtual HRESULT STDMETHODCALLTYPE NotifyUnmuted(void) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipCallCoordinator = __uuidof(IVoipCallCoordinator);
+                    extern MIDL_CONST_ID IID& IID_IVoipCallCoordinator = _uuidof(IVoipCallCoordinator);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1130,7 +1130,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipCallCoordinator2 = __uuidof(IVoipCallCoordinator2);
+                    extern MIDL_CONST_ID IID& IID_IVoipCallCoordinator2 = _uuidof(IVoipCallCoordinator2);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1190,7 +1190,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipCallCoordinator3 = __uuidof(IVoipCallCoordinator3);
+                    extern MIDL_CONST_ID IID& IID_IVoipCallCoordinator3 = _uuidof(IVoipCallCoordinator3);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1228,7 +1228,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipCallCoordinatorStatics = __uuidof(IVoipCallCoordinatorStatics);
+                    extern MIDL_CONST_ID IID& IID_IVoipCallCoordinatorStatics = _uuidof(IVoipCallCoordinatorStatics);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1269,7 +1269,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipCallCoordinatorWithAppDeterminedUpgrade = __uuidof(IVoipCallCoordinatorWithAppDeterminedUpgrade);
+                    extern MIDL_CONST_ID IID& IID_IVoipCallCoordinatorWithAppDeterminedUpgrade = _uuidof(IVoipCallCoordinatorWithAppDeterminedUpgrade);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1323,7 +1323,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipCallCoordinatorWithUpgrade = __uuidof(IVoipCallCoordinatorWithUpgrade);
+                    extern MIDL_CONST_ID IID& IID_IVoipCallCoordinatorWithUpgrade = _uuidof(IVoipCallCoordinatorWithUpgrade);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1362,7 +1362,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipOperation = __uuidof(IVoipOperation);
+                    extern MIDL_CONST_ID IID& IID_IVoipOperation = _uuidof(IVoipOperation);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1400,7 +1400,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipOperationsManager = __uuidof(IVoipOperationsManager);
+                    extern MIDL_CONST_ID IID& IID_IVoipOperationsManager = _uuidof(IVoipOperationsManager);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1491,7 +1491,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipPhoneCall = __uuidof(IVoipPhoneCall);
+                    extern MIDL_CONST_ID IID& IID_IVoipPhoneCall = _uuidof(IVoipPhoneCall);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1530,7 +1530,7 @@ namespace ABI {
                         virtual HRESULT STDMETHODCALLTYPE TryShowAppUI(void) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipPhoneCall2 = __uuidof(IVoipPhoneCall2);
+                    extern MIDL_CONST_ID IID& IID_IVoipPhoneCall2 = _uuidof(IVoipPhoneCall2);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1572,7 +1572,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipPhoneCall3 = __uuidof(IVoipPhoneCall3);
+                    extern MIDL_CONST_ID IID& IID_IVoipPhoneCall3 = _uuidof(IVoipPhoneCall3);
                 } /* Voip */
             } /* Networking */
         } /* Phone */
@@ -1608,7 +1608,7 @@ namespace ABI {
                         virtual HRESULT STDMETHODCALLTYPE NotifyCallReady(void) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVoipPhoneCallReady = __uuidof(IVoipPhoneCallReady);
+                    extern MIDL_CONST_ID IID& IID_IVoipPhoneCallReady = _uuidof(IVoipPhoneCallReady);
                 } /* Voip */
             } /* Networking */
         } /* Phone */

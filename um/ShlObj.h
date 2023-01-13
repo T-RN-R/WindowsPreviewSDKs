@@ -617,9 +617,8 @@ enum {
     DBCID_EMPTY = 0,        // bandsite is empty
     DBCID_ONDRAG = 1,       // (down)DragMoveEnter/Leave vaIn:I4:eDrag
     DBCID_CLSIDOFBAR = 2,   // clsid of bar inside
-    DBCID_RESIZE = 3,       // resize from keyboard accelerator
+    DBCID_RESIZE = 3,       // resize from keyboard
     DBCID_GETBAR = 4,       // returns vaOut:VT_UNKNOWN of hosting dockbar (IDeskBar)
-    DBCID_UPDATESIZE = 5,   // resize from non-user source (search activation failure)
 };
 
 

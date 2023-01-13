@@ -1,21 +1,20 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Storage_Search_0_H
 #define WINRT_Windows_Storage_Search_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
-    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
+    template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct __declspec(empty_bases) IIterable;
-    template <typename T> struct __declspec(empty_bases) IVector;
+    template <typename T> struct IIterable;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
@@ -117,105 +116,107 @@ WINRT_EXPORT namespace winrt::Windows::Storage::Search
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::Storage::Search::IContentIndexer>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IContentIndexerQuery>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IContentIndexerQueryOperations>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IContentIndexerStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IIndexableContent>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IQueryOptions>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IQueryOptionsFactory>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IQueryOptionsWithProviderFilter>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IStorageFileQueryResult>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IStorageFileQueryResult2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IStorageFolderQueryOperations>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IStorageFolderQueryResult>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IStorageItemQueryResult>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IStorageQueryResultBase>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IValueAndLanguage>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Storage::Search::ContentIndexer>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::ContentIndexerQuery>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IndexableContent>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::QueryOptions>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::SortEntryVector>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::StorageFileQueryResult>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::StorageFolderQueryResult>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::StorageItemQueryResult>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::StorageLibraryChangeTrackerTriggerDetails>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::StorageLibraryContentChangedTriggerDetails>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::ValueAndLanguage>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Storage::Search::CommonFileQuery>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Storage::Search::CommonFolderQuery>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Storage::Search::DateStackOption>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Storage::Search::FolderDepth>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IndexedState>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Storage::Search::IndexerOption>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Storage::Search::SortEntry>{ using type = struct_category<hstring, bool>; };
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::ContentIndexer> = L"Windows.Storage.Search.ContentIndexer";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::ContentIndexerQuery> = L"Windows.Storage.Search.ContentIndexerQuery";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IndexableContent> = L"Windows.Storage.Search.IndexableContent";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::QueryOptions> = L"Windows.Storage.Search.QueryOptions";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::SortEntryVector> = L"Windows.Storage.Search.SortEntryVector";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::StorageFileQueryResult> = L"Windows.Storage.Search.StorageFileQueryResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::StorageFolderQueryResult> = L"Windows.Storage.Search.StorageFolderQueryResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::StorageItemQueryResult> = L"Windows.Storage.Search.StorageItemQueryResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::StorageLibraryChangeTrackerTriggerDetails> = L"Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::StorageLibraryContentChangedTriggerDetails> = L"Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::ValueAndLanguage> = L"Windows.Storage.Search.ValueAndLanguage";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::CommonFileQuery> = L"Windows.Storage.Search.CommonFileQuery";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::CommonFolderQuery> = L"Windows.Storage.Search.CommonFolderQuery";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::DateStackOption> = L"Windows.Storage.Search.DateStackOption";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::FolderDepth> = L"Windows.Storage.Search.FolderDepth";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IndexedState> = L"Windows.Storage.Search.IndexedState";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IndexerOption> = L"Windows.Storage.Search.IndexerOption";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::SortEntry> = L"Windows.Storage.Search.SortEntry";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IContentIndexer> = L"Windows.Storage.Search.IContentIndexer";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IContentIndexerQuery> = L"Windows.Storage.Search.IContentIndexerQuery";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IContentIndexerQueryOperations> = L"Windows.Storage.Search.IContentIndexerQueryOperations";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IContentIndexerStatics> = L"Windows.Storage.Search.IContentIndexerStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IIndexableContent> = L"Windows.Storage.Search.IIndexableContent";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IQueryOptions> = L"Windows.Storage.Search.IQueryOptions";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IQueryOptionsFactory> = L"Windows.Storage.Search.IQueryOptionsFactory";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IQueryOptionsWithProviderFilter> = L"Windows.Storage.Search.IQueryOptionsWithProviderFilter";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IStorageFileQueryResult> = L"Windows.Storage.Search.IStorageFileQueryResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IStorageFileQueryResult2> = L"Windows.Storage.Search.IStorageFileQueryResult2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IStorageFolderQueryOperations> = L"Windows.Storage.Search.IStorageFolderQueryOperations";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IStorageFolderQueryResult> = L"Windows.Storage.Search.IStorageFolderQueryResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IStorageItemQueryResult> = L"Windows.Storage.Search.IStorageItemQueryResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails> = L"Windows.Storage.Search.IStorageLibraryChangeTrackerTriggerDetails";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails> = L"Windows.Storage.Search.IStorageLibraryContentChangedTriggerDetails";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IStorageQueryResultBase> = L"Windows.Storage.Search.IStorageQueryResultBase";
-    template <> inline constexpr auto& name_v<winrt::Windows::Storage::Search::IValueAndLanguage> = L"Windows.Storage.Search.IValueAndLanguage";
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IContentIndexer>{ 0xB1767F8D,0xF698,0x4982,{ 0xB0,0x5F,0x3A,0x6E,0x8C,0xAB,0x01,0xA2 } }; // B1767F8D-F698-4982-B05F-3A6E8CAB01A2
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IContentIndexerQuery>{ 0x70E3B0F8,0x4BFC,0x428A,{ 0x88,0x89,0xCC,0x51,0xDA,0x9A,0x7B,0x9D } }; // 70E3B0F8-4BFC-428A-8889-CC51DA9A7B9D
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IContentIndexerQueryOperations>{ 0x28823E10,0x4786,0x42F1,{ 0x97,0x30,0x79,0x2B,0x35,0x66,0xB1,0x50 } }; // 28823E10-4786-42F1-9730-792B3566B150
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IContentIndexerStatics>{ 0x8C488375,0xB37E,0x4C60,{ 0x9B,0xA8,0xB7,0x60,0xFD,0xA3,0xE5,0x9D } }; // 8C488375-B37E-4C60-9BA8-B760FDA3E59D
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IIndexableContent>{ 0xCCF1A05F,0xD4B5,0x483A,{ 0xB0,0x6E,0xE0,0xDB,0x1E,0xC4,0x20,0xE4 } }; // CCF1A05F-D4B5-483A-B06E-E0DB1EC420E4
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IQueryOptions>{ 0x1E5E46EE,0x0F45,0x4838,{ 0xA8,0xE9,0xD0,0x47,0x9D,0x44,0x6C,0x30 } }; // 1E5E46EE-0F45-4838-A8E9-D0479D446C30
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IQueryOptionsFactory>{ 0x032E1F8C,0xA9C1,0x4E71,{ 0x80,0x11,0x0D,0xEE,0x9D,0x48,0x11,0xA3 } }; // 032E1F8C-A9C1-4E71-8011-0DEE9D4811A3
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IQueryOptionsWithProviderFilter>{ 0x5B9D1026,0x15C4,0x44DD,{ 0xB8,0x9A,0x47,0xA5,0x9B,0x7D,0x7C,0x4F } }; // 5B9D1026-15C4-44DD-B89A-47A59B7D7C4F
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IStorageFileQueryResult>{ 0x52FDA447,0x2BAA,0x412C,{ 0xB2,0x9F,0xD4,0xB1,0x77,0x8E,0xFA,0x1E } }; // 52FDA447-2BAA-412C-B29F-D4B1778EFA1E
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IStorageFileQueryResult2>{ 0x4E5DB9DD,0x7141,0x46C4,{ 0x8B,0xE3,0xE9,0xDC,0x9E,0x27,0x27,0x5C } }; // 4E5DB9DD-7141-46C4-8BE3-E9DC9E27275C
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IStorageFolderQueryOperations>{ 0xCB43CCC9,0x446B,0x4A4F,{ 0xBE,0x97,0x75,0x77,0x71,0xBE,0x52,0x03 } }; // CB43CCC9-446B-4A4F-BE97-757771BE5203
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IStorageFolderQueryResult>{ 0x6654C911,0x7D66,0x46FA,{ 0xAE,0xCF,0xE4,0xA4,0xBA,0xA9,0x3A,0xB8 } }; // 6654C911-7D66-46FA-AECF-E4A4BAA93AB8
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IStorageItemQueryResult>{ 0xE8948079,0x9D58,0x47B8,{ 0xB2,0xB2,0x41,0xB0,0x7F,0x47,0x95,0xF9 } }; // E8948079-9D58-47B8-B2B2-41B07F4795F9
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>{ 0x1DC7A369,0xB7A3,0x4DF2,{ 0x9D,0x61,0xEB,0xA8,0x5A,0x03,0x43,0xD2 } }; // 1DC7A369-B7A3-4DF2-9D61-EBA85A0343D2
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>{ 0x2A371977,0xABBF,0x4E1D,{ 0x8A,0xA5,0x63,0x85,0xD8,0x88,0x47,0x99 } }; // 2A371977-ABBF-4E1D-8AA5-6385D8884799
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IStorageQueryResultBase>{ 0xC297D70D,0x7353,0x47AB,{ 0xBA,0x58,0x8C,0x61,0x42,0x5D,0xC5,0x4B } }; // C297D70D-7353-47AB-BA58-8C61425DC54B
-    template <> inline constexpr guid guid_v<winrt::Windows::Storage::Search::IValueAndLanguage>{ 0xB9914881,0xA1EE,0x4BC4,{ 0x92,0xA5,0x46,0x69,0x68,0xE3,0x04,0x36 } }; // B9914881-A1EE-4BC4-92A5-466968E30436
-    template <> struct default_interface<winrt::Windows::Storage::Search::ContentIndexer>{ using type = winrt::Windows::Storage::Search::IContentIndexer; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::ContentIndexerQuery>{ using type = winrt::Windows::Storage::Search::IContentIndexerQuery; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::IndexableContent>{ using type = winrt::Windows::Storage::Search::IIndexableContent; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::QueryOptions>{ using type = winrt::Windows::Storage::Search::IQueryOptions; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::SortEntryVector>{ using type = winrt::Windows::Foundation::Collections::IVector<winrt::Windows::Storage::Search::SortEntry>; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::StorageFileQueryResult>{ using type = winrt::Windows::Storage::Search::IStorageFileQueryResult; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::StorageFolderQueryResult>{ using type = winrt::Windows::Storage::Search::IStorageFolderQueryResult; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::StorageItemQueryResult>{ using type = winrt::Windows::Storage::Search::IStorageItemQueryResult; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::StorageLibraryChangeTrackerTriggerDetails>{ using type = winrt::Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::StorageLibraryContentChangedTriggerDetails>{ using type = winrt::Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails; };
-    template <> struct default_interface<winrt::Windows::Storage::Search::ValueAndLanguage>{ using type = winrt::Windows::Storage::Search::IValueAndLanguage; };
-    template <> struct abi<winrt::Windows::Storage::Search::IContentIndexer>
+    template <> struct category<Windows::Storage::Search::IContentIndexer>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IContentIndexerQuery>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IContentIndexerQueryOperations>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IContentIndexerStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IIndexableContent>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IQueryOptions>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IQueryOptionsFactory>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IQueryOptionsWithProviderFilter>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IStorageFileQueryResult>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IStorageFileQueryResult2>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IStorageFolderQueryOperations>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IStorageFolderQueryResult>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IStorageItemQueryResult>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IStorageQueryResultBase>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::IValueAndLanguage>{ using type = interface_category; };
+    template <> struct category<Windows::Storage::Search::ContentIndexer>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::ContentIndexerQuery>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::IndexableContent>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::QueryOptions>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::SortEntryVector>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::StorageFileQueryResult>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::StorageFolderQueryResult>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::StorageItemQueryResult>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::StorageLibraryChangeTrackerTriggerDetails>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::StorageLibraryContentChangedTriggerDetails>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::ValueAndLanguage>{ using type = class_category; };
+    template <> struct category<Windows::Storage::Search::CommonFileQuery>{ using type = enum_category; };
+    template <> struct category<Windows::Storage::Search::CommonFolderQuery>{ using type = enum_category; };
+    template <> struct category<Windows::Storage::Search::DateStackOption>{ using type = enum_category; };
+    template <> struct category<Windows::Storage::Search::FolderDepth>{ using type = enum_category; };
+    template <> struct category<Windows::Storage::Search::IndexedState>{ using type = enum_category; };
+    template <> struct category<Windows::Storage::Search::IndexerOption>{ using type = enum_category; };
+    template <> struct category<Windows::Storage::Search::SortEntry>{ using type = struct_category<hstring, bool>; };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::ContentIndexer>{ L"Windows.Storage.Search.ContentIndexer" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::ContentIndexerQuery>{ L"Windows.Storage.Search.ContentIndexerQuery" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IndexableContent>{ L"Windows.Storage.Search.IndexableContent" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::QueryOptions>{ L"Windows.Storage.Search.QueryOptions" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::SortEntryVector>{ L"Windows.Storage.Search.SortEntryVector" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::StorageFileQueryResult>{ L"Windows.Storage.Search.StorageFileQueryResult" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::StorageFolderQueryResult>{ L"Windows.Storage.Search.StorageFolderQueryResult" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::StorageItemQueryResult>{ L"Windows.Storage.Search.StorageItemQueryResult" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::StorageLibraryChangeTrackerTriggerDetails>{ L"Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::StorageLibraryContentChangedTriggerDetails>{ L"Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::ValueAndLanguage>{ L"Windows.Storage.Search.ValueAndLanguage" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::CommonFileQuery>{ L"Windows.Storage.Search.CommonFileQuery" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::CommonFolderQuery>{ L"Windows.Storage.Search.CommonFolderQuery" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::DateStackOption>{ L"Windows.Storage.Search.DateStackOption" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::FolderDepth>{ L"Windows.Storage.Search.FolderDepth" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IndexedState>{ L"Windows.Storage.Search.IndexedState" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IndexerOption>{ L"Windows.Storage.Search.IndexerOption" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::SortEntry>{ L"Windows.Storage.Search.SortEntry" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IContentIndexer>{ L"Windows.Storage.Search.IContentIndexer" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IContentIndexerQuery>{ L"Windows.Storage.Search.IContentIndexerQuery" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IContentIndexerQueryOperations>{ L"Windows.Storage.Search.IContentIndexerQueryOperations" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IContentIndexerStatics>{ L"Windows.Storage.Search.IContentIndexerStatics" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IIndexableContent>{ L"Windows.Storage.Search.IIndexableContent" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IQueryOptions>{ L"Windows.Storage.Search.IQueryOptions" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IQueryOptionsFactory>{ L"Windows.Storage.Search.IQueryOptionsFactory" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IQueryOptionsWithProviderFilter>{ L"Windows.Storage.Search.IQueryOptionsWithProviderFilter" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageFileQueryResult>{ L"Windows.Storage.Search.IStorageFileQueryResult" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageFileQueryResult2>{ L"Windows.Storage.Search.IStorageFileQueryResult2" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageFolderQueryOperations>{ L"Windows.Storage.Search.IStorageFolderQueryOperations" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageFolderQueryResult>{ L"Windows.Storage.Search.IStorageFolderQueryResult" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageItemQueryResult>{ L"Windows.Storage.Search.IStorageItemQueryResult" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>{ L"Windows.Storage.Search.IStorageLibraryChangeTrackerTriggerDetails" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>{ L"Windows.Storage.Search.IStorageLibraryContentChangedTriggerDetails" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageQueryResultBase>{ L"Windows.Storage.Search.IStorageQueryResultBase" };
+    template <> inline constexpr auto& name_v<Windows::Storage::Search::IValueAndLanguage>{ L"Windows.Storage.Search.IValueAndLanguage" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexer>{ 0xB1767F8D,0xF698,0x4982,{ 0xB0,0x5F,0x3A,0x6E,0x8C,0xAB,0x01,0xA2 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerQuery>{ 0x70E3B0F8,0x4BFC,0x428A,{ 0x88,0x89,0xCC,0x51,0xDA,0x9A,0x7B,0x9D } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerQueryOperations>{ 0x28823E10,0x4786,0x42F1,{ 0x97,0x30,0x79,0x2B,0x35,0x66,0xB1,0x50 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerStatics>{ 0x8C488375,0xB37E,0x4C60,{ 0x9B,0xA8,0xB7,0x60,0xFD,0xA3,0xE5,0x9D } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IIndexableContent>{ 0xCCF1A05F,0xD4B5,0x483A,{ 0xB0,0x6E,0xE0,0xDB,0x1E,0xC4,0x20,0xE4 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptions>{ 0x1E5E46EE,0x0F45,0x4838,{ 0xA8,0xE9,0xD0,0x47,0x9D,0x44,0x6C,0x30 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptionsFactory>{ 0x032E1F8C,0xA9C1,0x4E71,{ 0x80,0x11,0x0D,0xEE,0x9D,0x48,0x11,0xA3 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptionsWithProviderFilter>{ 0x5B9D1026,0x15C4,0x44DD,{ 0xB8,0x9A,0x47,0xA5,0x9B,0x7D,0x7C,0x4F } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFileQueryResult>{ 0x52FDA447,0x2BAA,0x412C,{ 0xB2,0x9F,0xD4,0xB1,0x77,0x8E,0xFA,0x1E } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFileQueryResult2>{ 0x4E5DB9DD,0x7141,0x46C4,{ 0x8B,0xE3,0xE9,0xDC,0x9E,0x27,0x27,0x5C } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFolderQueryOperations>{ 0xCB43CCC9,0x446B,0x4A4F,{ 0xBE,0x97,0x75,0x77,0x71,0xBE,0x52,0x03 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFolderQueryResult>{ 0x6654C911,0x7D66,0x46FA,{ 0xAE,0xCF,0xE4,0xA4,0xBA,0xA9,0x3A,0xB8 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageItemQueryResult>{ 0xE8948079,0x9D58,0x47B8,{ 0xB2,0xB2,0x41,0xB0,0x7F,0x47,0x95,0xF9 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>{ 0x1DC7A369,0xB7A3,0x4DF2,{ 0x9D,0x61,0xEB,0xA8,0x5A,0x03,0x43,0xD2 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>{ 0x2A371977,0xABBF,0x4E1D,{ 0x8A,0xA5,0x63,0x85,0xD8,0x88,0x47,0x99 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageQueryResultBase>{ 0xC297D70D,0x7353,0x47AB,{ 0xBA,0x58,0x8C,0x61,0x42,0x5D,0xC5,0x4B } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IValueAndLanguage>{ 0xB9914881,0xA1EE,0x4BC4,{ 0x92,0xA5,0x46,0x69,0x68,0xE3,0x04,0x36 } };
+    template <> struct default_interface<Windows::Storage::Search::ContentIndexer>{ using type = Windows::Storage::Search::IContentIndexer; };
+    template <> struct default_interface<Windows::Storage::Search::ContentIndexerQuery>{ using type = Windows::Storage::Search::IContentIndexerQuery; };
+    template <> struct default_interface<Windows::Storage::Search::IndexableContent>{ using type = Windows::Storage::Search::IIndexableContent; };
+    template <> struct default_interface<Windows::Storage::Search::QueryOptions>{ using type = Windows::Storage::Search::IQueryOptions; };
+    template <> struct default_interface<Windows::Storage::Search::SortEntryVector>{ using type = Windows::Foundation::Collections::IVector<Windows::Storage::Search::SortEntry>; };
+    template <> struct default_interface<Windows::Storage::Search::StorageFileQueryResult>{ using type = Windows::Storage::Search::IStorageFileQueryResult; };
+    template <> struct default_interface<Windows::Storage::Search::StorageFolderQueryResult>{ using type = Windows::Storage::Search::IStorageFolderQueryResult; };
+    template <> struct default_interface<Windows::Storage::Search::StorageItemQueryResult>{ using type = Windows::Storage::Search::IStorageItemQueryResult; };
+    template <> struct default_interface<Windows::Storage::Search::StorageLibraryChangeTrackerTriggerDetails>{ using type = Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails; };
+    template <> struct default_interface<Windows::Storage::Search::StorageLibraryContentChangedTriggerDetails>{ using type = Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails; };
+    template <> struct default_interface<Windows::Storage::Search::ValueAndLanguage>{ using type = Windows::Storage::Search::IValueAndLanguage; };
+    template <> struct abi<Windows::Storage::Search::IContentIndexer>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -228,7 +229,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Revision(uint64_t*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IContentIndexerQuery>
+    template <> struct abi<Windows::Storage::Search::IContentIndexerQuery>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -240,7 +241,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_QueryFolder(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IContentIndexerQueryOperations>
+    template <> struct abi<Windows::Storage::Search::IContentIndexerQueryOperations>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -249,7 +250,7 @@ namespace winrt::impl
             virtual int32_t __stdcall CreateQuery(void*, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IContentIndexerStatics>
+    template <> struct abi<Windows::Storage::Search::IContentIndexerStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -257,7 +258,7 @@ namespace winrt::impl
             virtual int32_t __stdcall GetIndexer(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IIndexableContent>
+    template <> struct abi<Windows::Storage::Search::IIndexableContent>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -270,7 +271,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_StreamContentType(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IQueryOptions>
+    template <> struct abi<Windows::Storage::Search::IQueryOptions>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -294,7 +295,7 @@ namespace winrt::impl
             virtual int32_t __stdcall SetPropertyPrefetch(uint32_t, void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IQueryOptionsFactory>
+    template <> struct abi<Windows::Storage::Search::IQueryOptionsFactory>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -302,14 +303,14 @@ namespace winrt::impl
             virtual int32_t __stdcall CreateCommonFolderQuery(int32_t, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IQueryOptionsWithProviderFilter>
+    template <> struct abi<Windows::Storage::Search::IQueryOptionsWithProviderFilter>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_StorageProviderIdFilter(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IStorageFileQueryResult>
+    template <> struct abi<Windows::Storage::Search::IStorageFileQueryResult>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -317,14 +318,14 @@ namespace winrt::impl
             virtual int32_t __stdcall GetFilesAsyncDefaultStartAndCount(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IStorageFileQueryResult2>
+    template <> struct abi<Windows::Storage::Search::IStorageFileQueryResult2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall GetMatchingPropertiesWithRanges(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IStorageFolderQueryOperations>
+    template <> struct abi<Windows::Storage::Search::IStorageFolderQueryOperations>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -347,7 +348,7 @@ namespace winrt::impl
             virtual int32_t __stdcall IsCommonFileQuerySupported(int32_t, bool*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IStorageFolderQueryResult>
+    template <> struct abi<Windows::Storage::Search::IStorageFolderQueryResult>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -355,7 +356,7 @@ namespace winrt::impl
             virtual int32_t __stdcall GetFoldersAsyncDefaultStartAndCount(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IStorageItemQueryResult>
+    template <> struct abi<Windows::Storage::Search::IStorageItemQueryResult>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -363,7 +364,7 @@ namespace winrt::impl
             virtual int32_t __stdcall GetItemsAsyncDefaultStartAndCount(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>
+    template <> struct abi<Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -371,7 +372,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_ChangeTracker(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>
+    template <> struct abi<Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -379,7 +380,7 @@ namespace winrt::impl
             virtual int32_t __stdcall CreateModifiedSinceQuery(int64_t, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IStorageQueryResultBase>
+    template <> struct abi<Windows::Storage::Search::IStorageQueryResultBase>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -394,7 +395,7 @@ namespace winrt::impl
             virtual int32_t __stdcall ApplyNewQueryOptions(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Storage::Search::IValueAndLanguage>
+    template <> struct abi<Windows::Storage::Search::IValueAndLanguage>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -407,15 +408,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Search_IContentIndexer
     {
-        auto AddAsync(winrt::Windows::Storage::Search::IIndexableContent const& indexableContent) const;
-        auto UpdateAsync(winrt::Windows::Storage::Search::IIndexableContent const& indexableContent) const;
+        auto AddAsync(Windows::Storage::Search::IIndexableContent const& indexableContent) const;
+        auto UpdateAsync(Windows::Storage::Search::IIndexableContent const& indexableContent) const;
         auto DeleteAsync(param::hstring const& contentId) const;
         auto DeleteMultipleAsync(param::async_iterable<hstring> const& contentIds) const;
         auto DeleteAllAsync() const;
         auto RetrievePropertiesAsync(param::hstring const& contentId, param::async_iterable<hstring> const& propertiesToRetrieve) const;
         [[nodiscard]] auto Revision() const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IContentIndexer>
+    template <> struct consume<Windows::Storage::Search::IContentIndexer>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IContentIndexer<D>;
     };
@@ -429,18 +430,18 @@ namespace winrt::impl
         auto GetAsync(uint32_t startIndex, uint32_t maxItems) const;
         [[nodiscard]] auto QueryFolder() const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IContentIndexerQuery>
+    template <> struct consume<Windows::Storage::Search::IContentIndexerQuery>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IContentIndexerQuery<D>;
     };
     template <typename D>
     struct consume_Windows_Storage_Search_IContentIndexerQueryOperations
     {
-        auto CreateQuery(param::hstring const& searchFilter, param::iterable<hstring> const& propertiesToRetrieve, param::iterable<winrt::Windows::Storage::Search::SortEntry> const& sortOrder, param::hstring const& searchFilterLanguage) const;
-        auto CreateQuery(param::hstring const& searchFilter, param::iterable<hstring> const& propertiesToRetrieve, param::iterable<winrt::Windows::Storage::Search::SortEntry> const& sortOrder) const;
+        auto CreateQuery(param::hstring const& searchFilter, param::iterable<hstring> const& propertiesToRetrieve, param::iterable<Windows::Storage::Search::SortEntry> const& sortOrder, param::hstring const& searchFilterLanguage) const;
+        auto CreateQuery(param::hstring const& searchFilter, param::iterable<hstring> const& propertiesToRetrieve, param::iterable<Windows::Storage::Search::SortEntry> const& sortOrder) const;
         auto CreateQuery(param::hstring const& searchFilter, param::iterable<hstring> const& propertiesToRetrieve) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IContentIndexerQueryOperations>
+    template <> struct consume<Windows::Storage::Search::IContentIndexerQueryOperations>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IContentIndexerQueryOperations<D>;
     };
@@ -450,7 +451,7 @@ namespace winrt::impl
         auto GetIndexer(param::hstring const& indexName) const;
         auto GetIndexer() const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IContentIndexerStatics>
+    template <> struct consume<Windows::Storage::Search::IContentIndexerStatics>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IContentIndexerStatics<D>;
     };
@@ -461,11 +462,11 @@ namespace winrt::impl
         auto Id(param::hstring const& value) const;
         [[nodiscard]] auto Properties() const;
         [[nodiscard]] auto Stream() const;
-        auto Stream(winrt::Windows::Storage::Streams::IRandomAccessStream const& value) const;
+        auto Stream(Windows::Storage::Streams::IRandomAccessStream const& value) const;
         [[nodiscard]] auto StreamContentType() const;
         auto StreamContentType(param::hstring const& value) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IIndexableContent>
+    template <> struct consume<Windows::Storage::Search::IIndexableContent>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IIndexableContent<D>;
     };
@@ -474,7 +475,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto FileTypeFilter() const;
         [[nodiscard]] auto FolderDepth() const;
-        auto FolderDepth(winrt::Windows::Storage::Search::FolderDepth const& value) const;
+        auto FolderDepth(Windows::Storage::Search::FolderDepth const& value) const;
         [[nodiscard]] auto ApplicationSearchFilter() const;
         auto ApplicationSearchFilter(param::hstring const& value) const;
         [[nodiscard]] auto UserSearchFilter() const;
@@ -482,26 +483,26 @@ namespace winrt::impl
         [[nodiscard]] auto Language() const;
         auto Language(param::hstring const& value) const;
         [[nodiscard]] auto IndexerOption() const;
-        auto IndexerOption(winrt::Windows::Storage::Search::IndexerOption const& value) const;
+        auto IndexerOption(Windows::Storage::Search::IndexerOption const& value) const;
         [[nodiscard]] auto SortOrder() const;
         [[nodiscard]] auto GroupPropertyName() const;
         [[nodiscard]] auto DateStackOption() const;
         auto SaveToString() const;
         auto LoadFromString(param::hstring const& value) const;
-        auto SetThumbnailPrefetch(winrt::Windows::Storage::FileProperties::ThumbnailMode const& mode, uint32_t requestedSize, winrt::Windows::Storage::FileProperties::ThumbnailOptions const& options) const;
-        auto SetPropertyPrefetch(winrt::Windows::Storage::FileProperties::PropertyPrefetchOptions const& options, param::iterable<hstring> const& propertiesToRetrieve) const;
+        auto SetThumbnailPrefetch(Windows::Storage::FileProperties::ThumbnailMode const& mode, uint32_t requestedSize, Windows::Storage::FileProperties::ThumbnailOptions const& options) const;
+        auto SetPropertyPrefetch(Windows::Storage::FileProperties::PropertyPrefetchOptions const& options, param::iterable<hstring> const& propertiesToRetrieve) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IQueryOptions>
+    template <> struct consume<Windows::Storage::Search::IQueryOptions>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IQueryOptions<D>;
     };
     template <typename D>
     struct consume_Windows_Storage_Search_IQueryOptionsFactory
     {
-        auto CreateCommonFileQuery(winrt::Windows::Storage::Search::CommonFileQuery const& query, param::iterable<hstring> const& fileTypeFilter) const;
-        auto CreateCommonFolderQuery(winrt::Windows::Storage::Search::CommonFolderQuery const& query) const;
+        auto CreateCommonFileQuery(Windows::Storage::Search::CommonFileQuery const& query, param::iterable<hstring> const& fileTypeFilter) const;
+        auto CreateCommonFolderQuery(Windows::Storage::Search::CommonFolderQuery const& query) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IQueryOptionsFactory>
+    template <> struct consume<Windows::Storage::Search::IQueryOptionsFactory>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IQueryOptionsFactory<D>;
     };
@@ -510,7 +511,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto StorageProviderIdFilter() const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IQueryOptionsWithProviderFilter>
+    template <> struct consume<Windows::Storage::Search::IQueryOptionsWithProviderFilter>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IQueryOptionsWithProviderFilter<D>;
     };
@@ -520,16 +521,16 @@ namespace winrt::impl
         auto GetFilesAsync(uint32_t startIndex, uint32_t maxNumberOfItems) const;
         auto GetFilesAsync() const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IStorageFileQueryResult>
+    template <> struct consume<Windows::Storage::Search::IStorageFileQueryResult>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IStorageFileQueryResult<D>;
     };
     template <typename D>
     struct consume_Windows_Storage_Search_IStorageFileQueryResult2
     {
-        auto GetMatchingPropertiesWithRanges(winrt::Windows::Storage::StorageFile const& file) const;
+        auto GetMatchingPropertiesWithRanges(Windows::Storage::StorageFile const& file) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IStorageFileQueryResult2>
+    template <> struct consume<Windows::Storage::Search::IStorageFileQueryResult2>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IStorageFileQueryResult2<D>;
     };
@@ -538,23 +539,23 @@ namespace winrt::impl
     {
         auto GetIndexedStateAsync() const;
         auto CreateFileQuery() const;
-        auto CreateFileQuery(winrt::Windows::Storage::Search::CommonFileQuery const& query) const;
-        auto CreateFileQueryWithOptions(winrt::Windows::Storage::Search::QueryOptions const& queryOptions) const;
+        auto CreateFileQuery(Windows::Storage::Search::CommonFileQuery const& query) const;
+        auto CreateFileQueryWithOptions(Windows::Storage::Search::QueryOptions const& queryOptions) const;
         auto CreateFolderQuery() const;
-        auto CreateFolderQuery(winrt::Windows::Storage::Search::CommonFolderQuery const& query) const;
-        auto CreateFolderQueryWithOptions(winrt::Windows::Storage::Search::QueryOptions const& queryOptions) const;
+        auto CreateFolderQuery(Windows::Storage::Search::CommonFolderQuery const& query) const;
+        auto CreateFolderQueryWithOptions(Windows::Storage::Search::QueryOptions const& queryOptions) const;
         auto CreateItemQuery() const;
-        auto CreateItemQueryWithOptions(winrt::Windows::Storage::Search::QueryOptions const& queryOptions) const;
-        auto GetFilesAsync(winrt::Windows::Storage::Search::CommonFileQuery const& query, uint32_t startIndex, uint32_t maxItemsToRetrieve) const;
-        auto GetFilesAsync(winrt::Windows::Storage::Search::CommonFileQuery const& query) const;
-        auto GetFoldersAsync(winrt::Windows::Storage::Search::CommonFolderQuery const& query, uint32_t startIndex, uint32_t maxItemsToRetrieve) const;
-        auto GetFoldersAsync(winrt::Windows::Storage::Search::CommonFolderQuery const& query) const;
+        auto CreateItemQueryWithOptions(Windows::Storage::Search::QueryOptions const& queryOptions) const;
+        auto GetFilesAsync(Windows::Storage::Search::CommonFileQuery const& query, uint32_t startIndex, uint32_t maxItemsToRetrieve) const;
+        auto GetFilesAsync(Windows::Storage::Search::CommonFileQuery const& query) const;
+        auto GetFoldersAsync(Windows::Storage::Search::CommonFolderQuery const& query, uint32_t startIndex, uint32_t maxItemsToRetrieve) const;
+        auto GetFoldersAsync(Windows::Storage::Search::CommonFolderQuery const& query) const;
         auto GetItemsAsync(uint32_t startIndex, uint32_t maxItemsToRetrieve) const;
-        auto AreQueryOptionsSupported(winrt::Windows::Storage::Search::QueryOptions const& queryOptions) const;
-        auto IsCommonFolderQuerySupported(winrt::Windows::Storage::Search::CommonFolderQuery const& query) const;
-        auto IsCommonFileQuerySupported(winrt::Windows::Storage::Search::CommonFileQuery const& query) const;
+        auto AreQueryOptionsSupported(Windows::Storage::Search::QueryOptions const& queryOptions) const;
+        auto IsCommonFolderQuerySupported(Windows::Storage::Search::CommonFolderQuery const& query) const;
+        auto IsCommonFileQuerySupported(Windows::Storage::Search::CommonFileQuery const& query) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IStorageFolderQueryOperations>
+    template <> struct consume<Windows::Storage::Search::IStorageFolderQueryOperations>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IStorageFolderQueryOperations<D>;
     };
@@ -564,7 +565,7 @@ namespace winrt::impl
         auto GetFoldersAsync(uint32_t startIndex, uint32_t maxNumberOfItems) const;
         auto GetFoldersAsync() const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IStorageFolderQueryResult>
+    template <> struct consume<Windows::Storage::Search::IStorageFolderQueryResult>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IStorageFolderQueryResult<D>;
     };
@@ -574,7 +575,7 @@ namespace winrt::impl
         auto GetItemsAsync(uint32_t startIndex, uint32_t maxNumberOfItems) const;
         auto GetItemsAsync() const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IStorageItemQueryResult>
+    template <> struct consume<Windows::Storage::Search::IStorageItemQueryResult>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IStorageItemQueryResult<D>;
     };
@@ -584,7 +585,7 @@ namespace winrt::impl
         [[nodiscard]] auto Folder() const;
         [[nodiscard]] auto ChangeTracker() const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>
+    template <> struct consume<Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IStorageLibraryChangeTrackerTriggerDetails<D>;
     };
@@ -592,9 +593,9 @@ namespace winrt::impl
     struct consume_Windows_Storage_Search_IStorageLibraryContentChangedTriggerDetails
     {
         [[nodiscard]] auto Folder() const;
-        auto CreateModifiedSinceQuery(winrt::Windows::Foundation::DateTime const& lastQueryTime) const;
+        auto CreateModifiedSinceQuery(Windows::Foundation::DateTime const& lastQueryTime) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>
+    template <> struct consume<Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IStorageLibraryContentChangedTriggerDetails<D>;
     };
@@ -603,19 +604,19 @@ namespace winrt::impl
     {
         auto GetItemCountAsync() const;
         [[nodiscard]] auto Folder() const;
-        auto ContentsChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Storage::Search::IStorageQueryResultBase, winrt::Windows::Foundation::IInspectable> const& handler) const;
-        using ContentsChanged_revoker = impl::event_revoker<winrt::Windows::Storage::Search::IStorageQueryResultBase, &impl::abi_t<winrt::Windows::Storage::Search::IStorageQueryResultBase>::remove_ContentsChanged>;
-        [[nodiscard]] ContentsChanged_revoker ContentsChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Storage::Search::IStorageQueryResultBase, winrt::Windows::Foundation::IInspectable> const& handler) const;
+        auto ContentsChanged(Windows::Foundation::TypedEventHandler<Windows::Storage::Search::IStorageQueryResultBase, Windows::Foundation::IInspectable> const& handler) const;
+        using ContentsChanged_revoker = impl::event_revoker<Windows::Storage::Search::IStorageQueryResultBase, &impl::abi_t<Windows::Storage::Search::IStorageQueryResultBase>::remove_ContentsChanged>;
+        [[nodiscard]] ContentsChanged_revoker ContentsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Storage::Search::IStorageQueryResultBase, Windows::Foundation::IInspectable> const& handler) const;
         auto ContentsChanged(winrt::event_token const& eventCookie) const noexcept;
-        auto OptionsChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Storage::Search::IStorageQueryResultBase, winrt::Windows::Foundation::IInspectable> const& changedHandler) const;
-        using OptionsChanged_revoker = impl::event_revoker<winrt::Windows::Storage::Search::IStorageQueryResultBase, &impl::abi_t<winrt::Windows::Storage::Search::IStorageQueryResultBase>::remove_OptionsChanged>;
-        [[nodiscard]] OptionsChanged_revoker OptionsChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Storage::Search::IStorageQueryResultBase, winrt::Windows::Foundation::IInspectable> const& changedHandler) const;
+        auto OptionsChanged(Windows::Foundation::TypedEventHandler<Windows::Storage::Search::IStorageQueryResultBase, Windows::Foundation::IInspectable> const& changedHandler) const;
+        using OptionsChanged_revoker = impl::event_revoker<Windows::Storage::Search::IStorageQueryResultBase, &impl::abi_t<Windows::Storage::Search::IStorageQueryResultBase>::remove_OptionsChanged>;
+        [[nodiscard]] OptionsChanged_revoker OptionsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Storage::Search::IStorageQueryResultBase, Windows::Foundation::IInspectable> const& changedHandler) const;
         auto OptionsChanged(winrt::event_token const& eventCookie) const noexcept;
-        auto FindStartIndexAsync(winrt::Windows::Foundation::IInspectable const& value) const;
+        auto FindStartIndexAsync(Windows::Foundation::IInspectable const& value) const;
         auto GetCurrentQueryOptions() const;
-        auto ApplyNewQueryOptions(winrt::Windows::Storage::Search::QueryOptions const& newQueryOptions) const;
+        auto ApplyNewQueryOptions(Windows::Storage::Search::QueryOptions const& newQueryOptions) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IStorageQueryResultBase>
+    template <> struct consume<Windows::Storage::Search::IStorageQueryResultBase>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IStorageQueryResultBase<D>;
     };
@@ -625,9 +626,9 @@ namespace winrt::impl
         [[nodiscard]] auto Language() const;
         auto Language(param::hstring const& value) const;
         [[nodiscard]] auto Value() const;
-        auto Value(winrt::Windows::Foundation::IInspectable const& value) const;
+        auto Value(Windows::Foundation::IInspectable const& value) const;
     };
-    template <> struct consume<winrt::Windows::Storage::Search::IValueAndLanguage>
+    template <> struct consume<Windows::Storage::Search::IValueAndLanguage>
     {
         template <typename D> using type = consume_Windows_Storage_Search_IValueAndLanguage<D>;
     };

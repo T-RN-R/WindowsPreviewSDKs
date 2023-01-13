@@ -277,7 +277,7 @@ typedef D3DKMDT_2DREGION  D3DKMDT_2DOFFSET;
 //          the video output codec.
 //
 //          Miniport is free to support any D3D pixel format for its graphics modes that is meaningful
-//          as a primary surface pixel format.
+//          as a primary surface pixel format. 
 //
 typedef struct _D3DKMDT_GRAPHICS_RENDERING_FORMAT
 {
@@ -285,7 +285,7 @@ typedef struct _D3DKMDT_GRAPHICS_RENDERING_FORMAT
     D3DKMDT_2DREGION  PrimSurfSize;
 
     // Size of the visible part of the primary surface, used for panned modes including zoom modes.
-    // The visible region size is required to be the same as the primary surface
+    // The visible region size is required to be the same as the primary surface 
     D3DKMDT_2DREGION  VisibleRegionSize;
 
     // Number of bytes between the start of one scan line and the next.
@@ -386,29 +386,29 @@ D3DKMDT_MONITOR_ORIENTATION;
 //
 typedef enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY
 {
-    D3DKMDT_VOT_UNINITIALIZED            = -2,
-    D3DKMDT_VOT_OTHER                    = -1,
-    D3DKMDT_VOT_HD15                     =  0,
-    D3DKMDT_VOT_SVIDEO                   =  1,
-    D3DKMDT_VOT_COMPOSITE_VIDEO          =  2,
-    D3DKMDT_VOT_COMPONENT_VIDEO          =  3,
-    D3DKMDT_VOT_DVI                      =  4,
-    D3DKMDT_VOT_HDMI                     =  5,
-    D3DKMDT_VOT_LVDS                     =  6,
-    D3DKMDT_VOT_D_JPN                    =  8,
-    D3DKMDT_VOT_SDI                      =  9,
-    D3DKMDT_VOT_DISPLAYPORT_EXTERNAL     = 10,
-    D3DKMDT_VOT_DISPLAYPORT_EMBEDDED     = 11,
-    D3DKMDT_VOT_UDI_EXTERNAL             = 12,
-    D3DKMDT_VOT_UDI_EMBEDDED             = 13,
-    D3DKMDT_VOT_SDTVDONGLE               = 14,
+    D3DKMDT_VOT_UNINITIALIZED        = -2,
+    D3DKMDT_VOT_OTHER                = -1,
+    D3DKMDT_VOT_HD15                 =  0,
+    D3DKMDT_VOT_SVIDEO               =  1,
+    D3DKMDT_VOT_COMPOSITE_VIDEO      =  2,
+    D3DKMDT_VOT_COMPONENT_VIDEO      =  3,
+    D3DKMDT_VOT_DVI                  =  4,
+    D3DKMDT_VOT_HDMI                 =  5,
+    D3DKMDT_VOT_LVDS                 =  6,
+    D3DKMDT_VOT_D_JPN                =  8,
+    D3DKMDT_VOT_SDI                  =  9,
+    D3DKMDT_VOT_DISPLAYPORT_EXTERNAL = 10,
+    D3DKMDT_VOT_DISPLAYPORT_EMBEDDED = 11,
+    D3DKMDT_VOT_UDI_EXTERNAL         = 12,
+    D3DKMDT_VOT_UDI_EMBEDDED         = 13,
+    D3DKMDT_VOT_SDTVDONGLE           = 14,
 #if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM1_3_M1)
-    D3DKMDT_VOT_MIRACAST                 = 15,
+    D3DKMDT_VOT_MIRACAST             = 15,
 #if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_1)
-    D3DKMDT_VOT_INDIRECT_WIRED           = 16,
+    D3DKMDT_VOT_INDIRECT_WIRED       = 16,
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_1)
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM1_3_M1)
-    D3DKMDT_VOT_INTERNAL                 = 0x80000000,
+    D3DKMDT_VOT_INTERNAL             = 0x80000000,
 
     // Remove when DDI is unlocked.
     D3DKMDT_VOT_SVIDEO_4PIN          = D3DKMDT_VOT_SVIDEO,
@@ -551,9 +551,9 @@ typedef struct _D3DKMDT_VIDEO_SIGNAL_INFO
             D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING ScanLineOrdering : 3;
 
             // Vertical refresh frequency divider
-            UINT VSyncFreqDivider               : 6;
+            UINT VSyncFreqDivider : 6;
 
-            UINT Reserved                       : 23;
+            UINT Reserved : 23;
 
         } AdditionalSignalInfo;
 #endif // DXGKDDI_INTERFACE_VERSION_WDDM1_3_M1
@@ -583,10 +583,10 @@ typedef UINT  D3DKMDT_VIDEO_PRESENT_TARGET_MODE_ID;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Purpose: Describe bit-fields for wire format and preference
-//  In the D3DKMDT_VIDPN_TARGET_MODE structure all fields are valid and the wire format fields indicate
+//  In the D3DKMDT_VIDPN_TARGET_MODE structure all fields are valid and the wire format fields indicate 
 //  supported bit depts per color encoding format.
-//  In the DXGK_SET_TIMING_PATH_INFO structure the Preference field is unused so should be ignored by the
-//  driver and will be set to zero by the OS in case of future usage.  The wire format fields are used to
+//  In the DXGK_SET_TIMING_PATH_INFO structure the Preference field is unused so should be ignored by the 
+//  driver and will be set to zero by the OS in case of future usage.  The wire format fields are used to 
 //  indicate which wire format has been selected so only one bit across the five fields will be set.
 //
 
@@ -632,12 +632,6 @@ typedef struct _D3DKMDT_VIDPN_TARGET_MODE
     // the source of the respective present path.
     D3DKMDT_MODE_PREFERENCE  Preference;
 #endif // (DXGKDDI_INTERFACE_VERSION < DXGKDDI_INTERFACE_VERSION_WDDM2_2)
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
-
-    D3DDDI_RATIONAL MinimumVSyncFreq;
-
-#endif // (DXGKDDI_INTERFACE_VERSION < DXGKDDI_INTERFACE_VERSION_WDDM2_9)
 
 }
 D3DKMDT_VIDPN_TARGET_MODE;
@@ -1575,13 +1569,13 @@ typedef enum _DXGKMDT_OPM_HDCP_PROTECTION_LEVEL
     DXGKMDT_OPM_HDCP_FORCE_ULONG    = 0x7fffffff
 } DXGKMDT_OPM_HDCP_PROTECTION_LEVEL;
 
-typedef enum _DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL
-{
-    DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF                         = DXGKMDT_OPM_HDCP_OFF,
+typedef enum _DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL  
+{  
+    DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF                         = DXGKMDT_OPM_HDCP_OFF, 
     DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION = DXGKMDT_OPM_HDCP_ON,       // No Type restriction on output topology nodes
-    DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION   = DXGKMDT_OPM_HDCP_ON + 1,   // Restrict to Type 1 compliant output topology nodes
-    DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_FORCE_ULONG                 = 0x7fffffff
-} DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL;
+    DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION   = DXGKMDT_OPM_HDCP_ON + 1,   // Restrict to Type 1 compliant output topology nodes     
+    DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_FORCE_ULONG                 = 0x7fffffff  
+} DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL;  
 
 typedef enum _DXGKMDT_OPM_CGMSA
 {
@@ -1953,7 +1947,6 @@ typedef enum
     DXGK_ENGINE_TYPE_COPY,
     DXGK_ENGINE_TYPE_OVERLAY,
     DXGK_ENGINE_TYPE_CRYPTO,
-    DXGK_ENGINE_TYPE_VIDEO_CODEC,
     DXGK_ENGINE_TYPE_MAX
 } DXGK_ENGINE_TYPE;
 
@@ -1971,8 +1964,7 @@ typedef struct _DXGK_NODEMETADATA_FLAGS
 
             UINT RingBufferFenceRelease     :  1;
             UINT SupportTrackedWorkload     :  1;
-            UINT UserModeSubmission         :  1;
-            UINT Reserved                   : 12;
+            UINT Reserved                   : 13;
 
             UINT MaxInFlightHwQueueBuffers  : 16;
 
@@ -2001,8 +1993,8 @@ typedef struct _DXGK_NODEMETADATA
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_2)
 
 #if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_0)
-    BOOLEAN          GpuMmuSupported;
-    BOOLEAN          IoMmuSupported;
+    BOOLEAN          GpuMmuSupported;        
+    BOOLEAN          IoMmuSupported;        
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_0)
 } DXGK_NODEMETADATA;
 
@@ -2074,7 +2066,7 @@ typedef struct _DXGK_GPUCLOCKDATA
     ULONGLONG               CpuClockCounter;
 
 #if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_4)
-    DXGK_GPUCLOCKDATA_FLAGS Flags;
+    DXGK_GPUCLOCKDATA_FLAGS Flags;        
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_4)
 } DXGK_GPUCLOCKDATA;
 
@@ -2130,120 +2122,6 @@ typedef struct _D3DKMT_WDDM_2_7_CAPS
 } D3DKMT_WDDM_2_7_CAPS;
 
 #endif
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
-
-// DXGK_FEATURE_SUPPORT constants
-
-// When a driver doesn't support a feature, it doesn't call into QueryFeatureSupport with that feature ID.
-// This value is provided for implementation convenience of enumerating possible driver support states
-// for a particular feature.
-#define DXGK_FEATURE_SUPPORT_ALWAYS_OFF ((UINT)0)
-
-// Driver support for a feature is in the experimental state
-#define DXGK_FEATURE_SUPPORT_EXPERIMENTAL ((UINT)1)
-
-// Driver support for a feature is in the stable state
-#define DXGK_FEATURE_SUPPORT_STABLE ((UINT)2)
-
-// Driver support for a feature is in the always on state,
-// and it doesn't operate without this feature enabled.
-#define DXGK_FEATURE_SUPPORT_ALWAYS_ON ((UINT)3)
-
-typedef struct _D3DKMT_WDDM_2_9_CAPS
-{
-    union
-    {
-        struct
-        {
-            _Field_range_(DXGK_FEATURE_SUPPORT_ALWAYS_OFF, DXGK_FEATURE_SUPPORT_ALWAYS_ON)
-            UINT    HwSchSupportState           :  2;   // DXGK_FEATURE_SUPPORT_* value that specifies driver support state for GPU supports hardware scheduling
-            UINT    HwSchEnabled                :  1;   // Specifies whether the hardware scheduling is currently enabled for this GPU
-            UINT    SelfRefreshMemorySupported  :  1;   // Specifies whether Self Refresh Memory is supported for this GPU
-            UINT    Reserved                    : 28;
-        };
-        UINT Value;
-    };
-} D3DKMT_WDDM_2_9_CAPS;
-
-#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_0)
-
-typedef struct _D3DKMT_WDDM_3_0_CAPS
-{
-    union
-    {
-        struct
-        {
-            _Field_range_(DXGK_FEATURE_SUPPORT_ALWAYS_OFF, DXGK_FEATURE_SUPPORT_ALWAYS_ON)
-            UINT    HwFlipQueueSupportState     :  2;   // DXGK_FEATURE_SUPPORT_* value that specifies driver support state for GPU supports hardware flip queue
-            UINT    HwFlipQueueEnabled          :  1;   // Specifies whether the hardware flip queue is currently enabled for this GPU
-            UINT    DisplayableSupported        :  1;   // Specifies whether displayable feature is supported
-            UINT    Reserved                    : 28;
-        };
-        UINT Value;
-    };
-} D3DKMT_WDDM_3_0_CAPS;
-
-#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_0)
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_1)
-
-typedef struct _D3DKMT_WDDM_3_1_CAPS
-{
-    union
-    {
-        struct
-        {
-            UINT    NativeGpuFenceSupported :   1;    // Specifies whether native GPU fence is supported by this GPU
-            UINT    Reserved                :  31;
-        };
-        UINT Value;
-    };
-} D3DKMT_WDDM_3_1_CAPS;
-
-#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_1)
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_2) //RC
-
-typedef enum _DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL
-{
-    // Indicates driver has no support for MDM
-    DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_NONE = 0,
-
-    // Indicates the driver has development support for MDM,
-    // quality not considered good enough for development purposes only
-    DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_DEVELOPMENT = 1,
-
-    // Indicates the driver has experimental support for MDM,
-    // quality not considered good enough for general customer rollout
-    DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_EXPERIMENTAL = 2,
-
-    // Indicates the driver has full support for MDM,
-    // quality considered good enough for general customer rollout
-    DXGK_DISPLAYMUX_DRIVER_SUPPORT_LEVEL_FULL = 3,
-} DXGK_DISPLAYMUX_SUPPORT_LEVEL, *PDXGK_DISPLAYMUX_SUPPORT_LEVEL;
-
-typedef enum _DXGK_DISPLAYMUX_RUNTIME_STATUS
-{
-    // Indicates the GPU supports MDM and any driver obtained any
-    // required information from the system
-    DXGK_DISPLAYMUX_RUNTIME_STATUS_OK = 0,
-
-    // Indicates the GPU does not support MDM
-    DXGK_DISPLAYMUX_RUNTIME_STATUS_NO_GPU_SUPPORT = 1,
-
-    // Indicates the driver could not obtain some non-critical information
-    // from the system, MDM can still function but user experience may be impacted
-    DXGK_DISPLAYMUX_RUNTIME_STATUS_NON_CRITICAL_SYSTEM_INFO_MISSING = 2,
-
-    // Indicates the driver could not obtain some critical information
-    // from the system, MDM can function without this
-    DXGK_DISPLAYMUX_RUNTIME_STATUS_CRITICAL_SYSTEM_INFO_MISSING = 3,
-} DXGK_DISPLAYMUX_RUNTIME_STATUS, *PDXGK_DISPLAYMUX_RUNTIME_STATUS;
-
-#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_1)
 
 typedef struct _D3DKMT_TRACKEDWORKLOAD_SUPPORT
 {
@@ -2333,8 +2211,7 @@ typedef struct _D3DKMT_DRIVERCAPS_EXT
         struct
         {
             UINT VirtualModeSupport     : 1;
-            UINT Usb4MonitorSupport     : 1;
-            UINT Reserved               : 30;
+            UINT Reserved               : 31;
         };
         UINT Value;
     };
@@ -2446,26 +2323,6 @@ typedef BYTE DXGK_DISPLAY_DESCRIPTOR_TYPE;
 #endif // defined(__cplusplus) && !defined(SORTPP_PASS)
 
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_2)
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_5)
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Capabilities, preferences and other information reported by display only capable adapters.
-
-typedef struct _D3DKMT_DISPLAY_CAPS
-{
-    union
-    {
-        struct
-        {
-            UINT64 PreferPhysicallyContiguous : 1;
-            UINT64 Reserved : 63;
-        };
-        UINT64 Value;
-    };
-} D3DKMT_DISPLAY_CAPS;
-
-#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_5)
 
 #pragma pack( pop )
 

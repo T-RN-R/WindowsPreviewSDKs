@@ -6,6 +6,8 @@
 *                                                                                *
 **********************************************************************************/
 
+
+
 #ifndef _APISET_WIL_FEATURESTAGING_
 #define _APISET_WIL_FEATURESTAGING_
 
@@ -56,15 +58,14 @@ typedef void WINAPI FEATURE_STATE_CHANGE_CALLBACK(_In_opt_ void* context);
 typedef FEATURE_STATE_CHANGE_CALLBACK *PFEATURE_STATE_CHANGE_CALLBACK;
 
 EXTERN_C
-
 FEATURE_ENABLED_STATE
 GetFeatureEnabledState(
     UINT32 featureId,
     FEATURE_CHANGE_TIME changeTime
     );
 
-EXTERN_C
 
+EXTERN_C
 void
 RecordFeatureUsage(
     UINT32 featureId,
@@ -73,16 +74,16 @@ RecordFeatureUsage(
     _In_ PCSTR originName
     );
 
-EXTERN_C
 
+EXTERN_C
 void
 RecordFeatureError(
     UINT32 featureId,
     _In_ const FEATURE_ERROR* error
     );
 
-EXTERN_C
 
+EXTERN_C
 void
 SubscribeFeatureStateChangeNotification(
     _Outptr_ FEATURE_STATE_CHANGE_SUBSCRIPTION* subscription,
@@ -90,15 +91,15 @@ SubscribeFeatureStateChangeNotification(
     _In_opt_ void* context
     );
 
-EXTERN_C
 
+EXTERN_C
 void
 UnsubscribeFeatureStateChangeNotification(
     _In_ _Post_invalid_ FEATURE_STATE_CHANGE_SUBSCRIPTION subscription
     );
 
-EXTERN_C
 
+EXTERN_C
 UINT32
 GetFeatureVariant(
     UINT32 featureId,
@@ -106,4 +107,5 @@ GetFeatureVariant(
     _Out_ UINT32* payloadId,
     _Out_ BOOL* hasNotification
     );
+
 #endif // _APISET_WIL_FEATURESTAGING_

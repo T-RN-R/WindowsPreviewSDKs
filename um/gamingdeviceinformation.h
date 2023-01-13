@@ -12,6 +12,8 @@
 //    This header file provides API function signatures for querying gaming device information.
 //
 
+
+
 #ifdef MSC_VER
 #pragma once
 #endif
@@ -40,14 +42,11 @@ typedef enum GAMING_DEVICE_VENDOR_ID
 
 typedef enum GAMING_DEVICE_DEVICE_ID
 {
-    GAMING_DEVICE_DEVICE_ID_NONE                 = 0,
-    GAMING_DEVICE_DEVICE_ID_XBOX_ONE             = 0x768BAE26,
-    GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S           = 0x2A7361D9,
-    GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X           = 0x5AD617C7,
-    GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT    = 0x10F7CDE3,
-    GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S        = 0x1D27FABB,
-    GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X        = 0x2F7A3DFF,
-    GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT = 0xDE8A5661
+    GAMING_DEVICE_DEVICE_ID_NONE              = 0,
+    GAMING_DEVICE_DEVICE_ID_XBOX_ONE          = 0x768BAE26,
+    GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S        = 0x2A7361D9,
+    GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X        = 0x5AD617C7,
+    GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT = 0x10F7CDE3
 } GAMING_DEVICE_DEVICE_ID;
 
 // Definitions to maintain backwards compat with previous SDKs.
@@ -61,11 +60,11 @@ typedef struct GAMING_DEVICE_MODEL_INFORMATION
 } GAMING_DEVICE_MODEL_INFORMATION;
 
 // Returns S_OK and GAMING_DEVICE_VENDOR_ID_NONE/GAMING_DEVICE_DEVICE_ID_NONE on non-Xbox SKUs.
-
 STDAPI
 GetGamingDeviceModelInformation(
     _Out_ GAMING_DEVICE_MODEL_INFORMATION* information
     );
+
 
 #if defined(__cplusplus)
 } // end extern "C"

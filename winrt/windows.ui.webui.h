@@ -88,7 +88,7 @@
 //  API Contract Inclusion Definitions
 #if !defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
 #if !defined(WINDOWS_APPLICATIONMODEL_FULLTRUSTAPPCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_FULLTRUSTAPPCONTRACT_VERSION 0x20000
+#define WINDOWS_APPLICATIONMODEL_FULLTRUSTAPPCONTRACT_VERSION 0x10000
 #endif // defined(WINDOWS_APPLICATIONMODEL_FULLTRUSTAPPCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_STARTUPTASKCONTRACT_VERSION)
@@ -116,7 +116,7 @@
 #endif // defined(WINDOWS_APPLICATIONMODEL_BACKGROUND_BACKGROUNDALARMAPPLICATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION 0x20000
+#define WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION 0x10000
 #endif // defined(WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
@@ -124,7 +124,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -1305,21 +1305,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Activation {
-                interface IPhoneCallActivatedEventArgs;
-            } /* Activation */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs ABI::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs_FWD_DEFINED__
 namespace ABI {
@@ -1875,7 +1860,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IActivatedEventHandler = __uuidof(IActivatedEventHandler);
+                extern MIDL_CONST_ID IID& IID_IActivatedEventHandler = _uuidof(IActivatedEventHandler);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -1909,7 +1894,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBackgroundActivatedEventHandler = __uuidof(IBackgroundActivatedEventHandler);
+                extern MIDL_CONST_ID IID& IID_IBackgroundActivatedEventHandler = _uuidof(IBackgroundActivatedEventHandler);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -1943,7 +1928,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IEnteredBackgroundEventHandler = __uuidof(IEnteredBackgroundEventHandler);
+                extern MIDL_CONST_ID IID& IID_IEnteredBackgroundEventHandler = _uuidof(IEnteredBackgroundEventHandler);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -1977,7 +1962,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILeavingBackgroundEventHandler = __uuidof(ILeavingBackgroundEventHandler);
+                extern MIDL_CONST_ID IID& IID_ILeavingBackgroundEventHandler = _uuidof(ILeavingBackgroundEventHandler);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2011,7 +1996,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_INavigatedEventHandler = __uuidof(INavigatedEventHandler);
+                extern MIDL_CONST_ID IID& IID_INavigatedEventHandler = _uuidof(INavigatedEventHandler);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2044,7 +2029,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IResumingEventHandler = __uuidof(IResumingEventHandler);
+                extern MIDL_CONST_ID IID& IID_IResumingEventHandler = _uuidof(IResumingEventHandler);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2078,7 +2063,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISuspendingEventHandler = __uuidof(ISuspendingEventHandler);
+                extern MIDL_CONST_ID IID& IID_ISuspendingEventHandler = _uuidof(ISuspendingEventHandler);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2112,7 +2097,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Complete(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IActivatedDeferral = __uuidof(IActivatedDeferral);
+                extern MIDL_CONST_ID IID& IID_IActivatedDeferral = _uuidof(IActivatedDeferral);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2146,7 +2131,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IActivatedEventArgsDeferral = __uuidof(IActivatedEventArgsDeferral);
+                extern MIDL_CONST_ID IID& IID_IActivatedEventArgsDeferral = _uuidof(IActivatedEventArgsDeferral);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2182,7 +2167,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IActivatedOperation = __uuidof(IActivatedOperation);
+                extern MIDL_CONST_ID IID& IID_IActivatedOperation = _uuidof(IActivatedOperation);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2273,7 +2258,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IHtmlPrintDocumentSource = __uuidof(IHtmlPrintDocumentSource);
+                extern MIDL_CONST_ID IID& IID_IHtmlPrintDocumentSource = _uuidof(IHtmlPrintDocumentSource);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2318,7 +2303,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_INewWebUIViewCreatedEventArgs = __uuidof(INewWebUIViewCreatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_INewWebUIViewCreatedEventArgs = _uuidof(INewWebUIViewCreatedEventArgs);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2379,7 +2364,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUIActivationStatics = __uuidof(IWebUIActivationStatics);
+                extern MIDL_CONST_ID IID& IID_IWebUIActivationStatics = _uuidof(IWebUIActivationStatics);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2429,7 +2414,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUIActivationStatics2 = __uuidof(IWebUIActivationStatics2);
+                extern MIDL_CONST_ID IID& IID_IWebUIActivationStatics2 = _uuidof(IWebUIActivationStatics2);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2471,7 +2456,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUIActivationStatics3 = __uuidof(IWebUIActivationStatics3);
+                extern MIDL_CONST_ID IID& IID_IWebUIActivationStatics3 = _uuidof(IWebUIActivationStatics3);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2518,7 +2503,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUIActivationStatics4 = __uuidof(IWebUIActivationStatics4);
+                extern MIDL_CONST_ID IID& IID_IWebUIActivationStatics4 = _uuidof(IWebUIActivationStatics4);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2555,7 +2540,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUIBackgroundTaskInstance = __uuidof(IWebUIBackgroundTaskInstance);
+                extern MIDL_CONST_ID IID& IID_IWebUIBackgroundTaskInstance = _uuidof(IWebUIBackgroundTaskInstance);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2591,7 +2576,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUIBackgroundTaskInstanceStatics = __uuidof(IWebUIBackgroundTaskInstanceStatics);
+                extern MIDL_CONST_ID IID& IID_IWebUIBackgroundTaskInstanceStatics = _uuidof(IWebUIBackgroundTaskInstanceStatics);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2625,7 +2610,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Complete(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUINavigatedDeferral = __uuidof(IWebUINavigatedDeferral);
+                extern MIDL_CONST_ID IID& IID_IWebUINavigatedDeferral = _uuidof(IWebUINavigatedDeferral);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2659,7 +2644,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUINavigatedEventArgs = __uuidof(IWebUINavigatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IWebUINavigatedEventArgs = _uuidof(IWebUINavigatedEventArgs);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2695,7 +2680,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUINavigatedOperation = __uuidof(IWebUINavigatedOperation);
+                extern MIDL_CONST_ID IID& IID_IWebUINavigatedOperation = _uuidof(IWebUINavigatedOperation);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2751,7 +2736,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUIView = __uuidof(IWebUIView);
+                extern MIDL_CONST_ID IID& IID_IWebUIView = _uuidof(IWebUIView);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -2791,7 +2776,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebUIViewStatics = __uuidof(IWebUIViewStatics);
+                extern MIDL_CONST_ID IID& IID_IWebUIViewStatics = _uuidof(IWebUIViewStatics);
             } /* WebUI */
         } /* UI */
     } /* Windows */
@@ -3000,8 +2985,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics2 interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics3 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics4 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
@@ -3776,28 +3761,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Class implements the following interfaces:
- *    Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs ** Default Interface **
- *    Windows.ApplicationModel.Activation.IActivatedEventArgs
- *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
- *    Windows.UI.WebUI.IActivatedEventArgsDeferral
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#ifndef RUNTIMECLASS_Windows_UI_WebUI_WebUIPhoneCallActivatedEventArgs_DEFINED
-#define RUNTIMECLASS_Windows_UI_WebUI_WebUIPhoneCallActivatedEventArgs_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_WebUI_WebUIPhoneCallActivatedEventArgs[] = L"Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
  * Class Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs
  *
  * Introduced to Windows.ApplicationModel.Activation.ActivatedEventsContract in version 1.0
@@ -4102,9 +4065,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_UI_WebUI_WebUIWalletActionActivatedEventArgs_DEFINED
 #define RUNTIMECLASS_Windows_UI_WebUI_WebUIWalletActionActivatedEventArgs_DEFINED
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-DEPRECATED("WebUIWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_WebUI_WebUIWalletActionActivatedEventArgs[] = L"Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
@@ -4931,12 +4891,6 @@ typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenAct
 typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs;
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPrelaunchActivatedEventArgs_FWD_DEFINED__
@@ -7021,8 +6975,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics2 interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics3 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.WebUI.IWebUIActivationStatics4 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
@@ -7797,28 +7751,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Class implements the following interfaces:
- *    Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs ** Default Interface **
- *    Windows.ApplicationModel.Activation.IActivatedEventArgs
- *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
- *    Windows.UI.WebUI.IActivatedEventArgsDeferral
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#ifndef RUNTIMECLASS_Windows_UI_WebUI_WebUIPhoneCallActivatedEventArgs_DEFINED
-#define RUNTIMECLASS_Windows_UI_WebUI_WebUIPhoneCallActivatedEventArgs_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_WebUI_WebUIPhoneCallActivatedEventArgs[] = L"Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
  * Class Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs
  *
  * Introduced to Windows.ApplicationModel.Activation.ActivatedEventsContract in version 1.0
@@ -8123,9 +8055,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_UI_WebUI_WebUIWalletActionActivatedEventArgs_DEFINED
 #define RUNTIMECLASS_Windows_UI_WebUI_WebUIWalletActionActivatedEventArgs_DEFINED
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-DEPRECATED("WebUIWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_WebUI_WebUIWalletActionActivatedEventArgs[] = L"Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000

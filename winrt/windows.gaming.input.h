@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_GAMING_INPUT_GAMINGINPUTPREVIEWCONTRACT_VERSION)
@@ -2209,7 +2209,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IArcadeStick = __uuidof(IArcadeStick);
+                extern MIDL_CONST_ID IID& IID_IArcadeStick = _uuidof(IArcadeStick);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2259,7 +2259,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IArcadeStickStatics = __uuidof(IArcadeStickStatics);
+                extern MIDL_CONST_ID IID& IID_IArcadeStickStatics = _uuidof(IArcadeStickStatics);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2299,7 +2299,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IArcadeStickStatics2 = __uuidof(IArcadeStickStatics2);
+                extern MIDL_CONST_ID IID& IID_IArcadeStickStatics2 = _uuidof(IArcadeStickStatics2);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2345,7 +2345,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFlightStick = __uuidof(IFlightStick);
+                extern MIDL_CONST_ID IID& IID_IFlightStick = _uuidof(IFlightStick);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2399,7 +2399,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFlightStickStatics = __uuidof(IFlightStickStatics);
+                extern MIDL_CONST_ID IID& IID_IFlightStickStatics = _uuidof(IFlightStickStatics);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2460,7 +2460,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGameController = __uuidof(IGameController);
+                extern MIDL_CONST_ID IID& IID_IGameController = _uuidof(IGameController);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2494,7 +2494,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGameControllerBatteryInfo = __uuidof(IGameControllerBatteryInfo);
+                extern MIDL_CONST_ID IID& IID_IGameControllerBatteryInfo = _uuidof(IGameControllerBatteryInfo);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2539,7 +2539,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGamepad = __uuidof(IGamepad);
+                extern MIDL_CONST_ID IID& IID_IGamepad = _uuidof(IGamepad);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2580,7 +2580,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGamepad2 = __uuidof(IGamepad2);
+                extern MIDL_CONST_ID IID& IID_IGamepad2 = _uuidof(IGamepad2);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2630,7 +2630,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGamepadStatics = __uuidof(IGamepadStatics);
+                extern MIDL_CONST_ID IID& IID_IGamepadStatics = _uuidof(IGamepadStatics);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2670,7 +2670,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGamepadStatics2 = __uuidof(IGamepadStatics2);
+                extern MIDL_CONST_ID IID& IID_IGamepadStatics2 = _uuidof(IGamepadStatics2);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2709,7 +2709,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IHeadset = __uuidof(IHeadset);
+                extern MIDL_CONST_ID IID& IID_IHeadset = _uuidof(IHeadset);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2770,7 +2770,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRacingWheel = __uuidof(IRacingWheel);
+                extern MIDL_CONST_ID IID& IID_IRacingWheel = _uuidof(IRacingWheel);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2820,7 +2820,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRacingWheelStatics = __uuidof(IRacingWheelStatics);
+                extern MIDL_CONST_ID IID& IID_IRacingWheelStatics = _uuidof(IRacingWheelStatics);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2860,7 +2860,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRacingWheelStatics2 = __uuidof(IRacingWheelStatics2);
+                extern MIDL_CONST_ID IID& IID_IRacingWheelStatics2 = _uuidof(IRacingWheelStatics2);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2931,7 +2931,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRawGameController = __uuidof(IRawGameController);
+                extern MIDL_CONST_ID IID& IID_IRawGameController = _uuidof(IRawGameController);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -2977,7 +2977,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRawGameController2 = __uuidof(IRawGameController2);
+                extern MIDL_CONST_ID IID& IID_IRawGameController2 = _uuidof(IRawGameController2);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -3031,7 +3031,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRawGameControllerStatics = __uuidof(IRawGameControllerStatics);
+                extern MIDL_CONST_ID IID& IID_IRawGameControllerStatics = _uuidof(IRawGameControllerStatics);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -3078,7 +3078,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUINavigationController = __uuidof(IUINavigationController);
+                extern MIDL_CONST_ID IID& IID_IUINavigationController = _uuidof(IUINavigationController);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -3128,7 +3128,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUINavigationControllerStatics = __uuidof(IUINavigationControllerStatics);
+                extern MIDL_CONST_ID IID& IID_IUINavigationControllerStatics = _uuidof(IUINavigationControllerStatics);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -3168,7 +3168,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUINavigationControllerStatics2 = __uuidof(IUINavigationControllerStatics2);
+                extern MIDL_CONST_ID IID& IID_IUINavigationControllerStatics2 = _uuidof(IUINavigationControllerStatics2);
             } /* Input */
         } /* Gaming */
     } /* Windows */
@@ -3185,8 +3185,8 @@ EXTERN_C const IID IID___x_ABI_CWindows_CGaming_CInput_CIUINavigationControllerS
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Gaming.Input.IArcadeStickStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Gaming.Input.IArcadeStickStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Gaming.Input.IArcadeStickStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Gaming.Input.IArcadeStick ** Default Interface **
@@ -3238,8 +3238,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Gaming.Input.IGamepadStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Gaming.Input.IGamepadStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Gaming.Input.IGamepadStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Gaming.Input.IGamepad ** Default Interface **
@@ -3342,8 +3342,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Gaming.Input.IUINavigationControllerStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Gaming.Input.IUINavigationControllerStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Gaming.Input.IUINavigationControllerStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Gaming.Input.IUINavigationController ** Default Interface **
@@ -8006,8 +8006,8 @@ EXTERN_C const IID IID___x_ABI_CWindows_CGaming_CInput_CIUINavigationControllerS
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Gaming.Input.IArcadeStickStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Gaming.Input.IArcadeStickStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Gaming.Input.IArcadeStickStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Gaming.Input.IArcadeStick ** Default Interface **
@@ -8059,8 +8059,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Gaming.Input.IGamepadStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Gaming.Input.IGamepadStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Gaming.Input.IGamepadStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Gaming.Input.IGamepad ** Default Interface **
@@ -8163,8 +8163,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Gaming.Input.IUINavigationControllerStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Gaming.Input.IUINavigationControllerStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Gaming.Input.IUINavigationControllerStatics interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Gaming.Input.IUINavigationController ** Default Interface **

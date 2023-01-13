@@ -1,6 +1,8 @@
 // ComputeCore.h: ApiSet Contract for ext-ms-win-hyperv-compute-l1
 // Copyright (c) Microsoft Corporation. All rights reserved.
 
+
+
 #pragma once
 
 #ifndef _HYPERV_COMPUTECORE_H_
@@ -20,8 +22,9 @@
 extern "C" {
 #endif
 
-// Enumerates existing compute systems.
 
+
+// Enumerates existing compute systems.
 HRESULT
 WINAPI
 HcsEnumerateComputeSystems(
@@ -29,8 +32,8 @@ HcsEnumerateComputeSystems(
     _In_ HCS_OPERATION operation
     );
 
-// Enumerates existing compute systems in a given namespace.
 
+// Enumerates existing compute systems in a given namespace.
 HRESULT
 WINAPI
 HcsEnumerateComputeSystemsInNamespace(
@@ -39,8 +42,8 @@ HcsEnumerateComputeSystemsInNamespace(
     _In_ HCS_OPERATION operation
     );
 
-// Creates a new operation.
 
+// Creates a new operation.
 HCS_OPERATION
 WINAPI
 HcsCreateOperation(
@@ -48,34 +51,24 @@ HcsCreateOperation(
     _In_opt_ HCS_OPERATION_COMPLETION callback
     );
 
-// Creates a new operation that allows registration for event notifications
-
-HCS_OPERATION
-WINAPI
-HcsCreateOperationWithNotifications(
-    _In_ HCS_OPERATION_OPTIONS eventTypes,
-    _In_opt_ const void* context,
-    _In_ HCS_EVENT_CALLBACK callback
-    );
 
 // Closes an operation.
-
 void
 WINAPI
 HcsCloseOperation(
     _In_ HCS_OPERATION operation
     );
 
-// Returns the context pointer of an operation.
 
+// Returns the context pointer of an operation.
 void*
 WINAPI
 HcsGetOperationContext(
     _In_ HCS_OPERATION operation
     );
 
-// Sets the context pointer for an operation.
 
+// Sets the context pointer for an operation.
 HRESULT
 WINAPI
 HcsSetOperationContext(
@@ -83,40 +76,40 @@ HcsSetOperationContext(
     _In_opt_ const void* context
     );
 
-// Returns the handle to compute system associated with an operation.
 
+// Returns the handle to compute system associated with an operation.
 HCS_SYSTEM
 WINAPI
 HcsGetComputeSystemFromOperation(
     _In_ HCS_OPERATION operation
     );
 
-// Returns the handle to the process associated with an operation
 
+// Returns the handle to the process associated with an operation
 HCS_PROCESS
 WINAPI
 HcsGetProcessFromOperation(
     _In_ HCS_OPERATION operation
     );
 
-// Returns the type of an operation.
 
+// Returns the type of an operation.
 HCS_OPERATION_TYPE
 WINAPI
 HcsGetOperationType(
     _In_ HCS_OPERATION operation
     );
 
-// Returns the ID that uniquely identifies an operation.
 
+// Returns the ID that uniquely identifies an operation.
 UINT64
 WINAPI
 HcsGetOperationId(
     _In_ HCS_OPERATION operation
     );
 
-// Returns the result of an operation.
 
+// Returns the result of an operation.
 HRESULT
 WINAPI
 HcsGetOperationResult(
@@ -124,9 +117,9 @@ HcsGetOperationResult(
     _Outptr_opt_ PWSTR* resultDocument
     );
 
+
 // Returns the result of an operation, including the process information for HcsCreateProcess
 // and HcsGetProcessInfo.
-
 HRESULT
 WINAPI
 HcsGetOperationResultAndProcessInfo(
@@ -135,28 +128,8 @@ HcsGetOperationResultAndProcessInfo(
     _Outptr_opt_ PWSTR* resultDocument
     );
 
-// Adds a resource to an HCS_OPERATION.
-
-HRESULT
-WINAPI
-HcsAddResourceToOperation(
-    _In_ HCS_OPERATION operation,
-    HCS_RESOURCE_TYPE type,
-    _In_ PCWSTR uri,
-    HANDLE handle
-    );
-
-// Returns processor compatibility fields in JSON string format
-
-HRESULT
-WINAPI
-HcsGetProcessorCompatibilityFromSavedState(
-    PCWSTR RuntimeFileName,
-    _Outptr_opt_ PCWSTR* ProcessorFeaturesString
-    );
 
 // Waits for the completion of an operation and returns the result.
-
 HRESULT
 WINAPI
 HcsWaitForOperationResult(
@@ -165,9 +138,9 @@ HcsWaitForOperationResult(
     _Outptr_opt_ PWSTR* resultDocument
     );
 
+
 // Waits for the completion of an operation and returns the result, including the process information
 // for HcsCreateProcess and HcsGetProcessInfo.
-
 HRESULT
 WINAPI
 HcsWaitForOperationResultAndProcessInfo(
@@ -177,8 +150,8 @@ HcsWaitForOperationResultAndProcessInfo(
     _Outptr_opt_ PWSTR* resultDocument
     );
 
-// Sets a callback that is invoked on completion of an operation.
 
+// Sets a callback that is invoked on completion of an operation.
 HRESULT
 WINAPI
 HcsSetOperationCallback(
@@ -187,26 +160,18 @@ HcsSetOperationCallback(
     _In_ HCS_OPERATION_COMPLETION callback
     );
 
-// Cancels an operation
 
+// Cancels an operation
 HRESULT
 WINAPI
 HcsCancelOperation(
     _In_ HCS_OPERATION operation
     );
 
-// Query for information or properties about a specific operation
 
-HRESULT
-WINAPI
-HcsGetOperationProperties(
-    _In_ HCS_OPERATION operation,
-    _In_ PCWSTR options,
-    _Outptr_ PWSTR* resultDocument
-    );
+
 
 /// Creates a new compute system.
-
 HRESULT
 WINAPI
 HcsCreateComputeSystem(
@@ -217,8 +182,8 @@ HcsCreateComputeSystem(
     _Out_ HCS_SYSTEM* computeSystem
     );
 
-/// Creates a new compute system in a given namespace.
 
+/// Creates a new compute system in a given namespace.
 HRESULT
 WINAPI
 HcsCreateComputeSystemInNamespace(
@@ -230,8 +195,10 @@ HcsCreateComputeSystemInNamespace(
     _Out_ HCS_SYSTEM* computeSystem
     );
 
-/// Opens a handle to an existing compute system.
 
+
+
+/// Opens a handle to an existing compute system.
 HRESULT
 WINAPI
 HcsOpenComputeSystem(
@@ -240,8 +207,8 @@ HcsOpenComputeSystem(
     _Out_ HCS_SYSTEM* computeSystem
     );
 
-/// Opens a handle to an existing compute system in a given namespace.
 
+/// Opens a handle to an existing compute system in a given namespace.
 HRESULT
 WINAPI
 HcsOpenComputeSystemInNamespace(
@@ -251,16 +218,20 @@ HcsOpenComputeSystemInNamespace(
     _Out_ HCS_SYSTEM* computeSystem
     );
 
-/// Closes a handle to a compute system.
 
+
+
+/// Closes a handle to a compute system.
 void
 WINAPI
 HcsCloseComputeSystem(
     _In_ _Post_invalid_ HCS_SYSTEM computeSystem
     );
 
-/// Starts a compute system.
 
+
+
+/// Starts a compute system.
 HRESULT
 WINAPI
 HcsStartComputeSystem(
@@ -269,8 +240,10 @@ HcsStartComputeSystem(
     _In_opt_ PCWSTR options
     );
 
-/// Cleanly shuts down a compute system.
 
+
+
+/// Cleanly shuts down a compute system.
 HRESULT
 WINAPI
 HcsShutDownComputeSystem(
@@ -279,8 +252,10 @@ HcsShutDownComputeSystem(
     _In_opt_ PCWSTR options
     );
 
-/// Forcefully terminates a compute system.
 
+
+
+/// Forcefully terminates a compute system.
 HRESULT
 WINAPI
 HcsTerminateComputeSystem(
@@ -289,8 +264,10 @@ HcsTerminateComputeSystem(
     _In_opt_ PCWSTR options
     );
 
-/// Forcefully terminates a compute system.
 
+
+
+/// Forcefully terminates a compute system.
 HRESULT
 WINAPI
 HcsCrashComputeSystem(
@@ -299,8 +276,10 @@ HcsCrashComputeSystem(
     _In_opt_ PCWSTR options
     );
 
-/// Pauses the execution of a compute system.
 
+
+
+/// Pauses the execution of a compute system.
 HRESULT
 WINAPI
 HcsPauseComputeSystem(
@@ -309,8 +288,10 @@ HcsPauseComputeSystem(
     _In_opt_ PCWSTR options
     );
 
-/// Resumes the execution of a compute system.
 
+
+
+/// Resumes the execution of a compute system.
 HRESULT
 WINAPI
 HcsResumeComputeSystem(
@@ -319,8 +300,10 @@ HcsResumeComputeSystem(
     _In_opt_ PCWSTR options
     );
 
-/// Saves the state of a compute system.
 
+
+
+/// Saves the state of a compute system.
 HRESULT
 WINAPI
 HcsSaveComputeSystem(
@@ -329,8 +312,10 @@ HcsSaveComputeSystem(
     _In_opt_ PCWSTR options
     );
 
-/// Returns properties of a compute system.
 
+
+
+/// Returns properties of a compute system.
 HRESULT
 WINAPI
 HcsGetComputeSystemProperties(
@@ -339,8 +324,10 @@ HcsGetComputeSystemProperties(
     _In_opt_ PCWSTR propertyQuery
     );
 
-/// Modifies settings of a compute system.
 
+
+
+/// Modifies settings of a compute system.
 HRESULT
 WINAPI
 HcsModifyComputeSystem(
@@ -350,18 +337,14 @@ HcsModifyComputeSystem(
     _In_opt_ HANDLE identity
     );
 
-// Waits for a compute system to exit.
 
-HRESULT
-WINAPI
-HcsWaitForComputeSystemExit(
-    _In_ HCS_SYSTEM computeSystem,
-    _In_ DWORD timeoutMs,
-    _Outptr_opt_ PWSTR* result
-    );
+
+
+
+
+
 
 /// Registers a callback function to receive notifications for the compute system.
-
 HRESULT
 WINAPI
 HcsSetComputeSystemCallback(
@@ -371,8 +354,10 @@ HcsSetComputeSystemCallback(
     _In_ HCS_EVENT_CALLBACK callback
     );
 
-/// Starts a process in a compute system.
 
+
+
+/// Starts a process in a compute system.
 HRESULT
 WINAPI
 HcsCreateProcess(
@@ -383,8 +368,10 @@ HcsCreateProcess(
     _Out_ HCS_PROCESS* process
     );
 
-/// Opens an existing process in a compute system
 
+
+
+/// Opens an existing process in a compute system
 HRESULT
 WINAPI
 HcsOpenProcess(
@@ -394,16 +381,20 @@ HcsOpenProcess(
     _Out_ HCS_PROCESS* process
     );
 
-/// Closes the handle to a process in a compute system
 
+
+
+/// Closes the handle to a process in a compute system
 void
 WINAPI
 HcsCloseProcess(
     _In_ HCS_PROCESS process
     );
 
-/// Terminates a process in a compute system
 
+
+
+/// Terminates a process in a compute system
 HRESULT
 WINAPI
 HcsTerminateProcess(
@@ -412,8 +403,10 @@ HcsTerminateProcess(
     _In_opt_ PCWSTR options
     );
 
-/// Sends a signal to a process in a compute system
 
+
+
+/// Sends a signal to a process in a compute system
 HRESULT
 WINAPI
 HcsSignalProcess(
@@ -422,8 +415,10 @@ HcsSignalProcess(
     _In_opt_ PCWSTR options
     );
 
-/// Returns the initial startup info of a process in a compute system
 
+
+
+/// Returns the initial startup info of a process in a compute system
 HRESULT
 WINAPI
 HcsGetProcessInfo(
@@ -431,8 +426,10 @@ HcsGetProcessInfo(
     _In_ HCS_OPERATION operation
     );
 
-/// Returns the properties of a process in a compute system
 
+
+
+/// Returns the properties of a process in a compute system
 HRESULT
 WINAPI
 HcsGetProcessProperties(
@@ -441,8 +438,10 @@ HcsGetProcessProperties(
     _In_opt_ PCWSTR propertyQuery
     );
 
-/// Modifies the parameters of a process in a compute system
 
+
+
+/// Modifies the parameters of a process in a compute system
 HRESULT
 WINAPI
 HcsModifyProcess(
@@ -451,8 +450,12 @@ HcsModifyProcess(
     _In_ PCWSTR settings
     );
 
-/// Registers a callback function to receive notifications for a process in a compute system
 
+
+
+
+
+/// Registers a callback function to receive notifications for a process in a compute system
 HRESULT
 WINAPI
 HcsSetProcessCallback(
@@ -462,18 +465,10 @@ HcsSetProcessCallback(
     _In_ HCS_EVENT_CALLBACK callback
     );
 
-// Waits for a process in a compute system to exit.
 
-HRESULT
-WINAPI
-HcsWaitForProcessExit(
-    _In_ HCS_PROCESS computeSystem,
-    _In_ DWORD timeoutMs,
-    _Outptr_opt_ PWSTR* result
-    );
+
 
 /// Returns properties of the Host Compute Service
-
 HRESULT
 WINAPI
 HcsGetServiceProperties(
@@ -481,8 +476,8 @@ HcsGetServiceProperties(
     _Outptr_ PWSTR* result
     );
 
-/// Modifies settings of the Host Compute Service
 
+/// Modifies settings of the Host Compute Service
 HRESULT
 WINAPI
 HcsModifyServiceSettings(
@@ -490,32 +485,32 @@ HcsModifyServiceSettings(
     _Outptr_opt_ PWSTR* result
     );
 
-/// Submits a WER report
 
+/// Submits a WER report
 HRESULT
 WINAPI
 HcsSubmitWerReport(
     _In_ PCWSTR settings
     );
 
-// Creates an empty guest-state file (.vmgs) for a VM.
 
+// Creates an empty guest-state file (.vmgs) for a VM.
 HRESULT
 WINAPI
 HcsCreateEmptyGuestStateFile(
     _In_ PCWSTR guestStateFilePath
     );
 
-// Creates an empty runtime-state file (.vmrs) for a VM.
 
+// Creates an empty runtime-state file (.vmrs) for a VM.
 HRESULT
 WINAPI
 HcsCreateEmptyRuntimeStateFile(
     _In_ PCWSTR runtimeStateFilePath
     );
 
-// Adds an entry to a file's ACL that grants access for a VM.
 
+// Adds an entry to a file's ACL that grants access for a VM.
 HRESULT
 WINAPI
 HcsGrantVmAccess(
@@ -523,8 +518,8 @@ HcsGrantVmAccess(
     _In_ PCWSTR filePath
     );
 
-// Removes an entry to a file's ACL that granted access for a VM.
 
+// Removes an entry to a file's ACL that granted access for a VM.
 HRESULT
 WINAPI
 HcsRevokeVmAccess(
@@ -532,21 +527,22 @@ HcsRevokeVmAccess(
     _In_ PCWSTR filePath
     );
 
-// Grants VM group access (R/O) to the specified file.
 
+// Grants VM group access (R/O) to the specified file.
 HRESULT
 WINAPI
 HcsGrantVmGroupAccess(
     _In_ PCWSTR filePath
     );
 
-// Removes VM group access for the specified file.
 
+// Removes VM group access for the specified file.
 HRESULT
 WINAPI
 HcsRevokeVmGroupAccess(
     _In_ PCWSTR filePath
     );
+
 
 #ifdef __cplusplus
 }
@@ -557,8 +553,11 @@ HcsRevokeVmGroupAccess(
 
 #endif // _HYPERV_COMPUTECORE_H_
 
-#ifndef ext_ms_win_hyperv_compute_l1_2_4_query_routines
-#define ext_ms_win_hyperv_compute_l1_2_4_query_routines
+
+#ifndef ext_ms_win_hyperv_compute_l1_2_1_query_routines
+#define ext_ms_win_hyperv_compute_l1_2_1_query_routines
+
+
 
 //
 //Private Extension API Query Routines
@@ -583,12 +582,6 @@ IsHcsEnumerateComputeSystemsInNamespacePresent(
 BOOLEAN
 __stdcall
 IsHcsCreateOperationPresent(
-    VOID
-    );
-
-BOOLEAN
-__stdcall
-IsHcsCreateOperationWithNotificationsPresent(
     VOID
     );
 
@@ -648,18 +641,6 @@ IsHcsGetOperationResultAndProcessInfoPresent(
 
 BOOLEAN
 __stdcall
-IsHcsAddResourceToOperationPresent(
-    VOID
-    );
-
-BOOLEAN
-__stdcall
-IsHcsGetProcessorCompatibilityFromSavedStatePresent(
-    VOID
-    );
-
-BOOLEAN
-__stdcall
 IsHcsWaitForOperationResultPresent(
     VOID
     );
@@ -679,12 +660,6 @@ IsHcsSetOperationCallbackPresent(
 BOOLEAN
 __stdcall
 IsHcsCancelOperationPresent(
-    VOID
-    );
-
-BOOLEAN
-__stdcall
-IsHcsGetOperationPropertiesPresent(
     VOID
     );
 
@@ -774,12 +749,6 @@ IsHcsModifyComputeSystemPresent(
 
 BOOLEAN
 __stdcall
-IsHcsWaitForComputeSystemExitPresent(
-    VOID
-    );
-
-BOOLEAN
-__stdcall
 IsHcsSetComputeSystemCallbackPresent(
     VOID
     );
@@ -835,12 +804,6 @@ IsHcsModifyProcessPresent(
 BOOLEAN
 __stdcall
 IsHcsSetProcessCallbackPresent(
-    VOID
-    );
-
-BOOLEAN
-__stdcall
-IsHcsWaitForProcessExitPresent(
     VOID
     );
 

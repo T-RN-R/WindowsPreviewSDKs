@@ -1,10 +1,12 @@
 /********************************************************************************
 *                                                                               *
-* mmiscapi.h -- ApiSet Contract for api-ms-win-mm-misc-l1-1                     *
+* mmiscapi.h -- ApiSet Contract for api-ms-win-mm-misc-l1-1                     *  
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
+
+
 
 #ifdef _MSC_VER
 #pragma once
@@ -16,6 +18,7 @@
 #include <apiset.h>
 #include <apisetcconv.h>
 
+
 #include <mmsyscom.h> // mm common definitions
 
 #ifdef __cplusplus
@@ -26,6 +29,7 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 #ifndef MMNODRV
+
 
 /****************************************************************************
 
@@ -147,6 +151,7 @@ DefDriverProc(
     _In_ LPARAM lParam1,
     _In_ LPARAM lParam2
     );
+
 #else
 LRESULT   WINAPI DrvClose(HDRVR hdrvr, LPARAM lParam1, LPARAM lParam2);
 HDRVR     WINAPI DrvOpen(LPCSTR szDriverName, LPCSTR szSectionName, LPARAM lParam2);
@@ -170,11 +175,10 @@ LRESULT   WINAPI DrvDefDriverProc(DWORD dwDriverIdentifier, HDRVR hdrvr, UINT uM
 #define DRV_MCI_LAST           (DRV_RESERVED + 0xFFF)
 
 /***************************************************************************
-
+   
                       Driver Helper function moved from mmddk.h
 
 ***************************************************************************/
-
 BOOL
 APIENTRY
 DriverCallback(
@@ -187,12 +191,12 @@ DriverCallback(
     DWORD_PTR dwParam2
     );
 
+
 /****************************************************************************
 
   Sound schemes
 
-****************************************************************************/
-LONG
+****************************************************************************/LONG
 WINAPI
 sndOpenSound(
     _In_ LPCWSTR EventName,
@@ -200,6 +204,7 @@ sndOpenSound(
     _In_ INT32 Flags,
     _Outptr_ PHANDLE FileHandle
     );
+
 //
 // removed from winmmi.h
 
@@ -224,7 +229,9 @@ mmDrvInstall(
     UINT wFlags
     );
 
+
 #endif  /* ifndef MMNODRV */
+
 
 #ifndef MMNOMMIO
 /****************************************************************************
@@ -262,6 +269,7 @@ DECLARE_HANDLE(HMMIO);                  /* a handle to an open file */
 typedef LRESULT (CALLBACK MMIOPROC)(LPSTR lpmmioinfo, UINT uMsg,
             LPARAM lParam1, LPARAM lParam2);
 typedef MMIOPROC FAR *LPMMIOPROC;
+
 
 /* general MMIO information data structure */
 typedef struct _MMIOINFO
@@ -344,6 +352,8 @@ typedef const MMCKINFO *LPCMMCKINFO;
 #define MMIO_CREATERIFF         0x0020  /* mmioCreateChunk: make a LIST chunk */
 #define MMIO_CREATELIST         0x0040  /* mmioCreateChunk: make a RIFF chunk */
 
+
+
 /* message numbers for MMIOPROC I/O procedure functions */
 #define MMIOM_READ      MMIO_READ       /* read */
 #define MMIOM_WRITE    MMIO_WRITE       /* write */
@@ -397,12 +407,12 @@ mmioStringToFOURCCW(
     LPCWSTR sz,
     _In_ UINT uFlags
     );
+
 #ifdef UNICODE
 #define mmioStringToFOURCC  mmioStringToFOURCCW
 #else
 #define mmioStringToFOURCC  mmioStringToFOURCCA
 #endif // !UNICODE
-
 WINMMAPI
 LPMMIOPROC
 WINAPI
@@ -420,12 +430,12 @@ mmioInstallIOProcW(
     _In_opt_ LPMMIOPROC pIOProc,
     _In_ DWORD dwFlags
     );
+
 #ifdef UNICODE
 #define mmioInstallIOProc  mmioInstallIOProcW
 #else
 #define mmioInstallIOProc  mmioInstallIOProcA
 #endif // !UNICODE
-
 WINMMAPI
 HMMIO
 WINAPI
@@ -443,12 +453,12 @@ mmioOpenW(
     _Inout_opt_ LPMMIOINFO pmmioinfo,
     _In_ DWORD fdwOpen
     );
+
 #ifdef UNICODE
 #define mmioOpen  mmioOpenW
 #else
 #define mmioOpen  mmioOpenA
 #endif // !UNICODE
-
 WINMMAPI
 MMRESULT
 WINAPI
@@ -468,6 +478,7 @@ mmioRenameW(
     _In_opt_ LPCMMIOINFO pmmioinfo,
     _In_ DWORD fdwRename
     );
+
 #ifdef UNICODE
 #define mmioRename  mmioRenameW
 #else
@@ -600,6 +611,7 @@ mmioCreateChunk(
     _In_ UINT fuCreate
     );
 
+
 #endif  /* ifndef MMNOMMIO */
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
@@ -610,4 +622,5 @@ mmioCreateChunk(
 #endif
 
 #endif // _MMISCAPI_H_
+
 

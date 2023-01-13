@@ -47,11 +47,7 @@
 #define DXGKDDI_INTERFACE_VERSION_WDDM2_5    0xA00B
 #define DXGKDDI_INTERFACE_VERSION_WDDM2_6    0xB004
 #define DXGKDDI_INTERFACE_VERSION_WDDM2_7    0xC004
-#define DXGKDDI_INTERFACE_VERSION_WDDM2_8    0xD001
-#define DXGKDDI_INTERFACE_VERSION_WDDM2_9    0xE003
-#define DXGKDDI_INTERFACE_VERSION_WDDM3_0    0xF003
-#define DXGKDDI_INTERFACE_VERSION_WDDM3_1   0x10004
-#define DXGKDDI_INTERFACE_VERSION_WDDM3_2   0x11002
+#define DXGKDDI_INTERFACE_VERSION_WDDM2_8    0xD000
 
 
 #define IS_OFFICIAL_DDI_INTERFACE_VERSION(version)                 \
@@ -71,15 +67,11 @@
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_5) ||   \
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_6) ||   \
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_7) ||   \
-             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_8) ||   \
-             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_9) ||   \
-             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM3_0) ||   \
-             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM3_1) ||   \
-             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM3_2)      \
+             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_8)      \
             )
 
 #if !defined(DXGKDDI_INTERFACE_VERSION)
-#define DXGKDDI_INTERFACE_VERSION           DXGKDDI_INTERFACE_VERSION_WDDM3_2
+#define DXGKDDI_INTERFACE_VERSION           DXGKDDI_INTERFACE_VERSION_WDDM2_8
 #endif // !defined(DXGKDDI_INTERFACE_VERSION)
 
 #define D3D_UMD_INTERFACE_VERSION_VISTA      0x000C
@@ -131,73 +123,12 @@
 #define D3D_UMD_INTERFACE_VERSION_WDDM2_8_1     0xD000
 #define D3D_UMD_INTERFACE_VERSION_WDDM2_8       D3D_UMD_INTERFACE_VERSION_WDDM2_8_1
 
-#define D3D_UMD_INTERFACE_VERSION_WDDM2_9_1     0xE000
-#define D3D_UMD_INTERFACE_VERSION_WDDM2_9       D3D_UMD_INTERFACE_VERSION_WDDM2_9_1
-
-#define D3D_UMD_INTERFACE_VERSION_WDDM3_0_1     0xF000
-#define D3D_UMD_INTERFACE_VERSION_WDDM3_0       D3D_UMD_INTERFACE_VERSION_WDDM3_0_1
-
-#define D3D_UMD_INTERFACE_VERSION_WDDM3_1_1     0x10000
-#define D3D_UMD_INTERFACE_VERSION_WDDM3_1       D3D_UMD_INTERFACE_VERSION_WDDM3_1_1
-
-#define D3D_UMD_INTERFACE_VERSION_WDDM3_2_1     0x11000
-#define D3D_UMD_INTERFACE_VERSION_WDDM3_2       D3D_UMD_INTERFACE_VERSION_WDDM3_2_1
-
 // Components which depend on D3D_UMD_INTERFACE_VERSION need to be updated, static assert validation present.
 // Search for D3D_UMD_INTERFACE_VERSION across all depots to ensure all dependencies are updated.
 
 #if !defined(D3D_UMD_INTERFACE_VERSION)
-#define D3D_UMD_INTERFACE_VERSION           D3D_UMD_INTERFACE_VERSION_WDDM3_2
+#define D3D_UMD_INTERFACE_VERSION           D3D_UMD_INTERFACE_VERSION_WDDM2_8
 #endif // !defined(D3D_UMD_INTERFACE_VERSION)
-
-//
-// These macros are used to enable non-Windows 32-bit usermode to fill out a fixed-size
-// structure for D3DKMT structures, so that they can be sent to a 64-bit kernel
-// without a thunking layer for translation.
-//
-// Note that a thunking layer is still used for wchar_t translation, where Windows uses
-// 16-bit characters and non-Windows uses 32-bit characters.
-//
-// If brace initialization is used (e.g. D3DKMT_FOO foo = { a, b, c }), be aware that for
-// non-Windows, pointers will be unioned such that a 64-bit integer is the member that is
-// initialized. It is not possible to achieve both type safety and proper zero-initialization
-// of the high bits of pointers with brace initialization in this model. Use D3DKMT_PTR_INIT(ptr)
-// to appropriately cast to a 64-bit integer for non-Windows, or to pass the pointer unchanged for
-// Windows. To maintain type safety, manually assign the fields after zero-initializing the struct.
-//
-#ifdef _WIN32
-// For Windows, don't enforce any unnatural alignment or data sizes/types.
-// The WOW64 thunking layer will handle translation.
-#define D3DKMT_ALIGN64
-#define D3DKMT_PTR_HELPER(Name)
-#define D3DKMT_PTR(Type, Name) Type Name
-#define D3DKMT_PTR_INIT(x) (x)
-typedef SIZE_T D3DKMT_SIZE_T;
-typedef UINT_PTR D3DKMT_UINT_PTR;
-typedef ULONG_PTR D3DKMT_ULONG_PTR;
-typedef HANDLE D3DKMT_PTR_TYPE;
-#else
-// For other platforms, struct layout should be fixed-size, x64-compatible
-#if __cplusplus >= 201103L
- #define D3DKMT_ALIGN64 alignas(8)
-#else
- #define D3DKMT_ALIGN64 __attribute__((aligned(8)))
-#endif
-#define D3DKMT_PTR_HELPER(Name) D3DKMT_ALIGN64 UINT64 Name;
-#define D3DKMT_PTR(Type, Name)       \
-union D3DKMT_ALIGN64                 \
-{                                    \
-    D3DKMT_PTR_HELPER(Name##_Align)  \
-    Type Name;                       \
-}
-#define D3DKMT_PTR_INIT(x) { (UINT64)(SIZE_T)(x) }
-typedef UINT64 D3DKMT_SIZE_T, D3DKMT_UINT_PTR, D3DKMT_ULONG_PTR;
-typedef union _D3DKMT_PTR_TYPE
-{
-    D3DKMT_PTR_HELPER(Ptr_Align);
-    HANDLE Ptr;
-} D3DKMT_PTR_TYPE;
-#endif
 
 //
 // Available only for Vista (LONGHORN) and later and for
@@ -211,10 +142,9 @@ typedef ULONGLONG D3DGPU_SIZE_T;
 
 #define DXGK_MAX_PAGE_TABLE_LEVEL_COUNT 6
 #define DXGK_MIN_PAGE_TABLE_LEVEL_COUNT 2
-#define DXGK_MAX_GPU_VA_BIT_COUNT 63
 
 //
-// IOCTL_GPUP_DRIVER_ESCAPE - The user mode emulation DLL calls this IOCTL
+// IOCTL_GPUP_DRIVER_ESCAPE - The user mode emulation DLL calls this IOCTL 
 // to exchange information with the kernel mode driver.
 //
 #define IOCTL_GPUP_DRIVER_ESCAPE CTL_CODE(FILE_DEVICE_UNKNOWN, (8 + 0x910), METHOD_BUFFERED, FILE_READ_DATA)
@@ -231,8 +161,6 @@ typedef enum _DXGKVGPU_ESCAPE_TYPE
     DXGKVGPU_ESCAPE_TYPE_RELEASE                    = 3,
     DXGKVGPU_ESCAPE_TYPE_GET_VGPU_TYPE              = 4,
     DXGKVGPU_ESCAPE_TYPE_POWERTRANSITIONCOMPLETE    = 5,
-    DXGKVGPU_ESCAPE_TYPE_PAUSE                      = 6,
-    DXGKVGPU_ESCAPE_TYPE_RESUME                     = 7,
 } DXGKVGPU_ESCAPE_TYPE;
 
 typedef struct _DXGKVGPU_ESCAPE_HEAD
@@ -280,27 +208,6 @@ typedef struct _DXGKVGPU_ESCAPE_RELEASE
     DXGKVGPU_ESCAPE_HEAD Header;
 } DXGKVGPU_ESCAPE_RELEASE;
 
-typedef struct _DXGKVGPU_ESCAPE_PAUSE
-{
-    DXGKVGPU_ESCAPE_HEAD    Header;
-    LUID                    DeviceLuid;
-    union
-    {
-        struct
-        {
-            UINT GuestVmRunning  : 1;
-        };
-        UINT                Flags;
-    };
-} DXGKVGPU_ESCAPE_PAUSE;
-
-typedef struct _DXGKVGPU_ESCAPE_RESUME
-{
-    DXGKVGPU_ESCAPE_HEAD    Header;
-    LUID                    DeviceLuid;
-    UINT                    Flags;          // enum GPUP_SAVE_RESTORE_PAUSE_STATE 
-} DXGKVGPU_ESCAPE_RESUME;
-
 
 typedef enum _DXGK_PTE_PAGE_SIZE
 {
@@ -314,7 +221,7 @@ typedef enum _DXGK_PTE_PAGE_SIZE
 
 typedef struct _DXGK_PTE
 {
-    union
+    union 
     {
         struct
         {
@@ -346,7 +253,6 @@ typedef struct _DXGK_PTE
 typedef struct _D3DGPU_PHYSICAL_ADDRESS
 {
     UINT    SegmentId;
-    UINT    Padding;
     UINT64  SegmentOffset;
 } D3DGPU_PHYSICAL_ADDRESS;
 
@@ -392,8 +298,8 @@ typedef struct _D3DDDI_RATIONAL
 typedef struct _D3DDDI_ALLOCATIONINFO
 {
     D3DKMT_HANDLE                   hAllocation;           // out: Private driver data for allocation
-    D3DKMT_PTR(CONST VOID*,         pSystemMem);           // in: Pointer to pre-allocated sysmem
-    D3DKMT_PTR(VOID*,               pPrivateDriverData);   // in(out optional): Private data for each allocation
+    CONST VOID*                     pSystemMem;            // in: Pointer to pre-allocated sysmem
+    VOID*                           pPrivateDriverData;    // in(out optional): Private data for each allocation
     UINT                            PrivateDriverDataSize; // in: Size of the private data
     D3DDDI_VIDEO_PRESENT_SOURCE_ID  VidPnSourceId;         // in: VidPN source ID if this is a primary
     union
@@ -419,13 +325,12 @@ typedef struct _D3DDDI_ALLOCATIONINFO
 typedef struct _D3DDDI_ALLOCATIONINFO2
 {
     D3DKMT_HANDLE                   hAllocation;           // out: Private driver data for allocation
-    union D3DKMT_ALIGN64
+    union 
     {
-        D3DKMT_PTR_HELPER(pSystemMem_hSection_Align)
         HANDLE                      hSection;              // in: Handle to valid section object
         CONST VOID*                 pSystemMem;            // in: Pointer to pre-allocated sysmem
     };
-    D3DKMT_PTR(VOID*,               pPrivateDriverData);   // in(out optional): Private data for each allocation
+    VOID*                           pPrivateDriverData;    // in(out optional): Private data for each allocation
     UINT                            PrivateDriverDataSize; // in: Size of the private data
     D3DDDI_VIDEO_PRESENT_SOURCE_ID  VidPnSourceId;         // in: VidPN source ID if this is a primary
     union
@@ -449,17 +354,17 @@ typedef struct _D3DDDI_ALLOCATIONINFO2
         };
         UINT        Value;
     } Flags;
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS GpuVirtualAddress;    // out: GPU Virtual address of the allocation created.
+    D3DGPU_VIRTUAL_ADDRESS          GpuVirtualAddress;    // out: GPU Virtual address of the allocation created.
 #if ((DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_2) || \
      (D3D_UMD_INTERFACE_VERSION >= D3D_UMD_INTERFACE_VERSION_WDDM2_2))
     union
     {
         UINT                        Priority;             // in: priority of allocation
-        D3DKMT_ALIGN64 ULONG_PTR    Unused;
+        ULONG_PTR                   Unused;
     };
-    D3DKMT_ALIGN64 ULONG_PTR        Reserved[5];          // Reserved
+    ULONG_PTR                       Reserved[5];          // Reserved
 #else
-    D3DKMT_ALIGN64 ULONG_PTR        Reserved[6];          // Reserved
+    ULONG_PTR                       Reserved[6];          // Reserved
 #endif
 } D3DDDI_ALLOCATIONINFO2;
 
@@ -468,9 +373,8 @@ typedef struct _D3DDDI_ALLOCATIONINFO2
 typedef struct _D3DDDI_OPENALLOCATIONINFO
 {
     D3DKMT_HANDLE   hAllocation;                // in: Handle for this allocation in this process
-    D3DKMT_PTR(CONST VOID*, pPrivateDriverData);         // in: Ptr to driver private buffer for this allocations
+    CONST VOID*     pPrivateDriverData;         // in: Ptr to driver private buffer for this allocations
     UINT            PrivateDriverDataSize;      // in: Size in bytes of driver private buffer for this allocations
-
 } D3DDDI_OPENALLOCATIONINFO;
 
 #if ((DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WIN7) || \
@@ -479,10 +383,10 @@ typedef struct _D3DDDI_OPENALLOCATIONINFO
 typedef struct _D3DDDI_OPENALLOCATIONINFO2
 {
     D3DKMT_HANDLE   hAllocation;                // in: Handle for this allocation in this process
-    D3DKMT_PTR(CONST VOID*, pPrivateDriverData);// in: Ptr to driver private buffer for this allocations
+    CONST VOID*     pPrivateDriverData;         // in: Ptr to driver private buffer for this allocations
     UINT            PrivateDriverDataSize;      // in: Size in bytes of driver private buffer for this allocations
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS GpuVirtualAddress;   // out: GPU Virtual address of the allocation opened.
-    D3DKMT_ALIGN64 ULONG_PTR Reserved[6];       // Reserved
+    D3DGPU_VIRTUAL_ADDRESS GpuVirtualAddress;   // out: GPU Virtual address of the allocation opened.
+    ULONG_PTR       Reserved[6];                // Reserved
 } D3DDDI_OPENALLOCATIONINFO2;
 
 #endif
@@ -634,37 +538,22 @@ typedef enum _D3DDDI_DRIVERESCAPETYPE
 {
     D3DDDI_DRIVERESCAPETYPE_TRANSLATEALLOCATIONHANDLE   = 0,
     D3DDDI_DRIVERESCAPETYPE_TRANSLATERESOURCEHANDLE     = 1,
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_0)
-    D3DDDI_DRIVERESCAPETYPE_CPUEVENTUSAGE               = 2,
-#endif
     D3DDDI_DRIVERESCAPETYPE_MAX,
 } D3DDDI_DRIVERESCAPETYPE;
 
 typedef struct _D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE
 {
-     D3DDDI_DRIVERESCAPETYPE  EscapeType;
+     D3DDDI_DRIVERESCAPETYPE  EscapeType; 
      D3DKMT_HANDLE            hAllocation;
 } D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE;
 
 typedef struct _D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE
 {
-    D3DDDI_DRIVERESCAPETYPE  EscapeType;
-    D3DKMT_HANDLE            hResource;
+     D3DDDI_DRIVERESCAPETYPE  EscapeType;
+     D3DKMT_HANDLE            hResource;
 } D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE;
 
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_5)
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_0)
-
-typedef struct _D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE
-{
-    D3DDDI_DRIVERESCAPETYPE EscapeType;
-    D3DKMT_HANDLE           hSyncObject;
-    D3DKMT_ALIGN64 UINT64   hKmdCpuEvent;
-    UINT                    Usage[8];
-} D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE;
-
-#endif
 
 typedef struct _D3DDDI_CREATECONTEXTFLAGS
 {
@@ -681,8 +570,7 @@ typedef struct _D3DDDI_CREATECONTEXTFLAGS
 #if ((DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_3) || \
      (D3D_UMD_INTERFACE_VERSION >= D3D_UMD_INTERFACE_VERSION_WDDM2_3_1))
             UINT    HwQueueSupported    : 1;      // 0x00000010
-            UINT    NoKmdAccess         : 1;      // 0x00000020
-            UINT    Reserved            :26;      // 0xFFFFFFC0
+            UINT    Reserved            :27;      // 0xFFFFFFE0
 #else
             UINT    Reserved            :28;      // 0xFFFFFFF0
 #endif // DXGKDDI_INTERFACE_VERSION
@@ -719,9 +607,7 @@ typedef struct _D3DDDI_CREATEHWQUEUEFLAGS
             UINT    DisableGpuTimeout   : 1;      // 0x00000001
             UINT    NoBroadcastSignal   : 1;      // 0x00000002
             UINT    NoBroadcastWait     : 1;      // 0x00000004
-            UINT    NoKmdAccess         : 1;      // 0x00000008
-            UINT    UserModeSubmission  : 1;      // 0x00000010
-            UINT    Reserved            :27;      // 0xFFFFFFE0
+            UINT    Reserved            :29;      // 0xFFFFFFF8
         };
         UINT Value;
     };
@@ -982,7 +868,7 @@ typedef enum _D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE
     // OS only intend to use the _G22_P2020 value in future,
     // for now graphics drivers should not expect it.
     D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P2020              = 31,
-
+    
     // OS only intend to use the _G2084_P2020_HDR10PLUS value in future,
     // for now graphics drivers should not expect it.
     D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS  = 32,
@@ -1005,7 +891,7 @@ typedef struct _D3DDDI_KERNELOVERLAYINFO
     D3DKMT_HANDLE        hAllocation;           // in: Allocation to be displayed
     D3DDDIRECT           DstRect;               // in: Dest rect
     D3DDDIRECT           SrcRect;               // in: Source rect
-    D3DKMT_PTR(VOID*,    pPrivateDriverData);   // in: Private driver data
+    VOID*                pPrivateDriverData;    // in: Private driver data
     UINT                 PrivateDriverDataSize; // in: Size of private driver data
 } D3DDDI_KERNELOVERLAYINFO;
 
@@ -1087,7 +973,7 @@ typedef struct _D3DDDI_HDR_METADATA_HDR10
     UINT16 GreenPrimary[2];
     UINT16 BluePrimary[2];
     UINT16 WhitePoint[2];
-
+    
     // Luminance
     UINT   MaxMasteringLuminance;
     UINT   MinMasteringLuminance;
@@ -1173,7 +1059,7 @@ typedef enum D3DDDI_FLIPINTERVAL_TYPE
     D3DDDI_FLIPINTERVAL_FOUR      = 4,
 
     // This value is only valid for the D3D9 runtime PresentCb SyncIntervalOverride field.
-    // For this field, IMMEDIATE means the API semantic of sync interval 0, where
+    // For this field, IMMEDIATE means the API semantic of sync interval 0, where 
     // IMMEDIATE_ALLOW_TEARING is equivalent to the addition of the DXGI ALLOW_TEARING API flags.
     D3DDDI_FLIPINTERVAL_IMMEDIATE_ALLOW_TEARING = 5,
 } D3DDDI_FLIPINTERVAL_TYPE;
@@ -1446,7 +1332,7 @@ typedef enum D3DDDI_PAGINGQUEUE_PRIORITY
     D3DDDI_PAGINGQUEUE_PRIORITY_NORMAL = 0,
     D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL = 1,
 } D3DDDI_PAGINGQUEUE_PRIORITY;
-
+     
 typedef struct D3DDDI_MAKERESIDENT_FLAGS
 {
     union
@@ -1467,14 +1353,14 @@ typedef struct D3DDDI_MAKERESIDENT
     D3DKMT_HANDLE               hPagingQueue;       // [in] Handle to the paging queue used to synchronize paging operations for this call.
     UINT                        NumAllocations;     // [in/out] On input, the number of allocation handles om the AllocationList array. On output,
                                                     //          the number of allocations successfully made resident.
-    D3DKMT_PTR(_Field_size_(NumAllocations)
-    CONST D3DKMT_HANDLE*,       AllocationList);    // [in] An array of NumAllocations allocation handles
-    D3DKMT_PTR(CONST UINT*,     PriorityList);      // [in] Residency priority array for each of the allocations in the resource or allocation list
+    _Field_size_(NumAllocations)
+    CONST D3DKMT_HANDLE*        AllocationList;     // [in] An array of NumAllocations allocation handles
+    CONST UINT*                 PriorityList;       // [in] Residency priority array for each of the allocations in the resource or allocation list
     D3DDDI_MAKERESIDENT_FLAGS   Flags;              // [in] Residency flags
-    D3DKMT_ALIGN64 UINT64       PagingFenceValue;   // [out] Paging fence value to synchronize on before submitting the command
-                                                    //      that uses above resources to the GPU. This value applies to the monitored fence
+    UINT64                      PagingFenceValue;   // [out] Paging fence value to synchronize on before submitting the command
+                                                    //      that uses above resources to the GPU. This value applies to the monitored fence 
                                                     //      synchronization object associated with hPagingQueue.
-    D3DKMT_ALIGN64 UINT64       NumBytesToTrim;     // [out] When MakeResident fails due to being over budget, this value
+    UINT64                      NumBytesToTrim;     // [out] When MakeResident fails due to being over budget, this value
                                                     //      indicates how much to trim in order for the call to succeed on a retry.
 } D3DDDI_MAKERESIDENT;
 
@@ -1514,9 +1400,9 @@ typedef struct D3DDDI_TRIMRESIDENCYSET_FLAGS
 
 typedef struct _D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE
 {
-    union
+    union 
     {
-        struct
+        struct 
         {
             UINT64 Write            : 1;
             UINT64 Execute          : 1;
@@ -1525,12 +1411,12 @@ typedef struct _D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE
             UINT64 SystemUseOnly    : 1;    // Should not be set by the UMD
             UINT64 Reserved         : 59;
         };
-        D3DKMT_ALIGN64 UINT64 Value;
+        UINT64 Value;
     };
 } D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE;
 
 typedef enum _D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE
-{
+{ 
    D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP               = 0,
    D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP             = 1,
    D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY              = 2,
@@ -1538,39 +1424,39 @@ typedef enum _D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE
 } D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE;
 
 typedef struct _D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION
-{
+{    
     D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE OperationType;
-    union
+    union 
     {
-        struct
+        struct 
         {
-            D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS  BaseAddress;
-            D3DKMT_ALIGN64 D3DGPU_SIZE_T           SizeInBytes;
-            D3DKMT_HANDLE                          hAllocation;
-            D3DKMT_ALIGN64 D3DGPU_SIZE_T           AllocationOffsetInBytes;
-            D3DKMT_ALIGN64 D3DGPU_SIZE_T           AllocationSizeInBytes;
+            D3DGPU_VIRTUAL_ADDRESS  BaseAddress;
+            D3DGPU_SIZE_T           SizeInBytes;
+            D3DKMT_HANDLE           hAllocation;
+            D3DGPU_SIZE_T           AllocationOffsetInBytes;
+            D3DGPU_SIZE_T           AllocationSizeInBytes;
         } Map;
-        struct
+        struct 
         {
-            D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS  BaseAddress;
-            D3DKMT_ALIGN64 D3DGPU_SIZE_T           SizeInBytes;
-            D3DKMT_HANDLE                          hAllocation;
-            D3DKMT_ALIGN64 D3DGPU_SIZE_T           AllocationOffsetInBytes;
-            D3DKMT_ALIGN64 D3DGPU_SIZE_T           AllocationSizeInBytes;
+            D3DGPU_VIRTUAL_ADDRESS  BaseAddress;
+            D3DGPU_SIZE_T           SizeInBytes;
+            D3DKMT_HANDLE           hAllocation;
+            D3DGPU_SIZE_T           AllocationOffsetInBytes;
+            D3DGPU_SIZE_T           AllocationSizeInBytes;
             D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE Protection;
-            D3DKMT_ALIGN64 UINT64                  DriverProtection;
+            UINT64                  DriverProtection;
         } MapProtect;
-        struct
+        struct 
         {
-            D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS  BaseAddress;
-            D3DKMT_ALIGN64 D3DGPU_SIZE_T           SizeInBytes;
+            D3DGPU_VIRTUAL_ADDRESS  BaseAddress;
+            D3DGPU_SIZE_T           SizeInBytes;
             D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE Protection;
         } Unmap;    // Used for UNMAP_NOACCESS as well
-        struct
+        struct 
         {
-            D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS  SourceAddress;
-            D3DKMT_ALIGN64 D3DGPU_SIZE_T           SizeInBytes;
-            D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS  DestAddress;
+            D3DGPU_VIRTUAL_ADDRESS  SourceAddress;
+            D3DGPU_SIZE_T           SizeInBytes;
+            D3DGPU_VIRTUAL_ADDRESS  DestAddress;
         } Copy;
     };
 } D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION;
@@ -1585,18 +1471,18 @@ typedef enum _D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE
 typedef struct D3DDDI_MAPGPUVIRTUALADDRESS
 {
     D3DKMT_HANDLE                   hPagingQueue;                   // in: Paging queue to synchronize the operation on.
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS BaseAddress;              // in_opt: Base virtual address to map
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS MinimumAddress;           // in_opt: Minimum virtual address
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS MaximumAddress;           // in_opt: Maximum virtual address
+    D3DGPU_VIRTUAL_ADDRESS          BaseAddress;                    // in_opt: Base virtual address to map
+    D3DGPU_VIRTUAL_ADDRESS          MinimumAddress;                 // in_opt: Minimum virtual address
+    D3DGPU_VIRTUAL_ADDRESS          MaximumAddress;                 // in_opt: Maximum virtual address
     D3DKMT_HANDLE                   hAllocation;                    // in: Allocation handle to map
-    D3DKMT_ALIGN64 D3DGPU_SIZE_T    OffsetInPages;                  // in: Offset in 4 KB pages from the start of the allocation
-    D3DKMT_ALIGN64 D3DGPU_SIZE_T    SizeInPages;                    // in: Size in 4 KB pages to map
+    D3DGPU_SIZE_T                   OffsetInPages;                  // in: Offset in 4 KB pages from the start of the allocation
+    D3DGPU_SIZE_T                   SizeInPages;                    // in: Size in 4 KB pages to map
     D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE    Protection;          // in: Virtual address protection
-    D3DKMT_ALIGN64 UINT64           DriverProtection;               // in: Driver specific protection
-    UINT                            Reserved0;                      // in:
-    D3DKMT_ALIGN64 UINT64           Reserved1;                      // in:
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS VirtualAddress;           // out: Virtual address
-    D3DKMT_ALIGN64 UINT64           PagingFenceValue;               // out: Paging fence Id for synchronization
+    UINT64                          DriverProtection;               // in: Driver specific protection
+    UINT                            Reserved0;                      // in: 
+    UINT64                          Reserved1;                      // in:
+    D3DGPU_VIRTUAL_ADDRESS          VirtualAddress;                 // out: Virtual address
+    UINT64                          PagingFenceValue;               // out: Paging fence Id for synchronization
 } D3DDDI_MAPGPUVIRTUALADDRESS;
 
 typedef struct D3DDDI_RESERVEGPUVIRTUALADDRESS
@@ -1606,10 +1492,10 @@ typedef struct D3DDDI_RESERVEGPUVIRTUALADDRESS
         D3DKMT_HANDLE               hPagingQueue;                   // in: Paging queue to synchronize the operation on.
         D3DKMT_HANDLE               hAdapter;                       // in: DXG adapter handle. (M2)
     };
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS          BaseAddress;     // in_opt: Base virtual address to map
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS          MinimumAddress;  // in_opt: Minimum virtual address
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS          MaximumAddress;  // in_opt: Maximum virtual address
-    D3DKMT_ALIGN64 D3DGPU_SIZE_T                   Size;            // in: Size to reserve in bytes
+    D3DGPU_VIRTUAL_ADDRESS          BaseAddress;                    // in_opt: Base virtual address to map
+    D3DGPU_VIRTUAL_ADDRESS          MinimumAddress;                 // in_opt: Minimum virtual address
+    D3DGPU_VIRTUAL_ADDRESS          MaximumAddress;                 // in_opt: Maximum virtual address
+    D3DGPU_SIZE_T                   Size;                           // in: Size to reserve in bytes
     union
     {
         D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE   ReservationType; // in: Reservation type
@@ -1617,14 +1503,14 @@ typedef struct D3DDDI_RESERVEGPUVIRTUALADDRESS
     };
     union
     {
-        D3DKMT_ALIGN64 UINT64                      DriverProtection;// in: Driver specific protection
-        D3DKMT_ALIGN64 UINT64                      Reserved1;       // M2
+        UINT64                      DriverProtection;               // in: Driver specific protection
+        UINT64                      Reserved1;                      // M2
     };
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS          VirtualAddress;  // out: Virtual address
+    D3DGPU_VIRTUAL_ADDRESS          VirtualAddress;                 // out: Virtual address
     union
     {
-        D3DKMT_ALIGN64 UINT64                      PagingFenceValue;// out: Paging fence Id for synchronization
-        D3DKMT_ALIGN64 UINT64                      Reserved2;       // M2
+        UINT64                      PagingFenceValue;               // out: Paging fence Id for synchronization
+        UINT64                      Reserved2;                      // M2
     };
 } D3DDDI_RESERVEGPUVIRTUALADDRESS;
 
@@ -1632,7 +1518,7 @@ typedef struct _D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA
 {
     D3DKMT_HANDLE    hResource;
     UINT             PrivateDriverDataSize;
-    D3DKMT_PTR(PVOID, pPrivateDriverData);
+    PVOID            pPrivateDriverData;
 } D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA;
 
 typedef struct D3DDDI_DESTROYPAGINGQUEUE
@@ -1651,9 +1537,8 @@ typedef struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS
     {
         struct
         {
-            UINT AccessedPhysically :  1; // The new value for AccessedPhysically on an allocation
-            UINT Unmoveable         :  1; // Indicates an allocation cannot be moved while pinned in a memory segment
-            UINT Reserved           : 30;
+            UINT AccessedPhysically : 1;    // The new value for AccessedPhysically on an allocation
+            UINT Reserved : 31;
         };
         UINT Value;
     };
@@ -1666,18 +1551,17 @@ typedef struct D3DDDI_UPDATEALLOCPROPERTY
     UINT                                SupportedSegmentSet;    // [in] New supported segment set, ignored if the same.
     D3DDDI_SEGMENTPREFERENCE            PreferredSegment;       // [in] New preferred segment set, ignored if the same.
     D3DDDI_UPDATEALLOCPROPERTY_FLAGS    Flags;                  // [in] Flags to set on the allocation, ignored if the same.
-    D3DKMT_ALIGN64 UINT64               PagingFenceValue;       // [out] Paging fence value to synchronize on before using the above allocation.
+    UINT64                              PagingFenceValue;       // [out] Paging fence value to synchronize on before using the above allocation.
                                                                 //       This value applies to the monitored fence synchronization
                                                                 //       object associated with hPagingQueue.
     union
     {
         struct
-        {
-            UINT SetAccessedPhysically  :  1; // [in] When set to 1, will set AccessedPhysically to new value
-            UINT SetSupportedSegmentSet :  1; // [in] When set to 1, will set SupportedSegmentSet to new value
-            UINT SetPreferredSegment    :  1; // [in] When set to 1, will set PreferredSegment to new value
-            UINT SetUnmoveable          :  1; // [in] When set to 1, will set Unmoveable to new value
-            UINT Reserved               : 28;
+        {                
+            UINT SetAccessedPhysically : 1;     // [in] When set to 1, will set AccessedPhysically to new value
+            UINT SetSupportedSegmentSet : 1;    // [in] When set to 1, will set SupportedSegmentSet to new value
+            UINT SetPreferredSegment : 1;       // [in] When set to 1, will set PreferredSegment to new value
+            UINT Reserved : 29;
         };
         UINT PropertyMaskValue;
     };
@@ -1782,36 +1666,7 @@ typedef struct _D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS
             // When this is set, the fence is always stored as a 64-bit value (regardless of adapter caps)
             UINT NoGPUAccess                                    :  1;
 
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_0)
-            // When set, the fence can be signaled by KMD.
-            // The flag can be used only with D3DDDI_CPU_NOTIFICATION objects.
-            UINT SignalByKmd                                    :  1;
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_1)
-
-            // When set, indicates that the fence should be placed in GPU local memory if possible.
-            UINT LocalMemoryPreferred                           :  1;
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_2)
-            // When set, the waiters for a shared sync object on CPU will be unblocked
-            // only when the shared sync object is finally destroyed. By default, CPU
-            // waiters are unblocked when a local sync object is destroyed, but the main
-            // shared sync object is still opened by another local sync object.
-            UINT UnwaitCpuWaitersOnlyOnDestroy                  :  1;
-            UINT Reserved                                       : 20;
-#else
-            UINT Reserved                                       : 21;
-#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_2)
-
-#else
-
-            UINT Reserved                                       : 22;
-
-#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_1)
-
-#else
             UINT Reserved                                       : 23;
-#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_0)
 
 #else
             UINT Reserved                                       : 28;
@@ -1845,23 +1700,22 @@ typedef struct _D3DDDI_SYNCHRONIZATIONOBJECTINFO2
 
         struct
         {
-            D3DKMT_ALIGN64 UINT64 FenceValue;       // in: inital fence value.
+            UINT64 FenceValue;                      // in: inital fence value.
         } Fence;
 
         struct
         {
-            D3DKMT_PTR(HANDLE, Event);                           // in: Handle to the event
+            HANDLE Event;                           // in: Handle to the event
         } CPUNotification;
 
 #if ((DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_0) || \
      (D3D_UMD_INTERFACE_VERSION >= D3D_UMD_INTERFACE_VERSION_WDDM2_0))
         struct
         {
-            D3DKMT_ALIGN64 UINT64   InitialFenceValue;                      // in: inital fence value.
-            D3DKMT_PTR(VOID*,       FenceValueCPUVirtualAddress);           // out: Read-only mapping of the fence value for the CPU
-            D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS FenceValueGPUVirtualAddress; // out: Read/write mapping of the fence value for the GPU
+            UINT64                  InitialFenceValue;                      // in: inital fence value.
+            VOID*                   FenceValueCPUVirtualAddress;            // out: Read-only mapping of the fence value for the CPU
+            D3DGPU_VIRTUAL_ADDRESS  FenceValueGPUVirtualAddress;            // out: Read/write mapping of the fence value for the GPU
             UINT                    EngineAffinity;                         // in: Defines physical adapters where the GPU VA will be mapped
-            UINT                    Padding;
         } MonitoredFence;
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_0)
 
@@ -1871,63 +1725,24 @@ typedef struct _D3DDDI_SYNCHRONIZATIONOBJECTINFO2
         {
             D3DKMT_HANDLE                   hAdapter;                               // in: A handle to the adapter associated with VidPnTargetId
             D3DDDI_VIDEO_PRESENT_TARGET_ID  VidPnTargetId;                          // in: The output that the compositor wishes to receive notifications for
-            D3DKMT_ALIGN64 UINT64           Time;                                   // in: Represents an offset before the VSync.
+            UINT64                          Time;                                   // in: Represents an offset before the VSync.
                                                                                     // The Time value may not be longer than a VSync interval. In units of 100ns.
-            D3DKMT_PTR(VOID*,               FenceValueCPUVirtualAddress);           // out: Read-only mapping of the fence value for the CPU
-            D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS FenceValueGPUVirtualAddress;      // out: Read-only mapping of the fence value for the GPU
+            VOID*                           FenceValueCPUVirtualAddress;            // out: Read-only mapping of the fence value for the CPU
+            D3DGPU_VIRTUAL_ADDRESS          FenceValueGPUVirtualAddress;            // out: Read-only mapping of the fence value for the GPU
             UINT                            EngineAffinity;                         // in: Defines physical adapters where the GPU VA will be mapped
-            UINT                            Padding;
         } PeriodicMonitoredFence;
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_2)
 
 
         struct
         {
-            D3DKMT_ALIGN64 UINT64 Reserved[8];                     // Reserved for future use.
+            UINT64 Reserved[8];                     // Reserved for future use.
         } Reserved;
     };
 
     D3DKMT_HANDLE  SharedHandle;                    // out: global shared handle (when requested to be shared)
 
 } D3DDDI_SYNCHRONIZATIONOBJECTINFO2;
-
-#if ((DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_1) || \
-     (D3D_UMD_INTERFACE_VERSION >= D3D_UMD_INTERFACE_VERSION_WDDM3_1))
-
-typedef struct _D3DDDI_NATIVEFENCEMAPPING
-{
-    D3DKMT_PTR(VOID*,                       CurrentValueCpuVa);     // Read-only mapping of the current value for the CPU
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS   CurrentValueGpuVa;      // Read/write mapping of the current value for the GPU in the current process address space
-    D3DKMT_ALIGN64 D3DGPU_VIRTUAL_ADDRESS   MonitoredValueGpuVa;    // Read/write mapping of the monitored value for the GPU in the current process address space
-} D3DDDI_NATIVEFENCEMAPPING;
-
-typedef struct _D3DDDI_CREATENATIVEFENCEINFO
-{
-    D3DKMT_ALIGN64 UINT64                   InitialFenceValue;      // in: initial fence value.
-
-    D3DKMT_PTR(_Field_size_bytes_(PrivateDriverDataSize)
-    PVOID,                                  pPrivateDriverData);    // in: Private driver data to pass to KMD CreateNativeFence call
-    UINT                                    PrivateDriverDataSize;  // in: size of pPrivateDriverData array in bytes
-
-    UINT                                    EngineAffinity;         // in: Defines physical adapters where the GPU VA is mapped
-    D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS      Flags;                  // in: Flags.
-
-    D3DKMT_HANDLE                           hSyncObject;            // out: Handle to sync object in this process.
-
-    D3DDDI_NATIVEFENCEMAPPING               NativeFenceMapping;     // out: process mapping information for the native fence
-} D3DDDI_CREATENATIVEFENCEINFO;
-
-#define D3DDDI_DOORBELL_PRIVATEDATA_MAX_BYTES_WDDM3_1 16
-
-typedef enum _D3DDDI_DOORBELLSTATUS
-{
-    D3DDDI_DOORBELLSTATUS_CONNECTED = 0,
-    D3DDDI_DOORBELLSTATUS_CONNECTED_NOTIFY_KMD = 1,
-    D3DDDI_DOORBELLSTATUS_DISCONNECTED_RETRY = 2,
-    D3DDDI_DOORBELLSTATUS_DISCONNECTED_ABORT = 3,
-}D3DDDI_DOORBELLSTATUS;
-
-#endif // >= 3_1
 
 #if ((DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_0) || \
      (D3D_UMD_INTERFACE_VERSION >= D3D_UMD_INTERFACE_VERSION_WDDM2_0))
@@ -1966,8 +1781,8 @@ typedef struct _D3DDDI_QUERYREGISTRY_FLAGS
 
 typedef enum _D3DDDI_QUERYREGISTRY_TYPE
 {
-   D3DDDI_QUERYREGISTRY_SERVICEKEY      = 0,
-   D3DDDI_QUERYREGISTRY_ADAPTERKEY      = 1,
+   D3DDDI_QUERYREGISTRY_SERVICEKEY      = 0,	
+   D3DDDI_QUERYREGISTRY_ADAPTERKEY      = 1,	
    D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH = 2,
    D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH = 3,
    D3DDDI_QUERYREGISTRY_MAX,
@@ -1975,9 +1790,9 @@ typedef enum _D3DDDI_QUERYREGISTRY_TYPE
 
 typedef enum _D3DDDI_QUERYREGISTRY_STATUS
 {
-   D3DDDI_QUERYREGISTRY_STATUS_SUCCESS              = 0,
-   D3DDDI_QUERYREGISTRY_STATUS_BUFFER_OVERFLOW      = 1,
-   D3DDDI_QUERYREGISTRY_STATUS_FAIL                 = 2,
+   D3DDDI_QUERYREGISTRY_STATUS_SUCCESS              = 0,	
+   D3DDDI_QUERYREGISTRY_STATUS_BUFFER_OVERFLOW      = 1,	
+   D3DDDI_QUERYREGISTRY_STATUS_FAIL                 = 2,	
    D3DDDI_QUERYREGISTRY_STATUS_MAX,
 } D3DDDI_QUERYREGISTRY_STATUS;
 
@@ -1996,7 +1811,7 @@ typedef struct _D3DDDI_QUERYREGISTRY_INFO
    D3DDDI_QUERYREGISTRY_STATUS  Status;                 // Out
    union {
         DWORD   OutputDword;                            // Out
-        D3DKMT_ALIGN64 UINT64  OutputQword;             // Out
+        UINT64  OutputQword;                            // Out
         WCHAR   OutputString[1];                        // Out. Dynamic array
         BYTE    OutputBinary[1];                        // Out. Dynamic array
    };
@@ -2031,85 +1846,6 @@ typedef struct _D3DDDI_QUERYREGISTRY_INFO
 #define D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT 4
 
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM1_3)
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_6)
-
-//
-// For each feature in this enumeration, if the driver supports it,
-// it must invoke the OS QueryFeatureSupport callback
-// to report the level of support (experimental, stable, always on),
-// and only enable the feature if the OS returned Enabled=TRUE.
-// Drivers that don't support the feature don't have to call the OS to query its status.
-//
-typedef enum _DXGK_FEATURE_ID
-{
-    DXGK_FEATURE_HWSCH                          = 0, // Hardware accelerated GPU scheduling
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_0)
-    DXGK_FEATURE_HWFLIPQUEUE                    = 1, // Hardware flip queue
-    DXGK_FEATURE_LDA_GPUPV                      = 2, // Support for LDA in GPU-PV
-    DXGK_FEATURE_KMD_SIGNAL_CPU_EVENT           = 3, // Support for signaling CPU event by KMD
-#endif
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_1)
-    DXGK_FEATURE_USER_MODE_SUBMISSION           = 4,
-    DXGK_FEATURE_SHARE_BACKING_STORE_WITH_KMD   = 5,
-#endif
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_2)
-    DXGK_FEATURE_RESERVED_1                     = 6,
-    DXGK_FEATURE_RESERVED_2                     = 7,
-    DXGK_FEATURE_RESERVED_3                     = 8,
-    DXGK_FEATURE_RESERVED_4                     = 9,
-    DXGK_FEATURE_RESERVED_5                     = 10,
-    DXGK_FEATURE_RESERVED_6                     = 11,
-    DXGK_FEATURE_RESERVED_7                     = 12,
-    DXGK_FEATURE_RESERVED_8                     = 13,
-    DXGK_FEATURE_RESERVED_9                     = 14,
-    DXGK_FEATURE_RESERVED_10                    = 15,
-    DXGK_FEATURE_RESERVED_11                    = 16,
-    DXGK_FEATURE_RESERVED_12                    = 17,
-    DXGK_FEATURE_RESERVED_13                    = 18,
-    DXGK_FEATURE_RESERVED_14                    = 19,
-    DXGK_FEATURE_RESERVED_15                    = 20,
-    DXGK_FEATURE_RESERVED_16                    = 21,
-    DXGK_FEATURE_RESERVED_17                    = 22,
-    DXGK_FEATURE_RESERVED_18                    = 23,
-    DXGK_FEATURE_RESERVED_19                    = 24,
-    DXGK_FEATURE_RESERVED_20                    = 25,
-    DXGK_FEATURE_RESERVED_21                    = 26,
-    DXGK_FEATURE_RESERVED_22                    = 27,
-    DXGK_FEATURE_RESERVED_23                    = 28,
-    DXGK_FEATURE_RESERVED_24                    = 29,
-    DXGK_FEATURE_RESERVED_25                    = 30,
-#endif
-    DXGK_FEATURE_SAMPLE                         = 31,
-
-    DXGK_FEATURE_MAX
-} DXGK_FEATURE_ID;
-
-
-#endif // DXGKDDI_INTERFACE_VERSION_WDDM2_6
-
-#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_2)
-
-typedef UINT16 DXGK_FEATURE_VERSION;
-
-typedef struct _DXGK_ISFEATUREENABLED_RESULT
-{
-    UINT16 Version;
-    union
-    {
-        struct
-        {
-            UINT16 Enabled                  :  1;
-            UINT16 KnownFeature             :  1;
-            UINT16 SupportedByDriver        :  1;
-            UINT16 SupportedOnCurrentConfig :  1;
-            UINT16 Reserved                 : 12;
-        };
-        DXGK_FEATURE_VERSION Value;
-    };
-} DXGK_ISFEATUREENABLED_RESULT;
-
-#endif // DXGKDDI_INTERFACE_VERSION_WDDM3_2
 
 #endif // (NTDDI_VERSION >= NTDDI_LONGHORN) || defined(D3DKMDT_SPECIAL_MULTIPLATFORM_TOOL)
 

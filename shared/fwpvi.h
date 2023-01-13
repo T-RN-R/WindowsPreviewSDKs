@@ -31,9 +31,6 @@
 #define FWPM_CLASSIFY_OPTION FWPM_CLASSIFY_OPTION0
 #define FWPM_CLASSIFY_OPTIONS FWPM_CLASSIFY_OPTIONS0
 
-#define FWPM_NETWORK_CONNECTION_POLICY_SETTING FWPM_NETWORK_CONNECTION_POLICY_SETTING0
-#define FWPM_NETWORK_CONNECTION_POLICY_SETTINGS FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0
-
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 #define FWPM_PROVIDER_CONTEXT FWPM_PROVIDER_CONTEXT3
 #elif (NTDDI_VERSION >= NTDDI_WIN8)
@@ -495,6 +492,10 @@
 #define FwpmFilterUnsubscribeChanges FwpmFilterUnsubscribeChanges0
 #define FwpmFilterSubscriptionsGet FwpmFilterSubscriptionsGet0
 #define FwpmGetAppIdFromFileName FwpmGetAppIdFromFileName0
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
+#define FwpmBitmapIndexGet FwpmBitmapIndexGet0
+#define FwpmBitmapIndexFree FwpmBitmapIndexFree0
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 #define FwpmIPsecTunnelAdd FwpmIPsecTunnelAdd3
@@ -603,7 +604,7 @@
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS5) //NTDDI_WIN10_RS5 
 #define FWPM_NET_EVENT_CALLBACK FWPM_NET_EVENT_CALLBACK4
 #define FwpmNetEventSubscribe FwpmNetEventSubscribe4
-#elif (NTDDI_VERSION >= NTDDI_WIN10_RS4) 
+#elif (NTDDI_VERSION >= NTDDI_NTDDI_WIN10_RS4) 
 #define FWPM_NET_EVENT_CALLBACK FWPM_NET_EVENT_CALLBACK3
 #define FwpmNetEventSubscribe FwpmNetEventSubscribe3
 #elif (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
@@ -626,11 +627,7 @@
 #define FwpmSystemPortsUnsubscribe FwpmSystemPortsUnsubscribe0
 #endif
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
-#define FWPM_DYNAMIC_KEYWORD_CALLBACK FWPM_DYNAMIC_KEYWORD_CALLBACK0
-#define FwpmDynamicKeywordSubscribe FwpmDynamicKeywordSubscribe0
-#define FwpmDynamicKeywordUnsubscribe FwpmDynamicUnsubscribe0
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO)
+
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
 #define IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0
@@ -765,7 +762,6 @@
 #define FwpsAcquireWritableLayerDataPointer FwpsAcquireWritableLayerDataPointer0
 #define FwpsApplyModifiedLayerData FwpsApplyModifiedLayerData0
 #define FWPS_CONNECT_REQUEST FWPS_CONNECT_REQUEST0
-#define FWPS_CONNECTION_POLICY FWPS_CONNECTION_POLICY0
 #define FWPS_BIND_REQUEST FWPS_BIND_REQUEST0
 #define FWPS_NET_BUFFER_LIST_EVENT_TYPE FWPS_NET_BUFFER_LIST_EVENT_TYPE0
 #if (NTDDI_VERSION >= NTDDI_WIN8)

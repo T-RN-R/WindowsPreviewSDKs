@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -328,28 +320,23 @@ EXTERN_C const IID IID_IWinMLModel;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWinMLModel * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWinMLModel * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWinMLModel * This);
         
-        DECLSPEC_XFGVIRT(IWinMLModel, GetDescription)
         HRESULT ( STDMETHODCALLTYPE *GetDescription )( 
             IWinMLModel * This,
             /* [annotation] */ 
             _Out_  WINML_MODEL_DESC **ppDescription);
         
-        DECLSPEC_XFGVIRT(IWinMLModel, EnumerateMetadata)
         HRESULT ( STDMETHODCALLTYPE *EnumerateMetadata )( 
             IWinMLModel * This,
             /* [annotation] */ 
@@ -359,7 +346,6 @@ EXTERN_C const IID IID_IWinMLModel;
             /* [annotation] */ 
             _Outptr_  LPCWSTR *pValue);
         
-        DECLSPEC_XFGVIRT(IWinMLModel, EnumerateModelInputs)
         HRESULT ( STDMETHODCALLTYPE *EnumerateModelInputs )( 
             IWinMLModel * This,
             /* [annotation] */ 
@@ -367,7 +353,6 @@ EXTERN_C const IID IID_IWinMLModel;
             /* [annotation] */ 
             _Out_  WINML_VARIABLE_DESC **ppInputDescriptor);
         
-        DECLSPEC_XFGVIRT(IWinMLModel, EnumerateModelOutputs)
         HRESULT ( STDMETHODCALLTYPE *EnumerateModelOutputs )( 
             IWinMLModel * This,
             /* [annotation] */ 
@@ -466,28 +451,23 @@ EXTERN_C const IID IID_IWinMLEvaluationContext;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWinMLEvaluationContext * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWinMLEvaluationContext * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWinMLEvaluationContext * This);
         
-        DECLSPEC_XFGVIRT(IWinMLEvaluationContext, BindValue)
         HRESULT ( STDMETHODCALLTYPE *BindValue )( 
             IWinMLEvaluationContext * This,
             /* [annotation] */ 
             _In_  WINML_BINDING_DESC *pDescriptor);
         
-        DECLSPEC_XFGVIRT(IWinMLEvaluationContext, GetValueByName)
         HRESULT ( STDMETHODCALLTYPE *GetValueByName )( 
             IWinMLEvaluationContext * This,
             /* [annotation] */ 
@@ -495,7 +475,6 @@ EXTERN_C const IID IID_IWinMLEvaluationContext;
             /* [annotation] */ 
             _Out_  WINML_BINDING_DESC **pDescriptor);
         
-        DECLSPEC_XFGVIRT(IWinMLEvaluationContext, Clear)
         HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IWinMLEvaluationContext * This);
         
@@ -591,22 +570,18 @@ EXTERN_C const IID IID_IWinMLRuntime;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWinMLRuntime * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWinMLRuntime * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWinMLRuntime * This);
         
-        DECLSPEC_XFGVIRT(IWinMLRuntime, LoadModel)
         HRESULT ( STDMETHODCALLTYPE *LoadModel )( 
             IWinMLRuntime * This,
             /* [annotation] */ 
@@ -614,7 +589,6 @@ EXTERN_C const IID IID_IWinMLRuntime;
             /* [annotation][out] */ 
             _COM_Outptr_  IWinMLModel **ppModel);
         
-        DECLSPEC_XFGVIRT(IWinMLRuntime, CreateEvaluationContext)
         HRESULT ( STDMETHODCALLTYPE *CreateEvaluationContext )( 
             IWinMLRuntime * This,
             /* [annotation] */ 
@@ -622,7 +596,6 @@ EXTERN_C const IID IID_IWinMLRuntime;
             /* [annotation][out] */ 
             _COM_Outptr_  IWinMLEvaluationContext **ppContext);
         
-        DECLSPEC_XFGVIRT(IWinMLRuntime, EvaluateModel)
         HRESULT ( STDMETHODCALLTYPE *EvaluateModel )( 
             IWinMLRuntime * This,
             /* [annotation] */ 
@@ -716,22 +689,18 @@ EXTERN_C const IID IID_IWinMLRuntimeFactory;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWinMLRuntimeFactory * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWinMLRuntimeFactory * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWinMLRuntimeFactory * This);
         
-        DECLSPEC_XFGVIRT(IWinMLRuntimeFactory, CreateRuntime)
         HRESULT ( STDMETHODCALLTYPE *CreateRuntime )( 
             IWinMLRuntimeFactory * This,
             /* [annotation] */ 

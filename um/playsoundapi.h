@@ -1,10 +1,12 @@
 /********************************************************************************
 *                                                                               *
-* playsoundapi.h -- ApiSet Contract for api-ms-win-mm-playsound-l1-1-0          *
+* playsoundapi.h -- ApiSet Contract for api-ms-win-mm-playsound-l1-1-0          *  
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
+
+
 
 #ifdef _MSC_VER
 #pragma once
@@ -16,6 +18,7 @@
 #include <apiset.h>
 #include <apisetcconv.h>
 
+
 #include <mmsyscom.h> // mm common definitions
 
 #ifdef __cplusplus
@@ -25,7 +28,7 @@ extern "C" {
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
-#ifndef MMNOSOUND
+#ifndef MMNOSOUND                                                
 /****************************************************************************
 
                             Sound support
@@ -49,6 +52,7 @@ sndPlaySoundW(
     _In_opt_ LPCWSTR pszSound,
     _In_ UINT fuSound
     );
+
 #ifdef UNICODE
 #define sndPlaySound  sndPlaySoundW
 #else
@@ -114,6 +118,7 @@ PlaySoundW(
     _In_opt_ HMODULE hmod,
     _In_ DWORD fdwSound
     );
+
 #ifdef UNICODE
 #define PlaySound  PlaySoundW
 #else
@@ -125,7 +130,7 @@ DLOAD_RET(FALSE)
 BOOL WINAPI PlaySound(LPCSTR pszSound, HMODULE hmod, DWORD fdwSound);
 #endif
 
-#endif  /* ifndef MMNOSOUND */
+#endif  /* ifndef MMNOSOUND */ 
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 #pragma endregion
@@ -135,4 +140,5 @@ BOOL WINAPI PlaySound(LPCSTR pszSound, HMODULE hmod, DWORD fdwSound);
 #endif
 
 #endif // _PLAYSOUNDAPI_H_
+
 

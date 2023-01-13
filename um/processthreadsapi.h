@@ -6,6 +6,8 @@
 *                                                                                  *
 ***********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -97,39 +99,8 @@ QueueUserAPC(
     _In_ ULONG_PTR dwData
     );
 
+
 #endif /* _WIN32_WINNT >= 0x0400 || _WIN32_WINDOWS > 0x0400 */
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
-
-typedef enum _QUEUE_USER_APC_FLAGS {
-    QUEUE_USER_APC_FLAGS_NONE               = 0x00000000,
-    QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC   = 0x00000001,
-
-    //
-    // Used for requesting additional callback data.
-    //
-
-    QUEUE_USER_APC_CALLBACK_DATA_CONTEXT    = 0x00010000,
-} QUEUE_USER_APC_FLAGS;
-
-typedef struct _APC_CALLBACK_DATA {
-    ULONG_PTR Parameter;
-    PCONTEXT ContextRecord;
-    ULONG_PTR Reserved0;
-    ULONG_PTR Reserved1;
-} APC_CALLBACK_DATA, *PAPC_CALLBACK_DATA;
-
-WINBASEAPI
-BOOL
-WINAPI
-QueueUserAPC2(
-    _In_ PAPCFUNC ApcRoutine,
-    _In_ HANDLE Thread,
-    _In_ ULONG_PTR Data,
-    _In_ QUEUE_USER_APC_FLAGS Flags
-    );
-
-#endif /* NTDDI_VERSION >= NTDDI_WIN10_MN */
 
 WINBASEAPI
 BOOL
@@ -142,6 +113,7 @@ GetProcessTimes(
     _Out_ LPFILETIME lpUserTime
     );
 
+
 WINBASEAPI
 HANDLE
 WINAPI
@@ -149,12 +121,14 @@ GetCurrentProcess(
     VOID
     );
 
+
 WINBASEAPI
 DWORD
 WINAPI
 GetCurrentProcessId(
     VOID
     );
+
 
 WINBASEAPI
 DECLSPEC_NORETURN
@@ -164,6 +138,7 @@ ExitProcess(
     _In_ UINT uExitCode
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -171,6 +146,7 @@ TerminateProcess(
     _In_ HANDLE hProcess,
     _In_ UINT uExitCode
     );
+
 
 WINBASEAPI
 BOOL
@@ -180,12 +156,14 @@ GetExitCodeProcess(
     _Out_ LPDWORD lpExitCode
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 SwitchToThread(
     VOID
     );
+
 
 WINBASEAPI
 _Ret_maybenull_
@@ -199,12 +177,12 @@ CreateThread(
     _In_ DWORD dwCreationFlags,
     _Out_opt_ LPDWORD lpThreadId
     );
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
 #pragma region Application Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
-
 WINBASEAPI
 _Ret_maybenull_
 HANDLE
@@ -219,6 +197,7 @@ CreateRemoteThread(
     _Out_opt_ LPDWORD lpThreadId
     );
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -232,12 +211,14 @@ GetCurrentThread(
     VOID
     );
 
+
 WINBASEAPI
 DWORD
 WINAPI
 GetCurrentThreadId(
     VOID
     );
+
 
 WINBASEAPI
 _Ret_maybenull_
@@ -249,6 +230,7 @@ OpenThread(
     _In_ DWORD dwThreadId
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -256,6 +238,7 @@ SetThreadPriority(
     _In_ HANDLE hThread,
     _In_ int nPriority
     );
+
 
 WINBASEAPI
 BOOL
@@ -265,6 +248,7 @@ SetThreadPriorityBoost(
     _In_ BOOL bDisablePriorityBoost
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -273,12 +257,14 @@ GetThreadPriorityBoost(
     _Out_ PBOOL pDisablePriorityBoost
     );
 
+
 WINBASEAPI
 int
 WINAPI
 GetThreadPriority(
     _In_ HANDLE hThread
     );
+
 
 WINBASEAPI
 DECLSPEC_NORETURN
@@ -287,12 +273,12 @@ WINAPI
 ExitThread(
     _In_ DWORD dwExitCode
     );
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
 #pragma region Desktop Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -300,6 +286,7 @@ TerminateThread(
     _In_ HANDLE hThread,
     _In_ DWORD dwExitCode
     );
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -315,6 +302,7 @@ GetExitCodeThread(
     _Out_ LPDWORD lpExitCode
     );
 
+
 WINBASEAPI
 DWORD
 WINAPI
@@ -322,12 +310,14 @@ SuspendThread(
     _In_ HANDLE hThread
     );
 
+
 WINBASEAPI
 DWORD
 WINAPI
 ResumeThread(
     _In_ HANDLE hThread
     );
+
 
 #ifndef TLS_OUT_OF_INDEXES
 #define TLS_OUT_OF_INDEXES ((DWORD)0xFFFFFFFF)
@@ -341,12 +331,14 @@ TlsAlloc(
     VOID
     );
 
+
 WINBASEAPI
 LPVOID
 WINAPI
 TlsGetValue(
     _In_ DWORD dwTlsIndex
     );
+
 
 WINBASEAPI
 BOOL
@@ -356,12 +348,14 @@ TlsSetValue(
     _In_opt_ LPVOID lpTlsValue
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 TlsFree(
     _In_ DWORD dwTlsIndex
     );
+
 
 WINBASEAPI
 BOOL
@@ -394,6 +388,7 @@ CreateProcessW(
     _In_ LPSTARTUPINFOW lpStartupInfo,
     _Out_ LPPROCESS_INFORMATION lpProcessInformation
     );
+
 #ifdef UNICODE
 #define CreateProcess  CreateProcessW
 #else
@@ -414,12 +409,14 @@ SetProcessShutdownParameters(
     _In_ DWORD dwFlags
     );
 
+
 WINBASEAPI
 DWORD
 WINAPI
 GetProcessVersion(
     _In_ DWORD ProcessId
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -433,6 +430,7 @@ WINAPI
 GetStartupInfoW(
     _Out_ LPSTARTUPINFOW lpStartupInfo
     );
+
 #ifdef UNICODE
 #define GetStartupInfo  GetStartupInfoW
 #endif
@@ -460,15 +458,10 @@ CreateProcessAsUserW(
     _Out_ LPPROCESS_INFORMATION lpProcessInformation
     );
 
+
 #ifdef UNICODE
 #define CreateProcessAsUser  CreateProcessAsUserW
 #endif
-
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
-#pragma endregion
-
-#pragma region Application Family or OneCore Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 //
 // TODO: neerajsi-2013/12/08 - this should be moved to official documentation.
@@ -514,6 +507,12 @@ GetCurrentThreadEffectiveToken (
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
 #endif // !defined(MIDL_PASS)
 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
+#pragma endregion
+
+#pragma region Application Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
+
 WINADVAPI
 _Must_inspect_result_
 BOOL
@@ -522,6 +521,7 @@ SetThreadToken(
     _In_opt_ PHANDLE Thread,
     _In_opt_ HANDLE Token
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -537,6 +537,7 @@ OpenProcessToken(
     _In_ DWORD DesiredAccess,
     _Outptr_ PHANDLE TokenHandle
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -554,6 +555,7 @@ OpenThreadToken(
     _Outptr_ PHANDLE TokenHandle
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -562,12 +564,14 @@ SetPriorityClass(
     _In_ DWORD dwPriorityClass
     );
 
+
 WINBASEAPI
 DWORD
 WINAPI
 GetPriorityClass(
     _In_ HANDLE hProcess
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -582,6 +586,7 @@ SetThreadStackGuarantee(
     _Inout_ PULONG StackSizeInBytes
     );
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -595,6 +600,7 @@ ProcessIdToSessionId(
     _In_ DWORD dwProcessId,
     _Out_ DWORD* pSessionId
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -619,6 +625,7 @@ GetProcessId(
     _In_ HANDLE Process
     );
 
+
 #endif // _WIN32_WINNT >= 0x0501
 
 #if (_WIN32_WINNT >= 0x0502)
@@ -630,6 +637,7 @@ GetThreadId(
     _In_ HANDLE Thread
     );
 
+
 #endif // _WIN32_WINNT >= 0x0502
 
 #if (_WIN32_WINNT >= 0x0600)
@@ -640,6 +648,7 @@ WINAPI
 FlushProcessWriteBuffers(
     VOID
     );
+
 
 #endif // _WIN32_WINNT >= 0x0600
 
@@ -658,6 +667,7 @@ GetProcessIdOfThread(
     _In_ HANDLE Thread
     );
 
+
 WINBASEAPI
 _Success_(return != FALSE)
 BOOL
@@ -669,12 +679,14 @@ InitializeProcThreadAttributeList(
     _When_(lpAttributeList == nullptr,_Out_) _When_(lpAttributeList != nullptr,_Inout_) PSIZE_T lpSize
     );
 
+
 WINBASEAPI
 VOID
 WINAPI
 DeleteProcThreadAttributeList(
     _Inout_ LPPROC_THREAD_ATTRIBUTE_LIST lpAttributeList
     );
+
 
 #define PROC_THREAD_ATTRIBUTE_REPLACE_VALUE     0x00000001
 
@@ -691,6 +703,7 @@ UpdateProcThreadAttribute(
     _In_opt_ PSIZE_T lpReturnSize
     );
 
+
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
 WINBASEAPI
@@ -702,18 +715,6 @@ SetProcessDynamicEHContinuationTargets(
     _Inout_updates_(NumberOfTargets) PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET Targets
     );
 
-#endif
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
-
-WINBASEAPI
-BOOL
-WINAPI
-SetProcessDynamicEnforcedCetCompatibleRanges(
-    _In_ HANDLE Process,
-    _In_ USHORT NumberOfRanges,
-    _Inout_updates_(NumberOfRanges) PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE Ranges
-    );
 
 #endif
 
@@ -733,6 +734,7 @@ SetProcessAffinityUpdateMode(
     _In_ DWORD dwFlags
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -740,6 +742,7 @@ QueryProcessAffinityUpdateMode(
     _In_ HANDLE hProcess,
     _Out_opt_ LPDWORD lpdwFlags
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -764,6 +767,7 @@ CreateRemoteThreadEx(
     _Out_opt_ LPDWORD lpThreadId
     );
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -782,6 +786,7 @@ GetCurrentThreadStackLimits(
     _Out_ PULONG_PTR HighLimit
     );
 
+
 #endif
 
 WINBASEAPI
@@ -791,6 +796,7 @@ GetThreadContext(
     _In_ HANDLE hThread,
     _Inout_ LPCONTEXT lpContext
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -810,6 +816,7 @@ GetProcessMitigationPolicy(
     _In_ SIZE_T dwLength
     );
 
+
 #endif
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
@@ -825,6 +832,7 @@ SetThreadContext(
     _In_ HANDLE hThread,
     _In_ CONST CONTEXT* lpContext
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -842,6 +850,7 @@ SetProcessMitigationPolicy(
     _In_reads_bytes_(dwLength) PVOID lpBuffer,
     _In_ SIZE_T dwLength
     );
+
 
 #endif
 
@@ -862,6 +871,7 @@ FlushInstructionCache(
     _In_ SIZE_T dwSize
     );
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
@@ -879,6 +889,7 @@ GetThreadTimes(
     _Out_ LPFILETIME lpUserTime
     );
 
+
 WINBASEAPI
 HANDLE
 WINAPI
@@ -888,12 +899,14 @@ OpenProcess(
     _In_ DWORD dwProcessId
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 IsProcessorFeaturePresent(
     _In_ DWORD ProcessorFeature
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM  | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -911,6 +924,7 @@ GetProcessHandleCount(
     _Out_ PDWORD pdwHandleCount
     );
 
+
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -927,6 +941,7 @@ WINAPI
 GetCurrentProcessorNumber(
     VOID
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -947,6 +962,7 @@ SetThreadIdealProcessorEx(
     _Out_opt_ PPROCESSOR_NUMBER lpPreviousIdealProcessor
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -955,12 +971,14 @@ GetThreadIdealProcessorEx(
     _Out_ PPROCESSOR_NUMBER lpIdealProcessor
     );
 
+
 WINBASEAPI
 VOID
 WINAPI
 GetCurrentProcessorNumberEx(
     _Out_ PPROCESSOR_NUMBER ProcNumber
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -980,6 +998,7 @@ GetProcessPriorityBoost(
     _Out_ PBOOL pDisablePriorityBoost
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -987,6 +1006,7 @@ SetProcessPriorityBoost(
     _In_ HANDLE hProcess,
     _In_ BOOL bDisablePriorityBoost
     );
+
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WINXP)
 
@@ -1006,6 +1026,7 @@ GetThreadIOPendingFlag(
     _Out_ PBOOL lpIOIsPending
     );
 
+
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WINXP)
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -1023,6 +1044,7 @@ GetSystemTimes(
     _Out_opt_ PFILETIME lpKernelTime,
     _Out_opt_ PFILETIME lpUserTime
     );
+
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WINXP)
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
@@ -1059,6 +1081,7 @@ GetThreadInformation(
     _In_ DWORD ThreadInformationSize
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -1068,6 +1091,7 @@ SetThreadInformation(
     _In_reads_bytes_(ThreadInformationSize) LPVOID ThreadInformation,
     _In_ DWORD ThreadInformationSize
     );
+
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
 
@@ -1103,6 +1127,7 @@ IsProcessCritical(
     _Out_ PBOOL Critical
     );
 
+
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WINBLUE)
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
@@ -1116,6 +1141,7 @@ SetProtectedPolicy(
     _Out_opt_ PULONG_PTR OldPolicyValue
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -1124,13 +1150,14 @@ QueryProtectedPolicy(
     _Out_ PULONG_PTR PolicyValue
     );
 
+
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
-#pragma region Desktop Family or OneCore Family or Games Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+#pragma region Desktop Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 WINBASEAPI
 DWORD
@@ -1140,23 +1167,23 @@ SetThreadIdealProcessor(
     _In_ DWORD dwIdealProcessor
     );
 
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
 #pragma region Application Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 typedef enum _PROCESS_INFORMATION_CLASS {
-    ProcessMemoryPriority,          // MEMORY_PRIORITY_INFORMATION
-    ProcessMemoryExhaustionInfo,    // PROCESS_MEMORY_EXHAUSTION_INFO
-    ProcessAppMemoryInfo,           // APP_MEMORY_INFORMATION
-    ProcessInPrivateInfo,           // BOOLEAN
-    ProcessPowerThrottling,         // PROCESS_POWER_THROTTLING_STATE
-    ProcessReservedValue1,          // Used to be for ProcessActivityThrottlePolicyInfo
-    ProcessTelemetryCoverageInfo,   // TELEMETRY_COVERAGE_POINT
-    ProcessProtectionLevelInfo,     // PROCESS_PROTECTION_LEVEL_INFORMATION
-    ProcessLeapSecondInfo,          // PROCESS_LEAP_SECOND_INFO
-    ProcessMachineTypeInfo,         // PROCESS_MACHINE_INFORMATION
+    ProcessMemoryPriority,
+    ProcessMemoryExhaustionInfo,
+    ProcessAppMemoryInfo,
+    ProcessInPrivateInfo,
+    ProcessPowerThrottling,
+    ProcessReservedValue1,           // Used to be for ProcessActivityThrottlePolicyInfo
+    ProcessTelemetryCoverageInfo,
+    ProcessProtectionLevelInfo,
+    ProcessLeapSecondInfo,
     ProcessInformationClassMax
 } PROCESS_INFORMATION_CLASS;
 
@@ -1166,22 +1193,6 @@ typedef struct _APP_MEMORY_INFORMATION {
     ULONG64 PeakPrivateCommitUsage;
     ULONG64 TotalCommitUsage;
 } APP_MEMORY_INFORMATION, *PAPP_MEMORY_INFORMATION;
-
-typedef enum _MACHINE_ATTRIBUTES {
-    UserEnabled         = 0x00000001,
-    KernelEnabled       = 0x00000002,
-    Wow64Container      = 0x00000004
-} MACHINE_ATTRIBUTES;
-
-#if !defined(MIDL_PASS)
-DEFINE_ENUM_FLAG_OPERATORS(MACHINE_ATTRIBUTES);
-#endif
-
-typedef struct _PROCESS_MACHINE_INFORMATION {
-    USHORT ProcessMachine;
-    USHORT Res0;
-    MACHINE_ATTRIBUTES MachineAttributes;
-} PROCESS_MACHINE_INFORMATION;
 
 //
 // Constants and structures needed to enable the fail fast on commit failure
@@ -1208,10 +1219,8 @@ typedef struct _PROCESS_MEMORY_EXHAUSTION_INFO {
 #define PROCESS_POWER_THROTTLING_CURRENT_VERSION 1
 
 #define PROCESS_POWER_THROTTLING_EXECUTION_SPEED 0x1
-#define PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION 0x4
 
-#define PROCESS_POWER_THROTTLING_VALID_FLAGS ((PROCESS_POWER_THROTTLING_EXECUTION_SPEED | \
-                                               PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION))
+#define PROCESS_POWER_THROTTLING_VALID_FLAGS (PROCESS_POWER_THROTTLING_EXECUTION_SPEED)
 
 typedef struct _PROCESS_POWER_THROTTLING_STATE {
     ULONG Version;
@@ -1244,6 +1253,7 @@ SetProcessInformation(
     _In_ DWORD ProcessInformationSize
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -1253,6 +1263,7 @@ GetProcessInformation(
     _Out_writes_bytes_(ProcessInformationSize) LPVOID ProcessInformation,
     _In_ DWORD ProcessInformationSize
     );
+
 
 #endif //(_WIN32_WINNT >= 0x0602)
 
@@ -1269,6 +1280,7 @@ GetSystemCpuSetInformation(
     _Reserved_ ULONG Flags
     );
 
+
 _Success_(return != FALSE)
 BOOL
 WINAPI
@@ -1279,6 +1291,7 @@ GetProcessDefaultCpuSets(
     _Always_(_Out_) PULONG RequiredIdCount
     );
 
+
 _Success_(return != FALSE)
 BOOL
 WINAPI
@@ -1287,6 +1300,7 @@ SetProcessDefaultCpuSets(
     _In_reads_opt_(CpuSetIdCount) const ULONG* CpuSetIds,
     _In_ ULONG CpuSetIdCount
     );
+
 
 _Success_(return != FALSE)
 BOOL
@@ -1298,6 +1312,7 @@ GetThreadSelectedCpuSets(
     _Always_(_Out_) PULONG RequiredIdCount
     );
 
+
 _Success_(return != FALSE)
 BOOL
 WINAPI
@@ -1307,7 +1322,8 @@ SetThreadSelectedCpuSets(
     _In_ ULONG CpuSetIdCount
     );
 
-#endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
+
+#endif // (_WIN32_WINNT >= WIN32_WINNT_WIN10)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -1332,6 +1348,7 @@ CreateProcessAsUserA(
     _Out_ LPPROCESS_INFORMATION lpProcessInformation
     );
 
+
 #ifndef UNICODE
 #define CreateProcessAsUser  CreateProcessAsUserA
 #endif
@@ -1344,70 +1361,8 @@ GetProcessShutdownParameters(
     _Out_ LPDWORD lpdwFlags
     );
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
-#pragma endregion
-
-#pragma region Application Family or OneCore Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
-
-#if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_FE)
-
-_Success_(return != FALSE)
-BOOL
-WINAPI
-GetProcessDefaultCpuSetMasks(
-    _In_ HANDLE Process,
-    _Out_writes_to_opt_(CpuSetMaskCount, *RequiredMaskCount) PGROUP_AFFINITY CpuSetMasks,
-    _In_ USHORT CpuSetMaskCount,
-    _Out_ PUSHORT RequiredMaskCount
-    );
-
-_Success_(return != FALSE)
-BOOL
-WINAPI
-SetProcessDefaultCpuSetMasks(
-    _In_ HANDLE Process,
-    _In_reads_opt_(CpuSetMaskCount) PGROUP_AFFINITY CpuSetMasks,
-    _In_ USHORT CpuSetMaskCount
-    );
-
-_Success_(return != FALSE)
-BOOL
-WINAPI
-GetThreadSelectedCpuSetMasks(
-    _In_ HANDLE Thread,
-    _Out_writes_to_opt_(CpuSetMaskCount, *RequiredMaskCount) PGROUP_AFFINITY CpuSetMasks,
-    _In_ USHORT CpuSetMaskCount,
-    _Out_ PUSHORT RequiredMaskCount
-    );
-
-_Success_(return != FALSE)
-BOOL
-WINAPI
-SetThreadSelectedCpuSetMasks(
-    _In_ HANDLE Thread,
-    _In_reads_opt_(CpuSetMaskCount) PGROUP_AFFINITY CpuSetMasks,
-    _In_ USHORT CpuSetMaskCount
-    );
-
-#endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN10_FE)
-
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
-#pragma endregion
-
-#pragma region Application Family or OneCore Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
-#if (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
-
-HRESULT
-WINAPI
-GetMachineTypeAttributes(
-    _In_ USHORT Machine,
-    _Out_ MACHINE_ATTRIBUTES* MachineTypeAttributes
-    );
-
-#endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
 WINBASEAPI
@@ -1418,6 +1373,7 @@ SetThreadDescription(
     _In_ PCWSTR lpThreadDescription
     );
 
+ 
 WINBASEAPI
 HRESULT
 WINAPI
@@ -1425,6 +1381,7 @@ GetThreadDescription(
     _In_ HANDLE hThread,
     _Outptr_result_z_ PWSTR* ppszThreadDescription
     );
+
 
 #ifdef __cplusplus
 }

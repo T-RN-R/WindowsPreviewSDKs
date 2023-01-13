@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -372,22 +364,18 @@ EXTERN_C const IID IID_IWbemPropertyProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemPropertyProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemPropertyProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemPropertyProvider * This);
         
-        DECLSPEC_XFGVIRT(IWbemPropertyProvider, GetProperty)
         HRESULT ( STDMETHODCALLTYPE *GetProperty )( 
             __RPC__in IWbemPropertyProvider * This,
             /* [in] */ long lFlags,
@@ -397,7 +385,6 @@ EXTERN_C const IID IID_IWbemPropertyProvider;
             /* [in] */ __RPC__in const BSTR strPropMapping,
             /* [out] */ __RPC__out VARIANT *pvValue);
         
-        DECLSPEC_XFGVIRT(IWbemPropertyProvider, PutProperty)
         HRESULT ( STDMETHODCALLTYPE *PutProperty )( 
             __RPC__in IWbemPropertyProvider * This,
             /* [in] */ long lFlags,
@@ -476,22 +463,18 @@ EXTERN_C const IID IID_IWbemUnboundObjectSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemUnboundObjectSink * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemUnboundObjectSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemUnboundObjectSink * This);
         
-        DECLSPEC_XFGVIRT(IWbemUnboundObjectSink, IndicateToConsumer)
         HRESULT ( STDMETHODCALLTYPE *IndicateToConsumer )( 
             __RPC__in IWbemUnboundObjectSink * This,
             /* [in] */ __RPC__in_opt IWbemClassObject *pLogicalConsumer,
@@ -563,22 +546,18 @@ EXTERN_C const IID IID_IWbemEventProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemEventProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemEventProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemEventProvider * This);
         
-        DECLSPEC_XFGVIRT(IWbemEventProvider, ProvideEvents)
         HRESULT ( STDMETHODCALLTYPE *ProvideEvents )( 
             __RPC__in IWbemEventProvider * This,
             /* [in] */ __RPC__in_opt IWbemObjectSink *pSink,
@@ -653,29 +632,24 @@ EXTERN_C const IID IID_IWbemEventProviderQuerySink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemEventProviderQuerySink * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemEventProviderQuerySink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemEventProviderQuerySink * This);
         
-        DECLSPEC_XFGVIRT(IWbemEventProviderQuerySink, NewQuery)
         HRESULT ( STDMETHODCALLTYPE *NewQuery )( 
             __RPC__in IWbemEventProviderQuerySink * This,
             /* [in] */ unsigned long dwId,
             /* [in] */ __RPC__in WBEM_WSTR wszQueryLanguage,
             /* [in] */ __RPC__in WBEM_WSTR wszQuery);
         
-        DECLSPEC_XFGVIRT(IWbemEventProviderQuerySink, CancelQuery)
         HRESULT ( STDMETHODCALLTYPE *CancelQuery )( 
             __RPC__in IWbemEventProviderQuerySink * This,
             /* [in] */ unsigned long dwId);
@@ -750,22 +724,18 @@ EXTERN_C const IID IID_IWbemEventProviderSecurity;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemEventProviderSecurity * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemEventProviderSecurity * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemEventProviderSecurity * This);
         
-        DECLSPEC_XFGVIRT(IWbemEventProviderSecurity, AccessCheck)
         HRESULT ( STDMETHODCALLTYPE *AccessCheck )( 
             __RPC__in IWbemEventProviderSecurity * This,
             /* [in] */ __RPC__in WBEM_CWSTR wszQueryLanguage,
@@ -838,22 +808,18 @@ EXTERN_C const IID IID_IWbemEventConsumerProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemEventConsumerProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemEventConsumerProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemEventConsumerProvider * This);
         
-        DECLSPEC_XFGVIRT(IWbemEventConsumerProvider, FindConsumer)
         HRESULT ( STDMETHODCALLTYPE *FindConsumer )( 
             __RPC__in IWbemEventConsumerProvider * This,
             /* [in] */ __RPC__in_opt IWbemClassObject *pLogicalConsumer,
@@ -924,22 +890,18 @@ EXTERN_C const IID IID_IWbemProviderInitSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemProviderInitSink * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemProviderInitSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemProviderInitSink * This);
         
-        DECLSPEC_XFGVIRT(IWbemProviderInitSink, SetStatus)
         HRESULT ( STDMETHODCALLTYPE *SetStatus )( 
             __RPC__in IWbemProviderInitSink * This,
             /* [in] */ LONG lStatus,
@@ -1015,22 +977,18 @@ EXTERN_C const IID IID_IWbemProviderInit;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemProviderInit * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemProviderInit * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemProviderInit * This);
         
-        DECLSPEC_XFGVIRT(IWbemProviderInit, Initialize)
         HRESULT ( STDMETHODCALLTYPE *Initialize )( 
             __RPC__in IWbemProviderInit * This,
             /* [string][unique][in] */ __RPC__in_opt_string LPWSTR wszUser,
@@ -1174,22 +1132,18 @@ EXTERN_C const IID IID_IWbemHiPerfProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWbemHiPerfProvider * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWbemHiPerfProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWbemHiPerfProvider * This);
         
-        DECLSPEC_XFGVIRT(IWbemHiPerfProvider, QueryInstances)
         HRESULT ( STDMETHODCALLTYPE *QueryInstances )( 
             IWbemHiPerfProvider * This,
             /* [annotation][in] */ 
@@ -1203,7 +1157,6 @@ EXTERN_C const IID IID_IWbemHiPerfProvider;
             /* [annotation][in] */ 
             _Out_  IWbemObjectSink *pSink);
         
-        DECLSPEC_XFGVIRT(IWbemHiPerfProvider, CreateRefresher)
         HRESULT ( STDMETHODCALLTYPE *CreateRefresher )( 
             IWbemHiPerfProvider * This,
             /* [annotation][in] */ 
@@ -1213,7 +1166,6 @@ EXTERN_C const IID IID_IWbemHiPerfProvider;
             /* [annotation][out] */ 
             _Out_  IWbemRefresher **ppRefresher);
         
-        DECLSPEC_XFGVIRT(IWbemHiPerfProvider, CreateRefreshableObject)
         HRESULT ( STDMETHODCALLTYPE *CreateRefreshableObject )( 
             IWbemHiPerfProvider * This,
             /* [annotation][in] */ 
@@ -1231,7 +1183,6 @@ EXTERN_C const IID IID_IWbemHiPerfProvider;
             /* [annotation][out] */ 
             _Out_  long *plId);
         
-        DECLSPEC_XFGVIRT(IWbemHiPerfProvider, StopRefreshing)
         HRESULT ( STDMETHODCALLTYPE *StopRefreshing )( 
             IWbemHiPerfProvider * This,
             /* [annotation][in] */ 
@@ -1241,7 +1192,6 @@ EXTERN_C const IID IID_IWbemHiPerfProvider;
             /* [annotation][in] */ 
             _In_  long lFlags);
         
-        DECLSPEC_XFGVIRT(IWbemHiPerfProvider, CreateRefreshableEnum)
         HRESULT ( STDMETHODCALLTYPE *CreateRefreshableEnum )( 
             IWbemHiPerfProvider * This,
             /* [annotation][in] */ 
@@ -1259,7 +1209,6 @@ EXTERN_C const IID IID_IWbemHiPerfProvider;
             /* [annotation][out] */ 
             _Out_  long *plId);
         
-        DECLSPEC_XFGVIRT(IWbemHiPerfProvider, GetObjects)
         HRESULT ( STDMETHODCALLTYPE *GetObjects )( 
             IWbemHiPerfProvider * This,
             /* [annotation][in] */ 
@@ -1360,22 +1309,18 @@ EXTERN_C const IID IID_IWbemDecoupledRegistrar;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWbemDecoupledRegistrar * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWbemDecoupledRegistrar * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWbemDecoupledRegistrar * This);
         
-        DECLSPEC_XFGVIRT(IWbemDecoupledRegistrar, Register)
         HRESULT ( STDMETHODCALLTYPE *Register )( 
             IWbemDecoupledRegistrar * This,
             /* [in] */ long a_Flags,
@@ -1386,7 +1331,6 @@ EXTERN_C const IID IID_IWbemDecoupledRegistrar;
             /* [in] */ LPCWSTR a_Registration,
             /* [in] */ IUnknown *pIUnknown);
         
-        DECLSPEC_XFGVIRT(IWbemDecoupledRegistrar, UnRegister)
         HRESULT ( STDMETHODCALLTYPE *UnRegister )( 
             IWbemDecoupledRegistrar * This);
         
@@ -1499,22 +1443,18 @@ EXTERN_C const IID IID_IWbemProviderIdentity;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemProviderIdentity * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemProviderIdentity * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemProviderIdentity * This);
         
-        DECLSPEC_XFGVIRT(IWbemProviderIdentity, SetRegistrationObject)
         HRESULT ( STDMETHODCALLTYPE *SetRegistrationObject )( 
             __RPC__in IWbemProviderIdentity * This,
             /* [in] */ long lFlags,
@@ -1616,22 +1556,18 @@ EXTERN_C const IID IID_IWbemDecoupledBasicEventProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWbemDecoupledBasicEventProvider * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWbemDecoupledBasicEventProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWbemDecoupledBasicEventProvider * This);
         
-        DECLSPEC_XFGVIRT(IWbemDecoupledRegistrar, Register)
         HRESULT ( STDMETHODCALLTYPE *Register )( 
             IWbemDecoupledBasicEventProvider * This,
             /* [in] */ long a_Flags,
@@ -1642,18 +1578,15 @@ EXTERN_C const IID IID_IWbemDecoupledBasicEventProvider;
             /* [in] */ LPCWSTR a_Registration,
             /* [in] */ IUnknown *pIUnknown);
         
-        DECLSPEC_XFGVIRT(IWbemDecoupledRegistrar, UnRegister)
         HRESULT ( STDMETHODCALLTYPE *UnRegister )( 
             IWbemDecoupledBasicEventProvider * This);
         
-        DECLSPEC_XFGVIRT(IWbemDecoupledBasicEventProvider, GetSink)
         HRESULT ( STDMETHODCALLTYPE *GetSink )( 
             IWbemDecoupledBasicEventProvider * This,
             /* [in] */ long a_Flags,
             /* [in] */ IWbemContext *a_Context,
             /* [out] */ IWbemObjectSink **a_Sink);
         
-        DECLSPEC_XFGVIRT(IWbemDecoupledBasicEventProvider, GetService)
         HRESULT ( STDMETHODCALLTYPE *GetService )( 
             IWbemDecoupledBasicEventProvider * This,
             /* [in] */ long a_Flags,
@@ -1764,28 +1697,23 @@ EXTERN_C const IID IID_IWbemEventSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWbemEventSink * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWbemEventSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWbemEventSink * This);
         
-        DECLSPEC_XFGVIRT(IWbemObjectSink, Indicate)
         HRESULT ( STDMETHODCALLTYPE *Indicate )( 
             __RPC__in IWbemEventSink * This,
             /* [in] */ long lObjectCount,
             /* [size_is][in] */ __RPC__in_ecount_full(lObjectCount) IWbemClassObject **apObjArray);
         
-        DECLSPEC_XFGVIRT(IWbemObjectSink, SetStatus)
         HRESULT ( STDMETHODCALLTYPE *SetStatus )( 
             __RPC__in IWbemEventSink * This,
             /* [in] */ long lFlags,
@@ -1793,17 +1721,14 @@ EXTERN_C const IID IID_IWbemEventSink;
             /* [unique][in] */ __RPC__in_opt BSTR strParam,
             /* [unique][in] */ __RPC__in_opt IWbemClassObject *pObjParam);
         
-        DECLSPEC_XFGVIRT(IWbemEventSink, SetSinkSecurity)
         HRESULT ( STDMETHODCALLTYPE *SetSinkSecurity )( 
             __RPC__in IWbemEventSink * This,
             /* [in] */ long lSDLength,
             /* [size_is][in] */ __RPC__in_ecount_full(lSDLength) BYTE *pSD);
         
-        DECLSPEC_XFGVIRT(IWbemEventSink, IsActive)
         HRESULT ( STDMETHODCALLTYPE *IsActive )( 
             __RPC__in IWbemEventSink * This);
         
-        DECLSPEC_XFGVIRT(IWbemEventSink, GetRestrictedSink)
         HRESULT ( STDMETHODCALLTYPE *GetRestrictedSink )( 
             __RPC__in IWbemEventSink * This,
             /* [in] */ long lNumQueries,
@@ -1811,7 +1736,6 @@ EXTERN_C const IID IID_IWbemEventSink;
             /* [in] */ __RPC__in_opt IUnknown *pCallback,
             /* [out] */ __RPC__deref_out_opt IWbemEventSink **ppSink);
         
-        DECLSPEC_XFGVIRT(IWbemEventSink, SetBatchingParameters)
         HRESULT ( STDMETHODCALLTYPE *SetBatchingParameters )( 
             __RPC__in IWbemEventSink * This,
             /* [in] */ LONG lFlags,

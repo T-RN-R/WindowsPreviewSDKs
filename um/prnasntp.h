@@ -293,7 +293,7 @@ namespace NPrintAsyncNotifyProvider {
         // IPrintAsyncNotifyRegistration methods
         //
         STDMETHOD(RegisterForNotifications)(
-             THIS
+             THIS_
              ) PURE;
 
         STDMETHOD(UnregisterForNotifications)(
@@ -336,7 +336,7 @@ namespace NPrintAsyncNotifyProvider {
         // IPrintAsyncNotifyRegistration methods
         //
         STDMETHOD(RegisterForNotifications)(
-             THIS
+             THIS_
              ) PURE;
 
         STDMETHOD(UnregisterForNotifications)(
@@ -423,7 +423,7 @@ namespace NPrintAsyncNotifyProvider {
         // IPrintAsyncNotifyChannel methods
         //
         STDMETHOD(CreateNotificationChannel)(
-             THIS
+             THIS_
              ) PURE;
 
         STDMETHOD(SendNotification)(

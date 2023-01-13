@@ -23,6 +23,8 @@ extern "C" {
 // IVPBaseConfig
 DECLARE_INTERFACE_(IVPBaseConfig, IUnknown)
 {
+public:
+
     // gets the various connection information structures (guid, portwidth)
     // in an array of structures. If the pointer to the array is NULL, first 
     // parameter returns the total number of formats supported.
@@ -70,7 +72,7 @@ DECLARE_INTERFACE_(IVPBaseConfig, IUnknown)
 			      ) PURE;
 
     // asks the decoder to treat even fields like odd fields and visa versa
-    STDMETHOD (SetInvertPolarity)(THIS
+    STDMETHOD (SetInvertPolarity)(THIS_
 				 ) PURE;
 
     // the mixer uses this function to determine if the callee wants
@@ -110,6 +112,7 @@ DECLARE_INTERFACE_(IVPBaseConfig, IUnknown)
 // IVPConfig
 DECLARE_INTERFACE_(IVPConfig, IVPBaseConfig)
 {
+public:
 	// the mixer uses this function to determine if the callee wants
 	// the mixer to decimate VIDEO data at its own descrition
 	STDMETHOD (IsVPDecimationAllowed)(THIS_
@@ -126,6 +129,7 @@ DECLARE_INTERFACE_(IVPConfig, IVPBaseConfig)
 // IVPVBIConfig
 DECLARE_INTERFACE_(IVPVBIConfig, IVPBaseConfig)
 {
+public:
 };
 
 #ifdef __cplusplus

@@ -9,9 +9,11 @@
 //
 // Abstract:
 //
-//    This header file provides API function signatures for gaming related
+//    This header file provides API function signatures for gaming related  
 //    TCUI APIs.
 //
+
+
 
 #ifdef MSC_VER
 #pragma once
@@ -61,6 +63,7 @@ ShowGameInviteUI(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowPlayerPickerUI(
@@ -75,6 +78,7 @@ ShowPlayerPickerUI(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowProfileCardUI(
@@ -82,6 +86,7 @@ ShowProfileCardUI(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -91,6 +96,7 @@ ShowChangeFriendRelationshipUI(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowTitleAchievementsUI(
@@ -99,16 +105,19 @@ ShowTitleAchievementsUI(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ProcessPendingGameUI(
     _In_ BOOL waitForCompletion
     );
 
+
 BOOL
 WINAPI
 TryCancelPendingGameUI(
     );
+
 
 typedef enum KnownGamingPrivileges{
     XPRIVILEGE_BROADCAST = 190,                     // The user can broadcast live gameplay
@@ -146,6 +155,7 @@ CheckGamingPrivilegeWithUI(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 CheckGamingPrivilegeSilently(
@@ -154,6 +164,7 @@ CheckGamingPrivilegeSilently(
     _In_ HSTRING policy,
     _Out_ BOOL* hasPrivilege
     );
+
 
 HRESULT
 WINAPI
@@ -166,6 +177,7 @@ ShowGameInviteUIForUser(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -182,6 +194,7 @@ ShowPlayerPickerUIForUser(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowProfileCardUIForUser(
@@ -190,6 +203,7 @@ ShowProfileCardUIForUser(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -200,6 +214,7 @@ ShowChangeFriendRelationshipUIForUser(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowTitleAchievementsUIForUser(
@@ -208,6 +223,7 @@ ShowTitleAchievementsUIForUser(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -221,6 +237,7 @@ CheckGamingPrivilegeWithUIForUser(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 CheckGamingPrivilegeSilentlyForUser(
@@ -230,6 +247,7 @@ CheckGamingPrivilegeSilentlyForUser(
     _In_ HSTRING policy,
     _Out_ BOOL* hasPrivilege
     );
+
 
 HRESULT
 WINAPI
@@ -242,6 +260,7 @@ ShowGameInviteUIWithContext(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -256,6 +275,7 @@ ShowGameInviteUIWithContextForUser(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowGameInfoUI(
@@ -263,6 +283,7 @@ ShowGameInfoUI(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -273,12 +294,14 @@ ShowGameInfoUIForUser(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowFindFriendsUI(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -288,12 +311,14 @@ ShowFindFriendsUIForUser(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowCustomizeUserProfileUI(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -303,12 +328,14 @@ ShowCustomizeUserProfileUIForUser(
     _In_opt_ void* context
     );
 
+
 HRESULT
 WINAPI
 ShowUserSettingsUI(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 HRESULT
 WINAPI
@@ -317,6 +344,7 @@ ShowUserSettingsUIForUser(
     _In_ GameUICompletionRoutine completionRoutine,
     _In_opt_ void* context
     );
+
 
 #if defined(__cplusplus)
 } // end extern "C"

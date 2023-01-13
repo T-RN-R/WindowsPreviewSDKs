@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_UI_Xaml_Core_Direct_0_H
 #define WINRT_Windows_UI_Xaml_Core_Direct_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
@@ -1445,10 +1444,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Core::Direct
         AutomationPeerAnnotation_Peer = 1735,
         AutomationPeerAnnotation_Type = 1736,
         Hyperlink_UnderlineStyle = 1741,
-        CalendarView_DisabledForeground = 1742,
-        CalendarView_TodayBackground = 1743,
-        CalendarView_TodayBlackoutBackground = 1744,
-        CalendarView_TodaySelectedInnerBorderBrush = 1747,
         Control_IsFocusEngaged = 1749,
         Control_IsFocusEngagementEnabled = 1752,
         RichEditBox_ClipboardCopyFormat = 1754,
@@ -1794,57 +1789,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Core::Direct
         CommandBarTemplateSettings_OverflowContentMinimalYTranslation = 2386,
         HandwritingView_IsCommandBarOpen = 2395,
         HandwritingView_IsSwitchToKeyboardEnabled = 2396,
-        ListViewItemPresenter_SelectionIndicatorVisualEnabled = 2399,
-        ListViewItemPresenter_SelectionIndicatorBrush = 2400,
-        ListViewItemPresenter_SelectionIndicatorMode = 2401,
-        ListViewItemPresenter_SelectionIndicatorPointerOverBrush = 2402,
-        ListViewItemPresenter_SelectionIndicatorPressedBrush = 2403,
-        ListViewItemPresenter_SelectedBorderBrush = 2410,
-        ListViewItemPresenter_SelectedInnerBorderBrush = 2411,
-        ListViewItemPresenter_CheckBoxCornerRadius = 2412,
-        ListViewItemPresenter_SelectionIndicatorCornerRadius = 2413,
-        ListViewItemPresenter_SelectedDisabledBorderBrush = 2414,
-        ListViewItemPresenter_SelectedPressedBorderBrush = 2415,
-        ListViewItemPresenter_SelectedDisabledBackground = 2416,
-        ListViewItemPresenter_PointerOverBorderBrush = 2417,
-        ListViewItemPresenter_CheckBoxPointerOverBrush = 2418,
-        ListViewItemPresenter_CheckBoxPressedBrush = 2419,
-        ListViewItemPresenter_CheckDisabledBrush = 2420,
-        ListViewItemPresenter_CheckPressedBrush = 2421,
-        ListViewItemPresenter_CheckBoxBorderBrush = 2422,
-        ListViewItemPresenter_CheckBoxDisabledBorderBrush = 2423,
-        ListViewItemPresenter_CheckBoxPressedBorderBrush = 2424,
-        ListViewItemPresenter_CheckBoxDisabledBrush = 2425,
-        ListViewItemPresenter_CheckBoxSelectedBrush = 2426,
-        ListViewItemPresenter_CheckBoxSelectedDisabledBrush = 2427,
-        ListViewItemPresenter_CheckBoxSelectedPointerOverBrush = 2428,
-        ListViewItemPresenter_CheckBoxSelectedPressedBrush = 2429,
-        ListViewItemPresenter_CheckBoxPointerOverBorderBrush = 2430,
-        ListViewItemPresenter_SelectionIndicatorDisabledBrush = 2431,
-        CalendarView_BlackoutBackground = 2432,
-        CalendarView_BlackoutStrikethroughBrush = 2433,
-        CalendarView_CalendarItemCornerRadius = 2434,
-        CalendarView_CalendarItemDisabledBackground = 2435,
-        CalendarView_CalendarItemHoverBackground = 2436,
-        CalendarView_CalendarItemPressedBackground = 2437,
-        CalendarView_DayItemMargin = 2438,
-        CalendarView_FirstOfMonthLabelMargin = 2439,
-        CalendarView_FirstOfYearDecadeLabelMargin = 2440,
-        CalendarView_MonthYearItemMargin = 2441,
-        CalendarView_OutOfScopeHoverForeground = 2442,
-        CalendarView_OutOfScopePressedForeground = 2443,
-        CalendarView_SelectedDisabledBorderBrush = 2444,
-        CalendarView_SelectedDisabledForeground = 2445,
-        CalendarView_SelectedHoverForeground = 2446,
-        CalendarView_SelectedPressedForeground = 2447,
-        CalendarView_TodayBlackoutForeground = 2448,
-        CalendarView_TodayDisabledBackground = 2449,
-        CalendarView_TodayHoverBackground = 2450,
-        CalendarView_TodayPressedBackground = 2451,
-        Popup_ActualPlacement = 2452,
-        Popup_DesiredPlacement = 2453,
-        Popup_PlacementTarget = 2454,
-        AutomationProperties_AutomationControlType = 2455,
     };
     enum class XamlTypeIndex : int32_t
     {
@@ -2106,25 +2050,27 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Core::Direct
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirect>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::Xaml::Core::Direct::XamlDirect>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::Xaml::Core::Direct::XamlEventIndex>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::UI::Xaml::Core::Direct::XamlTypeIndex>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Xaml::Core::Direct::XamlDirect> = L"Windows.UI.Xaml.Core.Direct.XamlDirect";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Xaml::Core::Direct::XamlEventIndex> = L"Windows.UI.Xaml.Core.Direct.XamlEventIndex";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex> = L"Windows.UI.Xaml.Core.Direct.XamlPropertyIndex";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Xaml::Core::Direct::XamlTypeIndex> = L"Windows.UI.Xaml.Core.Direct.XamlTypeIndex";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirect> = L"Windows.UI.Xaml.Core.Direct.IXamlDirect";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject> = L"Windows.UI.Xaml.Core.Direct.IXamlDirectObject";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectStatics> = L"Windows.UI.Xaml.Core.Direct.IXamlDirectStatics";
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirect>{ 0x5FFA1295,0xADD2,0x590F,{ 0xA0,0x51,0x70,0x98,0x9B,0x86,0x6A,0xDE } }; // 5FFA1295-ADD2-590F-A051-70989B866ADE
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject>{ 0x10614A82,0xCEE4,0x4645,{ 0xBA,0x25,0xD0,0x71,0xCE,0x77,0x83,0x55 } }; // 10614A82-CEE4-4645-BA25-D071CE778355
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>{ 0x321887CC,0x14E4,0x5C6F,{ 0x87,0x8D,0xFB,0xB6,0x04,0xAD,0x7D,0x17 } }; // 321887CC-14E4-5C6F-878D-FBB604AD7D17
-    template <> struct default_interface<winrt::Windows::UI::Xaml::Core::Direct::XamlDirect>{ using type = winrt::Windows::UI::Xaml::Core::Direct::IXamlDirect; };
-    template <> struct abi<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirect>
+    template <> struct category<Windows::UI::Xaml::Core::Direct::IXamlDirect>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Xaml::Core::Direct::IXamlDirectObject>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Xaml::Core::Direct::XamlDirect>{ using type = class_category; };
+    template <> struct category<Windows::UI::Xaml::Core::Direct::XamlEventIndex>{ using type = enum_category; };
+    template <> struct category<Windows::UI::Xaml::Core::Direct::XamlPropertyIndex>{ using type = enum_category; };
+    template <> struct category<Windows::UI::Xaml::Core::Direct::XamlTypeIndex>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Core::Direct::XamlDirect>{ L"Windows.UI.Xaml.Core.Direct.XamlDirect" };
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Core::Direct::XamlEventIndex>{ L"Windows.UI.Xaml.Core.Direct.XamlEventIndex" };
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Core::Direct::XamlPropertyIndex>{ L"Windows.UI.Xaml.Core.Direct.XamlPropertyIndex" };
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Core::Direct::XamlTypeIndex>{ L"Windows.UI.Xaml.Core.Direct.XamlTypeIndex" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Core::Direct::IXamlDirect>{ L"Windows.UI.Xaml.Core.Direct.IXamlDirect" };
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Core::Direct::IXamlDirectObject>{ L"Windows.UI.Xaml.Core.Direct.IXamlDirectObject" };
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>{ L"Windows.UI.Xaml.Core.Direct.IXamlDirectStatics" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Core::Direct::IXamlDirect>{ 0x5FFA1295,0xADD2,0x590F,{ 0xA0,0x51,0x70,0x98,0x9B,0x86,0x6A,0xDE } };
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Core::Direct::IXamlDirectObject>{ 0x10614A82,0xCEE4,0x4645,{ 0xBA,0x25,0xD0,0x71,0xCE,0x77,0x83,0x55 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>{ 0x321887CC,0x14E4,0x5C6F,{ 0x87,0x8D,0xFB,0xB6,0x04,0xAD,0x7D,0x17 } };
+    template <> struct default_interface<Windows::UI::Xaml::Core::Direct::XamlDirect>{ using type = Windows::UI::Xaml::Core::Direct::IXamlDirect; };
+    template <> struct abi<Windows::UI::Xaml::Core::Direct::IXamlDirect>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -2138,9 +2084,9 @@ namespace winrt::impl
             virtual int32_t __stdcall SetInt32Property(void*, int32_t, int32_t) noexcept = 0;
             virtual int32_t __stdcall SetStringProperty(void*, int32_t, void*) noexcept = 0;
             virtual int32_t __stdcall SetDateTimeProperty(void*, int32_t, int64_t) noexcept = 0;
-            virtual int32_t __stdcall SetPointProperty(void*, int32_t, winrt::Windows::Foundation::Point) noexcept = 0;
-            virtual int32_t __stdcall SetRectProperty(void*, int32_t, winrt::Windows::Foundation::Rect) noexcept = 0;
-            virtual int32_t __stdcall SetSizeProperty(void*, int32_t, winrt::Windows::Foundation::Size) noexcept = 0;
+            virtual int32_t __stdcall SetPointProperty(void*, int32_t, Windows::Foundation::Point) noexcept = 0;
+            virtual int32_t __stdcall SetRectProperty(void*, int32_t, Windows::Foundation::Rect) noexcept = 0;
+            virtual int32_t __stdcall SetSizeProperty(void*, int32_t, Windows::Foundation::Size) noexcept = 0;
             virtual int32_t __stdcall SetTimeSpanProperty(void*, int32_t, int64_t) noexcept = 0;
             virtual int32_t __stdcall SetColorProperty(void*, int32_t, struct struct_Windows_UI_Color) noexcept = 0;
             virtual int32_t __stdcall SetCornerRadiusProperty(void*, int32_t, struct struct_Windows_UI_Xaml_CornerRadius) noexcept = 0;
@@ -2157,9 +2103,9 @@ namespace winrt::impl
             virtual int32_t __stdcall GetInt32Property(void*, int32_t, int32_t*) noexcept = 0;
             virtual int32_t __stdcall GetStringProperty(void*, int32_t, void**) noexcept = 0;
             virtual int32_t __stdcall GetDateTimeProperty(void*, int32_t, int64_t*) noexcept = 0;
-            virtual int32_t __stdcall GetPointProperty(void*, int32_t, winrt::Windows::Foundation::Point*) noexcept = 0;
-            virtual int32_t __stdcall GetRectProperty(void*, int32_t, winrt::Windows::Foundation::Rect*) noexcept = 0;
-            virtual int32_t __stdcall GetSizeProperty(void*, int32_t, winrt::Windows::Foundation::Size*) noexcept = 0;
+            virtual int32_t __stdcall GetPointProperty(void*, int32_t, Windows::Foundation::Point*) noexcept = 0;
+            virtual int32_t __stdcall GetRectProperty(void*, int32_t, Windows::Foundation::Rect*) noexcept = 0;
+            virtual int32_t __stdcall GetSizeProperty(void*, int32_t, Windows::Foundation::Size*) noexcept = 0;
             virtual int32_t __stdcall GetTimeSpanProperty(void*, int32_t, int64_t*) noexcept = 0;
             virtual int32_t __stdcall GetColorProperty(void*, int32_t, struct struct_Windows_UI_Color*) noexcept = 0;
             virtual int32_t __stdcall GetCornerRadiusProperty(void*, int32_t, struct struct_Windows_UI_Xaml_CornerRadius*) noexcept = 0;
@@ -2182,13 +2128,13 @@ namespace winrt::impl
             virtual int32_t __stdcall RemoveEventHandler(void*, int32_t, void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject>
+    template <> struct abi<Windows::UI::Xaml::Core::Direct::IXamlDirectObject>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
         };
     };
-    template <> struct abi<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>
+    template <> struct abi<Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -2198,60 +2144,60 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Core_Direct_IXamlDirect
     {
-        auto GetObject(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject) const;
-        auto GetXamlDirectObject(winrt::Windows::Foundation::IInspectable const& object) const;
-        auto CreateInstance(winrt::Windows::UI::Xaml::Core::Direct::XamlTypeIndex const& typeIndex) const;
-        auto SetObjectProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::Foundation::IInspectable const& value) const;
-        auto SetXamlDirectObjectProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& value) const;
-        auto SetBooleanProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, bool value) const;
-        auto SetDoubleProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, double value) const;
-        auto SetInt32Property(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, int32_t value) const;
-        auto SetStringProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, param::hstring const& value) const;
-        auto SetDateTimeProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::Foundation::DateTime const& value) const;
-        auto SetPointProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::Foundation::Point const& value) const;
-        auto SetRectProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::Foundation::Rect const& value) const;
-        auto SetSizeProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::Foundation::Size const& value) const;
-        auto SetTimeSpanProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::Foundation::TimeSpan const& value) const;
-        auto SetColorProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::UI::Color const& value) const;
-        auto SetCornerRadiusProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::UI::Xaml::CornerRadius const& value) const;
-        auto SetDurationProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::UI::Xaml::Duration const& value) const;
-        auto SetGridLengthProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::UI::Xaml::GridLength const& value) const;
-        auto SetThicknessProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::UI::Xaml::Thickness const& value) const;
-        auto SetMatrixProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::UI::Xaml::Media::Matrix const& value) const;
-        auto SetMatrix3DProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, winrt::Windows::UI::Xaml::Media::Media3D::Matrix3D const& value) const;
-        auto SetEnumProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, uint32_t value) const;
-        auto GetObjectProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetXamlDirectObjectProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetBooleanProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetDoubleProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetInt32Property(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetStringProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetDateTimeProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetPointProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetRectProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetSizeProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetTimeSpanProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetColorProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetCornerRadiusProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetDurationProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetGridLengthProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetThicknessProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetMatrixProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetMatrix3DProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetEnumProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto ClearProperty(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
-        auto GetCollectionCount(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject) const;
-        auto GetXamlDirectObjectFromCollectionAt(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, uint32_t index) const;
-        auto AddToCollection(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& value) const;
-        auto InsertIntoCollectionAt(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, uint32_t index, winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& value) const;
-        auto RemoveFromCollection(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& value) const;
-        auto RemoveFromCollectionAt(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, uint32_t index) const;
-        auto ClearCollection(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject) const;
-        auto AddEventHandler(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlEventIndex const& eventIndex, winrt::Windows::Foundation::IInspectable const& handler) const;
-        auto AddEventHandler(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlEventIndex const& eventIndex, winrt::Windows::Foundation::IInspectable const& handler, bool handledEventsToo) const;
-        auto RemoveEventHandler(winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, winrt::Windows::UI::Xaml::Core::Direct::XamlEventIndex const& eventIndex, winrt::Windows::Foundation::IInspectable const& handler) const;
+        auto GetObject(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject) const;
+        auto GetXamlDirectObject(Windows::Foundation::IInspectable const& object) const;
+        auto CreateInstance(Windows::UI::Xaml::Core::Direct::XamlTypeIndex const& typeIndex) const;
+        auto SetObjectProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::Foundation::IInspectable const& value) const;
+        auto SetXamlDirectObjectProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& value) const;
+        auto SetBooleanProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, bool value) const;
+        auto SetDoubleProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, double value) const;
+        auto SetInt32Property(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, int32_t value) const;
+        auto SetStringProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, param::hstring const& value) const;
+        auto SetDateTimeProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::Foundation::DateTime const& value) const;
+        auto SetPointProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::Foundation::Point const& value) const;
+        auto SetRectProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::Foundation::Rect const& value) const;
+        auto SetSizeProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::Foundation::Size const& value) const;
+        auto SetTimeSpanProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::Foundation::TimeSpan const& value) const;
+        auto SetColorProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::UI::Color const& value) const;
+        auto SetCornerRadiusProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::UI::Xaml::CornerRadius const& value) const;
+        auto SetDurationProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::UI::Xaml::Duration const& value) const;
+        auto SetGridLengthProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::UI::Xaml::GridLength const& value) const;
+        auto SetThicknessProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::UI::Xaml::Thickness const& value) const;
+        auto SetMatrixProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::UI::Xaml::Media::Matrix const& value) const;
+        auto SetMatrix3DProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, Windows::UI::Xaml::Media::Media3D::Matrix3D const& value) const;
+        auto SetEnumProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex, uint32_t value) const;
+        auto GetObjectProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetXamlDirectObjectProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetBooleanProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetDoubleProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetInt32Property(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetStringProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetDateTimeProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetPointProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetRectProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetSizeProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetTimeSpanProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetColorProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetCornerRadiusProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetDurationProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetGridLengthProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetThicknessProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetMatrixProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetMatrix3DProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetEnumProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto ClearProperty(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlPropertyIndex const& propertyIndex) const;
+        auto GetCollectionCount(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject) const;
+        auto GetXamlDirectObjectFromCollectionAt(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, uint32_t index) const;
+        auto AddToCollection(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& value) const;
+        auto InsertIntoCollectionAt(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, uint32_t index, Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& value) const;
+        auto RemoveFromCollection(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& value) const;
+        auto RemoveFromCollectionAt(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, uint32_t index) const;
+        auto ClearCollection(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject) const;
+        auto AddEventHandler(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlEventIndex const& eventIndex, Windows::Foundation::IInspectable const& handler) const;
+        auto AddEventHandler(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlEventIndex const& eventIndex, Windows::Foundation::IInspectable const& handler, bool handledEventsToo) const;
+        auto RemoveEventHandler(Windows::UI::Xaml::Core::Direct::IXamlDirectObject const& xamlDirectObject, Windows::UI::Xaml::Core::Direct::XamlEventIndex const& eventIndex, Windows::Foundation::IInspectable const& handler) const;
     };
-    template <> struct consume<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirect>
+    template <> struct consume<Windows::UI::Xaml::Core::Direct::IXamlDirect>
     {
         template <typename D> using type = consume_Windows_UI_Xaml_Core_Direct_IXamlDirect<D>;
     };
@@ -2259,7 +2205,7 @@ namespace winrt::impl
     struct consume_Windows_UI_Xaml_Core_Direct_IXamlDirectObject
     {
     };
-    template <> struct consume<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectObject>
+    template <> struct consume<Windows::UI::Xaml::Core::Direct::IXamlDirectObject>
     {
         template <typename D> using type = consume_Windows_UI_Xaml_Core_Direct_IXamlDirectObject<D>;
     };
@@ -2268,7 +2214,7 @@ namespace winrt::impl
     {
         auto GetDefault() const;
     };
-    template <> struct consume<winrt::Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>
+    template <> struct consume<Windows::UI::Xaml::Core::Direct::IXamlDirectStatics>
     {
         template <typename D> using type = consume_Windows_UI_Xaml_Core_Direct_IXamlDirectStatics<D>;
     };

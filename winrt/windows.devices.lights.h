@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -693,7 +693,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILamp = __uuidof(ILamp);
+                extern MIDL_CONST_ID IID& IID_ILamp = _uuidof(ILamp);
             } /* Lights */
         } /* Devices */
     } /* Windows */
@@ -823,7 +823,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILampArray = __uuidof(ILampArray);
+                extern MIDL_CONST_ID IID& IID_ILampArray = _uuidof(ILampArray);
             } /* Lights */
         } /* Devices */
     } /* Windows */
@@ -863,7 +863,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILampArrayStatics = __uuidof(ILampArrayStatics);
+                extern MIDL_CONST_ID IID& IID_ILampArrayStatics = _uuidof(ILampArrayStatics);
             } /* Lights */
         } /* Devices */
     } /* Windows */
@@ -899,7 +899,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILampAvailabilityChangedEventArgs = __uuidof(ILampAvailabilityChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ILampAvailabilityChangedEventArgs = _uuidof(ILampAvailabilityChangedEventArgs);
             } /* Lights */
         } /* Devices */
     } /* Windows */
@@ -963,7 +963,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILampInfo = __uuidof(ILampInfo);
+                extern MIDL_CONST_ID IID& IID_ILampInfo = _uuidof(ILampInfo);
             } /* Lights */
         } /* Devices */
     } /* Windows */
@@ -1006,7 +1006,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILampStatics = __uuidof(ILampStatics);
+                extern MIDL_CONST_ID IID& IID_ILampStatics = _uuidof(ILampStatics);
             } /* Lights */
         } /* Devices */
     } /* Windows */

@@ -621,12 +621,16 @@ typedef  DWORD STI_RAW_CONTROL_CODE;
   * COM Interfaces to STI
   */
 
-#ifndef MIDL_PASS
+#ifdef __cplusplus
 
 /* 'struct' not 'class' per the way DECLARE_INTERFACE_ is defined */
 interface IStillImageW;
 
 interface IStiDevice;
+
+#endif
+
+#ifndef MIDL_PASS
 
 STDMETHODIMP StiCreateInstanceW(HINSTANCE hinst, DWORD dwVer, interface IStillImageW **ppSti, LPUNKNOWN punkOuter);
 

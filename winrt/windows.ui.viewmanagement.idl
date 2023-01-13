@@ -118,8 +118,6 @@ namespace Windows
 
             typedef enum HandPreference HandPreference;
 
-            typedef enum ScreenCaptureDisabledBehavior ScreenCaptureDisabledBehavior;
-
             typedef enum UIColorType UIColorType;
 
             typedef enum UIElementType UIElementType;
@@ -376,13 +374,6 @@ namespace Windows
             {
                 LeftHanded  = 0,
                 RightHanded = 1
-            };
-
-            [contract(Windows.Foundation.UniversalApiContract, 10.0)]
-            enum ScreenCaptureDisabledBehavior
-            {
-                DrawAsBlack        = 0,
-                ExcludeFromCapture = 1
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]

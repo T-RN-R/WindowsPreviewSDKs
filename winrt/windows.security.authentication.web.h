@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -421,7 +421,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IWebAuthenticationBrokerStatics = __uuidof(IWebAuthenticationBrokerStatics);
+                    extern MIDL_CONST_ID IID& IID_IWebAuthenticationBrokerStatics = _uuidof(IWebAuthenticationBrokerStatics);
                 } /* Web */
             } /* Authentication */
         } /* Security */
@@ -478,7 +478,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IWebAuthenticationBrokerStatics2 = __uuidof(IWebAuthenticationBrokerStatics2);
+                    extern MIDL_CONST_ID IID& IID_IWebAuthenticationBrokerStatics2 = _uuidof(IWebAuthenticationBrokerStatics2);
                 } /* Web */
             } /* Authentication */
         } /* Security */
@@ -522,7 +522,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IWebAuthenticationResult = __uuidof(IWebAuthenticationResult);
+                    extern MIDL_CONST_ID IID& IID_IWebAuthenticationResult = _uuidof(IWebAuthenticationResult);
                 } /* Web */
             } /* Authentication */
         } /* Security */

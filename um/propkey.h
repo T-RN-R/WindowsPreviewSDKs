@@ -2946,14 +2946,6 @@ DEFINE_PROPERTYKEY(PKEY_StorageProviderFileChecksum, 0xB2F9B9D6, 0xFEC4, 0x4DD5,
 DEFINE_PROPERTYKEY(PKEY_StorageProviderFileFlags, 0xB2F9B9D6, 0xFEC4, 0x4DD5, 0x94, 0xD7, 0x89, 0x57, 0x48, 0x8C, 0x80, 0x7B, 8);
 #define INIT_PKEY_StorageProviderFileFlags { { 0xB2F9B9D6, 0xFEC4, 0x4DD5, 0x94, 0xD7, 0x89, 0x57, 0x48, 0x8C, 0x80, 0x7B }, 8 }
 
-//  Name:     System.StorageProviderFileHasConflict -- PKEY_StorageProviderFileHasConflict
-//  Type:     Boolean -- VT_BOOL
-//  FormatID: {B2F9B9D6-FEC4-4DD5-94D7-8957488C807B}, 9
-//
-//  There is a conflict with the version of the file in the cloud.
-DEFINE_PROPERTYKEY(PKEY_StorageProviderFileHasConflict, 0xB2F9B9D6, 0xFEC4, 0x4DD5, 0x94, 0xD7, 0x89, 0x57, 0x48, 0x8C, 0x80, 0x7B, 9);
-#define INIT_PKEY_StorageProviderFileHasConflict { { 0xB2F9B9D6, 0xFEC4, 0x4DD5, 0x94, 0xD7, 0x89, 0x57, 0x48, 0x8C, 0x80, 0x7B }, 9 }
-
 //  Name:     System.StorageProviderFileIdentifier -- PKEY_StorageProviderFileIdentifier
 //  Type:     String -- VT_LPWSTR  (For variants: VT_BSTR)
 //  FormatID: {B2F9B9D6-FEC4-4DD5-94D7-8957488C807B}, 3
@@ -8155,14 +8147,6 @@ DEFINE_PROPERTYKEY(PKEY_StatusBarSelectedItemCount, 0x26DC287C, 0x6E3D, 0x4BD3, 
 DEFINE_PROPERTYKEY(PKEY_StatusBarViewItemCount, 0x26DC287C, 0x6E3D, 0x4BD3, 0xB2, 0xB0, 0x6A, 0x26, 0xBA, 0x2E, 0x34, 0x6D, 2);
 #define INIT_PKEY_StatusBarViewItemCount { { 0x26DC287C, 0x6E3D, 0x4BD3, 0xB2, 0xB0, 0x6A, 0x26, 0xBA, 0x2E, 0x34, 0x6D }, 2 }
 
-//  Name:     System.StorageProviderTransferProgress -- PKEY_StorageProviderTransferProgress
-//  Type:     Multivalue UInt32 -- VT_VECTOR | VT_UI4  (For variants: VT_ARRAY | VT_UI4)
-//  FormatID: {E77E90DF-6271-4F5B-834F-2DD1F245DDA4}, 4
-//
-//  An array of two UInt32 values (max value, current value).
-DEFINE_PROPERTYKEY(PKEY_StorageProviderTransferProgress, 0xE77E90DF, 0x6271, 0x4F5B, 0x83, 0x4F, 0x2D, 0xD1, 0xF2, 0x45, 0xDD, 0xA4, 4);
-#define INIT_PKEY_StorageProviderTransferProgress { { 0xE77E90DF, 0x6271, 0x4F5B, 0x83, 0x4F, 0x2D, 0xD1, 0xF2, 0x45, 0xDD, 0xA4 }, 4 }
-
 //-----------------------------------------------------------------------------
 // Software properties
 
@@ -8216,17 +8200,6 @@ DEFINE_PROPERTYKEY(PKEY_AppUserModel_RelaunchDisplayNameResource, 0x9F4C2855, 0x
 DEFINE_PROPERTYKEY(PKEY_AppUserModel_RelaunchIconResource, 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3, 3);
 #define INIT_PKEY_AppUserModel_RelaunchIconResource { { 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3 }, 3 }
 
-//  Name:     System.AppUserModel.SettingsCommand -- PKEY_AppUserModel_SettingsCommand
-//  Type:     String -- VT_LPWSTR  (For variants: VT_BSTR)
-//  FormatID: {9F4C2855-9F79-4B39-A8D0-E1D42DE1D5F3}, 38
-//  
-//  A command line that includes a fully qualified file path, which can include environment variables and arguments, that will launch the settings application corresponding to the shortcut (.lnk file) this property is included in.
-//  This property may be used by components such as the Start Menu to provide a settings verb.
-//  Example: "%ProgramFiles%\My App\Settings.exe"
-//  Example: "%ProgramFiles%\My App\My-app.exe" /settings
-DEFINE_PROPERTYKEY(PKEY_AppUserModel_SettingsCommand, 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3, 38);
-#define INIT_PKEY_AppUserModel_SettingsCommand { { 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3 }, 38 }
-
 //  Name:     System.AppUserModel.StartPinOption -- PKEY_AppUserModel_StartPinOption
 //  Type:     UInt32 -- VT_UI4
 //  FormatID: {9F4C2855-9F79-4B39-A8D0-E1D42DE1D5F3}, 12
@@ -8248,18 +8221,6 @@ DEFINE_PROPERTYKEY(PKEY_AppUserModel_StartPinOption, 0x9F4C2855, 0x9F79, 0x4B39,
 //  Used to CoCreate an INotificationActivationCallback interface to notify about toast activations.
 DEFINE_PROPERTYKEY(PKEY_AppUserModel_ToastActivatorCLSID, 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3, 26);
 #define INIT_PKEY_AppUserModel_ToastActivatorCLSID { { 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3 }, 26 }
-
-//  Name:     System.AppUserModel.UninstallCommand -- PKEY_AppUserModel_UninstallCommand
-//  Type:     String -- VT_LPWSTR  (For variants: VT_BSTR)
-//  FormatID: {9F4C2855-9F79-4B39-A8D0-E1D42DE1D5F3}, 37
-//  
-//  A command line that includes a fully qualified file path, which can include environment variables and arguments, that when launched will uninstall the application corresponding to the shortcut (.lnk file) this property is included in.
-//  This property may be used by components such as the Start Menu to provide an uninstall verb.
-//  The command should execute without displaying UI, as this avoids dismissing the Start Menu, but it may show UI if needed.
-//  Example: %SystemRoot%\system32\msiexec.exe /x {A7654BA2-D4AB-4510-AADF-253EA74869C5} /q
-//  Example: "%ProgramFiles%\My App\Uninstall.exe" /q /f
-DEFINE_PROPERTYKEY(PKEY_AppUserModel_UninstallCommand, 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3, 37);
-#define INIT_PKEY_AppUserModel_UninstallCommand { { 0x9F4C2855, 0x9F79, 0x4B39, 0xA8, 0xD0, 0xE1, 0xD4, 0x2D, 0xE1, 0xD5, 0xF3 }, 37 }
 
 //  Name:     System.AppUserModel.VisualElementsManifestHintPath -- PKEY_AppUserModel_VisualElementsManifestHintPath
 //  Type:     String -- VT_LPWSTR  (For variants: VT_BSTR)

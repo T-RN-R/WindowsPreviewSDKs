@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -215,33 +207,27 @@ EXTERN_C const IID IID_IMediaBuffer;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMediaBuffer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMediaBuffer * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMediaBuffer * This);
         
-        DECLSPEC_XFGVIRT(IMediaBuffer, SetLength)
         HRESULT ( STDMETHODCALLTYPE *SetLength )( 
             IMediaBuffer * This,
             DWORD cbLength);
         
-        DECLSPEC_XFGVIRT(IMediaBuffer, GetMaxLength)
         HRESULT ( STDMETHODCALLTYPE *GetMaxLength )( 
             IMediaBuffer * This,
             /* [annotation][out] */ 
             _Out_  DWORD *pcbMaxLength);
         
-        DECLSPEC_XFGVIRT(IMediaBuffer, GetBufferAndLength)
         HRESULT ( STDMETHODCALLTYPE *GetBufferAndLength )( 
             IMediaBuffer * This,
             /* [annotation][out] */ 
@@ -441,22 +427,18 @@ EXTERN_C const IID IID_IMediaObject;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMediaObject * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMediaObject * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMediaObject * This);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetStreamCount)
         HRESULT ( STDMETHODCALLTYPE *GetStreamCount )( 
             IMediaObject * This,
             /* [annotation][out] */ 
@@ -464,21 +446,18 @@ EXTERN_C const IID IID_IMediaObject;
             /* [annotation][out] */ 
             _Out_  DWORD *pcOutputStreams);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetInputStreamInfo)
         HRESULT ( STDMETHODCALLTYPE *GetInputStreamInfo )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
             /* [annotation][out] */ 
             _Out_  DWORD *pdwFlags);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetOutputStreamInfo)
         HRESULT ( STDMETHODCALLTYPE *GetOutputStreamInfo )( 
             IMediaObject * This,
             DWORD dwOutputStreamIndex,
             /* [annotation][out] */ 
             _Out_  DWORD *pdwFlags);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetInputType)
         HRESULT ( STDMETHODCALLTYPE *GetInputType )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
@@ -486,7 +465,6 @@ EXTERN_C const IID IID_IMediaObject;
             /* [annotation][out] */ 
             _Out_opt_  DMO_MEDIA_TYPE *pmt);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetOutputType)
         HRESULT ( STDMETHODCALLTYPE *GetOutputType )( 
             IMediaObject * This,
             DWORD dwOutputStreamIndex,
@@ -494,7 +472,6 @@ EXTERN_C const IID IID_IMediaObject;
             /* [annotation][out] */ 
             _Out_opt_  DMO_MEDIA_TYPE *pmt);
         
-        DECLSPEC_XFGVIRT(IMediaObject, SetInputType)
         HRESULT ( STDMETHODCALLTYPE *SetInputType )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
@@ -502,7 +479,6 @@ EXTERN_C const IID IID_IMediaObject;
             _In_opt_  const DMO_MEDIA_TYPE *pmt,
             DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMediaObject, SetOutputType)
         HRESULT ( STDMETHODCALLTYPE *SetOutputType )( 
             IMediaObject * This,
             DWORD dwOutputStreamIndex,
@@ -510,21 +486,18 @@ EXTERN_C const IID IID_IMediaObject;
             _In_opt_  const DMO_MEDIA_TYPE *pmt,
             DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetInputCurrentType)
         HRESULT ( STDMETHODCALLTYPE *GetInputCurrentType )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
             /* [annotation][out] */ 
             _Out_  DMO_MEDIA_TYPE *pmt);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetOutputCurrentType)
         HRESULT ( STDMETHODCALLTYPE *GetOutputCurrentType )( 
             IMediaObject * This,
             DWORD dwOutputStreamIndex,
             /* [annotation][out] */ 
             _Out_  DMO_MEDIA_TYPE *pmt);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetInputSizeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetInputSizeInfo )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
@@ -535,7 +508,6 @@ EXTERN_C const IID IID_IMediaObject;
             /* [annotation][out] */ 
             _Out_  DWORD *pcbAlignment);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetOutputSizeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetOutputSizeInfo )( 
             IMediaObject * This,
             DWORD dwOutputStreamIndex,
@@ -544,44 +516,36 @@ EXTERN_C const IID IID_IMediaObject;
             /* [annotation][out] */ 
             _Out_  DWORD *pcbAlignment);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetInputMaxLatency)
         HRESULT ( STDMETHODCALLTYPE *GetInputMaxLatency )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
             /* [annotation][out] */ 
             _Out_  REFERENCE_TIME *prtMaxLatency);
         
-        DECLSPEC_XFGVIRT(IMediaObject, SetInputMaxLatency)
         HRESULT ( STDMETHODCALLTYPE *SetInputMaxLatency )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
             REFERENCE_TIME rtMaxLatency);
         
-        DECLSPEC_XFGVIRT(IMediaObject, Flush)
         HRESULT ( STDMETHODCALLTYPE *Flush )( 
             IMediaObject * This);
         
-        DECLSPEC_XFGVIRT(IMediaObject, Discontinuity)
         HRESULT ( STDMETHODCALLTYPE *Discontinuity )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex);
         
-        DECLSPEC_XFGVIRT(IMediaObject, AllocateStreamingResources)
         HRESULT ( STDMETHODCALLTYPE *AllocateStreamingResources )( 
             IMediaObject * This);
         
-        DECLSPEC_XFGVIRT(IMediaObject, FreeStreamingResources)
         HRESULT ( STDMETHODCALLTYPE *FreeStreamingResources )( 
             IMediaObject * This);
         
-        DECLSPEC_XFGVIRT(IMediaObject, GetInputStatus)
         HRESULT ( STDMETHODCALLTYPE *GetInputStatus )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
             /* [annotation][out] */ 
             _Out_  DWORD *dwFlags);
         
-        DECLSPEC_XFGVIRT(IMediaObject, ProcessInput)
         HRESULT ( STDMETHODCALLTYPE *ProcessInput )( 
             IMediaObject * This,
             DWORD dwInputStreamIndex,
@@ -590,7 +554,6 @@ EXTERN_C const IID IID_IMediaObject;
             REFERENCE_TIME rtTimestamp,
             REFERENCE_TIME rtTimelength);
         
-        DECLSPEC_XFGVIRT(IMediaObject, ProcessOutput)
         HRESULT ( STDMETHODCALLTYPE *ProcessOutput )( 
             IMediaObject * This,
             DWORD dwFlags,
@@ -600,7 +563,6 @@ EXTERN_C const IID IID_IMediaObject;
             /* [annotation][out] */ 
             _Out_  DWORD *pdwStatus);
         
-        DECLSPEC_XFGVIRT(IMediaObject, Lock)
         HRESULT ( STDMETHODCALLTYPE *Lock )( 
             IMediaObject * This,
             LONG bLock);
@@ -744,22 +706,18 @@ EXTERN_C const IID IID_IEnumDMO;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IEnumDMO * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IEnumDMO * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IEnumDMO * This);
         
-        DECLSPEC_XFGVIRT(IEnumDMO, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IEnumDMO * This,
             DWORD cItemsToFetch,
@@ -770,16 +728,13 @@ EXTERN_C const IID IID_IEnumDMO;
             /* [annotation][out] */ 
             _Out_  DWORD *pcItemsFetched);
         
-        DECLSPEC_XFGVIRT(IEnumDMO, Skip)
         HRESULT ( STDMETHODCALLTYPE *Skip )( 
             IEnumDMO * This,
             DWORD cItemsToSkip);
         
-        DECLSPEC_XFGVIRT(IEnumDMO, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             IEnumDMO * This);
         
-        DECLSPEC_XFGVIRT(IEnumDMO, Clone)
         HRESULT ( STDMETHODCALLTYPE *Clone )( 
             IEnumDMO * This,
             /* [annotation][out] */ 
@@ -884,22 +839,18 @@ EXTERN_C const IID IID_IMediaObjectInPlace;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMediaObjectInPlace * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMediaObjectInPlace * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMediaObjectInPlace * This);
         
-        DECLSPEC_XFGVIRT(IMediaObjectInPlace, Process)
         HRESULT ( STDMETHODCALLTYPE *Process )( 
             IMediaObjectInPlace * This,
             /* [in] */ ULONG ulSize,
@@ -908,13 +859,11 @@ EXTERN_C const IID IID_IMediaObjectInPlace;
             /* [in] */ REFERENCE_TIME refTimeStart,
             /* [in] */ DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IMediaObjectInPlace, Clone)
         HRESULT ( STDMETHODCALLTYPE *Clone )( 
             IMediaObjectInPlace * This,
             /* [annotation][out] */ 
             _Out_  IMediaObjectInPlace **ppMediaObject);
         
-        DECLSPEC_XFGVIRT(IMediaObjectInPlace, GetLatency)
         HRESULT ( STDMETHODCALLTYPE *GetLatency )( 
             IMediaObjectInPlace * This,
             /* [annotation][out] */ 
@@ -1010,32 +959,26 @@ EXTERN_C const IID IID_IDMOQualityControl;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDMOQualityControl * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDMOQualityControl * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDMOQualityControl * This);
         
-        DECLSPEC_XFGVIRT(IDMOQualityControl, SetNow)
         HRESULT ( STDMETHODCALLTYPE *SetNow )( 
             IDMOQualityControl * This,
             /* [in] */ REFERENCE_TIME rtNow);
         
-        DECLSPEC_XFGVIRT(IDMOQualityControl, SetStatus)
         HRESULT ( STDMETHODCALLTYPE *SetStatus )( 
             IDMOQualityControl * This,
             /* [in] */ DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IDMOQualityControl, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IDMOQualityControl * This,
             /* [annotation][out] */ 
@@ -1140,42 +1083,35 @@ EXTERN_C const IID IID_IDMOVideoOutputOptimizations;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDMOVideoOutputOptimizations * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDMOVideoOutputOptimizations * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDMOVideoOutputOptimizations * This);
         
-        DECLSPEC_XFGVIRT(IDMOVideoOutputOptimizations, QueryOperationModePreferences)
         HRESULT ( STDMETHODCALLTYPE *QueryOperationModePreferences )( 
             IDMOVideoOutputOptimizations * This,
             ULONG ulOutputStreamIndex,
             /* [annotation] */ 
             _Out_  DWORD *pdwRequestedCapabilities);
         
-        DECLSPEC_XFGVIRT(IDMOVideoOutputOptimizations, SetOperationMode)
         HRESULT ( STDMETHODCALLTYPE *SetOperationMode )( 
             IDMOVideoOutputOptimizations * This,
             ULONG ulOutputStreamIndex,
             DWORD dwEnabledFeatures);
         
-        DECLSPEC_XFGVIRT(IDMOVideoOutputOptimizations, GetCurrentOperationMode)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentOperationMode )( 
             IDMOVideoOutputOptimizations * This,
             ULONG ulOutputStreamIndex,
             /* [annotation] */ 
             _Out_  DWORD *pdwEnabledFeatures);
         
-        DECLSPEC_XFGVIRT(IDMOVideoOutputOptimizations, GetCurrentSampleRequirements)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentSampleRequirements )( 
             IDMOVideoOutputOptimizations * This,
             ULONG ulOutputStreamIndex,

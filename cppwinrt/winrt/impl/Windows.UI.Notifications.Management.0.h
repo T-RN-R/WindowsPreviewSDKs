@@ -1,15 +1,14 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_UI_Notifications_Management_0_H
 #define WINRT_Windows_UI_Notifications_Management_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
-    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
+    template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Notifications
 {
@@ -31,18 +30,20 @@ WINRT_EXPORT namespace winrt::Windows::UI::Notifications::Management
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::UI::Notifications::Management::IUserNotificationListener>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::Notifications::Management::IUserNotificationListenerStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::Notifications::Management::UserNotificationListener>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::Notifications::Management::UserNotificationListenerAccessStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Notifications::Management::UserNotificationListener> = L"Windows.UI.Notifications.Management.UserNotificationListener";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Notifications::Management::UserNotificationListenerAccessStatus> = L"Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Notifications::Management::IUserNotificationListener> = L"Windows.UI.Notifications.Management.IUserNotificationListener";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::Notifications::Management::IUserNotificationListenerStatics> = L"Windows.UI.Notifications.Management.IUserNotificationListenerStatics";
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::Notifications::Management::IUserNotificationListener>{ 0x62553E41,0x8A06,0x4CEF,{ 0x82,0x15,0x60,0x33,0xA5,0xBE,0x4B,0x03 } }; // 62553E41-8A06-4CEF-8215-6033A5BE4B03
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::Notifications::Management::IUserNotificationListenerStatics>{ 0xFF6123CF,0x4386,0x4AA3,{ 0xB7,0x3D,0xB8,0x04,0xE5,0xB6,0x3B,0x23 } }; // FF6123CF-4386-4AA3-B73D-B804E5B63B23
-    template <> struct default_interface<winrt::Windows::UI::Notifications::Management::UserNotificationListener>{ using type = winrt::Windows::UI::Notifications::Management::IUserNotificationListener; };
-    template <> struct abi<winrt::Windows::UI::Notifications::Management::IUserNotificationListener>
+    template <> struct category<Windows::UI::Notifications::Management::IUserNotificationListener>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Notifications::Management::IUserNotificationListenerStatics>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Notifications::Management::UserNotificationListener>{ using type = class_category; };
+    template <> struct category<Windows::UI::Notifications::Management::UserNotificationListenerAccessStatus>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::UI::Notifications::Management::UserNotificationListener>{ L"Windows.UI.Notifications.Management.UserNotificationListener" };
+    template <> inline constexpr auto& name_v<Windows::UI::Notifications::Management::UserNotificationListenerAccessStatus>{ L"Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::UI::Notifications::Management::IUserNotificationListener>{ L"Windows.UI.Notifications.Management.IUserNotificationListener" };
+    template <> inline constexpr auto& name_v<Windows::UI::Notifications::Management::IUserNotificationListenerStatics>{ L"Windows.UI.Notifications.Management.IUserNotificationListenerStatics" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::UI::Notifications::Management::IUserNotificationListener>{ 0x62553E41,0x8A06,0x4CEF,{ 0x82,0x15,0x60,0x33,0xA5,0xBE,0x4B,0x03 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Notifications::Management::IUserNotificationListenerStatics>{ 0xFF6123CF,0x4386,0x4AA3,{ 0xB7,0x3D,0xB8,0x04,0xE5,0xB6,0x3B,0x23 } };
+    template <> struct default_interface<Windows::UI::Notifications::Management::UserNotificationListener>{ using type = Windows::UI::Notifications::Management::IUserNotificationListener; };
+    template <> struct abi<Windows::UI::Notifications::Management::IUserNotificationListener>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -56,7 +57,7 @@ namespace winrt::impl
             virtual int32_t __stdcall RemoveNotification(uint32_t) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::Notifications::Management::IUserNotificationListenerStatics>
+    template <> struct abi<Windows::UI::Notifications::Management::IUserNotificationListenerStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -68,16 +69,16 @@ namespace winrt::impl
     {
         auto RequestAccessAsync() const;
         auto GetAccessStatus() const;
-        auto NotificationChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Notifications::Management::UserNotificationListener, winrt::Windows::UI::Notifications::UserNotificationChangedEventArgs> const& handler) const;
-        using NotificationChanged_revoker = impl::event_revoker<winrt::Windows::UI::Notifications::Management::IUserNotificationListener, &impl::abi_t<winrt::Windows::UI::Notifications::Management::IUserNotificationListener>::remove_NotificationChanged>;
-        [[nodiscard]] NotificationChanged_revoker NotificationChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Notifications::Management::UserNotificationListener, winrt::Windows::UI::Notifications::UserNotificationChangedEventArgs> const& handler) const;
+        auto NotificationChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::Management::UserNotificationListener, Windows::UI::Notifications::UserNotificationChangedEventArgs> const& handler) const;
+        using NotificationChanged_revoker = impl::event_revoker<Windows::UI::Notifications::Management::IUserNotificationListener, &impl::abi_t<Windows::UI::Notifications::Management::IUserNotificationListener>::remove_NotificationChanged>;
+        [[nodiscard]] NotificationChanged_revoker NotificationChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Notifications::Management::UserNotificationListener, Windows::UI::Notifications::UserNotificationChangedEventArgs> const& handler) const;
         auto NotificationChanged(winrt::event_token const& token) const noexcept;
-        auto GetNotificationsAsync(winrt::Windows::UI::Notifications::NotificationKinds const& kinds) const;
+        auto GetNotificationsAsync(Windows::UI::Notifications::NotificationKinds const& kinds) const;
         auto GetNotification(uint32_t notificationId) const;
         auto ClearNotifications() const;
         auto RemoveNotification(uint32_t notificationId) const;
     };
-    template <> struct consume<winrt::Windows::UI::Notifications::Management::IUserNotificationListener>
+    template <> struct consume<Windows::UI::Notifications::Management::IUserNotificationListener>
     {
         template <typename D> using type = consume_Windows_UI_Notifications_Management_IUserNotificationListener<D>;
     };
@@ -86,7 +87,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto Current() const;
     };
-    template <> struct consume<winrt::Windows::UI::Notifications::Management::IUserNotificationListenerStatics>
+    template <> struct consume<Windows::UI::Notifications::Management::IUserNotificationListenerStatics>
     {
         template <typename D> using type = consume_Windows_UI_Notifications_Management_IUserNotificationListenerStatics<D>;
     };

@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -745,7 +745,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPnpObject = __uuidof(IPnpObject);
+                    extern MIDL_CONST_ID IID& IID_IPnpObject = _uuidof(IPnpObject);
                 } /* Pnp */
             } /* Enumeration */
         } /* Devices */
@@ -808,7 +808,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPnpObjectStatics = __uuidof(IPnpObjectStatics);
+                    extern MIDL_CONST_ID IID& IID_IPnpObjectStatics = _uuidof(IPnpObjectStatics);
                 } /* Pnp */
             } /* Enumeration */
         } /* Devices */
@@ -852,7 +852,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPnpObjectUpdate = __uuidof(IPnpObjectUpdate);
+                    extern MIDL_CONST_ID IID& IID_IPnpObjectUpdate = _uuidof(IPnpObjectUpdate);
                 } /* Pnp */
             } /* Enumeration */
         } /* Devices */
@@ -927,7 +927,7 @@ namespace ABI {
                         virtual HRESULT STDMETHODCALLTYPE Stop(void) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPnpObjectWatcher = __uuidof(IPnpObjectWatcher);
+                    extern MIDL_CONST_ID IID& IID_IPnpObjectWatcher = _uuidof(IPnpObjectWatcher);
                 } /* Pnp */
             } /* Enumeration */
         } /* Devices */

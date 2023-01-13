@@ -1,5 +1,7 @@
 // Copyright (C) Microsoft Corporation. All rights reserved.
 
+
+
 #ifndef _ROERROR_H
 #define _ROERROR_H
 
@@ -24,7 +26,7 @@
 #if (NTDDI_VERSION >= NTDDI_WIN8)
 
 #ifdef _OLE32_
-#define WINOLEGLOBAL EXTERN_C
+#define WINOLEGLOBAL EXTERN_C 
 #else
 #define WINOLEGLOBAL EXTERN_C DECLSPEC_IMPORT
 #endif // _OLE32_
@@ -43,17 +45,19 @@ typedef enum {
 DEFINE_ENUM_FLAG_OPERATORS(RO_ERROR_REPORTING_FLAGS);
 
 //not including the terminating null
-#define MAX_ERROR_MESSAGE_CHARS 512
+#define MAX_ERROR_MESSAGE_CHARS 512 
 
 STDAPI
 RoGetErrorReportingFlags(
     _Out_ UINT32* pflags
     );
 
+
 STDAPI
 RoSetErrorReportingFlags(
     _In_ UINT32 flags
     );
+
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -67,6 +71,7 @@ RoResolveRestrictedErrorInfoReference(
     _Outptr_ IRestrictedErrorInfo** ppRestrictedErrorInfo
     );
 
+    
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -78,19 +83,22 @@ SetRestrictedErrorInfo(
     _In_opt_ IRestrictedErrorInfo* pRestrictedErrorInfo
     );
 
+
 STDAPI
 GetRestrictedErrorInfo(
     _Outptr_result_maybenull_ IRestrictedErrorInfo** ppRestrictedErrorInfo
     );
 
+
 STDAPI_(BOOL)
 RoOriginateErrorW(
     _In_ HRESULT error,
     _In_ UINT cchMax,
-    _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS) )
+    _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS) ) 
              _When_(cchMax > 0 && cchMax < MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(cchMax) )
              _When_(cchMax >= MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS) ) PCWSTR message
     );
+
 
 STDAPI_(BOOL)
 RoOriginateError(
@@ -98,15 +106,17 @@ RoOriginateError(
     _In_opt_ HSTRING message
     );
 
+
 STDAPI_(BOOL)
 RoTransformErrorW(
     _In_ HRESULT oldError,
     _In_ HRESULT newError,
     _In_ UINT cchMax,
-    _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS))
+    _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS)) 
              _When_(cchMax > 0 && cchMax < MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(cchMax) )
              _When_(cchMax >= MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS) ) PCWSTR message
     );
+
 
 STDAPI_(BOOL)
 RoTransformError(
@@ -115,15 +125,18 @@ RoTransformError(
     _In_opt_ HSTRING message
     );
 
+
 STDAPI
 RoCaptureErrorContext(
     HRESULT hr
     );
 
+
 STDAPI_(void)
 RoFailFastWithErrorContext(
     HRESULT hrError
     );
+
 
 #ifdef __cplusplus
 namespace Windows
@@ -141,21 +154,21 @@ namespace Windows
             } RoErrorReportingFlags;
 
             DEFINE_ENUM_FLAG_OPERATORS(RoErrorReportingFlags);
-
+            
             inline HRESULT GetErrorReportingFlags(_Out_ UINT32 *pflags)
             {
                 return ::RoGetErrorReportingFlags(pflags);
             }
-
+            
             inline HRESULT SetErrorReportingFlags(_In_ UINT32 flags)
             {
                 return ::RoSetErrorReportingFlags(flags);
             }
 
             inline BOOL OriginateError(_In_ HRESULT error, _In_ UINT cchMax,
-                _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS) )
+                _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS) ) 
                 _When_(cchMax > 0 && cchMax < MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(cchMax) )
-                _When_(cchMax >= MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS) )
+                _When_(cchMax >= MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS) ) 
                  PCWSTR message)
             {
                 if (SUCCEEDED(error))
@@ -165,7 +178,7 @@ namespace Windows
 
                 return ::RoOriginateErrorW(error, cchMax, message);
             }
-
+            
             inline BOOL OriginateError(_In_ HRESULT error, _In_ HSTRING message)
             {
                 if (SUCCEEDED(error))
@@ -175,9 +188,9 @@ namespace Windows
 
                 return ::RoOriginateError(error, message);
             }
-
+            
             inline BOOL TransformError(_In_ HRESULT oldError, _In_ HRESULT newError, _In_ UINT cchMax,
-             _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS))
+             _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS)) 
              _When_(cchMax > 0 && cchMax < MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(cchMax) )
              _When_(cchMax >= MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS) ) PCWSTR message)
             {
@@ -189,7 +202,7 @@ namespace Windows
 
                 return ::RoTransformErrorW(oldError, newError, cchMax, message);
             }
-
+            
             inline BOOL TransformError(_In_ HRESULT oldError, _In_ HRESULT newError, _In_ HSTRING message)
             {
                 if ((oldError == newError) ||
@@ -221,39 +234,39 @@ namespace ABI
                 } RoErrorReportingFlags;
 
                 DEFINE_ENUM_FLAG_OPERATORS(RoErrorReportingFlags);
-
+            
                 inline HRESULT GetErrorReportingFlags(_Out_ UINT32 *pflags)
                 {
                     return ::RoGetErrorReportingFlags(pflags);
                 }
-
+            
                 inline HRESULT SetErrorReportingFlags(_In_ UINT32 flags)
                 {
                     return ::RoSetErrorReportingFlags(flags);
                 }
 
                 inline BOOL OriginateError(_In_ HRESULT error, _In_ UINT cchMax,
-                    _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS) )
+                    _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS) ) 
                     _When_(cchMax > 0 && cchMax < MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(cchMax) )
                     _When_(cchMax >= MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS) )
                     PCWSTR message)
                 {
                     return ::RoOriginateErrorW(error, cchMax, message);
                 }
-
+            
                 inline BOOL OriginateError(_In_ HRESULT error, _In_ HSTRING message)
                 {
                     return ::RoOriginateError(error, message);
                 }
-
+            
                 inline BOOL TransformError(_In_ HRESULT oldError, _In_ HRESULT newError, _In_ UINT cchMax,
-                    _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS))
+                    _When_(cchMax == 0, _In_reads_or_z_opt_(MAX_ERROR_MESSAGE_CHARS)) 
                     _When_(cchMax > 0 && cchMax < MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(cchMax) )
                     _When_(cchMax >= MAX_ERROR_MESSAGE_CHARS, _In_reads_or_z_(MAX_ERROR_MESSAGE_CHARS) ) PCWSTR message)
                 {
                     return ::RoTransformErrorW(oldError, newError, cchMax, message);
                 }
-
+            
                 inline BOOL TransformError(_In_ HRESULT oldError, _In_ HRESULT newError, _In_ HSTRING message)
                 {
                     return ::RoTransformError(oldError, newError, message);
@@ -291,17 +304,17 @@ namespace ABI
 //      Code - is the facility's status code
 
 //0x40080201L
-#define EXCEPTION_RO_ORIGINATEERROR  ((DWORD)((0x1 << 30) | (FACILITY_WINDOWS << 16) | 0x201))
+#define EXCEPTION_RO_ORIGINATEERROR  ((DWORD)((0x1 << 30) | (FACILITY_WINDOWS << 16) | 0x201))  
 
 //0x40080202L
-#define EXCEPTION_RO_TRANSFORMERROR  ((DWORD)((0x1 << 30) | (FACILITY_WINDOWS << 16) | 0x202))
+#define EXCEPTION_RO_TRANSFORMERROR  ((DWORD)((0x1 << 30) | (FACILITY_WINDOWS << 16) | 0x202))  
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
-// The various versions of RoOriginateError will raise and catch a structured exception with an
-// exception code of EXCEPTION_RO_ORIGINATEERROR and the following information in the
-// ExceptionInformation array. The characterCount element is the number of characters in the message,
+// The various versions of RoOriginateError will raise and catch a structured exception with an 
+// exception code of EXCEPTION_RO_ORIGINATEERROR and the following information in the 
+// ExceptionInformation array. The characterCount element is the number of characters in the message, 
 // not including the NULL terminator.
 // ExceptionInformation[0] -- HRESULT error
 // ExceptionInformation[1] -- UINT characterCount
@@ -331,15 +344,18 @@ RoOriginateLanguageException(
     _In_opt_ IUnknown* languageException
     );
 
+
 STDAPI_(void)
 RoClearError(
     void
     );
 
+
 STDAPI
 RoReportUnhandledError(
     _In_ IRestrictedErrorInfo* pRestrictedErrorInfo
     );
+
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -362,6 +378,7 @@ RoInspectThreadErrorInfo(
     _Out_ UINT_PTR* targetErrorInfoAddress
     );
 
+
 STDAPI
 RoInspectCapturedStackBackTrace(
     _In_ UINT_PTR targetErrorInfoAddress,
@@ -372,11 +389,13 @@ RoInspectCapturedStackBackTrace(
     _Out_ UINT_PTR* targetBackTraceAddress
     );
 
+
 STDAPI
 RoGetMatchingRestrictedErrorInfo(
     _In_ HRESULT hrIn,
     _COM_Outptr_ IRestrictedErrorInfo** ppRestrictedErrorInfo
     );
+
 
 STDAPI
 RoReportFailedDelegate(
@@ -384,10 +403,12 @@ RoReportFailedDelegate(
     _In_ IRestrictedErrorInfo* pRestrictedErrorInfo
     );
 
+
 STDAPI_(BOOL)
 IsErrorPropagationEnabled(
     void
     );
+
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion

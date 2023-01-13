@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_ApplicationModel_UserDataAccounts_SystemAccess_0_H
 #define WINRT_Windows_ApplicationModel_UserDataAccounts_SystemAccess_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
@@ -13,7 +12,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct __declspec(empty_bases) IIterable;
+    template <typename T> struct IIterable;
 }
 WINRT_EXPORT namespace winrt::Windows::Security::Credentials
 {
@@ -69,34 +68,36 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::UserDataAccounts::Syste
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::UserDataAccountSystemAccessManager>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountAuthenticationType>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountIconId>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountMailAgeFilter>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountServerType>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::UserDataAccountSystemAccessManager> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountAuthenticationType> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountIconId> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountMailAgeFilter> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountServerType> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration2";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2> = L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics2";
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>{ 0xAD0123A3,0xFBDC,0x4D1B,{ 0xBE,0x43,0x5A,0x27,0xEA,0x4A,0x1B,0x63 } }; // AD0123A3-FBDC-4D1B-BE43-5A27EA4A1B63
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>{ 0xF2B2E5A6,0x728D,0x4A4A,{ 0x89,0x45,0x2B,0xF8,0x58,0x01,0x36,0xDE } }; // F2B2E5A6-728D-4A4A-8945-2BF8580136DE
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>{ 0x9D6B11B9,0xCBE5,0x45F5,{ 0x82,0x2B,0xC2,0x67,0xB8,0x1D,0xBD,0xB6 } }; // 9D6B11B9-CBE5-45F5-822B-C267B81DBDB6
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>{ 0x943F854D,0x4B4E,0x439F,{ 0x83,0xD3,0x97,0x9B,0x27,0xC0,0x5A,0xC7 } }; // 943F854D-4B4E-439F-83D3-979B27C05AC7
-    template <> struct default_interface<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration>{ using type = winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration; };
-    template <> struct abi<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::UserDataAccountSystemAccessManager>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountAuthenticationType>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountIconId>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountMailAgeFilter>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountServerType>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::UserDataAccountSystemAccessManager>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountAuthenticationType>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountIconId>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountMailAgeFilter>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountServerType>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration2" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>{ L"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics2" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>{ 0xAD0123A3,0xFBDC,0x4D1B,{ 0xBE,0x43,0x5A,0x27,0xEA,0x4A,0x1B,0x63 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>{ 0xF2B2E5A6,0x728D,0x4A4A,{ 0x89,0x45,0x2B,0xF8,0x58,0x01,0x36,0xDE } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>{ 0x9D6B11B9,0xCBE5,0x45F5,{ 0x82,0x2B,0xC2,0x67,0xB8,0x1D,0xBD,0xB6 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>{ 0x943F854D,0x4B4E,0x439F,{ 0x83,0xD3,0x97,0x9B,0x27,0xC0,0x5A,0xC7 } };
+    template <> struct default_interface<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration>{ using type = Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration; };
+    template <> struct abi<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -134,7 +135,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_OutgoingServerUsername(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>
+    template <> struct abi<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -196,14 +197,14 @@ namespace winrt::impl
             virtual int32_t __stdcall put_IsSyncScheduleManagedBySystem(bool) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>
+    template <> struct abi<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall AddAndShowDeviceAccountsAsync(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>
+    template <> struct abi<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -221,7 +222,7 @@ namespace winrt::impl
         [[nodiscard]] auto DeviceAccountTypeId() const;
         auto DeviceAccountTypeId(param::hstring const& value) const;
         [[nodiscard]] auto ServerType() const;
-        auto ServerType(winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountServerType const& value) const;
+        auto ServerType(Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountServerType const& value) const;
         [[nodiscard]] auto EmailAddress() const;
         auto EmailAddress(param::hstring const& value) const;
         [[nodiscard]] auto Domain() const;
@@ -249,7 +250,7 @@ namespace winrt::impl
         [[nodiscard]] auto OutgoingServerUsername() const;
         auto OutgoingServerUsername(param::hstring const& value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>
+    template <> struct consume<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_UserDataAccounts_SystemAccess_IDeviceAccountConfiguration<D>;
     };
@@ -257,17 +258,17 @@ namespace winrt::impl
     struct consume_Windows_ApplicationModel_UserDataAccounts_SystemAccess_IDeviceAccountConfiguration2
     {
         [[nodiscard]] auto IncomingServerCredential() const;
-        auto IncomingServerCredential(winrt::Windows::Security::Credentials::PasswordCredential const& value) const;
+        auto IncomingServerCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
         [[nodiscard]] auto OutgoingServerCredential() const;
-        auto OutgoingServerCredential(winrt::Windows::Security::Credentials::PasswordCredential const& value) const;
+        auto OutgoingServerCredential(Windows::Security::Credentials::PasswordCredential const& value) const;
         [[nodiscard]] auto OAuthRefreshToken() const;
         auto OAuthRefreshToken(param::hstring const& value) const;
         [[nodiscard]] auto IsExternallyManaged() const;
         auto IsExternallyManaged(bool value) const;
         [[nodiscard]] auto AccountIconId() const;
-        auto AccountIconId(winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountIconId const& value) const;
+        auto AccountIconId(Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountIconId const& value) const;
         [[nodiscard]] auto AuthenticationType() const;
-        auto AuthenticationType(winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountAuthenticationType const& value) const;
+        auto AuthenticationType(Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountAuthenticationType const& value) const;
         [[nodiscard]] auto IsSsoAuthenticationSupported() const;
         [[nodiscard]] auto SsoAccountId() const;
         auto SsoAccountId(param::hstring const& value) const;
@@ -275,9 +276,9 @@ namespace winrt::impl
         auto AlwaysDownloadFullMessage(bool value) const;
         [[nodiscard]] auto DoesPolicyAllowMailSync() const;
         [[nodiscard]] auto SyncScheduleKind() const;
-        auto SyncScheduleKind(winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind const& value) const;
+        auto SyncScheduleKind(Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind const& value) const;
         [[nodiscard]] auto MailAgeFilter() const;
-        auto MailAgeFilter(winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountMailAgeFilter const& value) const;
+        auto MailAgeFilter(Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountMailAgeFilter const& value) const;
         [[nodiscard]] auto IsClientAuthenticationCertificateRequired() const;
         auto IsClientAuthenticationCertificateRequired(bool value) const;
         [[nodiscard]] auto AutoSelectAuthenticationCertificate() const;
@@ -285,15 +286,15 @@ namespace winrt::impl
         [[nodiscard]] auto AuthenticationCertificateId() const;
         auto AuthenticationCertificateId(param::hstring const& value) const;
         [[nodiscard]] auto CardDavSyncScheduleKind() const;
-        auto CardDavSyncScheduleKind(winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind const& value) const;
+        auto CardDavSyncScheduleKind(Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind const& value) const;
         [[nodiscard]] auto CalDavSyncScheduleKind() const;
-        auto CalDavSyncScheduleKind(winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind const& value) const;
+        auto CalDavSyncScheduleKind(Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountSyncScheduleKind const& value) const;
         [[nodiscard]] auto CardDavServerUrl() const;
-        auto CardDavServerUrl(winrt::Windows::Foundation::Uri const& value) const;
+        auto CardDavServerUrl(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto CardDavRequiresSsl() const;
         auto CardDavRequiresSsl(bool value) const;
         [[nodiscard]] auto CalDavServerUrl() const;
-        auto CalDavServerUrl(winrt::Windows::Foundation::Uri const& value) const;
+        auto CalDavServerUrl(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto CalDavRequiresSsl() const;
         auto CalDavRequiresSsl(bool value) const;
         [[nodiscard]] auto WasModifiedByUser() const;
@@ -313,16 +314,16 @@ namespace winrt::impl
         [[nodiscard]] auto IsSyncScheduleManagedBySystem() const;
         auto IsSyncScheduleManagedBySystem(bool value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>
+    template <> struct consume<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IDeviceAccountConfiguration2>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_UserDataAccounts_SystemAccess_IDeviceAccountConfiguration2<D>;
     };
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataAccounts_SystemAccess_IUserDataAccountSystemAccessManagerStatics
     {
-        auto AddAndShowDeviceAccountsAsync(param::async_iterable<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration> const& accounts) const;
+        auto AddAndShowDeviceAccountsAsync(param::async_iterable<Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration> const& accounts) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>
+    template <> struct consume<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_UserDataAccounts_SystemAccess_IUserDataAccountSystemAccessManagerStatics<D>;
     };
@@ -330,11 +331,11 @@ namespace winrt::impl
     struct consume_Windows_ApplicationModel_UserDataAccounts_SystemAccess_IUserDataAccountSystemAccessManagerStatics2
     {
         auto SuppressLocalAccountWithAccountAsync(param::hstring const& userDataAccountId) const;
-        auto CreateDeviceAccountAsync(winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration const& account) const;
+        auto CreateDeviceAccountAsync(Windows::ApplicationModel::UserDataAccounts::SystemAccess::DeviceAccountConfiguration const& account) const;
         auto DeleteDeviceAccountAsync(param::hstring const& accountId) const;
         auto GetDeviceAccountConfigurationAsync(param::hstring const& accountId) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>
+    template <> struct consume<Windows::ApplicationModel::UserDataAccounts::SystemAccess::IUserDataAccountSystemAccessManagerStatics2>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_UserDataAccounts_SystemAccess_IUserDataAccountSystemAccessManagerStatics2<D>;
     };

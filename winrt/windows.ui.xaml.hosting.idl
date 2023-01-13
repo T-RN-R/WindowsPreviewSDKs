@@ -220,7 +220,7 @@ namespace Windows
         {
             namespace Hosting
             {
-                [contractversion(5.0)]
+                [contractversion(4.0)]
                 apicontract HostingContract
                 {
                 }

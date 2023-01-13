@@ -1,5 +1,7 @@
 // Copyright (C) Microsoft Corporation. All rights reserved.
 
+
+
 #ifndef __WINSTRING_H_
 #define __WINSTRING_H_
 
@@ -90,7 +92,7 @@ WindowsSubstringWithSpecifiedLength(
     UINT32 length,
     _Outptr_result_maybenull_ _Result_nullonfailure_ HSTRING* newString
     );
-
+  
 STDAPI
 WindowsConcatString(
     _In_opt_ HSTRING string1,
@@ -120,8 +122,8 @@ WindowsTrimStringEnd(
     _Outptr_result_maybenull_ _Result_nullonfailure_ HSTRING* newString
     );
 
-// Two-phase construction
 
+// Two-phase construction
 STDAPI
 WindowsPreallocateStringBuffer(
     UINT32 length,
@@ -140,6 +142,7 @@ WindowsDeleteStringBuffer(
     _In_opt_ HSTRING_BUFFER bufferHandle
     );
 
+
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -151,8 +154,7 @@ extern "C"
 {
 #endif // __cplusplus
 
-// Windows String Marshaler Exports
-
+// Windows String Marshaler Exports 
 ULONG
 __RPC_USER
 HSTRING_UserSize(
@@ -184,7 +186,13 @@ HSTRING_UserFree(
     __RPC__in HSTRING* ppidl
     );
 
+
 #if defined(_WIN64)
+        
+
+
+
+
 
 #endif  // defined(_WIN64)
 
@@ -200,7 +208,6 @@ HSTRING_UserFree(
 
 // HSTRING Inspection
 typedef HRESULT (WINAPI *PINSPECT_HSTRING_CALLBACK)(_In_ void* context, UINT_PTR readAddress, UINT32 length, _Out_writes_(length) BYTE* buffer);
-
 STDAPI
 WindowsInspectString(
     _In_ UINT_PTR targetHString,
@@ -211,9 +218,9 @@ WindowsInspectString(
     _Out_ UINT_PTR* targetStringAddress
     );
 
+
 // HSTRING Inspection 2
 typedef HRESULT (WINAPI *PINSPECT_HSTRING_CALLBACK2)(_In_ void* context, UINT64 readAddress, UINT32 length, _Out_writes_(length) BYTE* buffer);
-
 STDAPI
 WindowsInspectString2(
     _In_ UINT64 targetHString,
@@ -223,6 +230,7 @@ WindowsInspectString2(
     _Out_ UINT32* length,
     _Out_ UINT64* targetStringAddress
     );
+
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 

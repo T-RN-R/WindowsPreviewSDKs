@@ -723,19 +723,10 @@ extern "C" {
 #if (WINVER >= _WIN32_WINNT_WIN8)
 #define LOCALE_SRELATIVELONGDATE      0x0000007c   // Long date without year, day of week, month, date, eg: for lock screen
 #endif
-#if (WINVER >= _WIN32_WINNT_WINBLUE)
-#define LOCALE_ICONSTRUCTEDLOCALE     0x0000007d   // Flags if this locale is constructed.  Avoid using.
-#endif
 
 #if (WINVER >= _WIN32_WINNT_WIN10)
 #define LOCALE_SSHORTESTAM            0x0000007e   // Shortest AM designator, eg "A"
 #define LOCALE_SSHORTESTPM            0x0000007f   // Shortest PM designator, eg "P"
-#endif
-
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
-#define LOCALE_IUSEUTF8LEGACYACP     0x00000666   // default ansi code page (use of Unicode is recommended instead)
-#define LOCALE_IUSEUTF8LEGACYOEMCP   0x00000999   // default oem code page (use of Unicode is recommended instead)
 #endif
 
 //
@@ -1292,11 +1283,6 @@ typedef struct _nlsversioninfoex{
     GUID  guidCustomVersion;        // Explicit sort version
 } NLSVERSIONINFOEX, *LPNLSVERSIONINFOEX;
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
-#define SORTING_PARADIGM_NLS 0x00000000     // NLS style sorting
-#define SORTING_PARADIGM_ICU 0x01000000     // ICU style sorting
-#endif
-
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 #define GEO_NAME_USER_DEFAULT NULL
 #endif
@@ -1588,7 +1574,6 @@ typedef struct _FILEMUIINFO {
 #define FILEMUIINFO_GET_MUI_TYPENAMES(pInfo)        \
     ((LPWSTR)((pInfo->dwTypeNameMUIOffset>0)?(ULONG_PTR)pInfo+pInfo->dwTypeNameMUIOffset:NULL))
 // ------------------------------------------------------------------------
-
 
 
 ////////////////////////////////////////////////////////////////////////////

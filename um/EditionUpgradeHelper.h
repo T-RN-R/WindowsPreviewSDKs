@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -80,13 +72,6 @@ typedef interface IContainerActivationHelper IContainerActivationHelper;
 typedef interface IClipServiceNotificationHelper IClipServiceNotificationHelper;
 
 #endif 	/* __IClipServiceNotificationHelper_FWD_DEFINED__ */
-
-
-#ifndef __IFClipNotificationHelper_FWD_DEFINED__
-#define __IFClipNotificationHelper_FWD_DEFINED__
-typedef interface IFClipNotificationHelper IFClipNotificationHelper;
-
-#endif 	/* __IFClipNotificationHelper_FWD_DEFINED__ */
 
 
 #ifndef __EditionUpgradeHelper_FWD_DEFINED__
@@ -169,41 +154,33 @@ EXTERN_C const IID IID_IEditionUpgradeHelper;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IEditionUpgradeHelper * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IEditionUpgradeHelper * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IEditionUpgradeHelper * This);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeHelper, CanUpgrade)
         HRESULT ( STDMETHODCALLTYPE *CanUpgrade )( 
             __RPC__in IEditionUpgradeHelper * This,
             /* [out] */ __RPC__out BOOL *isAllowed);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeHelper, UpdateOperatingSystem)
         HRESULT ( STDMETHODCALLTYPE *UpdateOperatingSystem )( 
             __RPC__in IEditionUpgradeHelper * This,
             /* [string][in] */ __RPC__in_string LPCWSTR contentId);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeHelper, ShowProductKeyUI)
         HRESULT ( STDMETHODCALLTYPE *ShowProductKeyUI )( 
             __RPC__in IEditionUpgradeHelper * This);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeHelper, GetOsProductContentId)
         HRESULT ( STDMETHODCALLTYPE *GetOsProductContentId )( 
             __RPC__in IEditionUpgradeHelper * This,
             /* [string][out] */ __RPC__deref_out_opt_string LPWSTR *contentId);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeHelper, GetGenuineLocalStatus)
         HRESULT ( STDMETHODCALLTYPE *GetGenuineLocalStatus )( 
             __RPC__in IEditionUpgradeHelper * This,
             /* [out] */ __RPC__out BOOL *isGenuine);
@@ -284,22 +261,18 @@ EXTERN_C const IID IID_IWindowsLockModeHelper;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IWindowsLockModeHelper * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IWindowsLockModeHelper * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IWindowsLockModeHelper * This);
         
-        DECLSPEC_XFGVIRT(IWindowsLockModeHelper, GetSMode)
         HRESULT ( STDMETHODCALLTYPE *GetSMode )( 
             __RPC__in IWindowsLockModeHelper * This,
             /* [out] */ __RPC__out BOOL *isSmode);
@@ -375,36 +348,29 @@ EXTERN_C const IID IID_IEditionUpgradeBroker;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IEditionUpgradeBroker * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IEditionUpgradeBroker * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IEditionUpgradeBroker * This);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeBroker, InitializeParentWindow)
         HRESULT ( STDMETHODCALLTYPE *InitializeParentWindow )( 
             __RPC__in IEditionUpgradeBroker * This,
             /* [in] */ OLE_HANDLE parentHandle);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeBroker, UpdateOperatingSystem)
         HRESULT ( STDMETHODCALLTYPE *UpdateOperatingSystem )( 
             __RPC__in IEditionUpgradeBroker * This,
             /* [string][in] */ __RPC__in_string BSTR parameter);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeBroker, ShowProductKeyUI)
         HRESULT ( STDMETHODCALLTYPE *ShowProductKeyUI )( 
             __RPC__in IEditionUpgradeBroker * This);
         
-        DECLSPEC_XFGVIRT(IEditionUpgradeBroker, CanUpgrade)
         HRESULT ( STDMETHODCALLTYPE *CanUpgrade )( 
             __RPC__in IEditionUpgradeBroker * This);
         
@@ -481,22 +447,18 @@ EXTERN_C const IID IID_IContainerActivationHelper;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IContainerActivationHelper * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IContainerActivationHelper * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IContainerActivationHelper * This);
         
-        DECLSPEC_XFGVIRT(IContainerActivationHelper, CanActivateClientVM)
         HRESULT ( STDMETHODCALLTYPE *CanActivateClientVM )( 
             __RPC__in IContainerActivationHelper * This,
             /* [retval][out] */ __RPC__out VARIANT_BOOL *isAllowed);
@@ -569,22 +531,18 @@ EXTERN_C const IID IID_IClipServiceNotificationHelper;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IClipServiceNotificationHelper * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IClipServiceNotificationHelper * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IClipServiceNotificationHelper * This);
         
-        DECLSPEC_XFGVIRT(IClipServiceNotificationHelper, ShowToast)
         HRESULT ( STDMETHODCALLTYPE *ShowToast )( 
             __RPC__in IClipServiceNotificationHelper * This,
             /* [string][in] */ __RPC__in_string BSTR titleText,
@@ -630,92 +588,6 @@ EXTERN_C const IID IID_IClipServiceNotificationHelper;
 #endif 	/* __IClipServiceNotificationHelper_INTERFACE_DEFINED__ */
 
 
-#ifndef __IFClipNotificationHelper_INTERFACE_DEFINED__
-#define __IFClipNotificationHelper_INTERFACE_DEFINED__
-
-/* interface IFClipNotificationHelper */
-/* [uuid][nonextensible][oleautomation][dual][object] */ 
-
-
-EXTERN_C const IID IID_IFClipNotificationHelper;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("3D5E3D21-BD41-4C2A-A669-B17CE87FB50B")
-    IFClipNotificationHelper : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE ShowSystemDialog( 
-            /* [string][in] */ __RPC__in_string BSTR titleText,
-            /* [string][in] */ __RPC__in_string BSTR bodyText) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IFClipNotificationHelperVtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IFClipNotificationHelper * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IFClipNotificationHelper * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IFClipNotificationHelper * This);
-        
-        DECLSPEC_XFGVIRT(IFClipNotificationHelper, ShowSystemDialog)
-        HRESULT ( STDMETHODCALLTYPE *ShowSystemDialog )( 
-            __RPC__in IFClipNotificationHelper * This,
-            /* [string][in] */ __RPC__in_string BSTR titleText,
-            /* [string][in] */ __RPC__in_string BSTR bodyText);
-        
-        END_INTERFACE
-    } IFClipNotificationHelperVtbl;
-
-    interface IFClipNotificationHelper
-    {
-        CONST_VTBL struct IFClipNotificationHelperVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IFClipNotificationHelper_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IFClipNotificationHelper_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IFClipNotificationHelper_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IFClipNotificationHelper_ShowSystemDialog(This,titleText,bodyText)	\
-    ( (This)->lpVtbl -> ShowSystemDialog(This,titleText,bodyText) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IFClipNotificationHelper_INTERFACE_DEFINED__ */
-
-
 
 #ifndef __EditionUpgradeHelperLib_LIBRARY_DEFINED__
 #define __EditionUpgradeHelperLib_LIBRARY_DEFINED__
@@ -743,15 +615,15 @@ EditionUpgradeBroker;
 #endif
 #endif /* __EditionUpgradeHelperLib_LIBRARY_DEFINED__ */
 
-/* interface __MIDL_itf_editionupgradehelper_0000_0007 */
+/* interface __MIDL_itf_editionupgradehelper_0000_0006 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_editionupgradehelper_0000_0007_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_editionupgradehelper_0000_0007_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_editionupgradehelper_0000_0006_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_editionupgradehelper_0000_0006_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

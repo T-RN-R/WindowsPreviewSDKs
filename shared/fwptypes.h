@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -31,14 +31,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -129,6 +121,8 @@ enum FWP_DATA_TYPE_
         FWP_TOKEN_ACCESS_INFORMATION_TYPE	= ( FWP_TOKEN_INFORMATION_TYPE + 1 ) ,
         FWP_UNICODE_STRING_TYPE	= ( FWP_TOKEN_ACCESS_INFORMATION_TYPE + 1 ) ,
         FWP_BYTE_ARRAY6_TYPE	= ( FWP_UNICODE_STRING_TYPE + 1 ) ,
+        FWP_BITMAP_INDEX_TYPE	= ( FWP_BYTE_ARRAY6_TYPE + 1 ) ,
+        FWP_BITMAP_ARRAY64_TYPE	= ( FWP_BITMAP_INDEX_TYPE + 1 ) ,
         FWP_SINGLE_DATA_TYPE_MAX	= 0xff,
         FWP_V4_ADDR_MASK	= ( FWP_SINGLE_DATA_TYPE_MAX + 1 ) ,
         FWP_V6_ADDR_MASK	= ( FWP_V4_ADDR_MASK + 1 ) ,
@@ -136,7 +130,13 @@ enum FWP_DATA_TYPE_
         FWP_DATA_TYPE_MAX	= ( FWP_RANGE_TYPE + 1 ) 
     } 	FWP_DATA_TYPE;
 
+typedef struct FWP_BITMAP_ARRAY64_
+    {
+    UINT8 bitmapArray64[ 8 ];
+    } 	FWP_BITMAP_ARRAY64;
+
 #define FWP_BYTEMAP_ARRAY64_SIZE 8
+#define FWP_BITMAP_ARRAY64_SIZE 64
 typedef struct FWP_BYTE_ARRAY6_
     {
     UINT8 byteArray6[ 6 ];
@@ -186,6 +186,7 @@ typedef struct FWP_VALUE0_
         /* [case()][unique] */ FWP_BYTE_BLOB *tokenAccessInformation;
         /* [case()][string] */ LPWSTR unicodeString;
         /* [case()][unique] */ FWP_BYTE_ARRAY6 *byteArray6;
+        /* [case()][unique] */ FWP_BITMAP_ARRAY64 *bitmapArray64;
         } 	;
     } 	FWP_VALUE0;
 
@@ -253,20 +254,12 @@ typedef struct FWP_CONDITION_VALUE0_
         /* [case()][unique] */ FWP_BYTE_BLOB *tokenAccessInformation;
         /* [case()][string] */ LPWSTR unicodeString;
         /* [case()][unique] */ FWP_BYTE_ARRAY6 *byteArray6;
+        /* [case()][unique] */ FWP_BITMAP_ARRAY64 *bitmapArray64;
         /* [case()][unique] */ FWP_V4_ADDR_AND_MASK *v4AddrMask;
         /* [case()][unique] */ FWP_V6_ADDR_AND_MASK *v6AddrMask;
         /* [case()][unique] */ FWP_RANGE0 *rangeValue;
         } 	;
     } 	FWP_CONDITION_VALUE0;
-
-typedef /* [v1_enum] */ 
-enum FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE_
-    {
-        FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS	= 0,
-        FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE	= ( FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS + 1 ) ,
-        FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP	= ( FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE + 1 ) ,
-        FWP_NETWORK_CONNECTION_POLICY_MAX	= ( FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP + 1 ) 
-    } 	FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE;
 
 typedef /* [v1_enum] */ 
 enum FWP_CLASSIFY_OPTION_TYPE_
@@ -313,6 +306,7 @@ typedef UINT32 FWP_ACTION_TYPE;
 #define FWP_ACTION_CONTINUE (0x00000006 | FWP_ACTION_FLAG_NON_TERMINATING)
 #define FWP_ACTION_NONE (0x00000007)
 #define FWP_ACTION_NONE_NO_MATCH (0x00000008)
+#define FWP_ACTION_BITMAP_INDEX_SET (0x00000009)
 #define FWP_CONDITION_FLAG_IS_LOOPBACK              (0x00000001)
 #define FWP_CONDITION_FLAG_IS_IPSEC_SECURED         (0x00000002)
 #define FWP_CONDITION_FLAG_IS_REAUTHORIZE           (0x00000004)
@@ -350,7 +344,12 @@ typedef UINT32 FWP_ACTION_TYPE;
 #define FWP_CONDITION_REAUTHORIZE_REASON_SOCKET_PROPERTY_CHANGED   (0x00000080)
 #define FWP_CONDITION_REAUTHORIZE_REASON_NEW_INBOUND_MCAST_BCAST_PACKET   (0x00000100)
 #define FWP_CONDITION_REAUTHORIZE_REASON_EDP_POLICY_CHANGED        (0x00000200)
+#define FWP_CONDITION_REAUTHORIZE_REASON_PRECLASSIFY_LOCALADDR_LAYER_CHANGE         (0x00000400)
+#define FWP_CONDITION_REAUTHORIZE_REASON_PRECLASSIFY_REMOTEADDR_LAYER_CHANGE        (0x00000800)
+#define FWP_CONDITION_REAUTHORIZE_REASON_PRECLASSIFY_LOCALPORT_LAYER_CHANGE         (0x00001000)
+#define FWP_CONDITION_REAUTHORIZE_REASON_PRECLASSIFY_REMOTEPORT_LAYER_CHANGE        (0x00002000)
 #define FWP_CONDITION_REAUTHORIZE_REASON_PROXY_HANDLE_CHANGED                       (0x00004000)
+#define FWP_CONDITION_REAUTHORIZE_REASON_PRECLASSIFY_POLICY_CHANGED                 (0x00008000)
 #define FWP_CONDITION_REAUTHORIZE_REASON_CHECK_OFFLOAD                              (0x00010000)
 #define FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC      (0x00000001)
 #define FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC      (0x00000002)
@@ -398,9 +397,6 @@ enum FWP_FILTER_ENUM_TYPE_
 #define FWP_CALLOUT_FLAG_ALLOW_USO                   (0x00000100)
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #define FWP_CALLOUT_FLAG_ALLOW_URO                   (0x00000200)
-#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
-#define FWP_CALLOUT_FLAG_RESERVED2                   (0x00000400)
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO)
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_19H1)
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)

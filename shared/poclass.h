@@ -62,10 +62,6 @@ DEFINE_GUID( GUID_CLASS_INPUT,              0x4D1E55B2L, 0xF16F, 0x11CF, 0x88, 0
 DEFINE_GUID(GUID_DEVINTERFACE_THERMAL_COOLING,
 0xdbe4373d, 0x3c81, 0x40cb, 0xac, 0xe4, 0xe0, 0xe5, 0xd0, 0x5f, 0xc, 0x9f);
 
-// {927EC093-69A4-4bc0-BD02-711664714463}
-DEFINE_GUID(GUID_DEVINTERFACE_THERMAL_MANAGER,
-0x927ec093, 0x69a4, 0x4bc0, 0xbd, 0x2, 0x71, 0x16, 0x64, 0x71, 0x44, 0x63);
-
 #ifndef _POCLASS_
 #define _POCLASS_
 
@@ -326,10 +322,11 @@ typedef struct _BATTERY_STATUS {
 #define UNKNOWN_VOLTAGE         BATTERY_UNKNOWN_VOLTAGE
 
 // PowerState flags
-#define BATTERY_POWER_ON_LINE                       0x00000001
-#define BATTERY_DISCHARGING                         0x00000002
-#define BATTERY_CHARGING                            0x00000004
-#define BATTERY_CRITICAL                            0x00000008
+
+#define BATTERY_POWER_ON_LINE   0x00000001
+#define BATTERY_DISCHARGING     0x00000002
+#define BATTERY_CHARGING        0x00000004
+#define BATTERY_CRITICAL        0x00000008
 
 // Max battery driver BATTERY_QUERY_INFORMATION_LEVEL string storage
 // size in bytes.
@@ -572,6 +569,7 @@ typedef enum _THERMAL_DEVICE_INTERFACE_FLAGS {
 #define IOCTL_SET_SYS_MESSAGE_INDICATOR     \
         CTL_CODE(FILE_DEVICE_BATTERY, 0x70, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 
+
 //
 // ACPI Time device functions
 //
@@ -634,37 +632,6 @@ typedef struct _ACPI_REAL_TIME {
     UINT8 DayLight;       // DayLight : 0-1
     UINT8 Reserved1[3];   // Reserved: Must be 0
 } ACPI_REAL_TIME, *PACPI_REAL_TIME;
-
-//
-// ACPI Time and Alarm Device Capabilities
-//
-
-#define IOCTL_GET_ACPI_TIME_AND_ALARM_CAPABILITIES \
-        CTL_CODE(FILE_DEVICE_BATTERY, 0x87, METHOD_BUFFERED, FILE_READ_ACCESS)
-
-typedef enum _ACPI_TIME_RESOLUTION {
-    AcpiTimeResolutionMilliseconds = 0,
-    AcpiTimeResolutionSeconds,
-    AcpiTimeResolutionMax
-} ACPI_TIME_RESOLUTION, *PACPI_TIME_RESOLUTION;
-
-typedef struct _ACPI_TIME_AND_ALARM_CAPABILITIES {
-    BOOLEAN AcWakeSupported;
-    BOOLEAN DcWakeSupported;
-
-    BOOLEAN S4AcWakeSupported;
-    BOOLEAN S4DcWakeSupported;
-
-    BOOLEAN S5AcWakeSupported;
-    BOOLEAN S5DcWakeSupported;
-
-    BOOLEAN S4S5WakeStatusSupported;
-
-    ULONG DeepestWakeSystemState;
-
-    BOOLEAN RealTimeFeaturesSupported;
-    ACPI_TIME_RESOLUTION RealTimeResolution;
-} ACPI_TIME_AND_ALARM_CAPABILITIES, *PACPI_TIME_AND_ALARM_CAPABILITIES;
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion

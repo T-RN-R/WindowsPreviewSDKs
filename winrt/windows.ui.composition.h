@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -214,36 +214,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IAnimationPropertyInfo2;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2 ABI::Windows::UI::Composition::IAnimationPropertyInfo2
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IBackEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction ABI::Windows::UI::Composition::IBackEasingFunction
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 namespace ABI {
@@ -258,21 +228,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation ABI::Windows::UI::Composition::IBooleanKeyFrameAnimation
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IBounceEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction ABI::Windows::UI::Composition::IBounceEasingFunction
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation_FWD_DEFINED__
@@ -318,21 +273,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation ABI::Windows::UI::Composition::IBounceVector3NaturalMotionAnimation
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICircleEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction ABI::Windows::UI::Composition::ICircleEasingFunction
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation_FWD_DEFINED__
@@ -739,21 +679,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICompositionEasingFunctionStatics;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics ABI::Windows::UI::Composition::ICompositionEasingFunctionStatics
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush_FWD_DEFINED__
 namespace ABI {
@@ -964,21 +889,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICompositionGraphicsDevice4;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4 ABI::Windows::UI::Composition::ICompositionGraphicsDevice4
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionLight_FWD_DEFINED__
 namespace ABI {
@@ -1173,21 +1083,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CICompositionObject4 ABI::Windows::UI::Composition::ICompositionObject4
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionObject4_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICompositionObject5;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionObject5 ABI::Windows::UI::Composition::ICompositionObject5
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionObjectFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionObjectFactory_FWD_DEFINED__
@@ -1519,21 +1414,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSpriteShape_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICompositionSupportsSystemBackdrop;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop ABI::Windows::UI::Composition::ICompositionSupportsSystemBackdrop
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionSurface_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurface_FWD_DEFINED__
 namespace ABI {
@@ -1593,21 +1473,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3 ABI::Windows::UI::Composition::ICompositionSurfaceBrush3
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICompositionSurfaceFacade;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade ABI::Windows::UI::Composition::ICompositionSurfaceFacade
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionTarget_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionTarget_FWD_DEFINED__
@@ -1819,36 +1684,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor6_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICompositor7;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7 ABI::Windows::UI::Composition::ICompositor7
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositor8_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositor8_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICompositor8;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor8 ABI::Windows::UI::Composition::ICompositor8
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor8_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
 namespace ABI {
@@ -1863,21 +1698,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CICompositorStatics ABI::Windows::UI::Composition::ICompositorStatics
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ICompositorWithBlurredWallpaperBackdropBrush;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush ABI::Windows::UI::Composition::ICompositorWithBlurredWallpaperBackdropBrush
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositorWithProjectedShadow_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositorWithProjectedShadow_FWD_DEFINED__
@@ -1969,36 +1789,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IDelegatedInkTrailVisual;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual ABI::Windows::UI::Composition::IDelegatedInkTrailVisual
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IDelegatedInkTrailVisualStatics;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics ABI::Windows::UI::Composition::IDelegatedInkTrailVisualStatics
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIDistantLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIDistantLight_FWD_DEFINED__
 namespace ABI {
@@ -2058,36 +1848,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIDropShadow2 ABI::Windows::UI::Composition::IDropShadow2
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIDropShadow2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IElasticEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction ABI::Windows::UI::Composition::IElasticEasingFunction
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IExponentialEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction ABI::Windows::UI::Composition::IExponentialEasingFunction
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation_FWD_DEFINED__
@@ -2329,21 +2089,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIPointLight3_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IPowerEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction ABI::Windows::UI::Composition::IPowerEasingFunction
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 namespace ABI {
@@ -2358,21 +2103,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation ABI::Windows::UI::Composition::IQuaternionKeyFrameAnimation
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IRectangleClip;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip ABI::Windows::UI::Composition::IRectangleClip
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIRedirectVisual_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIRedirectVisual_FWD_DEFINED__
@@ -2463,21 +2193,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIShapeVisual ABI::Windows::UI::Composition::IShapeVisual
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIShapeVisual_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface ISineEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction ABI::Windows::UI::Composition::ISineEasingFunction
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CISpotLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CISpotLight_FWD_DEFINED__
@@ -2749,36 +2464,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual2_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisual3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisual3_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IVisual3;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3 ABI::Windows::UI::Composition::IVisual3
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual3_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IVisual4;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4 ABI::Windows::UI::Composition::IVisual4
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualCollection_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIVisualCollection_FWD_DEFINED__
 namespace ABI {
@@ -2808,21 +2493,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIVisualElement ABI::Windows::UI::Composition::IVisualElement
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIVisualElement_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                interface IVisualElement2;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2 ABI::Windows::UI::Composition::IVisualElement2
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIVisualFactory_FWD_DEFINED__
@@ -2857,60 +2527,6 @@ namespace ABI {
 // Parameterized interface forward declarations (C++)
 
 // Collection interface definitions
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-#ifndef DEF___FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_USE
-#define DEF___FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("66613cdd-5076-50d6-ab32-ba76df49c410"))
-IAsyncOperation<ABI::Windows::UI::Composition::ICompositionSurface*> : IAsyncOperation_impl<ABI::Windows::UI::Composition::ICompositionSurface*>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.IAsyncOperation`1<Windows.UI.Composition.ICompositionSurface>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperation<ABI::Windows::UI::Composition::ICompositionSurface*> __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_t;
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface ABI::Windows::Foundation::__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_USE */
-
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-#ifndef DEF___FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_USE
-#define DEF___FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("daf572ee-035a-594c-b013-84bd618853cc"))
-IAsyncOperationCompletedHandler<ABI::Windows::UI::Composition::ICompositionSurface*> : IAsyncOperationCompletedHandler_impl<ABI::Windows::UI::Composition::ICompositionSurface*>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.Composition.ICompositionSurface>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperationCompletedHandler<ABI::Windows::UI::Composition::ICompositionSurface*> __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_t;
-#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface ABI::Windows::Foundation::__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_USE */
-
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
 
 #ifndef DEF___FIIterator_1_float_USE
 #define DEF___FIIterator_1_float_USE
@@ -4117,14 +3733,6 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            typedef struct Point Point;
-        } /* Foundation */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
             typedef struct Size Size;
         } /* Foundation */
     } /* Windows */
@@ -4413,16 +4021,6 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
-                typedef enum CompositionEasingFunctionMode : int CompositionEasingFunctionMode;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
                 typedef enum CompositionEffectFactoryLoadStatus : int CompositionEffectFactoryLoadStatus;
             } /* Composition */
         } /* UI */
@@ -4493,16 +4091,6 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
-                typedef struct InkTrailPoint InkTrailPoint;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
                 class AmbientLight;
             } /* Composition */
         } /* UI */
@@ -4533,27 +4121,7 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
-                class BackEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
                 class BooleanKeyFrameAnimation;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                class BounceEasingFunction;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -4584,16 +4152,6 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 class BounceVector3NaturalMotionAnimation;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                class CircleEasingFunction;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -5063,16 +4621,6 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
-                class DelegatedInkTrailVisual;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
                 class DistantLight;
             } /* Composition */
         } /* UI */
@@ -5084,26 +4632,6 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 class DropShadow;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                class ElasticEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                class ExponentialEasingFunction;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -5193,27 +4721,7 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
-                class PowerEasingFunction;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
                 class QuaternionKeyFrameAnimation;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                class RectangleClip;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -5244,16 +4752,6 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 class ShapeVisual;
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                class SineEasingFunction;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -5721,30 +5219,6 @@ namespace ABI {
 
 /*
  *
- * Struct Windows.UI.Composition.CompositionEasingFunctionMode
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                enum CompositionEasingFunctionMode : int
-                {
-                    CompositionEasingFunctionMode_In = 0,
-                    CompositionEasingFunctionMode_Out = 1,
-                    CompositionEasingFunctionMode_InOut = 2,
-                };
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Struct Windows.UI.Composition.CompositionEffectFactoryLoadStatus
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -5916,29 +5390,6 @@ namespace ABI {
 
 /*
  *
- * Struct Windows.UI.Composition.InkTrailPoint
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                struct InkTrailPoint
-                {
-                    ABI::Windows::Foundation::Point Point;
-                    FLOAT Radius;
-                };
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.UI.Composition.IAmbientLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -5966,7 +5417,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAmbientLight = __uuidof(IAmbientLight);
+                extern MIDL_CONST_ID IID& IID_IAmbientLight = _uuidof(IAmbientLight);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6005,7 +5456,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAmbientLight2 = __uuidof(IAmbientLight2);
+                extern MIDL_CONST_ID IID& IID_IAmbientLight2 = _uuidof(IAmbientLight2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6058,7 +5509,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Resume(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAnimationController = __uuidof(IAnimationController);
+                extern MIDL_CONST_ID IID& IID_IAnimationController = _uuidof(IAnimationController);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6097,7 +5548,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAnimationControllerStatics = __uuidof(IAnimationControllerStatics);
+                extern MIDL_CONST_ID IID& IID_IAnimationControllerStatics = _uuidof(IAnimationControllerStatics);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6132,7 +5583,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAnimationObject = __uuidof(IAnimationObject);
+                extern MIDL_CONST_ID IID& IID_IAnimationObject = _uuidof(IAnimationObject);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6171,7 +5622,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAnimationPropertyInfo = __uuidof(IAnimationPropertyInfo);
+                extern MIDL_CONST_ID IID& IID_IAnimationPropertyInfo = _uuidof(IAnimationPropertyInfo);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6180,84 +5631,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Interface Windows.UI.Composition.IAnimationPropertyInfo2
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.AnimationPropertyInfo
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IAnimationPropertyInfo2[] = L"Windows.UI.Composition.IAnimationPropertyInfo2";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("591720b4-7472-5218-8b39-dffe615ae6da")
-                IAnimationPropertyInfo2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE GetResolvedCompositionObject(
-                        ABI::Windows::UI::Composition::ICompositionObject** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE GetResolvedCompositionObjectProperty(
-                        HSTRING* result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IAnimationPropertyInfo2 = __uuidof(IAnimationPropertyInfo2);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.UI.Composition.IBackEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.BackEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IBackEasingFunction[] = L"Windows.UI.Composition.IBackEasingFunction";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("b8560da4-5e3c-545d-b263-7987a2bd27cb")
-                IBackEasingFunction : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Amplitude(
-                        FLOAT* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IBackEasingFunction = __uuidof(IBackEasingFunction);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -6286,7 +5659,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBooleanKeyFrameAnimation = __uuidof(IBooleanKeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IBooleanKeyFrameAnimation = _uuidof(IBooleanKeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6295,48 +5668,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Interface Windows.UI.Composition.IBounceEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.BounceEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IBounceEasingFunction[] = L"Windows.UI.Composition.IBounceEasingFunction";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("e7fdb44b-aad5-5174-9421-eef8b75a6a43")
-                IBounceEasingFunction : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Bounces(
-                        INT32* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Bounciness(
-                        FLOAT* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IBounceEasingFunction = __uuidof(IBounceEasingFunction);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -6373,7 +5704,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBounceScalarNaturalMotionAnimation = __uuidof(IBounceScalarNaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_IBounceScalarNaturalMotionAnimation = _uuidof(IBounceScalarNaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6418,7 +5749,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBounceVector2NaturalMotionAnimation = __uuidof(IBounceVector2NaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_IBounceVector2NaturalMotionAnimation = _uuidof(IBounceVector2NaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6463,7 +5794,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBounceVector3NaturalMotionAnimation = __uuidof(IBounceVector3NaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_IBounceVector3NaturalMotionAnimation = _uuidof(IBounceVector3NaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6472,42 +5803,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ICircleEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.CircleEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICircleEasingFunction[] = L"Windows.UI.Composition.ICircleEasingFunction";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("1e07222a-6f82-5a28-8748-2e92fc46ee2b")
-                ICircleEasingFunction : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICircleEasingFunction = __uuidof(ICircleEasingFunction);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -6547,7 +5842,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IColorKeyFrameAnimation = __uuidof(IColorKeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IColorKeyFrameAnimation = _uuidof(IColorKeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6620,7 +5915,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionAnimation = __uuidof(ICompositionAnimation);
+                extern MIDL_CONST_ID IID& IID_ICompositionAnimation = _uuidof(ICompositionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6663,7 +5958,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionAnimation2 = __uuidof(ICompositionAnimation2);
+                extern MIDL_CONST_ID IID& IID_ICompositionAnimation2 = _uuidof(ICompositionAnimation2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6699,7 +5994,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionAnimation3 = __uuidof(ICompositionAnimation3);
+                extern MIDL_CONST_ID IID& IID_ICompositionAnimation3 = _uuidof(ICompositionAnimation3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6736,7 +6031,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionAnimation4 = __uuidof(ICompositionAnimation4);
+                extern MIDL_CONST_ID IID& IID_ICompositionAnimation4 = _uuidof(ICompositionAnimation4);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6767,7 +6062,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionAnimationBase = __uuidof(ICompositionAnimationBase);
+                extern MIDL_CONST_ID IID& IID_ICompositionAnimationBase = _uuidof(ICompositionAnimationBase);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6800,7 +6095,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionAnimationFactory = __uuidof(ICompositionAnimationFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionAnimationFactory = _uuidof(ICompositionAnimationFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6843,7 +6138,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE RemoveAll(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionAnimationGroup = __uuidof(ICompositionAnimationGroup);
+                extern MIDL_CONST_ID IID& IID_ICompositionAnimationGroup = _uuidof(ICompositionAnimationGroup);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6876,7 +6171,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionBackdropBrush = __uuidof(ICompositionBackdropBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionBackdropBrush = _uuidof(ICompositionBackdropBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6909,7 +6204,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionBatchCompletedEventArgs = __uuidof(ICompositionBatchCompletedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ICompositionBatchCompletedEventArgs = _uuidof(ICompositionBatchCompletedEventArgs);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6942,7 +6237,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionBrush = __uuidof(ICompositionBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionBrush = _uuidof(ICompositionBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -6975,7 +6270,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionBrushFactory = __uuidof(ICompositionBrushFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionBrushFactory = _uuidof(ICompositionBrushFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7021,7 +6316,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionCapabilities = __uuidof(ICompositionCapabilities);
+                extern MIDL_CONST_ID IID& IID_ICompositionCapabilities = _uuidof(ICompositionCapabilities);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7057,7 +6352,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionCapabilitiesStatics = __uuidof(ICompositionCapabilitiesStatics);
+                extern MIDL_CONST_ID IID& IID_ICompositionCapabilitiesStatics = _uuidof(ICompositionCapabilitiesStatics);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7090,7 +6385,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionClip = __uuidof(ICompositionClip);
+                extern MIDL_CONST_ID IID& IID_ICompositionClip = _uuidof(ICompositionClip);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7165,7 +6460,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionClip2 = __uuidof(ICompositionClip2);
+                extern MIDL_CONST_ID IID& IID_ICompositionClip2 = _uuidof(ICompositionClip2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7198,7 +6493,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionClipFactory = __uuidof(ICompositionClipFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionClipFactory = _uuidof(ICompositionClipFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7237,7 +6532,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionColorBrush = __uuidof(ICompositionColorBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionColorBrush = _uuidof(ICompositionColorBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7282,7 +6577,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionColorGradientStop = __uuidof(ICompositionColorGradientStop);
+                extern MIDL_CONST_ID IID& IID_ICompositionColorGradientStop = _uuidof(ICompositionColorGradientStop);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7315,7 +6610,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionColorGradientStopCollection = __uuidof(ICompositionColorGradientStopCollection);
+                extern MIDL_CONST_ID IID& IID_ICompositionColorGradientStopCollection = _uuidof(ICompositionColorGradientStopCollection);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7361,7 +6656,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionCommitBatch = __uuidof(ICompositionCommitBatch);
+                extern MIDL_CONST_ID IID& IID_ICompositionCommitBatch = _uuidof(ICompositionCommitBatch);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7397,7 +6692,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionContainerShape = __uuidof(ICompositionContainerShape);
+                extern MIDL_CONST_ID IID& IID_ICompositionContainerShape = _uuidof(ICompositionContainerShape);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7439,7 +6734,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionDrawingSurface = __uuidof(ICompositionDrawingSurface);
+                extern MIDL_CONST_ID IID& IID_ICompositionDrawingSurface = _uuidof(ICompositionDrawingSurface);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7494,7 +6789,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionDrawingSurface2 = __uuidof(ICompositionDrawingSurface2);
+                extern MIDL_CONST_ID IID& IID_ICompositionDrawingSurface2 = _uuidof(ICompositionDrawingSurface2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7527,7 +6822,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionDrawingSurfaceFactory = __uuidof(ICompositionDrawingSurfaceFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionDrawingSurfaceFactory = _uuidof(ICompositionDrawingSurfaceFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7560,7 +6855,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionEasingFunction = __uuidof(ICompositionEasingFunction);
+                extern MIDL_CONST_ID IID& IID_ICompositionEasingFunction = _uuidof(ICompositionEasingFunction);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7593,7 +6888,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionEasingFunctionFactory = __uuidof(ICompositionEasingFunctionFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionEasingFunctionFactory = _uuidof(ICompositionEasingFunctionFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7602,100 +6897,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositionEasingFunctionStatics
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.CompositionEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionEasingFunctionStatics[] = L"Windows.UI.Composition.ICompositionEasingFunctionStatics";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("17a766b6-2936-53ea-b5af-c642f4a61083")
-                ICompositionEasingFunctionStatics : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE CreateCubicBezierEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::Foundation::Numerics::Vector2 controlPoint1,
-                        ABI::Windows::Foundation::Numerics::Vector2 controlPoint2,
-                        ABI::Windows::UI::Composition::ICubicBezierEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateLinearEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::ILinearEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateStepEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::IStepEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateStepEasingFunctionWithStepCount(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        INT32 stepCount,
-                        ABI::Windows::UI::Composition::IStepEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateBackEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
-                        FLOAT amplitude,
-                        ABI::Windows::UI::Composition::IBackEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateBounceEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
-                        INT32 bounces,
-                        FLOAT bounciness,
-                        ABI::Windows::UI::Composition::IBounceEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateCircleEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
-                        ABI::Windows::UI::Composition::ICircleEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateElasticEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
-                        INT32 oscillations,
-                        FLOAT springiness,
-                        ABI::Windows::UI::Composition::IElasticEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateExponentialEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
-                        FLOAT exponent,
-                        ABI::Windows::UI::Composition::IExponentialEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreatePowerEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
-                        FLOAT power,
-                        ABI::Windows::UI::Composition::IPowerEasingFunction** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateSineEasingFunction(
-                        ABI::Windows::UI::Composition::ICompositor* owner,
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
-                        ABI::Windows::UI::Composition::ISineEasingFunction** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICompositionEasingFunctionStatics = __uuidof(ICompositionEasingFunctionStatics);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -7728,7 +6929,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionEffectBrush = __uuidof(ICompositionEffectBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionEffectBrush = _uuidof(ICompositionEffectBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7770,7 +6971,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionEffectFactory = __uuidof(ICompositionEffectFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionEffectFactory = _uuidof(ICompositionEffectFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7806,7 +7007,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionEffectSourceParameter = __uuidof(ICompositionEffectSourceParameter);
+                extern MIDL_CONST_ID IID& IID_ICompositionEffectSourceParameter = _uuidof(ICompositionEffectSourceParameter);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7843,7 +7044,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionEffectSourceParameterFactory = __uuidof(ICompositionEffectSourceParameterFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionEffectSourceParameterFactory = _uuidof(ICompositionEffectSourceParameterFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7888,7 +7089,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionEllipseGeometry = __uuidof(ICompositionEllipseGeometry);
+                extern MIDL_CONST_ID IID& IID_ICompositionEllipseGeometry = _uuidof(ICompositionEllipseGeometry);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7933,7 +7134,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGeometricClip = __uuidof(ICompositionGeometricClip);
+                extern MIDL_CONST_ID IID& IID_ICompositionGeometricClip = _uuidof(ICompositionGeometricClip);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -7984,7 +7185,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGeometry = __uuidof(ICompositionGeometry);
+                extern MIDL_CONST_ID IID& IID_ICompositionGeometry = _uuidof(ICompositionGeometry);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8017,7 +7218,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGeometryFactory = __uuidof(ICompositionGeometryFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionGeometryFactory = _uuidof(ICompositionGeometryFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8107,7 +7308,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGradientBrush = __uuidof(ICompositionGradientBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionGradientBrush = _uuidof(ICompositionGradientBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8146,7 +7347,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGradientBrush2 = __uuidof(ICompositionGradientBrush2);
+                extern MIDL_CONST_ID IID& IID_ICompositionGradientBrush2 = _uuidof(ICompositionGradientBrush2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8179,7 +7380,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGradientBrushFactory = __uuidof(ICompositionGradientBrushFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionGradientBrushFactory = _uuidof(ICompositionGradientBrushFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8225,7 +7426,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGraphicsDevice = __uuidof(ICompositionGraphicsDevice);
+                extern MIDL_CONST_ID IID& IID_ICompositionGraphicsDevice = _uuidof(ICompositionGraphicsDevice);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8270,7 +7471,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGraphicsDevice2 = __uuidof(ICompositionGraphicsDevice2);
+                extern MIDL_CONST_ID IID& IID_ICompositionGraphicsDevice2 = _uuidof(ICompositionGraphicsDevice2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8310,7 +7511,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Trim(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionGraphicsDevice3 = __uuidof(ICompositionGraphicsDevice3);
+                extern MIDL_CONST_ID IID& IID_ICompositionGraphicsDevice3 = _uuidof(ICompositionGraphicsDevice3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8319,47 +7520,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositionGraphicsDevice4
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.CompositionGraphicsDevice
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionGraphicsDevice4[] = L"Windows.UI.Composition.ICompositionGraphicsDevice4";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("5a73bff9-a97f-4cf5-ba46-98ef358e71b1")
-                ICompositionGraphicsDevice4 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE CaptureAsync(
-                        ABI::Windows::UI::Composition::IVisual* captureVisual,
-                        ABI::Windows::Graphics::SizeInt32 size,
-                        ABI::Windows::Graphics::DirectX::DirectXPixelFormat pixelFormat,
-                        ABI::Windows::Graphics::DirectX::DirectXAlphaMode alphaMode,
-                        FLOAT sdrBoost,
-                        __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface** operation
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICompositionGraphicsDevice4 = __uuidof(ICompositionGraphicsDevice4);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -8387,7 +7547,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionLight = __uuidof(ICompositionLight);
+                extern MIDL_CONST_ID IID& IID_ICompositionLight = _uuidof(ICompositionLight);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8423,7 +7583,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionLight2 = __uuidof(ICompositionLight2);
+                extern MIDL_CONST_ID IID& IID_ICompositionLight2 = _uuidof(ICompositionLight2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8462,7 +7622,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionLight3 = __uuidof(ICompositionLight3);
+                extern MIDL_CONST_ID IID& IID_ICompositionLight3 = _uuidof(ICompositionLight3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8495,7 +7655,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionLightFactory = __uuidof(ICompositionLightFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionLightFactory = _uuidof(ICompositionLightFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8540,7 +7700,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionLineGeometry = __uuidof(ICompositionLineGeometry);
+                extern MIDL_CONST_ID IID& IID_ICompositionLineGeometry = _uuidof(ICompositionLineGeometry);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8585,7 +7745,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionLinearGradientBrush = __uuidof(ICompositionLinearGradientBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionLinearGradientBrush = _uuidof(ICompositionLinearGradientBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8630,7 +7790,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionMaskBrush = __uuidof(ICompositionMaskBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionMaskBrush = _uuidof(ICompositionMaskBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8679,7 +7839,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionMipmapSurface = __uuidof(ICompositionMipmapSurface);
+                extern MIDL_CONST_ID IID& IID_ICompositionMipmapSurface = _uuidof(ICompositionMipmapSurface);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8790,7 +7950,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionNineGridBrush = __uuidof(ICompositionNineGridBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionNineGridBrush = _uuidof(ICompositionNineGridBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8839,7 +7999,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionObject = __uuidof(ICompositionObject);
+                extern MIDL_CONST_ID IID& IID_ICompositionObject = _uuidof(ICompositionObject);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8890,7 +8050,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionObject2 = __uuidof(ICompositionObject2);
+                extern MIDL_CONST_ID IID& IID_ICompositionObject2 = _uuidof(ICompositionObject2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8926,7 +8086,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionObject3 = __uuidof(ICompositionObject3);
+                extern MIDL_CONST_ID IID& IID_ICompositionObject3 = _uuidof(ICompositionObject3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8963,7 +8123,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionObject4 = __uuidof(ICompositionObject4);
+                extern MIDL_CONST_ID IID& IID_ICompositionObject4 = _uuidof(ICompositionObject4);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8972,44 +8132,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionObject4;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionObject4_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositionObject5
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.CompositionObject
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionObject5[] = L"Windows.UI.Composition.ICompositionObject5";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("1d7f391b-a130-5265-a62b-60b8e668965a")
-                ICompositionObject5 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE StartAnimationWithController(
-                        HSTRING propertyName,
-                        ABI::Windows::UI::Composition::ICompositionAnimation* animation,
-                        ABI::Windows::UI::Composition::IAnimationController* animationController
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICompositionObject5 = __uuidof(ICompositionObject5);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionObject5;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -9034,7 +8156,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionObjectFactory = __uuidof(ICompositionObjectFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionObjectFactory = _uuidof(ICompositionObjectFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9076,7 +8198,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionObjectStatics = __uuidof(ICompositionObjectStatics);
+                extern MIDL_CONST_ID IID& IID_ICompositionObjectStatics = _uuidof(ICompositionObjectStatics);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9109,7 +8231,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionPath = __uuidof(ICompositionPath);
+                extern MIDL_CONST_ID IID& IID_ICompositionPath = _uuidof(ICompositionPath);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9146,7 +8268,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionPathFactory = __uuidof(ICompositionPathFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionPathFactory = _uuidof(ICompositionPathFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9185,7 +8307,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionPathGeometry = __uuidof(ICompositionPathGeometry);
+                extern MIDL_CONST_ID IID& IID_ICompositionPathGeometry = _uuidof(ICompositionPathGeometry);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9248,7 +8370,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionProjectedShadow = __uuidof(ICompositionProjectedShadow);
+                extern MIDL_CONST_ID IID& IID_ICompositionProjectedShadow = _uuidof(ICompositionProjectedShadow);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9293,7 +8415,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionProjectedShadowCaster = __uuidof(ICompositionProjectedShadowCaster);
+                extern MIDL_CONST_ID IID& IID_ICompositionProjectedShadowCaster = _uuidof(ICompositionProjectedShadowCaster);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9347,7 +8469,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE RemoveAll(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionProjectedShadowCasterCollection = __uuidof(ICompositionProjectedShadowCasterCollection);
+                extern MIDL_CONST_ID IID& IID_ICompositionProjectedShadowCasterCollection = _uuidof(ICompositionProjectedShadowCasterCollection);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9383,7 +8505,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionProjectedShadowCasterCollectionStatics = __uuidof(ICompositionProjectedShadowCasterCollectionStatics);
+                extern MIDL_CONST_ID IID& IID_ICompositionProjectedShadowCasterCollectionStatics = _uuidof(ICompositionProjectedShadowCasterCollectionStatics);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9422,7 +8544,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionProjectedShadowReceiver = __uuidof(ICompositionProjectedShadowReceiver);
+                extern MIDL_CONST_ID IID& IID_ICompositionProjectedShadowReceiver = _uuidof(ICompositionProjectedShadowReceiver);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9465,7 +8587,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE RemoveAll(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionProjectedShadowReceiverUnorderedCollection = __uuidof(ICompositionProjectedShadowReceiverUnorderedCollection);
+                extern MIDL_CONST_ID IID& IID_ICompositionProjectedShadowReceiverUnorderedCollection = _uuidof(ICompositionProjectedShadowReceiverUnorderedCollection);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9570,7 +8692,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionPropertySet = __uuidof(ICompositionPropertySet);
+                extern MIDL_CONST_ID IID& IID_ICompositionPropertySet = _uuidof(ICompositionPropertySet);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9612,7 +8734,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionPropertySet2 = __uuidof(ICompositionPropertySet2);
+                extern MIDL_CONST_ID IID& IID_ICompositionPropertySet2 = _uuidof(ICompositionPropertySet2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9663,7 +8785,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionRadialGradientBrush = __uuidof(ICompositionRadialGradientBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionRadialGradientBrush = _uuidof(ICompositionRadialGradientBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9708,7 +8830,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionRectangleGeometry = __uuidof(ICompositionRectangleGeometry);
+                extern MIDL_CONST_ID IID& IID_ICompositionRectangleGeometry = _uuidof(ICompositionRectangleGeometry);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9759,7 +8881,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionRoundedRectangleGeometry = __uuidof(ICompositionRoundedRectangleGeometry);
+                extern MIDL_CONST_ID IID& IID_ICompositionRoundedRectangleGeometry = _uuidof(ICompositionRoundedRectangleGeometry);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9808,7 +8930,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionScopedBatch = __uuidof(ICompositionScopedBatch);
+                extern MIDL_CONST_ID IID& IID_ICompositionScopedBatch = _uuidof(ICompositionScopedBatch);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9841,7 +8963,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionShadow = __uuidof(ICompositionShadow);
+                extern MIDL_CONST_ID IID& IID_ICompositionShadow = _uuidof(ICompositionShadow);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9874,7 +8996,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionShadowFactory = __uuidof(ICompositionShadowFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionShadowFactory = _uuidof(ICompositionShadowFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9943,7 +9065,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionShape = __uuidof(ICompositionShape);
+                extern MIDL_CONST_ID IID& IID_ICompositionShape = _uuidof(ICompositionShape);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -9976,7 +9098,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionShapeFactory = __uuidof(ICompositionShapeFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionShapeFactory = _uuidof(ICompositionShapeFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10078,7 +9200,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionSpriteShape = __uuidof(ICompositionSpriteShape);
+                extern MIDL_CONST_ID IID& IID_ICompositionSpriteShape = _uuidof(ICompositionSpriteShape);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10087,43 +9209,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSpriteShape;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSpriteShape_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositionSupportsSystemBackdrop
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionSupportsSystemBackdrop[] = L"Windows.UI.Composition.ICompositionSupportsSystemBackdrop";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("397dafe4-b6c2-5bb9-951d-f5707de8b7bc")
-                ICompositionSupportsSystemBackdrop : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_SystemBackdrop(
-                        ABI::Windows::UI::Composition::ICompositionBrush** value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_SystemBackdrop(
-                        ABI::Windows::UI::Composition::ICompositionBrush* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICompositionSupportsSystemBackdrop = __uuidof(ICompositionSupportsSystemBackdrop);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *
@@ -10146,7 +9231,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionSurface = __uuidof(ICompositionSurface);
+                extern MIDL_CONST_ID IID& IID_ICompositionSurface = _uuidof(ICompositionSurface);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10209,7 +9294,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionSurfaceBrush = __uuidof(ICompositionSurfaceBrush);
+                extern MIDL_CONST_ID IID& IID_ICompositionSurfaceBrush = _uuidof(ICompositionSurfaceBrush);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10284,7 +9369,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionSurfaceBrush2 = __uuidof(ICompositionSurfaceBrush2);
+                extern MIDL_CONST_ID IID& IID_ICompositionSurfaceBrush2 = _uuidof(ICompositionSurfaceBrush2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10323,7 +9408,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionSurfaceBrush3 = __uuidof(ICompositionSurfaceBrush3);
+                extern MIDL_CONST_ID IID& IID_ICompositionSurfaceBrush3 = _uuidof(ICompositionSurfaceBrush3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10332,40 +9417,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositionSurfaceFacade
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionSurfaceFacade[] = L"Windows.UI.Composition.ICompositionSurfaceFacade";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("e01622c8-2332-55c7-8868-a7312c5c229d")
-                ICompositionSurfaceFacade : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE GetRealSurface(
-                        ABI::Windows::UI::Composition::ICompositionSurface** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICompositionSurfaceFacade = __uuidof(ICompositionSurfaceFacade);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -10396,7 +9447,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionTarget = __uuidof(ICompositionTarget);
+                extern MIDL_CONST_ID IID& IID_ICompositionTarget = _uuidof(ICompositionTarget);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10429,7 +9480,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionTargetFactory = __uuidof(ICompositionTargetFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionTargetFactory = _uuidof(ICompositionTargetFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10462,7 +9513,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionTransform = __uuidof(ICompositionTransform);
+                extern MIDL_CONST_ID IID& IID_ICompositionTransform = _uuidof(ICompositionTransform);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10495,7 +9546,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionTransformFactory = __uuidof(ICompositionTransformFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionTransformFactory = _uuidof(ICompositionTransformFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10558,7 +9609,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionViewBox = __uuidof(ICompositionViewBox);
+                extern MIDL_CONST_ID IID& IID_ICompositionViewBox = _uuidof(ICompositionViewBox);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10595,7 +9646,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionVirtualDrawingSurface = __uuidof(ICompositionVirtualDrawingSurface);
+                extern MIDL_CONST_ID IID& IID_ICompositionVirtualDrawingSurface = _uuidof(ICompositionVirtualDrawingSurface);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10628,7 +9679,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionVirtualDrawingSurfaceFactory = __uuidof(ICompositionVirtualDrawingSurfaceFactory);
+                extern MIDL_CONST_ID IID& IID_ICompositionVirtualDrawingSurfaceFactory = _uuidof(ICompositionVirtualDrawingSurfaceFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10679,7 +9730,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositionVisualSurface = __uuidof(ICompositionVisualSurface);
+                extern MIDL_CONST_ID IID& IID_ICompositionVisualSurface = _uuidof(ICompositionVisualSurface);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10798,7 +9849,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositor = __uuidof(ICompositor);
+                extern MIDL_CONST_ID IID& IID_ICompositor = _uuidof(ICompositor);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10871,7 +9922,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositor2 = __uuidof(ICompositor2);
+                extern MIDL_CONST_ID IID& IID_ICompositor2 = _uuidof(ICompositor2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10907,7 +9958,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositor3 = __uuidof(ICompositor3);
+                extern MIDL_CONST_ID IID& IID_ICompositor3 = _uuidof(ICompositor3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -10960,7 +10011,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositor4 = __uuidof(ICompositor4);
+                extern MIDL_CONST_ID IID& IID_ICompositor4 = _uuidof(ICompositor4);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11055,7 +10106,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositor5 = __uuidof(ICompositor5);
+                extern MIDL_CONST_ID IID& IID_ICompositor5 = _uuidof(ICompositor5);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11105,7 +10156,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositor6 = __uuidof(ICompositor6);
+                extern MIDL_CONST_ID IID& IID_ICompositor6 = _uuidof(ICompositor6);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11114,102 +10165,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor6;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor6_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositor7
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Compositor
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositor7[] = L"Windows.UI.Composition.ICompositor7";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("d3483fad-9a12-53ba-bfc8-88b7ff7977c6")
-                ICompositor7 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_DispatcherQueue(
-                        ABI::Windows::System::IDispatcherQueue** value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateAnimationPropertyInfo(
-                        ABI::Windows::UI::Composition::IAnimationPropertyInfo** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateRectangleClip(
-                        ABI::Windows::UI::Composition::IRectangleClip** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateRectangleClipWithSides(
-                        FLOAT left,
-                        FLOAT top,
-                        FLOAT right,
-                        FLOAT bottom,
-                        ABI::Windows::UI::Composition::IRectangleClip** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateRectangleClipWithSidesAndRadius(
-                        FLOAT left,
-                        FLOAT top,
-                        FLOAT right,
-                        FLOAT bottom,
-                        ABI::Windows::Foundation::Numerics::Vector2 topLeftRadius,
-                        ABI::Windows::Foundation::Numerics::Vector2 topRightRadius,
-                        ABI::Windows::Foundation::Numerics::Vector2 bottomRightRadius,
-                        ABI::Windows::Foundation::Numerics::Vector2 bottomLeftRadius,
-                        ABI::Windows::UI::Composition::IRectangleClip** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICompositor7 = __uuidof(ICompositor7);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor7;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositor8
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Compositor
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor8_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositor8_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositor8[] = L"Windows.UI.Composition.ICompositor8";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("9a0bdee2-fe7b-5f62-a366-9cf8effe2112")
-                ICompositor8 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE CreateAnimationController(
-                        ABI::Windows::UI::Composition::IAnimationController** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICompositor8 = __uuidof(ICompositor8);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor8;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor8_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -11240,7 +10195,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositorStatics = __uuidof(ICompositorStatics);
+                extern MIDL_CONST_ID IID& IID_ICompositorStatics = _uuidof(ICompositorStatics);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11249,42 +10204,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositorStatics;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositorWithBlurredWallpaperBackdropBrush
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Compositor
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositorWithBlurredWallpaperBackdropBrush[] = L"Windows.UI.Composition.ICompositorWithBlurredWallpaperBackdropBrush";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("0d8fb190-f122-5b8d-9fdd-543b0d8eb7f3")
-                ICompositorWithBlurredWallpaperBackdropBrush : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE TryCreateBlurredWallpaperBackdropBrush(
-                        ABI::Windows::UI::Composition::ICompositionBackdropBrush** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ICompositorWithBlurredWallpaperBackdropBrush = __uuidof(ICompositorWithBlurredWallpaperBackdropBrush);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *
@@ -11318,7 +10237,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositorWithProjectedShadow = __uuidof(ICompositorWithProjectedShadow);
+                extern MIDL_CONST_ID IID& IID_ICompositorWithProjectedShadow = _uuidof(ICompositorWithProjectedShadow);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11354,7 +10273,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositorWithRadialGradient = __uuidof(ICompositorWithRadialGradient);
+                extern MIDL_CONST_ID IID& IID_ICompositorWithRadialGradient = _uuidof(ICompositorWithRadialGradient);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11390,7 +10309,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICompositorWithVisualSurface = __uuidof(ICompositorWithVisualSurface);
+                extern MIDL_CONST_ID IID& IID_ICompositorWithVisualSurface = _uuidof(ICompositorWithVisualSurface);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11426,7 +10345,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContainerVisual = __uuidof(IContainerVisual);
+                extern MIDL_CONST_ID IID& IID_IContainerVisual = _uuidof(IContainerVisual);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11459,7 +10378,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IContainerVisualFactory = __uuidof(IContainerVisualFactory);
+                extern MIDL_CONST_ID IID& IID_IContainerVisualFactory = _uuidof(IContainerVisualFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11498,7 +10417,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICubicBezierEasingFunction = __uuidof(ICubicBezierEasingFunction);
+                extern MIDL_CONST_ID IID& IID_ICubicBezierEasingFunction = _uuidof(ICubicBezierEasingFunction);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11507,99 +10426,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Interface Windows.UI.Composition.IDelegatedInkTrailVisual
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.DelegatedInkTrailVisual
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IDelegatedInkTrailVisual[] = L"Windows.UI.Composition.IDelegatedInkTrailVisual";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("856e60b1-e1ab-5b23-8e3d-d513f221c998")
-                IDelegatedInkTrailVisual : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE AddTrailPoints(
-                        UINT32 inkPointsLength,
-                        ABI::Windows::UI::Composition::InkTrailPoint* inkPoints,
-                        UINT32* result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE AddTrailPointsWithPrediction(
-                        UINT32 inkPointsLength,
-                        ABI::Windows::UI::Composition::InkTrailPoint* inkPoints,
-                        UINT32 predictedInkPointsLength,
-                        ABI::Windows::UI::Composition::InkTrailPoint* predictedInkPoints,
-                        UINT32* result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE RemoveTrailPoints(
-                        UINT32 generationId
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE StartNewTrail(
-                        ABI::Windows::UI::Color color
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IDelegatedInkTrailVisual = __uuidof(IDelegatedInkTrailVisual);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.UI.Composition.IDelegatedInkTrailVisualStatics
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.DelegatedInkTrailVisual
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IDelegatedInkTrailVisualStatics[] = L"Windows.UI.Composition.IDelegatedInkTrailVisualStatics";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("0daf6bd5-42c6-555c-9267-e0ac663af836")
-                IDelegatedInkTrailVisualStatics : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE Create(
-                        ABI::Windows::UI::Composition::ICompositor* compositor,
-                        ABI::Windows::UI::Composition::IDelegatedInkTrailVisual** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateForSwapChain(
-                        ABI::Windows::UI::Composition::ICompositor* compositor,
-                        ABI::Windows::UI::Composition::ICompositionSurface* swapChain,
-                        ABI::Windows::UI::Composition::IDelegatedInkTrailVisual** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IDelegatedInkTrailVisualStatics = __uuidof(IDelegatedInkTrailVisualStatics);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -11642,7 +10468,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDistantLight = __uuidof(IDistantLight);
+                extern MIDL_CONST_ID IID& IID_IDistantLight = _uuidof(IDistantLight);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11681,7 +10507,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDistantLight2 = __uuidof(IDistantLight2);
+                extern MIDL_CONST_ID IID& IID_IDistantLight2 = _uuidof(IDistantLight2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11744,7 +10570,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDropShadow = __uuidof(IDropShadow);
+                extern MIDL_CONST_ID IID& IID_IDropShadow = _uuidof(IDropShadow);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11783,7 +10609,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDropShadow2 = __uuidof(IDropShadow2);
+                extern MIDL_CONST_ID IID& IID_IDropShadow2 = _uuidof(IDropShadow2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11792,87 +10618,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDropShadow2;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDropShadow2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
-
-/*
- *
- * Interface Windows.UI.Composition.IElasticEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.ElasticEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IElasticEasingFunction[] = L"Windows.UI.Composition.IElasticEasingFunction";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("66de6285-054e-5594-8475-c22cb51f1bd5")
-                IElasticEasingFunction : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Oscillations(
-                        INT32* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Springiness(
-                        FLOAT* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IElasticEasingFunction = __uuidof(IElasticEasingFunction);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.UI.Composition.IExponentialEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.ExponentialEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IExponentialEasingFunction[] = L"Windows.UI.Composition.IExponentialEasingFunction";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("6f7d1a51-98d2-5638-a34a-00486554c750")
-                IExponentialEasingFunction : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Exponent(
-                        FLOAT* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IExponentialEasingFunction = __uuidof(IExponentialEasingFunction);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -11903,7 +10648,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IExpressionAnimation = __uuidof(IExpressionAnimation);
+                extern MIDL_CONST_ID IID& IID_IExpressionAnimation = _uuidof(IExpressionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11936,7 +10681,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IImplicitAnimationCollection = __uuidof(IImplicitAnimationCollection);
+                extern MIDL_CONST_ID IID& IID_IImplicitAnimationCollection = _uuidof(IImplicitAnimationCollection);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -11993,7 +10738,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInsetClip = __uuidof(IInsetClip);
+                extern MIDL_CONST_ID IID& IID_IInsetClip = _uuidof(IInsetClip);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12068,7 +10813,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IKeyFrameAnimation = __uuidof(IKeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IKeyFrameAnimation = _uuidof(IKeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12107,7 +10852,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IKeyFrameAnimation2 = __uuidof(IKeyFrameAnimation2);
+                extern MIDL_CONST_ID IID& IID_IKeyFrameAnimation2 = _uuidof(IKeyFrameAnimation2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12146,7 +10891,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IKeyFrameAnimation3 = __uuidof(IKeyFrameAnimation3);
+                extern MIDL_CONST_ID IID& IID_IKeyFrameAnimation3 = _uuidof(IKeyFrameAnimation3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12179,7 +10924,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IKeyFrameAnimationFactory = __uuidof(IKeyFrameAnimationFactory);
+                extern MIDL_CONST_ID IID& IID_IKeyFrameAnimationFactory = _uuidof(IKeyFrameAnimationFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12218,7 +10963,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILayerVisual = __uuidof(ILayerVisual);
+                extern MIDL_CONST_ID IID& IID_ILayerVisual = _uuidof(ILayerVisual);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12257,7 +11002,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILayerVisual2 = __uuidof(ILayerVisual2);
+                extern MIDL_CONST_ID IID& IID_ILayerVisual2 = _uuidof(ILayerVisual2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12290,7 +11035,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_ILinearEasingFunction = __uuidof(ILinearEasingFunction);
+                extern MIDL_CONST_ID IID& IID_ILinearEasingFunction = _uuidof(ILinearEasingFunction);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12341,7 +11086,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_INaturalMotionAnimation = __uuidof(INaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_INaturalMotionAnimation = _uuidof(INaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12374,7 +11119,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_INaturalMotionAnimationFactory = __uuidof(INaturalMotionAnimationFactory);
+                extern MIDL_CONST_ID IID& IID_INaturalMotionAnimationFactory = _uuidof(INaturalMotionAnimationFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12416,7 +11161,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPathKeyFrameAnimation = __uuidof(IPathKeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IPathKeyFrameAnimation = _uuidof(IPathKeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12485,7 +11230,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPointLight = __uuidof(IPointLight);
+                extern MIDL_CONST_ID IID& IID_IPointLight = _uuidof(IPointLight);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12524,7 +11269,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPointLight2 = __uuidof(IPointLight2);
+                extern MIDL_CONST_ID IID& IID_IPointLight2 = _uuidof(IPointLight2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12569,7 +11314,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPointLight3 = __uuidof(IPointLight3);
+                extern MIDL_CONST_ID IID& IID_IPointLight3 = _uuidof(IPointLight3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12578,45 +11323,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIPointLight3;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIPointLight3_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.IPowerEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.PowerEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IPowerEasingFunction[] = L"Windows.UI.Composition.IPowerEasingFunction";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("c3ff53d6-138b-5815-891a-b7f615ccc563")
-                IPowerEasingFunction : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Power(
-                        FLOAT* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IPowerEasingFunction = __uuidof(IPowerEasingFunction);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -12650,7 +11356,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IQuaternionKeyFrameAnimation = __uuidof(IQuaternionKeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IQuaternionKeyFrameAnimation = _uuidof(IQuaternionKeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12659,87 +11365,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Interface Windows.UI.Composition.IRectangleClip
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.RectangleClip
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IRectangleClip[] = L"Windows.UI.Composition.IRectangleClip";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("b3e7549e-00b4-5b53-8be8-353f6c433101")
-                IRectangleClip : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Bottom(
-                        FLOAT* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Bottom(
-                        FLOAT value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_BottomLeftRadius(
-                        ABI::Windows::Foundation::Numerics::Vector2* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_BottomLeftRadius(
-                        ABI::Windows::Foundation::Numerics::Vector2 value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_BottomRightRadius(
-                        ABI::Windows::Foundation::Numerics::Vector2* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_BottomRightRadius(
-                        ABI::Windows::Foundation::Numerics::Vector2 value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Left(
-                        FLOAT* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Left(
-                        FLOAT value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Right(
-                        FLOAT* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Right(
-                        FLOAT value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Top(
-                        FLOAT* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Top(
-                        FLOAT value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_TopLeftRadius(
-                        ABI::Windows::Foundation::Numerics::Vector2* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_TopLeftRadius(
-                        ABI::Windows::Foundation::Numerics::Vector2 value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_TopRightRadius(
-                        ABI::Windows::Foundation::Numerics::Vector2* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_TopRightRadius(
-                        ABI::Windows::Foundation::Numerics::Vector2 value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IRectangleClip = __uuidof(IRectangleClip);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIRectangleClip;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -12770,7 +11395,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRedirectVisual = __uuidof(IRedirectVisual);
+                extern MIDL_CONST_ID IID& IID_IRedirectVisual = _uuidof(IRedirectVisual);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12806,7 +11431,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRenderingDeviceReplacedEventArgs = __uuidof(IRenderingDeviceReplacedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IRenderingDeviceReplacedEventArgs = _uuidof(IRenderingDeviceReplacedEventArgs);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12848,7 +11473,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IScalarKeyFrameAnimation = __uuidof(IScalarKeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IScalarKeyFrameAnimation = _uuidof(IScalarKeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12899,7 +11524,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IScalarNaturalMotionAnimation = __uuidof(IScalarNaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_IScalarNaturalMotionAnimation = _uuidof(IScalarNaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12932,7 +11557,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IScalarNaturalMotionAnimationFactory = __uuidof(IScalarNaturalMotionAnimationFactory);
+                extern MIDL_CONST_ID IID& IID_IScalarNaturalMotionAnimationFactory = _uuidof(IScalarNaturalMotionAnimationFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12974,7 +11599,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IShapeVisual = __uuidof(IShapeVisual);
+                extern MIDL_CONST_ID IID& IID_IShapeVisual = _uuidof(IShapeVisual);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -12983,42 +11608,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIShapeVisual;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIShapeVisual_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ISineEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.SineEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ISineEasingFunction[] = L"Windows.UI.Composition.ISineEasingFunction";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("f1b518bf-9563-5474-bd13-44b2df4b1d58")
-                ISineEasingFunction : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
-                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ISineEasingFunction = __uuidof(ISineEasingFunction);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CISineEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -13115,7 +11704,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpotLight = __uuidof(ISpotLight);
+                extern MIDL_CONST_ID IID& IID_ISpotLight = _uuidof(ISpotLight);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13160,7 +11749,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpotLight2 = __uuidof(ISpotLight2);
+                extern MIDL_CONST_ID IID& IID_ISpotLight2 = _uuidof(ISpotLight2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13205,7 +11794,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpotLight3 = __uuidof(ISpotLight3);
+                extern MIDL_CONST_ID IID& IID_ISpotLight3 = _uuidof(ISpotLight3);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13250,7 +11839,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpringScalarNaturalMotionAnimation = __uuidof(ISpringScalarNaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_ISpringScalarNaturalMotionAnimation = _uuidof(ISpringScalarNaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13295,7 +11884,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpringVector2NaturalMotionAnimation = __uuidof(ISpringVector2NaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_ISpringVector2NaturalMotionAnimation = _uuidof(ISpringVector2NaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13340,7 +11929,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpringVector3NaturalMotionAnimation = __uuidof(ISpringVector3NaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_ISpringVector3NaturalMotionAnimation = _uuidof(ISpringVector3NaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13379,7 +11968,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpriteVisual = __uuidof(ISpriteVisual);
+                extern MIDL_CONST_ID IID& IID_ISpriteVisual = _uuidof(ISpriteVisual);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13418,7 +12007,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpriteVisual2 = __uuidof(ISpriteVisual2);
+                extern MIDL_CONST_ID IID& IID_ISpriteVisual2 = _uuidof(ISpriteVisual2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13481,7 +12070,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IStepEasingFunction = __uuidof(IStepEasingFunction);
+                extern MIDL_CONST_ID IID& IID_IStepEasingFunction = _uuidof(IStepEasingFunction);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13523,7 +12112,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVector2KeyFrameAnimation = __uuidof(IVector2KeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IVector2KeyFrameAnimation = _uuidof(IVector2KeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13574,7 +12163,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVector2NaturalMotionAnimation = __uuidof(IVector2NaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_IVector2NaturalMotionAnimation = _uuidof(IVector2NaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13607,7 +12196,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IVector2NaturalMotionAnimationFactory = __uuidof(IVector2NaturalMotionAnimationFactory);
+                extern MIDL_CONST_ID IID& IID_IVector2NaturalMotionAnimationFactory = _uuidof(IVector2NaturalMotionAnimationFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13649,7 +12238,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVector3KeyFrameAnimation = __uuidof(IVector3KeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IVector3KeyFrameAnimation = _uuidof(IVector3KeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13700,7 +12289,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVector3NaturalMotionAnimation = __uuidof(IVector3NaturalMotionAnimation);
+                extern MIDL_CONST_ID IID& IID_IVector3NaturalMotionAnimation = _uuidof(IVector3NaturalMotionAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13733,7 +12322,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IVector3NaturalMotionAnimationFactory = __uuidof(IVector3NaturalMotionAnimationFactory);
+                extern MIDL_CONST_ID IID& IID_IVector3NaturalMotionAnimationFactory = _uuidof(IVector3NaturalMotionAnimationFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13775,7 +12364,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVector4KeyFrameAnimation = __uuidof(IVector4KeyFrameAnimation);
+                extern MIDL_CONST_ID IID& IID_IVector4KeyFrameAnimation = _uuidof(IVector4KeyFrameAnimation);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13907,7 +12496,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVisual = __uuidof(IVisual);
+                extern MIDL_CONST_ID IID& IID_IVisual = _uuidof(IVisual);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13958,7 +12547,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVisual2 = __uuidof(IVisual2);
+                extern MIDL_CONST_ID IID& IID_IVisual2 = _uuidof(IVisual2);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -13967,84 +12556,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual2;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
-
-/*
- *
- * Interface Windows.UI.Composition.IVisual3
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Visual
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisual3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisual3[] = L"Windows.UI.Composition.IVisual3";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("30be580d-f4b6-4ab7-80dd-3738cbac9f2c")
-                IVisual3 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_IsHitTestVisible(
-                        boolean* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_IsHitTestVisible(
-                        boolean value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IVisual3 = __uuidof(IVisual3);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual3;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-
-/*
- *
- * Interface Windows.UI.Composition.IVisual4
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Visual
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisual4[] = L"Windows.UI.Composition.IVisual4";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("9476bf11-e24b-5bf9-9ebe-6274109b2711")
-                IVisual4 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_IsPixelSnappingEnabled(
-                        boolean* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_IsPixelSnappingEnabled(
-                        boolean value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IVisual4 = __uuidof(IVisual4);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual4;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -14090,7 +12601,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE RemoveAll(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVisualCollection = __uuidof(IVisualCollection);
+                extern MIDL_CONST_ID IID& IID_IVisualCollection = _uuidof(IVisualCollection);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -14121,7 +12632,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IVisualElement = __uuidof(IVisualElement);
+                extern MIDL_CONST_ID IID& IID_IVisualElement = _uuidof(IVisualElement);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -14130,40 +12641,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisualElement;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-/*
- *
- * Interface Windows.UI.Composition.IVisualElement2
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisualElement2[] = L"Windows.UI.Composition.IVisualElement2";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Composition {
-                MIDL_INTERFACE("993ae8a0-6057-5e40-918c-e06e0b7e7c64")
-                IVisualElement2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE GetVisualInternal(
-                        ABI::Windows::UI::Composition::IVisual** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IVisualElement2 = __uuidof(IVisualElement2);
-            } /* Composition */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisualElement2;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -14188,7 +12665,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IVisualFactory = __uuidof(IVisualFactory);
+                extern MIDL_CONST_ID IID& IID_IVisualFactory = _uuidof(IVisualFactory);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -14231,7 +12708,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE RemoveAll(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVisualUnorderedCollection = __uuidof(IVisualUnorderedCollection);
+                extern MIDL_CONST_ID IID& IID_IVisualUnorderedCollection = _uuidof(IVisualUnorderedCollection);
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -14295,7 +12772,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.IAnimationPropertyInfo ** Default Interface **
- *    Windows.UI.Composition.IAnimationPropertyInfo2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -14308,27 +12784,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_AnimationPropertyInfo[] = L"Windows.UI.Composition.AnimationPropertyInfo";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Class Windows.UI.Composition.BackEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IBackEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_BackEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_BackEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BackEasingFunction[] = L"Windows.UI.Composition.BackEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -14350,27 +12805,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BooleanKeyFrameAnimation[] = L"Windows.UI.Composition.BooleanKeyFrameAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Class Windows.UI.Composition.BounceEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IBounceEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_BounceEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_BounceEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BounceEasingFunction[] = L"Windows.UI.Composition.BounceEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -14434,27 +12868,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BounceVector3NaturalMotionAnimation[] = L"Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Class Windows.UI.Composition.CircleEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.ICircleEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_CircleEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_CircleEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_CircleEasingFunction[] = L"Windows.UI.Composition.CircleEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -14768,9 +13181,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
  *
- * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.Composition.ICompositionEasingFunctionStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
- *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.ICompositionEasingFunction ** Default Interface **
  *
@@ -14948,7 +13358,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositionGraphicsDevice ** Default Interface **
  *    Windows.UI.Composition.ICompositionGraphicsDevice2
  *    Windows.UI.Composition.ICompositionGraphicsDevice3
- *    Windows.UI.Composition.ICompositionGraphicsDevice4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -15105,7 +13514,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositionObject2
  *    Windows.UI.Composition.ICompositionObject3
  *    Windows.UI.Composition.ICompositionObject4
- *    Windows.UI.Composition.ICompositionObject5
  *    Windows.Foundation.IClosable
  *    Windows.UI.Composition.IAnimationObject
  *
@@ -15641,9 +14049,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositorWithProjectedShadow
  *    Windows.UI.Composition.ICompositorWithRadialGradient
  *    Windows.UI.Composition.ICompositorWithVisualSurface
- *    Windows.UI.Composition.ICompositor7
- *    Windows.UI.Composition.ICompositorWithBlurredWallpaperBackdropBrush
- *    Windows.UI.Composition.ICompositor8
  *    Windows.Foundation.IClosable
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -15702,30 +14107,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.UI.Composition.DelegatedInkTrailVisual
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.Composition.IDelegatedInkTrailVisualStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IDelegatedInkTrailVisual ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_DelegatedInkTrailVisual_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_DelegatedInkTrailVisual_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_DelegatedInkTrailVisual[] = L"Windows.UI.Composition.DelegatedInkTrailVisual";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.UI.Composition.DistantLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -15767,48 +14148,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_DropShadow[] = L"Windows.UI.Composition.DropShadow";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Class Windows.UI.Composition.ElasticEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IElasticEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_ElasticEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_ElasticEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ElasticEasingFunction[] = L"Windows.UI.Composition.ElasticEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Class Windows.UI.Composition.ExponentialEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IExponentialEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_ExponentialEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_ExponentialEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ExponentialEasingFunction[] = L"Windows.UI.Composition.ExponentialEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -16030,27 +14369,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.UI.Composition.PowerEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IPowerEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_PowerEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_PowerEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_PowerEasingFunction[] = L"Windows.UI.Composition.PowerEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.UI.Composition.QuaternionKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -16069,27 +14387,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_QuaternionKeyFrameAnimation[] = L"Windows.UI.Composition.QuaternionKeyFrameAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Class Windows.UI.Composition.RectangleClip
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IRectangleClip ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_RectangleClip_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_RectangleClip_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_RectangleClip[] = L"Windows.UI.Composition.RectangleClip";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -16195,27 +14492,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ShapeVisual[] = L"Windows.UI.Composition.ShapeVisual";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Class Windows.UI.Composition.SineEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.ISineEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_SineEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_SineEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_SineEasingFunction[] = L"Windows.UI.Composition.SineEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -16460,8 +14736,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.UI.Composition.IVisual ** Default Interface **
  *    Windows.UI.Composition.IVisual2
- *    Windows.UI.Composition.IVisual3
- *    Windows.UI.Composition.IVisual4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -16557,29 +14831,11 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo __x_
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2 __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation_FWD_DEFINED__
@@ -16598,12 +14854,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIBounceVector2NaturalMotion
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation_FWD_DEFINED__
@@ -16767,12 +15017,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionF
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush __x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush;
@@ -16857,12 +15101,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4 __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionLight_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionLight __x_ABI_CWindows_CUI_CComposition_CICompositionLight;
@@ -16940,12 +15178,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionObject3 __x_ABI
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionObject4 __x_ABI_CWindows_CUI_CComposition_CICompositionObject4;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionObject4_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionObject5 __x_ABI_CWindows_CUI_CComposition_CICompositionObject5;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionObjectFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionObjectFactory_FWD_DEFINED__
@@ -17079,12 +15311,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionSpriteShape __x
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSpriteShape_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionSurface_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurface_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurface __x_ABI_CWindows_CUI_CComposition_CICompositionSurface;
@@ -17108,12 +15334,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush2 _
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3 __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionTarget_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionTarget_FWD_DEFINED__
@@ -17199,29 +15419,11 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositor6 __x_ABI_CWindo
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor6_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositor7 __x_ABI_CWindows_CUI_CComposition_CICompositor7;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositor8_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositor8_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositor8 __x_ABI_CWindows_CUI_CComposition_CICompositor8;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor8_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositorStatics __x_ABI_CWindows_CUI_CComposition_CICompositorStatics;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositorWithProjectedShadow_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositorWithProjectedShadow_FWD_DEFINED__
@@ -17259,18 +15461,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction 
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIDistantLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIDistantLight_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIDistantLight __x_ABI_CWindows_CUI_CComposition_CIDistantLight;
@@ -17294,18 +15484,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIDropShadow __x_ABI_CWindow
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIDropShadow2 __x_ABI_CWindows_CUI_CComposition_CIDropShadow2;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIDropShadow2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation_FWD_DEFINED__
@@ -17403,23 +15581,11 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIPointLight3 __x_ABI_CWindo
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIPointLight3_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation __x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIRectangleClip __x_ABI_CWindows_CUI_CComposition_CIRectangleClip;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIRedirectVisual_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIRedirectVisual_FWD_DEFINED__
@@ -17456,12 +15622,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIScalarNaturalMotionAnimati
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIShapeVisual __x_ABI_CWindows_CUI_CComposition_CIShapeVisual;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIShapeVisual_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CISpotLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CISpotLight_FWD_DEFINED__
@@ -17571,18 +15731,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisual2 __x_ABI_CWindows_C
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual2_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisual3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisual3_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisual3 __x_ABI_CWindows_CUI_CComposition_CIVisual3;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual3_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisual4 __x_ABI_CWindows_CUI_CComposition_CIVisual4;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualCollection_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIVisualCollection_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualCollection __x_ABI_CWindows_CUI_CComposition_CIVisualCollection;
@@ -17594,12 +15742,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualCollection __x_ABI_C
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualElement __x_ABI_CWindows_CUI_CComposition_CIVisualElement;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIVisualElement_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualElement2 __x_ABI_CWindows_CUI_CComposition_CIVisualElement2;
-
-#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIVisualFactory_FWD_DEFINED__
@@ -17616,131 +15758,6 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualUnorderedCollection 
 // Parameterized interface forward declarations (C)
 
 // Collection interface definitions
-
-typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface;
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-#if !defined(____FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__)
-#define ____FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface;
-
-typedef struct __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* put_Completed)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* handler);
-    HRESULT (STDMETHODCALLTYPE* get_Completed)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface** result);
-    HRESULT (STDMETHODCALLTYPE* GetResults)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositionSurface** result);
-
-    END_INTERFACE
-} __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl;
-
-interface __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface
-{
-    CONST_VTBL struct __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_put_Completed(This, handler) \
-    ((This)->lpVtbl->put_Completed(This, handler))
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_get_Completed(This, result) \
-    ((This)->lpVtbl->get_Completed(This, result))
-
-#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_GetResults(This, result) \
-    ((This)->lpVtbl->GetResults(This, result))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-#if !defined(____FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__)
-#define ____FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface;
-
-typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* This);
-    HRESULT (STDMETHODCALLTYPE* Invoke)(__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* This,
-        __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* asyncInfo,
-        AsyncStatus asyncStatus);
-
-    END_INTERFACE
-} __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl;
-
-interface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface
-{
-    CONST_VTBL struct __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_Invoke(This, asyncInfo, asyncStatus) \
-    ((This)->lpVtbl->Invoke(This, asyncInfo, asyncStatus))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
 
 #if !defined(____FIIterator_1_float_INTERFACE_DEFINED__)
 #define ____FIIterator_1_float_INTERFACE_DEFINED__
@@ -20672,8 +18689,6 @@ typedef struct __x_ABI_CWindows_CFoundation_CNumerics_CQuaternion __x_ABI_CWindo
 
 typedef struct __x_ABI_CWindows_CFoundation_CNumerics_CVector4 __x_ABI_CWindows_CFoundation_CNumerics_CVector4;
 
-typedef struct __x_ABI_CWindows_CFoundation_CPoint __x_ABI_CWindows_CFoundation_CPoint;
-
 typedef struct __x_ABI_CWindows_CFoundation_CSize __x_ABI_CWindows_CFoundation_CSize;
 
 typedef struct __x_ABI_CWindows_CFoundation_CTimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan;
@@ -20746,8 +18761,6 @@ typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionCompositeMode __x_ABI
 
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionDropShadowSourcePolicy __x_ABI_CWindows_CUI_CComposition_CCompositionDropShadowSourcePolicy;
 
-typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode;
-
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionEffectFactoryLoadStatus __x_ABI_CWindows_CUI_CComposition_CCompositionEffectFactoryLoadStatus;
 
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionGetValueStatus __x_ABI_CWindows_CUI_CComposition_CCompositionGetValueStatus;
@@ -20761,8 +18774,6 @@ typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionStretch __x_ABI_CWind
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeCap __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeCap;
 
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeLineJoin __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeLineJoin;
-
-typedef struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint;
 
 /*
  *
@@ -21010,22 +19021,6 @@ enum __x_ABI_CWindows_CUI_CComposition_CCompositionDropShadowSourcePolicy
 
 /*
  *
- * Struct Windows.UI.Composition.CompositionEasingFunctionMode
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode
-{
-    CompositionEasingFunctionMode_In = 0,
-    CompositionEasingFunctionMode_Out = 1,
-    CompositionEasingFunctionMode_InOut = 2,
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Struct Windows.UI.Composition.CompositionEffectFactoryLoadStatus
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -21138,21 +19133,6 @@ enum __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeLineJoin
     CompositionStrokeLineJoin_MiterOrBevel = 3,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Struct Windows.UI.Composition.InkTrailPoint
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint
-{
-    struct __x_ABI_CWindows_CFoundation_CPoint Point;
-    FLOAT Radius;
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -21622,154 +19602,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo
 
 /*
  *
- * Interface Windows.UI.Composition.IAnimationPropertyInfo2
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.AnimationPropertyInfo
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IAnimationPropertyInfo2[] = L"Windows.UI.Composition.IAnimationPropertyInfo2";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* GetResolvedCompositionObject)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositionObject** result);
-    HRESULT (STDMETHODCALLTYPE* GetResolvedCompositionObjectProperty)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
-        HSTRING* result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2Vtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetResolvedCompositionObject(This, result) \
-    ((This)->lpVtbl->GetResolvedCompositionObject(This, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetResolvedCompositionObjectProperty(This, result) \
-    ((This)->lpVtbl->GetResolvedCompositionObjectProperty(This, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.UI.Composition.IBackEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.BackEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IBackEasingFunction[] = L"Windows.UI.Composition.IBackEasingFunction";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunctionVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
-    HRESULT (STDMETHODCALLTYPE* get_Amplitude)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
-        FLOAT* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunctionVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunctionVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_get_Mode(This, value) \
-    ((This)->lpVtbl->get_Mode(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_get_Amplitude(This, value) \
-    ((This)->lpVtbl->get_Amplitude(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.UI.Composition.IBooleanKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -21837,85 +19669,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Interface Windows.UI.Composition.IBounceEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.BounceEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IBounceEasingFunction[] = L"Windows.UI.Composition.IBounceEasingFunction";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunctionVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
-    HRESULT (STDMETHODCALLTYPE* get_Bounces)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
-        INT32* value);
-    HRESULT (STDMETHODCALLTYPE* get_Bounciness)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
-        FLOAT* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunctionVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunctionVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_get_Mode(This, value) \
-    ((This)->lpVtbl->get_Mode(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_get_Bounces(This, value) \
-    ((This)->lpVtbl->get_Bounces(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_get_Bounciness(This, value) \
-    ((This)->lpVtbl->get_Bounciness(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -22168,75 +19921,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimatio
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ICircleEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.CircleEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICircleEasingFunction[] = L"Windows.UI.Composition.ICircleEasingFunction";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunctionVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunctionVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunctionVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_get_Mode(This, value) \
-    ((This)->lpVtbl->get_Mode(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -24299,153 +21983,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunc
 
 /*
  *
- * Interface Windows.UI.Composition.ICompositionEasingFunctionStatics
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.CompositionEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionEasingFunctionStatics[] = L"Windows.UI.Composition.ICompositionEasingFunctionStatics";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStaticsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* CreateCubicBezierEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 controlPoint1,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 controlPoint2,
-        __x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateLinearEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        __x_ABI_CWindows_CUI_CComposition_CILinearEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateStepEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        __x_ABI_CWindows_CUI_CComposition_CIStepEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateStepEasingFunctionWithStepCount)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        INT32 stepCount,
-        __x_ABI_CWindows_CUI_CComposition_CIStepEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateBackEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
-        FLOAT amplitude,
-        __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateBounceEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
-        INT32 bounces,
-        FLOAT bounciness,
-        __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateCircleEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
-        __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateElasticEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
-        INT32 oscillations,
-        FLOAT springiness,
-        __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateExponentialEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
-        FLOAT exponent,
-        __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreatePowerEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
-        FLOAT power,
-        __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction** result);
-    HRESULT (STDMETHODCALLTYPE* CreateSineEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
-        __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStaticsVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStaticsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateCubicBezierEasingFunction(This, owner, controlPoint1, controlPoint2, result) \
-    ((This)->lpVtbl->CreateCubicBezierEasingFunction(This, owner, controlPoint1, controlPoint2, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateLinearEasingFunction(This, owner, result) \
-    ((This)->lpVtbl->CreateLinearEasingFunction(This, owner, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateStepEasingFunction(This, owner, result) \
-    ((This)->lpVtbl->CreateStepEasingFunction(This, owner, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateStepEasingFunctionWithStepCount(This, owner, stepCount, result) \
-    ((This)->lpVtbl->CreateStepEasingFunctionWithStepCount(This, owner, stepCount, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateBackEasingFunction(This, owner, mode, amplitude, result) \
-    ((This)->lpVtbl->CreateBackEasingFunction(This, owner, mode, amplitude, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateBounceEasingFunction(This, owner, mode, bounces, bounciness, result) \
-    ((This)->lpVtbl->CreateBounceEasingFunction(This, owner, mode, bounces, bounciness, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateCircleEasingFunction(This, owner, mode, result) \
-    ((This)->lpVtbl->CreateCircleEasingFunction(This, owner, mode, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateElasticEasingFunction(This, owner, mode, oscillations, springiness, result) \
-    ((This)->lpVtbl->CreateElasticEasingFunction(This, owner, mode, oscillations, springiness, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateExponentialEasingFunction(This, owner, mode, exponent, result) \
-    ((This)->lpVtbl->CreateExponentialEasingFunction(This, owner, mode, exponent, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreatePowerEasingFunction(This, owner, mode, power, result) \
-    ((This)->lpVtbl->CreatePowerEasingFunction(This, owner, mode, power, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateSineEasingFunction(This, owner, mode, result) \
-    ((This)->lpVtbl->CreateSineEasingFunction(This, owner, mode, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.UI.Composition.ICompositionEffectBrush
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -25602,80 +23139,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDe
 
 /*
  *
- * Interface Windows.UI.Composition.ICompositionGraphicsDevice4
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.CompositionGraphicsDevice
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionGraphicsDevice4[] = L"Windows.UI.Composition.ICompositionGraphicsDevice4";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* CaptureAsync)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
-        __x_ABI_CWindows_CUI_CComposition_CIVisual* captureVisual,
-        struct __x_ABI_CWindows_CGraphics_CSizeInt32 size,
-        enum __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat pixelFormat,
-        enum __x_ABI_CWindows_CGraphics_CDirectX_CDirectXAlphaMode alphaMode,
-        FLOAT sdrBoost,
-        __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface** operation);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4Vtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_CaptureAsync(This, captureVisual, size, pixelFormat, alphaMode, sdrBoost, operation) \
-    ((This)->lpVtbl->CaptureAsync(This, captureVisual, size, pixelFormat, alphaMode, sdrBoost, operation))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.UI.Composition.ICompositionLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -26804,77 +24267,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CICompositionObject4
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionObject4;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionObject4_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositionObject5
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.CompositionObject
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionObject5[] = L"Windows.UI.Composition.ICompositionObject5";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositionObject5Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositionObject5* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositionObject5* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositionObject5* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositionObject5* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositionObject5* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositionObject5* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* StartAnimationWithController)(__x_ABI_CWindows_CUI_CComposition_CICompositionObject5* This,
-        HSTRING propertyName,
-        __x_ABI_CWindows_CUI_CComposition_CICompositionAnimation* animation,
-        __x_ABI_CWindows_CUI_CComposition_CIAnimationController* animationController);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICompositionObject5Vtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICompositionObject5
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositionObject5Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionObject5_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionObject5_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionObject5_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionObject5_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionObject5_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionObject5_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionObject5_StartAnimationWithController(This, propertyName, animation, animationController) \
-    ((This)->lpVtbl->StartAnimationWithController(This, propertyName, animation, animationController))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionObject5;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionObject5_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -28860,78 +26252,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSpriteShap
 
 /*
  *
- * Interface Windows.UI.Composition.ICompositionSupportsSystemBackdrop
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionSupportsSystemBackdrop[] = L"Windows.UI.Composition.ICompositionSupportsSystemBackdrop";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdropVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_SystemBackdrop)(__x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositionBrush** value);
-    HRESULT (STDMETHODCALLTYPE* put_SystemBackdrop)(__x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositionBrush* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdropVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdropVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_get_SystemBackdrop(This, value) \
-    ((This)->lpVtbl->get_SystemBackdrop(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_put_SystemBackdrop(This, value) \
-    ((This)->lpVtbl->put_SystemBackdrop(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSupportsSystemBackdrop_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
  * Interface Windows.UI.Composition.ICompositionSurface
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -29313,73 +26633,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositionSurfaceFacade
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionSurfaceFacade[] = L"Windows.UI.Composition.ICompositionSurfaceFacade";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacadeVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* GetRealSurface)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositionSurface** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacadeVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacadeVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_GetRealSurface(This, result) \
-    ((This)->lpVtbl->GetRealSurface(This, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -30741,176 +27994,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor6;
 
 /*
  *
- * Interface Windows.UI.Composition.ICompositor7
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Compositor
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositor7[] = L"Windows.UI.Composition.ICompositor7";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_DispatcherQueue)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        __x_ABI_CWindows_CSystem_CIDispatcherQueue** value);
-    HRESULT (STDMETHODCALLTYPE* CreateAnimationPropertyInfo)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo** result);
-    HRESULT (STDMETHODCALLTYPE* CreateRectangleClip)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        __x_ABI_CWindows_CUI_CComposition_CIRectangleClip** result);
-    HRESULT (STDMETHODCALLTYPE* CreateRectangleClipWithSides)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        FLOAT left,
-        FLOAT top,
-        FLOAT right,
-        FLOAT bottom,
-        __x_ABI_CWindows_CUI_CComposition_CIRectangleClip** result);
-    HRESULT (STDMETHODCALLTYPE* CreateRectangleClipWithSidesAndRadius)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
-        FLOAT left,
-        FLOAT top,
-        FLOAT right,
-        FLOAT bottom,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 topLeftRadius,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 topRightRadius,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 bottomRightRadius,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 bottomLeftRadius,
-        __x_ABI_CWindows_CUI_CComposition_CIRectangleClip** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICompositor7
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_get_DispatcherQueue(This, value) \
-    ((This)->lpVtbl->get_DispatcherQueue(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateAnimationPropertyInfo(This, result) \
-    ((This)->lpVtbl->CreateAnimationPropertyInfo(This, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClip(This, result) \
-    ((This)->lpVtbl->CreateRectangleClip(This, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClipWithSides(This, left, top, right, bottom, result) \
-    ((This)->lpVtbl->CreateRectangleClipWithSides(This, left, top, right, bottom, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClipWithSidesAndRadius(This, left, top, right, bottom, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius, result) \
-    ((This)->lpVtbl->CreateRectangleClipWithSidesAndRadius(This, left, top, right, bottom, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor7;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositor8
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Compositor
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor8_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositor8_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositor8[] = L"Windows.UI.Composition.ICompositor8";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositor8Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositor8* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositor8* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositor8* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositor8* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositor8* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositor8* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* CreateAnimationController)(__x_ABI_CWindows_CUI_CComposition_CICompositor8* This,
-        __x_ABI_CWindows_CUI_CComposition_CIAnimationController** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICompositor8Vtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICompositor8
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositor8Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor8_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor8_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor8_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor8_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor8_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor8_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor8_CreateAnimationController(This, result) \
-    ((This)->lpVtbl->CreateAnimationController(This, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor8;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor8_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-
-/*
- *
  * Interface Windows.UI.Composition.ICompositorStatics
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -30982,75 +28065,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CICompositorStatics
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositorStatics;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ICompositorWithBlurredWallpaperBackdropBrush
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Compositor
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositorWithBlurredWallpaperBackdropBrush[] = L"Windows.UI.Composition.ICompositorWithBlurredWallpaperBackdropBrush";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrushVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* TryCreateBlurredWallpaperBackdropBrush)(__x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositionBackdropBrush** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrushVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrushVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_TryCreateBlurredWallpaperBackdropBrush(This, result) \
-    ((This)->lpVtbl->TryCreateBlurredWallpaperBackdropBrush(This, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositorWithBlurredWallpaperBackdropBrush_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *
@@ -31478,173 +28492,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunc
 
 /*
  *
- * Interface Windows.UI.Composition.IDelegatedInkTrailVisual
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.DelegatedInkTrailVisual
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IDelegatedInkTrailVisual[] = L"Windows.UI.Composition.IDelegatedInkTrailVisual";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* AddTrailPoints)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
-        UINT32 inkPointsLength,
-        struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint* inkPoints,
-        UINT32* result);
-    HRESULT (STDMETHODCALLTYPE* AddTrailPointsWithPrediction)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
-        UINT32 inkPointsLength,
-        struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint* inkPoints,
-        UINT32 predictedInkPointsLength,
-        struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint* predictedInkPoints,
-        UINT32* result);
-    HRESULT (STDMETHODCALLTYPE* RemoveTrailPoints)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
-        UINT32 generationId);
-    HRESULT (STDMETHODCALLTYPE* StartNewTrail)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
-        struct __x_ABI_CWindows_CUI_CColor color);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_AddTrailPoints(This, inkPointsLength, inkPoints, result) \
-    ((This)->lpVtbl->AddTrailPoints(This, inkPointsLength, inkPoints, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_AddTrailPointsWithPrediction(This, inkPointsLength, inkPoints, predictedInkPointsLength, predictedInkPoints, result) \
-    ((This)->lpVtbl->AddTrailPointsWithPrediction(This, inkPointsLength, inkPoints, predictedInkPointsLength, predictedInkPoints, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_RemoveTrailPoints(This, generationId) \
-    ((This)->lpVtbl->RemoveTrailPoints(This, generationId))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_StartNewTrail(This, color) \
-    ((This)->lpVtbl->StartNewTrail(This, color))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.UI.Composition.IDelegatedInkTrailVisualStatics
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.DelegatedInkTrailVisual
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IDelegatedInkTrailVisualStatics[] = L"Windows.UI.Composition.IDelegatedInkTrailVisualStatics";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStaticsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* Create)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* compositor,
-        __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual** result);
-    HRESULT (STDMETHODCALLTYPE* CreateForSwapChain)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
-        __x_ABI_CWindows_CUI_CComposition_CICompositor* compositor,
-        __x_ABI_CWindows_CUI_CComposition_CICompositionSurface* swapChain,
-        __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStaticsVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStaticsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_Create(This, compositor, result) \
-    ((This)->lpVtbl->Create(This, compositor, result))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_CreateForSwapChain(This, compositor, swapChain, result) \
-    ((This)->lpVtbl->CreateForSwapChain(This, compositor, swapChain, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.UI.Composition.IDistantLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -31998,159 +28845,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CIDropShadow2
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDropShadow2;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDropShadow2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
-
-/*
- *
- * Interface Windows.UI.Composition.IElasticEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.ElasticEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IElasticEasingFunction[] = L"Windows.UI.Composition.IElasticEasingFunction";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunctionVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
-    HRESULT (STDMETHODCALLTYPE* get_Oscillations)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
-        INT32* value);
-    HRESULT (STDMETHODCALLTYPE* get_Springiness)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
-        FLOAT* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunctionVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunctionVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_get_Mode(This, value) \
-    ((This)->lpVtbl->get_Mode(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_get_Oscillations(This, value) \
-    ((This)->lpVtbl->get_Oscillations(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_get_Springiness(This, value) \
-    ((This)->lpVtbl->get_Springiness(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.UI.Composition.IExponentialEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.ExponentialEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IExponentialEasingFunction[] = L"Windows.UI.Composition.IExponentialEasingFunction";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunctionVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
-    HRESULT (STDMETHODCALLTYPE* get_Exponent)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
-        FLOAT* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunctionVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunctionVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_get_Mode(This, value) \
-    ((This)->lpVtbl->get_Mode(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_get_Exponent(This, value) \
-    ((This)->lpVtbl->get_Exponent(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -33469,80 +30163,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIPointLight3;
 
 /*
  *
- * Interface Windows.UI.Composition.IPowerEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.PowerEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IPowerEasingFunction[] = L"Windows.UI.Composition.IPowerEasingFunction";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunctionVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
-    HRESULT (STDMETHODCALLTYPE* get_Power)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
-        FLOAT* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunctionVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunctionVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_get_Mode(This, value) \
-    ((This)->lpVtbl->get_Mode(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_get_Power(This, value) \
-    ((This)->lpVtbl->get_Power(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.UI.Composition.IQuaternionKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -33617,150 +30237,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Interface Windows.UI.Composition.IRectangleClip
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.RectangleClip
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IRectangleClip[] = L"Windows.UI.Composition.IRectangleClip";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIRectangleClipVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Bottom)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        FLOAT* value);
-    HRESULT (STDMETHODCALLTYPE* put_Bottom)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        FLOAT value);
-    HRESULT (STDMETHODCALLTYPE* get_BottomLeftRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
-    HRESULT (STDMETHODCALLTYPE* put_BottomLeftRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
-    HRESULT (STDMETHODCALLTYPE* get_BottomRightRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
-    HRESULT (STDMETHODCALLTYPE* put_BottomRightRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
-    HRESULT (STDMETHODCALLTYPE* get_Left)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        FLOAT* value);
-    HRESULT (STDMETHODCALLTYPE* put_Left)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        FLOAT value);
-    HRESULT (STDMETHODCALLTYPE* get_Right)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        FLOAT* value);
-    HRESULT (STDMETHODCALLTYPE* put_Right)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        FLOAT value);
-    HRESULT (STDMETHODCALLTYPE* get_Top)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        FLOAT* value);
-    HRESULT (STDMETHODCALLTYPE* put_Top)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        FLOAT value);
-    HRESULT (STDMETHODCALLTYPE* get_TopLeftRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
-    HRESULT (STDMETHODCALLTYPE* put_TopLeftRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
-    HRESULT (STDMETHODCALLTYPE* get_TopRightRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
-    HRESULT (STDMETHODCALLTYPE* put_TopRightRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIRectangleClipVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIRectangleClip
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIRectangleClipVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_Bottom(This, value) \
-    ((This)->lpVtbl->get_Bottom(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_Bottom(This, value) \
-    ((This)->lpVtbl->put_Bottom(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_BottomLeftRadius(This, value) \
-    ((This)->lpVtbl->get_BottomLeftRadius(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_BottomLeftRadius(This, value) \
-    ((This)->lpVtbl->put_BottomLeftRadius(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_BottomRightRadius(This, value) \
-    ((This)->lpVtbl->get_BottomRightRadius(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_BottomRightRadius(This, value) \
-    ((This)->lpVtbl->put_BottomRightRadius(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_Left(This, value) \
-    ((This)->lpVtbl->get_Left(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_Left(This, value) \
-    ((This)->lpVtbl->put_Left(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_Right(This, value) \
-    ((This)->lpVtbl->get_Right(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_Right(This, value) \
-    ((This)->lpVtbl->put_Right(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_Top(This, value) \
-    ((This)->lpVtbl->get_Top(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_Top(This, value) \
-    ((This)->lpVtbl->put_Top(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_TopLeftRadius(This, value) \
-    ((This)->lpVtbl->get_TopLeftRadius(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_TopLeftRadius(This, value) \
-    ((This)->lpVtbl->put_TopLeftRadius(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_TopRightRadius(This, value) \
-    ((This)->lpVtbl->get_TopRightRadius(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_TopRightRadius(This, value) \
-    ((This)->lpVtbl->put_TopRightRadius(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIRectangleClip;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -34218,75 +30694,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CIShapeVisual
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIShapeVisual;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIShapeVisual_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.UI.Composition.ISineEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.SineEasingFunction
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ISineEasingFunction[] = L"Windows.UI.Composition.ISineEasingFunction";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CISineEasingFunctionVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
-        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CISineEasingFunctionVtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CISineEasingFunctionVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_get_Mode(This, value) \
-    ((This)->lpVtbl->get_Mode(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CISineEasingFunction;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -36026,154 +32433,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual2;
 
 /*
  *
- * Interface Windows.UI.Composition.IVisual3
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Visual
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisual3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisual3[] = L"Windows.UI.Composition.IVisual3";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIVisual3Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_IsHitTestVisible)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
-        boolean* value);
-    HRESULT (STDMETHODCALLTYPE* put_IsHitTestVisible)(__x_ABI_CWindows_CUI_CComposition_CIVisual3* This,
-        boolean value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIVisual3Vtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIVisual3
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIVisual3Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_get_IsHitTestVisible(This, value) \
-    ((This)->lpVtbl->get_IsHitTestVisible(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual3_put_IsHitTestVisible(This, value) \
-    ((This)->lpVtbl->put_IsHitTestVisible(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual3;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-
-/*
- *
- * Interface Windows.UI.Composition.IVisual4
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.UI.Composition.Visual
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisual4[] = L"Windows.UI.Composition.IVisual4";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIVisual4Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_IsPixelSnappingEnabled)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
-        boolean* value);
-    HRESULT (STDMETHODCALLTYPE* put_IsPixelSnappingEnabled)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
-        boolean value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIVisual4Vtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIVisual4
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIVisual4Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_get_IsPixelSnappingEnabled(This, value) \
-    ((This)->lpVtbl->get_IsPixelSnappingEnabled(This, value))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_put_IsPixelSnappingEnabled(This, value) \
-    ((This)->lpVtbl->put_IsPixelSnappingEnabled(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual4;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.UI.Composition.IVisualCollection
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -36333,73 +32592,6 @@ interface __x_ABI_CWindows_CUI_CComposition_CIVisualElement
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisualElement;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-/*
- *
- * Interface Windows.UI.Composition.IVisualElement2
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisualElement2[] = L"Windows.UI.Composition.IVisualElement2";
-typedef struct __x_ABI_CWindows_CUI_CComposition_CIVisualElement2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* GetVisualInternal)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
-        __x_ABI_CWindows_CUI_CComposition_CIVisual** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CComposition_CIVisualElement2Vtbl;
-
-interface __x_ABI_CWindows_CUI_CComposition_CIVisualElement2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIVisualElement2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_GetVisualInternal(This, result) \
-    ((This)->lpVtbl->GetVisualInternal(This, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisualElement2;
-#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -36602,7 +32794,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.IAnimationPropertyInfo ** Default Interface **
- *    Windows.UI.Composition.IAnimationPropertyInfo2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -36615,27 +32806,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_AnimationPropertyInfo[] = L"Windows.UI.Composition.AnimationPropertyInfo";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Class Windows.UI.Composition.BackEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IBackEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_BackEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_BackEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BackEasingFunction[] = L"Windows.UI.Composition.BackEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -36657,27 +32827,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BooleanKeyFrameAnimation[] = L"Windows.UI.Composition.BooleanKeyFrameAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
-
-/*
- *
- * Class Windows.UI.Composition.BounceEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IBounceEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_BounceEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_BounceEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BounceEasingFunction[] = L"Windows.UI.Composition.BounceEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -36741,27 +32890,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BounceVector3NaturalMotionAnimation[] = L"Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Class Windows.UI.Composition.CircleEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.ICircleEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_CircleEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_CircleEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_CircleEasingFunction[] = L"Windows.UI.Composition.CircleEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -37075,9 +33203,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
  *
- * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.Composition.ICompositionEasingFunctionStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
- *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.ICompositionEasingFunction ** Default Interface **
  *
@@ -37255,7 +33380,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositionGraphicsDevice ** Default Interface **
  *    Windows.UI.Composition.ICompositionGraphicsDevice2
  *    Windows.UI.Composition.ICompositionGraphicsDevice3
- *    Windows.UI.Composition.ICompositionGraphicsDevice4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -37412,7 +33536,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositionObject2
  *    Windows.UI.Composition.ICompositionObject3
  *    Windows.UI.Composition.ICompositionObject4
- *    Windows.UI.Composition.ICompositionObject5
  *    Windows.Foundation.IClosable
  *    Windows.UI.Composition.IAnimationObject
  *
@@ -37948,9 +34071,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositorWithProjectedShadow
  *    Windows.UI.Composition.ICompositorWithRadialGradient
  *    Windows.UI.Composition.ICompositorWithVisualSurface
- *    Windows.UI.Composition.ICompositor7
- *    Windows.UI.Composition.ICompositorWithBlurredWallpaperBackdropBrush
- *    Windows.UI.Composition.ICompositor8
  *    Windows.Foundation.IClosable
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -38009,30 +34129,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.UI.Composition.DelegatedInkTrailVisual
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.Composition.IDelegatedInkTrailVisualStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IDelegatedInkTrailVisual ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_DelegatedInkTrailVisual_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_DelegatedInkTrailVisual_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_DelegatedInkTrailVisual[] = L"Windows.UI.Composition.DelegatedInkTrailVisual";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.UI.Composition.DistantLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -38074,48 +34170,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_DropShadow[] = L"Windows.UI.Composition.DropShadow";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Class Windows.UI.Composition.ElasticEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IElasticEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_ElasticEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_ElasticEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ElasticEasingFunction[] = L"Windows.UI.Composition.ElasticEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Class Windows.UI.Composition.ExponentialEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IExponentialEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_ExponentialEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_ExponentialEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ExponentialEasingFunction[] = L"Windows.UI.Composition.ExponentialEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -38337,27 +34391,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.UI.Composition.PowerEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IPowerEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_PowerEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_PowerEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_PowerEasingFunction[] = L"Windows.UI.Composition.PowerEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.UI.Composition.QuaternionKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -38376,27 +34409,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_QuaternionKeyFrameAnimation[] = L"Windows.UI.Composition.QuaternionKeyFrameAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Class Windows.UI.Composition.RectangleClip
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.IRectangleClip ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_RectangleClip_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_RectangleClip_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_RectangleClip[] = L"Windows.UI.Composition.RectangleClip";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -38502,27 +34514,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ShapeVisual[] = L"Windows.UI.Composition.ShapeVisual";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Class Windows.UI.Composition.SineEasingFunction
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.UI.Composition.ISineEasingFunction ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_UI_Composition_SineEasingFunction_DEFINED
-#define RUNTIMECLASS_Windows_UI_Composition_SineEasingFunction_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_SineEasingFunction[] = L"Windows.UI.Composition.SineEasingFunction";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -38767,8 +34758,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.UI.Composition.IVisual ** Default Interface **
  *    Windows.UI.Composition.IVisual2
- *    Windows.UI.Composition.IVisual3
- *    Windows.UI.Composition.IVisual4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *

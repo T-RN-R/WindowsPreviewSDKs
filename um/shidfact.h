@@ -18,7 +18,7 @@
 #include <shobjidl_core.h>  // for IDelegateFolder
 #include <propvarutil.h>  // for PropVariantToVariant
 
-template <class T, DWORD Magic>
+template <class T, DWORD dwMagic>
 class CItemIDFactory : public IDelegateFolder
 {
 protected:
@@ -218,7 +218,7 @@ public:
             CHILDITEMID *pitem = s_Alloc(cbInner + sizeof(USHORT), pMalloc);
             if (pitem)
             {
-                pitem->dwMagic = Magic;
+                pitem->dwMagic = dwMagic;
                 pitem->cbPropStore = (WORD)cbPropStore;             // size of the property store
                 pitem->cbInnerData = sizeof(pitem->innerData);      // size of the "innerData" structure (useful for debugging)
 
@@ -317,7 +317,7 @@ private:
         if (!pitem || pitem->cbSize < sizeof(CHILDITEMID))
             return NULL;
 
-        if ((pitem->dwMagic != Magic) || (pitem->cbSize < (sizeof(CHILDITEMID) + pitem->cbPropStore)))
+        if ((pitem->dwMagic != dwMagic) || (pitem->cbSize < (sizeof(CHILDITEMID) + pitem->cbPropStore)))
             return NULL;
 
         return pitem;

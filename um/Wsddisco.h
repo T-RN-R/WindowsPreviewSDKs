@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -187,36 +179,29 @@ EXTERN_C const IID IID_IWSDiscoveryProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWSDiscoveryProvider * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWSDiscoveryProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWSDiscoveryProvider * This);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProvider, SetAddressFamily)
         HRESULT ( STDMETHODCALLTYPE *SetAddressFamily )( 
             IWSDiscoveryProvider * This,
             /* [in] */ DWORD dwAddressFamily);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProvider, Attach)
         HRESULT ( STDMETHODCALLTYPE *Attach )( 
             IWSDiscoveryProvider * This,
             /* [in] */ IWSDiscoveryProviderNotify *pSink);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProvider, Detach)
         HRESULT ( STDMETHODCALLTYPE *Detach )( 
             IWSDiscoveryProvider * This);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProvider, SearchById)
         HRESULT ( STDMETHODCALLTYPE *SearchById )( 
             IWSDiscoveryProvider * This,
             /* [annotation][in] */ 
@@ -224,7 +209,6 @@ EXTERN_C const IID IID_IWSDiscoveryProvider;
             /* [annotation][optional][in] */ 
             _In_opt_  LPCWSTR pszTag);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProvider, SearchByAddress)
         HRESULT ( STDMETHODCALLTYPE *SearchByAddress )( 
             IWSDiscoveryProvider * This,
             /* [annotation][in] */ 
@@ -232,7 +216,6 @@ EXTERN_C const IID IID_IWSDiscoveryProvider;
             /* [annotation][optional][in] */ 
             _In_opt_  LPCWSTR pszTag);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProvider, SearchByType)
         HRESULT ( STDMETHODCALLTYPE *SearchByType )( 
             IWSDiscoveryProvider * This,
             /* [annotation][optional][in] */ 
@@ -244,7 +227,6 @@ EXTERN_C const IID IID_IWSDiscoveryProvider;
             /* [annotation][optional][in] */ 
             _In_opt_  LPCWSTR pszTag);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProvider, GetXMLContext)
         HRESULT ( STDMETHODCALLTYPE *GetXMLContext )( 
             IWSDiscoveryProvider * This,
             /* [annotation][out] */ 
@@ -344,39 +326,32 @@ EXTERN_C const IID IID_IWSDiscoveryProviderNotify;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWSDiscoveryProviderNotify * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWSDiscoveryProviderNotify * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWSDiscoveryProviderNotify * This);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProviderNotify, Add)
         HRESULT ( STDMETHODCALLTYPE *Add )( 
             IWSDiscoveryProviderNotify * This,
             /* [in] */ IWSDiscoveredService *pService);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProviderNotify, Remove)
         HRESULT ( STDMETHODCALLTYPE *Remove )( 
             IWSDiscoveryProviderNotify * This,
             /* [in] */ IWSDiscoveredService *pService);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProviderNotify, SearchFailed)
         HRESULT ( STDMETHODCALLTYPE *SearchFailed )( 
             IWSDiscoveryProviderNotify * This,
             /* [in] */ HRESULT hr,
             /* [annotation][optional][in] */ 
             _In_opt_  LPCWSTR pszTag);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryProviderNotify, SearchComplete)
         HRESULT ( STDMETHODCALLTYPE *SearchComplete )( 
             IWSDiscoveryProviderNotify * This,
             /* [annotation][optional][in] */ 
@@ -498,52 +473,43 @@ EXTERN_C const IID IID_IWSDiscoveredService;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWSDiscoveredService * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWSDiscoveredService * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWSDiscoveredService * This);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetEndpointReference)
         HRESULT ( STDMETHODCALLTYPE *GetEndpointReference )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Outptr_  WSD_ENDPOINT_REFERENCE **ppEndpointReference);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetTypes)
         HRESULT ( STDMETHODCALLTYPE *GetTypes )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Outptr_  WSD_NAME_LIST **ppTypesList);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetScopes)
         HRESULT ( STDMETHODCALLTYPE *GetScopes )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Outptr_  WSD_URI_LIST **ppScopesList);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetXAddrs)
         HRESULT ( STDMETHODCALLTYPE *GetXAddrs )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Outptr_  WSD_URI_LIST **ppXAddrsList);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetMetadataVersion)
         HRESULT ( STDMETHODCALLTYPE *GetMetadataVersion )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Out_  ULONGLONG *pullMetadataVersion);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetExtendedDiscoXML)
         HRESULT ( STDMETHODCALLTYPE *GetExtendedDiscoXML )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
@@ -551,31 +517,26 @@ EXTERN_C const IID IID_IWSDiscoveredService;
             /* [annotation][out] */ 
             _Outptr_  WSDXML_ELEMENT **ppBodyAny);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetProbeResolveTag)
         HRESULT ( STDMETHODCALLTYPE *GetProbeResolveTag )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Outptr_  LPCWSTR *ppszTag);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetRemoteTransportAddress)
         HRESULT ( STDMETHODCALLTYPE *GetRemoteTransportAddress )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Outptr_  LPCWSTR *ppszRemoteTransportAddress);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetLocalTransportAddress)
         HRESULT ( STDMETHODCALLTYPE *GetLocalTransportAddress )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Outptr_  LPCWSTR *ppszLocalTransportAddress);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetLocalInterfaceGUID)
         HRESULT ( STDMETHODCALLTYPE *GetLocalInterfaceGUID )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
             _Out_  GUID *pGuid);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveredService, GetInstanceId)
         HRESULT ( STDMETHODCALLTYPE *GetInstanceId )( 
             IWSDiscoveredService * This,
             /* [annotation][out] */ 
@@ -849,37 +810,30 @@ EXTERN_C const IID IID_IWSDiscoveryPublisher;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWSDiscoveryPublisher * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWSDiscoveryPublisher * This);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, SetAddressFamily)
         HRESULT ( STDMETHODCALLTYPE *SetAddressFamily )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ DWORD dwAddressFamily);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, RegisterNotificationSink)
         HRESULT ( STDMETHODCALLTYPE *RegisterNotificationSink )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ IWSDiscoveryPublisherNotify *pSink);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, UnRegisterNotificationSink)
         HRESULT ( STDMETHODCALLTYPE *UnRegisterNotificationSink )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ IWSDiscoveryPublisherNotify *pSink);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, Publish)
         HRESULT ( STDMETHODCALLTYPE *Publish )( 
             IWSDiscoveryPublisher * This,
             /* [annotation][in] */ 
@@ -896,7 +850,6 @@ EXTERN_C const IID IID_IWSDiscoveryPublisher;
             /* [annotation][optional][in] */ 
             _In_opt_  const WSD_URI_LIST *pXAddrsList);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, UnPublish)
         HRESULT ( STDMETHODCALLTYPE *UnPublish )( 
             IWSDiscoveryPublisher * This,
             /* [annotation][in] */ 
@@ -908,7 +861,6 @@ EXTERN_C const IID IID_IWSDiscoveryPublisher;
             /* [annotation][optional][in] */ 
             _In_opt_  const WSDXML_ELEMENT *pAny);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, MatchProbe)
         HRESULT ( STDMETHODCALLTYPE *MatchProbe )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ const WSD_SOAP_MESSAGE *pProbeMessage,
@@ -927,7 +879,6 @@ EXTERN_C const IID IID_IWSDiscoveryPublisher;
             /* [annotation][optional][in] */ 
             _In_opt_  const WSD_URI_LIST *pXAddrsList);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, MatchResolve)
         HRESULT ( STDMETHODCALLTYPE *MatchResolve )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ const WSD_SOAP_MESSAGE *pResolveMessage,
@@ -946,7 +897,6 @@ EXTERN_C const IID IID_IWSDiscoveryPublisher;
             /* [annotation][optional][in] */ 
             _In_opt_  const WSD_URI_LIST *pXAddrsList);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, PublishEx)
         HRESULT ( STDMETHODCALLTYPE *PublishEx )( 
             IWSDiscoveryPublisher * This,
             /* [annotation][in] */ 
@@ -973,7 +923,6 @@ EXTERN_C const IID IID_IWSDiscoveryPublisher;
             /* [annotation][optional][in] */ 
             _In_opt_  const WSDXML_ELEMENT *pAny);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, MatchProbeEx)
         HRESULT ( STDMETHODCALLTYPE *MatchProbeEx )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ const WSD_SOAP_MESSAGE *pProbeMessage,
@@ -1002,7 +951,6 @@ EXTERN_C const IID IID_IWSDiscoveryPublisher;
             /* [annotation][optional][in] */ 
             _In_opt_  const WSDXML_ELEMENT *pAny);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, MatchResolveEx)
         HRESULT ( STDMETHODCALLTYPE *MatchResolveEx )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ const WSD_SOAP_MESSAGE *pResolveMessage,
@@ -1031,17 +979,14 @@ EXTERN_C const IID IID_IWSDiscoveryPublisher;
             /* [annotation][optional][in] */ 
             _In_opt_  const WSDXML_ELEMENT *pAny);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, RegisterScopeMatchingRule)
         HRESULT ( STDMETHODCALLTYPE *RegisterScopeMatchingRule )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ IWSDScopeMatchingRule *pScopeMatchingRule);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, UnRegisterScopeMatchingRule)
         HRESULT ( STDMETHODCALLTYPE *UnRegisterScopeMatchingRule )( 
             IWSDiscoveryPublisher * This,
             /* [in] */ IWSDScopeMatchingRule *pScopeMatchingRule);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisher, GetXMLContext)
         HRESULT ( STDMETHODCALLTYPE *GetXMLContext )( 
             IWSDiscoveryPublisher * This,
             /* [annotation][out] */ 
@@ -1152,28 +1097,23 @@ EXTERN_C const IID IID_IWSDiscoveryPublisherNotify;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWSDiscoveryPublisherNotify * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWSDiscoveryPublisherNotify * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWSDiscoveryPublisherNotify * This);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisherNotify, ProbeHandler)
         HRESULT ( STDMETHODCALLTYPE *ProbeHandler )( 
             IWSDiscoveryPublisherNotify * This,
             /* [in] */ const WSD_SOAP_MESSAGE *pSoap,
             /* [in] */ IWSDMessageParameters *pMessageParameters);
         
-        DECLSPEC_XFGVIRT(IWSDiscoveryPublisherNotify, ResolveHandler)
         HRESULT ( STDMETHODCALLTYPE *ResolveHandler )( 
             IWSDiscoveryPublisherNotify * This,
             /* [in] */ const WSD_SOAP_MESSAGE *pSoap,
@@ -1255,28 +1195,23 @@ EXTERN_C const IID IID_IWSDScopeMatchingRule;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWSDScopeMatchingRule * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWSDScopeMatchingRule * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWSDScopeMatchingRule * This);
         
-        DECLSPEC_XFGVIRT(IWSDScopeMatchingRule, GetScopeRule)
         HRESULT ( STDMETHODCALLTYPE *GetScopeRule )( 
             IWSDScopeMatchingRule * This,
             /* [annotation][out] */ 
             _Outptr_  LPCWSTR *ppszScopeMatchingRule);
         
-        DECLSPEC_XFGVIRT(IWSDScopeMatchingRule, MatchScopes)
         HRESULT ( STDMETHODCALLTYPE *MatchScopes )( 
             IWSDScopeMatchingRule * This,
             /* [annotation][in] */ 

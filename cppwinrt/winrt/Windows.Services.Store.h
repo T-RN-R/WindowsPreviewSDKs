@@ -1,14 +1,12 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Services_Store_H
 #define WINRT_Windows_Services_Store_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.220418.1"), "Mismatched C++/WinRT headers.");
-#define CPPWINRT_VERSION "2.0.220418.1"
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.ApplicationModel.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -20,1158 +18,1158 @@ namespace winrt::impl
     template <typename D> auto consume_Windows_Services_Store_IStoreAcquireLicenseResult<D>::StorePackageLicense() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAcquireLicenseResult)->get_StorePackageLicense(&value));
-        return winrt::Windows::Services::Store::StorePackageLicense{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAcquireLicenseResult)->get_StorePackageLicense(&value));
+        return Windows::Services::Store::StorePackageLicense{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAcquireLicenseResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAcquireLicenseResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAcquireLicenseResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::SkuStoreId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_SkuStoreId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_SkuStoreId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::IsActive() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_IsActive(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_IsActive(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::IsTrial() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_IsTrial(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_IsTrial(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::ExpirationDate() const
     {
-        winrt::Windows::Foundation::DateTime value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_ExpirationDate(put_abi(value)));
+        Windows::Foundation::DateTime value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_ExpirationDate(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::ExtendedJsonData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_ExtendedJsonData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_ExtendedJsonData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::AddOnLicenses() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_AddOnLicenses(&value));
-        return winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Services::Store::StoreLicense>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_AddOnLicenses(&value));
+        return Windows::Foundation::Collections::IMapView<hstring, Windows::Services::Store::StoreLicense>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::TrialTimeRemaining() const
     {
-        winrt::Windows::Foundation::TimeSpan value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_TrialTimeRemaining(put_abi(value)));
+        Windows::Foundation::TimeSpan value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_TrialTimeRemaining(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::IsTrialOwnedByThisUser() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_IsTrialOwnedByThisUser(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_IsTrialOwnedByThisUser(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense<D>::TrialUniqueId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense)->get_TrialUniqueId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense)->get_TrialUniqueId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAppLicense2<D>::IsDiscLicense() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAppLicense2)->get_IsDiscLicense(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAppLicense2)->get_IsDiscLicense(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAvailability<D>::StoreId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAvailability)->get_StoreId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAvailability)->get_StoreId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAvailability<D>::EndDate() const
     {
-        winrt::Windows::Foundation::DateTime value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAvailability)->get_EndDate(put_abi(value)));
+        Windows::Foundation::DateTime value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAvailability)->get_EndDate(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAvailability<D>::Price() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAvailability)->get_Price(&value));
-        return winrt::Windows::Services::Store::StorePrice{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAvailability)->get_Price(&value));
+        return Windows::Services::Store::StorePrice{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAvailability<D>::ExtendedJsonData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAvailability)->get_ExtendedJsonData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAvailability)->get_ExtendedJsonData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreAvailability<D>::RequestPurchaseAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAvailability)->RequestPurchaseAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAvailability)->RequestPurchaseAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreAvailability<D>::RequestPurchaseAsync(winrt::Windows::Services::Store::StorePurchaseProperties const& storePurchaseProperties) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreAvailability<D>::RequestPurchaseAsync(Windows::Services::Store::StorePurchaseProperties const& storePurchaseProperties) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreAvailability)->RequestPurchaseWithPurchasePropertiesAsync(*(void**)(&storePurchaseProperties), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreAvailability)->RequestPurchaseWithPurchasePropertiesAsync(*(void**)(&storePurchaseProperties), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCanAcquireLicenseResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCanAcquireLicenseResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCanAcquireLicenseResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCanAcquireLicenseResult<D>::LicensableSku() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCanAcquireLicenseResult)->get_LicensableSku(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCanAcquireLicenseResult)->get_LicensableSku(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCanAcquireLicenseResult<D>::Status() const
     {
-        winrt::Windows::Services::Store::StoreCanLicenseStatus value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCanAcquireLicenseResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreCanLicenseStatus value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCanAcquireLicenseResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCollectionData<D>::IsTrial() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCollectionData)->get_IsTrial(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCollectionData)->get_IsTrial(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCollectionData<D>::CampaignId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCollectionData)->get_CampaignId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCollectionData)->get_CampaignId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCollectionData<D>::DeveloperOfferId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCollectionData)->get_DeveloperOfferId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCollectionData)->get_DeveloperOfferId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCollectionData<D>::AcquiredDate() const
     {
-        winrt::Windows::Foundation::DateTime value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCollectionData)->get_AcquiredDate(put_abi(value)));
+        Windows::Foundation::DateTime value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCollectionData)->get_AcquiredDate(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCollectionData<D>::StartDate() const
     {
-        winrt::Windows::Foundation::DateTime value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCollectionData)->get_StartDate(put_abi(value)));
+        Windows::Foundation::DateTime value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCollectionData)->get_StartDate(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCollectionData<D>::EndDate() const
     {
-        winrt::Windows::Foundation::DateTime value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCollectionData)->get_EndDate(put_abi(value)));
+        Windows::Foundation::DateTime value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCollectionData)->get_EndDate(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCollectionData<D>::TrialTimeRemaining() const
     {
-        winrt::Windows::Foundation::TimeSpan value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCollectionData)->get_TrialTimeRemaining(put_abi(value)));
+        Windows::Foundation::TimeSpan value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCollectionData)->get_TrialTimeRemaining(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreCollectionData<D>::ExtendedJsonData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreCollectionData)->get_ExtendedJsonData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreCollectionData)->get_ExtendedJsonData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreConsumableResult<D>::Status() const
     {
-        winrt::Windows::Services::Store::StoreConsumableStatus value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreConsumableResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreConsumableStatus value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreConsumableResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreConsumableResult<D>::TrackingId() const
     {
-        winrt::guid value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreConsumableResult)->get_TrackingId(put_abi(value)));
+        winrt::guid value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreConsumableResult)->get_TrackingId(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreConsumableResult<D>::BalanceRemaining() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreConsumableResult)->get_BalanceRemaining(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreConsumableResult)->get_BalanceRemaining(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreConsumableResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreConsumableResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreConsumableResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::User() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->get_User(&value));
-        return winrt::Windows::System::User{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->get_User(&value));
+        return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::OfflineLicensesChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreContext, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::OfflineLicensesChanged(Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreContext, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->add_OfflineLicensesChanged(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->add_OfflineLicensesChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Services_Store_IStoreContext<D>::OfflineLicensesChanged_revoker consume_Windows_Services_Store_IStoreContext<D>::OfflineLicensesChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreContext, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> typename consume_Windows_Services_Store_IStoreContext<D>::OfflineLicensesChanged_revoker consume_Windows_Services_Store_IStoreContext<D>::OfflineLicensesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreContext, Windows::Foundation::IInspectable> const& handler) const
     {
         return impl::make_event_revoker<D, OfflineLicensesChanged_revoker>(this, OfflineLicensesChanged(handler));
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::OfflineLicensesChanged(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->remove_OfflineLicensesChanged(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->remove_OfflineLicensesChanged(impl::bind_in(token)));
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetCustomerPurchaseIdAsync(param::hstring const& serviceTicket, param::hstring const& publisherUserId) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetCustomerPurchaseIdAsync(*(void**)(&serviceTicket), *(void**)(&publisherUserId), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<hstring>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetCustomerPurchaseIdAsync(*(void**)(&serviceTicket), *(void**)(&publisherUserId), &operation));
+        return Windows::Foundation::IAsyncOperation<hstring>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetCustomerCollectionsIdAsync(param::hstring const& serviceTicket, param::hstring const& publisherUserId) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetCustomerCollectionsIdAsync(*(void**)(&serviceTicket), *(void**)(&publisherUserId), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<hstring>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetCustomerCollectionsIdAsync(*(void**)(&serviceTicket), *(void**)(&publisherUserId), &operation));
+        return Windows::Foundation::IAsyncOperation<hstring>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetAppLicenseAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetAppLicenseAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreAppLicense>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetAppLicenseAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreAppLicense>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetStoreProductForCurrentAppAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetStoreProductForCurrentAppAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetStoreProductForCurrentAppAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetStoreProductsAsync(param::async_iterable<hstring> const& productKinds, param::async_iterable<hstring> const& storeIds) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetStoreProductsAsync(*(void**)(&productKinds), *(void**)(&storeIds), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductQueryResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetStoreProductsAsync(*(void**)(&productKinds), *(void**)(&storeIds), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductQueryResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetAssociatedStoreProductsAsync(param::async_iterable<hstring> const& productKinds) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetAssociatedStoreProductsAsync(*(void**)(&productKinds), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductQueryResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetAssociatedStoreProductsAsync(*(void**)(&productKinds), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductQueryResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetAssociatedStoreProductsWithPagingAsync(param::async_iterable<hstring> const& productKinds, uint32_t maxItemsToRetrievePerPage) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetAssociatedStoreProductsWithPagingAsync(*(void**)(&productKinds), maxItemsToRetrievePerPage, &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductPagedQueryResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetAssociatedStoreProductsWithPagingAsync(*(void**)(&productKinds), maxItemsToRetrievePerPage, &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductPagedQueryResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetUserCollectionAsync(param::async_iterable<hstring> const& productKinds) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetUserCollectionAsync(*(void**)(&productKinds), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductQueryResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetUserCollectionAsync(*(void**)(&productKinds), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductQueryResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetUserCollectionWithPagingAsync(param::async_iterable<hstring> const& productKinds, uint32_t maxItemsToRetrievePerPage) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetUserCollectionWithPagingAsync(*(void**)(&productKinds), maxItemsToRetrievePerPage, &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductPagedQueryResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetUserCollectionWithPagingAsync(*(void**)(&productKinds), maxItemsToRetrievePerPage, &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductPagedQueryResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::ReportConsumableFulfillmentAsync(param::hstring const& productStoreId, uint32_t quantity, winrt::guid const& trackingId) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->ReportConsumableFulfillmentAsync(*(void**)(&productStoreId), quantity, impl::bind_in(trackingId), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreConsumableResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->ReportConsumableFulfillmentAsync(*(void**)(&productStoreId), quantity, impl::bind_in(trackingId), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreConsumableResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetConsumableBalanceRemainingAsync(param::hstring const& productStoreId) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetConsumableBalanceRemainingAsync(*(void**)(&productStoreId), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreConsumableResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetConsumableBalanceRemainingAsync(*(void**)(&productStoreId), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreConsumableResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::AcquireStoreLicenseForOptionalPackageAsync(winrt::Windows::ApplicationModel::Package const& optionalPackage) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::AcquireStoreLicenseForOptionalPackageAsync(Windows::ApplicationModel::Package const& optionalPackage) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->AcquireStoreLicenseForOptionalPackageAsync(*(void**)(&optionalPackage), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreAcquireLicenseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->AcquireStoreLicenseForOptionalPackageAsync(*(void**)(&optionalPackage), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreAcquireLicenseResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::RequestPurchaseAsync(param::hstring const& storeId) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->RequestPurchaseAsync(*(void**)(&storeId), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->RequestPurchaseAsync(*(void**)(&storeId), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::RequestPurchaseAsync(param::hstring const& storeId, winrt::Windows::Services::Store::StorePurchaseProperties const& storePurchaseProperties) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::RequestPurchaseAsync(param::hstring const& storeId, Windows::Services::Store::StorePurchaseProperties const& storePurchaseProperties) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->RequestPurchaseWithPurchasePropertiesAsync(*(void**)(&storeId), *(void**)(&storePurchaseProperties), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->RequestPurchaseWithPurchasePropertiesAsync(*(void**)(&storeId), *(void**)(&storePurchaseProperties), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::GetAppAndOptionalStorePackageUpdatesAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->GetAppAndOptionalStorePackageUpdatesAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StorePackageUpdate>>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->GetAppAndOptionalStorePackageUpdatesAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StorePackageUpdate>>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::RequestDownloadStorePackageUpdatesAsync(param::async_iterable<winrt::Windows::Services::Store::StorePackageUpdate> const& storePackageUpdates) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::RequestDownloadStorePackageUpdatesAsync(param::async_iterable<Windows::Services::Store::StorePackageUpdate> const& storePackageUpdates) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->RequestDownloadStorePackageUpdatesAsync(*(void**)(&storePackageUpdates), &operation));
-        return winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->RequestDownloadStorePackageUpdatesAsync(*(void**)(&storePackageUpdates), &operation));
+        return Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::RequestDownloadAndInstallStorePackageUpdatesAsync(param::async_iterable<winrt::Windows::Services::Store::StorePackageUpdate> const& storePackageUpdates) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::RequestDownloadAndInstallStorePackageUpdatesAsync(param::async_iterable<Windows::Services::Store::StorePackageUpdate> const& storePackageUpdates) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->RequestDownloadAndInstallStorePackageUpdatesAsync(*(void**)(&storePackageUpdates), &operation));
-        return winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->RequestDownloadAndInstallStorePackageUpdatesAsync(*(void**)(&storePackageUpdates), &operation));
+        return Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext<D>::RequestDownloadAndInstallStorePackagesAsync(param::async_iterable<hstring> const& storeIds) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext)->RequestDownloadAndInstallStorePackagesAsync(*(void**)(&storeIds), &operation));
-        return winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext)->RequestDownloadAndInstallStorePackagesAsync(*(void**)(&storeIds), &operation));
+        return Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext2<D>::FindStoreProductForPackageAsync(param::async_iterable<hstring> const& productKinds, winrt::Windows::ApplicationModel::Package const& package) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext2<D>::FindStoreProductForPackageAsync(param::async_iterable<hstring> const& productKinds, Windows::ApplicationModel::Package const& package) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext2)->FindStoreProductForPackageAsync(*(void**)(&productKinds), *(void**)(&package), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext2)->FindStoreProductForPackageAsync(*(void**)(&productKinds), *(void**)(&package), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::CanSilentlyDownloadStorePackageUpdates() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->get_CanSilentlyDownloadStorePackageUpdates(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->get_CanSilentlyDownloadStorePackageUpdates(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::TrySilentDownloadStorePackageUpdatesAsync(param::async_iterable<winrt::Windows::Services::Store::StorePackageUpdate> const& storePackageUpdates) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::TrySilentDownloadStorePackageUpdatesAsync(param::async_iterable<Windows::Services::Store::StorePackageUpdate> const& storePackageUpdates) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->TrySilentDownloadStorePackageUpdatesAsync(*(void**)(&storePackageUpdates), &operation));
-        return winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->TrySilentDownloadStorePackageUpdatesAsync(*(void**)(&storePackageUpdates), &operation));
+        return Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::TrySilentDownloadAndInstallStorePackageUpdatesAsync(param::async_iterable<winrt::Windows::Services::Store::StorePackageUpdate> const& storePackageUpdates) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::TrySilentDownloadAndInstallStorePackageUpdatesAsync(param::async_iterable<Windows::Services::Store::StorePackageUpdate> const& storePackageUpdates) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->TrySilentDownloadAndInstallStorePackageUpdatesAsync(*(void**)(&storePackageUpdates), &operation));
-        return winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->TrySilentDownloadAndInstallStorePackageUpdatesAsync(*(void**)(&storePackageUpdates), &operation));
+        return Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::CanAcquireStoreLicenseForOptionalPackageAsync(winrt::Windows::ApplicationModel::Package const& optionalPackage) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::CanAcquireStoreLicenseForOptionalPackageAsync(Windows::ApplicationModel::Package const& optionalPackage) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->CanAcquireStoreLicenseForOptionalPackageAsync(*(void**)(&optionalPackage), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreCanAcquireLicenseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->CanAcquireStoreLicenseForOptionalPackageAsync(*(void**)(&optionalPackage), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreCanAcquireLicenseResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::CanAcquireStoreLicenseAsync(param::hstring const& productStoreId) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->CanAcquireStoreLicenseAsync(*(void**)(&productStoreId), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreCanAcquireLicenseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->CanAcquireStoreLicenseAsync(*(void**)(&productStoreId), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreCanAcquireLicenseResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::GetStoreProductsAsync(param::async_iterable<hstring> const& productKinds, param::async_iterable<hstring> const& storeIds, winrt::Windows::Services::Store::StoreProductOptions const& storeProductOptions) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::GetStoreProductsAsync(param::async_iterable<hstring> const& productKinds, param::async_iterable<hstring> const& storeIds, Windows::Services::Store::StoreProductOptions const& storeProductOptions) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->GetStoreProductsWithOptionsAsync(*(void**)(&productKinds), *(void**)(&storeIds), *(void**)(&storeProductOptions), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductQueryResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->GetStoreProductsWithOptionsAsync(*(void**)(&productKinds), *(void**)(&storeIds), *(void**)(&storeProductOptions), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductQueryResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::GetAssociatedStoreQueueItemsAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->GetAssociatedStoreQueueItemsAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreQueueItem>>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->GetAssociatedStoreQueueItemsAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreQueueItem>>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::GetStoreQueueItemsAsync(param::async_iterable<hstring> const& storeIds) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->GetStoreQueueItemsAsync(*(void**)(&storeIds), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreQueueItem>>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->GetStoreQueueItemsAsync(*(void**)(&storeIds), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreQueueItem>>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::RequestDownloadAndInstallStorePackagesAsync(param::async_iterable<hstring> const& storeIds, winrt::Windows::Services::Store::StorePackageInstallOptions const& storePackageInstallOptions) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::RequestDownloadAndInstallStorePackagesAsync(param::async_iterable<hstring> const& storeIds, Windows::Services::Store::StorePackageInstallOptions const& storePackageInstallOptions) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync(*(void**)(&storeIds), *(void**)(&storePackageInstallOptions), &operation));
-        return winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync(*(void**)(&storeIds), *(void**)(&storePackageInstallOptions), &operation));
+        return Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::DownloadAndInstallStorePackagesAsync(param::async_iterable<hstring> const& storeIds) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->DownloadAndInstallStorePackagesAsync(*(void**)(&storeIds), &operation));
-        return winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->DownloadAndInstallStorePackagesAsync(*(void**)(&storeIds), &operation));
+        return Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::RequestUninstallStorePackageAsync(winrt::Windows::ApplicationModel::Package const& package) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::RequestUninstallStorePackageAsync(Windows::ApplicationModel::Package const& package) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->RequestUninstallStorePackageAsync(*(void**)(&package), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreUninstallStorePackageResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->RequestUninstallStorePackageAsync(*(void**)(&package), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreUninstallStorePackageResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::RequestUninstallStorePackageByStoreIdAsync(param::hstring const& storeId) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->RequestUninstallStorePackageByStoreIdAsync(*(void**)(&storeId), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreUninstallStorePackageResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->RequestUninstallStorePackageByStoreIdAsync(*(void**)(&storeId), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreUninstallStorePackageResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::UninstallStorePackageAsync(winrt::Windows::ApplicationModel::Package const& package) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::UninstallStorePackageAsync(Windows::ApplicationModel::Package const& package) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->UninstallStorePackageAsync(*(void**)(&package), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreUninstallStorePackageResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->UninstallStorePackageAsync(*(void**)(&package), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreUninstallStorePackageResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext3<D>::UninstallStorePackageByStoreIdAsync(param::hstring const& storeId) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext3)->UninstallStorePackageByStoreIdAsync(*(void**)(&storeId), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreUninstallStorePackageResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext3)->UninstallStorePackageByStoreIdAsync(*(void**)(&storeId), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreUninstallStorePackageResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContext4<D>::RequestRateAndReviewAppAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext4)->RequestRateAndReviewAppAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreRateAndReviewResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext4)->RequestRateAndReviewAppAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreRateAndReviewResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContext4<D>::SetInstallOrderForAssociatedStoreQueueItemsAsync(param::async_iterable<winrt::Windows::Services::Store::StoreQueueItem> const& items) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContext4<D>::SetInstallOrderForAssociatedStoreQueueItemsAsync(param::async_iterable<Windows::Services::Store::StoreQueueItem> const& items) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContext4)->SetInstallOrderForAssociatedStoreQueueItemsAsync(*(void**)(&items), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreQueueItem>>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContext4)->SetInstallOrderForAssociatedStoreQueueItemsAsync(*(void**)(&items), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreQueueItem>>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreContextStatics<D>::GetDefault() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContextStatics)->GetDefault(&value));
-        return winrt::Windows::Services::Store::StoreContext{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContextStatics)->GetDefault(&value));
+        return Windows::Services::Store::StoreContext{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreContextStatics<D>::GetForUser(winrt::Windows::System::User const& user) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreContextStatics<D>::GetForUser(Windows::System::User const& user) const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreContextStatics)->GetForUser(*(void**)(&user), &value));
-        return winrt::Windows::Services::Store::StoreContext{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreContextStatics)->GetForUser(*(void**)(&user), &value));
+        return Windows::Services::Store::StoreContext{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreImage<D>::Uri() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreImage)->get_Uri(&value));
-        return winrt::Windows::Foundation::Uri{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreImage)->get_Uri(&value));
+        return Windows::Foundation::Uri{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreImage<D>::ImagePurposeTag() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreImage)->get_ImagePurposeTag(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreImage)->get_ImagePurposeTag(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreImage<D>::Width() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreImage)->get_Width(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreImage)->get_Width(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreImage<D>::Height() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreImage)->get_Height(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreImage)->get_Height(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreImage<D>::Caption() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreImage)->get_Caption(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreImage)->get_Caption(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreLicense<D>::SkuStoreId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreLicense)->get_SkuStoreId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreLicense)->get_SkuStoreId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreLicense<D>::IsActive() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreLicense)->get_IsActive(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreLicense)->get_IsActive(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreLicense<D>::ExpirationDate() const
     {
-        winrt::Windows::Foundation::DateTime value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreLicense)->get_ExpirationDate(put_abi(value)));
+        Windows::Foundation::DateTime value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreLicense)->get_ExpirationDate(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreLicense<D>::ExtendedJsonData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreLicense)->get_ExtendedJsonData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreLicense)->get_ExtendedJsonData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreLicense<D>::InAppOfferToken() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreLicense)->get_InAppOfferToken(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreLicense)->get_InAppOfferToken(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageInstallOptions<D>::AllowForcedAppRestart() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageInstallOptions)->get_AllowForcedAppRestart(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageInstallOptions)->get_AllowForcedAppRestart(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageInstallOptions<D>::AllowForcedAppRestart(bool value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageInstallOptions)->put_AllowForcedAppRestart(value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageInstallOptions)->put_AllowForcedAppRestart(value));
     }
-    template <typename D> auto consume_Windows_Services_Store_IStorePackageLicense<D>::LicenseLost(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StorePackageLicense, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> auto consume_Windows_Services_Store_IStorePackageLicense<D>::LicenseLost(Windows::Foundation::TypedEventHandler<Windows::Services::Store::StorePackageLicense, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageLicense)->add_LicenseLost(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageLicense)->add_LicenseLost(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Services_Store_IStorePackageLicense<D>::LicenseLost_revoker consume_Windows_Services_Store_IStorePackageLicense<D>::LicenseLost(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StorePackageLicense, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> typename consume_Windows_Services_Store_IStorePackageLicense<D>::LicenseLost_revoker consume_Windows_Services_Store_IStorePackageLicense<D>::LicenseLost(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Services::Store::StorePackageLicense, Windows::Foundation::IInspectable> const& handler) const
     {
         return impl::make_event_revoker<D, LicenseLost_revoker>(this, LicenseLost(handler));
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageLicense<D>::LicenseLost(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageLicense)->remove_LicenseLost(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageLicense)->remove_LicenseLost(impl::bind_in(token)));
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageLicense<D>::Package() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageLicense)->get_Package(&value));
-        return winrt::Windows::ApplicationModel::Package{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageLicense)->get_Package(&value));
+        return Windows::ApplicationModel::Package{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageLicense<D>::IsValid() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageLicense)->get_IsValid(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageLicense)->get_IsValid(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageLicense<D>::ReleaseLicense() const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageLicense)->ReleaseLicense());
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageLicense)->ReleaseLicense());
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageUpdate<D>::Package() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageUpdate)->get_Package(&value));
-        return winrt::Windows::ApplicationModel::Package{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageUpdate)->get_Package(&value));
+        return Windows::ApplicationModel::Package{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageUpdate<D>::Mandatory() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageUpdate)->get_Mandatory(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageUpdate)->get_Mandatory(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageUpdateResult<D>::OverallState() const
     {
-        winrt::Windows::Services::Store::StorePackageUpdateState value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageUpdateResult)->get_OverallState(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StorePackageUpdateState value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageUpdateResult)->get_OverallState(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageUpdateResult<D>::StorePackageUpdateStatuses() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageUpdateResult)->get_StorePackageUpdateStatuses(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StorePackageUpdateStatus>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageUpdateResult)->get_StorePackageUpdateStatuses(&value));
+        return Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StorePackageUpdateStatus>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePackageUpdateResult2<D>::StoreQueueItems() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePackageUpdateResult2)->get_StoreQueueItems(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreQueueItem>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePackageUpdateResult2)->get_StoreQueueItems(&value));
+        return Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreQueueItem>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePrice<D>::FormattedBasePrice() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePrice)->get_FormattedBasePrice(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePrice)->get_FormattedBasePrice(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePrice<D>::FormattedPrice() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePrice)->get_FormattedPrice(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePrice)->get_FormattedPrice(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePrice<D>::IsOnSale() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePrice)->get_IsOnSale(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePrice)->get_IsOnSale(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePrice<D>::SaleEndDate() const
     {
-        winrt::Windows::Foundation::DateTime value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePrice)->get_SaleEndDate(put_abi(value)));
+        Windows::Foundation::DateTime value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePrice)->get_SaleEndDate(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePrice<D>::CurrencyCode() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePrice)->get_CurrencyCode(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePrice)->get_CurrencyCode(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePrice<D>::FormattedRecurrencePrice() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePrice)->get_FormattedRecurrencePrice(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePrice)->get_FormattedRecurrencePrice(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::StoreId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_StoreId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_StoreId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::Language() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_Language(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_Language(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::Title() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_Title(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::Description() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_Description(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_Description(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::ProductKind() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_ProductKind(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_ProductKind(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::HasDigitalDownload() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_HasDigitalDownload(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_HasDigitalDownload(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::Keywords() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_Keywords(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_Keywords(&value));
+        return Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::Images() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_Images(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreImage>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_Images(&value));
+        return Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreImage>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::Videos() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_Videos(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreVideo>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_Videos(&value));
+        return Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreVideo>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::Skus() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_Skus(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreSku>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_Skus(&value));
+        return Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreSku>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::IsInUserCollection() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_IsInUserCollection(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_IsInUserCollection(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::Price() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_Price(&value));
-        return winrt::Windows::Services::Store::StorePrice{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_Price(&value));
+        return Windows::Services::Store::StorePrice{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::ExtendedJsonData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_ExtendedJsonData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_ExtendedJsonData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::LinkUri() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_LinkUri(&value));
-        return winrt::Windows::Foundation::Uri{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_LinkUri(&value));
+        return Windows::Foundation::Uri{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::GetIsAnySkuInstalledAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->GetIsAnySkuInstalledAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->GetIsAnySkuInstalledAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::RequestPurchaseAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->RequestPurchaseAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->RequestPurchaseAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::RequestPurchaseAsync(winrt::Windows::Services::Store::StorePurchaseProperties const& storePurchaseProperties) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::RequestPurchaseAsync(Windows::Services::Store::StorePurchaseProperties const& storePurchaseProperties) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->RequestPurchaseWithPurchasePropertiesAsync(*(void**)(&storePurchaseProperties), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->RequestPurchaseWithPurchasePropertiesAsync(*(void**)(&storePurchaseProperties), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProduct<D>::InAppOfferToken() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProduct)->get_InAppOfferToken(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProduct)->get_InAppOfferToken(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductOptions<D>::ActionFilters() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductOptions)->get_ActionFilters(&value));
-        return winrt::Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductOptions)->get_ActionFilters(&value));
+        return Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductPagedQueryResult<D>::Products() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductPagedQueryResult)->get_Products(&value));
-        return winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Services::Store::StoreProduct>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductPagedQueryResult)->get_Products(&value));
+        return Windows::Foundation::Collections::IMapView<hstring, Windows::Services::Store::StoreProduct>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductPagedQueryResult<D>::HasMoreResults() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductPagedQueryResult)->get_HasMoreResults(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductPagedQueryResult)->get_HasMoreResults(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductPagedQueryResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductPagedQueryResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductPagedQueryResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductPagedQueryResult<D>::GetNextAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductPagedQueryResult)->GetNextAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductPagedQueryResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductPagedQueryResult)->GetNextAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductPagedQueryResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductQueryResult<D>::Products() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductQueryResult)->get_Products(&value));
-        return winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Services::Store::StoreProduct>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductQueryResult)->get_Products(&value));
+        return Windows::Foundation::Collections::IMapView<hstring, Windows::Services::Store::StoreProduct>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductQueryResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductQueryResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductQueryResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductResult<D>::Product() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductResult)->get_Product(&value));
-        return winrt::Windows::Services::Store::StoreProduct{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductResult)->get_Product(&value));
+        return Windows::Services::Store::StoreProduct{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreProductResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreProductResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreProductResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePurchaseProperties<D>::Name() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePurchaseProperties)->get_Name(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePurchaseProperties)->get_Name(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePurchaseProperties<D>::Name(param::hstring const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePurchaseProperties)->put_Name(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePurchaseProperties)->put_Name(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePurchaseProperties<D>::ExtendedJsonData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePurchaseProperties)->get_ExtendedJsonData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePurchaseProperties)->get_ExtendedJsonData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePurchaseProperties<D>::ExtendedJsonData(param::hstring const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePurchaseProperties)->put_ExtendedJsonData(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePurchaseProperties)->put_ExtendedJsonData(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePurchasePropertiesFactory<D>::Create(param::hstring const& name) const
     {
         void* storePurchaseProperties{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePurchasePropertiesFactory)->Create(*(void**)(&name), &storePurchaseProperties));
-        return winrt::Windows::Services::Store::StorePurchaseProperties{ storePurchaseProperties, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePurchasePropertiesFactory)->Create(*(void**)(&name), &storePurchaseProperties));
+        return Windows::Services::Store::StorePurchaseProperties{ storePurchaseProperties, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePurchaseResult<D>::Status() const
     {
-        winrt::Windows::Services::Store::StorePurchaseStatus value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePurchaseResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StorePurchaseStatus value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePurchaseResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStorePurchaseResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStorePurchaseResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStorePurchaseResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::ProductId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem)->get_ProductId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem)->get_ProductId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::PackageFamilyName() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem)->get_PackageFamilyName(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem)->get_PackageFamilyName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::InstallKind() const
     {
-        winrt::Windows::Services::Store::StoreQueueItemKind value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem)->get_InstallKind(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreQueueItemKind value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem)->get_InstallKind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::GetCurrentStatus() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem)->GetCurrentStatus(&result));
-        return winrt::Windows::Services::Store::StoreQueueItemStatus{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem)->GetCurrentStatus(&result));
+        return Windows::Services::Store::StoreQueueItemStatus{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::Completed(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreQueueItem, winrt::Windows::Services::Store::StoreQueueItemCompletedEventArgs> const& handler) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::Completed(Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreQueueItem, Windows::Services::Store::StoreQueueItemCompletedEventArgs> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem)->add_Completed(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem)->add_Completed(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Services_Store_IStoreQueueItem<D>::Completed_revoker consume_Windows_Services_Store_IStoreQueueItem<D>::Completed(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreQueueItem, winrt::Windows::Services::Store::StoreQueueItemCompletedEventArgs> const& handler) const
+    template <typename D> typename consume_Windows_Services_Store_IStoreQueueItem<D>::Completed_revoker consume_Windows_Services_Store_IStoreQueueItem<D>::Completed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreQueueItem, Windows::Services::Store::StoreQueueItemCompletedEventArgs> const& handler) const
     {
         return impl::make_event_revoker<D, Completed_revoker>(this, Completed(handler));
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::Completed(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem)->remove_Completed(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem)->remove_Completed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::StatusChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreQueueItem, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreQueueItem, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem)->add_StatusChanged(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem)->add_StatusChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Services_Store_IStoreQueueItem<D>::StatusChanged_revoker consume_Windows_Services_Store_IStoreQueueItem<D>::StatusChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreQueueItem, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> typename consume_Windows_Services_Store_IStoreQueueItem<D>::StatusChanged_revoker consume_Windows_Services_Store_IStoreQueueItem<D>::StatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreQueueItem, Windows::Foundation::IInspectable> const& handler) const
     {
         return impl::make_event_revoker<D, StatusChanged_revoker>(this, StatusChanged(handler));
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem<D>::StatusChanged(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem)->remove_StatusChanged(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem)->remove_StatusChanged(impl::bind_in(token)));
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem2<D>::CancelInstallAsync() const
     {
         void* action{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem2)->CancelInstallAsync(&action));
-        return winrt::Windows::Foundation::IAsyncAction{ action, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem2)->CancelInstallAsync(&action));
+        return Windows::Foundation::IAsyncAction{ action, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem2<D>::PauseInstallAsync() const
     {
         void* action{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem2)->PauseInstallAsync(&action));
-        return winrt::Windows::Foundation::IAsyncAction{ action, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem2)->PauseInstallAsync(&action));
+        return Windows::Foundation::IAsyncAction{ action, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItem2<D>::ResumeInstallAsync() const
     {
         void* action{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItem2)->ResumeInstallAsync(&action));
-        return winrt::Windows::Foundation::IAsyncAction{ action, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItem2)->ResumeInstallAsync(&action));
+        return Windows::Foundation::IAsyncAction{ action, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItemCompletedEventArgs<D>::Status() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItemCompletedEventArgs)->get_Status(&value));
-        return winrt::Windows::Services::Store::StoreQueueItemStatus{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItemCompletedEventArgs)->get_Status(&value));
+        return Windows::Services::Store::StoreQueueItemStatus{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItemStatus<D>::PackageInstallState() const
     {
-        winrt::Windows::Services::Store::StoreQueueItemState value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItemStatus)->get_PackageInstallState(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreQueueItemState value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItemStatus)->get_PackageInstallState(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItemStatus<D>::PackageInstallExtendedState() const
     {
-        winrt::Windows::Services::Store::StoreQueueItemExtendedState value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItemStatus)->get_PackageInstallExtendedState(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreQueueItemExtendedState value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItemStatus)->get_PackageInstallExtendedState(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItemStatus<D>::UpdateStatus() const
     {
-        winrt::Windows::Services::Store::StorePackageUpdateStatus value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItemStatus)->get_UpdateStatus(put_abi(value)));
+        Windows::Services::Store::StorePackageUpdateStatus value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItemStatus)->get_UpdateStatus(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreQueueItemStatus<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreQueueItemStatus)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreQueueItemStatus)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreRateAndReviewResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreRateAndReviewResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreRateAndReviewResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreRateAndReviewResult<D>::ExtendedJsonData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreRateAndReviewResult)->get_ExtendedJsonData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreRateAndReviewResult)->get_ExtendedJsonData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreRateAndReviewResult<D>::WasUpdated() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreRateAndReviewResult)->get_WasUpdated(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreRateAndReviewResult)->get_WasUpdated(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreRateAndReviewResult<D>::Status() const
     {
-        winrt::Windows::Services::Store::StoreRateAndReviewStatus value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreRateAndReviewResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreRateAndReviewStatus value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreRateAndReviewResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreRequestHelperStatics<D>::SendRequestAsync(winrt::Windows::Services::Store::StoreContext const& context, uint32_t requestKind, param::hstring const& parametersAsJson) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreRequestHelperStatics<D>::SendRequestAsync(Windows::Services::Store::StoreContext const& context, uint32_t requestKind, param::hstring const& parametersAsJson) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreRequestHelperStatics)->SendRequestAsync(*(void**)(&context), requestKind, *(void**)(&parametersAsJson), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreSendRequestResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreRequestHelperStatics)->SendRequestAsync(*(void**)(&context), requestKind, *(void**)(&parametersAsJson), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreSendRequestResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSendRequestResult<D>::Response() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSendRequestResult)->get_Response(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSendRequestResult)->get_Response(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSendRequestResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSendRequestResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSendRequestResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSendRequestResult2<D>::HttpStatusCode() const
     {
-        winrt::Windows::Web::Http::HttpStatusCode value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSendRequestResult2)->get_HttpStatusCode(reinterpret_cast<int32_t*>(&value)));
+        Windows::Web::Http::HttpStatusCode value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSendRequestResult2)->get_HttpStatusCode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::StoreId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_StoreId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_StoreId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::Language() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_Language(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_Language(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::Title() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_Title(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::Description() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_Description(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_Description(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::IsTrial() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_IsTrial(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_IsTrial(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::CustomDeveloperData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_CustomDeveloperData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_CustomDeveloperData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::Images() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_Images(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreImage>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_Images(&value));
+        return Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreImage>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::Videos() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_Videos(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreVideo>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_Videos(&value));
+        return Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreVideo>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::Availabilities() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_Availabilities(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreAvailability>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_Availabilities(&value));
+        return Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreAvailability>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::Price() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_Price(&value));
-        return winrt::Windows::Services::Store::StorePrice{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_Price(&value));
+        return Windows::Services::Store::StorePrice{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::ExtendedJsonData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_ExtendedJsonData(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_ExtendedJsonData(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::IsInUserCollection() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_IsInUserCollection(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_IsInUserCollection(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::BundledSkus() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_BundledSkus(&value));
-        return winrt::Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_BundledSkus(&value));
+        return Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::CollectionData() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_CollectionData(&value));
-        return winrt::Windows::Services::Store::StoreCollectionData{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_CollectionData(&value));
+        return Windows::Services::Store::StoreCollectionData{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::GetIsInstalledAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->GetIsInstalledAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->GetIsInstalledAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::RequestPurchaseAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->RequestPurchaseAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->RequestPurchaseAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::RequestPurchaseAsync(winrt::Windows::Services::Store::StorePurchaseProperties const& storePurchaseProperties) const
+    template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::RequestPurchaseAsync(Windows::Services::Store::StorePurchaseProperties const& storePurchaseProperties) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->RequestPurchaseWithPurchasePropertiesAsync(*(void**)(&storePurchaseProperties), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->RequestPurchaseWithPurchasePropertiesAsync(*(void**)(&storePurchaseProperties), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::IsSubscription() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_IsSubscription(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_IsSubscription(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSku<D>::SubscriptionInfo() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSku)->get_SubscriptionInfo(&value));
-        return winrt::Windows::Services::Store::StoreSubscriptionInfo{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSku)->get_SubscriptionInfo(&value));
+        return Windows::Services::Store::StoreSubscriptionInfo{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSubscriptionInfo<D>::BillingPeriod() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSubscriptionInfo)->get_BillingPeriod(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSubscriptionInfo)->get_BillingPeriod(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSubscriptionInfo<D>::BillingPeriodUnit() const
     {
-        winrt::Windows::Services::Store::StoreDurationUnit value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSubscriptionInfo)->get_BillingPeriodUnit(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreDurationUnit value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSubscriptionInfo)->get_BillingPeriodUnit(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSubscriptionInfo<D>::HasTrialPeriod() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSubscriptionInfo)->get_HasTrialPeriod(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSubscriptionInfo)->get_HasTrialPeriod(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSubscriptionInfo<D>::TrialPeriod() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSubscriptionInfo)->get_TrialPeriod(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSubscriptionInfo)->get_TrialPeriod(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreSubscriptionInfo<D>::TrialPeriodUnit() const
     {
-        winrt::Windows::Services::Store::StoreDurationUnit value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreSubscriptionInfo)->get_TrialPeriodUnit(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreDurationUnit value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreSubscriptionInfo)->get_TrialPeriodUnit(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreUninstallStorePackageResult<D>::ExtendedError() const
     {
-        winrt::hresult value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreUninstallStorePackageResult)->get_ExtendedError(put_abi(value)));
+        winrt::hresult value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreUninstallStorePackageResult)->get_ExtendedError(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreUninstallStorePackageResult<D>::Status() const
     {
-        winrt::Windows::Services::Store::StoreUninstallStorePackageStatus value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreUninstallStorePackageResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        Windows::Services::Store::StoreUninstallStorePackageStatus value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreUninstallStorePackageResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreVideo<D>::Uri() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreVideo)->get_Uri(&value));
-        return winrt::Windows::Foundation::Uri{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreVideo)->get_Uri(&value));
+        return Windows::Foundation::Uri{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreVideo<D>::VideoPurposeTag() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreVideo)->get_VideoPurposeTag(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreVideo)->get_VideoPurposeTag(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreVideo<D>::Width() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreVideo)->get_Width(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreVideo)->get_Width(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreVideo<D>::Height() const
     {
-        uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreVideo)->get_Height(&value));
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreVideo)->get_Height(&value));
         return value;
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreVideo<D>::Caption() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreVideo)->get_Caption(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreVideo)->get_Caption(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Services_Store_IStoreVideo<D>::PreviewImage() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Services::Store::IStoreVideo)->get_PreviewImage(&value));
-        return winrt::Windows::Services::Store::StoreImage{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Services::Store::IStoreVideo)->get_PreviewImage(&value));
+        return Windows::Services::Store::StoreImage{ value, take_ownership_from_abi };
     }
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreAcquireLicenseResult> : produce_base<D, winrt::Windows::Services::Store::IStoreAcquireLicenseResult>
+    struct produce<D, Windows::Services::Store::IStoreAcquireLicenseResult> : produce_base<D, Windows::Services::Store::IStoreAcquireLicenseResult>
     {
         int32_t __stdcall get_StorePackageLicense(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StorePackageLicense>(this->shim().StorePackageLicense());
+            *value = detach_from<Windows::Services::Store::StorePackageLicense>(this->shim().StorePackageLicense());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1187,7 +1185,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreAppLicense> : produce_base<D, winrt::Windows::Services::Store::IStoreAppLicense>
+    struct produce<D, Windows::Services::Store::IStoreAppLicense> : produce_base<D, Windows::Services::Store::IStoreAppLicense>
     {
         int32_t __stdcall get_SkuStoreId(void** value) noexcept final try
         {
@@ -1213,9 +1211,9 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_ExpirationDate(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::DateTime>(value);
+            zero_abi<Windows::Foundation::DateTime>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::DateTime>(this->shim().ExpirationDate());
+            *value = detach_from<Windows::Foundation::DateTime>(this->shim().ExpirationDate());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1231,15 +1229,15 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Services::Store::StoreLicense>>(this->shim().AddOnLicenses());
+            *value = detach_from<Windows::Foundation::Collections::IMapView<hstring, Windows::Services::Store::StoreLicense>>(this->shim().AddOnLicenses());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_TrialTimeRemaining(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::TimeSpan>(value);
+            zero_abi<Windows::Foundation::TimeSpan>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::TimeSpan>(this->shim().TrialTimeRemaining());
+            *value = detach_from<Windows::Foundation::TimeSpan>(this->shim().TrialTimeRemaining());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1262,7 +1260,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreAppLicense2> : produce_base<D, winrt::Windows::Services::Store::IStoreAppLicense2>
+    struct produce<D, Windows::Services::Store::IStoreAppLicense2> : produce_base<D, Windows::Services::Store::IStoreAppLicense2>
     {
         int32_t __stdcall get_IsDiscLicense(bool* value) noexcept final try
         {
@@ -1275,7 +1273,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreAvailability> : produce_base<D, winrt::Windows::Services::Store::IStoreAvailability>
+    struct produce<D, Windows::Services::Store::IStoreAvailability> : produce_base<D, Windows::Services::Store::IStoreAvailability>
     {
         int32_t __stdcall get_StoreId(void** value) noexcept final try
         {
@@ -1287,9 +1285,9 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_EndDate(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::DateTime>(value);
+            zero_abi<Windows::Foundation::DateTime>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::DateTime>(this->shim().EndDate());
+            *value = detach_from<Windows::Foundation::DateTime>(this->shim().EndDate());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1297,7 +1295,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StorePrice>(this->shim().Price());
+            *value = detach_from<Windows::Services::Store::StorePrice>(this->shim().Price());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1313,7 +1311,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1321,7 +1319,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<winrt::Windows::Services::Store::StorePurchaseProperties const*>(&storePurchaseProperties)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<Windows::Services::Store::StorePurchaseProperties const*>(&storePurchaseProperties)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1329,7 +1327,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreCanAcquireLicenseResult> : produce_base<D, winrt::Windows::Services::Store::IStoreCanAcquireLicenseResult>
+    struct produce<D, Windows::Services::Store::IStoreCanAcquireLicenseResult> : produce_base<D, Windows::Services::Store::IStoreCanAcquireLicenseResult>
     {
         int32_t __stdcall get_ExtendedError(winrt::hresult* value) noexcept final try
         {
@@ -1350,7 +1348,7 @@ namespace winrt::impl
         int32_t __stdcall get_Status(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreCanLicenseStatus>(this->shim().Status());
+            *value = detach_from<Windows::Services::Store::StoreCanLicenseStatus>(this->shim().Status());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1358,7 +1356,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreCollectionData> : produce_base<D, winrt::Windows::Services::Store::IStoreCollectionData>
+    struct produce<D, Windows::Services::Store::IStoreCollectionData> : produce_base<D, Windows::Services::Store::IStoreCollectionData>
     {
         int32_t __stdcall get_IsTrial(bool* value) noexcept final try
         {
@@ -1385,33 +1383,33 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_AcquiredDate(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::DateTime>(value);
+            zero_abi<Windows::Foundation::DateTime>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::DateTime>(this->shim().AcquiredDate());
+            *value = detach_from<Windows::Foundation::DateTime>(this->shim().AcquiredDate());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_StartDate(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::DateTime>(value);
+            zero_abi<Windows::Foundation::DateTime>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::DateTime>(this->shim().StartDate());
+            *value = detach_from<Windows::Foundation::DateTime>(this->shim().StartDate());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_EndDate(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::DateTime>(value);
+            zero_abi<Windows::Foundation::DateTime>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::DateTime>(this->shim().EndDate());
+            *value = detach_from<Windows::Foundation::DateTime>(this->shim().EndDate());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_TrialTimeRemaining(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::TimeSpan>(value);
+            zero_abi<Windows::Foundation::TimeSpan>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::TimeSpan>(this->shim().TrialTimeRemaining());
+            *value = detach_from<Windows::Foundation::TimeSpan>(this->shim().TrialTimeRemaining());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1427,12 +1425,12 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreConsumableResult> : produce_base<D, winrt::Windows::Services::Store::IStoreConsumableResult>
+    struct produce<D, Windows::Services::Store::IStoreConsumableResult> : produce_base<D, Windows::Services::Store::IStoreConsumableResult>
     {
         int32_t __stdcall get_Status(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreConsumableStatus>(this->shim().Status());
+            *value = detach_from<Windows::Services::Store::StoreConsumableStatus>(this->shim().Status());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1462,13 +1460,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreContext> : produce_base<D, winrt::Windows::Services::Store::IStoreContext>
+    struct produce<D, Windows::Services::Store::IStoreContext> : produce_base<D, Windows::Services::Store::IStoreContext>
     {
         int32_t __stdcall get_User(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::System::User>(this->shim().User());
+            *value = detach_from<Windows::System::User>(this->shim().User());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1476,7 +1474,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().OfflineLicensesChanged(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreContext, winrt::Windows::Foundation::IInspectable> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().OfflineLicensesChanged(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreContext, Windows::Foundation::IInspectable> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1490,7 +1488,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<hstring>>(this->shim().GetCustomerPurchaseIdAsync(*reinterpret_cast<hstring const*>(&serviceTicket), *reinterpret_cast<hstring const*>(&publisherUserId)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<hstring>>(this->shim().GetCustomerPurchaseIdAsync(*reinterpret_cast<hstring const*>(&serviceTicket), *reinterpret_cast<hstring const*>(&publisherUserId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1498,7 +1496,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<hstring>>(this->shim().GetCustomerCollectionsIdAsync(*reinterpret_cast<hstring const*>(&serviceTicket), *reinterpret_cast<hstring const*>(&publisherUserId)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<hstring>>(this->shim().GetCustomerCollectionsIdAsync(*reinterpret_cast<hstring const*>(&serviceTicket), *reinterpret_cast<hstring const*>(&publisherUserId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1506,7 +1504,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreAppLicense>>(this->shim().GetAppLicenseAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreAppLicense>>(this->shim().GetAppLicenseAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1514,7 +1512,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductResult>>(this->shim().GetStoreProductForCurrentAppAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductResult>>(this->shim().GetStoreProductForCurrentAppAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1522,7 +1520,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductQueryResult>>(this->shim().GetStoreProductsAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), *reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductQueryResult>>(this->shim().GetStoreProductsAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), *reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1530,7 +1528,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductQueryResult>>(this->shim().GetAssociatedStoreProductsAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductQueryResult>>(this->shim().GetAssociatedStoreProductsAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1538,7 +1536,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductPagedQueryResult>>(this->shim().GetAssociatedStoreProductsWithPagingAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), maxItemsToRetrievePerPage));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductPagedQueryResult>>(this->shim().GetAssociatedStoreProductsWithPagingAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), maxItemsToRetrievePerPage));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1546,7 +1544,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductQueryResult>>(this->shim().GetUserCollectionAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductQueryResult>>(this->shim().GetUserCollectionAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1554,7 +1552,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductPagedQueryResult>>(this->shim().GetUserCollectionWithPagingAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), maxItemsToRetrievePerPage));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductPagedQueryResult>>(this->shim().GetUserCollectionWithPagingAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), maxItemsToRetrievePerPage));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1562,7 +1560,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreConsumableResult>>(this->shim().ReportConsumableFulfillmentAsync(*reinterpret_cast<hstring const*>(&productStoreId), quantity, *reinterpret_cast<winrt::guid const*>(&trackingId)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreConsumableResult>>(this->shim().ReportConsumableFulfillmentAsync(*reinterpret_cast<hstring const*>(&productStoreId), quantity, *reinterpret_cast<winrt::guid const*>(&trackingId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1570,7 +1568,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreConsumableResult>>(this->shim().GetConsumableBalanceRemainingAsync(*reinterpret_cast<hstring const*>(&productStoreId)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreConsumableResult>>(this->shim().GetConsumableBalanceRemainingAsync(*reinterpret_cast<hstring const*>(&productStoreId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1578,7 +1576,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreAcquireLicenseResult>>(this->shim().AcquireStoreLicenseForOptionalPackageAsync(*reinterpret_cast<winrt::Windows::ApplicationModel::Package const*>(&optionalPackage)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreAcquireLicenseResult>>(this->shim().AcquireStoreLicenseForOptionalPackageAsync(*reinterpret_cast<Windows::ApplicationModel::Package const*>(&optionalPackage)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1586,7 +1584,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<hstring const*>(&storeId)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<hstring const*>(&storeId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1594,7 +1592,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<hstring const*>(&storeId), *reinterpret_cast<winrt::Windows::Services::Store::StorePurchaseProperties const*>(&storePurchaseProperties)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<hstring const*>(&storeId), *reinterpret_cast<Windows::Services::Store::StorePurchaseProperties const*>(&storePurchaseProperties)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1602,7 +1600,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StorePackageUpdate>>>(this->shim().GetAppAndOptionalStorePackageUpdatesAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StorePackageUpdate>>>(this->shim().GetAppAndOptionalStorePackageUpdatesAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1610,7 +1608,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().RequestDownloadStorePackageUpdatesAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<winrt::Windows::Services::Store::StorePackageUpdate> const*>(&storePackageUpdates)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().RequestDownloadStorePackageUpdatesAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<Windows::Services::Store::StorePackageUpdate> const*>(&storePackageUpdates)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1618,7 +1616,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().RequestDownloadAndInstallStorePackageUpdatesAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<winrt::Windows::Services::Store::StorePackageUpdate> const*>(&storePackageUpdates)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().RequestDownloadAndInstallStorePackageUpdatesAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<Windows::Services::Store::StorePackageUpdate> const*>(&storePackageUpdates)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1626,7 +1624,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().RequestDownloadAndInstallStorePackagesAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().RequestDownloadAndInstallStorePackagesAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1634,13 +1632,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreContext2> : produce_base<D, winrt::Windows::Services::Store::IStoreContext2>
+    struct produce<D, Windows::Services::Store::IStoreContext2> : produce_base<D, Windows::Services::Store::IStoreContext2>
     {
         int32_t __stdcall FindStoreProductForPackageAsync(void* productKinds, void* package, void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductResult>>(this->shim().FindStoreProductForPackageAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), *reinterpret_cast<winrt::Windows::ApplicationModel::Package const*>(&package)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductResult>>(this->shim().FindStoreProductForPackageAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), *reinterpret_cast<Windows::ApplicationModel::Package const*>(&package)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1648,7 +1646,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreContext3> : produce_base<D, winrt::Windows::Services::Store::IStoreContext3>
+    struct produce<D, Windows::Services::Store::IStoreContext3> : produce_base<D, Windows::Services::Store::IStoreContext3>
     {
         int32_t __stdcall get_CanSilentlyDownloadStorePackageUpdates(bool* value) noexcept final try
         {
@@ -1661,7 +1659,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().TrySilentDownloadStorePackageUpdatesAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<winrt::Windows::Services::Store::StorePackageUpdate> const*>(&storePackageUpdates)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().TrySilentDownloadStorePackageUpdatesAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<Windows::Services::Store::StorePackageUpdate> const*>(&storePackageUpdates)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1669,7 +1667,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().TrySilentDownloadAndInstallStorePackageUpdatesAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<winrt::Windows::Services::Store::StorePackageUpdate> const*>(&storePackageUpdates)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().TrySilentDownloadAndInstallStorePackageUpdatesAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<Windows::Services::Store::StorePackageUpdate> const*>(&storePackageUpdates)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1677,7 +1675,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreCanAcquireLicenseResult>>(this->shim().CanAcquireStoreLicenseForOptionalPackageAsync(*reinterpret_cast<winrt::Windows::ApplicationModel::Package const*>(&optionalPackage)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreCanAcquireLicenseResult>>(this->shim().CanAcquireStoreLicenseForOptionalPackageAsync(*reinterpret_cast<Windows::ApplicationModel::Package const*>(&optionalPackage)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1685,7 +1683,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreCanAcquireLicenseResult>>(this->shim().CanAcquireStoreLicenseAsync(*reinterpret_cast<hstring const*>(&productStoreId)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreCanAcquireLicenseResult>>(this->shim().CanAcquireStoreLicenseAsync(*reinterpret_cast<hstring const*>(&productStoreId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1693,7 +1691,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductQueryResult>>(this->shim().GetStoreProductsAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), *reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds), *reinterpret_cast<winrt::Windows::Services::Store::StoreProductOptions const*>(&storeProductOptions)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductQueryResult>>(this->shim().GetStoreProductsAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&productKinds), *reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds), *reinterpret_cast<Windows::Services::Store::StoreProductOptions const*>(&storeProductOptions)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1701,7 +1699,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreQueueItem>>>(this->shim().GetAssociatedStoreQueueItemsAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreQueueItem>>>(this->shim().GetAssociatedStoreQueueItemsAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1709,7 +1707,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreQueueItem>>>(this->shim().GetStoreQueueItemsAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreQueueItem>>>(this->shim().GetStoreQueueItemsAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1717,7 +1715,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().RequestDownloadAndInstallStorePackagesAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds), *reinterpret_cast<winrt::Windows::Services::Store::StorePackageInstallOptions const*>(&storePackageInstallOptions)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().RequestDownloadAndInstallStorePackagesAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds), *reinterpret_cast<Windows::Services::Store::StorePackageInstallOptions const*>(&storePackageInstallOptions)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1725,7 +1723,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperationWithProgress<winrt::Windows::Services::Store::StorePackageUpdateResult, winrt::Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().DownloadAndInstallStorePackagesAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperationWithProgress<Windows::Services::Store::StorePackageUpdateResult, Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().DownloadAndInstallStorePackagesAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<hstring> const*>(&storeIds)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1733,7 +1731,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreUninstallStorePackageResult>>(this->shim().RequestUninstallStorePackageAsync(*reinterpret_cast<winrt::Windows::ApplicationModel::Package const*>(&package)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreUninstallStorePackageResult>>(this->shim().RequestUninstallStorePackageAsync(*reinterpret_cast<Windows::ApplicationModel::Package const*>(&package)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1741,7 +1739,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreUninstallStorePackageResult>>(this->shim().RequestUninstallStorePackageByStoreIdAsync(*reinterpret_cast<hstring const*>(&storeId)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreUninstallStorePackageResult>>(this->shim().RequestUninstallStorePackageByStoreIdAsync(*reinterpret_cast<hstring const*>(&storeId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1749,7 +1747,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreUninstallStorePackageResult>>(this->shim().UninstallStorePackageAsync(*reinterpret_cast<winrt::Windows::ApplicationModel::Package const*>(&package)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreUninstallStorePackageResult>>(this->shim().UninstallStorePackageAsync(*reinterpret_cast<Windows::ApplicationModel::Package const*>(&package)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1757,7 +1755,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreUninstallStorePackageResult>>(this->shim().UninstallStorePackageByStoreIdAsync(*reinterpret_cast<hstring const*>(&storeId)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreUninstallStorePackageResult>>(this->shim().UninstallStorePackageByStoreIdAsync(*reinterpret_cast<hstring const*>(&storeId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1765,13 +1763,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreContext4> : produce_base<D, winrt::Windows::Services::Store::IStoreContext4>
+    struct produce<D, Windows::Services::Store::IStoreContext4> : produce_base<D, Windows::Services::Store::IStoreContext4>
     {
         int32_t __stdcall RequestRateAndReviewAppAsync(void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreRateAndReviewResult>>(this->shim().RequestRateAndReviewAppAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreRateAndReviewResult>>(this->shim().RequestRateAndReviewAppAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1779,7 +1777,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreQueueItem>>>(this->shim().SetInstallOrderForAssociatedStoreQueueItemsAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<winrt::Windows::Services::Store::StoreQueueItem> const*>(&items)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreQueueItem>>>(this->shim().SetInstallOrderForAssociatedStoreQueueItemsAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<Windows::Services::Store::StoreQueueItem> const*>(&items)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1787,13 +1785,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreContextStatics> : produce_base<D, winrt::Windows::Services::Store::IStoreContextStatics>
+    struct produce<D, Windows::Services::Store::IStoreContextStatics> : produce_base<D, Windows::Services::Store::IStoreContextStatics>
     {
         int32_t __stdcall GetDefault(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreContext>(this->shim().GetDefault());
+            *value = detach_from<Windows::Services::Store::StoreContext>(this->shim().GetDefault());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1801,7 +1799,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreContext>(this->shim().GetForUser(*reinterpret_cast<winrt::Windows::System::User const*>(&user)));
+            *value = detach_from<Windows::Services::Store::StoreContext>(this->shim().GetForUser(*reinterpret_cast<Windows::System::User const*>(&user)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1809,13 +1807,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreImage> : produce_base<D, winrt::Windows::Services::Store::IStoreImage>
+    struct produce<D, Windows::Services::Store::IStoreImage> : produce_base<D, Windows::Services::Store::IStoreImage>
     {
         int32_t __stdcall get_Uri(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Uri>(this->shim().Uri());
+            *value = detach_from<Windows::Foundation::Uri>(this->shim().Uri());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1853,7 +1851,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreLicense> : produce_base<D, winrt::Windows::Services::Store::IStoreLicense>
+    struct produce<D, Windows::Services::Store::IStoreLicense> : produce_base<D, Windows::Services::Store::IStoreLicense>
     {
         int32_t __stdcall get_SkuStoreId(void** value) noexcept final try
         {
@@ -1872,9 +1870,9 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_ExpirationDate(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::DateTime>(value);
+            zero_abi<Windows::Foundation::DateTime>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::DateTime>(this->shim().ExpirationDate());
+            *value = detach_from<Windows::Foundation::DateTime>(this->shim().ExpirationDate());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1898,7 +1896,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePackageInstallOptions> : produce_base<D, winrt::Windows::Services::Store::IStorePackageInstallOptions>
+    struct produce<D, Windows::Services::Store::IStorePackageInstallOptions> : produce_base<D, Windows::Services::Store::IStorePackageInstallOptions>
     {
         int32_t __stdcall get_AllowForcedAppRestart(bool* value) noexcept final try
         {
@@ -1918,13 +1916,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePackageLicense> : produce_base<D, winrt::Windows::Services::Store::IStorePackageLicense>
+    struct produce<D, Windows::Services::Store::IStorePackageLicense> : produce_base<D, Windows::Services::Store::IStorePackageLicense>
     {
         int32_t __stdcall add_LicenseLost(void* handler, winrt::event_token* token) noexcept final try
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().LicenseLost(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StorePackageLicense, winrt::Windows::Foundation::IInspectable> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().LicenseLost(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Services::Store::StorePackageLicense, Windows::Foundation::IInspectable> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1938,7 +1936,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::ApplicationModel::Package>(this->shim().Package());
+            *value = detach_from<Windows::ApplicationModel::Package>(this->shim().Package());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1960,13 +1958,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePackageUpdate> : produce_base<D, winrt::Windows::Services::Store::IStorePackageUpdate>
+    struct produce<D, Windows::Services::Store::IStorePackageUpdate> : produce_base<D, Windows::Services::Store::IStorePackageUpdate>
     {
         int32_t __stdcall get_Package(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::ApplicationModel::Package>(this->shim().Package());
+            *value = detach_from<Windows::ApplicationModel::Package>(this->shim().Package());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1981,12 +1979,12 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePackageUpdateResult> : produce_base<D, winrt::Windows::Services::Store::IStorePackageUpdateResult>
+    struct produce<D, Windows::Services::Store::IStorePackageUpdateResult> : produce_base<D, Windows::Services::Store::IStorePackageUpdateResult>
     {
         int32_t __stdcall get_OverallState(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StorePackageUpdateState>(this->shim().OverallState());
+            *value = detach_from<Windows::Services::Store::StorePackageUpdateState>(this->shim().OverallState());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1994,7 +1992,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().StorePackageUpdateStatuses());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StorePackageUpdateStatus>>(this->shim().StorePackageUpdateStatuses());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2002,13 +2000,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePackageUpdateResult2> : produce_base<D, winrt::Windows::Services::Store::IStorePackageUpdateResult2>
+    struct produce<D, Windows::Services::Store::IStorePackageUpdateResult2> : produce_base<D, Windows::Services::Store::IStorePackageUpdateResult2>
     {
         int32_t __stdcall get_StoreQueueItems(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreQueueItem>>(this->shim().StoreQueueItems());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreQueueItem>>(this->shim().StoreQueueItems());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2016,7 +2014,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePrice> : produce_base<D, winrt::Windows::Services::Store::IStorePrice>
+    struct produce<D, Windows::Services::Store::IStorePrice> : produce_base<D, Windows::Services::Store::IStorePrice>
     {
         int32_t __stdcall get_FormattedBasePrice(void** value) noexcept final try
         {
@@ -2043,9 +2041,9 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_SaleEndDate(int64_t* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::DateTime>(value);
+            zero_abi<Windows::Foundation::DateTime>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::DateTime>(this->shim().SaleEndDate());
+            *value = detach_from<Windows::Foundation::DateTime>(this->shim().SaleEndDate());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2069,7 +2067,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreProduct> : produce_base<D, winrt::Windows::Services::Store::IStoreProduct>
+    struct produce<D, Windows::Services::Store::IStoreProduct> : produce_base<D, Windows::Services::Store::IStoreProduct>
     {
         int32_t __stdcall get_StoreId(void** value) noexcept final try
         {
@@ -2122,7 +2120,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<hstring>>(this->shim().Keywords());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<hstring>>(this->shim().Keywords());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2130,7 +2128,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreImage>>(this->shim().Images());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreImage>>(this->shim().Images());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2138,7 +2136,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreVideo>>(this->shim().Videos());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreVideo>>(this->shim().Videos());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2146,7 +2144,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreSku>>(this->shim().Skus());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreSku>>(this->shim().Skus());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2161,7 +2159,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StorePrice>(this->shim().Price());
+            *value = detach_from<Windows::Services::Store::StorePrice>(this->shim().Price());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2177,7 +2175,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Uri>(this->shim().LinkUri());
+            *value = detach_from<Windows::Foundation::Uri>(this->shim().LinkUri());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2185,7 +2183,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<bool>>(this->shim().GetIsAnySkuInstalledAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().GetIsAnySkuInstalledAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2193,7 +2191,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2201,7 +2199,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<winrt::Windows::Services::Store::StorePurchaseProperties const*>(&storePurchaseProperties)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<Windows::Services::Store::StorePurchaseProperties const*>(&storePurchaseProperties)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2217,13 +2215,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreProductOptions> : produce_base<D, winrt::Windows::Services::Store::IStoreProductOptions>
+    struct produce<D, Windows::Services::Store::IStoreProductOptions> : produce_base<D, Windows::Services::Store::IStoreProductOptions>
     {
         int32_t __stdcall get_ActionFilters(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVector<hstring>>(this->shim().ActionFilters());
+            *value = detach_from<Windows::Foundation::Collections::IVector<hstring>>(this->shim().ActionFilters());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2231,13 +2229,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreProductPagedQueryResult> : produce_base<D, winrt::Windows::Services::Store::IStoreProductPagedQueryResult>
+    struct produce<D, Windows::Services::Store::IStoreProductPagedQueryResult> : produce_base<D, Windows::Services::Store::IStoreProductPagedQueryResult>
     {
         int32_t __stdcall get_Products(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Services::Store::StoreProduct>>(this->shim().Products());
+            *value = detach_from<Windows::Foundation::Collections::IMapView<hstring, Windows::Services::Store::StoreProduct>>(this->shim().Products());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2260,7 +2258,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreProductPagedQueryResult>>(this->shim().GetNextAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreProductPagedQueryResult>>(this->shim().GetNextAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2268,13 +2266,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreProductQueryResult> : produce_base<D, winrt::Windows::Services::Store::IStoreProductQueryResult>
+    struct produce<D, Windows::Services::Store::IStoreProductQueryResult> : produce_base<D, Windows::Services::Store::IStoreProductQueryResult>
     {
         int32_t __stdcall get_Products(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Services::Store::StoreProduct>>(this->shim().Products());
+            *value = detach_from<Windows::Foundation::Collections::IMapView<hstring, Windows::Services::Store::StoreProduct>>(this->shim().Products());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2290,13 +2288,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreProductResult> : produce_base<D, winrt::Windows::Services::Store::IStoreProductResult>
+    struct produce<D, Windows::Services::Store::IStoreProductResult> : produce_base<D, Windows::Services::Store::IStoreProductResult>
     {
         int32_t __stdcall get_Product(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreProduct>(this->shim().Product());
+            *value = detach_from<Windows::Services::Store::StoreProduct>(this->shim().Product());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2312,7 +2310,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePurchaseProperties> : produce_base<D, winrt::Windows::Services::Store::IStorePurchaseProperties>
+    struct produce<D, Windows::Services::Store::IStorePurchaseProperties> : produce_base<D, Windows::Services::Store::IStorePurchaseProperties>
     {
         int32_t __stdcall get_Name(void** value) noexcept final try
         {
@@ -2348,13 +2346,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePurchasePropertiesFactory> : produce_base<D, winrt::Windows::Services::Store::IStorePurchasePropertiesFactory>
+    struct produce<D, Windows::Services::Store::IStorePurchasePropertiesFactory> : produce_base<D, Windows::Services::Store::IStorePurchasePropertiesFactory>
     {
         int32_t __stdcall Create(void* name, void** storePurchaseProperties) noexcept final try
         {
             clear_abi(storePurchaseProperties);
             typename D::abi_guard guard(this->shim());
-            *storePurchaseProperties = detach_from<winrt::Windows::Services::Store::StorePurchaseProperties>(this->shim().Create(*reinterpret_cast<hstring const*>(&name)));
+            *storePurchaseProperties = detach_from<Windows::Services::Store::StorePurchaseProperties>(this->shim().Create(*reinterpret_cast<hstring const*>(&name)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2362,12 +2360,12 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStorePurchaseResult> : produce_base<D, winrt::Windows::Services::Store::IStorePurchaseResult>
+    struct produce<D, Windows::Services::Store::IStorePurchaseResult> : produce_base<D, Windows::Services::Store::IStorePurchaseResult>
     {
         int32_t __stdcall get_Status(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StorePurchaseStatus>(this->shim().Status());
+            *value = detach_from<Windows::Services::Store::StorePurchaseStatus>(this->shim().Status());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2383,7 +2381,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreQueueItem> : produce_base<D, winrt::Windows::Services::Store::IStoreQueueItem>
+    struct produce<D, Windows::Services::Store::IStoreQueueItem> : produce_base<D, Windows::Services::Store::IStoreQueueItem>
     {
         int32_t __stdcall get_ProductId(void** value) noexcept final try
         {
@@ -2404,7 +2402,7 @@ namespace winrt::impl
         int32_t __stdcall get_InstallKind(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreQueueItemKind>(this->shim().InstallKind());
+            *value = detach_from<Windows::Services::Store::StoreQueueItemKind>(this->shim().InstallKind());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2412,7 +2410,7 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Services::Store::StoreQueueItemStatus>(this->shim().GetCurrentStatus());
+            *result = detach_from<Windows::Services::Store::StoreQueueItemStatus>(this->shim().GetCurrentStatus());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2420,7 +2418,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().Completed(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreQueueItem, winrt::Windows::Services::Store::StoreQueueItemCompletedEventArgs> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().Completed(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreQueueItem, Windows::Services::Store::StoreQueueItemCompletedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2434,7 +2432,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().StatusChanged(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Services::Store::StoreQueueItem, winrt::Windows::Foundation::IInspectable> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().StatusChanged(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Services::Store::StoreQueueItem, Windows::Foundation::IInspectable> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2448,13 +2446,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreQueueItem2> : produce_base<D, winrt::Windows::Services::Store::IStoreQueueItem2>
+    struct produce<D, Windows::Services::Store::IStoreQueueItem2> : produce_base<D, Windows::Services::Store::IStoreQueueItem2>
     {
         int32_t __stdcall CancelInstallAsync(void** action) noexcept final try
         {
             clear_abi(action);
             typename D::abi_guard guard(this->shim());
-            *action = detach_from<winrt::Windows::Foundation::IAsyncAction>(this->shim().CancelInstallAsync());
+            *action = detach_from<Windows::Foundation::IAsyncAction>(this->shim().CancelInstallAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2462,7 +2460,7 @@ namespace winrt::impl
         {
             clear_abi(action);
             typename D::abi_guard guard(this->shim());
-            *action = detach_from<winrt::Windows::Foundation::IAsyncAction>(this->shim().PauseInstallAsync());
+            *action = detach_from<Windows::Foundation::IAsyncAction>(this->shim().PauseInstallAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2470,7 +2468,7 @@ namespace winrt::impl
         {
             clear_abi(action);
             typename D::abi_guard guard(this->shim());
-            *action = detach_from<winrt::Windows::Foundation::IAsyncAction>(this->shim().ResumeInstallAsync());
+            *action = detach_from<Windows::Foundation::IAsyncAction>(this->shim().ResumeInstallAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2478,13 +2476,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreQueueItemCompletedEventArgs> : produce_base<D, winrt::Windows::Services::Store::IStoreQueueItemCompletedEventArgs>
+    struct produce<D, Windows::Services::Store::IStoreQueueItemCompletedEventArgs> : produce_base<D, Windows::Services::Store::IStoreQueueItemCompletedEventArgs>
     {
         int32_t __stdcall get_Status(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreQueueItemStatus>(this->shim().Status());
+            *value = detach_from<Windows::Services::Store::StoreQueueItemStatus>(this->shim().Status());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2492,27 +2490,27 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreQueueItemStatus> : produce_base<D, winrt::Windows::Services::Store::IStoreQueueItemStatus>
+    struct produce<D, Windows::Services::Store::IStoreQueueItemStatus> : produce_base<D, Windows::Services::Store::IStoreQueueItemStatus>
     {
         int32_t __stdcall get_PackageInstallState(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreQueueItemState>(this->shim().PackageInstallState());
+            *value = detach_from<Windows::Services::Store::StoreQueueItemState>(this->shim().PackageInstallState());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_PackageInstallExtendedState(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreQueueItemExtendedState>(this->shim().PackageInstallExtendedState());
+            *value = detach_from<Windows::Services::Store::StoreQueueItemExtendedState>(this->shim().PackageInstallExtendedState());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall get_UpdateStatus(struct struct_Windows_Services_Store_StorePackageUpdateStatus* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Services::Store::StorePackageUpdateStatus>(value);
+            zero_abi<Windows::Services::Store::StorePackageUpdateStatus>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StorePackageUpdateStatus>(this->shim().UpdateStatus());
+            *value = detach_from<Windows::Services::Store::StorePackageUpdateStatus>(this->shim().UpdateStatus());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2528,7 +2526,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreRateAndReviewResult> : produce_base<D, winrt::Windows::Services::Store::IStoreRateAndReviewResult>
+    struct produce<D, Windows::Services::Store::IStoreRateAndReviewResult> : produce_base<D, Windows::Services::Store::IStoreRateAndReviewResult>
     {
         int32_t __stdcall get_ExtendedError(winrt::hresult* value) noexcept final try
         {
@@ -2556,7 +2554,7 @@ namespace winrt::impl
         int32_t __stdcall get_Status(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreRateAndReviewStatus>(this->shim().Status());
+            *value = detach_from<Windows::Services::Store::StoreRateAndReviewStatus>(this->shim().Status());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2564,13 +2562,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreRequestHelperStatics> : produce_base<D, winrt::Windows::Services::Store::IStoreRequestHelperStatics>
+    struct produce<D, Windows::Services::Store::IStoreRequestHelperStatics> : produce_base<D, Windows::Services::Store::IStoreRequestHelperStatics>
     {
         int32_t __stdcall SendRequestAsync(void* context, uint32_t requestKind, void* parametersAsJson, void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StoreSendRequestResult>>(this->shim().SendRequestAsync(*reinterpret_cast<winrt::Windows::Services::Store::StoreContext const*>(&context), requestKind, *reinterpret_cast<hstring const*>(&parametersAsJson)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StoreSendRequestResult>>(this->shim().SendRequestAsync(*reinterpret_cast<Windows::Services::Store::StoreContext const*>(&context), requestKind, *reinterpret_cast<hstring const*>(&parametersAsJson)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2578,7 +2576,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreSendRequestResult> : produce_base<D, winrt::Windows::Services::Store::IStoreSendRequestResult>
+    struct produce<D, Windows::Services::Store::IStoreSendRequestResult> : produce_base<D, Windows::Services::Store::IStoreSendRequestResult>
     {
         int32_t __stdcall get_Response(void** value) noexcept final try
         {
@@ -2600,12 +2598,12 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreSendRequestResult2> : produce_base<D, winrt::Windows::Services::Store::IStoreSendRequestResult2>
+    struct produce<D, Windows::Services::Store::IStoreSendRequestResult2> : produce_base<D, Windows::Services::Store::IStoreSendRequestResult2>
     {
         int32_t __stdcall get_HttpStatusCode(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Web::Http::HttpStatusCode>(this->shim().HttpStatusCode());
+            *value = detach_from<Windows::Web::Http::HttpStatusCode>(this->shim().HttpStatusCode());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2613,7 +2611,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreSku> : produce_base<D, winrt::Windows::Services::Store::IStoreSku>
+    struct produce<D, Windows::Services::Store::IStoreSku> : produce_base<D, Windows::Services::Store::IStoreSku>
     {
         int32_t __stdcall get_StoreId(void** value) noexcept final try
         {
@@ -2666,7 +2664,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreImage>>(this->shim().Images());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreImage>>(this->shim().Images());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2674,7 +2672,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreVideo>>(this->shim().Videos());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreVideo>>(this->shim().Videos());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2682,7 +2680,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Services::Store::StoreAvailability>>(this->shim().Availabilities());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Services::Store::StoreAvailability>>(this->shim().Availabilities());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2690,7 +2688,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StorePrice>(this->shim().Price());
+            *value = detach_from<Windows::Services::Store::StorePrice>(this->shim().Price());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2713,7 +2711,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVectorView<hstring>>(this->shim().BundledSkus());
+            *value = detach_from<Windows::Foundation::Collections::IVectorView<hstring>>(this->shim().BundledSkus());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2721,7 +2719,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreCollectionData>(this->shim().CollectionData());
+            *value = detach_from<Windows::Services::Store::StoreCollectionData>(this->shim().CollectionData());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2729,7 +2727,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<bool>>(this->shim().GetIsInstalledAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().GetIsInstalledAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2737,7 +2735,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2745,7 +2743,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<winrt::Windows::Services::Store::StorePurchaseProperties const*>(&storePurchaseProperties)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Services::Store::StorePurchaseResult>>(this->shim().RequestPurchaseAsync(*reinterpret_cast<Windows::Services::Store::StorePurchaseProperties const*>(&storePurchaseProperties)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2760,7 +2758,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreSubscriptionInfo>(this->shim().SubscriptionInfo());
+            *value = detach_from<Windows::Services::Store::StoreSubscriptionInfo>(this->shim().SubscriptionInfo());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2768,7 +2766,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreSubscriptionInfo> : produce_base<D, winrt::Windows::Services::Store::IStoreSubscriptionInfo>
+    struct produce<D, Windows::Services::Store::IStoreSubscriptionInfo> : produce_base<D, Windows::Services::Store::IStoreSubscriptionInfo>
     {
         int32_t __stdcall get_BillingPeriod(uint32_t* value) noexcept final try
         {
@@ -2780,7 +2778,7 @@ namespace winrt::impl
         int32_t __stdcall get_BillingPeriodUnit(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreDurationUnit>(this->shim().BillingPeriodUnit());
+            *value = detach_from<Windows::Services::Store::StoreDurationUnit>(this->shim().BillingPeriodUnit());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2801,7 +2799,7 @@ namespace winrt::impl
         int32_t __stdcall get_TrialPeriodUnit(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreDurationUnit>(this->shim().TrialPeriodUnit());
+            *value = detach_from<Windows::Services::Store::StoreDurationUnit>(this->shim().TrialPeriodUnit());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2809,7 +2807,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreUninstallStorePackageResult> : produce_base<D, winrt::Windows::Services::Store::IStoreUninstallStorePackageResult>
+    struct produce<D, Windows::Services::Store::IStoreUninstallStorePackageResult> : produce_base<D, Windows::Services::Store::IStoreUninstallStorePackageResult>
     {
         int32_t __stdcall get_ExtendedError(winrt::hresult* value) noexcept final try
         {
@@ -2822,7 +2820,7 @@ namespace winrt::impl
         int32_t __stdcall get_Status(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreUninstallStorePackageStatus>(this->shim().Status());
+            *value = detach_from<Windows::Services::Store::StoreUninstallStorePackageStatus>(this->shim().Status());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2830,13 +2828,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Services::Store::IStoreVideo> : produce_base<D, winrt::Windows::Services::Store::IStoreVideo>
+    struct produce<D, Windows::Services::Store::IStoreVideo> : produce_base<D, Windows::Services::Store::IStoreVideo>
     {
         int32_t __stdcall get_Uri(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Uri>(this->shim().Uri());
+            *value = detach_from<Windows::Foundation::Uri>(this->shim().Uri());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2874,7 +2872,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Services::Store::StoreImage>(this->shim().PreviewImage());
+            *value = detach_from<Windows::Services::Store::StoreImage>(this->shim().PreviewImage());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2885,29 +2883,29 @@ WINRT_EXPORT namespace winrt::Windows::Services::Store
 {
     inline auto StoreContext::GetDefault()
     {
-        return impl::call_factory_cast<winrt::Windows::Services::Store::StoreContext(*)(IStoreContextStatics const&), StoreContext, IStoreContextStatics>([](IStoreContextStatics const& f) { return f.GetDefault(); });
+        return impl::call_factory_cast<Windows::Services::Store::StoreContext(*)(IStoreContextStatics const&), StoreContext, IStoreContextStatics>([](IStoreContextStatics const& f) { return f.GetDefault(); });
     }
-    inline auto StoreContext::GetForUser(winrt::Windows::System::User const& user)
+    inline auto StoreContext::GetForUser(Windows::System::User const& user)
     {
         return impl::call_factory<StoreContext, IStoreContextStatics>([&](IStoreContextStatics const& f) { return f.GetForUser(user); });
     }
     inline StorePackageInstallOptions::StorePackageInstallOptions() :
-        StorePackageInstallOptions(impl::call_factory_cast<StorePackageInstallOptions(*)(winrt::Windows::Foundation::IActivationFactory const&), StorePackageInstallOptions>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<StorePackageInstallOptions>(); }))
+        StorePackageInstallOptions(impl::call_factory_cast<StorePackageInstallOptions(*)(Windows::Foundation::IActivationFactory const&), StorePackageInstallOptions>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<StorePackageInstallOptions>(); }))
     {
     }
     inline StoreProductOptions::StoreProductOptions() :
-        StoreProductOptions(impl::call_factory_cast<StoreProductOptions(*)(winrt::Windows::Foundation::IActivationFactory const&), StoreProductOptions>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<StoreProductOptions>(); }))
+        StoreProductOptions(impl::call_factory_cast<StoreProductOptions(*)(Windows::Foundation::IActivationFactory const&), StoreProductOptions>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<StoreProductOptions>(); }))
     {
     }
     inline StorePurchaseProperties::StorePurchaseProperties() :
-        StorePurchaseProperties(impl::call_factory_cast<StorePurchaseProperties(*)(winrt::Windows::Foundation::IActivationFactory const&), StorePurchaseProperties>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<StorePurchaseProperties>(); }))
+        StorePurchaseProperties(impl::call_factory_cast<StorePurchaseProperties(*)(Windows::Foundation::IActivationFactory const&), StorePurchaseProperties>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<StorePurchaseProperties>(); }))
     {
     }
     inline StorePurchaseProperties::StorePurchaseProperties(param::hstring const& name) :
         StorePurchaseProperties(impl::call_factory<StorePurchaseProperties, IStorePurchasePropertiesFactory>([&](IStorePurchasePropertiesFactory const& f) { return f.Create(name); }))
     {
     }
-    inline auto StoreRequestHelper::SendRequestAsync(winrt::Windows::Services::Store::StoreContext const& context, uint32_t requestKind, param::hstring const& parametersAsJson)
+    inline auto StoreRequestHelper::SendRequestAsync(Windows::Services::Store::StoreContext const& context, uint32_t requestKind, param::hstring const& parametersAsJson)
     {
         return impl::call_factory<StoreRequestHelper, IStoreRequestHelperStatics>([&](IStoreRequestHelperStatics const& f) { return f.SendRequestAsync(context, requestKind, parametersAsJson); });
     }
@@ -2986,8 +2984,6 @@ namespace std
     template<> struct hash<winrt::Windows::Services::Store::StoreSubscriptionInfo> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Services::Store::StoreUninstallStorePackageResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Services::Store::StoreVideo> : winrt::impl::hash_base {};
-#endif
-#ifdef __cpp_lib_format
 #endif
 }
 #endif

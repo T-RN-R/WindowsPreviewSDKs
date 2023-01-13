@@ -92,11 +92,11 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION)
-#define WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION 0x40000
+#define WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION 0x10000
 #endif // defined(WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -113,21 +113,6 @@
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 /* Forward Declarations */
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IHostMessageReceivedCallback;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback ABI::Windows::Security::Isolation::IHostMessageReceivedCallback
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback_FWD_DEFINED__
 namespace ABI {
@@ -158,51 +143,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironment2;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2 ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironment2
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironment3;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3 ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironment3
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironment4;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4 ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironment4
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult_FWD_DEFINED__
 namespace ABI {
@@ -217,21 +157,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentCreateResult2;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2 ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult2
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFactory_FWD_DEFINED__
@@ -262,21 +187,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentFile2;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2 ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentHostStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentHostStatics_FWD_DEFINED__
@@ -323,36 +233,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentOptions2;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2 ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentOptions3;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3 ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions3
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationData_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationData_FWD_DEFINED__
 namespace ABI {
@@ -398,21 +278,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationStatics_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentPostMessageResult;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess_FWD_DEFINED__
 namespace ABI {
@@ -427,36 +292,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentShareFileRequestOptions;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentShareFileResult;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFolderRequestOptions_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFolderRequestOptions_FWD_DEFINED__
@@ -518,36 +353,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentTelemetryParameters_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentUserInfo;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsEnvironmentUserInfo2;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2 ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo2
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_FWD_DEFINED__
 namespace ABI {
@@ -563,74 +368,9 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                interface IIsolatedWindowsHostMessengerStatics2;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2 ABI::Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
-
 // Parameterized interface forward declarations (C++)
 
 // Collection interface definitions
-
-#ifndef DEF___FIAsyncOperation_1_boolean_USE
-#define DEF___FIAsyncOperation_1_boolean_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("cdb5efb3-5788-509d-9be1-71ccb8a3362a"))
-IAsyncOperation<bool> : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<bool, boolean>>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.IAsyncOperation`1<Boolean>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperation<bool> __FIAsyncOperation_1_boolean_t;
-#define __FIAsyncOperation_1_boolean ABI::Windows::Foundation::__FIAsyncOperation_1_boolean_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperation_1_boolean_USE */
-
-
-
-#ifndef DEF___FIAsyncOperationCompletedHandler_1_boolean_USE
-#define DEF___FIAsyncOperationCompletedHandler_1_boolean_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("c1d3d1a2-ae17-5a5f-b5a2-bdcc8844889a"))
-IAsyncOperationCompletedHandler<bool> : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<bool, boolean>>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.AsyncOperationCompletedHandler`1<Boolean>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperationCompletedHandler<bool> __FIAsyncOperationCompletedHandler_1_boolean_t;
-#define __FIAsyncOperationCompletedHandler_1_boolean ABI::Windows::Foundation::__FIAsyncOperationCompletedHandler_1_boolean_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperationCompletedHandler_1_boolean_USE */
-
-
 namespace ABI {
     namespace Windows {
         namespace Security {
@@ -694,134 +434,6 @@ typedef IAsyncOperationCompletedHandler<ABI::Windows::Security::Isolation::Isola
 #endif /* DEF___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentLaunchFileResult_USE */
 
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                class IsolatedWindowsEnvironmentPostMessageResult;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-#ifndef DEF___FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_USE
-#define DEF___FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("3e167db0-7983-5329-83a0-0477763cc4cb"))
-IAsyncOperation<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult*> : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult*, ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult*>>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.IAsyncOperation`1<Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperation<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult*> __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_t;
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult ABI::Windows::Foundation::__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_USE */
-
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-#ifndef DEF___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_USE
-#define DEF___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("34a084e3-dea5-5e5b-8d86-a31584e74893"))
-IAsyncOperationCompletedHandler<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult*> : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult*, ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult*>>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperationCompletedHandler<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult*> __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_t;
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult ABI::Windows::Foundation::__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_USE */
-
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                class IsolatedWindowsEnvironmentShareFileResult;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-#ifndef DEF___FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_USE
-#define DEF___FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("76ce76bf-ec05-513d-843f-79af1766e490"))
-IAsyncOperation<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult*> : IAsyncOperation_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult*, ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult*>>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.IAsyncOperation`1<Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperation<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult*> __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_t;
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult ABI::Windows::Foundation::__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_USE */
-
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-#ifndef DEF___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_USE
-#define DEF___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("8baca361-2935-5255-84dc-1c854f4fef69"))
-IAsyncOperationCompletedHandler<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult*> : IAsyncOperationCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult*, ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult*>>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperationCompletedHandler<ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult*> __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_t;
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult ABI::Windows::Foundation::__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_USE */
-
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 namespace ABI {
     namespace Windows {
@@ -950,97 +562,6 @@ typedef IAsyncOperationCompletedHandler<ABI::Windows::Security::Isolation::Isola
 #endif /* DEF___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentStartProcessResult_USE */
 
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                typedef enum IsolatedWindowsEnvironmentSignInProgress : int IsolatedWindowsEnvironmentSignInProgress;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-#ifndef DEF___FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE
-#define DEF___FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("e55295a4-d669-5922-bf42-bbe7eaeb4596"))
-IAsyncOperationWithProgressCompletedHandler<bool, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress> : IAsyncOperationWithProgressCompletedHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<bool, boolean>, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2<Boolean, Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperationWithProgressCompletedHandler<bool, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress> __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_t;
-#define __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress ABI::Windows::Foundation::__FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE */
-
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-#ifndef DEF___FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE
-#define DEF___FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("3342214c-85a9-5729-b0f1-fc667640078a"))
-IAsyncOperationWithProgress<bool, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress> : IAsyncOperationWithProgress_impl<ABI::Windows::Foundation::Internal::AggregateType<bool, boolean>, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.IAsyncOperationWithProgress`2<Boolean, Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperationWithProgress<bool, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress> __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_t;
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress ABI::Windows::Foundation::__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE */
-
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-#ifndef DEF___FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE
-#define DEF___FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE
-#if !defined(RO_NO_TEMPLATE_NAME)
-namespace ABI { namespace Windows { namespace Foundation {
-template <>
-struct __declspec(uuid("75620fb8-3a60-5676-8dd6-d8f700a2fcdc"))
-IAsyncOperationProgressHandler<bool, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress> : IAsyncOperationProgressHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<bool, boolean>, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress>
-{
-    static const wchar_t* z_get_rc_name_impl()
-    {
-        return L"Windows.Foundation.AsyncOperationProgressHandler`2<Boolean, Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress>";
-    }
-};
-// Define a typedef for the parameterized interface specialization's mangled name.
-// This allows code which uses the mangled name for the parameterized interface to access the
-// correct parameterized interface specialization.
-typedef IAsyncOperationProgressHandler<bool, enum ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentSignInProgress> __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_t;
-#define __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress ABI::Windows::Foundation::__FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_t
-/* Foundation */ } /* Windows */ } /* ABI */ }
-
-#endif // !defined(RO_NO_TEMPLATE_NAME)
-#endif /* DEF___FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_USE */
-
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 namespace ABI {
     namespace Windows {
@@ -1573,16 +1094,6 @@ namespace ABI {
     namespace Windows {
         namespace Security {
             namespace Isolation {
-                typedef enum IsolatedWindowsEnvironmentCreationPriority : int IsolatedWindowsEnvironmentCreationPriority;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
                 typedef enum IsolatedWindowsEnvironmentLaunchFileStatus : int IsolatedWindowsEnvironmentLaunchFileStatus;
             } /* Isolation */
         } /* Security */
@@ -1603,16 +1114,6 @@ namespace ABI {
     namespace Windows {
         namespace Security {
             namespace Isolation {
-                typedef enum IsolatedWindowsEnvironmentPostMessageStatus : int IsolatedWindowsEnvironmentPostMessageStatus;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
                 typedef enum IsolatedWindowsEnvironmentProcessState : int IsolatedWindowsEnvironmentProcessState;
             } /* Isolation */
         } /* Security */
@@ -1624,16 +1125,6 @@ namespace ABI {
         namespace Security {
             namespace Isolation {
                 typedef enum IsolatedWindowsEnvironmentProgressState : int IsolatedWindowsEnvironmentProgressState;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                typedef enum IsolatedWindowsEnvironmentShareFileStatus : int IsolatedWindowsEnvironmentShareFileStatus;
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -1713,16 +1204,6 @@ namespace ABI {
     namespace Windows {
         namespace Security {
             namespace Isolation {
-                class IsolatedWindowsEnvironmentShareFileRequestOptions;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
                 class IsolatedWindowsEnvironmentShareFolderRequestOptions;
             } /* Isolation */
         } /* Security */
@@ -1734,16 +1215,6 @@ namespace ABI {
         namespace Security {
             namespace Isolation {
                 class IsolatedWindowsEnvironmentTelemetryParameters;
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                class IsolatedWindowsEnvironmentUserInfo;
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -1789,9 +1260,6 @@ namespace ABI {
                     IsolatedWindowsEnvironmentAllowedClipboardFormats_None = 0,
                     IsolatedWindowsEnvironmentAllowedClipboardFormats_Text = 0x1,
                     IsolatedWindowsEnvironmentAllowedClipboardFormats_Image = 0x2,
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-                    IsolatedWindowsEnvironmentAllowedClipboardFormats_Rtf = 0x4,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
                 };
 
                 DEFINE_ENUM_FLAG_OPERATORS(IsolatedWindowsEnvironmentAllowedClipboardFormats)
@@ -1881,29 +1349,6 @@ namespace ABI {
 
 /*
  *
- * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                enum IsolatedWindowsEnvironmentCreationPriority : int
-                {
-                    IsolatedWindowsEnvironmentCreationPriority_Low = 0,
-                    IsolatedWindowsEnvironmentCreationPriority_Normal = 1,
-                };
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-/*
- *
  * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -1947,9 +1392,6 @@ namespace ABI {
                     IsolatedWindowsEnvironmentLaunchFileStatus_EnvironmentUnavailable = 2,
                     IsolatedWindowsEnvironmentLaunchFileStatus_FileNotFound = 3,
                     IsolatedWindowsEnvironmentLaunchFileStatus_TimedOut = 4,
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-                    IsolatedWindowsEnvironmentLaunchFileStatus_AlreadySharedWithConflictingOptions = 5,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
                 };
             } /* Isolation */
         } /* Security */
@@ -1982,30 +1424,6 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                enum IsolatedWindowsEnvironmentPostMessageStatus : int
-                {
-                    IsolatedWindowsEnvironmentPostMessageStatus_Success = 0,
-                    IsolatedWindowsEnvironmentPostMessageStatus_UnknownFailure = 1,
-                    IsolatedWindowsEnvironmentPostMessageStatus_EnvironmentUnavailable = 2,
-                };
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
 
 /*
  *
@@ -2048,51 +1466,12 @@ namespace ABI {
                     IsolatedWindowsEnvironmentProgressState_Queued = 0,
                     IsolatedWindowsEnvironmentProgressState_Processing = 1,
                     IsolatedWindowsEnvironmentProgressState_Completed = 2,
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-                    IsolatedWindowsEnvironmentProgressState_Creating = 3,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-                    IsolatedWindowsEnvironmentProgressState_Retrying = 4,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-                    IsolatedWindowsEnvironmentProgressState_Starting = 5,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-                    IsolatedWindowsEnvironmentProgressState_Finalizing = 6,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
                 };
             } /* Isolation */
         } /* Security */
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                enum IsolatedWindowsEnvironmentShareFileStatus : int
-                {
-                    IsolatedWindowsEnvironmentShareFileStatus_Success = 0,
-                    IsolatedWindowsEnvironmentShareFileStatus_UnknownFailure = 1,
-                    IsolatedWindowsEnvironmentShareFileStatus_EnvironmentUnavailable = 2,
-                    IsolatedWindowsEnvironmentShareFileStatus_AlreadySharedWithConflictingOptions = 3,
-                    IsolatedWindowsEnvironmentShareFileStatus_FileNotFound = 4,
-                    IsolatedWindowsEnvironmentShareFileStatus_AccessDenied = 5,
-                };
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -2119,33 +1498,6 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                enum IsolatedWindowsEnvironmentSignInProgress : int
-                {
-                    IsolatedWindowsEnvironmentSignInProgress_Connecting = 0,
-                    IsolatedWindowsEnvironmentSignInProgress_Connected = 1,
-                    IsolatedWindowsEnvironmentSignInProgress_Authenticating = 2,
-                    IsolatedWindowsEnvironmentSignInProgress_SettingUpAccount = 3,
-                    IsolatedWindowsEnvironmentSignInProgress_Finalizing = 4,
-                    IsolatedWindowsEnvironmentSignInProgress_Completed = 5,
-                };
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -2198,40 +1550,6 @@ namespace ABI {
 
 /*
  *
- * Delegate Windows.Security.Isolation.HostMessageReceivedCallback
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("faf26ffa-8ce1-4cc1-b278-322d31a5e4a3")
-                IHostMessageReceivedCallback : public IUnknown
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE Invoke(
-                        GUID receiverId,
-                        __FIVectorView_1_IInspectable* message
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IHostMessageReceivedCallback = __uuidof(IHostMessageReceivedCallback);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-/*
- *
  * Delegate Windows.Security.Isolation.MessageReceivedCallback
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -2254,7 +1572,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMessageReceivedCallback = __uuidof(IMessageReceivedCallback);
+                extern MIDL_CONST_ID IID& IID_IMessageReceivedCallback = _uuidof(IMessageReceivedCallback);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -2341,7 +1659,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironment = __uuidof(IIsolatedWindowsEnvironment);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironment = _uuidof(IIsolatedWindowsEnvironment);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -2350,133 +1668,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironment2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironment
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironment2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironment2";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("2d365f39-88bd-4ab4-93cf-7e2bcef337c0")
-                IIsolatedWindowsEnvironment2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE PostMessageToReceiverAsync(
-                        GUID receiverId,
-                        __FIIterable_1_IInspectable* message,
-                        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult** operation
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE PostMessageToReceiverWithTelemetryAsync(
-                        GUID receiverId,
-                        __FIIterable_1_IInspectable* message,
-                        ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters* telemetryParameters,
-                        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult** operation
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironment2 = __uuidof(IIsolatedWindowsEnvironment2);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironment3
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironment
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironment3[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironment3";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("cb7fc7d2-d06e-4c26-8ada-dacdaaad03f5")
-                IIsolatedWindowsEnvironment3 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE GetUserInfo(
-                        ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE ShareFileAsync(
-                        HSTRING filePath,
-                        ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions* options,
-                        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult** operation
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE ShareFileWithTelemetryAsync(
-                        HSTRING filePath,
-                        ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions* options,
-                        ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters* telemetryParameters,
-                        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult** operation
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironment3 = __uuidof(IIsolatedWindowsEnvironment3);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironment4
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironment
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironment4[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironment4";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("11e3701a-dd9e-4f1b-812c-4020f307f93c")
-                IIsolatedWindowsEnvironment4 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE ChangePriority(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentCreationPriority Priority
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironment4 = __uuidof(IIsolatedWindowsEnvironment4);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -2510,7 +1701,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentCreateResult = __uuidof(IIsolatedWindowsEnvironmentCreateResult);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentCreateResult = _uuidof(IIsolatedWindowsEnvironmentCreateResult);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -2519,42 +1710,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("a547dbc7-61d4-4fb8-ab5c-edefa3d388ad")
-                IIsolatedWindowsEnvironmentCreateResult2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE ChangeCreationPriority(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentCreationPriority priority
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentCreateResult2 = __uuidof(IIsolatedWindowsEnvironmentCreateResult2);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -2596,7 +1751,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentFactory = __uuidof(IIsolatedWindowsEnvironmentFactory);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentFactory = _uuidof(IIsolatedWindowsEnvironmentFactory);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -2636,7 +1791,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Close(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentFile = __uuidof(IIsolatedWindowsEnvironmentFile);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentFile = _uuidof(IIsolatedWindowsEnvironmentFile);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -2645,45 +1800,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentFile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("4eeb8dec-ad5d-4b0a-b754-f36c3d46d684")
-                IIsolatedWindowsEnvironmentFile2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_GuestPath(
-                        HSTRING* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_IsReadOnly(
-                        boolean* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentFile2 = __uuidof(IIsolatedWindowsEnvironmentFile2);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -2714,7 +1830,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentHostStatics = __uuidof(IIsolatedWindowsEnvironmentHostStatics);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentHostStatics = _uuidof(IIsolatedWindowsEnvironmentHostStatics);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -2756,7 +1872,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentLaunchFileResult = __uuidof(IIsolatedWindowsEnvironmentLaunchFileResult);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentLaunchFileResult = _uuidof(IIsolatedWindowsEnvironmentLaunchFileResult);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -2841,7 +1957,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOptions = __uuidof(IIsolatedWindowsEnvironmentOptions);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOptions = _uuidof(IIsolatedWindowsEnvironmentOptions);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -2850,96 +1966,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("10d7cc31-8b8f-4b9d-b22c-617103b55b08")
-                IIsolatedWindowsEnvironmentOptions2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_WindowAnnotationOverride(
-                        HSTRING* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_WindowAnnotationOverride(
-                        HSTRING value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOptions2 = __uuidof(IIsolatedWindowsEnvironmentOptions2);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions3[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("98d5aa23-161f-4cd9-8a9c-269b30122b0d")
-                IIsolatedWindowsEnvironmentOptions3 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_AllowedClipboardFormatsToEnvironment(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_AllowedClipboardFormatsToEnvironment(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_AllowedClipboardFormatsToHost(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_AllowedClipboardFormatsToHost(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_CreationPriority(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentCreationPriority* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_CreationPriority(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentCreationPriority value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOptions3 = __uuidof(IIsolatedWindowsEnvironmentOptions3);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -2976,7 +2002,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOwnerRegistrationData = __uuidof(IIsolatedWindowsEnvironmentOwnerRegistrationData);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOwnerRegistrationData = _uuidof(IIsolatedWindowsEnvironmentOwnerRegistrationData);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3015,7 +2041,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOwnerRegistrationResult = __uuidof(IIsolatedWindowsEnvironmentOwnerRegistrationResult);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOwnerRegistrationResult = _uuidof(IIsolatedWindowsEnvironmentOwnerRegistrationResult);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3056,7 +2082,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOwnerRegistrationStatics = __uuidof(IIsolatedWindowsEnvironmentOwnerRegistrationStatics);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentOwnerRegistrationStatics = _uuidof(IIsolatedWindowsEnvironmentOwnerRegistrationStatics);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3065,45 +2091,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationStatics;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("0dfa28fa-2ef0-4d8f-b341-3171b2df93b1")
-                IIsolatedWindowsEnvironmentPostMessageResult : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Status(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_ExtendedError(
-                        HRESULT* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentPostMessageResult = __uuidof(IIsolatedWindowsEnvironmentPostMessageResult);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
 
 /*
  *
@@ -3141,7 +2128,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentProcess = __uuidof(IIsolatedWindowsEnvironmentProcess);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentProcess = _uuidof(IIsolatedWindowsEnvironmentProcess);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3150,87 +2137,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileRequestOptions[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("c9190ed8-0fd0-4946-bb88-117a60737b61")
-                IIsolatedWindowsEnvironmentShareFileRequestOptions : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_AllowWrite(
-                        boolean* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_AllowWrite(
-                        boolean value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentShareFileRequestOptions = __uuidof(IIsolatedWindowsEnvironmentShareFileRequestOptions);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileResult[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("aec7caa7-9ac6-4bf5-8b91-5c1adf0d7d00")
-                IIsolatedWindowsEnvironmentShareFileResult : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Status(
-                        ABI::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileStatus* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_ExtendedError(
-                        HRESULT* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_File(
-                        ABI::Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile** value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentShareFileResult = __uuidof(IIsolatedWindowsEnvironmentShareFileResult);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -3261,7 +2167,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentShareFolderRequestOptions = __uuidof(IIsolatedWindowsEnvironmentShareFolderRequestOptions);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentShareFolderRequestOptions = _uuidof(IIsolatedWindowsEnvironmentShareFolderRequestOptions);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3300,7 +2206,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentShareFolderResult = __uuidof(IIsolatedWindowsEnvironmentShareFolderResult);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentShareFolderResult = _uuidof(IIsolatedWindowsEnvironmentShareFolderResult);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3342,7 +2248,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentStartProcessResult = __uuidof(IIsolatedWindowsEnvironmentStartProcessResult);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentStartProcessResult = _uuidof(IIsolatedWindowsEnvironmentStartProcessResult);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3381,7 +2287,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentTelemetryParameters = __uuidof(IIsolatedWindowsEnvironmentTelemetryParameters);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentTelemetryParameters = _uuidof(IIsolatedWindowsEnvironmentTelemetryParameters);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3390,84 +2296,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentTelemetryParameters;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentTelemetryParameters_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("8a9c75ae-69ba-4001-96fc-19a02703b340")
-                IIsolatedWindowsEnvironmentUserInfo : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_EnvironmentUserSid(
-                        HSTRING* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_EnvironmentUserName(
-                        HSTRING* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE TryWaitForSignInAsync(
-                        __FIAsyncOperation_1_boolean** operation
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentUserInfo = __uuidof(IIsolatedWindowsEnvironmentUserInfo);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("b0bdd5dd-91d7-481e-94f2-2a5a6bdf9383")
-                IIsolatedWindowsEnvironmentUserInfo2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE TryWaitForSignInWithProgressAsync(
-                        __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress** operation
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsEnvironmentUserInfo2 = __uuidof(IIsolatedWindowsEnvironmentUserInfo2);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -3500,7 +2328,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsHostMessengerStatics = __uuidof(IIsolatedWindowsHostMessengerStatics);
+                extern MIDL_CONST_ID IID& IID_IIsolatedWindowsHostMessengerStatics = _uuidof(IIsolatedWindowsHostMessengerStatics);
             } /* Isolation */
         } /* Security */
     } /* Windows */
@@ -3509,46 +2337,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsHostMessenger
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2[] = L"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2";
-namespace ABI {
-    namespace Windows {
-        namespace Security {
-            namespace Isolation {
-                MIDL_INTERFACE("55ef9ebc-0444-42ad-832d-1b89c089d1ca")
-                IIsolatedWindowsHostMessengerStatics2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE RegisterHostMessageReceiver(
-                        GUID receiverId,
-                        ABI::Windows::Security::Isolation::IHostMessageReceivedCallback* hostMessageReceivedCallback
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE UnregisterHostMessageReceiver(
-                        GUID receiverId
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IIsolatedWindowsHostMessengerStatics2 = __uuidof(IIsolatedWindowsHostMessengerStatics2);
-            } /* Isolation */
-        } /* Security */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
 
 /*
  *
@@ -3561,13 +2349,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHo
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironment ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironment2
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironment3
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironment4
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -3585,9 +2366,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -3605,9 +2383,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -3647,8 +2422,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult ** Default Interface **
  *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentLaunchFileResult_DEFINED
@@ -3668,12 +2441,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -3737,8 +2504,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationResult ** Default Interface **
  *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentOwnerRegistrationResult_DEFINED
@@ -3749,33 +2514,12 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- * Class implements the following interfaces:
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentPostMessageResult_DEFINED
-#define RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentPostMessageResult_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentPostMessageResult[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
-#endif
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-/*
- *
  * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -3784,49 +2528,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentProcess[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
 #endif
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 3.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
- *
- * Class implements the following interfaces:
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileRequestOptions_DEFINED
-#define RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileRequestOptions_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileRequestOptions[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
-#endif
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Class implements the following interfaces:
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileResult_DEFINED
-#define RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileResult_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileResult[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
-#endif
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -3839,10 +2540,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderRequestOptions ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -3861,8 +2558,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderResult ** Default Interface **
  *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFolderResult_DEFINED
@@ -3879,8 +2574,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentStartProcessResult ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -3902,10 +2595,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentTelemetryParameters ** Default Interface **
  *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentTelemetryParameters_DEFINED
@@ -3916,32 +2605,11 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Class implements the following interfaces:
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentUserInfo_DEFINED
-#define RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentUserInfo_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentUserInfo[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";
-#endif
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
  * Class Windows.Security.Isolation.IsolatedWindowsHostMessenger
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2 interface starting with version 2.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -3958,12 +2626,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 #else // !defined(__cplusplus)
 /* Forward Declarations */
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback __x_ABI_CWindows_CSecurity_CIsolation_CIMessageReceivedCallback;
@@ -3976,35 +2638,11 @@ typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnviron
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult;
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFactory_FWD_DEFINED__
@@ -4017,12 +2655,6 @@ typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnviron
 typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile;
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentHostStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentHostStatics_FWD_DEFINED__
@@ -4042,18 +2674,6 @@ typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnviron
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationData_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationData_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationData __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationData;
@@ -4072,29 +2692,11 @@ typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnviron
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOwnerRegistrationStatics_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess;
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFolderRequestOptions_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFolderRequestOptions_FWD_DEFINED__
@@ -4120,154 +2722,15 @@ typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnviron
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentTelemetryParameters_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics;
 
 #endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2 __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2;
-
-#endif // ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_FWD_DEFINED__
-
 // Parameterized interface forward declarations (C)
 
 // Collection interface definitions
-
-typedef interface __FIAsyncOperationCompletedHandler_1_boolean __FIAsyncOperationCompletedHandler_1_boolean;
-
-#if !defined(____FIAsyncOperation_1_boolean_INTERFACE_DEFINED__)
-#define ____FIAsyncOperation_1_boolean_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperation_1_boolean __FIAsyncOperation_1_boolean;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperation_1_boolean;
-
-typedef struct __FIAsyncOperation_1_booleanVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperation_1_boolean* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperation_1_boolean* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperation_1_boolean* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIAsyncOperation_1_boolean* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIAsyncOperation_1_boolean* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIAsyncOperation_1_boolean* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* put_Completed)(__FIAsyncOperation_1_boolean* This,
-        __FIAsyncOperationCompletedHandler_1_boolean* handler);
-    HRESULT (STDMETHODCALLTYPE* get_Completed)(__FIAsyncOperation_1_boolean* This,
-        __FIAsyncOperationCompletedHandler_1_boolean** result);
-    HRESULT (STDMETHODCALLTYPE* GetResults)(__FIAsyncOperation_1_boolean* This,
-        boolean* result);
-
-    END_INTERFACE
-} __FIAsyncOperation_1_booleanVtbl;
-
-interface __FIAsyncOperation_1_boolean
-{
-    CONST_VTBL struct __FIAsyncOperation_1_booleanVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperation_1_boolean_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperation_1_boolean_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperation_1_boolean_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperation_1_boolean_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __FIAsyncOperation_1_boolean_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __FIAsyncOperation_1_boolean_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __FIAsyncOperation_1_boolean_put_Completed(This, handler) \
-    ((This)->lpVtbl->put_Completed(This, handler))
-
-#define __FIAsyncOperation_1_boolean_get_Completed(This, result) \
-    ((This)->lpVtbl->get_Completed(This, result))
-
-#define __FIAsyncOperation_1_boolean_GetResults(This, result) \
-    ((This)->lpVtbl->GetResults(This, result))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperation_1_boolean_INTERFACE_DEFINED__
-
-#if !defined(____FIAsyncOperationCompletedHandler_1_boolean_INTERFACE_DEFINED__)
-#define ____FIAsyncOperationCompletedHandler_1_boolean_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperationCompletedHandler_1_boolean __FIAsyncOperationCompletedHandler_1_boolean;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperationCompletedHandler_1_boolean;
-
-typedef struct __FIAsyncOperationCompletedHandler_1_booleanVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationCompletedHandler_1_boolean* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationCompletedHandler_1_boolean* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationCompletedHandler_1_boolean* This);
-    HRESULT (STDMETHODCALLTYPE* Invoke)(__FIAsyncOperationCompletedHandler_1_boolean* This,
-        __FIAsyncOperation_1_boolean* asyncInfo,
-        AsyncStatus asyncStatus);
-
-    END_INTERFACE
-} __FIAsyncOperationCompletedHandler_1_booleanVtbl;
-
-interface __FIAsyncOperationCompletedHandler_1_boolean
-{
-    CONST_VTBL struct __FIAsyncOperationCompletedHandler_1_booleanVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperationCompletedHandler_1_boolean_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperationCompletedHandler_1_boolean_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperationCompletedHandler_1_boolean_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperationCompletedHandler_1_boolean_Invoke(This, asyncInfo, asyncStatus) \
-    ((This)->lpVtbl->Invoke(This, asyncInfo, asyncStatus))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperationCompletedHandler_1_boolean_INTERFACE_DEFINED__
 
 typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentLaunchFileResult __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentLaunchFileResult;
 
@@ -4393,256 +2856,6 @@ interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__C
 
 #endif // ____FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentLaunchFileResult_INTERFACE_DEFINED__
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult;
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__)
-#define ____FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult;
-
-typedef struct __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResultVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* put_Completed)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* handler);
-    HRESULT (STDMETHODCALLTYPE* get_Completed)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult** result);
-    HRESULT (STDMETHODCALLTYPE* GetResults)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult** result);
-
-    END_INTERFACE
-} __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResultVtbl;
-
-interface __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult
-{
-    CONST_VTBL struct __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResultVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_put_Completed(This, handler) \
-    ((This)->lpVtbl->put_Completed(This, handler))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_get_Completed(This, result) \
-    ((This)->lpVtbl->get_Completed(This, result))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_GetResults(This, result) \
-    ((This)->lpVtbl->GetResults(This, result))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__)
-#define ____FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult;
-
-typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResultVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This);
-    HRESULT (STDMETHODCALLTYPE* Invoke)(__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* This,
-        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult* asyncInfo,
-        AsyncStatus asyncStatus);
-
-    END_INTERFACE
-} __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResultVtbl;
-
-interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult
-{
-    CONST_VTBL struct __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResultVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_Invoke(This, asyncInfo, asyncStatus) \
-    ((This)->lpVtbl->Invoke(This, asyncInfo, asyncStatus))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult;
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__)
-#define ____FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult;
-
-typedef struct __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResultVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* put_Completed)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* handler);
-    HRESULT (STDMETHODCALLTYPE* get_Completed)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult** result);
-    HRESULT (STDMETHODCALLTYPE* GetResults)(__FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult** result);
-
-    END_INTERFACE
-} __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResultVtbl;
-
-interface __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult
-{
-    CONST_VTBL struct __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResultVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_put_Completed(This, handler) \
-    ((This)->lpVtbl->put_Completed(This, handler))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_get_Completed(This, result) \
-    ((This)->lpVtbl->get_Completed(This, result))
-
-#define __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_GetResults(This, result) \
-    ((This)->lpVtbl->GetResults(This, result))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__)
-#define ____FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult;
-
-typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResultVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This);
-    HRESULT (STDMETHODCALLTYPE* Invoke)(__FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* This,
-        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult* asyncInfo,
-        AsyncStatus asyncStatus);
-
-    END_INTERFACE
-} __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResultVtbl;
-
-interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult
-{
-    CONST_VTBL struct __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResultVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_Invoke(This, asyncInfo, asyncStatus) \
-    ((This)->lpVtbl->Invoke(This, asyncInfo, asyncStatus))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFolderResult __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFolderResult;
 
@@ -4893,194 +3106,6 @@ interface __FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__C
 
 #endif // ____FIAsyncOperationCompletedHandler_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentStartProcessResult_INTERFACE_DEFINED__
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentSignInProgress __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentSignInProgress;
-
-typedef interface __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress;
-
-typedef interface __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress;
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__)
-#define ____FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress;
-
-typedef struct __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This);
-    HRESULT (STDMETHODCALLTYPE* Invoke)(__FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* asyncInfo,
-        AsyncStatus asyncStatus);
-
-    END_INTERFACE
-} __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl;
-
-interface __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress
-{
-    CONST_VTBL struct __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_Invoke(This, asyncInfo, asyncStatus) \
-    ((This)->lpVtbl->Invoke(This, asyncInfo, asyncStatus))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__)
-#define ____FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress;
-
-typedef struct __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* put_Progress)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* handler);
-    HRESULT (STDMETHODCALLTYPE* get_Progress)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress** result);
-    HRESULT (STDMETHODCALLTYPE* put_Completed)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* handler);
-    HRESULT (STDMETHODCALLTYPE* get_Completed)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        __FIAsyncOperationWithProgressCompletedHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress** result);
-    HRESULT (STDMETHODCALLTYPE* GetResults)(__FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        boolean* result);
-
-    END_INTERFACE
-} __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl;
-
-interface __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress
-{
-    CONST_VTBL struct __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_put_Progress(This, handler) \
-    ((This)->lpVtbl->put_Progress(This, handler))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_get_Progress(This, result) \
-    ((This)->lpVtbl->get_Progress(This, result))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_put_Completed(This, handler) \
-    ((This)->lpVtbl->put_Completed(This, handler))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_get_Completed(This, result) \
-    ((This)->lpVtbl->get_Completed(This, result))
-
-#define __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_GetResults(This, result) \
-    ((This)->lpVtbl->GetResults(This, result))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__)
-#define ____FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__
-
-typedef interface __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress;
-
-//  Declare the parameterized interface IID.
-EXTERN_C const IID IID___FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress;
-
-typedef struct __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This);
-    HRESULT (STDMETHODCALLTYPE* Invoke)(__FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* This,
-        __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress* asyncInfo,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentSignInProgress progressInfo);
-
-    END_INTERFACE
-} __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl;
-
-interface __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress
-{
-    CONST_VTBL struct __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgressVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_Invoke(This, asyncInfo, progressInfo) \
-    ((This)->lpVtbl->Invoke(This, asyncInfo, progressInfo))
-
-#endif /* COBJMACROS */
-
-#endif // ____FIAsyncOperationProgressHandler_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress_INTERFACE_DEFINED__
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreateProgress __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreateProgress;
 
@@ -6326,19 +4351,13 @@ typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCl
 
 typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreateStatus __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreateStatus;
 
-typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreationPriority __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreationPriority;
-
 typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentLaunchFileStatus __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentLaunchFileStatus;
 
 typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentOwnerRegistrationStatus __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentOwnerRegistrationStatus;
 
-typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentPostMessageStatus __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentPostMessageStatus;
-
 typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentProcessState __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentProcessState;
 
 typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentProgressState __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentProgressState;
-
-typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentShareFileStatus __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentShareFileStatus;
 
 typedef enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentShareFolderStatus __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentShareFolderStatus;
 
@@ -6372,9 +4391,6 @@ enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentAllowedCli
     IsolatedWindowsEnvironmentAllowedClipboardFormats_None = 0,
     IsolatedWindowsEnvironmentAllowedClipboardFormats_Text = 0x1,
     IsolatedWindowsEnvironmentAllowedClipboardFormats_Image = 0x2,
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-    IsolatedWindowsEnvironmentAllowedClipboardFormats_Rtf = 0x4,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 };
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 
@@ -6430,21 +4446,6 @@ enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreateStat
 
 /*
  *
- * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreationPriority
-{
-    IsolatedWindowsEnvironmentCreationPriority_Low = 0,
-    IsolatedWindowsEnvironmentCreationPriority_Normal = 1,
-};
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-/*
- *
  * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -6476,9 +4477,6 @@ enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentLaunchFile
     IsolatedWindowsEnvironmentLaunchFileStatus_EnvironmentUnavailable = 2,
     IsolatedWindowsEnvironmentLaunchFileStatus_FileNotFound = 3,
     IsolatedWindowsEnvironmentLaunchFileStatus_TimedOut = 4,
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-    IsolatedWindowsEnvironmentLaunchFileStatus_AlreadySharedWithConflictingOptions = 5,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 };
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 
@@ -6499,22 +4497,6 @@ enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentOwnerRegis
     IsolatedWindowsEnvironmentOwnerRegistrationStatus_UnknownFailure = 4,
 };
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentPostMessageStatus
-{
-    IsolatedWindowsEnvironmentPostMessageStatus_Success = 0,
-    IsolatedWindowsEnvironmentPostMessageStatus_UnknownFailure = 1,
-    IsolatedWindowsEnvironmentPostMessageStatus_EnvironmentUnavailable = 2,
-};
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
 
 /*
  *
@@ -6545,39 +4527,8 @@ enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentProgressSt
     IsolatedWindowsEnvironmentProgressState_Queued = 0,
     IsolatedWindowsEnvironmentProgressState_Processing = 1,
     IsolatedWindowsEnvironmentProgressState_Completed = 2,
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-    IsolatedWindowsEnvironmentProgressState_Creating = 3,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-    IsolatedWindowsEnvironmentProgressState_Retrying = 4,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-    IsolatedWindowsEnvironmentProgressState_Starting = 5,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-    IsolatedWindowsEnvironmentProgressState_Finalizing = 6,
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 };
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentShareFileStatus
-{
-    IsolatedWindowsEnvironmentShareFileStatus_Success = 0,
-    IsolatedWindowsEnvironmentShareFileStatus_UnknownFailure = 1,
-    IsolatedWindowsEnvironmentShareFileStatus_EnvironmentUnavailable = 2,
-    IsolatedWindowsEnvironmentShareFileStatus_AlreadySharedWithConflictingOptions = 3,
-    IsolatedWindowsEnvironmentShareFileStatus_FileNotFound = 4,
-    IsolatedWindowsEnvironmentShareFileStatus_AccessDenied = 5,
-};
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -6596,25 +4547,6 @@ enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentShareFolde
     IsolatedWindowsEnvironmentShareFolderStatus_AccessDenied = 4,
 };
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentSignInProgress
-{
-    IsolatedWindowsEnvironmentSignInProgress_Connecting = 0,
-    IsolatedWindowsEnvironmentSignInProgress_Connected = 1,
-    IsolatedWindowsEnvironmentSignInProgress_Authenticating = 2,
-    IsolatedWindowsEnvironmentSignInProgress_SettingUpAccount = 3,
-    IsolatedWindowsEnvironmentSignInProgress_Finalizing = 4,
-    IsolatedWindowsEnvironmentSignInProgress_Completed = 5,
-};
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -6648,57 +4580,6 @@ struct __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreatePr
     UINT32 PercentComplete;
 };
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Delegate Windows.Security.Isolation.HostMessageReceivedCallback
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallbackVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* This);
-    HRESULT (STDMETHODCALLTYPE* Invoke)(__x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* This,
-        GUID receiverId,
-        __FIVectorView_1_IInspectable* message);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallbackVtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallbackVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_Invoke(This, receiverId, message) \
-    ((This)->lpVtbl->Invoke(This, receiverId, message))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
 
 /*
  *
@@ -6893,238 +4774,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEn
 
 /*
  *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironment2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironment
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironment2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironment2";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* PostMessageToReceiverAsync)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
-        GUID receiverId,
-        __FIIterable_1_IInspectable* message,
-        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult** operation);
-    HRESULT (STDMETHODCALLTYPE* PostMessageToReceiverWithTelemetryAsync)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2* This,
-        GUID receiverId,
-        __FIIterable_1_IInspectable* message,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentTelemetryParameters* telemetryParameters,
-        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentPostMessageResult** operation);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_PostMessageToReceiverAsync(This, receiverId, message, operation) \
-    ((This)->lpVtbl->PostMessageToReceiverAsync(This, receiverId, message, operation))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_PostMessageToReceiverWithTelemetryAsync(This, receiverId, message, telemetryParameters, operation) \
-    ((This)->lpVtbl->PostMessageToReceiverWithTelemetryAsync(This, receiverId, message, telemetryParameters, operation))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironment3
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironment
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironment3[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironment3";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* GetUserInfo)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo** result);
-    HRESULT (STDMETHODCALLTYPE* ShareFileAsync)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This,
-        HSTRING filePath,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* options,
-        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult** operation);
-    HRESULT (STDMETHODCALLTYPE* ShareFileWithTelemetryAsync)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3* This,
-        HSTRING filePath,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* options,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentTelemetryParameters* telemetryParameters,
-        __FIAsyncOperation_1_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentShareFileResult** operation);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_GetUserInfo(This, result) \
-    ((This)->lpVtbl->GetUserInfo(This, result))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_ShareFileAsync(This, filePath, options, operation) \
-    ((This)->lpVtbl->ShareFileAsync(This, filePath, options, operation))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_ShareFileWithTelemetryAsync(This, filePath, options, telemetryParameters, operation) \
-    ((This)->lpVtbl->ShareFileWithTelemetryAsync(This, filePath, options, telemetryParameters, operation))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironment4
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironment
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironment4[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironment4";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* ChangePriority)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreationPriority Priority);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_ChangePriority(This, Priority) \
-    ((This)->lpVtbl->ChangePriority(This, Priority))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironment4_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-/*
- *
  * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -7201,75 +4850,6 @@ interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCrea
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* ChangeCreationPriority)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreationPriority priority);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_ChangeCreationPriority(This, priority) \
-    ((This)->lpVtbl->ChangeCreationPriority(This, priority))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentCreateResult2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
 
 /*
  *
@@ -7437,80 +5017,6 @@ interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentFile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_GuestPath)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2* This,
-        HSTRING* value);
-    HRESULT (STDMETHODCALLTYPE* get_IsReadOnly)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2* This,
-        boolean* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_get_GuestPath(This, value) \
-    ((This)->lpVtbl->get_GuestPath(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_get_IsReadOnly(This, value) \
-    ((This)->lpVtbl->get_IsReadOnly(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -7817,174 +5323,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEn
 
 /*
  *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_WindowAnnotationOverride)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
-        HSTRING* value);
-    HRESULT (STDMETHODCALLTYPE* put_WindowAnnotationOverride)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
-        HSTRING value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_get_WindowAnnotationOverride(This, value) \
-    ((This)->lpVtbl->get_WindowAnnotationOverride(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_put_WindowAnnotationOverride(This, value) \
-    ((This)->lpVtbl->put_WindowAnnotationOverride(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions3[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_AllowedClipboardFormatsToEnvironment)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentAllowedClipboardFormats* value);
-    HRESULT (STDMETHODCALLTYPE* put_AllowedClipboardFormatsToEnvironment)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentAllowedClipboardFormats value);
-    HRESULT (STDMETHODCALLTYPE* get_AllowedClipboardFormatsToHost)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentAllowedClipboardFormats* value);
-    HRESULT (STDMETHODCALLTYPE* put_AllowedClipboardFormatsToHost)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentAllowedClipboardFormats value);
-    HRESULT (STDMETHODCALLTYPE* get_CreationPriority)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreationPriority* value);
-    HRESULT (STDMETHODCALLTYPE* put_CreationPriority)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentCreationPriority value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_get_AllowedClipboardFormatsToEnvironment(This, value) \
-    ((This)->lpVtbl->get_AllowedClipboardFormatsToEnvironment(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_put_AllowedClipboardFormatsToEnvironment(This, value) \
-    ((This)->lpVtbl->put_AllowedClipboardFormatsToEnvironment(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_get_AllowedClipboardFormatsToHost(This, value) \
-    ((This)->lpVtbl->get_AllowedClipboardFormatsToHost(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_put_AllowedClipboardFormatsToHost(This, value) \
-    ((This)->lpVtbl->put_AllowedClipboardFormatsToHost(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_get_CreationPriority(This, value) \
-    ((This)->lpVtbl->get_CreationPriority(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_put_CreationPriority(This, value) \
-    ((This)->lpVtbl->put_CreationPriority(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-/*
- *
  * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationData
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -8219,80 +5557,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEn
 
 /*
  *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResultVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Status)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentPostMessageStatus* value);
-    HRESULT (STDMETHODCALLTYPE* get_ExtendedError)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult* This,
-        HRESULT* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResultVtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResultVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_get_Status(This, value) \
-    ((This)->lpVtbl->get_Status(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_get_ExtendedError(This, value) \
-    ((This)->lpVtbl->get_ExtendedError(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentPostMessageResult_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-/*
- *
  * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -8378,159 +5642,6 @@ interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProc
 EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess;
 #endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentProcess_INTERFACE_DEFINED__) */
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileRequestOptions[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_AllowWrite)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* This,
-        boolean* value);
-    HRESULT (STDMETHODCALLTYPE* put_AllowWrite)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions* This,
-        boolean value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptionsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_get_AllowWrite(This, value) \
-    ((This)->lpVtbl->get_AllowWrite(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_put_AllowWrite(This, value) \
-    ((This)->lpVtbl->put_AllowWrite(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileRequestOptions_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileResult[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResultVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Status)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This,
-        enum __x_ABI_CWindows_CSecurity_CIsolation_CIsolatedWindowsEnvironmentShareFileStatus* value);
-    HRESULT (STDMETHODCALLTYPE* get_ExtendedError)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This,
-        HRESULT* value);
-    HRESULT (STDMETHODCALLTYPE* get_File)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult* This,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentFile** value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResultVtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResultVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_get_Status(This, value) \
-    ((This)->lpVtbl->get_Status(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_get_ExtendedError(This, value) \
-    ((This)->lpVtbl->get_ExtendedError(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_get_File(This, value) \
-    ((This)->lpVtbl->get_File(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentShareFileResult_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -8835,154 +5946,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEn
 
 /*
  *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfoVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_EnvironmentUserSid)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This,
-        HSTRING* value);
-    HRESULT (STDMETHODCALLTYPE* get_EnvironmentUserName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This,
-        HSTRING* value);
-    HRESULT (STDMETHODCALLTYPE* TryWaitForSignInAsync)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo* This,
-        __FIAsyncOperation_1_boolean** operation);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfoVtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfoVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_get_EnvironmentUserSid(This, value) \
-    ((This)->lpVtbl->get_EnvironmentUserSid(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_get_EnvironmentUserName(This, value) \
-    ((This)->lpVtbl->get_EnvironmentUserName(This, value))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_TryWaitForSignInAsync(This, operation) \
-    ((This)->lpVtbl->TryWaitForSignInAsync(This, operation))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 4.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo2[] = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* TryWaitForSignInWithProgressAsync)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2* This,
-        __FIAsyncOperationWithProgress_2_boolean_Windows__CSecurity__CIsolation__CIsolatedWindowsEnvironmentSignInProgress** operation);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_TryWaitForSignInWithProgressAsync(This, operation) \
-    ((This)->lpVtbl->TryWaitForSignInWithProgressAsync(This, operation))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentUserInfo2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x40000
-
-/*
- *
  * Interface Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -9059,81 +6022,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHo
 
 /*
  *
- * Interface Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- * Interface is a part of the implementation of type Windows.Security.Isolation.IsolatedWindowsHostMessenger
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#if !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2[] = L"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2";
-typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* RegisterHostMessageReceiver)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
-        GUID receiverId,
-        __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* hostMessageReceivedCallback);
-    HRESULT (STDMETHODCALLTYPE* UnregisterHostMessageReceiver)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
-        GUID receiverId);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2Vtbl;
-
-interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_RegisterHostMessageReceiver(This, receiverId, hostMessageReceivedCallback) \
-    ((This)->lpVtbl->RegisterHostMessageReceiver(This, receiverId, hostMessageReceivedCallback))
-
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_UnregisterHostMessageReceiver(This, receiverId) \
-    ((This)->lpVtbl->UnregisterHostMessageReceiver(This, receiverId))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2;
-#endif /* !defined(____x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-/*
- *
  * Class Windows.Security.Isolation.IsolatedWindowsEnvironment
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
@@ -9143,13 +6031,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHo
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironment ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironment2
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironment3
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironment4
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -9167,9 +6048,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -9187,9 +6065,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -9229,8 +6104,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult ** Default Interface **
  *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentLaunchFileResult_DEFINED
@@ -9250,12 +6123,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -9319,8 +6186,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationResult ** Default Interface **
  *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentOwnerRegistrationResult_DEFINED
@@ -9331,33 +6196,12 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 2.0
- *
- * Class implements the following interfaces:
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-#ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentPostMessageResult_DEFINED
-#define RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentPostMessageResult_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentPostMessageResult[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
-#endif
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x20000
-
-/*
- *
  * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -9366,49 +6210,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentProcess[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
 #endif
 #endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 3.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
- *
- * Class implements the following interfaces:
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileRequestOptions_DEFINED
-#define RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileRequestOptions_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileRequestOptions[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
-#endif
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Class implements the following interfaces:
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileResult_DEFINED
-#define RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileResult_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFileResult[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
-#endif
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -9421,10 +6222,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderRequestOptions ** Default Interface **
- *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -9443,8 +6240,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderResult ** Default Interface **
  *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentShareFolderResult_DEFINED
@@ -9461,8 +6256,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentStartProcessResult ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
  *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
@@ -9484,10 +6277,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentTelemetryParameters ** Default Interface **
  *
- * Class Threading Model:  Both Single and Multi Threaded Apartment
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
  */
 #if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentTelemetryParameters_DEFINED
@@ -9498,32 +6287,11 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo
- *
- * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 3.0
- *
- * Class implements the following interfaces:
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo ** Default Interface **
- *    Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-#ifndef RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentUserInfo_DEFINED
-#define RUNTIMECLASS_Windows_Security_Isolation_IsolatedWindowsEnvironmentUserInfo_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Security_Isolation_IsolatedWindowsEnvironmentUserInfo[] = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";
-#endif
-#endif // WINDOWS_SECURITY_ISOLATION_ISOLATEDWINDOWSENVIRONMENTCONTRACT_VERSION >= 0x30000
-
-/*
- *
  * Class Windows.Security.Isolation.IsolatedWindowsHostMessenger
  *
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2 interface starting with version 2.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment

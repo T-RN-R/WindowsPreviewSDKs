@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -294,40 +286,33 @@ EXTERN_C const IID IID_IAssemblyName;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAssemblyName * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAssemblyName * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAssemblyName * This);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, SetProperty)
         HRESULT ( STDMETHODCALLTYPE *SetProperty )( 
             IAssemblyName * This,
             /* [in] */ DWORD PropertyId,
             /* [in] */ LPVOID pvProperty,
             /* [in] */ DWORD cbProperty);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, GetProperty)
         HRESULT ( STDMETHODCALLTYPE *GetProperty )( 
             IAssemblyName * This,
             /* [in] */ DWORD PropertyId,
             /* [out] */ LPVOID pvProperty,
             /* [out][in] */ LPDWORD pcbProperty);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, Finalize)
         HRESULT ( STDMETHODCALLTYPE *Finalize )( 
             IAssemblyName * This);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, GetDisplayName)
         HRESULT ( STDMETHODCALLTYPE *GetDisplayName )( 
             IAssemblyName * This,
             /* [annotation][out] */ 
@@ -336,7 +321,6 @@ EXTERN_C const IID IID_IAssemblyName;
             _Inout_  LPDWORD pccDisplayName,
             /* [in] */ DWORD dwDisplayFlags);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, Reserved)
         HRESULT ( STDMETHODCALLTYPE *Reserved )( 
             IAssemblyName * This,
             /* [in] */ REFIID refIID,
@@ -348,7 +332,6 @@ EXTERN_C const IID IID_IAssemblyName;
             /* [in] */ DWORD cbReserved,
             /* [out] */ LPVOID *ppReserved);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IAssemblyName * This,
             /* [annotation][out][in] */ 
@@ -356,19 +339,16 @@ EXTERN_C const IID IID_IAssemblyName;
             /* [annotation][out] */ 
             _Out_writes_opt_(*lpcwBuffer)  LPWSTR pwzName);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, GetVersion)
         HRESULT ( STDMETHODCALLTYPE *GetVersion )( 
             IAssemblyName * This,
             /* [out] */ LPDWORD pdwVersionHi,
             /* [out] */ LPDWORD pdwVersionLow);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, IsEqual)
         HRESULT ( STDMETHODCALLTYPE *IsEqual )( 
             IAssemblyName * This,
             /* [in] */ IAssemblyName *pName,
             /* [in] */ DWORD dwCmpFlags);
         
-        DECLSPEC_XFGVIRT(IAssemblyName, Clone)
         HRESULT ( STDMETHODCALLTYPE *Clone )( 
             IAssemblyName * This,
             /* [out] */ IAssemblyName **pName);
@@ -472,22 +452,18 @@ EXTERN_C const IID IID_IAssemblyCacheItem;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAssemblyCacheItem * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAssemblyCacheItem * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAssemblyCacheItem * This);
         
-        DECLSPEC_XFGVIRT(IAssemblyCacheItem, CreateStream)
         HRESULT ( STDMETHODCALLTYPE *CreateStream )( 
             IAssemblyCacheItem * This,
             /* [in] */ DWORD dwFlags,
@@ -497,13 +473,11 @@ EXTERN_C const IID IID_IAssemblyCacheItem;
             /* [out] */ IStream **ppIStream,
             /* [optional][in] */ ULARGE_INTEGER *puliMaxSize);
         
-        DECLSPEC_XFGVIRT(IAssemblyCacheItem, Commit)
         HRESULT ( STDMETHODCALLTYPE *Commit )( 
             IAssemblyCacheItem * This,
             /* [in] */ DWORD dwFlags,
             /* [optional][out] */ ULONG *pulDisposition);
         
-        DECLSPEC_XFGVIRT(IAssemblyCacheItem, AbortItem)
         HRESULT ( STDMETHODCALLTYPE *AbortItem )( 
             IAssemblyCacheItem * This);
         
@@ -599,22 +573,18 @@ EXTERN_C const IID IID_IAssemblyCache;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAssemblyCache * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAssemblyCache * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAssemblyCache * This);
         
-        DECLSPEC_XFGVIRT(IAssemblyCache, UninstallAssembly)
         HRESULT ( STDMETHODCALLTYPE *UninstallAssembly )( 
             IAssemblyCache * This,
             /* [in] */ DWORD dwFlags,
@@ -622,14 +592,12 @@ EXTERN_C const IID IID_IAssemblyCache;
             /* [in] */ LPCFUSION_INSTALL_REFERENCE pRefData,
             /* [optional][out] */ ULONG *pulDisposition);
         
-        DECLSPEC_XFGVIRT(IAssemblyCache, QueryAssemblyInfo)
         HRESULT ( STDMETHODCALLTYPE *QueryAssemblyInfo )( 
             IAssemblyCache * This,
             /* [in] */ DWORD dwFlags,
             /* [in] */ LPCWSTR pszAssemblyName,
             /* [out][in] */ ASSEMBLY_INFO *pAsmInfo);
         
-        DECLSPEC_XFGVIRT(IAssemblyCache, CreateAssemblyCacheItem)
         HRESULT ( STDMETHODCALLTYPE *CreateAssemblyCacheItem )( 
             IAssemblyCache * This,
             /* [in] */ DWORD dwFlags,
@@ -637,12 +605,10 @@ EXTERN_C const IID IID_IAssemblyCache;
             /* [out] */ IAssemblyCacheItem **ppAsmItem,
             /* [optional][in] */ LPCWSTR pszAssemblyName);
         
-        DECLSPEC_XFGVIRT(IAssemblyCache, Reserved)
         HRESULT ( STDMETHODCALLTYPE *Reserved )( 
             IAssemblyCache * This,
             /* [out] */ IUnknown **ppUnk);
         
-        DECLSPEC_XFGVIRT(IAssemblyCache, InstallAssembly)
         HRESULT ( STDMETHODCALLTYPE *InstallAssembly )( 
             IAssemblyCache * This,
             /* [in] */ DWORD dwFlags,

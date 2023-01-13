@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -186,33 +178,27 @@ EXTERN_C const IID IID_IVssSoftwareSnapshotProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IVssSoftwareSnapshotProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IVssSoftwareSnapshotProvider * This);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, SetContext)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *SetContext )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ LONG lContext);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, GetSnapshotProperties)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetSnapshotProperties )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ VSS_ID SnapshotId,
             /* [out] */ __RPC__out VSS_SNAPSHOT_PROP *pProp);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, Query)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *Query )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ VSS_ID QueriedObjectId,
@@ -220,7 +206,6 @@ EXTERN_C const IID IID_IVssSoftwareSnapshotProvider;
             /* [in] */ VSS_OBJECT_TYPE eReturnedObjectsType,
             /* [out] */ __RPC__deref_out_opt IVssEnumObject **ppEnum);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, DeleteSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *DeleteSnapshots )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ VSS_ID SourceObjectId,
@@ -229,7 +214,6 @@ EXTERN_C const IID IID_IVssSoftwareSnapshotProvider;
             /* [out] */ __RPC__out LONG *plDeletedSnapshots,
             /* [out] */ __RPC__out VSS_ID *pNondeletedSnapshotID);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, BeginPrepareSnapshot)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *BeginPrepareSnapshot )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ VSS_ID SnapshotSetId,
@@ -237,32 +221,27 @@ EXTERN_C const IID IID_IVssSoftwareSnapshotProvider;
             /* [in] */ __RPC__in VSS_PWSZ pwszVolumeName,
             /* [in] */ LONG lNewContext);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, IsVolumeSupported)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *IsVolumeSupported )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ __RPC__in VSS_PWSZ pwszVolumeName,
             /* [out] */ __RPC__out BOOL *pbSupportedByThisProvider);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, IsVolumeSnapshotted)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *IsVolumeSnapshotted )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ __RPC__in VSS_PWSZ pwszVolumeName,
             /* [out] */ __RPC__out BOOL *pbSnapshotsPresent,
             /* [out] */ __RPC__out LONG *plSnapshotCompatibility);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, SetSnapshotProperty)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *SetSnapshotProperty )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ VSS_ID SnapshotId,
             /* [in] */ VSS_SNAPSHOT_PROPERTY_ID eSnapshotPropertyId,
             /* [in] */ VARIANT vProperty);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, RevertToSnapshot)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *RevertToSnapshot )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ VSS_ID SnapshotId);
         
-        DECLSPEC_XFGVIRT(IVssSoftwareSnapshotProvider, QueryRevertStatus)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *QueryRevertStatus )( 
             __RPC__in IVssSoftwareSnapshotProvider * This,
             /* [in] */ __RPC__in VSS_PWSZ pwszVolume,
@@ -378,53 +357,43 @@ EXTERN_C const IID IID_IVssProviderCreateSnapshotSet;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IVssProviderCreateSnapshotSet * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IVssProviderCreateSnapshotSet * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IVssProviderCreateSnapshotSet * This);
         
-        DECLSPEC_XFGVIRT(IVssProviderCreateSnapshotSet, EndPrepareSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *EndPrepareSnapshots )( 
             __RPC__in IVssProviderCreateSnapshotSet * This,
             /* [in] */ VSS_ID SnapshotSetId);
         
-        DECLSPEC_XFGVIRT(IVssProviderCreateSnapshotSet, PreCommitSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *PreCommitSnapshots )( 
             __RPC__in IVssProviderCreateSnapshotSet * This,
             /* [in] */ VSS_ID SnapshotSetId);
         
-        DECLSPEC_XFGVIRT(IVssProviderCreateSnapshotSet, CommitSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *CommitSnapshots )( 
             __RPC__in IVssProviderCreateSnapshotSet * This,
             /* [in] */ VSS_ID SnapshotSetId);
         
-        DECLSPEC_XFGVIRT(IVssProviderCreateSnapshotSet, PostCommitSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *PostCommitSnapshots )( 
             __RPC__in IVssProviderCreateSnapshotSet * This,
             /* [in] */ VSS_ID SnapshotSetId,
             /* [in] */ LONG lSnapshotsCount);
         
-        DECLSPEC_XFGVIRT(IVssProviderCreateSnapshotSet, PreFinalCommitSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *PreFinalCommitSnapshots )( 
             __RPC__in IVssProviderCreateSnapshotSet * This,
             /* [in] */ VSS_ID SnapshotSetId);
         
-        DECLSPEC_XFGVIRT(IVssProviderCreateSnapshotSet, PostFinalCommitSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *PostFinalCommitSnapshots )( 
             __RPC__in IVssProviderCreateSnapshotSet * This,
             /* [in] */ VSS_ID SnapshotSetId);
         
-        DECLSPEC_XFGVIRT(IVssProviderCreateSnapshotSet, AbortSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *AbortSnapshots )( 
             __RPC__in IVssProviderCreateSnapshotSet * This,
             /* [in] */ VSS_ID SnapshotSetId);
@@ -514,27 +483,22 @@ EXTERN_C const IID IID_IVssProviderNotifications;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IVssProviderNotifications * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IVssProviderNotifications * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IVssProviderNotifications * This);
         
-        DECLSPEC_XFGVIRT(IVssProviderNotifications, OnLoad)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *OnLoad )( 
             __RPC__in IVssProviderNotifications * This,
             /* [unique][in] */ __RPC__in_opt IUnknown *pCallback);
         
-        DECLSPEC_XFGVIRT(IVssProviderNotifications, OnUnload)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *OnUnload )( 
             __RPC__in IVssProviderNotifications * This,
             /* [in] */ BOOL bForceUnload);
@@ -637,22 +601,18 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IVssHardwareSnapshotProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IVssHardwareSnapshotProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IVssHardwareSnapshotProvider * This);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, AreLunsSupported)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *AreLunsSupported )( 
             __RPC__in IVssHardwareSnapshotProvider * This,
             /* [in] */ LONG lLunCount,
@@ -661,14 +621,12 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProvider;
             /* [size_is][out][in] */ __RPC__inout_ecount_full(lLunCount) VDS_LUN_INFORMATION *pLunInformation,
             /* [out] */ __RPC__out BOOL *pbIsSupported);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, FillInLunInfo)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *FillInLunInfo )( 
             __RPC__in IVssHardwareSnapshotProvider * This,
             /* [in] */ __RPC__in VSS_PWSZ wszDeviceName,
             /* [out][in] */ __RPC__inout VDS_LUN_INFORMATION *pLunInfo,
             /* [out] */ __RPC__out BOOL *pbIsSupported);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, BeginPrepareSnapshot)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *BeginPrepareSnapshot )( 
             __RPC__in IVssHardwareSnapshotProvider * This,
             /* [in] */ VSS_ID SnapshotSetId,
@@ -678,7 +636,6 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProvider;
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(lLunCount) VSS_PWSZ *rgDeviceNames,
             /* [size_is][out][in] */ __RPC__inout_ecount_full(lLunCount) VDS_LUN_INFORMATION *rgLunInformation);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, GetTargetLuns)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetTargetLuns )( 
             __RPC__in IVssHardwareSnapshotProvider * This,
             /* [in] */ LONG lLunCount,
@@ -686,13 +643,11 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProvider;
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(lLunCount) VDS_LUN_INFORMATION *rgSourceLuns,
             /* [size_is][out][in] */ __RPC__inout_ecount_full(lLunCount) VDS_LUN_INFORMATION *rgDestinationLuns);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, LocateLuns)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *LocateLuns )( 
             __RPC__in IVssHardwareSnapshotProvider * This,
             /* [in] */ LONG lLunCount,
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(lLunCount) VDS_LUN_INFORMATION *rgSourceLuns);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, OnLunEmpty)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *OnLunEmpty )( 
             __RPC__in IVssHardwareSnapshotProvider * This,
             /* [unique][in] */ __RPC__in_opt VSS_PWSZ wszDeviceName,
@@ -794,22 +749,18 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProviderEx;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, AreLunsSupported)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *AreLunsSupported )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [in] */ LONG lLunCount,
@@ -818,14 +769,12 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProviderEx;
             /* [size_is][out][in] */ __RPC__inout_ecount_full(lLunCount) VDS_LUN_INFORMATION *pLunInformation,
             /* [out] */ __RPC__out BOOL *pbIsSupported);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, FillInLunInfo)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *FillInLunInfo )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [in] */ __RPC__in VSS_PWSZ wszDeviceName,
             /* [out][in] */ __RPC__inout VDS_LUN_INFORMATION *pLunInfo,
             /* [out] */ __RPC__out BOOL *pbIsSupported);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, BeginPrepareSnapshot)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *BeginPrepareSnapshot )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [in] */ VSS_ID SnapshotSetId,
@@ -835,7 +784,6 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProviderEx;
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(lLunCount) VSS_PWSZ *rgDeviceNames,
             /* [size_is][out][in] */ __RPC__inout_ecount_full(lLunCount) VDS_LUN_INFORMATION *rgLunInformation);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, GetTargetLuns)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetTargetLuns )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [in] */ LONG lLunCount,
@@ -843,24 +791,20 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProviderEx;
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(lLunCount) VDS_LUN_INFORMATION *rgSourceLuns,
             /* [size_is][out][in] */ __RPC__inout_ecount_full(lLunCount) VDS_LUN_INFORMATION *rgDestinationLuns);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, LocateLuns)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *LocateLuns )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [in] */ LONG lLunCount,
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(lLunCount) VDS_LUN_INFORMATION *rgSourceLuns);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProvider, OnLunEmpty)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *OnLunEmpty )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [unique][in] */ __RPC__in_opt VSS_PWSZ wszDeviceName,
             /* [unique][in] */ __RPC__in_opt VDS_LUN_INFORMATION *pInformation);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProviderEx, GetProviderCapabilities)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetProviderCapabilities )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [out] */ __RPC__out ULONGLONG *pllOriginalCapabilityMask);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProviderEx, OnLunStateChange)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *OnLunStateChange )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(dwCount) VDS_LUN_INFORMATION *pSnapshotLuns,
@@ -868,7 +812,6 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProviderEx;
             /* [in] */ DWORD dwCount,
             /* [in] */ DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProviderEx, ResyncLuns)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *ResyncLuns )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(dwCount) VDS_LUN_INFORMATION *pSourceLuns,
@@ -876,7 +819,6 @@ EXTERN_C const IID IID_IVssHardwareSnapshotProviderEx;
             /* [in] */ DWORD dwCount,
             /* [out] */ __RPC__deref_out_opt IVssAsync **ppAsync);
         
-        DECLSPEC_XFGVIRT(IVssHardwareSnapshotProviderEx, OnReuseLuns)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *OnReuseLuns )( 
             __RPC__in IVssHardwareSnapshotProviderEx * This,
             /* [size_is][unique][in] */ __RPC__in_ecount_full_opt(dwCount) VDS_LUN_INFORMATION *pSnapshotLuns,
@@ -1013,33 +955,27 @@ EXTERN_C const IID IID_IVssFileShareSnapshotProvider;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IVssFileShareSnapshotProvider * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IVssFileShareSnapshotProvider * This);
         
-        DECLSPEC_XFGVIRT(IVssFileShareSnapshotProvider, SetContext)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *SetContext )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ LONG lContext);
         
-        DECLSPEC_XFGVIRT(IVssFileShareSnapshotProvider, GetSnapshotProperties)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *GetSnapshotProperties )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ VSS_ID SnapshotId,
             /* [out] */ __RPC__out VSS_SNAPSHOT_PROP *pProp);
         
-        DECLSPEC_XFGVIRT(IVssFileShareSnapshotProvider, Query)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *Query )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ VSS_ID QueriedObjectId,
@@ -1047,7 +983,6 @@ EXTERN_C const IID IID_IVssFileShareSnapshotProvider;
             /* [in] */ VSS_OBJECT_TYPE eReturnedObjectsType,
             /* [out] */ __RPC__deref_out_opt IVssEnumObject **ppEnum);
         
-        DECLSPEC_XFGVIRT(IVssFileShareSnapshotProvider, DeleteSnapshots)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *DeleteSnapshots )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ VSS_ID SourceObjectId,
@@ -1056,7 +991,6 @@ EXTERN_C const IID IID_IVssFileShareSnapshotProvider;
             /* [out] */ __RPC__out LONG *plDeletedSnapshots,
             /* [out] */ __RPC__out VSS_ID *pNondeletedSnapshotID);
         
-        DECLSPEC_XFGVIRT(IVssFileShareSnapshotProvider, BeginPrepareSnapshot)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *BeginPrepareSnapshot )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ VSS_ID SnapshotSetId,
@@ -1065,20 +999,17 @@ EXTERN_C const IID IID_IVssFileShareSnapshotProvider;
             /* [in] */ LONG lNewContext,
             /* [in] */ VSS_ID ProviderId);
         
-        DECLSPEC_XFGVIRT(IVssFileShareSnapshotProvider, IsPathSupported)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *IsPathSupported )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ __RPC__in VSS_PWSZ pwszSharePath,
             /* [out] */ __RPC__out BOOL *pbSupportedByThisProvider);
         
-        DECLSPEC_XFGVIRT(IVssFileShareSnapshotProvider, IsPathSnapshotted)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *IsPathSnapshotted )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ __RPC__in VSS_PWSZ pwszSharePath,
             /* [out] */ __RPC__out BOOL *pbSnapshotsPresent,
             /* [out] */ __RPC__out LONG *plSnapshotCompatibility);
         
-        DECLSPEC_XFGVIRT(IVssFileShareSnapshotProvider, SetSnapshotProperty)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *SetSnapshotProperty )( 
             __RPC__in IVssFileShareSnapshotProvider * This,
             /* [in] */ VSS_ID SnapshotId,

@@ -264,10 +264,6 @@ typedef struct GET_OPERATION_CONTEXT_PARAMS {
 #define CLUSRESDLL_STATUS_INSUFFICIENT_OTHER_RESOURCES           0x00000040
 #define CLUSRESDLL_STATUS_INVALID_PARAMETERS                     0x00000080
 #define CLUSRESDLL_STATUS_NETWORK_NOT_AVAILABLE                  0x00000100
-#define CLUSRESDLL_STATUS_DO_NOT_COLLECT_WER_REPORT              0x40000000
-
-// Use high bit to indicate dump now
-#define CLUSRESDLL_STATUS_DUMP_NOW                               0x80000000
 
 typedef struct RESOURCE_STATUS_EX {
     CLUSTER_RESOURCE_STATE      ResourceState;
@@ -853,33 +849,6 @@ DWORD
     _In_ DWORD LockedModeFlags
 );
 
-typedef
-DWORD
-(_stdcall *PREQUEST_DUMP_ROUTINE)(
-    _In_ RESOURCE_HANDLE ResourceHandle,
-    _In_ BOOL DumpDueToCallInProgress,
-    _In_ DWORD DumpDelayInMs
-);
-
-#define CLUSRES_DISABLE_WPR_WATCHDOG_FOR_ONLINE_CALLS  0x00000001
-#define CLUSRES_DISABLE_WPR_WATCHDOG_FOR_OFFLINE_CALLS 0x00000002
-
-typedef
-DWORD
-(_stdcall *PSET_RESOURCE_WPR_POLICY_ROUTINE)(
-    _In_ RESOURCE_HANDLE ResourceHandle,
-    _In_ DWORD WprPolicyFlags
-);
-
-#define ARM_WPR_WATCHDOG_USING_CURRENT_START_AFTER 0xffffffffffffffffULL
-
-typedef
-DWORD
-(_stdcall *PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE)(
-    _In_ RESOURCE_HANDLE ResourceHandle,
-    _In_ ULONGLONG TimeoutInMs
-);
-
 typedef struct CLRES_CALLBACK_FUNCTION_TABLE {
     PLOG_EVENT_ROUTINE                                                         LogEvent;
     PSET_RESOURCE_STATUS_ROUTINE_EX                                            SetResourceStatusEx;
@@ -895,9 +864,6 @@ typedef struct CLRES_CALLBACK_FUNCTION_TABLE {
     PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS                                         ChangeResTypeProcessForDumps;
     PSET_INTERNAL_STATE                                                        SetInternalState;
     PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE                                       SetResourceLockedModeEx;
-    PREQUEST_DUMP_ROUTINE                                                      RequestDump;
-    PSET_RESOURCE_WPR_POLICY_ROUTINE                                           SetResourceWprPolicy;
-    PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE                        ArmWprWatchdogForCurrentResourceCall;
 }CLRES_CALLBACK_FUNCTION_TABLE, *PCLRES_CALLBACK_FUNCTION_TABLE;
 
 typedef

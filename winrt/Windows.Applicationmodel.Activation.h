@@ -108,7 +108,7 @@
 #endif // defined(WINDOWS_APPLICATIONMODEL_BACKGROUND_BACKGROUNDALARMAPPLICATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION 0x70000
+#define WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION 0x50000
 #endif // defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSVOIPCONTRACT_VERSION)
@@ -124,7 +124,7 @@
 #endif // defined(WINDOWS_APPLICATIONMODEL_SEARCH_SEARCHCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION 0x20000
+#define WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION 0x10000
 #endif // defined(WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION)
 
 #if !defined(WINDOWS_DEVICES_PRINTERS_EXTENSIONS_EXTENSIONSCONTRACT_VERSION)
@@ -136,11 +136,11 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION)
-#define WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION 0x70000
+#define WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION 0x40000
 #endif // defined(WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -815,21 +815,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs ABI::Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Activation {
-                interface IPhoneCallActivatedEventArgs;
-            } /* Activation */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs ABI::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
@@ -2433,18 +2418,6 @@ namespace ABI {
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
                     ActivationKind_BarcodeScannerProvider = 1022,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-                    ActivationKind_PrintSupportJobUI = 1023,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-                    ActivationKind_PrintSupportSettingsUI = 1024,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-                    ActivationKind_PhoneCallActivation = 1025,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-                    ActivationKind_VpnForeground = 1026,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
                 };
             } /* Activation */
         } /* ApplicationModel */
@@ -2508,7 +2481,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IActivatedEventArgs = __uuidof(IActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IActivatedEventArgs = _uuidof(IActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2545,7 +2518,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IActivatedEventArgsWithUser = __uuidof(IActivatedEventArgsWithUser);
+                extern MIDL_CONST_ID IID& IID_IActivatedEventArgsWithUser = _uuidof(IActivatedEventArgsWithUser);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2582,7 +2555,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewActivatedEventArgs = __uuidof(IApplicationViewActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewActivatedEventArgs = _uuidof(IApplicationViewActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2619,7 +2592,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppointmentsProviderActivatedEventArgs = __uuidof(IAppointmentsProviderActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppointmentsProviderActivatedEventArgs = _uuidof(IAppointmentsProviderActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2657,7 +2630,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppointmentsProviderAddAppointmentActivatedEventArgs = __uuidof(IAppointmentsProviderAddAppointmentActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppointmentsProviderAddAppointmentActivatedEventArgs = _uuidof(IAppointmentsProviderAddAppointmentActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2695,7 +2668,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppointmentsProviderRemoveAppointmentActivatedEventArgs = __uuidof(IAppointmentsProviderRemoveAppointmentActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppointmentsProviderRemoveAppointmentActivatedEventArgs = _uuidof(IAppointmentsProviderRemoveAppointmentActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2733,7 +2706,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppointmentsProviderReplaceAppointmentActivatedEventArgs = __uuidof(IAppointmentsProviderReplaceAppointmentActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppointmentsProviderReplaceAppointmentActivatedEventArgs = _uuidof(IAppointmentsProviderReplaceAppointmentActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2777,7 +2750,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs = __uuidof(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs = _uuidof(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2818,7 +2791,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAppointmentsProviderShowTimeFrameActivatedEventArgs = __uuidof(IAppointmentsProviderShowTimeFrameActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAppointmentsProviderShowTimeFrameActivatedEventArgs = _uuidof(IAppointmentsProviderShowTimeFrameActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2852,7 +2825,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBackgroundActivatedEventArgs = __uuidof(IBackgroundActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IBackgroundActivatedEventArgs = _uuidof(IBackgroundActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2889,7 +2862,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IBarcodeScannerPreviewActivatedEventArgs = __uuidof(IBarcodeScannerPreviewActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IBarcodeScannerPreviewActivatedEventArgs = _uuidof(IBarcodeScannerPreviewActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2926,7 +2899,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICachedFileUpdaterActivatedEventArgs = __uuidof(ICachedFileUpdaterActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ICachedFileUpdaterActivatedEventArgs = _uuidof(ICachedFileUpdaterActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -2966,7 +2939,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICameraSettingsActivatedEventArgs = __uuidof(ICameraSettingsActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ICameraSettingsActivatedEventArgs = _uuidof(ICameraSettingsActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3003,7 +2976,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICommandLineActivatedEventArgs = __uuidof(ICommandLineActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ICommandLineActivatedEventArgs = _uuidof(ICommandLineActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3051,7 +3024,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICommandLineActivationOperation = __uuidof(ICommandLineActivationOperation);
+                extern MIDL_CONST_ID IID& IID_ICommandLineActivationOperation = _uuidof(ICommandLineActivationOperation);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3088,7 +3061,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactActivatedEventArgs = __uuidof(IContactActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactActivatedEventArgs = _uuidof(IContactActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3132,7 +3105,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactCallActivatedEventArgs = __uuidof(IContactCallActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactCallActivatedEventArgs = _uuidof(IContactCallActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3173,7 +3146,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactMapActivatedEventArgs = __uuidof(IContactMapActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactMapActivatedEventArgs = _uuidof(IContactMapActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3217,7 +3190,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactMessageActivatedEventArgs = __uuidof(IContactMessageActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactMessageActivatedEventArgs = _uuidof(IContactMessageActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3254,7 +3227,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactPanelActivatedEventArgs = __uuidof(IContactPanelActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactPanelActivatedEventArgs = _uuidof(IContactPanelActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3291,7 +3264,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactPickerActivatedEventArgs = __uuidof(IContactPickerActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactPickerActivatedEventArgs = _uuidof(IContactPickerActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3335,7 +3308,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactPostActivatedEventArgs = __uuidof(IContactPostActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactPostActivatedEventArgs = _uuidof(IContactPostActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3379,7 +3352,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactVideoCallActivatedEventArgs = __uuidof(IContactVideoCallActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactVideoCallActivatedEventArgs = _uuidof(IContactVideoCallActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3416,7 +3389,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContactsProviderActivatedEventArgs = __uuidof(IContactsProviderActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContactsProviderActivatedEventArgs = _uuidof(IContactsProviderActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3453,7 +3426,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IContinuationActivatedEventArgs = __uuidof(IContinuationActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IContinuationActivatedEventArgs = _uuidof(IContinuationActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3493,7 +3466,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDeviceActivatedEventArgs = __uuidof(IDeviceActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IDeviceActivatedEventArgs = _uuidof(IDeviceActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3530,7 +3503,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDevicePairingActivatedEventArgs = __uuidof(IDevicePairingActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IDevicePairingActivatedEventArgs = _uuidof(IDevicePairingActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3568,7 +3541,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDialReceiverActivatedEventArgs = __uuidof(IDialReceiverActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IDialReceiverActivatedEventArgs = _uuidof(IDialReceiverActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3608,7 +3581,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileActivatedEventArgs = __uuidof(IFileActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IFileActivatedEventArgs = _uuidof(IFileActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3645,7 +3618,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileActivatedEventArgsWithCallerPackageFamilyName = __uuidof(IFileActivatedEventArgsWithCallerPackageFamilyName);
+                extern MIDL_CONST_ID IID& IID_IFileActivatedEventArgsWithCallerPackageFamilyName = _uuidof(IFileActivatedEventArgsWithCallerPackageFamilyName);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3683,7 +3656,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileActivatedEventArgsWithNeighboringFiles = __uuidof(IFileActivatedEventArgsWithNeighboringFiles);
+                extern MIDL_CONST_ID IID& IID_IFileActivatedEventArgsWithNeighboringFiles = _uuidof(IFileActivatedEventArgsWithNeighboringFiles);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3720,7 +3693,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileOpenPickerActivatedEventArgs = __uuidof(IFileOpenPickerActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IFileOpenPickerActivatedEventArgs = _uuidof(IFileOpenPickerActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3754,7 +3727,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileOpenPickerActivatedEventArgs2 = __uuidof(IFileOpenPickerActivatedEventArgs2);
+                extern MIDL_CONST_ID IID& IID_IFileOpenPickerActivatedEventArgs2 = _uuidof(IFileOpenPickerActivatedEventArgs2);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3798,7 +3771,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileOpenPickerContinuationEventArgs = __uuidof(IFileOpenPickerContinuationEventArgs);
+                extern MIDL_CONST_ID IID& IID_IFileOpenPickerContinuationEventArgs = _uuidof(IFileOpenPickerContinuationEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3835,7 +3808,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileSavePickerActivatedEventArgs = __uuidof(IFileSavePickerActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IFileSavePickerActivatedEventArgs = _uuidof(IFileSavePickerActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3872,7 +3845,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileSavePickerActivatedEventArgs2 = __uuidof(IFileSavePickerActivatedEventArgs2);
+                extern MIDL_CONST_ID IID& IID_IFileSavePickerActivatedEventArgs2 = _uuidof(IFileSavePickerActivatedEventArgs2);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3916,7 +3889,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFileSavePickerContinuationEventArgs = __uuidof(IFileSavePickerContinuationEventArgs);
+                extern MIDL_CONST_ID IID& IID_IFileSavePickerContinuationEventArgs = _uuidof(IFileSavePickerContinuationEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -3960,7 +3933,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFolderPickerContinuationEventArgs = __uuidof(IFolderPickerContinuationEventArgs);
+                extern MIDL_CONST_ID IID& IID_IFolderPickerContinuationEventArgs = _uuidof(IFolderPickerContinuationEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4000,7 +3973,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILaunchActivatedEventArgs = __uuidof(ILaunchActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ILaunchActivatedEventArgs = _uuidof(ILaunchActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4038,7 +4011,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILaunchActivatedEventArgs2 = __uuidof(ILaunchActivatedEventArgs2);
+                extern MIDL_CONST_ID IID& IID_ILaunchActivatedEventArgs2 = _uuidof(ILaunchActivatedEventArgs2);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4075,7 +4048,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILockScreenActivatedEventArgs = __uuidof(ILockScreenActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ILockScreenActivatedEventArgs = _uuidof(ILockScreenActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4113,7 +4086,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILockScreenCallActivatedEventArgs = __uuidof(ILockScreenCallActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ILockScreenCallActivatedEventArgs = _uuidof(ILockScreenCallActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4122,43 +4095,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_ACTIVATION_ACTIVATEDEVENTSCONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Activation.IActivatedEventArgs
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Activation_IPhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Activation {
-                MIDL_INTERFACE("54615221-a3c1-4ced-b62f-8c60523619ad")
-                IPhoneCallActivatedEventArgs : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_LineId(
-                        GUID* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IPhoneCallActivatedEventArgs = __uuidof(IPhoneCallActivatedEventArgs);
-            } /* Activation */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
-#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *
@@ -4187,7 +4123,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPickerReturnedActivatedEventArgs = __uuidof(IPickerReturnedActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IPickerReturnedActivatedEventArgs = _uuidof(IPickerReturnedActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4224,7 +4160,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPrelaunchActivatedEventArgs = __uuidof(IPrelaunchActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IPrelaunchActivatedEventArgs = _uuidof(IPrelaunchActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4261,7 +4197,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPrint3DWorkflowActivatedEventArgs = __uuidof(IPrint3DWorkflowActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IPrint3DWorkflowActivatedEventArgs = _uuidof(IPrint3DWorkflowActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4298,7 +4234,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPrintTaskSettingsActivatedEventArgs = __uuidof(IPrintTaskSettingsActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IPrintTaskSettingsActivatedEventArgs = _uuidof(IPrintTaskSettingsActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4335,7 +4271,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IProtocolActivatedEventArgs = __uuidof(IProtocolActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IProtocolActivatedEventArgs = _uuidof(IProtocolActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4375,7 +4311,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData = __uuidof(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData);
+                extern MIDL_CONST_ID IID& IID_IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData = _uuidof(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4412,7 +4348,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IProtocolForResultsActivatedEventArgs = __uuidof(IProtocolForResultsActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IProtocolForResultsActivatedEventArgs = _uuidof(IProtocolForResultsActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4449,7 +4385,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IRestrictedLaunchActivatedEventArgs = __uuidof(IRestrictedLaunchActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IRestrictedLaunchActivatedEventArgs = _uuidof(IRestrictedLaunchActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4489,7 +4425,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISearchActivatedEventArgs = __uuidof(ISearchActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ISearchActivatedEventArgs = _uuidof(ISearchActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4523,7 +4459,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISearchActivatedEventArgsWithLinguisticDetails = __uuidof(ISearchActivatedEventArgsWithLinguisticDetails);
+                extern MIDL_CONST_ID IID& IID_ISearchActivatedEventArgsWithLinguisticDetails = _uuidof(ISearchActivatedEventArgsWithLinguisticDetails);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4560,7 +4496,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IShareTargetActivatedEventArgs = __uuidof(IShareTargetActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IShareTargetActivatedEventArgs = _uuidof(IShareTargetActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4603,7 +4539,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISplashScreen = __uuidof(ISplashScreen);
+                extern MIDL_CONST_ID IID& IID_ISplashScreen = _uuidof(ISplashScreen);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4640,7 +4576,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IStartupTaskActivatedEventArgs = __uuidof(IStartupTaskActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IStartupTaskActivatedEventArgs = _uuidof(IStartupTaskActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4676,7 +4612,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITileActivatedInfo = __uuidof(ITileActivatedInfo);
+                extern MIDL_CONST_ID IID& IID_ITileActivatedInfo = _uuidof(ITileActivatedInfo);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4716,7 +4652,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IToastNotificationActivatedEventArgs = __uuidof(IToastNotificationActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IToastNotificationActivatedEventArgs = _uuidof(IToastNotificationActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4753,7 +4689,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserDataAccountProviderActivatedEventArgs = __uuidof(IUserDataAccountProviderActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IUserDataAccountProviderActivatedEventArgs = _uuidof(IUserDataAccountProviderActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4790,7 +4726,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IViewSwitcherProvider = __uuidof(IViewSwitcherProvider);
+                extern MIDL_CONST_ID IID& IID_IViewSwitcherProvider = _uuidof(IViewSwitcherProvider);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4827,7 +4763,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVoiceCommandActivatedEventArgs = __uuidof(IVoiceCommandActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IVoiceCommandActivatedEventArgs = _uuidof(IVoiceCommandActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4856,33 +4792,21 @@ namespace ABI {
         namespace ApplicationModel {
             namespace Activation {
                 MIDL_INTERFACE("fcfc027b-1a1a-4d22-923f-ae6f45fa52d9")
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-                DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
                 IWalletActionActivatedEventArgs : public IInspectable
                 {
                 public:
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-                    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
                     virtual HRESULT STDMETHODCALLTYPE get_ItemId(
                         HSTRING* value
                         ) = 0;
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-                    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
                     virtual HRESULT STDMETHODCALLTYPE get_ActionKind(
                         ABI::Windows::ApplicationModel::Wallet::WalletActionKind* value
                         ) = 0;
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-                    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
                     virtual HRESULT STDMETHODCALLTYPE get_ActionId(
                         HSTRING* value
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWalletActionActivatedEventArgs = __uuidof(IWalletActionActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IWalletActionActivatedEventArgs = _uuidof(IWalletActionActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4919,7 +4843,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebAccountProviderActivatedEventArgs = __uuidof(IWebAccountProviderActivatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IWebAccountProviderActivatedEventArgs = _uuidof(IWebAccountProviderActivatedEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -4957,7 +4881,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IWebAuthenticationBrokerContinuationEventArgs = __uuidof(IWebAuthenticationBrokerContinuationEventArgs);
+                extern MIDL_CONST_ID IID& IID_IWebAuthenticationBrokerContinuationEventArgs = _uuidof(IWebAuthenticationBrokerContinuationEventArgs);
             } /* Activation */
         } /* ApplicationModel */
     } /* Windows */
@@ -5646,27 +5570,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Class implements the following interfaces:
- *    Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs ** Default Interface **
- *    Windows.ApplicationModel.Activation.IActivatedEventArgs
- *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
-#define RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
  * Class Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -5978,9 +5881,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs_DEFINED
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-DEPRECATED("WalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
@@ -6280,12 +6180,6 @@ typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenAct
 typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs;
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
@@ -7536,18 +7430,6 @@ enum __x_ABI_CWindows_CApplicationModel_CActivation_CActivationKind
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
     ActivationKind_BarcodeScannerProvider = 1022,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-    ActivationKind_PrintSupportJobUI = 1023,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-    ActivationKind_PrintSupportSettingsUI = 1024,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-    ActivationKind_PhoneCallActivation = 1025,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-    ActivationKind_VpnForeground = 1026,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
@@ -10662,76 +10544,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CILockScre
 
 /*
  *
- * Interface Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Activation.IActivatedEventArgs
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Activation_IPhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
-typedef struct __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_LineId)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        GUID* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl;
-
-interface __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs
-{
-    CONST_VTBL struct __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_get_LineId(This, value) \
-    ((This)->lpVtbl->get_LineId(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
-#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
  * Interface Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -12025,11 +11837,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CIVoiceCom
 #if !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Activation_IWalletActionActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs";
-typedef struct
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgsVtbl
+typedef struct __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgsVtbl
 {
     BEGIN_INTERFACE
 
@@ -12045,19 +11853,10 @@ __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgsV
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs* This,
         TrustLevel* trustLevel);
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
     HRESULT (STDMETHODCALLTYPE* get_ItemId)(__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs* This,
         HSTRING* value);
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
     HRESULT (STDMETHODCALLTYPE* get_ActionKind)(__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs* This,
         enum __x_ABI_CWindows_CApplicationModel_CWallet_CWalletActionKind* value);
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
     HRESULT (STDMETHODCALLTYPE* get_ActionId)(__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs* This,
         HSTRING* value);
 
@@ -12089,21 +11888,12 @@ interface __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivated
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_get_ItemId(This, value) \
     ((This)->lpVtbl->get_ItemId(This, value))
 
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_get_ActionKind(This, value) \
     ((This)->lpVtbl->get_ActionKind(This, value))
 
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_get_ActionId(This, value) \
     ((This)->lpVtbl->get_ActionId(This, value))
 
@@ -12933,27 +12723,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Class implements the following interfaces:
- *    Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs ** Default Interface **
- *    Windows.ApplicationModel.Activation.IActivatedEventArgs
- *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
-#define RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
  * Class Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -13265,9 +13034,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs_DEFINED
-#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
-DEPRECATED("WalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000

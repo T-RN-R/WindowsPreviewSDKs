@@ -1,0 +1,30 @@
+/*  WindowTabManagerInterop.idl
+*
+* IDL defines for COM APIs to support interop with Windows.UI.Shell.WindowTabManager
+*
+* Copyright (c) Microsoft Corporation. All rights reserved
+*/
+
+import "inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_MN)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(A1247E54-9B5C-49F5-BD51-EA35C12ED655),
+]
+interface IWindowTabManagerInterop : IUnknown
+{
+    // create an instance of WindowTabManager initiated with the hwnd
+    HRESULT GetForWindow([in] HWND appWindow, [in] REFIID riid,
+        [out, retval, iid_is(riid)] void** WindowTabManager);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_MN)")

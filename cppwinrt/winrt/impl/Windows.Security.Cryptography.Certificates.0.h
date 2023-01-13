@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Security_Cryptography_Certificates_0_H
 #define WINRT_Windows_Security_Cryptography_Certificates_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
@@ -12,7 +11,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct __declspec(empty_bases) IIterable;
+    template <typename T> struct IIterable;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking
 {
@@ -157,215 +156,217 @@ WINRT_EXPORT namespace winrt::Windows::Security::Cryptography::Certificates
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificate>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificate2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificate3>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateChain>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateExtension>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateFactory>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IChainBuildingParameters>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IChainValidationParameters>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICmsSignerInfo>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IPfxImportParameters>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateStore>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::Certificate>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateChain>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateEnrollmentManager>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateExtension>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateKeyUsages>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateQuery>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateRequestProperties>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateStore>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateStores>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ChainBuildingParameters>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ChainValidationParameters>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CmsAttachedSignature>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CmsDetachedSignature>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CmsSignerInfo>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CmsTimestampInfo>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::KeyAlgorithmNames>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::KeyAttestationHelper>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::KeyStorageProviderNames>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::PfxImportParameters>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::StandardCertificateStoreNames>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::SubjectAlternativeNameInfo>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::UserCertificateEnrollmentManager>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::UserCertificateStore>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::CertificateChainPolicy>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ChainValidationResult>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::EnrollKeyUsages>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::ExportOption>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::InstallOptions>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::KeyProtectionLevel>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::KeySize>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::Security::Cryptography::Certificates::SignatureValidationResult>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::Certificate> = L"Windows.Security.Cryptography.Certificates.Certificate";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateChain> = L"Windows.Security.Cryptography.Certificates.CertificateChain";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateEnrollmentManager> = L"Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateExtension> = L"Windows.Security.Cryptography.Certificates.CertificateExtension";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateKeyUsages> = L"Windows.Security.Cryptography.Certificates.CertificateKeyUsages";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateQuery> = L"Windows.Security.Cryptography.Certificates.CertificateQuery";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateRequestProperties> = L"Windows.Security.Cryptography.Certificates.CertificateRequestProperties";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateStore> = L"Windows.Security.Cryptography.Certificates.CertificateStore";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateStores> = L"Windows.Security.Cryptography.Certificates.CertificateStores";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ChainBuildingParameters> = L"Windows.Security.Cryptography.Certificates.ChainBuildingParameters";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ChainValidationParameters> = L"Windows.Security.Cryptography.Certificates.ChainValidationParameters";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CmsAttachedSignature> = L"Windows.Security.Cryptography.Certificates.CmsAttachedSignature";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CmsDetachedSignature> = L"Windows.Security.Cryptography.Certificates.CmsDetachedSignature";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CmsSignerInfo> = L"Windows.Security.Cryptography.Certificates.CmsSignerInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CmsTimestampInfo> = L"Windows.Security.Cryptography.Certificates.CmsTimestampInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::KeyAlgorithmNames> = L"Windows.Security.Cryptography.Certificates.KeyAlgorithmNames";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::KeyAttestationHelper> = L"Windows.Security.Cryptography.Certificates.KeyAttestationHelper";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::KeyStorageProviderNames> = L"Windows.Security.Cryptography.Certificates.KeyStorageProviderNames";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::PfxImportParameters> = L"Windows.Security.Cryptography.Certificates.PfxImportParameters";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::StandardCertificateStoreNames> = L"Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::SubjectAlternativeNameInfo> = L"Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::UserCertificateEnrollmentManager> = L"Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::UserCertificateStore> = L"Windows.Security.Cryptography.Certificates.UserCertificateStore";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::CertificateChainPolicy> = L"Windows.Security.Cryptography.Certificates.CertificateChainPolicy";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ChainValidationResult> = L"Windows.Security.Cryptography.Certificates.ChainValidationResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::EnrollKeyUsages> = L"Windows.Security.Cryptography.Certificates.EnrollKeyUsages";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ExportOption> = L"Windows.Security.Cryptography.Certificates.ExportOption";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::InstallOptions> = L"Windows.Security.Cryptography.Certificates.InstallOptions";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::KeyProtectionLevel> = L"Windows.Security.Cryptography.Certificates.KeyProtectionLevel";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::KeySize> = L"Windows.Security.Cryptography.Certificates.KeySize";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::SignatureValidationResult> = L"Windows.Security.Cryptography.Certificates.SignatureValidationResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificate> = L"Windows.Security.Cryptography.Certificates.ICertificate";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificate2> = L"Windows.Security.Cryptography.Certificates.ICertificate2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificate3> = L"Windows.Security.Cryptography.Certificates.ICertificate3";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateChain> = L"Windows.Security.Cryptography.Certificates.ICertificateChain";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics> = L"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2> = L"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3> = L"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics3";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateExtension> = L"Windows.Security.Cryptography.Certificates.ICertificateExtension";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateFactory> = L"Windows.Security.Cryptography.Certificates.ICertificateFactory";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateKeyUsages> = L"Windows.Security.Cryptography.Certificates.ICertificateKeyUsages";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery> = L"Windows.Security.Cryptography.Certificates.ICertificateQuery";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery2> = L"Windows.Security.Cryptography.Certificates.ICertificateQuery2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties> = L"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2> = L"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3> = L"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties3";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4> = L"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties4";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore> = L"Windows.Security.Cryptography.Certificates.ICertificateStore";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore2> = L"Windows.Security.Cryptography.Certificates.ICertificateStore2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics> = L"Windows.Security.Cryptography.Certificates.ICertificateStoresStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2> = L"Windows.Security.Cryptography.Certificates.ICertificateStoresStatics2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IChainBuildingParameters> = L"Windows.Security.Cryptography.Certificates.IChainBuildingParameters";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IChainValidationParameters> = L"Windows.Security.Cryptography.Certificates.IChainValidationParameters";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignature> = L"Windows.Security.Cryptography.Certificates.ICmsAttachedSignature";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory> = L"Windows.Security.Cryptography.Certificates.ICmsAttachedSignatureFactory";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics> = L"Windows.Security.Cryptography.Certificates.ICmsAttachedSignatureStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignature> = L"Windows.Security.Cryptography.Certificates.ICmsDetachedSignature";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory> = L"Windows.Security.Cryptography.Certificates.ICmsDetachedSignatureFactory";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics> = L"Windows.Security.Cryptography.Certificates.ICmsDetachedSignatureStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICmsSignerInfo> = L"Windows.Security.Cryptography.Certificates.ICmsSignerInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ICmsTimestampInfo> = L"Windows.Security.Cryptography.Certificates.ICmsTimestampInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics> = L"Windows.Security.Cryptography.Certificates.IKeyAlgorithmNamesStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2> = L"Windows.Security.Cryptography.Certificates.IKeyAlgorithmNamesStatics2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics> = L"Windows.Security.Cryptography.Certificates.IKeyAttestationHelperStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2> = L"Windows.Security.Cryptography.Certificates.IKeyAttestationHelperStatics2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics> = L"Windows.Security.Cryptography.Certificates.IKeyStorageProviderNamesStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2> = L"Windows.Security.Cryptography.Certificates.IKeyStorageProviderNamesStatics2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IPfxImportParameters> = L"Windows.Security.Cryptography.Certificates.IPfxImportParameters";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics> = L"Windows.Security.Cryptography.Certificates.IStandardCertificateStoreNamesStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo> = L"Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2> = L"Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager> = L"Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2> = L"Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager2";
-    template <> inline constexpr auto& name_v<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateStore> = L"Windows.Security.Cryptography.Certificates.IUserCertificateStore";
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificate>{ 0x333F740C,0x04D8,0x43B3,{ 0xB2,0x78,0x8C,0x5F,0xCC,0x9B,0xE5,0xA0 } }; // 333F740C-04D8-43B3-B278-8C5FCC9BE5A0
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificate2>{ 0x17B8374C,0x8A25,0x4D96,{ 0xA4,0x92,0x8F,0xC2,0x9A,0xC4,0xFD,0xA6 } }; // 17B8374C-8A25-4D96-A492-8FC29AC4FDA6
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificate3>{ 0xBE51A966,0xAE5F,0x4652,{ 0xAC,0xE7,0xC6,0xD7,0xE7,0x72,0x4C,0xF3 } }; // BE51A966-AE5F-4652-ACE7-C6D7E7724CF3
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateChain>{ 0x20BF5385,0x3691,0x4501,{ 0xA6,0x2C,0xFD,0x97,0x27,0x8B,0x31,0xEE } }; // 20BF5385-3691-4501-A62C-FD97278B31EE
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>{ 0x8846EF3F,0xA986,0x48FB,{ 0x9F,0xD7,0x9A,0xEC,0x06,0x93,0x5B,0xF1 } }; // 8846EF3F-A986-48FB-9FD7-9AEC06935BF1
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>{ 0xDC5B1C33,0x6429,0x4014,{ 0x99,0x9C,0x5D,0x97,0x35,0x80,0x2D,0x1D } }; // DC5B1C33-6429-4014-999C-5D9735802D1D
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>{ 0xFDEC82BE,0x617C,0x425A,{ 0xB7,0x2D,0x39,0x8B,0x26,0xAC,0x72,0x64 } }; // FDEC82BE-617C-425A-B72D-398B26AC7264
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateExtension>{ 0x84CF0656,0xA9E6,0x454D,{ 0x8E,0x45,0x2E,0xA7,0xC4,0xBC,0xD5,0x3B } }; // 84CF0656-A9E6-454D-8E45-2EA7C4BCD53B
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateFactory>{ 0x17B4221C,0x4BAF,0x44A2,{ 0x96,0x08,0x04,0xFB,0x62,0xB1,0x69,0x42 } }; // 17B4221C-4BAF-44A2-9608-04FB62B16942
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>{ 0x6AC6206F,0xE1CF,0x486A,{ 0xB4,0x85,0xA6,0x9C,0x83,0xE4,0x6F,0xD1 } }; // 6AC6206F-E1CF-486A-B485-A69C83E46FD1
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery>{ 0x5B082A31,0xA728,0x4916,{ 0xB5,0xEE,0xFF,0xCB,0x8A,0xCF,0x24,0x17 } }; // 5B082A31-A728-4916-B5EE-FFCB8ACF2417
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery2>{ 0x935A0AF7,0x0BD9,0x4F75,{ 0xB8,0xC2,0xE2,0x7A,0x7F,0x74,0xEE,0xCD } }; // 935A0AF7-0BD9-4F75-B8C2-E27A7F74EECD
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>{ 0x487E84F6,0x94E2,0x4DCE,{ 0x88,0x33,0x1A,0x70,0x0A,0x37,0xA2,0x9A } }; // 487E84F6-94E2-4DCE-8833-1A700A37A29A
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>{ 0x3DA0C954,0xD73F,0x4FF3,{ 0xA0,0xA6,0x06,0x77,0xC0,0xAD,0xA0,0x5B } }; // 3DA0C954-D73F-4FF3-A0A6-0677C0ADA05B
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>{ 0xE687F616,0x734D,0x46B1,{ 0x9D,0x4C,0x6E,0xDF,0xDB,0xFC,0x84,0x5B } }; // E687F616-734D-46B1-9D4C-6EDFDBFC845B
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>{ 0x4E429AD2,0x1C61,0x4FEA,{ 0xB8,0xFE,0x13,0x5F,0xB1,0x9C,0xDC,0xE4 } }; // 4E429AD2-1C61-4FEA-B8FE-135FB19CDCE4
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore>{ 0xB0BFF720,0x344E,0x4331,{ 0xAF,0x14,0xA7,0xF7,0xA7,0xEB,0xC9,0x3A } }; // B0BFF720-344E-4331-AF14-A7F7A7EBC93A
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore2>{ 0xC7E68E4A,0x417D,0x4D1A,{ 0xBA,0xBD,0x15,0x68,0x7E,0x54,0x99,0x74 } }; // C7E68E4A-417D-4D1A-BABD-15687E549974
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>{ 0xFBECC739,0xC6FE,0x4DE7,{ 0x99,0xCF,0x74,0xC3,0xE5,0x96,0xE0,0x32 } }; // FBECC739-C6FE-4DE7-99CF-74C3E596E032
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>{ 0xFA900B79,0xA0D4,0x4B8C,{ 0xBC,0x55,0xC0,0xA3,0x7E,0xB1,0x41,0xED } }; // FA900B79-A0D4-4B8C-BC55-C0A37EB141ED
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IChainBuildingParameters>{ 0x422BA922,0x7C8D,0x47B7,{ 0xB5,0x9B,0xB1,0x27,0x03,0x73,0x3A,0xC3 } }; // 422BA922-7C8D-47B7-B59B-B12703733AC3
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IChainValidationParameters>{ 0xC4743B4A,0x7EB0,0x4B56,{ 0xA0,0x40,0xB9,0xC8,0xE6,0x55,0xDD,0xF3 } }; // C4743B4A-7EB0-4B56-A040-B9C8E655DDF3
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>{ 0x61899D9D,0x3757,0x4ECB,{ 0xBD,0xDC,0x0C,0xA3,0x57,0xD7,0xA9,0x36 } }; // 61899D9D-3757-4ECB-BDDC-0CA357D7A936
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>{ 0xD0C8FC15,0xF757,0x4C64,{ 0xA3,0x62,0x52,0xCC,0x1C,0x77,0xCF,0xFB } }; // D0C8FC15-F757-4C64-A362-52CC1C77CFFB
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>{ 0x87989C8E,0xB0AD,0x498D,{ 0xA7,0xF5,0x78,0xB5,0x9B,0xCE,0x4B,0x36 } }; // 87989C8E-B0AD-498D-A7F5-78B59BCE4B36
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>{ 0x0F1EF154,0xF65E,0x4536,{ 0x83,0x39,0x59,0x44,0x08,0x1D,0xB2,0xCA } }; // 0F1EF154-F65E-4536-8339-5944081DB2CA
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>{ 0xC4AB3503,0xAE7F,0x4387,{ 0xAD,0x19,0x00,0xF1,0x50,0xE4,0x8E,0xBB } }; // C4AB3503-AE7F-4387-AD19-00F150E48EBB
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>{ 0x3D114CFD,0xBF9B,0x4682,{ 0x9B,0xE6,0x91,0xF5,0x7C,0x05,0x38,0x08 } }; // 3D114CFD-BF9B-4682-9BE6-91F57C053808
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICmsSignerInfo>{ 0x50D020DB,0x1D2F,0x4C1A,{ 0xB5,0xC5,0xD0,0x18,0x8F,0xF9,0x1F,0x47 } }; // 50D020DB-1D2F-4C1A-B5C5-D0188FF91F47
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>{ 0x2F5F00F2,0x2C18,0x4F88,{ 0x84,0x35,0xC5,0x34,0x08,0x60,0x76,0xF5 } }; // 2F5F00F2-2C18-4F88-8435-C534086076F5
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>{ 0x479065D7,0x7AC7,0x4581,{ 0x8C,0x3B,0xD0,0x70,0x27,0x14,0x04,0x48 } }; // 479065D7-7AC7-4581-8C3B-D07027140448
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>{ 0xC99B5686,0xE1FD,0x4A4A,{ 0x89,0x3D,0xA2,0x6F,0x33,0xDD,0x8B,0xB4 } }; // C99B5686-E1FD-4A4A-893D-A26F33DD8BB4
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>{ 0x1648E246,0xF644,0x4326,{ 0x88,0xBE,0x3A,0xF1,0x02,0xD3,0x0E,0x0C } }; // 1648E246-F644-4326-88BE-3AF102D30E0C
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>{ 0x9C590B2C,0xA6C6,0x4A5E,{ 0x9E,0x64,0xE8,0x5D,0x52,0x79,0xDF,0x97 } }; // 9C590B2C-A6C6-4A5E-9E64-E85D5279DF97
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>{ 0xAF186AE0,0x5529,0x4602,{ 0xBD,0x94,0x0A,0xAB,0x91,0x95,0x7B,0x5C } }; // AF186AE0-5529-4602-BD94-0AAB91957B5C
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>{ 0x262D743D,0x9C2E,0x41CC,{ 0x88,0x12,0xC4,0xD9,0x71,0xDD,0x7C,0x60 } }; // 262D743D-9C2E-41CC-8812-C4D971DD7C60
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IPfxImportParameters>{ 0x680D3511,0x9A08,0x47C8,{ 0x86,0x4A,0x2E,0xDD,0x4D,0x8E,0xB4,0x6C } }; // 680D3511-9A08-47C8-864A-2EDD4D8EB46C
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>{ 0x0C154ADB,0xA496,0x41F8,{ 0x8F,0xE5,0x9E,0x96,0xF3,0x6E,0xFB,0xF8 } }; // 0C154ADB-A496-41F8-8FE5-9E96F36EFBF8
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>{ 0x582859F1,0x569D,0x4C20,{ 0xBE,0x7B,0x4E,0x1C,0x9A,0x0B,0xC5,0x2B } }; // 582859F1-569D-4C20-BE7B-4E1C9A0BC52B
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>{ 0x437A78C6,0x1C51,0x41EA,{ 0xB3,0x4A,0x3D,0x65,0x43,0x98,0xA3,0x70 } }; // 437A78C6-1C51-41EA-B34A-3D654398A370
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>{ 0x96313718,0x22E1,0x4819,{ 0xB2,0x0B,0xAB,0x46,0xA6,0xEC,0xA0,0x6E } }; // 96313718-22E1-4819-B20B-AB46A6ECA06E
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>{ 0x0DAD9CB1,0x65DE,0x492A,{ 0xB8,0x6D,0xFC,0x5C,0x48,0x2C,0x37,0x47 } }; // 0DAD9CB1-65DE-492A-B86D-FC5C482C3747
-    template <> inline constexpr guid guid_v<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateStore>{ 0xC9FB1D83,0x789F,0x4B4E,{ 0x91,0x80,0x04,0x5A,0x75,0x7A,0xAC,0x6D } }; // C9FB1D83-789F-4B4E-9180-045A757AAC6D
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::Certificate>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICertificate; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CertificateChain>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICertificateChain; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CertificateExtension>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICertificateExtension; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CertificateKeyUsages>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICertificateKeyUsages; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CertificateQuery>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CertificateRequestProperties>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CertificateStore>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICertificateStore; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::ChainBuildingParameters>{ using type = winrt::Windows::Security::Cryptography::Certificates::IChainBuildingParameters; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::ChainValidationParameters>{ using type = winrt::Windows::Security::Cryptography::Certificates::IChainValidationParameters; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CmsAttachedSignature>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignature; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CmsDetachedSignature>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignature; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CmsSignerInfo>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICmsSignerInfo; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::CmsTimestampInfo>{ using type = winrt::Windows::Security::Cryptography::Certificates::ICmsTimestampInfo; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::PfxImportParameters>{ using type = winrt::Windows::Security::Cryptography::Certificates::IPfxImportParameters; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::SubjectAlternativeNameInfo>{ using type = winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::UserCertificateEnrollmentManager>{ using type = winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager; };
-    template <> struct default_interface<winrt::Windows::Security::Cryptography::Certificates::UserCertificateStore>{ using type = winrt::Windows::Security::Cryptography::Certificates::IUserCertificateStore; };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificate>
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificate>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificate2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificate3>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateChain>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateExtension>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateFactory>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateQuery>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateQuery2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateStore>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateStore2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IChainBuildingParameters>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IChainValidationParameters>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICmsSignerInfo>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IPfxImportParameters>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::IUserCertificateStore>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::Certificate>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateChain>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateEnrollmentManager>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateExtension>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateKeyUsages>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateQuery>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateRequestProperties>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateStore>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateStores>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ChainBuildingParameters>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ChainValidationParameters>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CmsAttachedSignature>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CmsDetachedSignature>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CmsSignerInfo>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CmsTimestampInfo>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::KeyAlgorithmNames>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::KeyAttestationHelper>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::KeyStorageProviderNames>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::PfxImportParameters>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::StandardCertificateStoreNames>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::SubjectAlternativeNameInfo>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::UserCertificateEnrollmentManager>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::UserCertificateStore>{ using type = class_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::CertificateChainPolicy>{ using type = enum_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ChainValidationResult>{ using type = enum_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::EnrollKeyUsages>{ using type = enum_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::ExportOption>{ using type = enum_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::InstallOptions>{ using type = enum_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::KeyProtectionLevel>{ using type = enum_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::KeySize>{ using type = enum_category; };
+    template <> struct category<Windows::Security::Cryptography::Certificates::SignatureValidationResult>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::Certificate>{ L"Windows.Security.Cryptography.Certificates.Certificate" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateChain>{ L"Windows.Security.Cryptography.Certificates.CertificateChain" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateEnrollmentManager>{ L"Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateExtension>{ L"Windows.Security.Cryptography.Certificates.CertificateExtension" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateKeyUsages>{ L"Windows.Security.Cryptography.Certificates.CertificateKeyUsages" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateQuery>{ L"Windows.Security.Cryptography.Certificates.CertificateQuery" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateRequestProperties>{ L"Windows.Security.Cryptography.Certificates.CertificateRequestProperties" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateStore>{ L"Windows.Security.Cryptography.Certificates.CertificateStore" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateStores>{ L"Windows.Security.Cryptography.Certificates.CertificateStores" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ChainBuildingParameters>{ L"Windows.Security.Cryptography.Certificates.ChainBuildingParameters" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ChainValidationParameters>{ L"Windows.Security.Cryptography.Certificates.ChainValidationParameters" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CmsAttachedSignature>{ L"Windows.Security.Cryptography.Certificates.CmsAttachedSignature" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CmsDetachedSignature>{ L"Windows.Security.Cryptography.Certificates.CmsDetachedSignature" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CmsSignerInfo>{ L"Windows.Security.Cryptography.Certificates.CmsSignerInfo" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CmsTimestampInfo>{ L"Windows.Security.Cryptography.Certificates.CmsTimestampInfo" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::KeyAlgorithmNames>{ L"Windows.Security.Cryptography.Certificates.KeyAlgorithmNames" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::KeyAttestationHelper>{ L"Windows.Security.Cryptography.Certificates.KeyAttestationHelper" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::KeyStorageProviderNames>{ L"Windows.Security.Cryptography.Certificates.KeyStorageProviderNames" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::PfxImportParameters>{ L"Windows.Security.Cryptography.Certificates.PfxImportParameters" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::StandardCertificateStoreNames>{ L"Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::SubjectAlternativeNameInfo>{ L"Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::UserCertificateEnrollmentManager>{ L"Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::UserCertificateStore>{ L"Windows.Security.Cryptography.Certificates.UserCertificateStore" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::CertificateChainPolicy>{ L"Windows.Security.Cryptography.Certificates.CertificateChainPolicy" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ChainValidationResult>{ L"Windows.Security.Cryptography.Certificates.ChainValidationResult" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::EnrollKeyUsages>{ L"Windows.Security.Cryptography.Certificates.EnrollKeyUsages" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ExportOption>{ L"Windows.Security.Cryptography.Certificates.ExportOption" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::InstallOptions>{ L"Windows.Security.Cryptography.Certificates.InstallOptions" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::KeyProtectionLevel>{ L"Windows.Security.Cryptography.Certificates.KeyProtectionLevel" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::KeySize>{ L"Windows.Security.Cryptography.Certificates.KeySize" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::SignatureValidationResult>{ L"Windows.Security.Cryptography.Certificates.SignatureValidationResult" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificate>{ L"Windows.Security.Cryptography.Certificates.ICertificate" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificate2>{ L"Windows.Security.Cryptography.Certificates.ICertificate2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificate3>{ L"Windows.Security.Cryptography.Certificates.ICertificate3" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateChain>{ L"Windows.Security.Cryptography.Certificates.ICertificateChain" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>{ L"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>{ L"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>{ L"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics3" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateExtension>{ L"Windows.Security.Cryptography.Certificates.ICertificateExtension" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateFactory>{ L"Windows.Security.Cryptography.Certificates.ICertificateFactory" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>{ L"Windows.Security.Cryptography.Certificates.ICertificateKeyUsages" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateQuery>{ L"Windows.Security.Cryptography.Certificates.ICertificateQuery" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateQuery2>{ L"Windows.Security.Cryptography.Certificates.ICertificateQuery2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>{ L"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>{ L"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>{ L"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties3" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>{ L"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties4" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateStore>{ L"Windows.Security.Cryptography.Certificates.ICertificateStore" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateStore2>{ L"Windows.Security.Cryptography.Certificates.ICertificateStore2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>{ L"Windows.Security.Cryptography.Certificates.ICertificateStoresStatics" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>{ L"Windows.Security.Cryptography.Certificates.ICertificateStoresStatics2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IChainBuildingParameters>{ L"Windows.Security.Cryptography.Certificates.IChainBuildingParameters" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IChainValidationParameters>{ L"Windows.Security.Cryptography.Certificates.IChainValidationParameters" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>{ L"Windows.Security.Cryptography.Certificates.ICmsAttachedSignature" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>{ L"Windows.Security.Cryptography.Certificates.ICmsAttachedSignatureFactory" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>{ L"Windows.Security.Cryptography.Certificates.ICmsAttachedSignatureStatics" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>{ L"Windows.Security.Cryptography.Certificates.ICmsDetachedSignature" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>{ L"Windows.Security.Cryptography.Certificates.ICmsDetachedSignatureFactory" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>{ L"Windows.Security.Cryptography.Certificates.ICmsDetachedSignatureStatics" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICmsSignerInfo>{ L"Windows.Security.Cryptography.Certificates.ICmsSignerInfo" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>{ L"Windows.Security.Cryptography.Certificates.ICmsTimestampInfo" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>{ L"Windows.Security.Cryptography.Certificates.IKeyAlgorithmNamesStatics" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>{ L"Windows.Security.Cryptography.Certificates.IKeyAlgorithmNamesStatics2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>{ L"Windows.Security.Cryptography.Certificates.IKeyAttestationHelperStatics" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>{ L"Windows.Security.Cryptography.Certificates.IKeyAttestationHelperStatics2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>{ L"Windows.Security.Cryptography.Certificates.IKeyStorageProviderNamesStatics" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>{ L"Windows.Security.Cryptography.Certificates.IKeyStorageProviderNamesStatics2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IPfxImportParameters>{ L"Windows.Security.Cryptography.Certificates.IPfxImportParameters" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>{ L"Windows.Security.Cryptography.Certificates.IStandardCertificateStoreNamesStatics" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>{ L"Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>{ L"Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>{ L"Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>{ L"Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager2" };
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IUserCertificateStore>{ L"Windows.Security.Cryptography.Certificates.IUserCertificateStore" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate>{ 0x333F740C,0x04D8,0x43B3,{ 0xB2,0x78,0x8C,0x5F,0xCC,0x9B,0xE5,0xA0 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate2>{ 0x17B8374C,0x8A25,0x4D96,{ 0xA4,0x92,0x8F,0xC2,0x9A,0xC4,0xFD,0xA6 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate3>{ 0xBE51A966,0xAE5F,0x4652,{ 0xAC,0xE7,0xC6,0xD7,0xE7,0x72,0x4C,0xF3 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateChain>{ 0x20BF5385,0x3691,0x4501,{ 0xA6,0x2C,0xFD,0x97,0x27,0x8B,0x31,0xEE } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>{ 0x8846EF3F,0xA986,0x48FB,{ 0x9F,0xD7,0x9A,0xEC,0x06,0x93,0x5B,0xF1 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>{ 0xDC5B1C33,0x6429,0x4014,{ 0x99,0x9C,0x5D,0x97,0x35,0x80,0x2D,0x1D } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>{ 0xFDEC82BE,0x617C,0x425A,{ 0xB7,0x2D,0x39,0x8B,0x26,0xAC,0x72,0x64 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateExtension>{ 0x84CF0656,0xA9E6,0x454D,{ 0x8E,0x45,0x2E,0xA7,0xC4,0xBC,0xD5,0x3B } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateFactory>{ 0x17B4221C,0x4BAF,0x44A2,{ 0x96,0x08,0x04,0xFB,0x62,0xB1,0x69,0x42 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>{ 0x6AC6206F,0xE1CF,0x486A,{ 0xB4,0x85,0xA6,0x9C,0x83,0xE4,0x6F,0xD1 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateQuery>{ 0x5B082A31,0xA728,0x4916,{ 0xB5,0xEE,0xFF,0xCB,0x8A,0xCF,0x24,0x17 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateQuery2>{ 0x935A0AF7,0x0BD9,0x4F75,{ 0xB8,0xC2,0xE2,0x7A,0x7F,0x74,0xEE,0xCD } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>{ 0x487E84F6,0x94E2,0x4DCE,{ 0x88,0x33,0x1A,0x70,0x0A,0x37,0xA2,0x9A } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>{ 0x3DA0C954,0xD73F,0x4FF3,{ 0xA0,0xA6,0x06,0x77,0xC0,0xAD,0xA0,0x5B } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>{ 0xE687F616,0x734D,0x46B1,{ 0x9D,0x4C,0x6E,0xDF,0xDB,0xFC,0x84,0x5B } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>{ 0x4E429AD2,0x1C61,0x4FEA,{ 0xB8,0xFE,0x13,0x5F,0xB1,0x9C,0xDC,0xE4 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStore>{ 0xB0BFF720,0x344E,0x4331,{ 0xAF,0x14,0xA7,0xF7,0xA7,0xEB,0xC9,0x3A } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStore2>{ 0xC7E68E4A,0x417D,0x4D1A,{ 0xBA,0xBD,0x15,0x68,0x7E,0x54,0x99,0x74 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>{ 0xFBECC739,0xC6FE,0x4DE7,{ 0x99,0xCF,0x74,0xC3,0xE5,0x96,0xE0,0x32 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>{ 0xFA900B79,0xA0D4,0x4B8C,{ 0xBC,0x55,0xC0,0xA3,0x7E,0xB1,0x41,0xED } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IChainBuildingParameters>{ 0x422BA922,0x7C8D,0x47B7,{ 0xB5,0x9B,0xB1,0x27,0x03,0x73,0x3A,0xC3 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IChainValidationParameters>{ 0xC4743B4A,0x7EB0,0x4B56,{ 0xA0,0x40,0xB9,0xC8,0xE6,0x55,0xDD,0xF3 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>{ 0x61899D9D,0x3757,0x4ECB,{ 0xBD,0xDC,0x0C,0xA3,0x57,0xD7,0xA9,0x36 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>{ 0xD0C8FC15,0xF757,0x4C64,{ 0xA3,0x62,0x52,0xCC,0x1C,0x77,0xCF,0xFB } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>{ 0x87989C8E,0xB0AD,0x498D,{ 0xA7,0xF5,0x78,0xB5,0x9B,0xCE,0x4B,0x36 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>{ 0x0F1EF154,0xF65E,0x4536,{ 0x83,0x39,0x59,0x44,0x08,0x1D,0xB2,0xCA } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>{ 0xC4AB3503,0xAE7F,0x4387,{ 0xAD,0x19,0x00,0xF1,0x50,0xE4,0x8E,0xBB } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>{ 0x3D114CFD,0xBF9B,0x4682,{ 0x9B,0xE6,0x91,0xF5,0x7C,0x05,0x38,0x08 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsSignerInfo>{ 0x50D020DB,0x1D2F,0x4C1A,{ 0xB5,0xC5,0xD0,0x18,0x8F,0xF9,0x1F,0x47 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>{ 0x2F5F00F2,0x2C18,0x4F88,{ 0x84,0x35,0xC5,0x34,0x08,0x60,0x76,0xF5 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>{ 0x479065D7,0x7AC7,0x4581,{ 0x8C,0x3B,0xD0,0x70,0x27,0x14,0x04,0x48 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>{ 0xC99B5686,0xE1FD,0x4A4A,{ 0x89,0x3D,0xA2,0x6F,0x33,0xDD,0x8B,0xB4 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>{ 0x1648E246,0xF644,0x4326,{ 0x88,0xBE,0x3A,0xF1,0x02,0xD3,0x0E,0x0C } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>{ 0x9C590B2C,0xA6C6,0x4A5E,{ 0x9E,0x64,0xE8,0x5D,0x52,0x79,0xDF,0x97 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>{ 0xAF186AE0,0x5529,0x4602,{ 0xBD,0x94,0x0A,0xAB,0x91,0x95,0x7B,0x5C } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>{ 0x262D743D,0x9C2E,0x41CC,{ 0x88,0x12,0xC4,0xD9,0x71,0xDD,0x7C,0x60 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IPfxImportParameters>{ 0x680D3511,0x9A08,0x47C8,{ 0x86,0x4A,0x2E,0xDD,0x4D,0x8E,0xB4,0x6C } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>{ 0x0C154ADB,0xA496,0x41F8,{ 0x8F,0xE5,0x9E,0x96,0xF3,0x6E,0xFB,0xF8 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>{ 0x582859F1,0x569D,0x4C20,{ 0xBE,0x7B,0x4E,0x1C,0x9A,0x0B,0xC5,0x2B } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>{ 0x437A78C6,0x1C51,0x41EA,{ 0xB3,0x4A,0x3D,0x65,0x43,0x98,0xA3,0x70 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>{ 0x96313718,0x22E1,0x4819,{ 0xB2,0x0B,0xAB,0x46,0xA6,0xEC,0xA0,0x6E } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>{ 0x0DAD9CB1,0x65DE,0x492A,{ 0xB8,0x6D,0xFC,0x5C,0x48,0x2C,0x37,0x47 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateStore>{ 0xC9FB1D83,0x789F,0x4B4E,{ 0x91,0x80,0x04,0x5A,0x75,0x7A,0xAC,0x6D } };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::Certificate>{ using type = Windows::Security::Cryptography::Certificates::ICertificate; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CertificateChain>{ using type = Windows::Security::Cryptography::Certificates::ICertificateChain; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CertificateExtension>{ using type = Windows::Security::Cryptography::Certificates::ICertificateExtension; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CertificateKeyUsages>{ using type = Windows::Security::Cryptography::Certificates::ICertificateKeyUsages; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CertificateQuery>{ using type = Windows::Security::Cryptography::Certificates::ICertificateQuery; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CertificateRequestProperties>{ using type = Windows::Security::Cryptography::Certificates::ICertificateRequestProperties; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CertificateStore>{ using type = Windows::Security::Cryptography::Certificates::ICertificateStore; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::ChainBuildingParameters>{ using type = Windows::Security::Cryptography::Certificates::IChainBuildingParameters; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::ChainValidationParameters>{ using type = Windows::Security::Cryptography::Certificates::IChainValidationParameters; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CmsAttachedSignature>{ using type = Windows::Security::Cryptography::Certificates::ICmsAttachedSignature; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CmsDetachedSignature>{ using type = Windows::Security::Cryptography::Certificates::ICmsDetachedSignature; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CmsSignerInfo>{ using type = Windows::Security::Cryptography::Certificates::ICmsSignerInfo; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::CmsTimestampInfo>{ using type = Windows::Security::Cryptography::Certificates::ICmsTimestampInfo; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::PfxImportParameters>{ using type = Windows::Security::Cryptography::Certificates::IPfxImportParameters; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::SubjectAlternativeNameInfo>{ using type = Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::UserCertificateEnrollmentManager>{ using type = Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager; };
+    template <> struct default_interface<Windows::Security::Cryptography::Certificates::UserCertificateStore>{ using type = Windows::Security::Cryptography::Certificates::IUserCertificateStore; };
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificate>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -386,7 +387,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_FriendlyName(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificate2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificate2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -398,7 +399,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_SubjectAlternativeName(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificate3>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificate3>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -407,7 +408,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_KeyStorageProviderName(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateChain>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateChain>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -416,7 +417,7 @@ namespace winrt::impl
             virtual int32_t __stdcall GetCertificates(bool, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -425,7 +426,7 @@ namespace winrt::impl
             virtual int32_t __stdcall ImportPfxDataAsync(void*, void*, int32_t, int32_t, uint32_t, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -433,14 +434,14 @@ namespace winrt::impl
             virtual int32_t __stdcall ImportPfxDataToKspAsync(void*, void*, int32_t, int32_t, uint32_t, void*, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall ImportPfxDataToKspWithParametersAsync(void*, void*, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateExtension>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateExtension>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -453,14 +454,14 @@ namespace winrt::impl
             virtual int32_t __stdcall put_Value(uint32_t, uint8_t*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateFactory>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateFactory>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall CreateCertificate(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -482,7 +483,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_DigitalSignature(bool) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateQuery>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -497,7 +498,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_HardwareOnly(bool) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateQuery2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -509,7 +510,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_StoreName(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -533,7 +534,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_KeyStorageProviderName(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -545,7 +546,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_AttestationCredentialCertificate(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -561,7 +562,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_UseExistingKey(bool) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -570,7 +571,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Extensions(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateStore>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -578,14 +579,14 @@ namespace winrt::impl
             virtual int32_t __stdcall Delete(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateStore2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_Name(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -596,14 +597,14 @@ namespace winrt::impl
             virtual int32_t __stdcall GetStoreByName(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall GetUserStoreByName(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IChainBuildingParameters>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IChainBuildingParameters>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -621,7 +622,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_ExclusiveTrustRoots(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IChainValidationParameters>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IChainValidationParameters>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -631,7 +632,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_ServerDnsName(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -641,21 +642,21 @@ namespace winrt::impl
             virtual int32_t __stdcall VerifySignature(int32_t*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall CreateCmsAttachedSignature(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall GenerateSignatureAsync(void*, void*, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -664,21 +665,21 @@ namespace winrt::impl
             virtual int32_t __stdcall VerifySignatureAsync(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall CreateCmsDetachedSignature(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall GenerateSignatureAsync(void*, void*, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICmsSignerInfo>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICmsSignerInfo>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -689,7 +690,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_TimestampInfo(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -698,7 +699,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Timestamp(int64_t*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -712,7 +713,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Ecdsa521(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -720,7 +721,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Ecdh(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -728,14 +729,14 @@ namespace winrt::impl
             virtual int32_t __stdcall GetTpmAttestationCredentialId(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall DecryptTpmAttestationCredentialWithContainerNameAsync(void*, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -744,14 +745,14 @@ namespace winrt::impl
             virtual int32_t __stdcall get_PlatformKeyStorageProvider(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_PassportKeyStorageProvider(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IPfxImportParameters>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IPfxImportParameters>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -771,7 +772,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_ReaderName(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -780,7 +781,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_IntermediateCertificationAuthorities(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -792,7 +793,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_PrincipalName(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -805,7 +806,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Extension(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -815,14 +816,14 @@ namespace winrt::impl
             virtual int32_t __stdcall ImportPfxDataToKspAsync(void*, void*, int32_t, int32_t, uint32_t, void*, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall ImportPfxDataToKspWithParametersAsync(void*, void*, void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateStore>
+    template <> struct abi<Windows::Security::Cryptography::Certificates::IUserCertificateStore>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -834,8 +835,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICertificate
     {
-        auto BuildChainAsync(param::async_iterable<winrt::Windows::Security::Cryptography::Certificates::Certificate> const& certificates) const;
-        auto BuildChainAsync(param::async_iterable<winrt::Windows::Security::Cryptography::Certificates::Certificate> const& certificates, winrt::Windows::Security::Cryptography::Certificates::ChainBuildingParameters const& parameters) const;
+        auto BuildChainAsync(param::async_iterable<Windows::Security::Cryptography::Certificates::Certificate> const& certificates) const;
+        auto BuildChainAsync(param::async_iterable<Windows::Security::Cryptography::Certificates::Certificate> const& certificates, Windows::Security::Cryptography::Certificates::ChainBuildingParameters const& parameters) const;
         [[nodiscard]] auto SerialNumber() const;
         auto GetHashValue() const;
         auto GetHashValue(param::hstring const& hashAlgorithmName) const;
@@ -850,7 +851,7 @@ namespace winrt::impl
         auto FriendlyName(param::hstring const& value) const;
         [[nodiscard]] auto FriendlyName() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificate>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificate>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificate<D>;
     };
@@ -864,7 +865,7 @@ namespace winrt::impl
         [[nodiscard]] auto SignatureHashAlgorithmName() const;
         [[nodiscard]] auto SubjectAlternativeName() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificate2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificate2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificate2<D>;
     };
@@ -875,7 +876,7 @@ namespace winrt::impl
         [[nodiscard]] auto StoreName() const;
         [[nodiscard]] auto KeyStorageProviderName() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificate3>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificate3>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificate3<D>;
     };
@@ -883,21 +884,21 @@ namespace winrt::impl
     struct consume_Windows_Security_Cryptography_Certificates_ICertificateChain
     {
         auto Validate() const;
-        auto Validate(winrt::Windows::Security::Cryptography::Certificates::ChainValidationParameters const& parameter) const;
+        auto Validate(Windows::Security::Cryptography::Certificates::ChainValidationParameters const& parameter) const;
         auto GetCertificates(bool includeRoot) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateChain>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateChain>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateChain<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICertificateEnrollmentManagerStatics
     {
-        auto CreateRequestAsync(winrt::Windows::Security::Cryptography::Certificates::CertificateRequestProperties const& request) const;
-        auto InstallCertificateAsync(param::hstring const& certificate, winrt::Windows::Security::Cryptography::Certificates::InstallOptions const& installOption) const;
-        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, winrt::Windows::Security::Cryptography::Certificates::ExportOption const& exportable, winrt::Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& keyProtectionLevel, winrt::Windows::Security::Cryptography::Certificates::InstallOptions const& installOption, param::hstring const& friendlyName) const;
+        auto CreateRequestAsync(Windows::Security::Cryptography::Certificates::CertificateRequestProperties const& request) const;
+        auto InstallCertificateAsync(param::hstring const& certificate, Windows::Security::Cryptography::Certificates::InstallOptions const& installOption) const;
+        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, Windows::Security::Cryptography::Certificates::ExportOption const& exportable, Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& keyProtectionLevel, Windows::Security::Cryptography::Certificates::InstallOptions const& installOption, param::hstring const& friendlyName) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateEnrollmentManagerStatics<D>;
     };
@@ -905,18 +906,18 @@ namespace winrt::impl
     struct consume_Windows_Security_Cryptography_Certificates_ICertificateEnrollmentManagerStatics2
     {
         [[nodiscard]] auto UserCertificateEnrollmentManager() const;
-        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, winrt::Windows::Security::Cryptography::Certificates::ExportOption const& exportable, winrt::Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& keyProtectionLevel, winrt::Windows::Security::Cryptography::Certificates::InstallOptions const& installOption, param::hstring const& friendlyName, param::hstring const& keyStorageProvider) const;
+        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, Windows::Security::Cryptography::Certificates::ExportOption const& exportable, Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& keyProtectionLevel, Windows::Security::Cryptography::Certificates::InstallOptions const& installOption, param::hstring const& friendlyName, param::hstring const& keyStorageProvider) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateEnrollmentManagerStatics2<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICertificateEnrollmentManagerStatics3
     {
-        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, winrt::Windows::Security::Cryptography::Certificates::PfxImportParameters const& pfxImportParameters) const;
+        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, Windows::Security::Cryptography::Certificates::PfxImportParameters const& pfxImportParameters) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateEnrollmentManagerStatics3<D>;
     };
@@ -931,16 +932,16 @@ namespace winrt::impl
         [[nodiscard]] auto Value() const;
         auto Value(array_view<uint8_t const> value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateExtension>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateExtension>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateExtension<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICertificateFactory
     {
-        auto CreateCertificate(winrt::Windows::Storage::Streams::IBuffer const& certBlob) const;
+        auto CreateCertificate(Windows::Storage::Streams::IBuffer const& certBlob) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateFactory>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateFactory>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateFactory<D>;
     };
@@ -964,7 +965,7 @@ namespace winrt::impl
         [[nodiscard]] auto DigitalSignature() const;
         auto DigitalSignature(bool value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateKeyUsages<D>;
     };
@@ -981,7 +982,7 @@ namespace winrt::impl
         [[nodiscard]] auto HardwareOnly() const;
         auto HardwareOnly(bool value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateQuery>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateQuery<D>;
     };
@@ -995,7 +996,7 @@ namespace winrt::impl
         [[nodiscard]] auto StoreName() const;
         auto StoreName(param::hstring const& value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateQuery2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateQuery2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateQuery2<D>;
     };
@@ -1013,15 +1014,15 @@ namespace winrt::impl
         [[nodiscard]] auto HashAlgorithmName() const;
         auto HashAlgorithmName(param::hstring const& value) const;
         [[nodiscard]] auto Exportable() const;
-        auto Exportable(winrt::Windows::Security::Cryptography::Certificates::ExportOption const& value) const;
+        auto Exportable(Windows::Security::Cryptography::Certificates::ExportOption const& value) const;
         [[nodiscard]] auto KeyUsages() const;
-        auto KeyUsages(winrt::Windows::Security::Cryptography::Certificates::EnrollKeyUsages const& value) const;
+        auto KeyUsages(Windows::Security::Cryptography::Certificates::EnrollKeyUsages const& value) const;
         [[nodiscard]] auto KeyProtectionLevel() const;
-        auto KeyProtectionLevel(winrt::Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& value) const;
+        auto KeyProtectionLevel(Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& value) const;
         [[nodiscard]] auto KeyStorageProviderName() const;
         auto KeyStorageProviderName(param::hstring const& value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateRequestProperties<D>;
     };
@@ -1031,11 +1032,11 @@ namespace winrt::impl
         [[nodiscard]] auto SmartcardReaderName() const;
         auto SmartcardReaderName(param::hstring const& value) const;
         [[nodiscard]] auto SigningCertificate() const;
-        auto SigningCertificate(winrt::Windows::Security::Cryptography::Certificates::Certificate const& value) const;
+        auto SigningCertificate(Windows::Security::Cryptography::Certificates::Certificate const& value) const;
         [[nodiscard]] auto AttestationCredentialCertificate() const;
-        auto AttestationCredentialCertificate(winrt::Windows::Security::Cryptography::Certificates::Certificate const& value) const;
+        auto AttestationCredentialCertificate(Windows::Security::Cryptography::Certificates::Certificate const& value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateRequestProperties2<D>;
     };
@@ -1053,7 +1054,7 @@ namespace winrt::impl
         [[nodiscard]] auto UseExistingKey() const;
         auto UseExistingKey(bool value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateRequestProperties3<D>;
     };
@@ -1064,17 +1065,17 @@ namespace winrt::impl
         [[nodiscard]] auto SubjectAlternativeName() const;
         [[nodiscard]] auto Extensions() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateRequestProperties4<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICertificateStore
     {
-        auto Add(winrt::Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
-        auto Delete(winrt::Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
+        auto Add(Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
+        auto Delete(Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateStore>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateStore<D>;
     };
@@ -1083,7 +1084,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto Name() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateStore2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateStore2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateStore2<D>;
     };
@@ -1091,12 +1092,12 @@ namespace winrt::impl
     struct consume_Windows_Security_Cryptography_Certificates_ICertificateStoresStatics
     {
         auto FindAllAsync() const;
-        auto FindAllAsync(winrt::Windows::Security::Cryptography::Certificates::CertificateQuery const& query) const;
+        auto FindAllAsync(Windows::Security::Cryptography::Certificates::CertificateQuery const& query) const;
         [[nodiscard]] auto TrustedRootCertificationAuthorities() const;
         [[nodiscard]] auto IntermediateCertificationAuthorities() const;
         auto GetStoreByName(param::hstring const& storeName) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateStoresStatics<D>;
     };
@@ -1105,7 +1106,7 @@ namespace winrt::impl
     {
         auto GetUserStoreByName(param::hstring const& storeName) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICertificateStoresStatics2<D>;
     };
@@ -1114,7 +1115,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto EnhancedKeyUsages() const;
         [[nodiscard]] auto ValidationTimestamp() const;
-        auto ValidationTimestamp(winrt::Windows::Foundation::DateTime const& value) const;
+        auto ValidationTimestamp(Windows::Foundation::DateTime const& value) const;
         [[nodiscard]] auto RevocationCheckEnabled() const;
         auto RevocationCheckEnabled(bool value) const;
         [[nodiscard]] auto NetworkRetrievalEnabled() const;
@@ -1125,7 +1126,7 @@ namespace winrt::impl
         auto CurrentTimeValidationEnabled(bool value) const;
         [[nodiscard]] auto ExclusiveTrustRoots() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IChainBuildingParameters>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IChainBuildingParameters>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IChainBuildingParameters<D>;
     };
@@ -1133,11 +1134,11 @@ namespace winrt::impl
     struct consume_Windows_Security_Cryptography_Certificates_IChainValidationParameters
     {
         [[nodiscard]] auto CertificateChainPolicy() const;
-        auto CertificateChainPolicy(winrt::Windows::Security::Cryptography::Certificates::CertificateChainPolicy const& value) const;
+        auto CertificateChainPolicy(Windows::Security::Cryptography::Certificates::CertificateChainPolicy const& value) const;
         [[nodiscard]] auto ServerDnsName() const;
-        auto ServerDnsName(winrt::Windows::Networking::HostName const& value) const;
+        auto ServerDnsName(Windows::Networking::HostName const& value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IChainValidationParameters>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IChainValidationParameters>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IChainValidationParameters<D>;
     };
@@ -1149,25 +1150,25 @@ namespace winrt::impl
         [[nodiscard]] auto Signers() const;
         auto VerifySignature() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICmsAttachedSignature<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICmsAttachedSignatureFactory
     {
-        auto CreateCmsAttachedSignature(winrt::Windows::Storage::Streams::IBuffer const& inputBlob) const;
+        auto CreateCmsAttachedSignature(Windows::Storage::Streams::IBuffer const& inputBlob) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICmsAttachedSignatureFactory<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICmsAttachedSignatureStatics
     {
-        auto GenerateSignatureAsync(winrt::Windows::Storage::Streams::IBuffer const& data, param::async_iterable<winrt::Windows::Security::Cryptography::Certificates::CmsSignerInfo> const& signers, param::async_iterable<winrt::Windows::Security::Cryptography::Certificates::Certificate> const& certificates) const;
+        auto GenerateSignatureAsync(Windows::Storage::Streams::IBuffer const& data, param::async_iterable<Windows::Security::Cryptography::Certificates::CmsSignerInfo> const& signers, param::async_iterable<Windows::Security::Cryptography::Certificates::Certificate> const& certificates) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICmsAttachedSignatureStatics<D>;
     };
@@ -1176,27 +1177,27 @@ namespace winrt::impl
     {
         [[nodiscard]] auto Certificates() const;
         [[nodiscard]] auto Signers() const;
-        auto VerifySignatureAsync(winrt::Windows::Storage::Streams::IInputStream const& data) const;
+        auto VerifySignatureAsync(Windows::Storage::Streams::IInputStream const& data) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICmsDetachedSignature<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICmsDetachedSignatureFactory
     {
-        auto CreateCmsDetachedSignature(winrt::Windows::Storage::Streams::IBuffer const& inputBlob) const;
+        auto CreateCmsDetachedSignature(Windows::Storage::Streams::IBuffer const& inputBlob) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICmsDetachedSignatureFactory<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_ICmsDetachedSignatureStatics
     {
-        auto GenerateSignatureAsync(winrt::Windows::Storage::Streams::IInputStream const& data, param::async_iterable<winrt::Windows::Security::Cryptography::Certificates::CmsSignerInfo> const& signers, param::async_iterable<winrt::Windows::Security::Cryptography::Certificates::Certificate> const& certificates) const;
+        auto GenerateSignatureAsync(Windows::Storage::Streams::IInputStream const& data, param::async_iterable<Windows::Security::Cryptography::Certificates::CmsSignerInfo> const& signers, param::async_iterable<Windows::Security::Cryptography::Certificates::Certificate> const& certificates) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICmsDetachedSignatureStatics<D>;
     };
@@ -1204,12 +1205,12 @@ namespace winrt::impl
     struct consume_Windows_Security_Cryptography_Certificates_ICmsSignerInfo
     {
         [[nodiscard]] auto Certificate() const;
-        auto Certificate(winrt::Windows::Security::Cryptography::Certificates::Certificate const& value) const;
+        auto Certificate(Windows::Security::Cryptography::Certificates::Certificate const& value) const;
         [[nodiscard]] auto HashAlgorithmName() const;
         auto HashAlgorithmName(param::hstring const& value) const;
         [[nodiscard]] auto TimestampInfo() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICmsSignerInfo>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICmsSignerInfo>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICmsSignerInfo<D>;
     };
@@ -1220,7 +1221,7 @@ namespace winrt::impl
         [[nodiscard]] auto Certificates() const;
         [[nodiscard]] auto Timestamp() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ICmsTimestampInfo<D>;
     };
@@ -1236,7 +1237,7 @@ namespace winrt::impl
         [[nodiscard]] auto Ecdsa384() const;
         [[nodiscard]] auto Ecdsa521() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IKeyAlgorithmNamesStatics<D>;
     };
@@ -1246,7 +1247,7 @@ namespace winrt::impl
         [[nodiscard]] auto Ecdsa() const;
         [[nodiscard]] auto Ecdh() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IKeyAlgorithmNamesStatics2<D>;
     };
@@ -1256,7 +1257,7 @@ namespace winrt::impl
         auto DecryptTpmAttestationCredentialAsync(param::hstring const& credential) const;
         auto GetTpmAttestationCredentialId(param::hstring const& credential) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IKeyAttestationHelperStatics<D>;
     };
@@ -1265,7 +1266,7 @@ namespace winrt::impl
     {
         auto DecryptTpmAttestationCredentialAsync(param::hstring const& credential, param::hstring const& containerName) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IKeyAttestationHelperStatics2<D>;
     };
@@ -1276,7 +1277,7 @@ namespace winrt::impl
         [[nodiscard]] auto SmartcardKeyStorageProvider() const;
         [[nodiscard]] auto PlatformKeyStorageProvider() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IKeyStorageProviderNamesStatics<D>;
     };
@@ -1285,7 +1286,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto PassportKeyStorageProvider() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IKeyStorageProviderNamesStatics2<D>;
     };
@@ -1293,11 +1294,11 @@ namespace winrt::impl
     struct consume_Windows_Security_Cryptography_Certificates_IPfxImportParameters
     {
         [[nodiscard]] auto Exportable() const;
-        auto Exportable(winrt::Windows::Security::Cryptography::Certificates::ExportOption const& value) const;
+        auto Exportable(Windows::Security::Cryptography::Certificates::ExportOption const& value) const;
         [[nodiscard]] auto KeyProtectionLevel() const;
-        auto KeyProtectionLevel(winrt::Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& value) const;
+        auto KeyProtectionLevel(Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& value) const;
         [[nodiscard]] auto InstallOptions() const;
-        auto InstallOptions(winrt::Windows::Security::Cryptography::Certificates::InstallOptions const& value) const;
+        auto InstallOptions(Windows::Security::Cryptography::Certificates::InstallOptions const& value) const;
         [[nodiscard]] auto FriendlyName() const;
         auto FriendlyName(param::hstring const& value) const;
         [[nodiscard]] auto KeyStorageProviderName() const;
@@ -1307,7 +1308,7 @@ namespace winrt::impl
         [[nodiscard]] auto ReaderName() const;
         auto ReaderName(param::hstring const& value) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IPfxImportParameters>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IPfxImportParameters>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IPfxImportParameters<D>;
     };
@@ -1318,7 +1319,7 @@ namespace winrt::impl
         [[nodiscard]] auto TrustedRootCertificationAuthorities() const;
         [[nodiscard]] auto IntermediateCertificationAuthorities() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IStandardCertificateStoreNamesStatics<D>;
     };
@@ -1332,7 +1333,7 @@ namespace winrt::impl
         [[nodiscard]] auto DistinguishedName() const;
         [[nodiscard]] auto PrincipalName() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ISubjectAlternativeNameInfo<D>;
     };
@@ -1347,39 +1348,39 @@ namespace winrt::impl
         [[nodiscard]] auto PrincipalNames() const;
         [[nodiscard]] auto Extension() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_ISubjectAlternativeNameInfo2<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_IUserCertificateEnrollmentManager
     {
-        auto CreateRequestAsync(winrt::Windows::Security::Cryptography::Certificates::CertificateRequestProperties const& request) const;
-        auto InstallCertificateAsync(param::hstring const& certificate, winrt::Windows::Security::Cryptography::Certificates::InstallOptions const& installOption) const;
-        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, winrt::Windows::Security::Cryptography::Certificates::ExportOption const& exportable, winrt::Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& keyProtectionLevel, winrt::Windows::Security::Cryptography::Certificates::InstallOptions const& installOption, param::hstring const& friendlyName) const;
-        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, winrt::Windows::Security::Cryptography::Certificates::ExportOption const& exportable, winrt::Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& keyProtectionLevel, winrt::Windows::Security::Cryptography::Certificates::InstallOptions const& installOption, param::hstring const& friendlyName, param::hstring const& keyStorageProvider) const;
+        auto CreateRequestAsync(Windows::Security::Cryptography::Certificates::CertificateRequestProperties const& request) const;
+        auto InstallCertificateAsync(param::hstring const& certificate, Windows::Security::Cryptography::Certificates::InstallOptions const& installOption) const;
+        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, Windows::Security::Cryptography::Certificates::ExportOption const& exportable, Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& keyProtectionLevel, Windows::Security::Cryptography::Certificates::InstallOptions const& installOption, param::hstring const& friendlyName) const;
+        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, Windows::Security::Cryptography::Certificates::ExportOption const& exportable, Windows::Security::Cryptography::Certificates::KeyProtectionLevel const& keyProtectionLevel, Windows::Security::Cryptography::Certificates::InstallOptions const& installOption, param::hstring const& friendlyName, param::hstring const& keyStorageProvider) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IUserCertificateEnrollmentManager<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_IUserCertificateEnrollmentManager2
     {
-        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, winrt::Windows::Security::Cryptography::Certificates::PfxImportParameters const& pfxImportParameters) const;
+        auto ImportPfxDataAsync(param::hstring const& pfxData, param::hstring const& password, Windows::Security::Cryptography::Certificates::PfxImportParameters const& pfxImportParameters) const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IUserCertificateEnrollmentManager2<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Cryptography_Certificates_IUserCertificateStore
     {
-        auto RequestAddAsync(winrt::Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
-        auto RequestDeleteAsync(winrt::Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
+        auto RequestAddAsync(Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
+        auto RequestDeleteAsync(Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
         [[nodiscard]] auto Name() const;
     };
-    template <> struct consume<winrt::Windows::Security::Cryptography::Certificates::IUserCertificateStore>
+    template <> struct consume<Windows::Security::Cryptography::Certificates::IUserCertificateStore>
     {
         template <typename D> using type = consume_Windows_Security_Cryptography_Certificates_IUserCertificateStore<D>;
     };

@@ -23,7 +23,7 @@
 
 
 #ifdef _PREFAST_
-#pragma prefast (push)
+#pragma prefast (push)  
 #pragma prefast (disable: 26135) //We are using locks correctly.
 #endif /* _PREFAST_ */
 
@@ -86,7 +86,6 @@ private:
 
 inline BOOL CThreadBase::BeginRead( DWORD dwTimeout /*=INFINITE*/ )
 {
-	UNREFERENCED_PARAMETER( dwTimeout );
 	EnterCriticalSection( &m_cs );
 	return TRUE;
 }
@@ -98,7 +97,6 @@ inline void CThreadBase::EndRead( void )
 
 inline BOOL CThreadBase::BeginWrite( DWORD dwTimeout /*=INFINITE*/ )
 {
-	UNREFERENCED_PARAMETER( dwTimeout );
 	EnterCriticalSection( &m_cs );
 	return TRUE;
 }

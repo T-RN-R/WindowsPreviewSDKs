@@ -32,9 +32,13 @@ Abstract:
 // helpful since this will be done intentionally (not all components opt-in).
 //
 
+#if (_MSC_VER >= 1915)
+#pragma warning(disable:4845)   // __declspec(no_init_all) used but d1initall not set
+#endif
+
 #ifndef DECLSPEC_NOINITALL
-#if (_MSC_VER >= 1915) && !defined(MIDL_PASS) && !defined(SORTPP_PASS) && !defined(RC_INVOKED)
-#define DECLSPEC_NOINITALL __pragma(warning(push)) __pragma(warning(disable:4845)) __declspec(no_init_all) __pragma(warning(pop))
+#if (_MSC_VER >= 1915) && !defined(MIDL_PASS)
+#define DECLSPEC_NOINITALL __declspec(no_init_all)
 #else
 #define DECLSPEC_NOINITALL
 #endif
@@ -184,7 +188,7 @@ Abstract:
 //       versions of the SDK which did not block inclusion in an .RC file.
 //
 
-#if defined(_AMD64_) || defined(_X86_) || defined(_ARM64EC_)
+#if defined(_AMD64_) || defined(_X86_)
 #define PROBE_ALIGNMENT( _s ) TYPE_ALIGNMENT( ULONG )
 #elif defined(_IA64_) || defined(_ARM_) || defined(_ARM64_)
 
@@ -271,23 +275,13 @@ Abstract:
 
 // end_ntoshvp
 
-#ifndef X86_CACHE_ALIGNMENT_SIZE
-#define X86_CACHE_ALIGNMENT_SIZE 64
-#endif
-
-#ifndef ARM_CACHE_ALIGNMENT_SIZE
-#define ARM_CACHE_ALIGNMENT_SIZE 128
-#endif
-
 #ifndef SYSTEM_CACHE_ALIGNMENT_SIZE
 #if defined(_AMD64_) || defined(_X86_)
-#define SYSTEM_CACHE_ALIGNMENT_SIZE X86_CACHE_ALIGNMENT_SIZE
-#elif defined(_ARM64_) || defined(_ARM_)
-#define SYSTEM_CACHE_ALIGNMENT_SIZE ARM_CACHE_ALIGNMENT_SIZE
-#elif !defined(RC_INVOKED)
-#error Must define a target architecture.
+#define SYSTEM_CACHE_ALIGNMENT_SIZE 64
+#else
+#define SYSTEM_CACHE_ALIGNMENT_SIZE 128
 #endif
-#endif // SYSTEM_CACHE_ALIGNMENT_SIZE
+#endif
 
 #ifndef DECLSPEC_CACHEALIGN
 #define DECLSPEC_CACHEALIGN DECLSPEC_ALIGN(SYSTEM_CACHE_ALIGNMENT_SIZE)
@@ -369,22 +363,6 @@ Abstract:
 
 // begin_winnt begin_ntminiport begin_ntndis begin_ntminitape
 
-// begin_ntoshvp
-
-//
-// When DECLSPEC_NOSANITIZEADDRESS is set, the compiler may not inline
-// functions marked with __forceinline. That's expected and not a problem,
-// so disable warning 4714.
-//
-
-#ifndef DECLSPEC_NOSANITIZEADDRESS
-#if defined(__SANITIZE_ADDRESS__)
-#define DECLSPEC_NOSANITIZEADDRESS  __declspec(no_sanitize_address) __pragma(warning(disable:4714))
-#else
-#define DECLSPEC_NOSANITIZEADDRESS
-#endif
-#endif
-
 #ifndef DECLSPEC_GUARDNOCF
 #if (_MSC_FULL_VER >= 170065501) || defined(_D1VERSIONLKG171_)
 #define DECLSPEC_GUARDNOCF  __declspec(guard(nocf))
@@ -410,13 +388,14 @@ Abstract:
 #endif
 
 #ifndef DECLSPEC_CHPE_PATCHABLE
-#if defined (_M_HYBRID) || defined(_M_ARM64EC)
+#if _M_HYBRID
 #define DECLSPEC_CHPE_PATCHABLE  __declspec(hybrid_patchable)
 #else
 #define DECLSPEC_CHPE_PATCHABLE
 #endif
 #endif
 
+// begin_ntoshvp
 
 #ifndef FORCEINLINE
 #if (_MSC_VER >= 1200)
@@ -427,10 +406,7 @@ Abstract:
 #endif
 
 //
-// CFORCEINLINE: __forceinline required for correctness.  Such definitions are
-//               typically required to be visible in the same translation unit
-//               (i.e., so that they may still be forceinlined, even in the
-//               event of non-LTCG code being encountered).
+// CFORCEINLINE: __forceinline required for correctness.
 //
 
 #define CFORCEINLINE FORCEINLINE
@@ -873,19 +849,11 @@ typedef _Return_type_success_(return >= 0) long HRESULT;
     #else
         #define WIN_NOEXCEPT throw()
     #endif
-
-    // 'noexcept' on typedefs is invalid prior to C++17
-    #if _MSVC_LANG >= 201703
-        #define WIN_NOEXCEPT_PFN noexcept
-    #else
-        #define WIN_NOEXCEPT_PFN
-    #endif
 #else
     #define EXTERN_C       extern
     #define EXTERN_C_START
     #define EXTERN_C_END
     #define WIN_NOEXCEPT
-    #define WIN_NOEXCEPT_PFN
 #endif
 
 #if defined(_WIN32) || defined(_MPPC_)
@@ -1532,8 +1500,7 @@ typedef enum _WAIT_TYPE {
     WaitAll,
     WaitAny,
     WaitNotification,
-    WaitDequeue,
-    WaitDpc
+    WaitDequeue
 } WAIT_TYPE;
 
 // begin_ntoshvp
@@ -1969,17 +1936,8 @@ typedef struct  _OBJECTID {     // size is 20
 // Calculate the byte offset of a field in a structure of type type.
 //
 
-#ifdef __has_builtin
-#if __has_builtin(__builtin_offsetof)
-#define FIELD_OFFSET(type, field)    ((LONG)__builtin_offsetof(type, field))
-#define UFIELD_OFFSET(type, field)    ((ULONG)__builtin_offsetof(type, field))
-#endif
-#endif
-
-#ifndef FIELD_OFFSET
 #define FIELD_OFFSET(type, field)    ((LONG)(LONG_PTR)&(((type *)0)->field))
 #define UFIELD_OFFSET(type, field)    ((ULONG)(LONG_PTR)&(((type *)0)->field))
-#endif
 
 //
 // Calculate the size of a field in a structure of type type, without
@@ -2497,19 +2455,11 @@ typedef _Enum_is_bitflag_ enum _SUITE_TYPE {
 #define PRODUCT_LITE                                0x000000BD
 #define PRODUCT_IOTENTERPRISES                      0x000000BF
 #define PRODUCT_XBOX_SYSTEMOS                       0x000000C0
+#define PRODUCT_XBOX_NATIVEOS                       0x000000C1
 #define PRODUCT_XBOX_GAMEOS                         0x000000C2
 #define PRODUCT_XBOX_ERAOS                          0x000000C3
 #define PRODUCT_XBOX_DURANGOHOSTOS                  0x000000C4
 #define PRODUCT_XBOX_SCARLETTHOSTOS                 0x000000C5
-#define PRODUCT_XBOX_KEYSTONE                       0x000000C6
-#define PRODUCT_AZURE_SERVER_CLOUDHOST              0x000000C7
-#define PRODUCT_AZURE_SERVER_CLOUDMOS               0x000000C8
-#define PRODUCT_CLOUDEDITIONN                       0x000000CA
-#define PRODUCT_CLOUDEDITION                        0x000000CB
-#define PRODUCT_IOTENTERPRISESK                     0x000000CD
-#define PRODUCT_AZURESTACKHCI_SERVER_CORE           0x00000196
-#define PRODUCT_DATACENTER_SERVER_AZURE_EDITION     0x00000197
-#define PRODUCT_DATACENTER_SERVER_CORE_AZURE_EDITION 0x00000198
 
 #define PRODUCT_UNLICENSED                          0xABCDABCD
 
@@ -3356,13 +3306,13 @@ extern "C++" {
 
 #define DEFINE_ENUM_FLAG_OPERATORS(ENUMTYPE) \
 extern "C++" { \
-inline _ENUM_FLAG_CONSTEXPR ENUMTYPE operator | (ENUMTYPE a, ENUMTYPE b) WIN_NOEXCEPT { return ENUMTYPE(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)a) | ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
-inline ENUMTYPE &operator |= (ENUMTYPE &a, ENUMTYPE b) WIN_NOEXCEPT { return (ENUMTYPE &)(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type &)a) |= ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
-inline _ENUM_FLAG_CONSTEXPR ENUMTYPE operator & (ENUMTYPE a, ENUMTYPE b) WIN_NOEXCEPT { return ENUMTYPE(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)a) & ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
-inline ENUMTYPE &operator &= (ENUMTYPE &a, ENUMTYPE b) WIN_NOEXCEPT { return (ENUMTYPE &)(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type &)a) &= ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
-inline _ENUM_FLAG_CONSTEXPR ENUMTYPE operator ~ (ENUMTYPE a) WIN_NOEXCEPT { return ENUMTYPE(~((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)a)); } \
-inline _ENUM_FLAG_CONSTEXPR ENUMTYPE operator ^ (ENUMTYPE a, ENUMTYPE b) WIN_NOEXCEPT { return ENUMTYPE(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)a) ^ ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
-inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) WIN_NOEXCEPT { return (ENUMTYPE &)(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type &)a) ^= ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
+inline _ENUM_FLAG_CONSTEXPR ENUMTYPE operator | (ENUMTYPE a, ENUMTYPE b) throw() { return ENUMTYPE(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)a) | ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
+inline ENUMTYPE &operator |= (ENUMTYPE &a, ENUMTYPE b) throw() { return (ENUMTYPE &)(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type &)a) |= ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
+inline _ENUM_FLAG_CONSTEXPR ENUMTYPE operator & (ENUMTYPE a, ENUMTYPE b) throw() { return ENUMTYPE(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)a) & ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
+inline ENUMTYPE &operator &= (ENUMTYPE &a, ENUMTYPE b) throw() { return (ENUMTYPE &)(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type &)a) &= ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
+inline _ENUM_FLAG_CONSTEXPR ENUMTYPE operator ~ (ENUMTYPE a) throw() { return ENUMTYPE(~((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)a)); } \
+inline _ENUM_FLAG_CONSTEXPR ENUMTYPE operator ^ (ENUMTYPE a, ENUMTYPE b) throw() { return ENUMTYPE(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)a) ^ ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
+inline ENUMTYPE &operator ^= (ENUMTYPE &a, ENUMTYPE b) throw() { return (ENUMTYPE &)(((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type &)a) ^= ((_ENUM_FLAG_SIZED_INTEGER<ENUMTYPE>::type)b)); } \
 }
 #else
 #define DEFINE_ENUM_FLAG_OPERATORS(ENUMTYPE) // NOP, C allows these operators.

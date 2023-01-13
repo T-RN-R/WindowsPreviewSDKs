@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -30,18 +32,12 @@ extern "C" {
 #if _WIN32_WINNT >= 0x0501 || defined(WINBASE_DECLARE_GET_SYSTEM_WOW64_DIRECTORY)
 
 WINBASEAPI
-BOOLEAN
-WINAPI
-Wow64EnableWow64FsRedirection(
-    _In_ BOOLEAN Wow64FsEnableRedirection
-    );
-
-WINBASEAPI
 BOOL
 WINAPI
 Wow64DisableWow64FsRedirection(
     _Out_ PVOID* OldValue
     );
+
 
 WINBASEAPI
 BOOL
@@ -49,6 +45,7 @@ WINAPI
 Wow64RevertWow64FsRedirection(
     _In_ PVOID OlValue
     );
+
 
 #endif // _WIN32_WINNT >= 0x0501
 #endif // !defined(RC_INVOKED)
@@ -68,6 +65,7 @@ IsWow64Process(
     _In_ HANDLE hProcess,
     _Out_ PBOOL Wow64Process
     );
+
 
 #endif // _WIN32_WINNT >= 0x0501
 
@@ -100,6 +98,7 @@ GetSystemWow64DirectoryW(
     _Out_writes_to_opt_(uSize,return + 1) LPWSTR lpBuffer,
     _In_ UINT uSize
     );
+
 #ifdef UNICODE
 #define GetSystemWow64Directory  GetSystemWow64DirectoryW
 #else
@@ -117,6 +116,7 @@ WINAPI
 Wow64SetThreadDefaultGuestMachine(
     _In_ USHORT Machine
     );
+
 
 #endif // _WIN32_WINNT >= 0x0A00
 
@@ -136,6 +136,7 @@ IsWow64Process2(
     _Out_ USHORT* pProcessMachine,
     _Out_opt_ USHORT* pNativeMachine
     );
+
 
 #endif // _WIN32_WINNT >= 0x0A00
 
@@ -168,6 +169,7 @@ GetSystemWow64Directory2W(
     _In_ UINT uSize,
     _In_ WORD ImageFileMachineType
     );
+
 #ifdef UNICODE
 #define GetSystemWow64Directory2  GetSystemWow64Directory2W
 #else
@@ -187,6 +189,7 @@ IsWow64GuestMachineSupported(
     _Out_ BOOL* MachineIsSupported
     );
 
+
 #endif // _WIN32_WINNT >= 0x0A00
 
 #if (_WIN32_WINNT >= 0x0600)
@@ -199,6 +202,7 @@ Wow64GetThreadContext(
     _Inout_ PWOW64_CONTEXT lpContext
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -207,12 +211,14 @@ Wow64SetThreadContext(
     _In_ CONST WOW64_CONTEXT* lpContext
     );
 
+
 WINBASEAPI
 DWORD
 WINAPI
 Wow64SuspendThread(
     _In_ HANDLE hThread
     );
+
 
 #endif // (_WIN32_WINNT >= 0x0600)
 

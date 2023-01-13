@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_MEDIA_MEDIACONTROLCONTRACT_VERSION)
@@ -1465,21 +1465,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CMedia_CCore_CITimedMetadataTrackProvider_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                interface ITimedTextBouten;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten ABI::Windows::Media::Core::ITimedTextBouten
-
-#endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextCue_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CCore_CITimedTextCue_FWD_DEFINED__
 namespace ABI {
@@ -1524,21 +1509,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CMedia_CCore_CITimedTextRegion ABI::Windows::Media::Core::ITimedTextRegion
 
 #endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextRegion_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                interface ITimedTextRuby;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby ABI::Windows::Media::Core::ITimedTextRuby
-
-#endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextSource_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CCore_CITimedTextSource_FWD_DEFINED__
@@ -1629,21 +1599,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2 ABI::Windows::Media::Core::ITimedTextStyle2
 
 #endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                interface ITimedTextStyle3;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3 ABI::Windows::Media::Core::ITimedTextStyle3
-
-#endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextSubformat_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CCore_CITimedTextSubformat_FWD_DEFINED__
@@ -5438,26 +5393,6 @@ namespace ABI {
     namespace Windows {
         namespace Media {
             namespace Core {
-                typedef enum TimedTextBoutenPosition : int TimedTextBoutenPosition;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                typedef enum TimedTextBoutenType : int TimedTextBoutenType;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
                 typedef enum TimedTextDisplayAlignment : int TimedTextDisplayAlignment;
             } /* Core */
         } /* Media */
@@ -5489,36 +5424,6 @@ namespace ABI {
         namespace Media {
             namespace Core {
                 typedef enum TimedTextLineAlignment : int TimedTextLineAlignment;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                typedef enum TimedTextRubyAlign : int TimedTextRubyAlign;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                typedef enum TimedTextRubyPosition : int TimedTextRubyPosition;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                typedef enum TimedTextRubyReserve : int TimedTextRubyReserve;
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -5808,27 +5713,7 @@ namespace ABI {
     namespace Windows {
         namespace Media {
             namespace Core {
-                class TimedTextBouten;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
                 class TimedTextRegion;
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                class TimedTextRuby;
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -6296,59 +6181,6 @@ namespace ABI {
 
 /*
  *
- * Struct Windows.Media.Core.TimedTextBoutenPosition
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                enum TimedTextBoutenPosition : int
-                {
-                    TimedTextBoutenPosition_Before = 0,
-                    TimedTextBoutenPosition_After = 1,
-                    TimedTextBoutenPosition_Outside = 2,
-                };
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Struct Windows.Media.Core.TimedTextBoutenType
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                enum TimedTextBoutenType : int
-                {
-                    TimedTextBoutenType_None = 0,
-                    TimedTextBoutenType_Auto = 1,
-                    TimedTextBoutenType_FilledCircle = 2,
-                    TimedTextBoutenType_OpenCircle = 3,
-                    TimedTextBoutenType_FilledDot = 4,
-                    TimedTextBoutenType_OpenDot = 5,
-                    TimedTextBoutenType_FilledSesame = 6,
-                    TimedTextBoutenType_OpenSesame = 7,
-                };
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Struct Windows.Media.Core.TimedTextDisplayAlignment
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -6441,83 +6273,6 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.Media.Core.TimedTextRubyAlign
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                enum TimedTextRubyAlign : int
-                {
-                    TimedTextRubyAlign_Center = 0,
-                    TimedTextRubyAlign_Start = 1,
-                    TimedTextRubyAlign_End = 2,
-                    TimedTextRubyAlign_SpaceAround = 3,
-                    TimedTextRubyAlign_SpaceBetween = 4,
-                    TimedTextRubyAlign_WithBase = 5,
-                };
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Struct Windows.Media.Core.TimedTextRubyPosition
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                enum TimedTextRubyPosition : int
-                {
-                    TimedTextRubyPosition_Before = 0,
-                    TimedTextRubyPosition_After = 1,
-                    TimedTextRubyPosition_Outside = 2,
-                };
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Struct Windows.Media.Core.TimedTextRubyReserve
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                enum TimedTextRubyReserve : int
-                {
-                    TimedTextRubyReserve_None = 0,
-                    TimedTextRubyReserve_Before = 1,
-                    TimedTextRubyReserve_After = 2,
-                    TimedTextRubyReserve_Both = 3,
-                    TimedTextRubyReserve_Outside = 4,
-                };
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -6812,7 +6567,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioStreamDescriptor = __uuidof(IAudioStreamDescriptor);
+                extern MIDL_CONST_ID IID& IID_IAudioStreamDescriptor = _uuidof(IAudioStreamDescriptor);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -6860,7 +6615,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioStreamDescriptor2 = __uuidof(IAudioStreamDescriptor2);
+                extern MIDL_CONST_ID IID& IID_IAudioStreamDescriptor2 = _uuidof(IAudioStreamDescriptor2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -6896,7 +6651,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioStreamDescriptor3 = __uuidof(IAudioStreamDescriptor3);
+                extern MIDL_CONST_ID IID& IID_IAudioStreamDescriptor3 = _uuidof(IAudioStreamDescriptor3);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -6933,7 +6688,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioStreamDescriptorFactory = __uuidof(IAudioStreamDescriptorFactory);
+                extern MIDL_CONST_ID IID& IID_IAudioStreamDescriptorFactory = _uuidof(IAudioStreamDescriptorFactory);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -6985,7 +6740,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioTrack = __uuidof(IAudioTrack);
+                extern MIDL_CONST_ID IID& IID_IAudioTrack = _uuidof(IAudioTrack);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7021,7 +6776,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioTrackOpenFailedEventArgs = __uuidof(IAudioTrackOpenFailedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IAudioTrackOpenFailedEventArgs = _uuidof(IAudioTrackOpenFailedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7066,7 +6821,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAudioTrackSupportInfo = __uuidof(IAudioTrackSupportInfo);
+                extern MIDL_CONST_ID IID& IID_IAudioTrackSupportInfo = _uuidof(IAudioTrackSupportInfo);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7108,7 +6863,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IChapterCue = __uuidof(IChapterCue);
+                extern MIDL_CONST_ID IID& IID_IChapterCue = _uuidof(IChapterCue);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7156,7 +6911,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICodecInfo = __uuidof(ICodecInfo);
+                extern MIDL_CONST_ID IID& IID_ICodecInfo = _uuidof(ICodecInfo);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7195,7 +6950,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICodecQuery = __uuidof(ICodecQuery);
+                extern MIDL_CONST_ID IID& IID_ICodecQuery = _uuidof(ICodecQuery);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7381,7 +7136,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICodecSubtypesStatics = __uuidof(ICodecSubtypesStatics);
+                extern MIDL_CONST_ID IID& IID_ICodecSubtypesStatics = _uuidof(ICodecSubtypesStatics);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7423,7 +7178,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDataCue = __uuidof(IDataCue);
+                extern MIDL_CONST_ID IID& IID_IDataCue = _uuidof(IDataCue);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7463,7 +7218,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IDataCue2 = __uuidof(IDataCue2);
+                extern MIDL_CONST_ID IID& IID_IDataCue2 = _uuidof(IDataCue2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7499,7 +7254,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFaceDetectedEventArgs = __uuidof(IFaceDetectedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IFaceDetectedEventArgs = _uuidof(IFaceDetectedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7554,7 +7309,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFaceDetectionEffect = __uuidof(IFaceDetectionEffect);
+                extern MIDL_CONST_ID IID& IID_IFaceDetectionEffect = _uuidof(IFaceDetectionEffect);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7602,7 +7357,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFaceDetectionEffectDefinition = __uuidof(IFaceDetectionEffectDefinition);
+                extern MIDL_CONST_ID IID& IID_IFaceDetectionEffectDefinition = _uuidof(IFaceDetectionEffectDefinition);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7642,7 +7397,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IFaceDetectionEffectFrame = __uuidof(IFaceDetectionEffectFrame);
+                extern MIDL_CONST_ID IID& IID_IFaceDetectionEffectFrame = _uuidof(IFaceDetectionEffectFrame);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7681,7 +7436,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IHighDynamicRangeControl = __uuidof(IHighDynamicRangeControl);
+                extern MIDL_CONST_ID IID& IID_IHighDynamicRangeControl = _uuidof(IHighDynamicRangeControl);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7720,7 +7475,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IHighDynamicRangeOutput = __uuidof(IHighDynamicRangeOutput);
+                extern MIDL_CONST_ID IID& IID_IHighDynamicRangeOutput = _uuidof(IHighDynamicRangeOutput);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7774,7 +7529,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IImageCue = __uuidof(IImageCue);
+                extern MIDL_CONST_ID IID& IID_IImageCue = _uuidof(IImageCue);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7816,7 +7571,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInitializeMediaStreamSourceRequestedEventArgs = __uuidof(IInitializeMediaStreamSourceRequestedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IInitializeMediaStreamSourceRequestedEventArgs = _uuidof(IInitializeMediaStreamSourceRequestedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7852,7 +7607,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILowLightFusionResult = __uuidof(ILowLightFusionResult);
+                extern MIDL_CONST_ID IID& IID_ILowLightFusionResult = _uuidof(ILowLightFusionResult);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7895,7 +7650,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ILowLightFusionStatics = __uuidof(ILowLightFusionStatics);
+                extern MIDL_CONST_ID IID& IID_ILowLightFusionStatics = _uuidof(ILowLightFusionStatics);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -7944,7 +7699,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaBinder = __uuidof(IMediaBinder);
+                extern MIDL_CONST_ID IID& IID_IMediaBinder = _uuidof(IMediaBinder);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8001,7 +7756,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaBindingEventArgs = __uuidof(IMediaBindingEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaBindingEventArgs = _uuidof(IMediaBindingEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8040,7 +7795,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaBindingEventArgs2 = __uuidof(IMediaBindingEventArgs2);
+                extern MIDL_CONST_ID IID& IID_IMediaBindingEventArgs2 = _uuidof(IMediaBindingEventArgs2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8076,7 +7831,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaBindingEventArgs3 = __uuidof(IMediaBindingEventArgs3);
+                extern MIDL_CONST_ID IID& IID_IMediaBindingEventArgs3 = _uuidof(IMediaBindingEventArgs3);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8125,7 +7880,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaCue = __uuidof(IMediaCue);
+                extern MIDL_CONST_ID IID& IID_IMediaCue = _uuidof(IMediaCue);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8161,7 +7916,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaCueEventArgs = __uuidof(IMediaCueEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaCueEventArgs = _uuidof(IMediaCueEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8192,7 +7947,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSource = __uuidof(IMediaSource);
+                extern MIDL_CONST_ID IID& IID_IMediaSource = _uuidof(IMediaSource);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8251,7 +8006,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSource2 = __uuidof(IMediaSource2);
+                extern MIDL_CONST_ID IID& IID_IMediaSource2 = _uuidof(IMediaSource2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8300,7 +8055,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Reset(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSource3 = __uuidof(IMediaSource3);
+                extern MIDL_CONST_ID IID& IID_IMediaSource3 = _uuidof(IMediaSource3);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8354,7 +8109,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSource4 = __uuidof(IMediaSource4);
+                extern MIDL_CONST_ID IID& IID_IMediaSource4 = _uuidof(IMediaSource4);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8390,7 +8145,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSource5 = __uuidof(IMediaSource5);
+                extern MIDL_CONST_ID IID& IID_IMediaSource5 = _uuidof(IMediaSource5);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8431,7 +8186,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Start(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceAppServiceConnection = __uuidof(IMediaSourceAppServiceConnection);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceAppServiceConnection = _uuidof(IMediaSourceAppServiceConnection);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8468,7 +8223,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceAppServiceConnectionFactory = __uuidof(IMediaSourceAppServiceConnectionFactory);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceAppServiceConnectionFactory = _uuidof(IMediaSourceAppServiceConnectionFactory);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8504,7 +8259,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceError = __uuidof(IMediaSourceError);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceError = _uuidof(IMediaSourceError);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8540,7 +8295,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceOpenOperationCompletedEventArgs = __uuidof(IMediaSourceOpenOperationCompletedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceOpenOperationCompletedEventArgs = _uuidof(IMediaSourceOpenOperationCompletedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8579,7 +8334,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceStateChangedEventArgs = __uuidof(IMediaSourceStateChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceStateChangedEventArgs = _uuidof(IMediaSourceStateChangedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8646,7 +8401,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceStatics = __uuidof(IMediaSourceStatics);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceStatics = _uuidof(IMediaSourceStatics);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8683,7 +8438,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceStatics2 = __uuidof(IMediaSourceStatics2);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceStatics2 = _uuidof(IMediaSourceStatics2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8720,7 +8475,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceStatics3 = __uuidof(IMediaSourceStatics3);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceStatics3 = _uuidof(IMediaSourceStatics3);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8757,7 +8512,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaSourceStatics4 = __uuidof(IMediaSourceStatics4);
+                extern MIDL_CONST_ID IID& IID_IMediaSourceStatics4 = _uuidof(IMediaSourceStatics4);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8803,7 +8558,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamDescriptor = __uuidof(IMediaStreamDescriptor);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamDescriptor = _uuidof(IMediaStreamDescriptor);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8843,7 +8598,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamDescriptor2 = __uuidof(IMediaStreamDescriptor2);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamDescriptor2 = _uuidof(IMediaStreamDescriptor2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8919,7 +8674,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSample = __uuidof(IMediaStreamSample);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSample = _uuidof(IMediaStreamSample);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -8955,7 +8710,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSample2 = __uuidof(IMediaStreamSample2);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSample2 = _uuidof(IMediaStreamSample2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9012,7 +8767,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSampleProtectionProperties = __uuidof(IMediaStreamSampleProtectionProperties);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSampleProtectionProperties = _uuidof(IMediaStreamSampleProtectionProperties);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9056,7 +8811,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSampleStatics = __uuidof(IMediaStreamSampleStatics);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSampleStatics = _uuidof(IMediaStreamSampleStatics);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9094,7 +8849,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSampleStatics2 = __uuidof(IMediaStreamSampleStatics2);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSampleStatics2 = _uuidof(IMediaStreamSampleStatics2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9218,7 +8973,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSource = __uuidof(IMediaStreamSource);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSource = _uuidof(IMediaStreamSource);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9262,7 +9017,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSource2 = __uuidof(IMediaStreamSource2);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSource2 = _uuidof(IMediaStreamSource2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9305,7 +9060,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSource3 = __uuidof(IMediaStreamSource3);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSource3 = _uuidof(IMediaStreamSource3);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9348,7 +9103,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSource4 = __uuidof(IMediaStreamSource4);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSource4 = _uuidof(IMediaStreamSource4);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9384,7 +9139,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceClosedEventArgs = __uuidof(IMediaStreamSourceClosedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceClosedEventArgs = _uuidof(IMediaStreamSourceClosedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9420,7 +9175,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceClosedRequest = __uuidof(IMediaStreamSourceClosedRequest);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceClosedRequest = _uuidof(IMediaStreamSourceClosedRequest);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9462,7 +9217,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceFactory = __uuidof(IMediaStreamSourceFactory);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceFactory = _uuidof(IMediaStreamSourceFactory);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9498,7 +9253,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceSampleRenderedEventArgs = __uuidof(IMediaStreamSourceSampleRenderedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceSampleRenderedEventArgs = _uuidof(IMediaStreamSourceSampleRenderedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9546,7 +9301,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceSampleRequest = __uuidof(IMediaStreamSourceSampleRequest);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceSampleRequest = _uuidof(IMediaStreamSourceSampleRequest);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9580,7 +9335,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Complete(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceSampleRequestDeferral = __uuidof(IMediaStreamSourceSampleRequestDeferral);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceSampleRequestDeferral = _uuidof(IMediaStreamSourceSampleRequestDeferral);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9616,7 +9371,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceSampleRequestedEventArgs = __uuidof(IMediaStreamSourceSampleRequestedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceSampleRequestedEventArgs = _uuidof(IMediaStreamSourceSampleRequestedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9652,7 +9407,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceStartingEventArgs = __uuidof(IMediaStreamSourceStartingEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceStartingEventArgs = _uuidof(IMediaStreamSourceStartingEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9694,7 +9449,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceStartingRequest = __uuidof(IMediaStreamSourceStartingRequest);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceStartingRequest = _uuidof(IMediaStreamSourceStartingRequest);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9728,7 +9483,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Complete(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceStartingRequestDeferral = __uuidof(IMediaStreamSourceStartingRequestDeferral);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceStartingRequestDeferral = _uuidof(IMediaStreamSourceStartingRequestDeferral);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9770,7 +9525,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceSwitchStreamsRequest = __uuidof(IMediaStreamSourceSwitchStreamsRequest);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceSwitchStreamsRequest = _uuidof(IMediaStreamSourceSwitchStreamsRequest);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9804,7 +9559,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Complete(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceSwitchStreamsRequestDeferral = __uuidof(IMediaStreamSourceSwitchStreamsRequestDeferral);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceSwitchStreamsRequestDeferral = _uuidof(IMediaStreamSourceSwitchStreamsRequestDeferral);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9840,7 +9595,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaStreamSourceSwitchStreamsRequestedEventArgs = __uuidof(IMediaStreamSourceSwitchStreamsRequestedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IMediaStreamSourceSwitchStreamsRequestedEventArgs = _uuidof(IMediaStreamSourceSwitchStreamsRequestedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9886,7 +9641,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMediaTrack = __uuidof(IMediaTrack);
+                extern MIDL_CONST_ID IID& IID_IMediaTrack = _uuidof(IMediaTrack);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -9999,7 +9754,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMseSourceBuffer = __uuidof(IMseSourceBuffer);
+                extern MIDL_CONST_ID IID& IID_IMseSourceBuffer = _uuidof(IMseSourceBuffer);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10049,7 +9804,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMseSourceBufferList = __uuidof(IMseSourceBufferList);
+                extern MIDL_CONST_ID IID& IID_IMseSourceBufferList = _uuidof(IMseSourceBufferList);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10131,7 +9886,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMseStreamSource = __uuidof(IMseStreamSource);
+                extern MIDL_CONST_ID IID& IID_IMseStreamSource = _uuidof(IMseStreamSource);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10170,7 +9925,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMseStreamSource2 = __uuidof(IMseStreamSource2);
+                extern MIDL_CONST_ID IID& IID_IMseStreamSource2 = _uuidof(IMseStreamSource2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10207,7 +9962,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IMseStreamSourceStatics = __uuidof(IMseStreamSourceStatics);
+                extern MIDL_CONST_ID IID& IID_IMseStreamSourceStatics = _uuidof(IMseStreamSourceStatics);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10259,7 +10014,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISceneAnalysisEffect = __uuidof(ISceneAnalysisEffect);
+                extern MIDL_CONST_ID IID& IID_ISceneAnalysisEffect = _uuidof(ISceneAnalysisEffect);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10302,7 +10057,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISceneAnalysisEffectFrame = __uuidof(ISceneAnalysisEffectFrame);
+                extern MIDL_CONST_ID IID& IID_ISceneAnalysisEffectFrame = _uuidof(ISceneAnalysisEffectFrame);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10342,7 +10097,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISceneAnalysisEffectFrame2 = __uuidof(ISceneAnalysisEffectFrame2);
+                extern MIDL_CONST_ID IID& IID_ISceneAnalysisEffectFrame2 = _uuidof(ISceneAnalysisEffectFrame2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10378,7 +10133,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISceneAnalyzedEventArgs = __uuidof(ISceneAnalyzedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ISceneAnalyzedEventArgs = _uuidof(ISceneAnalyzedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10422,7 +10177,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISingleSelectMediaTrackList = __uuidof(ISingleSelectMediaTrackList);
+                extern MIDL_CONST_ID IID& IID_ISingleSelectMediaTrackList = _uuidof(ISingleSelectMediaTrackList);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10476,7 +10231,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ISpeechCue = __uuidof(ISpeechCue);
+                extern MIDL_CONST_ID IID& IID_ISpeechCue = _uuidof(ISpeechCue);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10515,7 +10270,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedMetadataStreamDescriptor = __uuidof(ITimedMetadataStreamDescriptor);
+                extern MIDL_CONST_ID IID& IID_ITimedMetadataStreamDescriptor = _uuidof(ITimedMetadataStreamDescriptor);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10552,7 +10307,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedMetadataStreamDescriptorFactory = __uuidof(ITimedMetadataStreamDescriptorFactory);
+                extern MIDL_CONST_ID IID& IID_ITimedMetadataStreamDescriptorFactory = _uuidof(ITimedMetadataStreamDescriptorFactory);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10627,7 +10382,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedMetadataTrack = __uuidof(ITimedMetadataTrack);
+                extern MIDL_CONST_ID IID& IID_ITimedMetadataTrack = _uuidof(ITimedMetadataTrack);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10670,7 +10425,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedMetadataTrack2 = __uuidof(ITimedMetadataTrack2);
+                extern MIDL_CONST_ID IID& IID_ITimedMetadataTrack2 = _uuidof(ITimedMetadataTrack2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10709,7 +10464,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedMetadataTrackError = __uuidof(ITimedMetadataTrackError);
+                extern MIDL_CONST_ID IID& IID_ITimedMetadataTrackError = _uuidof(ITimedMetadataTrackError);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10748,7 +10503,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedMetadataTrackFactory = __uuidof(ITimedMetadataTrackFactory);
+                extern MIDL_CONST_ID IID& IID_ITimedMetadataTrackFactory = _uuidof(ITimedMetadataTrackFactory);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10784,7 +10539,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedMetadataTrackFailedEventArgs = __uuidof(ITimedMetadataTrackFailedEventArgs);
+                extern MIDL_CONST_ID IID& IID_ITimedMetadataTrackFailedEventArgs = _uuidof(ITimedMetadataTrackFailedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10818,7 +10573,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedMetadataTrackProvider = __uuidof(ITimedMetadataTrackProvider);
+                extern MIDL_CONST_ID IID& IID_ITimedMetadataTrackProvider = _uuidof(ITimedMetadataTrackProvider);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10827,57 +10582,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedMetadataTrackProvider;
 #endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedMetadataTrackProvider_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
-
-/*
- *
- * Interface Windows.Media.Core.ITimedTextBouten
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Media.Core.TimedTextBouten
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Core_ITimedTextBouten[] = L"Windows.Media.Core.ITimedTextBouten";
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                MIDL_INTERFACE("d9062783-5597-5092-820c-8f738e0f774a")
-                ITimedTextBouten : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Type(
-                        ABI::Windows::Media::Core::TimedTextBoutenType* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Type(
-                        ABI::Windows::Media::Core::TimedTextBoutenType value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Color(
-                        ABI::Windows::UI::Color* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Color(
-                        ABI::Windows::UI::Color value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Position(
-                        ABI::Windows::Media::Core::TimedTextBoutenPosition* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Position(
-                        ABI::Windows::Media::Core::TimedTextBoutenPosition value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ITimedTextBouten = __uuidof(ITimedTextBouten);
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextBouten;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -10920,7 +10624,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextCue = __uuidof(ITimedTextCue);
+                extern MIDL_CONST_ID IID& IID_ITimedTextCue = _uuidof(ITimedTextCue);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -10962,7 +10666,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextLine = __uuidof(ITimedTextLine);
+                extern MIDL_CONST_ID IID& IID_ITimedTextLine = _uuidof(ITimedTextLine);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11067,7 +10771,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextRegion = __uuidof(ITimedTextRegion);
+                extern MIDL_CONST_ID IID& IID_ITimedTextRegion = _uuidof(ITimedTextRegion);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11076,63 +10780,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextRegion;
 #endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextRegion_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Media.Core.ITimedTextRuby
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Media.Core.TimedTextRuby
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Core_ITimedTextRuby[] = L"Windows.Media.Core.ITimedTextRuby";
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                MIDL_INTERFACE("10335c29-5b3c-5693-9959-d05a0bd24628")
-                ITimedTextRuby : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Text(
-                        HSTRING* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Text(
-                        HSTRING value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Position(
-                        ABI::Windows::Media::Core::TimedTextRubyPosition* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Position(
-                        ABI::Windows::Media::Core::TimedTextRubyPosition value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Align(
-                        ABI::Windows::Media::Core::TimedTextRubyAlign* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Align(
-                        ABI::Windows::Media::Core::TimedTextRubyAlign value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Reserve(
-                        ABI::Windows::Media::Core::TimedTextRubyReserve* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_Reserve(
-                        ABI::Windows::Media::Core::TimedTextRubyReserve value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ITimedTextRuby = __uuidof(ITimedTextRuby);
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextRuby;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -11164,7 +10811,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextSource = __uuidof(ITimedTextSource);
+                extern MIDL_CONST_ID IID& IID_ITimedTextSource = _uuidof(ITimedTextSource);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11203,7 +10850,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextSourceResolveResultEventArgs = __uuidof(ITimedTextSourceResolveResultEventArgs);
+                extern MIDL_CONST_ID IID& IID_ITimedTextSourceResolveResultEventArgs = _uuidof(ITimedTextSourceResolveResultEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11254,7 +10901,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextSourceStatics = __uuidof(ITimedTextSourceStatics);
+                extern MIDL_CONST_ID IID& IID_ITimedTextSourceStatics = _uuidof(ITimedTextSourceStatics);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11309,7 +10956,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextSourceStatics2 = __uuidof(ITimedTextSourceStatics2);
+                extern MIDL_CONST_ID IID& IID_ITimedTextSourceStatics2 = _uuidof(ITimedTextSourceStatics2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11414,7 +11061,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextStyle = __uuidof(ITimedTextStyle);
+                extern MIDL_CONST_ID IID& IID_ITimedTextStyle = _uuidof(ITimedTextStyle);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11471,7 +11118,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextStyle2 = __uuidof(ITimedTextStyle2);
+                extern MIDL_CONST_ID IID& IID_ITimedTextStyle2 = _uuidof(ITimedTextStyle2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11480,57 +11127,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2;
 #endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
-
-/*
- *
- * Interface Windows.Media.Core.ITimedTextStyle3
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Media.Core.TimedTextStyle
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Core_ITimedTextStyle3[] = L"Windows.Media.Core.ITimedTextStyle3";
-namespace ABI {
-    namespace Windows {
-        namespace Media {
-            namespace Core {
-                MIDL_INTERFACE("f803f93b-3e99-595e-bbb7-78a2fa13c270")
-                ITimedTextStyle3 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_Ruby(
-                        ABI::Windows::Media::Core::ITimedTextRuby** value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_Bouten(
-                        ABI::Windows::Media::Core::ITimedTextBouten** value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_IsTextCombined(
-                        boolean* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_IsTextCombined(
-                        boolean value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_FontAngleInDegrees(
-                        DOUBLE* value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_FontAngleInDegrees(
-                        DOUBLE value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_ITimedTextStyle3 = __uuidof(ITimedTextStyle3);
-            } /* Core */
-        } /* Media */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -11573,7 +11169,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ITimedTextSubformat = __uuidof(ITimedTextSubformat);
+                extern MIDL_CONST_ID IID& IID_ITimedTextSubformat = _uuidof(ITimedTextSubformat);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11627,7 +11223,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVideoStabilizationEffect = __uuidof(IVideoStabilizationEffect);
+                extern MIDL_CONST_ID IID& IID_IVideoStabilizationEffect = _uuidof(IVideoStabilizationEffect);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11663,7 +11259,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVideoStabilizationEffectEnabledChangedEventArgs = __uuidof(IVideoStabilizationEffectEnabledChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IVideoStabilizationEffectEnabledChangedEventArgs = _uuidof(IVideoStabilizationEffectEnabledChangedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11702,7 +11298,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVideoStreamDescriptor = __uuidof(IVideoStreamDescriptor);
+                extern MIDL_CONST_ID IID& IID_IVideoStreamDescriptor = _uuidof(IVideoStreamDescriptor);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11738,7 +11334,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVideoStreamDescriptor2 = __uuidof(IVideoStreamDescriptor2);
+                extern MIDL_CONST_ID IID& IID_IVideoStreamDescriptor2 = _uuidof(IVideoStreamDescriptor2);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11775,7 +11371,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVideoStreamDescriptorFactory = __uuidof(IVideoStreamDescriptorFactory);
+                extern MIDL_CONST_ID IID& IID_IVideoStreamDescriptorFactory = _uuidof(IVideoStreamDescriptorFactory);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11827,7 +11423,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVideoTrack = __uuidof(IVideoTrack);
+                extern MIDL_CONST_ID IID& IID_IVideoTrack = _uuidof(IVideoTrack);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11863,7 +11459,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVideoTrackOpenFailedEventArgs = __uuidof(IVideoTrackOpenFailedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IVideoTrackOpenFailedEventArgs = _uuidof(IVideoTrackOpenFailedEventArgs);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -11902,7 +11498,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVideoTrackSupportInfo = __uuidof(IVideoTrackSupportInfo);
+                extern MIDL_CONST_ID IID& IID_IVideoTrackSupportInfo = _uuidof(IVideoTrackSupportInfo);
             } /* Core */
         } /* Media */
     } /* Windows */
@@ -12418,10 +12014,10 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics4 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics3 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics2 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics4 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.Core.IMediaSource2 ** Default Interface **
@@ -13156,25 +12752,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Media.Core.TimedTextBouten
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.Media.Core.ITimedTextBouten ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_Media_Core_TimedTextBouten_DEFINED
-#define RUNTIMECLASS_Windows_Media_Core_TimedTextBouten_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Media_Core_TimedTextBouten[] = L"Windows.Media.Core.TimedTextBouten";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.Media.Core.TimedTextCue
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -13248,32 +12825,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Media.Core.TimedTextRuby
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.Media.Core.ITimedTextRuby ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_Media_Core_TimedTextRuby_DEFINED
-#define RUNTIMECLASS_Windows_Media_Core_TimedTextRuby_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Media_Core_TimedTextRuby[] = L"Windows.Media.Core.TimedTextRuby";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.Media.Core.TimedTextSource
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.Core.ITimedTextSourceStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Core.ITimedTextSourceStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.Core.ITimedTextSourceStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.Core.ITimedTextSource ** Default Interface **
@@ -13323,7 +12881,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Media.Core.ITimedTextStyle ** Default Interface **
  *    Windows.Media.Core.ITimedTextStyle2
- *    Windows.Media.Core.ITimedTextStyle3
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -14043,12 +13600,6 @@ typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedMetadataTrackProvider __x
 
 #endif // ____x_ABI_CWindows_CMedia_CCore_CITimedMetadataTrackProvider_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten;
-
-#endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextCue_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CCore_CITimedTextCue_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedTextCue __x_ABI_CWindows_CMedia_CCore_CITimedTextCue;
@@ -14066,12 +13617,6 @@ typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedTextLine __x_ABI_CWindows
 typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedTextRegion __x_ABI_CWindows_CMedia_CCore_CITimedTextRegion;
 
 #endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextRegion_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby;
-
-#endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextSource_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CCore_CITimedTextSource_FWD_DEFINED__
@@ -14108,12 +13653,6 @@ typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle __x_ABI_CWindow
 typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2 __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2;
 
 #endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_FWD_DEFINED__
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3 __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3;
-
-#endif // ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CMedia_CCore_CITimedTextSubformat_FWD_DEFINED__
 #define ____x_ABI_CWindows_CMedia_CCore_CITimedTextSubformat_FWD_DEFINED__
@@ -20409,10 +19948,6 @@ typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedMetadataKind __x_ABI_CWindows_C
 
 typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedMetadataTrackErrorCode __x_ABI_CWindows_CMedia_CCore_CTimedMetadataTrackErrorCode;
 
-typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenPosition __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenPosition;
-
-typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenType __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenType;
-
 typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextDisplayAlignment __x_ABI_CWindows_CMedia_CCore_CTimedTextDisplayAlignment;
 
 typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextFlowDirection __x_ABI_CWindows_CMedia_CCore_CTimedTextFlowDirection;
@@ -20420,12 +19955,6 @@ typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextFlowDirection __x_ABI_CWind
 typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextFontStyle __x_ABI_CWindows_CMedia_CCore_CTimedTextFontStyle;
 
 typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextLineAlignment __x_ABI_CWindows_CMedia_CCore_CTimedTextLineAlignment;
-
-typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyAlign __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyAlign;
-
-typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyPosition __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyPosition;
-
-typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyReserve __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyReserve;
 
 typedef enum __x_ABI_CWindows_CMedia_CCore_CTimedTextScrollMode __x_ABI_CWindows_CMedia_CCore_CTimedTextScrollMode;
 
@@ -20743,43 +20272,6 @@ enum __x_ABI_CWindows_CMedia_CCore_CTimedMetadataTrackErrorCode
 
 /*
  *
- * Struct Windows.Media.Core.TimedTextBoutenPosition
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-enum __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenPosition
-{
-    TimedTextBoutenPosition_Before = 0,
-    TimedTextBoutenPosition_After = 1,
-    TimedTextBoutenPosition_Outside = 2,
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Struct Windows.Media.Core.TimedTextBoutenType
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-enum __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenType
-{
-    TimedTextBoutenType_None = 0,
-    TimedTextBoutenType_Auto = 1,
-    TimedTextBoutenType_FilledCircle = 2,
-    TimedTextBoutenType_OpenCircle = 3,
-    TimedTextBoutenType_FilledDot = 4,
-    TimedTextBoutenType_OpenDot = 5,
-    TimedTextBoutenType_FilledSesame = 6,
-    TimedTextBoutenType_OpenSesame = 7,
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Struct Windows.Media.Core.TimedTextDisplayAlignment
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -20840,59 +20332,6 @@ enum __x_ABI_CWindows_CMedia_CCore_CTimedTextLineAlignment
     TimedTextLineAlignment_Center = 2,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.Media.Core.TimedTextRubyAlign
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyAlign
-{
-    TimedTextRubyAlign_Center = 0,
-    TimedTextRubyAlign_Start = 1,
-    TimedTextRubyAlign_End = 2,
-    TimedTextRubyAlign_SpaceAround = 3,
-    TimedTextRubyAlign_SpaceBetween = 4,
-    TimedTextRubyAlign_WithBase = 5,
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Struct Windows.Media.Core.TimedTextRubyPosition
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyPosition
-{
-    TimedTextRubyPosition_Before = 0,
-    TimedTextRubyPosition_After = 1,
-    TimedTextRubyPosition_Outside = 2,
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Struct Windows.Media.Core.TimedTextRubyReserve
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyReserve
-{
-    TimedTextRubyReserve_None = 0,
-    TimedTextRubyReserve_Before = 1,
-    TimedTextRubyReserve_After = 2,
-    TimedTextRubyReserve_Both = 3,
-    TimedTextRubyReserve_Outside = 4,
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -28510,100 +27949,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedMetadataTrackProvide
 
 /*
  *
- * Interface Windows.Media.Core.ITimedTextBouten
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Media.Core.TimedTextBouten
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Core_ITimedTextBouten[] = L"Windows.Media.Core.ITimedTextBouten";
-typedef struct __x_ABI_CWindows_CMedia_CCore_CITimedTextBoutenVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Type)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenType* value);
-    HRESULT (STDMETHODCALLTYPE* put_Type)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenType value);
-    HRESULT (STDMETHODCALLTYPE* get_Color)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        struct __x_ABI_CWindows_CUI_CColor* value);
-    HRESULT (STDMETHODCALLTYPE* put_Color)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        struct __x_ABI_CWindows_CUI_CColor value);
-    HRESULT (STDMETHODCALLTYPE* get_Position)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenPosition* value);
-    HRESULT (STDMETHODCALLTYPE* put_Position)(__x_ABI_CWindows_CMedia_CCore_CITimedTextBouten* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextBoutenPosition value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CMedia_CCore_CITimedTextBoutenVtbl;
-
-interface __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten
-{
-    CONST_VTBL struct __x_ABI_CWindows_CMedia_CCore_CITimedTextBoutenVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_get_Type(This, value) \
-    ((This)->lpVtbl->get_Type(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_put_Type(This, value) \
-    ((This)->lpVtbl->put_Type(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_get_Color(This, value) \
-    ((This)->lpVtbl->get_Color(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_put_Color(This, value) \
-    ((This)->lpVtbl->put_Color(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_get_Position(This, value) \
-    ((This)->lpVtbl->get_Position(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_put_Position(This, value) \
-    ((This)->lpVtbl->put_Position(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextBouten;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextBouten_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.Media.Core.ITimedTextCue
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -28956,110 +28301,6 @@ interface __x_ABI_CWindows_CMedia_CCore_CITimedTextRegion
 EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextRegion;
 #endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextRegion_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Media.Core.ITimedTextRuby
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Media.Core.TimedTextRuby
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Core_ITimedTextRuby[] = L"Windows.Media.Core.ITimedTextRuby";
-typedef struct __x_ABI_CWindows_CMedia_CCore_CITimedTextRubyVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Text)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        HSTRING* value);
-    HRESULT (STDMETHODCALLTYPE* put_Text)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        HSTRING value);
-    HRESULT (STDMETHODCALLTYPE* get_Position)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyPosition* value);
-    HRESULT (STDMETHODCALLTYPE* put_Position)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyPosition value);
-    HRESULT (STDMETHODCALLTYPE* get_Align)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyAlign* value);
-    HRESULT (STDMETHODCALLTYPE* put_Align)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyAlign value);
-    HRESULT (STDMETHODCALLTYPE* get_Reserve)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyReserve* value);
-    HRESULT (STDMETHODCALLTYPE* put_Reserve)(__x_ABI_CWindows_CMedia_CCore_CITimedTextRuby* This,
-        enum __x_ABI_CWindows_CMedia_CCore_CTimedTextRubyReserve value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CMedia_CCore_CITimedTextRubyVtbl;
-
-interface __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby
-{
-    CONST_VTBL struct __x_ABI_CWindows_CMedia_CCore_CITimedTextRubyVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_get_Text(This, value) \
-    ((This)->lpVtbl->get_Text(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_put_Text(This, value) \
-    ((This)->lpVtbl->put_Text(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_get_Position(This, value) \
-    ((This)->lpVtbl->get_Position(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_put_Position(This, value) \
-    ((This)->lpVtbl->put_Position(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_get_Align(This, value) \
-    ((This)->lpVtbl->get_Align(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_put_Align(This, value) \
-    ((This)->lpVtbl->put_Align(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_get_Reserve(This, value) \
-    ((This)->lpVtbl->get_Reserve(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_put_Reserve(This, value) \
-    ((This)->lpVtbl->put_Reserve(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextRuby;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextRuby_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -29681,100 +28922,6 @@ interface __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2
 EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2;
 #endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
-
-/*
- *
- * Interface Windows.Media.Core.ITimedTextStyle3
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Media.Core.TimedTextStyle
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Media_Core_ITimedTextStyle3[] = L"Windows.Media.Core.ITimedTextStyle3";
-typedef struct __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_Ruby)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        __x_ABI_CWindows_CMedia_CCore_CITimedTextRuby** value);
-    HRESULT (STDMETHODCALLTYPE* get_Bouten)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        __x_ABI_CWindows_CMedia_CCore_CITimedTextBouten** value);
-    HRESULT (STDMETHODCALLTYPE* get_IsTextCombined)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        boolean* value);
-    HRESULT (STDMETHODCALLTYPE* put_IsTextCombined)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        boolean value);
-    HRESULT (STDMETHODCALLTYPE* get_FontAngleInDegrees)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        DOUBLE* value);
-    HRESULT (STDMETHODCALLTYPE* put_FontAngleInDegrees)(__x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3* This,
-        DOUBLE value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3Vtbl;
-
-interface __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3
-{
-    CONST_VTBL struct __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_get_Ruby(This, value) \
-    ((This)->lpVtbl->get_Ruby(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_get_Bouten(This, value) \
-    ((This)->lpVtbl->get_Bouten(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_get_IsTextCombined(This, value) \
-    ((This)->lpVtbl->get_IsTextCombined(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_put_IsTextCombined(This, value) \
-    ((This)->lpVtbl->put_IsTextCombined(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_get_FontAngleInDegrees(This, value) \
-    ((This)->lpVtbl->get_FontAngleInDegrees(This, value))
-
-#define __x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_put_FontAngleInDegrees(This, value) \
-    ((This)->lpVtbl->put_FontAngleInDegrees(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3;
-#endif /* !defined(____x_ABI_CWindows_CMedia_CCore_CITimedTextStyle3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -30989,10 +30136,10 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics4 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics3 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics2 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.Core.IMediaSourceStatics4 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.Core.IMediaSource2 ** Default Interface **
@@ -31727,25 +30874,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Media.Core.TimedTextBouten
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.Media.Core.ITimedTextBouten ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_Media_Core_TimedTextBouten_DEFINED
-#define RUNTIMECLASS_Windows_Media_Core_TimedTextBouten_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Media_Core_TimedTextBouten[] = L"Windows.Media.Core.TimedTextBouten";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.Media.Core.TimedTextCue
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -31819,32 +30947,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Media.Core.TimedTextRuby
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.Media.Core.ITimedTextRuby ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_Media_Core_TimedTextRuby_DEFINED
-#define RUNTIMECLASS_Windows_Media_Core_TimedTextRuby_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Media_Core_TimedTextRuby[] = L"Windows.Media.Core.TimedTextRuby";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.Media.Core.TimedTextSource
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.Core.ITimedTextSourceStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Core.ITimedTextSourceStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.Core.ITimedTextSourceStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.Core.ITimedTextSource ** Default Interface **
@@ -31894,7 +31003,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.Media.Core.ITimedTextStyle ** Default Interface **
  *    Windows.Media.Core.ITimedTextStyle2
- *    Windows.Media.Core.ITimedTextStyle3
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *

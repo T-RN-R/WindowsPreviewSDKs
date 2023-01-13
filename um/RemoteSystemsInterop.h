@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -108,48 +100,39 @@ EXTERN_C const IID IID_ICorrelationVectorInformation;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ICorrelationVectorInformation * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ICorrelationVectorInformation * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ICorrelationVectorInformation * This);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetIids)
         HRESULT ( STDMETHODCALLTYPE *GetIids )( 
             ICorrelationVectorInformation * This,
             /* [out] */ ULONG *iidCount,
             /* [size_is][size_is][out] */ IID **iids);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetRuntimeClassName)
         HRESULT ( STDMETHODCALLTYPE *GetRuntimeClassName )( 
             ICorrelationVectorInformation * This,
             /* [out] */ HSTRING *className);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetTrustLevel)
         HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )( 
             ICorrelationVectorInformation * This,
             /* [out] */ TrustLevel *trustLevel);
         
-        DECLSPEC_XFGVIRT(ICorrelationVectorInformation, get_LastCorrelationVectorForThread)
         /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastCorrelationVectorForThread )( 
             ICorrelationVectorInformation * This,
             /* [retval][out] */ HSTRING *cv);
         
-        DECLSPEC_XFGVIRT(ICorrelationVectorInformation, get_NextCorrelationVectorForThread)
         /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_NextCorrelationVectorForThread )( 
             ICorrelationVectorInformation * This,
             /* [retval][out] */ HSTRING *cv);
         
-        DECLSPEC_XFGVIRT(ICorrelationVectorInformation, put_NextCorrelationVectorForThread)
         /* [propput] */ HRESULT ( STDMETHODCALLTYPE *put_NextCorrelationVectorForThread )( 
             ICorrelationVectorInformation * This,
             /* [in] */ HSTRING cv);

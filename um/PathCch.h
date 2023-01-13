@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #pragma once
 
 #include <apiset.h>
@@ -57,11 +59,6 @@ typedef enum PATHCCH_OPTIONS
 
     // When combining or normalizing a path ensure there is a trailing backslash.
     PATHCCH_ENSURE_TRAILING_SLASH = 0x020,
-
-    // Convert forward slashes to back slashes and collapse multiple slashes.
-    // This is needed to to support sub-path or identity comparisons.
-    PATHCCH_CANONICALIZE_SLASHES = 0x040,
-
 } PATHCCH_OPTIONS;
 DEFINE_ENUM_FLAG_OPERATORS(PATHCCH_OPTIONS)
 
@@ -80,12 +77,14 @@ PathIsUNCEx(
     _Outptr_opt_ PCWSTR* ppszServer
     );
 
+
 WINPATHCCHAPI
 BOOL
 APIENTRY
 PathCchIsRoot(
     _In_opt_ PCWSTR pszPath
     );
+
 
 WINPATHCCHAPI
 HRESULT
@@ -97,6 +96,7 @@ PathCchAddBackslashEx(
     _Out_opt_ size_t* pcchRemaining
     );
 
+
 WINPATHCCHAPI
 HRESULT
 APIENTRY
@@ -104,6 +104,7 @@ PathCchAddBackslash(
     _Inout_updates_(cchPath) PWSTR pszPath,
     _In_ size_t cchPath
     );
+
 
 WINPATHCCHAPI
 HRESULT
@@ -115,6 +116,7 @@ PathCchRemoveBackslashEx(
     _Out_opt_ size_t* pcchRemaining
     );
 
+
 WINPATHCCHAPI
 HRESULT
 APIENTRY
@@ -122,6 +124,7 @@ PathCchRemoveBackslash(
     _Inout_updates_(cchPath) PWSTR pszPath,
     _In_ size_t cchPath
     );
+
 
 WINPATHCCHAPI
 HRESULT
@@ -131,6 +134,7 @@ PathCchSkipRoot(
     _Outptr_ PCWSTR* ppszRootEnd
     );
 
+
 WINPATHCCHAPI
 HRESULT
 APIENTRY
@@ -139,6 +143,7 @@ PathCchStripToRoot(
     _In_ size_t cchPath
     );
 
+
 WINPATHCCHAPI
 HRESULT
 APIENTRY
@@ -146,6 +151,7 @@ PathCchRemoveFileSpec(
     _Inout_updates_(_Inexpressible_(cchPath)) PWSTR pszPath,
     _In_ size_t cchPath
     );
+
 
 WINPATHCCHAPI
 HRESULT
@@ -156,6 +162,7 @@ PathCchFindExtension(
     _Outptr_ PCWSTR* ppszExt
     );
 
+
 WINPATHCCHAPI
 HRESULT
 APIENTRY
@@ -164,6 +171,7 @@ PathCchAddExtension(
     _In_ size_t cchPath,
     _In_ PCWSTR pszExt
     );
+
 
 WINPATHCCHAPI
 HRESULT
@@ -174,6 +182,7 @@ PathCchRenameExtension(
     _In_ PCWSTR pszExt
     );
 
+
 WINPATHCCHAPI
 HRESULT
 APIENTRY
@@ -182,9 +191,8 @@ PathCchRemoveExtension(
     _In_ size_t cchPath
     );
 
-/* PATHCCH_OPTIONS */
 
-WINPATHCCHAPI
+/* PATHCCH_OPTIONS */WINPATHCCHAPI
 HRESULT
 APIENTRY
 PathCchCanonicalizeEx(
@@ -193,6 +201,7 @@ PathCchCanonicalizeEx(
     _In_ PCWSTR pszPathIn,
     _In_ ULONG dwFlags
     );
+
 
 WINPATHCCHAPI
 HRESULT
@@ -203,9 +212,8 @@ PathCchCanonicalize(
     _In_ PCWSTR pszPathIn
     );
 
-/* PATHCCH_OPTIONS */
 
-WINPATHCCHAPI
+/* PATHCCH_OPTIONS */WINPATHCCHAPI
 HRESULT
 APIENTRY
 PathCchCombineEx(
@@ -215,6 +223,7 @@ PathCchCombineEx(
     _In_opt_ PCWSTR pszMore,
     _In_ ULONG dwFlags
     );
+
 
 WINPATHCCHAPI
 HRESULT
@@ -226,9 +235,8 @@ PathCchCombine(
     _In_opt_ PCWSTR pszMore
     );
 
-/* PATHCCH_OPTIONS */
 
-WINPATHCCHAPI
+/* PATHCCH_OPTIONS */WINPATHCCHAPI
 HRESULT
 APIENTRY
 PathCchAppendEx(
@@ -237,6 +245,7 @@ PathCchAppendEx(
     _In_opt_ PCWSTR pszMore,
     _In_ ULONG dwFlags
     );
+
 
 WINPATHCCHAPI
 HRESULT
@@ -247,6 +256,7 @@ PathCchAppend(
     _In_opt_ PCWSTR pszMore
     );
 
+
 WINPATHCCHAPI
 HRESULT
 APIENTRY
@@ -255,9 +265,8 @@ PathCchStripPrefix(
     _In_ size_t cchPath
     );
 
-/* PATHCCH_OPTIONS */
 
-WINPATHCCHAPI
+/* PATHCCH_OPTIONS */WINPATHCCHAPI
 HRESULT
 APIENTRY
 PathAllocCombine(
@@ -267,9 +276,8 @@ PathAllocCombine(
     _Outptr_ PWSTR* ppszPathOut
     );
 
-/* PATHCCH_OPTIONS */
 
-WINPATHCCHAPI
+/* PATHCCH_OPTIONS */WINPATHCCHAPI
 HRESULT
 APIENTRY
 PathAllocCanonicalize(
@@ -277,6 +285,7 @@ PathAllocCanonicalize(
     _In_ ULONG dwFlags,
     _Outptr_ PWSTR* ppszPathOut
     );
+
 
 #ifndef PATHCCH_NO_DEPRECATE
 // Deprecate the old path functions that do not take a buffer size (and assume MAX_PATH) to generate compile time errors.

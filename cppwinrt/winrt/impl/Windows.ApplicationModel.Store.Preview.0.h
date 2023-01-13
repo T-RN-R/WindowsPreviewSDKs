@@ -1,18 +1,17 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_ApplicationModel_Store_Preview_0_H
 #define WINRT_Windows_ApplicationModel_Store_Preview_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
-    template <typename T> struct __declspec(empty_bases) IReference;
+    template <typename T> struct IReference;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct __declspec(empty_bases) IIterable;
+    template <typename T> struct IIterable;
 }
 WINRT_EXPORT namespace winrt::Windows::Security::Authentication::Web::Core
 {
@@ -120,77 +119,79 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Store::Preview
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStorePreview>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::DeliveryOptimizationSettings>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StoreConfiguration>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StoreHardwareManufacturerInfo>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StorePreview>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewProductInfo>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewPurchaseResults>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewSkuInfo>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::WebAuthenticationCoreManagerHelper>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::DeliveryOptimizationDownloadMode>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::DeliveryOptimizationDownloadModeSource>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StoreLogOptions>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewProductPurchaseStatus>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Store::Preview::StoreSystemFeature>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::DeliveryOptimizationSettings> = L"Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StoreConfiguration> = L"Windows.ApplicationModel.Store.Preview.StoreConfiguration";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StoreHardwareManufacturerInfo> = L"Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StorePreview> = L"Windows.ApplicationModel.Store.Preview.StorePreview";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewProductInfo> = L"Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewPurchaseResults> = L"Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewSkuInfo> = L"Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::WebAuthenticationCoreManagerHelper> = L"Windows.ApplicationModel.Store.Preview.WebAuthenticationCoreManagerHelper";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::DeliveryOptimizationDownloadMode> = L"Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::DeliveryOptimizationDownloadModeSource> = L"Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StoreLogOptions> = L"Windows.ApplicationModel.Store.Preview.StoreLogOptions";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewProductPurchaseStatus> = L"Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::StoreSystemFeature> = L"Windows.ApplicationModel.Store.Preview.StoreSystemFeature";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings> = L"Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics> = L"Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettingsStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics> = L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2> = L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics2";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3> = L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics3";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4> = L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics4";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5> = L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics5";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo> = L"Windows.ApplicationModel.Store.Preview.IStoreHardwareManufacturerInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStorePreview> = L"Windows.ApplicationModel.Store.Preview.IStorePreview";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo> = L"Windows.ApplicationModel.Store.Preview.IStorePreviewProductInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults> = L"Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo> = L"Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper> = L"Windows.ApplicationModel.Store.Preview.IWebAuthenticationCoreManagerHelper";
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>{ 0x1810FDA0,0xE853,0x565E,{ 0xB8,0x74,0x7A,0x8A,0x7B,0x9A,0x0E,0x0F } }; // 1810FDA0-E853-565E-B874-7A8A7B9A0E0F
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>{ 0x5C817CAF,0xAED5,0x5999,{ 0xB4,0xC9,0x8C,0x60,0x89,0x8B,0xC4,0xF3 } }; // 5C817CAF-AED5-5999-B4C9-8C60898BC4F3
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>{ 0x728F7FC0,0x8628,0x42EC,{ 0x84,0xA2,0x07,0x78,0x0E,0xB4,0x4D,0x8B } }; // 728F7FC0-8628-42EC-84A2-07780EB44D8B
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>{ 0x657C4595,0xC8B7,0x4FE9,{ 0x9F,0x4C,0x4D,0x71,0x02,0x7D,0x34,0x7E } }; // 657C4595-C8B7-4FE9-9F4C-4D71027D347E
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>{ 0x6D45F57C,0xF144,0x4CB5,{ 0x9D,0x3F,0x4E,0xB0,0x5E,0x30,0xB6,0xD3 } }; // 6D45F57C-F144-4CB5-9D3F-4EB05E30B6D3
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>{ 0x20FF56D2,0x4EE3,0x4CF0,{ 0x9B,0x12,0x55,0x2C,0x03,0x31,0x0F,0x75 } }; // 20FF56D2-4EE3-4CF0-9B12-552C03310F75
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>{ 0xF7613191,0x8FA9,0x49DB,{ 0x82,0x2B,0x01,0x60,0xE7,0xE4,0xE5,0xC5 } }; // F7613191-8FA9-49DB-822B-0160E7E4E5C5
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>{ 0xF292DC08,0xC654,0x43AC,{ 0xA2,0x1F,0x34,0x80,0x1C,0x9D,0x33,0x88 } }; // F292DC08-C654-43AC-A21F-34801C9D3388
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStorePreview>{ 0x8A157241,0x840E,0x49A9,{ 0xBC,0x01,0x5D,0x5B,0x01,0xFB,0xC8,0xE9 } }; // 8A157241-840E-49A9-BC01-5D5B01FBC8E9
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>{ 0x1937DBB3,0x6C01,0x4C9D,{ 0x85,0xCD,0x5B,0xAB,0xAA,0xC2,0xB3,0x51 } }; // 1937DBB3-6C01-4C9D-85CD-5BABAAC2B351
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>{ 0xB0DAAED1,0xD6C5,0x4E53,{ 0xA0,0x43,0xFB,0xA0,0xD8,0xE6,0x12,0x31 } }; // B0DAAED1-D6C5-4E53-A043-FBA0D8E61231
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>{ 0x81FD76E2,0x0B26,0x48D9,{ 0x98,0xCE,0x27,0x46,0x1C,0x66,0x9D,0x6C } }; // 81FD76E2-0B26-48D9-98CE-27461C669D6C
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>{ 0x06A50525,0xE715,0x4123,{ 0x92,0x76,0x9D,0x6F,0x86,0x5B,0xA5,0x5F } }; // 06A50525-E715-4123-9276-9D6F865BA55F
-    template <> struct default_interface<winrt::Windows::ApplicationModel::Store::Preview::DeliveryOptimizationSettings>{ using type = winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::Store::Preview::StoreHardwareManufacturerInfo>{ using type = winrt::Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewProductInfo>{ using type = winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewPurchaseResults>{ using type = winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::Store::Preview::StorePreviewSkuInfo>{ using type = winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo; };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStorePreview>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::DeliveryOptimizationSettings>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StoreConfiguration>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StoreHardwareManufacturerInfo>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StorePreview>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StorePreviewProductInfo>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StorePreviewPurchaseResults>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StorePreviewSkuInfo>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::WebAuthenticationCoreManagerHelper>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::DeliveryOptimizationDownloadMode>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::DeliveryOptimizationDownloadModeSource>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StoreLogOptions>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StorePreviewProductPurchaseStatus>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::Store::Preview::StoreSystemFeature>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::DeliveryOptimizationSettings>{ L"Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StoreConfiguration>{ L"Windows.ApplicationModel.Store.Preview.StoreConfiguration" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StoreHardwareManufacturerInfo>{ L"Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StorePreview>{ L"Windows.ApplicationModel.Store.Preview.StorePreview" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StorePreviewProductInfo>{ L"Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StorePreviewPurchaseResults>{ L"Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StorePreviewSkuInfo>{ L"Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::WebAuthenticationCoreManagerHelper>{ L"Windows.ApplicationModel.Store.Preview.WebAuthenticationCoreManagerHelper" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::DeliveryOptimizationDownloadMode>{ L"Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::DeliveryOptimizationDownloadModeSource>{ L"Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StoreLogOptions>{ L"Windows.ApplicationModel.Store.Preview.StoreLogOptions" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StorePreviewProductPurchaseStatus>{ L"Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::StoreSystemFeature>{ L"Windows.ApplicationModel.Store.Preview.StoreSystemFeature" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>{ L"Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>{ L"Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettingsStatics" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>{ L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>{ L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics2" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>{ L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics3" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>{ L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics4" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>{ L"Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics5" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>{ L"Windows.ApplicationModel.Store.Preview.IStoreHardwareManufacturerInfo" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStorePreview>{ L"Windows.ApplicationModel.Store.Preview.IStorePreview" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>{ L"Windows.ApplicationModel.Store.Preview.IStorePreviewProductInfo" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>{ L"Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>{ L"Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>{ L"Windows.ApplicationModel.Store.Preview.IWebAuthenticationCoreManagerHelper" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>{ 0x1810FDA0,0xE853,0x565E,{ 0xB8,0x74,0x7A,0x8A,0x7B,0x9A,0x0E,0x0F } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>{ 0x5C817CAF,0xAED5,0x5999,{ 0xB4,0xC9,0x8C,0x60,0x89,0x8B,0xC4,0xF3 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>{ 0x728F7FC0,0x8628,0x42EC,{ 0x84,0xA2,0x07,0x78,0x0E,0xB4,0x4D,0x8B } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>{ 0x657C4595,0xC8B7,0x4FE9,{ 0x9F,0x4C,0x4D,0x71,0x02,0x7D,0x34,0x7E } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>{ 0x6D45F57C,0xF144,0x4CB5,{ 0x9D,0x3F,0x4E,0xB0,0x5E,0x30,0xB6,0xD3 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>{ 0x20FF56D2,0x4EE3,0x4CF0,{ 0x9B,0x12,0x55,0x2C,0x03,0x31,0x0F,0x75 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>{ 0xF7613191,0x8FA9,0x49DB,{ 0x82,0x2B,0x01,0x60,0xE7,0xE4,0xE5,0xC5 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>{ 0xF292DC08,0xC654,0x43AC,{ 0xA2,0x1F,0x34,0x80,0x1C,0x9D,0x33,0x88 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreview>{ 0x8A157241,0x840E,0x49A9,{ 0xBC,0x01,0x5D,0x5B,0x01,0xFB,0xC8,0xE9 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>{ 0x1937DBB3,0x6C01,0x4C9D,{ 0x85,0xCD,0x5B,0xAB,0xAA,0xC2,0xB3,0x51 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>{ 0xB0DAAED1,0xD6C5,0x4E53,{ 0xA0,0x43,0xFB,0xA0,0xD8,0xE6,0x12,0x31 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>{ 0x81FD76E2,0x0B26,0x48D9,{ 0x98,0xCE,0x27,0x46,0x1C,0x66,0x9D,0x6C } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>{ 0x06A50525,0xE715,0x4123,{ 0x92,0x76,0x9D,0x6F,0x86,0x5B,0xA5,0x5F } };
+    template <> struct default_interface<Windows::ApplicationModel::Store::Preview::DeliveryOptimizationSettings>{ using type = Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings; };
+    template <> struct default_interface<Windows::ApplicationModel::Store::Preview::StoreHardwareManufacturerInfo>{ using type = Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo; };
+    template <> struct default_interface<Windows::ApplicationModel::Store::Preview::StorePreviewProductInfo>{ using type = Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo; };
+    template <> struct default_interface<Windows::ApplicationModel::Store::Preview::StorePreviewPurchaseResults>{ using type = Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults; };
+    template <> struct default_interface<Windows::ApplicationModel::Store::Preview::StorePreviewSkuInfo>{ using type = Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo; };
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -198,14 +199,14 @@ namespace winrt::impl
             virtual int32_t __stdcall get_DownloadModeSource(int32_t*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall GetCurrentSettings(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -217,7 +218,7 @@ namespace winrt::impl
             virtual int32_t __stdcall FilterUnsupportedSystemFeaturesAsync(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -225,7 +226,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_PurchasePromptingPolicy(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -238,7 +239,7 @@ namespace winrt::impl
             virtual int32_t __stdcall SetPurchasePromptingPolicyForUser(void*, void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -252,7 +253,7 @@ namespace winrt::impl
             virtual int32_t __stdcall ShouldRestrictToEnterpriseStoreOnlyForUser(void*, bool*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -263,7 +264,7 @@ namespace winrt::impl
             virtual int32_t __stdcall PinToDesktopForUser(void*, void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -273,7 +274,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_ManufacturerName(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStorePreview>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStorePreview>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -281,7 +282,7 @@ namespace winrt::impl
             virtual int32_t __stdcall LoadAddOnProductInfosAsync(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -292,14 +293,14 @@ namespace winrt::impl
             virtual int32_t __stdcall get_SkuInfoList(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_ProductPurchaseStatus(int32_t*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -314,7 +315,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_ExtendedData(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>
+    template <> struct abi<Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -328,7 +329,7 @@ namespace winrt::impl
         [[nodiscard]] auto DownloadMode() const;
         [[nodiscard]] auto DownloadModeSource() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IDeliveryOptimizationSettings<D>;
     };
@@ -337,21 +338,21 @@ namespace winrt::impl
     {
         auto GetCurrentSettings() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IDeliveryOptimizationSettingsStatics<D>;
     };
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics
     {
-        auto SetSystemConfiguration(param::hstring const& catalogHardwareManufacturerId, param::hstring const& catalogStoreContentModifierId, winrt::Windows::Foundation::DateTime const& systemConfigurationExpiration, param::hstring const& catalogHardwareDescriptor) const;
+        auto SetSystemConfiguration(param::hstring const& catalogHardwareManufacturerId, param::hstring const& catalogStoreContentModifierId, Windows::Foundation::DateTime const& systemConfigurationExpiration, param::hstring const& catalogHardwareDescriptor) const;
         auto SetMobileOperatorConfiguration(param::hstring const& mobileOperatorId, uint32_t appDownloadLimitInMegabytes, uint32_t updateDownloadLimitInMegabytes) const;
         auto SetStoreWebAccountId(param::hstring const& webAccountId) const;
         auto IsStoreWebAccountId(param::hstring const& webAccountId) const;
         [[nodiscard]] auto HardwareManufacturerInfo() const;
-        auto FilterUnsupportedSystemFeaturesAsync(param::async_iterable<winrt::Windows::ApplicationModel::Store::Preview::StoreSystemFeature> const& systemFeatures) const;
+        auto FilterUnsupportedSystemFeaturesAsync(param::async_iterable<Windows::ApplicationModel::Store::Preview::StoreSystemFeature> const& systemFeatures) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics<D>;
     };
@@ -359,9 +360,9 @@ namespace winrt::impl
     struct consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics2
     {
         [[nodiscard]] auto PurchasePromptingPolicy() const;
-        auto PurchasePromptingPolicy(winrt::Windows::Foundation::IReference<uint32_t> const& value) const;
+        auto PurchasePromptingPolicy(Windows::Foundation::IReference<uint32_t> const& value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics2<D>;
     };
@@ -369,14 +370,14 @@ namespace winrt::impl
     struct consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics3
     {
         auto HasStoreWebAccount() const;
-        auto HasStoreWebAccountForUser(winrt::Windows::System::User const& user) const;
-        auto GetStoreLogDataAsync(winrt::Windows::ApplicationModel::Store::Preview::StoreLogOptions const& options) const;
-        auto SetStoreWebAccountIdForUser(winrt::Windows::System::User const& user, param::hstring const& webAccountId) const;
-        auto IsStoreWebAccountIdForUser(winrt::Windows::System::User const& user, param::hstring const& webAccountId) const;
-        auto GetPurchasePromptingPolicyForUser(winrt::Windows::System::User const& user) const;
-        auto SetPurchasePromptingPolicyForUser(winrt::Windows::System::User const& user, winrt::Windows::Foundation::IReference<uint32_t> const& value) const;
+        auto HasStoreWebAccountForUser(Windows::System::User const& user) const;
+        auto GetStoreLogDataAsync(Windows::ApplicationModel::Store::Preview::StoreLogOptions const& options) const;
+        auto SetStoreWebAccountIdForUser(Windows::System::User const& user, param::hstring const& webAccountId) const;
+        auto IsStoreWebAccountIdForUser(Windows::System::User const& user, param::hstring const& webAccountId) const;
+        auto GetPurchasePromptingPolicyForUser(Windows::System::User const& user) const;
+        auto SetPurchasePromptingPolicyForUser(Windows::System::User const& user, Windows::Foundation::IReference<uint32_t> const& value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics3<D>;
     };
@@ -384,15 +385,15 @@ namespace winrt::impl
     struct consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics4
     {
         auto GetStoreWebAccountId() const;
-        auto GetStoreWebAccountIdForUser(winrt::Windows::System::User const& user) const;
+        auto GetStoreWebAccountIdForUser(Windows::System::User const& user) const;
         auto SetEnterpriseStoreWebAccountId(param::hstring const& webAccountId) const;
-        auto SetEnterpriseStoreWebAccountIdForUser(winrt::Windows::System::User const& user, param::hstring const& webAccountId) const;
+        auto SetEnterpriseStoreWebAccountIdForUser(Windows::System::User const& user, param::hstring const& webAccountId) const;
         auto GetEnterpriseStoreWebAccountId() const;
-        auto GetEnterpriseStoreWebAccountIdForUser(winrt::Windows::System::User const& user) const;
+        auto GetEnterpriseStoreWebAccountIdForUser(Windows::System::User const& user) const;
         auto ShouldRestrictToEnterpriseStoreOnly() const;
-        auto ShouldRestrictToEnterpriseStoreOnlyForUser(winrt::Windows::System::User const& user) const;
+        auto ShouldRestrictToEnterpriseStoreOnlyForUser(Windows::System::User const& user) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics4<D>;
     };
@@ -403,9 +404,9 @@ namespace winrt::impl
         auto IsPinToTaskbarSupported() const;
         auto IsPinToStartSupported() const;
         auto PinToDesktop(param::hstring const& appPackageFamilyName) const;
-        auto PinToDesktopForUser(winrt::Windows::System::User const& user, param::hstring const& appPackageFamilyName) const;
+        auto PinToDesktopForUser(Windows::System::User const& user, param::hstring const& appPackageFamilyName) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStoreConfigurationStatics5<D>;
     };
@@ -417,7 +418,7 @@ namespace winrt::impl
         [[nodiscard]] auto ModelName() const;
         [[nodiscard]] auto ManufacturerName() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStoreHardwareManufacturerInfo<D>;
     };
@@ -427,7 +428,7 @@ namespace winrt::impl
         auto RequestProductPurchaseByProductIdAndSkuIdAsync(param::hstring const& productId, param::hstring const& skuId) const;
         auto LoadAddOnProductInfosAsync() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStorePreview>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStorePreview>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStorePreview<D>;
     };
@@ -440,7 +441,7 @@ namespace winrt::impl
         [[nodiscard]] auto Description() const;
         [[nodiscard]] auto SkuInfoList() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStorePreviewProductInfo<D>;
     };
@@ -449,7 +450,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto ProductPurchaseStatus() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStorePreviewPurchaseResults<D>;
     };
@@ -466,17 +467,17 @@ namespace winrt::impl
         [[nodiscard]] auto FormattedListPrice() const;
         [[nodiscard]] auto ExtendedData() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IStorePreviewSkuInfo<D>;
     };
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_IWebAuthenticationCoreManagerHelper
     {
-        auto RequestTokenWithUIElementHostingAsync(winrt::Windows::Security::Authentication::Web::Core::WebTokenRequest const& request, winrt::Windows::UI::Xaml::UIElement const& uiElement) const;
-        auto RequestTokenWithUIElementHostingAsync(winrt::Windows::Security::Authentication::Web::Core::WebTokenRequest const& request, winrt::Windows::Security::Credentials::WebAccount const& webAccount, winrt::Windows::UI::Xaml::UIElement const& uiElement) const;
+        auto RequestTokenWithUIElementHostingAsync(Windows::Security::Authentication::Web::Core::WebTokenRequest const& request, Windows::UI::Xaml::UIElement const& uiElement) const;
+        auto RequestTokenWithUIElementHostingAsync(Windows::Security::Authentication::Web::Core::WebTokenRequest const& request, Windows::Security::Credentials::WebAccount const& webAccount, Windows::UI::Xaml::UIElement const& uiElement) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>
+    template <> struct consume<Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Store_Preview_IWebAuthenticationCoreManagerHelper<D>;
     };

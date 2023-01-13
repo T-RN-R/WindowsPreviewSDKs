@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -31,14 +31,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -446,28 +438,23 @@ EXTERN_C const IID IID_IXmlReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IXmlReader * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IXmlReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IXmlReader * This);
         
-        DECLSPEC_XFGVIRT(IXmlReader, SetInput)
         HRESULT ( STDMETHODCALLTYPE *SetInput )( 
             IXmlReader * This,
             /* [annotation] */ 
             _In_opt_  IUnknown *pInput);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetProperty)
         HRESULT ( STDMETHODCALLTYPE *GetProperty )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -475,7 +462,6 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _Out_  LONG_PTR *ppValue);
         
-        DECLSPEC_XFGVIRT(IXmlReader, SetProperty)
         HRESULT ( STDMETHODCALLTYPE *SetProperty )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -483,27 +469,22 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _In_opt_  LONG_PTR pValue);
         
-        DECLSPEC_XFGVIRT(IXmlReader, Read)
         HRESULT ( STDMETHODCALLTYPE *Read )( 
             IXmlReader * This,
             /* [annotation] */ 
             _Out_opt_  XmlNodeType *pNodeType);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetNodeType)
         HRESULT ( STDMETHODCALLTYPE *GetNodeType )( 
             IXmlReader * This,
             /* [annotation] */ 
             _Out_  XmlNodeType *pNodeType);
         
-        DECLSPEC_XFGVIRT(IXmlReader, MoveToFirstAttribute)
         HRESULT ( STDMETHODCALLTYPE *MoveToFirstAttribute )( 
             IXmlReader * This);
         
-        DECLSPEC_XFGVIRT(IXmlReader, MoveToNextAttribute)
         HRESULT ( STDMETHODCALLTYPE *MoveToNextAttribute )( 
             IXmlReader * This);
         
-        DECLSPEC_XFGVIRT(IXmlReader, MoveToAttributeByName)
         HRESULT ( STDMETHODCALLTYPE *MoveToAttributeByName )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -511,11 +492,9 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszNamespaceUri);
         
-        DECLSPEC_XFGVIRT(IXmlReader, MoveToElement)
         HRESULT ( STDMETHODCALLTYPE *MoveToElement )( 
             IXmlReader * This);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetQualifiedName)
         HRESULT ( STDMETHODCALLTYPE *GetQualifiedName )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -523,7 +502,6 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _Out_opt_  UINT *pcwchQualifiedName);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetNamespaceUri)
         HRESULT ( STDMETHODCALLTYPE *GetNamespaceUri )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -531,7 +509,6 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _Out_opt_  UINT *pcwchNamespaceUri);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetLocalName)
         HRESULT ( STDMETHODCALLTYPE *GetLocalName )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -539,7 +516,6 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _Out_opt_  UINT *pcwchLocalName);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetPrefix)
         HRESULT ( STDMETHODCALLTYPE *GetPrefix )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -547,7 +523,6 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _Out_opt_  UINT *pcwchPrefix);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetValue)
         HRESULT ( STDMETHODCALLTYPE *GetValue )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -555,7 +530,6 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _Out_opt_  UINT *pcwchValue);
         
-        DECLSPEC_XFGVIRT(IXmlReader, ReadValueChunk)
         HRESULT ( STDMETHODCALLTYPE *ReadValueChunk )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -565,7 +539,6 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _Inout_  UINT *pcwchRead);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetBaseUri)
         HRESULT ( STDMETHODCALLTYPE *GetBaseUri )( 
             IXmlReader * This,
             /* [annotation] */ 
@@ -573,39 +546,32 @@ EXTERN_C const IID IID_IXmlReader;
             /* [annotation] */ 
             _Out_opt_  UINT *pcwchBaseUri);
         
-        DECLSPEC_XFGVIRT(IXmlReader, IsDefault)
         BOOL ( STDMETHODCALLTYPE *IsDefault )( 
             IXmlReader * This);
         
-        DECLSPEC_XFGVIRT(IXmlReader, IsEmptyElement)
         BOOL ( STDMETHODCALLTYPE *IsEmptyElement )( 
             IXmlReader * This);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetLineNumber)
         HRESULT ( STDMETHODCALLTYPE *GetLineNumber )( 
             IXmlReader * This,
             /* [annotation] */ 
             _Out_  UINT *pnLineNumber);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetLinePosition)
         HRESULT ( STDMETHODCALLTYPE *GetLinePosition )( 
             IXmlReader * This,
             /* [annotation] */ 
             _Out_  UINT *pnLinePosition);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetAttributeCount)
         HRESULT ( STDMETHODCALLTYPE *GetAttributeCount )( 
             IXmlReader * This,
             /* [annotation] */ 
             _Out_  UINT *pnAttributeCount);
         
-        DECLSPEC_XFGVIRT(IXmlReader, GetDepth)
         HRESULT ( STDMETHODCALLTYPE *GetDepth )( 
             IXmlReader * This,
             /* [annotation] */ 
             _Out_  UINT *pnDepth);
         
-        DECLSPEC_XFGVIRT(IXmlReader, IsEOF)
         BOOL ( STDMETHODCALLTYPE *IsEOF )( 
             IXmlReader * This);
         
@@ -746,22 +712,18 @@ EXTERN_C const IID IID_IXmlResolver;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IXmlResolver * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IXmlResolver * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IXmlResolver * This);
         
-        DECLSPEC_XFGVIRT(IXmlResolver, ResolveUri)
         HRESULT ( STDMETHODCALLTYPE *ResolveUri )( 
             IXmlResolver * This,
             /* [annotation] */ 
@@ -984,28 +946,23 @@ EXTERN_C const IID IID_IXmlWriter;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IXmlWriter * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IXmlWriter * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IXmlWriter * This);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, SetOutput)
         HRESULT ( STDMETHODCALLTYPE *SetOutput )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_opt_  IUnknown *pOutput);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, GetProperty)
         HRESULT ( STDMETHODCALLTYPE *GetProperty )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1013,7 +970,6 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _Out_  LONG_PTR *ppValue);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, SetProperty)
         HRESULT ( STDMETHODCALLTYPE *SetProperty )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1021,7 +977,6 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_opt_  LONG_PTR pValue);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteAttributes)
         HRESULT ( STDMETHODCALLTYPE *WriteAttributes )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1029,7 +984,6 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_  BOOL fWriteDefaultAttributes);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteAttributeString)
         HRESULT ( STDMETHODCALLTYPE *WriteAttributeString )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1041,19 +995,16 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszValue);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteCData)
         HRESULT ( STDMETHODCALLTYPE *WriteCData )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszText);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteCharEntity)
         HRESULT ( STDMETHODCALLTYPE *WriteCharEntity )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_  WCHAR wch);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteChars)
         HRESULT ( STDMETHODCALLTYPE *WriteChars )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1061,13 +1012,11 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_  UINT cwch);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteComment)
         HRESULT ( STDMETHODCALLTYPE *WriteComment )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszComment);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteDocType)
         HRESULT ( STDMETHODCALLTYPE *WriteDocType )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1079,7 +1028,6 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszSubset);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteElementString)
         HRESULT ( STDMETHODCALLTYPE *WriteElementString )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1091,37 +1039,30 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszValue);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteEndDocument)
         HRESULT ( STDMETHODCALLTYPE *WriteEndDocument )( 
             IXmlWriter * This);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteEndElement)
         HRESULT ( STDMETHODCALLTYPE *WriteEndElement )( 
             IXmlWriter * This);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteEntityRef)
         HRESULT ( STDMETHODCALLTYPE *WriteEntityRef )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_  LPCWSTR pwszName);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteFullEndElement)
         HRESULT ( STDMETHODCALLTYPE *WriteFullEndElement )( 
             IXmlWriter * This);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteName)
         HRESULT ( STDMETHODCALLTYPE *WriteName )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_  LPCWSTR pwszName);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteNmToken)
         HRESULT ( STDMETHODCALLTYPE *WriteNmToken )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_  LPCWSTR pwszNmToken);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteNode)
         HRESULT ( STDMETHODCALLTYPE *WriteNode )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1129,7 +1070,6 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_  BOOL fWriteDefaultAttributes);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteNodeShallow)
         HRESULT ( STDMETHODCALLTYPE *WriteNodeShallow )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1137,7 +1077,6 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_  BOOL fWriteDefaultAttributes);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteProcessingInstruction)
         HRESULT ( STDMETHODCALLTYPE *WriteProcessingInstruction )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1145,7 +1084,6 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszText);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteQualifiedName)
         HRESULT ( STDMETHODCALLTYPE *WriteQualifiedName )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1153,13 +1091,11 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszNamespaceUri);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteRaw)
         HRESULT ( STDMETHODCALLTYPE *WriteRaw )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszData);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteRawChars)
         HRESULT ( STDMETHODCALLTYPE *WriteRawChars )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1167,13 +1103,11 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_  UINT cwch);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteStartDocument)
         HRESULT ( STDMETHODCALLTYPE *WriteStartDocument )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_  XmlStandalone standalone);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteStartElement)
         HRESULT ( STDMETHODCALLTYPE *WriteStartElement )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1183,13 +1117,11 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszNamespaceUri);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteString)
         HRESULT ( STDMETHODCALLTYPE *WriteString )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszText);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteSurrogateCharEntity)
         HRESULT ( STDMETHODCALLTYPE *WriteSurrogateCharEntity )( 
             IXmlWriter * This,
             /* [annotation] */ 
@@ -1197,13 +1129,11 @@ EXTERN_C const IID IID_IXmlWriter;
             /* [annotation] */ 
             _In_  WCHAR wchHigh);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, WriteWhitespace)
         HRESULT ( STDMETHODCALLTYPE *WriteWhitespace )( 
             IXmlWriter * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszWhitespace);
         
-        DECLSPEC_XFGVIRT(IXmlWriter, Flush)
         HRESULT ( STDMETHODCALLTYPE *Flush )( 
             IXmlWriter * This);
         
@@ -1500,28 +1430,23 @@ EXTERN_C const IID IID_IXmlWriterLite;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IXmlWriterLite * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IXmlWriterLite * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IXmlWriterLite * This);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, SetOutput)
         HRESULT ( STDMETHODCALLTYPE *SetOutput )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_opt_  IUnknown *pOutput);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, GetProperty)
         HRESULT ( STDMETHODCALLTYPE *GetProperty )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1529,7 +1454,6 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _Out_  LONG_PTR *ppValue);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, SetProperty)
         HRESULT ( STDMETHODCALLTYPE *SetProperty )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1537,7 +1461,6 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_opt_  LONG_PTR pValue);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteAttributes)
         HRESULT ( STDMETHODCALLTYPE *WriteAttributes )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1545,7 +1468,6 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  BOOL fWriteDefaultAttributes);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteAttributeString)
         HRESULT ( STDMETHODCALLTYPE *WriteAttributeString )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1557,19 +1479,16 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  UINT cwszValue);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteCData)
         HRESULT ( STDMETHODCALLTYPE *WriteCData )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszText);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteCharEntity)
         HRESULT ( STDMETHODCALLTYPE *WriteCharEntity )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_  WCHAR wch);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteChars)
         HRESULT ( STDMETHODCALLTYPE *WriteChars )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1577,13 +1496,11 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  UINT cwch);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteComment)
         HRESULT ( STDMETHODCALLTYPE *WriteComment )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszComment);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteDocType)
         HRESULT ( STDMETHODCALLTYPE *WriteDocType )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1595,7 +1512,6 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszSubset);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteElementString)
         HRESULT ( STDMETHODCALLTYPE *WriteElementString )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1605,11 +1521,9 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszValue);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteEndDocument)
         HRESULT ( STDMETHODCALLTYPE *WriteEndDocument )( 
             IXmlWriterLite * This);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteEndElement)
         HRESULT ( STDMETHODCALLTYPE *WriteEndElement )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1617,13 +1531,11 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  UINT cwszQName);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteEntityRef)
         HRESULT ( STDMETHODCALLTYPE *WriteEntityRef )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_  LPCWSTR pwszName);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteFullEndElement)
         HRESULT ( STDMETHODCALLTYPE *WriteFullEndElement )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1631,19 +1543,16 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  UINT cwszQName);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteName)
         HRESULT ( STDMETHODCALLTYPE *WriteName )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_  LPCWSTR pwszName);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteNmToken)
         HRESULT ( STDMETHODCALLTYPE *WriteNmToken )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_  LPCWSTR pwszNmToken);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteNode)
         HRESULT ( STDMETHODCALLTYPE *WriteNode )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1651,7 +1560,6 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  BOOL fWriteDefaultAttributes);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteNodeShallow)
         HRESULT ( STDMETHODCALLTYPE *WriteNodeShallow )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1659,7 +1567,6 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  BOOL fWriteDefaultAttributes);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteProcessingInstruction)
         HRESULT ( STDMETHODCALLTYPE *WriteProcessingInstruction )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1667,13 +1574,11 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszText);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteRaw)
         HRESULT ( STDMETHODCALLTYPE *WriteRaw )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszData);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteRawChars)
         HRESULT ( STDMETHODCALLTYPE *WriteRawChars )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1681,13 +1586,11 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  UINT cwch);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteStartDocument)
         HRESULT ( STDMETHODCALLTYPE *WriteStartDocument )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_  XmlStandalone standalone);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteStartElement)
         HRESULT ( STDMETHODCALLTYPE *WriteStartElement )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1695,13 +1598,11 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  UINT cwszQName);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteString)
         HRESULT ( STDMETHODCALLTYPE *WriteString )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszText);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteSurrogateCharEntity)
         HRESULT ( STDMETHODCALLTYPE *WriteSurrogateCharEntity )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
@@ -1709,13 +1610,11 @@ EXTERN_C const IID IID_IXmlWriterLite;
             /* [annotation] */ 
             _In_  WCHAR wchHigh);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, WriteWhitespace)
         HRESULT ( STDMETHODCALLTYPE *WriteWhitespace )( 
             IXmlWriterLite * This,
             /* [annotation] */ 
             _In_opt_  LPCWSTR pwszWhitespace);
         
-        DECLSPEC_XFGVIRT(IXmlWriterLite, Flush)
         HRESULT ( STDMETHODCALLTYPE *Flush )( 
             IXmlWriterLite * This);
         

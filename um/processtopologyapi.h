@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -36,10 +38,12 @@ GetProcessGroupAffinity(
     _Out_writes_(*GroupCount) PUSHORT GroupArray
     );
 
+
 #endif // (_WIN32_WINNT >= 0x0601)
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
+
 
 #pragma region Application Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
@@ -54,6 +58,7 @@ GetThreadGroupAffinity(
     _Out_ PGROUP_AFFINITY GroupAffinity
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -62,6 +67,7 @@ SetThreadGroupAffinity(
     _In_ CONST GROUP_AFFINITY* GroupAffinity,
     _Out_opt_ PGROUP_AFFINITY PreviousGroupAffinity
     );
+
 
 #endif // (_WIN32_WINNT >= 0x0601)
 

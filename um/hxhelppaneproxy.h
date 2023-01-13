@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -128,33 +120,27 @@ EXTERN_C const IID IID_IHxHelpPane;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IHxHelpPane * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IHxHelpPane * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IHxHelpPane * This);
         
-        DECLSPEC_XFGVIRT(IHxHelpPane, DisplayTask)
         HRESULT ( STDMETHODCALLTYPE *DisplayTask )( 
             __RPC__in IHxHelpPane * This,
             /* [in] */ __RPC__in BSTR bstrUrl);
         
-        DECLSPEC_XFGVIRT(IHxHelpPane, DisplayContents)
         HRESULT ( STDMETHODCALLTYPE *DisplayContents )( 
             __RPC__in IHxHelpPane * This,
             /* [annotation][in] */ 
             _In_opt_  BSTR bstrUrl);
         
-        DECLSPEC_XFGVIRT(IHxHelpPane, DisplaySearchResults)
         HRESULT ( STDMETHODCALLTYPE *DisplaySearchResults )( 
             __RPC__in IHxHelpPane * This,
             /* [in] */ __RPC__in BSTR bstrSearchQuery);
@@ -229,22 +215,18 @@ EXTERN_C const IID IID_IHxInteractiveUser;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IHxInteractiveUser * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IHxInteractiveUser * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IHxInteractiveUser * This);
         
-        DECLSPEC_XFGVIRT(IHxInteractiveUser, Execute)
         HRESULT ( STDMETHODCALLTYPE *Execute )( 
             __RPC__in IHxInteractiveUser * This,
             /* [in] */ __RPC__in LPCWSTR pcUrl);

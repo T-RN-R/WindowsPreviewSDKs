@@ -93,6 +93,8 @@ NetRingGetElementAtIndex(
     _In_ UINT32 Index
 )
 {
+    NT_ASSERT(Index < Ring->NumberOfElements);
+
     return (void *)(Ring->Buffer + (SIZE_T)Index * Ring->ElementStride);
 }
 
@@ -193,16 +195,6 @@ NetRingGetFragmentAtIndex(
 )
 {
     return (NET_FRAGMENT *)NetRingGetElementAtIndex(Ring, Index);
-}
-
-inline
-SIZE_T *
-NetRingGetDataBufferAtIndex(
-    NET_RING const * Ring,
-    UINT32 Index
-)
-{
-    return (SIZE_T *)NetRingGetElementAtIndex(Ring, Index);
 }
 
 EXTERN_C_END

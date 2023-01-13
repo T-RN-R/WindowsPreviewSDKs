@@ -289,7 +289,7 @@ namespace Windows
                     Disabled = 1
                 };
 
-                [contract(Windows.Foundation.UniversalApiContract, 10.0)]
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)]
                 enum InteractionTrackerPositionUpdateOption
                 {
                     Default                         = 0,
@@ -423,7 +423,7 @@ namespace Windows
                     [propget] HRESULT IsInertiaFromImpulse([out] [retval] boolean* value);
                 }
 
-                [contract(Windows.Foundation.UniversalApiContract, 10.0)]
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)]
                 [exclusiveto(Windows.UI.Composition.Interactions.InteractionTracker)]
                 [uuid(D3EF5DA2-A254-40E4-88D5-44E4E16B5809)]
                 interface IInteractionTracker5 : IInspectable
@@ -774,7 +774,7 @@ namespace Windows
                     [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.UI.Composition.Interactions.IInteractionTracker2;
                     [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.UI.Composition.Interactions.IInteractionTracker3;
                     [contract(Windows.Foundation.UniversalApiContract, 7.0)] interface Windows.UI.Composition.Interactions.IInteractionTracker4;
-                    [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.UI.Composition.Interactions.IInteractionTracker5;
+                    [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.Composition.Interactions.IInteractionTracker5;
                 }
 
                 [contract(Windows.Foundation.UniversalApiContract, 3.0)]

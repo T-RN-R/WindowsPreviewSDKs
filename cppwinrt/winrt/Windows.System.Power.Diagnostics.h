@@ -1,53 +1,51 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_System_Power_Diagnostics_H
 #define WINRT_Windows_System_Power_Diagnostics_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.220418.1"), "Mismatched C++/WinRT headers.");
-#define CPPWINRT_VERSION "2.0.220418.1"
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.System.Power.h"
 #include "winrt/impl/Windows.System.Power.Diagnostics.2.h"
 namespace winrt::impl
 {
     template <typename D> auto consume_Windows_System_Power_Diagnostics_IBackgroundEnergyDiagnosticsStatics<D>::DeviceSpecificConversionFactor() const
     {
-        double value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics)->get_DeviceSpecificConversionFactor(&value));
+        double value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics)->get_DeviceSpecificConversionFactor(&value));
         return value;
     }
     template <typename D> auto consume_Windows_System_Power_Diagnostics_IBackgroundEnergyDiagnosticsStatics<D>::ComputeTotalEnergyUsage() const
     {
-        uint64_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics)->ComputeTotalEnergyUsage(&value));
+        uint64_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics)->ComputeTotalEnergyUsage(&value));
         return value;
     }
     template <typename D> auto consume_Windows_System_Power_Diagnostics_IBackgroundEnergyDiagnosticsStatics<D>::ResetTotalEnergyUsage() const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics)->ResetTotalEnergyUsage());
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics)->ResetTotalEnergyUsage());
     }
     template <typename D> auto consume_Windows_System_Power_Diagnostics_IForegroundEnergyDiagnosticsStatics<D>::DeviceSpecificConversionFactor() const
     {
-        double value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics)->get_DeviceSpecificConversionFactor(&value));
+        double value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics)->get_DeviceSpecificConversionFactor(&value));
         return value;
     }
     template <typename D> auto consume_Windows_System_Power_Diagnostics_IForegroundEnergyDiagnosticsStatics<D>::ComputeTotalEnergyUsage() const
     {
-        uint64_t value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics)->ComputeTotalEnergyUsage(&value));
+        uint64_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics)->ComputeTotalEnergyUsage(&value));
         return value;
     }
     template <typename D> auto consume_Windows_System_Power_Diagnostics_IForegroundEnergyDiagnosticsStatics<D>::ResetTotalEnergyUsage() const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics)->ResetTotalEnergyUsage());
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics)->ResetTotalEnergyUsage());
     }
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics> : produce_base<D, winrt::Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics>
+    struct produce<D, Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics> : produce_base<D, Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics>
     {
         int32_t __stdcall get_DeviceSpecificConversionFactor(double* value) noexcept final try
         {
@@ -74,7 +72,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics> : produce_base<D, winrt::Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics>
+    struct produce<D, Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics> : produce_base<D, Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics>
     {
         int32_t __stdcall get_DeviceSpecificConversionFactor(double* value) noexcept final try
         {
@@ -134,8 +132,6 @@ namespace std
     template<> struct hash<winrt::Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Power::Diagnostics::BackgroundEnergyDiagnostics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Power::Diagnostics::ForegroundEnergyDiagnostics> : winrt::impl::hash_base {};
-#endif
-#ifdef __cpp_lib_format
 #endif
 }
 #endif

@@ -127,7 +127,7 @@
      _Success_(return != FALSE) BOOL
      PathCanonicalizeA(_Out_writes_(MAX_PATH) LPSTR pszBuf, LPCSTR pszPath) :
         pszBuf is only guaranteed to be NULL-terminated when TRUE is returned,
-        and FALSE indicates failure. In common practice, callers check for zero
+        and FALSE indiates failure. In common practice, callers check for zero
         vs. non-zero returns, so it is preferable to express the success
         criteria in terms of zero/non-zero, not checked for exactly TRUE.
 
@@ -580,7 +580,7 @@ enum __SAL_YesNo {_SAL_notpresent, _SAL_no, _SAL_maybe, _SAL_yes, _SAL_default};
 
 // Annotations to allow expressing generalized pre and post conditions.
 // 'cond' may be any valid SAL expression that is considered to be true as a precondition
-// or postcondition (respectively).
+// or postcondition (respsectively).
 #define _Pre_satisfies_(cond)       _SAL2_Source_(_Pre_satisfies_, (cond), _Pre_satisfies_impl_(cond))
 #define _Post_satisfies_(cond)      _SAL2_Source_(_Post_satisfies_, (cond), _Post_satisfies_impl_(cond))
 
@@ -844,7 +844,7 @@ enum __SAL_YesNo {_SAL_notpresent, _SAL_no, _SAL_maybe, _SAL_yes, _SAL_default};
 
 
 // 'out' with buffer size
-// e.g. void GetIndices( _Out_cap_(cIndices) int* rgIndices, size_t cIndices );
+// e.g. void GetIndeces( _Out_cap_(cIndeces) int* rgIndeces, size_t cIndices );
 // buffer capacity is described by another parameter
 #define _Out_cap_(size)                   _SAL1_1_Source_(_Out_cap_, (size), _Pre_cap_(size)           _Post_valid_impl_)
 #define _Out_opt_cap_(size)               _SAL1_1_Source_(_Out_opt_cap_, (size), _Pre_opt_cap_(size)       _Post_valid_impl_)
@@ -927,7 +927,7 @@ enum __SAL_YesNo {_SAL_notpresent, _SAL_no, _SAL_maybe, _SAL_yes, _SAL_default};
 
 
 // 'inout' buffers with initialized elements before and after the call
-// e.g. void ModifyIndices( _Inout_count_(cIndices) int* rgIndices, size_t cIndices );
+// e.g. void ModifyIndices( _Inout_count_(cIndices) int* rgIndeces, size_t cIndices );
 #define _Inout_count_(size)               _SAL1_1_Source_(_Inout_count_, (size), _Prepost_count_(size))
 #define _Inout_opt_count_(size)           _SAL1_1_Source_(_Inout_opt_count_, (size), _Prepost_opt_count_(size))
 #define _Inout_bytecount_(size)           _SAL1_1_Source_(_Inout_bytecount_, (size), _Prepost_bytecount_(size))
@@ -939,7 +939,7 @@ enum __SAL_YesNo {_SAL_notpresent, _SAL_no, _SAL_maybe, _SAL_yes, _SAL_default};
 #define _Inout_opt_bytecount_c_(size)     _SAL1_1_Source_(_Inout_opt_bytecount_c_, (size), _Prepost_opt_bytecount_c_(size))
 
 // nullterminated 'inout' buffers with initialized elements before and after the call
-// e.g. void ModifyIndices( _Inout_count_(cIndices) int* rgIndices, size_t cIndices );
+// e.g. void ModifyIndices( _Inout_count_(cIndices) int* rgIndeces, size_t cIndices );
 #define _Inout_z_count_(size)               _SAL1_1_Source_(_Inout_z_count_, (size), _Prepost_z_ _Prepost_count_(size))
 #define _Inout_opt_z_count_(size)           _SAL1_1_Source_(_Inout_opt_z_count_, (size), _Prepost_z_ _Prepost_opt_count_(size))
 #define _Inout_z_bytecount_(size)           _SAL1_1_Source_(_Inout_z_bytecount_, (size), _Prepost_z_ _Prepost_bytecount_(size))
@@ -1486,7 +1486,7 @@ enum __SAL_YesNo {_SAL_notpresent, _SAL_no, _SAL_maybe, _SAL_yes, _SAL_default};
 // not required to be a legal standalone annotation, and in the case
 // of attribute annotations, usually is not.  (In the case of some declspec
 // annotations, it might be, but it should not be assumed so.)  Those
-// symbols will be used in the _PreN..., _PostN... and _RetN... annotations
+// symols will be used in the _PreN..., _PostN... and _RetN... annotations
 // to build up more complete annotations.
 
 // A symbol ending in _impl_ is reserved to the implementation as well,
@@ -2387,7 +2387,7 @@ extern "C" {
      In the primitive "SAL_*" annotations "SAL" stands for Standard
      Annotation Language.  These "SAL_*" annotations are the
      primitives the compiler understands and high-level MACROs
-     will decompose into these primitives.
+     will decompose into these primivates.
     */
 
     #define _SA_SPECSTRIZE( x ) #x
@@ -2408,7 +2408,7 @@ extern "C" {
     /*
      __readonly l
      __notreadonly l
-     __maybereadonly l
+     __mabyereadonly l
 
      Annotates a location l. States that location l is not modified after
      this point.  If the annotation is placed on the precondition state of
@@ -2877,12 +2877,8 @@ of each annotation, see the advanced annotations section.
 #endif // ]
 
 #ifndef __fallthrough // [
-#if (!defined(_MSVC_LANG) || _MSVC_LANG < 201703l) // [
     __inner_fallthrough_dec
     #define __fallthrough __inner_fallthrough
-#else // ][
-    #define __fallthrough [[fallthrough]]
-#endif // ]
 #endif // ]
 
 #ifndef __analysis_assume // [
@@ -2972,3 +2968,4 @@ __PRIMOP(int, _In_function_class_(__In_impl_ char*);)
 #endif // ]
 
 #include <concurrencysal.h>
+

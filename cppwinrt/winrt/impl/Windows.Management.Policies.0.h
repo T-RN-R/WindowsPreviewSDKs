@@ -1,15 +1,14 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Management_Policies_0_H
 #define WINRT_Windows_Management_Policies_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
-    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
+    template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -37,20 +36,22 @@ WINRT_EXPORT namespace winrt::Windows::Management::Policies
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::Management::Policies::INamedPolicyData>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Management::Policies::INamedPolicyStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::Management::Policies::NamedPolicy>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Management::Policies::NamedPolicyData>{ using type = class_category; };
-    template <> struct category<winrt::Windows::Management::Policies::NamedPolicyKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::Management::Policies::NamedPolicy> = L"Windows.Management.Policies.NamedPolicy";
-    template <> inline constexpr auto& name_v<winrt::Windows::Management::Policies::NamedPolicyData> = L"Windows.Management.Policies.NamedPolicyData";
-    template <> inline constexpr auto& name_v<winrt::Windows::Management::Policies::NamedPolicyKind> = L"Windows.Management.Policies.NamedPolicyKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::Management::Policies::INamedPolicyData> = L"Windows.Management.Policies.INamedPolicyData";
-    template <> inline constexpr auto& name_v<winrt::Windows::Management::Policies::INamedPolicyStatics> = L"Windows.Management.Policies.INamedPolicyStatics";
-    template <> inline constexpr guid guid_v<winrt::Windows::Management::Policies::INamedPolicyData>{ 0x38DCB198,0x95AC,0x4077,{ 0xA6,0x43,0x80,0x78,0xCA,0xE2,0x64,0x00 } }; // 38DCB198-95AC-4077-A643-8078CAE26400
-    template <> inline constexpr guid guid_v<winrt::Windows::Management::Policies::INamedPolicyStatics>{ 0x7F793BE7,0x76C4,0x4058,{ 0x8C,0xAD,0x67,0x66,0x2C,0xD0,0x5F,0x0D } }; // 7F793BE7-76C4-4058-8CAD-67662CD05F0D
-    template <> struct default_interface<winrt::Windows::Management::Policies::NamedPolicyData>{ using type = winrt::Windows::Management::Policies::INamedPolicyData; };
-    template <> struct abi<winrt::Windows::Management::Policies::INamedPolicyData>
+    template <> struct category<Windows::Management::Policies::INamedPolicyData>{ using type = interface_category; };
+    template <> struct category<Windows::Management::Policies::INamedPolicyStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Management::Policies::NamedPolicy>{ using type = class_category; };
+    template <> struct category<Windows::Management::Policies::NamedPolicyData>{ using type = class_category; };
+    template <> struct category<Windows::Management::Policies::NamedPolicyKind>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::Management::Policies::NamedPolicy>{ L"Windows.Management.Policies.NamedPolicy" };
+    template <> inline constexpr auto& name_v<Windows::Management::Policies::NamedPolicyData>{ L"Windows.Management.Policies.NamedPolicyData" };
+    template <> inline constexpr auto& name_v<Windows::Management::Policies::NamedPolicyKind>{ L"Windows.Management.Policies.NamedPolicyKind" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::Management::Policies::INamedPolicyData>{ L"Windows.Management.Policies.INamedPolicyData" };
+    template <> inline constexpr auto& name_v<Windows::Management::Policies::INamedPolicyStatics>{ L"Windows.Management.Policies.INamedPolicyStatics" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::Management::Policies::INamedPolicyData>{ 0x38DCB198,0x95AC,0x4077,{ 0xA6,0x43,0x80,0x78,0xCA,0xE2,0x64,0x00 } };
+    template <> inline constexpr guid guid_v<Windows::Management::Policies::INamedPolicyStatics>{ 0x7F793BE7,0x76C4,0x4058,{ 0x8C,0xAD,0x67,0x66,0x2C,0xD0,0x5F,0x0D } };
+    template <> struct default_interface<Windows::Management::Policies::NamedPolicyData>{ using type = Windows::Management::Policies::INamedPolicyData; };
+    template <> struct abi<Windows::Management::Policies::INamedPolicyData>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -69,7 +70,7 @@ namespace winrt::impl
             virtual int32_t __stdcall remove_Changed(winrt::event_token) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::Management::Policies::INamedPolicyStatics>
+    template <> struct abi<Windows::Management::Policies::INamedPolicyStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -91,12 +92,12 @@ namespace winrt::impl
         auto GetInt32() const;
         auto GetInt64() const;
         auto GetString() const;
-        auto Changed(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Management::Policies::NamedPolicyData, winrt::Windows::Foundation::IInspectable> const& changedHandler) const;
-        using Changed_revoker = impl::event_revoker<winrt::Windows::Management::Policies::INamedPolicyData, &impl::abi_t<winrt::Windows::Management::Policies::INamedPolicyData>::remove_Changed>;
-        [[nodiscard]] Changed_revoker Changed(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Management::Policies::NamedPolicyData, winrt::Windows::Foundation::IInspectable> const& changedHandler) const;
+        auto Changed(Windows::Foundation::TypedEventHandler<Windows::Management::Policies::NamedPolicyData, Windows::Foundation::IInspectable> const& changedHandler) const;
+        using Changed_revoker = impl::event_revoker<Windows::Management::Policies::INamedPolicyData, &impl::abi_t<Windows::Management::Policies::INamedPolicyData>::remove_Changed>;
+        [[nodiscard]] Changed_revoker Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Management::Policies::NamedPolicyData, Windows::Foundation::IInspectable> const& changedHandler) const;
         auto Changed(winrt::event_token const& cookie) const noexcept;
     };
-    template <> struct consume<winrt::Windows::Management::Policies::INamedPolicyData>
+    template <> struct consume<Windows::Management::Policies::INamedPolicyData>
     {
         template <typename D> using type = consume_Windows_Management_Policies_INamedPolicyData<D>;
     };
@@ -104,9 +105,9 @@ namespace winrt::impl
     struct consume_Windows_Management_Policies_INamedPolicyStatics
     {
         auto GetPolicyFromPath(param::hstring const& area, param::hstring const& name) const;
-        auto GetPolicyFromPathForUser(winrt::Windows::System::User const& user, param::hstring const& area, param::hstring const& name) const;
+        auto GetPolicyFromPathForUser(Windows::System::User const& user, param::hstring const& area, param::hstring const& name) const;
     };
-    template <> struct consume<winrt::Windows::Management::Policies::INamedPolicyStatics>
+    template <> struct consume<Windows::Management::Policies::INamedPolicyStatics>
     {
         template <typename D> using type = consume_Windows_Management_Policies_INamedPolicyStatics<D>;
     };

@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -115,32 +107,26 @@ EXTERN_C const IID IID_IMixerOCXNotify;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IMixerOCXNotify * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IMixerOCXNotify * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IMixerOCXNotify * This);
         
-        DECLSPEC_XFGVIRT(IMixerOCXNotify, OnInvalidateRect)
         HRESULT ( STDMETHODCALLTYPE *OnInvalidateRect )( 
             __RPC__in IMixerOCXNotify * This,
             /* [in] */ __RPC__in LPCRECT lpcRect);
         
-        DECLSPEC_XFGVIRT(IMixerOCXNotify, OnStatusChange)
         HRESULT ( STDMETHODCALLTYPE *OnStatusChange )( 
             __RPC__in IMixerOCXNotify * This,
             /* [in] */ ULONG ulStatusFlags);
         
-        DECLSPEC_XFGVIRT(IMixerOCXNotify, OnDataChange)
         HRESULT ( STDMETHODCALLTYPE *OnDataChange )( 
             __RPC__in IMixerOCXNotify * This,
             /* [in] */ ULONG ulDataFlags);
@@ -242,64 +228,53 @@ EXTERN_C const IID IID_IMixerOCX;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IMixerOCX * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IMixerOCX * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IMixerOCX * This);
         
-        DECLSPEC_XFGVIRT(IMixerOCX, OnDisplayChange)
         HRESULT ( STDMETHODCALLTYPE *OnDisplayChange )( 
             __RPC__in IMixerOCX * This,
             /* [in] */ ULONG ulBitsPerPixel,
             /* [in] */ ULONG ulScreenWidth,
             /* [in] */ ULONG ulScreenHeight);
         
-        DECLSPEC_XFGVIRT(IMixerOCX, GetAspectRatio)
         HRESULT ( STDMETHODCALLTYPE *GetAspectRatio )( 
             __RPC__in IMixerOCX * This,
             /* [out] */ __RPC__out LPDWORD pdwPictAspectRatioX,
             /* [out] */ __RPC__out LPDWORD pdwPictAspectRatioY);
         
-        DECLSPEC_XFGVIRT(IMixerOCX, GetVideoSize)
         HRESULT ( STDMETHODCALLTYPE *GetVideoSize )( 
             __RPC__in IMixerOCX * This,
             /* [out] */ __RPC__out LPDWORD pdwVideoWidth,
             /* [out] */ __RPC__out LPDWORD pdwVideoHeight);
         
-        DECLSPEC_XFGVIRT(IMixerOCX, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             __RPC__in IMixerOCX * This,
             /* [out] */ __RPC__deref_out_opt LPDWORD *pdwStatus);
         
-        DECLSPEC_XFGVIRT(IMixerOCX, OnDraw)
         HRESULT ( STDMETHODCALLTYPE *OnDraw )( 
             __RPC__in IMixerOCX * This,
             /* [in] */ __RPC__in HDC hdcDraw,
             /* [in] */ __RPC__in LPCRECT prcDraw);
         
-        DECLSPEC_XFGVIRT(IMixerOCX, SetDrawRegion)
         HRESULT ( STDMETHODCALLTYPE *SetDrawRegion )( 
             __RPC__in IMixerOCX * This,
             /* [in] */ __RPC__in LPPOINT lpptTopLeftSC,
             /* [in] */ __RPC__in LPCRECT prcDrawCC,
             /* [in] */ __RPC__in LPCRECT lprcClip);
         
-        DECLSPEC_XFGVIRT(IMixerOCX, Advise)
         HRESULT ( STDMETHODCALLTYPE *Advise )( 
             __RPC__in IMixerOCX * This,
             /* [in] */ __RPC__in_opt IMixerOCXNotify *pmdns);
         
-        DECLSPEC_XFGVIRT(IMixerOCX, UnAdvise)
         HRESULT ( STDMETHODCALLTYPE *UnAdvise )( 
             __RPC__in IMixerOCX * This);
         

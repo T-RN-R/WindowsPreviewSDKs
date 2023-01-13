@@ -1,6 +1,6 @@
 /* Header file automatically generated from windows.media.streaming.idl */
 /*
- * File built with Microsoft(R) MIDLRT Compiler Engine Version 10.00.0231 
+ * File built with Microsoft(R) MIDLRT Compiler Engine Version 10.00.0229 
  */
 
 #pragma warning( disable: 4049 )  /* more than 64k source lines */
@@ -112,11 +112,11 @@
 #endif // defined(WINDOWS_APPLICATIONMODEL_BACKGROUND_BACKGROUNDALARMAPPLICATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION 0x40000
+#define WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION 0x20000
 #endif // defined(WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION 0x70000
+#define WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION 0x50000
 #endif // defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSVOIPCONTRACT_VERSION)
@@ -132,7 +132,7 @@
 #endif // defined(WINDOWS_APPLICATIONMODEL_COMMUNICATIONBLOCKING_COMMUNICATIONBLOCKINGCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_FULLTRUSTAPPCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_FULLTRUSTAPPCONTRACT_VERSION 0x20000
+#define WINDOWS_APPLICATIONMODEL_FULLTRUSTAPPCONTRACT_VERSION 0x10000
 #endif // defined(WINDOWS_APPLICATIONMODEL_FULLTRUSTAPPCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_SEARCH_SEARCHCONTRACT_VERSION)
@@ -144,7 +144,7 @@
 #endif // defined(WINDOWS_APPLICATIONMODEL_STARTUPTASKCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION 0x20000
+#define WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION 0x10000
 #endif // defined(WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION)
 
 #if !defined(WINDOWS_DEVICES_PRINTERS_EXTENSIONS_EXTENSIONSCONTRACT_VERSION)
@@ -168,7 +168,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_GAMING_INPUT_GAMINGINPUTPREVIEWCONTRACT_VERSION)
@@ -216,7 +216,7 @@
 #endif // defined(WINDOWS_MEDIA_STREAMING_STREAMINGCONTRACT_VERSION)
 
 #if !defined(WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION)
-#define WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION 0x30000
+#define WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION 0x20000
 #endif // defined(WINDOWS_NETWORKING_CONNECTIVITY_WWANCONTRACT_VERSION)
 
 #if !defined(WINDOWS_NETWORKING_SOCKETS_CONTROLCHANNELTRIGGERCONTRACT_VERSION)
@@ -236,7 +236,7 @@
 #endif // defined(WINDOWS_SECURITY_ENTERPRISEDATA_ENTERPRISEDATACONTRACT_VERSION)
 
 #if !defined(WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION)
-#define WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION 0x70000
+#define WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION 0x40000
 #endif // defined(WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -2199,7 +2199,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IConnectionStatusHandler=__uuidof(IConnectionStatusHandler);
+                extern MIDL_CONST_ID IID & IID_IConnectionStatusHandler=_uuidof(IConnectionStatusHandler);
                 
             } /* Streaming */
         } /* Media */
@@ -2239,7 +2239,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IDeviceControllerFinderHandler=__uuidof(IDeviceControllerFinderHandler);
+                extern MIDL_CONST_ID IID & IID_IDeviceControllerFinderHandler=_uuidof(IDeviceControllerFinderHandler);
                 
             } /* Streaming */
         } /* Media */
@@ -2278,7 +2278,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IRenderingParametersUpdateHandler=__uuidof(IRenderingParametersUpdateHandler);
+                extern MIDL_CONST_ID IID & IID_IRenderingParametersUpdateHandler=_uuidof(IRenderingParametersUpdateHandler);
                 
             } /* Streaming */
         } /* Media */
@@ -2317,7 +2317,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_ITransportParametersUpdateHandler=__uuidof(ITransportParametersUpdateHandler);
+                extern MIDL_CONST_ID IID & IID_ITransportParametersUpdateHandler=_uuidof(ITransportParametersUpdateHandler);
                 
             } /* Streaming */
         } /* Media */
@@ -2408,7 +2408,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IActiveBasicDevice=__uuidof(IActiveBasicDevice);
+                extern MIDL_CONST_ID IID & IID_IActiveBasicDevice=_uuidof(IActiveBasicDevice);
                 
             } /* Streaming */
         } /* Media */
@@ -2467,7 +2467,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IActiveBasicDeviceStatics=__uuidof(IActiveBasicDeviceStatics);
+                extern MIDL_CONST_ID IID & IID_IActiveBasicDeviceStatics=_uuidof(IActiveBasicDeviceStatics);
                 
             } /* Streaming */
         } /* Media */
@@ -2567,7 +2567,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IBasicDevice=__uuidof(IBasicDevice);
+                extern MIDL_CONST_ID IID & IID_IBasicDevice=_uuidof(IBasicDevice);
                 
             } /* Streaming */
         } /* Media */
@@ -2626,7 +2626,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IDeviceController=__uuidof(IDeviceController);
+                extern MIDL_CONST_ID IID & IID_IDeviceController=_uuidof(IDeviceController);
                 
             } /* Streaming */
         } /* Media */
@@ -2674,7 +2674,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IDeviceIcon=__uuidof(IDeviceIcon);
+                extern MIDL_CONST_ID IID & IID_IDeviceIcon=_uuidof(IDeviceIcon);
                 
             } /* Streaming */
         } /* Media */
@@ -2716,7 +2716,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IDevicePair=__uuidof(IDevicePair);
+                extern MIDL_CONST_ID IID & IID_IDevicePair=_uuidof(IDevicePair);
                 
             } /* Streaming */
         } /* Media */
@@ -2846,7 +2846,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IMediaRenderer=__uuidof(IMediaRenderer);
+                extern MIDL_CONST_ID IID & IID_IMediaRenderer=_uuidof(IMediaRenderer);
                 
             } /* Streaming */
         } /* Media */
@@ -2906,7 +2906,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IMediaRendererActionInformation=__uuidof(IMediaRendererActionInformation);
+                extern MIDL_CONST_ID IID & IID_IMediaRendererActionInformation=_uuidof(IMediaRendererActionInformation);
                 
             } /* Streaming */
         } /* Media */
@@ -2950,7 +2950,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IMediaRendererFactory=__uuidof(IMediaRendererFactory);
+                extern MIDL_CONST_ID IID & IID_IMediaRendererFactory=_uuidof(IMediaRendererFactory);
                 
             } /* Streaming */
         } /* Media */
@@ -3006,7 +3006,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_IStreamSelectorStatics=__uuidof(IStreamSelectorStatics);
+                extern MIDL_CONST_ID IID & IID_IStreamSelectorStatics=_uuidof(IStreamSelectorStatics);
                 
             } /* Streaming */
         } /* Media */
@@ -3051,7 +3051,7 @@ namespace ABI {
                     
                 };
 
-                MIDL_CONST_ID IID & IID_ITransportParameters=__uuidof(ITransportParameters);
+                extern MIDL_CONST_ID IID & IID_ITransportParameters=_uuidof(ITransportParameters);
                 
             } /* Streaming */
         } /* Media */

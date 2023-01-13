@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -143,26 +135,21 @@ EXTERN_C const IID IID_INSNetSourceCreator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in INSNetSourceCreator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in INSNetSourceCreator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in INSNetSourceCreator * This);
         
-        DECLSPEC_XFGVIRT(INSNetSourceCreator, Initialize)
         HRESULT ( STDMETHODCALLTYPE *Initialize )( 
             __RPC__in INSNetSourceCreator * This);
         
-        DECLSPEC_XFGVIRT(INSNetSourceCreator, CreateNetSource)
         HRESULT ( STDMETHODCALLTYPE *CreateNetSource )( 
             __RPC__in INSNetSourceCreator * This,
             /* [in] */ __RPC__in LPCWSTR pszStreamName,
@@ -172,36 +159,30 @@ EXTERN_C const IID IID_INSNetSourceCreator;
             /* [in] */ __RPC__in_opt IUnknown *pCallback,
             /* [in] */ QWORD qwContext);
         
-        DECLSPEC_XFGVIRT(INSNetSourceCreator, GetNetSourceProperties)
         HRESULT ( STDMETHODCALLTYPE *GetNetSourceProperties )( 
             __RPC__in INSNetSourceCreator * This,
             /* [in] */ __RPC__in LPCWSTR pszStreamName,
             /* [out] */ __RPC__deref_out_opt IUnknown **ppPropertiesNode);
         
-        DECLSPEC_XFGVIRT(INSNetSourceCreator, GetNetSourceSharedNamespace)
         HRESULT ( STDMETHODCALLTYPE *GetNetSourceSharedNamespace )( 
             __RPC__in INSNetSourceCreator * This,
             /* [out] */ __RPC__deref_out_opt IUnknown **ppSharedNamespace);
         
-        DECLSPEC_XFGVIRT(INSNetSourceCreator, GetNetSourceAdminInterface)
         HRESULT ( STDMETHODCALLTYPE *GetNetSourceAdminInterface )( 
             __RPC__in INSNetSourceCreator * This,
             /* [in] */ __RPC__in LPCWSTR pszStreamName,
             /* [out] */ __RPC__out VARIANT *pVal);
         
-        DECLSPEC_XFGVIRT(INSNetSourceCreator, GetNumProtocolsSupported)
         HRESULT ( STDMETHODCALLTYPE *GetNumProtocolsSupported )( 
             __RPC__in INSNetSourceCreator * This,
             /* [out] */ __RPC__out DWORD *pcProtocols);
         
-        DECLSPEC_XFGVIRT(INSNetSourceCreator, GetProtocolName)
         HRESULT ( STDMETHODCALLTYPE *GetProtocolName )( 
             __RPC__in INSNetSourceCreator * This,
             /* [in] */ DWORD dwProtocolNum,
             /* [out] */ __RPC__out WCHAR *pwszProtocolName,
             /* [out][in] */ __RPC__inout WORD *pcchProtocolName);
         
-        DECLSPEC_XFGVIRT(INSNetSourceCreator, Shutdown)
         HRESULT ( STDMETHODCALLTYPE *Shutdown )( 
             __RPC__in INSNetSourceCreator * This);
         

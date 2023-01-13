@@ -22,8 +22,9 @@ extern "C" {
 // interface IVPBaseNotify
 DECLARE_INTERFACE_(IVPBaseNotify, IUnknown)
 {
+public:
 	// this function initializes the reconnection to the decoder. 
-	STDMETHOD (RenegotiateVPParameters)(THIS
+	STDMETHOD (RenegotiateVPParameters)(THIS_
 					   ) PURE;
 
 };
@@ -31,6 +32,7 @@ DECLARE_INTERFACE_(IVPBaseNotify, IUnknown)
 // interface IVPNotify
 DECLARE_INTERFACE_(IVPNotify, IVPBaseNotify)
 {
+public:
     // function to set the mode (bob, weave etc)
     STDMETHOD (SetDeinterlaceMode)(THIS_ 
 				   IN AMVP_MODE mode
@@ -45,6 +47,7 @@ DECLARE_INTERFACE_(IVPNotify, IVPBaseNotify)
 // interface IVPNotify
 DECLARE_INTERFACE_(IVPNotify2, IVPNotify)
 {
+public:
 // function to set the mode (bob, weave etc)
     STDMETHOD (SetVPSyncMaster)(THIS_ 
 				   IN BOOL bVPSyncMaster
@@ -83,6 +86,7 @@ DECLARE_INTERFACE_(IVPNotify2, IVPNotify)
 // interface IVPVBINotify
 DECLARE_INTERFACE_(IVPVBINotify, IVPBaseNotify)
 {
+public:
 };
 
 #ifdef __cplusplus

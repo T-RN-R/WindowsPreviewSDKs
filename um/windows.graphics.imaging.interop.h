@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -114,38 +106,31 @@ EXTERN_C const IID IID_ISoftwareBitmapNative;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISoftwareBitmapNative * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISoftwareBitmapNative * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISoftwareBitmapNative * This);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetIids)
         HRESULT ( STDMETHODCALLTYPE *GetIids )( 
             ISoftwareBitmapNative * This,
             /* [out] */ ULONG *iidCount,
             /* [size_is][size_is][out] */ IID **iids);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetRuntimeClassName)
         HRESULT ( STDMETHODCALLTYPE *GetRuntimeClassName )( 
             ISoftwareBitmapNative * This,
             /* [out] */ HSTRING *className);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetTrustLevel)
         HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )( 
             ISoftwareBitmapNative * This,
             /* [out] */ TrustLevel *trustLevel);
         
-        DECLSPEC_XFGVIRT(ISoftwareBitmapNative, GetData)
         HRESULT ( STDMETHODCALLTYPE *GetData )( 
             ISoftwareBitmapNative * This,
             /* [annotation][in] */ 
@@ -252,38 +237,31 @@ EXTERN_C const IID IID_ISoftwareBitmapNativeFactory;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISoftwareBitmapNativeFactory * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISoftwareBitmapNativeFactory * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISoftwareBitmapNativeFactory * This);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetIids)
         HRESULT ( STDMETHODCALLTYPE *GetIids )( 
             ISoftwareBitmapNativeFactory * This,
             /* [out] */ ULONG *iidCount,
             /* [size_is][size_is][out] */ IID **iids);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetRuntimeClassName)
         HRESULT ( STDMETHODCALLTYPE *GetRuntimeClassName )( 
             ISoftwareBitmapNativeFactory * This,
             /* [out] */ HSTRING *className);
         
-        DECLSPEC_XFGVIRT(IInspectable, GetTrustLevel)
         HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )( 
             ISoftwareBitmapNativeFactory * This,
             /* [out] */ TrustLevel *trustLevel);
         
-        DECLSPEC_XFGVIRT(ISoftwareBitmapNativeFactory, CreateFromWICBitmap)
         HRESULT ( STDMETHODCALLTYPE *CreateFromWICBitmap )( 
             ISoftwareBitmapNativeFactory * This,
             /* [annotation][in] */ 
@@ -295,7 +273,6 @@ EXTERN_C const IID IID_ISoftwareBitmapNativeFactory;
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  LPVOID *ppv);
         
-        DECLSPEC_XFGVIRT(ISoftwareBitmapNativeFactory, CreateFromMF2DBuffer2)
         HRESULT ( STDMETHODCALLTYPE *CreateFromMF2DBuffer2 )( 
             ISoftwareBitmapNativeFactory * This,
             /* [annotation][in] */ 

@@ -1999,7 +1999,7 @@ typedef struct _POLICY_PRIVILEGE_DEFINITION {
 //
 
 //
-// This flag controls LsaLookupSids2 such that for internet SIDs
+// This flag controls LsaLookupSids2 such that for internet SIDs 
 // from identity providers for connected accounts are disallowed
 // connected accounts are those accounts which have a corresponding
 // shadow account in the local SAM database connected to
@@ -2010,9 +2010,9 @@ typedef struct _POLICY_PRIVILEGE_DEFINITION {
 
 // This flag returns the internet names. Otherwise the NT4 style name eg. domain\username
 // will be returned. The exception is if the MSA internet SID is specified
-// then the internet name will be returned unless LSA_LOOKUP_DISALLOW_NON_WINDOWS_INTERNET_SID
+// then the internet name will be returned unless LSA_LOOKUP_DISALLOW_NON_WINDOWS_INTERNET_SID  
 // is specified
-#define LSA_LOOKUP_PREFER_INTERNET_NAMES  0x40000000
+#define LSA_LOOKUP_PREFER_INTERNET_NAMES  0x40000000 
 
 // begin_ntsecapi
 
@@ -2038,7 +2038,6 @@ typedef enum _POLICY_INFORMATION_CLASS {
     PolicyDnsDomainInformationInt,
     PolicyLocalAccountDomainInformation,
     PolicyMachineAccountInformation,
-    PolicyMachineAccountInformation2,
     PolicyLastEntry
 
 } POLICY_INFORMATION_CLASS, *PPOLICY_INFORMATION_CLASS;
@@ -2426,19 +2425,6 @@ typedef struct _POLICY_MACHINE_ACCT_INFO {
 } POLICY_MACHINE_ACCT_INFO, *PPOLICY_MACHINE_ACCT_INFO;
 
 //
-// The following structure corresponds to the PolicyMachineAccountInformation2
-// information class.  Only valid when the machine is joined to an AD domain.
-// When not joined, will return 0+NULL+GUID_NULL.
-//
-typedef struct _POLICY_MACHINE_ACCT_INFO2 {
-
-    ULONG Rid;
-    PSID Sid;
-    GUID ObjectGuid;
-
-} POLICY_MACHINE_ACCT_INFO2, *PPOLICY_MACHINE_ACCT_INFO2;
-
-//
 // The following data type defines the classes of Policy Information / Policy Domain Information
 // that may be used to request notification
 //
@@ -2538,14 +2524,6 @@ typedef PVOID LSA_HANDLE, *PLSA_HANDLE;
 //
 
 //
-// Various buffer sizes for LSAD wire encryption of Auth Infos
-//
-#define LSAD_AES_CRYPT_SHA512_HASH_SIZE     64
-#define LSAD_AES_KEY_SIZE                   16
-#define LSAD_AES_SALT_SIZE                  16
-#define LSAD_AES_BLOCK_SIZE                 16
-
-//
 // This data type defines the following information classes that may be
 // queried or set.
 //
@@ -2565,8 +2543,6 @@ typedef enum _TRUSTED_INFORMATION_CLASS {
     TrustedDomainInformationEx2Internal,
     TrustedDomainFullInformation2Internal,
     TrustedDomainSupportedEncryptionTypes,
-    TrustedDomainAuthInformationInternalAes,
-    TrustedDomainFullInformationInternalAes,
 } TRUSTED_INFORMATION_CLASS, *PTRUSTED_INFORMATION_CLASS;
 
 //
@@ -2706,11 +2682,6 @@ typedef PLSA_TRUST_INFORMATION PTRUSTED_DOMAIN_INFORMATION_BASIC;
 // Note: setting TRUST_ATTRIBUTE_CROSS_ORGANIZATION_ENABLE_TGT_DELEGATION is not recommended from a security standpoint.
 #define TRUST_ATTRIBUTE_CROSS_ORGANIZATION_ENABLE_TGT_DELEGATION 0x00000800
 #endif
-
-// Disables authentication target validation for all NTLM pass-through authentication
-// requests using this trust.
-#define TRUST_ATTRIBUTE_DISABLE_AUTH_TARGET_VALIDATION 0x00001000
-
 // Trust attributes 0x00000040 through 0x00200000 are reserved for future use
 #else
 // Trust attributes 0x00000010 through 0x00200000 are reserved for future use
@@ -2802,9 +2773,7 @@ typedef enum {
     ForestTrustTopLevelName,
     ForestTrustTopLevelNameEx,
     ForestTrustDomainInfo,
-    ForestTrustBinaryInfo,
-    ForestTrustScannerInfo,
-    ForestTrustRecordTypeLast = ForestTrustScannerInfo
+    ForestTrustRecordTypeLast = ForestTrustDomainInfo
 
 } LSA_FOREST_TRUST_RECORD_TYPE;
 
@@ -2835,13 +2804,6 @@ typedef enum {
 #define LSA_NB_DISABLED_ADMIN                    ( 0x00000004L )
 #define LSA_NB_DISABLED_CONFLICT                 ( 0x00000008L )
 
-//
-// FLag definitions for the LSA_FOREST_TRUST_SCANNER_INFO record
-//
-
-#define LSA_SCANNER_INFO_DISABLE_AUTH_TARGET_VALIDATION  ( 0x00000001L )
-#define LSA_SCANNER_INFO_ADMIN_ALL_FLAGS         (LSA_SCANNER_INFO_DISABLE_AUTH_TARGET_VALIDATION)
-
 typedef struct _LSA_FOREST_TRUST_DOMAIN_INFO {
 
 #ifdef MIDL_PASS
@@ -2854,20 +2816,6 @@ typedef struct _LSA_FOREST_TRUST_DOMAIN_INFO {
 
 } LSA_FOREST_TRUST_DOMAIN_INFO, *PLSA_FOREST_TRUST_DOMAIN_INFO;
 
-// LSA_FOREST_TRUST_SCANNER_INFO is usually written from
-// the trust scanner logic that runs internally on the PDC FSMO
-// in the root domain of the forest.
-typedef struct _LSA_FOREST_TRUST_SCANNER_INFO {
-
-#ifdef MIDL_PASS
-    [unique] PISID DomainSid;
-#else
-    PSID DomainSid;
-#endif
-    LSA_UNICODE_STRING DnsName;
-    LSA_UNICODE_STRING NetbiosName;
-
-} LSA_FOREST_TRUST_SCANNER_INFO, *PLSA_FOREST_TRUST_SCANNER_INFO;
 
 #if (_WIN32_WINNT >= 0x0502)
 //
@@ -2907,7 +2855,6 @@ typedef struct _LSA_FOREST_TRUST_RECORD {
                ForestTrustTopLevelNameEx )] LSA_UNICODE_STRING TopLevelName;
         [case( ForestTrustDomainInfo )] LSA_FOREST_TRUST_DOMAIN_INFO DomainInfo;
         [default] LSA_FOREST_TRUST_BINARY_DATA Data;
-
 #else
         LSA_UNICODE_STRING TopLevelName;
         LSA_FOREST_TRUST_DOMAIN_INFO DomainInfo;
@@ -2916,35 +2863,6 @@ typedef struct _LSA_FOREST_TRUST_RECORD {
     } ForestTrustData;
 
 } LSA_FOREST_TRUST_RECORD, *PLSA_FOREST_TRUST_RECORD;
-
-typedef struct _LSA_FOREST_TRUST_RECORD2 {
-
-    ULONG Flags;
-    LSA_FOREST_TRUST_RECORD_TYPE ForestTrustType; // type of record
-    LARGE_INTEGER Time;
-
-#ifdef MIDL_PASS
-    [switch_type( LSA_FOREST_TRUST_RECORD_TYPE ), switch_is( ForestTrustType )]
-#endif
-
-    union {                                       // actual data
-
-#ifdef MIDL_PASS
-        [case( ForestTrustTopLevelName,
-               ForestTrustTopLevelNameEx )] LSA_UNICODE_STRING TopLevelName;
-        [case( ForestTrustDomainInfo )] LSA_FOREST_TRUST_DOMAIN_INFO DomainInfo;
-        [case( ForestTrustBinaryInfo )] LSA_FOREST_TRUST_BINARY_DATA BinaryData;
-        [case( ForestTrustScannerInfo )] LSA_FOREST_TRUST_SCANNER_INFO ScannerInfo;
-
-#else
-        LSA_UNICODE_STRING TopLevelName;
-        LSA_FOREST_TRUST_DOMAIN_INFO DomainInfo;
-        LSA_FOREST_TRUST_BINARY_DATA BinaryData;
-        LSA_FOREST_TRUST_SCANNER_INFO ScannerInfo;
-#endif
-    } ForestTrustData;
-
-} LSA_FOREST_TRUST_RECORD2, *PLSA_FOREST_TRUST_RECORD2;
 
 #if (_WIN32_WINNT >= 0x0502)
 //
@@ -2966,19 +2884,6 @@ typedef struct _LSA_FOREST_TRUST_INFORMATION {
 #endif
 
 } LSA_FOREST_TRUST_INFORMATION, *PLSA_FOREST_TRUST_INFORMATION;
-
-typedef struct _LSA_FOREST_TRUST_INFORMATION2 {
-
-#ifdef MIDL_PASS
-    [range(0, MAX_RECORDS_IN_FOREST_TRUST_INFO)] ULONG RecordCount;
-    [size_is( RecordCount )] PLSA_FOREST_TRUST_RECORD2 * Entries;
-#else
-    ULONG RecordCount;
-    PLSA_FOREST_TRUST_RECORD2 * Entries;
-#endif
-
-} LSA_FOREST_TRUST_INFORMATION2, *PLSA_FOREST_TRUST_INFORMATION2;
-
 
 typedef enum {
 
@@ -3926,37 +3831,6 @@ LsaNtStatusToWinError(
     _In_ NTSTATUS Status
     );
 
-NTSTATUS
-NTAPI
-LsaQueryForestTrustInformation2(
-    _In_ LSA_HANDLE PolicyHandle,
-    _In_ PLSA_UNICODE_STRING TrustedDomainName,
-    _In_ LSA_FOREST_TRUST_RECORD_TYPE HighestRecordType,
-    _Out_ PLSA_FOREST_TRUST_INFORMATION2 * ForestTrustInfo
-    );
-
-NTSTATUS
-NTAPI
-LsaSetForestTrustInformation2(
-    _In_ LSA_HANDLE PolicyHandle,
-    _In_ PLSA_UNICODE_STRING TrustedDomainName,
-    _In_ LSA_FOREST_TRUST_RECORD_TYPE HighestRecordType,
-    _In_ PLSA_FOREST_TRUST_INFORMATION2 ForestTrustInfo,
-    _In_ BOOLEAN CheckOnly,
-    _Out_ PLSA_FOREST_TRUST_COLLISION_INFORMATION * CollisionInfo
-    );
-
-// end_ntsecapi
-
-NTSTATUS
-LsaInvokeTrustScanner(
-    _In_ LSA_HANDLE PolicyHandle,
-    _In_opt_ LPWSTR DomainName,
-    _In_ ULONG Flags,
-    _In_opt_ LPWSTR CompletionEvent
-    );
-
-// begin_ntsecapi
 
 //
 // Define a symbol so we can tell if ntifs.h has been included.

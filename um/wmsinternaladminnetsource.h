@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -183,22 +175,18 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWMSInternalAdminNetSource * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWMSInternalAdminNetSource * This);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, Initialize)
         HRESULT ( STDMETHODCALLTYPE *Initialize )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ IUnknown *pSharedNamespace,
@@ -206,12 +194,10 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource;
             /* [in] */ INSNetSourceCreator *pNetSourceCreator,
             /* [in] */ BOOL fEmbeddedInServer);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, GetNetSourceCreator)
         HRESULT ( STDMETHODCALLTYPE *GetNetSourceCreator )( 
             IWMSInternalAdminNetSource * This,
             /* [out] */ INSNetSourceCreator **ppNetSourceCreator);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, SetCredentials)
         HRESULT ( STDMETHODCALLTYPE *SetCredentials )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ BSTR bstrRealm,
@@ -220,7 +206,6 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource;
             /* [in] */ BOOL fPersist,
             /* [in] */ BOOL fConfirmedGood);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, GetCredentials)
         HRESULT ( STDMETHODCALLTYPE *GetCredentials )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ BSTR bstrRealm,
@@ -228,22 +213,18 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource;
             /* [out] */ BSTR *pbstrPassword,
             /* [out] */ BOOL *pfConfirmedGood);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, DeleteCredentials)
         HRESULT ( STDMETHODCALLTYPE *DeleteCredentials )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ BSTR bstrRealm);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, GetCredentialFlags)
         HRESULT ( STDMETHODCALLTYPE *GetCredentialFlags )( 
             IWMSInternalAdminNetSource * This,
             /* [out] */ DWORD *lpdwFlags);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, SetCredentialFlags)
         HRESULT ( STDMETHODCALLTYPE *SetCredentialFlags )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ DWORD dwFlags);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, FindProxyForURL)
         HRESULT ( STDMETHODCALLTYPE *FindProxyForURL )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ BSTR bstrProtocol,
@@ -253,18 +234,15 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource;
             /* [out] */ DWORD *pdwProxyPort,
             /* [out][in] */ DWORD *pdwProxyContext);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, RegisterProxyFailure)
         HRESULT ( STDMETHODCALLTYPE *RegisterProxyFailure )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ HRESULT hrParam,
             /* [in] */ DWORD dwProxyContext);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, ShutdownProxyContext)
         HRESULT ( STDMETHODCALLTYPE *ShutdownProxyContext )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ DWORD dwProxyContext);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource, IsUsingIE)
         HRESULT ( STDMETHODCALLTYPE *IsUsingIE )( 
             IWMSInternalAdminNetSource * This,
             /* [in] */ DWORD dwProxyContext,
@@ -393,22 +371,18 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWMSInternalAdminNetSource2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWMSInternalAdminNetSource2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWMSInternalAdminNetSource2 * This);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource2, SetCredentialsEx)
         HRESULT ( STDMETHODCALLTYPE *SetCredentialsEx )( 
             IWMSInternalAdminNetSource2 * This,
             /* [in] */ BSTR bstrRealm,
@@ -419,7 +393,6 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource2;
             /* [in] */ BOOL fPersist,
             /* [in] */ BOOL fConfirmedGood);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource2, GetCredentialsEx)
         HRESULT ( STDMETHODCALLTYPE *GetCredentialsEx )( 
             IWMSInternalAdminNetSource2 * This,
             /* [in] */ BSTR bstrRealm,
@@ -430,14 +403,12 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource2;
             /* [out] */ BSTR *pbstrPassword,
             /* [out] */ BOOL *pfConfirmedGood);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource2, DeleteCredentialsEx)
         HRESULT ( STDMETHODCALLTYPE *DeleteCredentialsEx )( 
             IWMSInternalAdminNetSource2 * This,
             /* [in] */ BSTR bstrRealm,
             /* [in] */ BSTR bstrUrl,
             /* [in] */ BOOL fProxy);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource2, FindProxyForURLEx)
         HRESULT ( STDMETHODCALLTYPE *FindProxyForURLEx )( 
             IWMSInternalAdminNetSource2 * This,
             /* [in] */ BSTR bstrProtocol,
@@ -561,22 +532,18 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IWMSInternalAdminNetSource3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IWMSInternalAdminNetSource3 * This);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource2, SetCredentialsEx)
         HRESULT ( STDMETHODCALLTYPE *SetCredentialsEx )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ BSTR bstrRealm,
@@ -587,7 +554,6 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource3;
             /* [in] */ BOOL fPersist,
             /* [in] */ BOOL fConfirmedGood);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource2, GetCredentialsEx)
         HRESULT ( STDMETHODCALLTYPE *GetCredentialsEx )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ BSTR bstrRealm,
@@ -598,14 +564,12 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource3;
             /* [out] */ BSTR *pbstrPassword,
             /* [out] */ BOOL *pfConfirmedGood);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource2, DeleteCredentialsEx)
         HRESULT ( STDMETHODCALLTYPE *DeleteCredentialsEx )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ BSTR bstrRealm,
             /* [in] */ BSTR bstrUrl,
             /* [in] */ BOOL fProxy);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource2, FindProxyForURLEx)
         HRESULT ( STDMETHODCALLTYPE *FindProxyForURLEx )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ BSTR bstrProtocol,
@@ -616,12 +580,10 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource3;
             /* [out] */ DWORD *pdwProxyPort,
             /* [out][in] */ DWORD *pdwProxyContext);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource3, GetNetSourceCreator2)
         HRESULT ( STDMETHODCALLTYPE *GetNetSourceCreator2 )( 
             IWMSInternalAdminNetSource3 * This,
             /* [out] */ IUnknown **ppNetSourceCreator);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource3, FindProxyForURLEx2)
         HRESULT ( STDMETHODCALLTYPE *FindProxyForURLEx2 )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ BSTR bstrProtocol,
@@ -632,24 +594,20 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource3;
             /* [out] */ DWORD *pdwProxyPort,
             /* [out][in] */ QWORD *pqwProxyContext);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource3, RegisterProxyFailure2)
         HRESULT ( STDMETHODCALLTYPE *RegisterProxyFailure2 )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ HRESULT hrParam,
             /* [in] */ QWORD qwProxyContext);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource3, ShutdownProxyContext2)
         HRESULT ( STDMETHODCALLTYPE *ShutdownProxyContext2 )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ QWORD qwProxyContext);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource3, IsUsingIE2)
         HRESULT ( STDMETHODCALLTYPE *IsUsingIE2 )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ QWORD qwProxyContext,
             /* [out] */ BOOL *pfIsUsingIE);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource3, SetCredentialsEx2)
         HRESULT ( STDMETHODCALLTYPE *SetCredentialsEx2 )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ BSTR bstrRealm,
@@ -661,7 +619,6 @@ EXTERN_C const IID IID_IWMSInternalAdminNetSource3;
             /* [in] */ BOOL fConfirmedGood,
             /* [in] */ BOOL fClearTextAuthentication);
         
-        DECLSPEC_XFGVIRT(IWMSInternalAdminNetSource3, GetCredentialsEx2)
         HRESULT ( STDMETHODCALLTYPE *GetCredentialsEx2 )( 
             IWMSInternalAdminNetSource3 * This,
             /* [in] */ BSTR bstrRealm,

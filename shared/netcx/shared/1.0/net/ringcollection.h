@@ -17,14 +17,13 @@ typedef struct _NET_RING NET_RING;
 typedef enum _NET_RING_TYPE {
     NetRingTypePacket,
     NetRingTypeFragment,
-    NetRingTypeDataBuffer,
 } NET_RING_TYPE;
 
 typedef struct _NET_RING_COLLECTION
 {
 
     NET_RING *
-        Rings[NetRingTypeDataBuffer + 1];
+        Rings[NetRingTypeFragment + 1];
 
 } NET_RING_COLLECTION;
 
@@ -44,15 +43,6 @@ NetRingCollectionGetFragmentRing(
 )
 {
     return Rings->Rings[NetRingTypeFragment];
-}
-
-inline
-NET_RING *
-NetRingCollectionGetDataBufferRing(
-    NET_RING_COLLECTION const * Rings
-)
-{
-    return Rings->Rings[NetRingTypeDataBuffer];
 }
 
 EXTERN_C_END

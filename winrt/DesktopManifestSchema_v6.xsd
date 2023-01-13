@@ -7,18 +7,12 @@
            xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
            xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
            xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
-           xmlns:desktop8="http://schemas.microsoft.com/appx/manifest/desktop/windows10/8"
-           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
-           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
            >
 
   <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
   <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
   <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
   <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
-  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/8"/>
-  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
-  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
 
   <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
     <xs:complexType>
@@ -28,7 +22,6 @@
         <xs:element name="CustomInstall" type="CT_CustomInstall"/>
       </xs:choice>
       <xs:attribute name="Category" type="t:ST_ExtensionCategory_Desktop6" use="required"/>
-      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
       <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
       <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
       <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
@@ -80,22 +73,21 @@
   </xs:simpleType>
 
   <xs:complexType name="CT_TriggerEvents">
-    <xs:choice minOccurs="0" maxOccurs="20000">
-      <xs:element name="TriggerCustom" type="CT_TriggerCustom" />
-      <xs:element ref="desktop10:PredefinedTriggerEvents" />
-    </xs:choice>
-  </xs:complexType>
-
-  <xs:complexType name="CT_TriggerCustom">
-    <xs:choice minOccurs="1" maxOccurs="10000">
-      <xs:element name="StringData" type="CT_StringData"/>
-      <xs:element name="BinaryData" type="CT_BinaryData"/>
-      <xs:element name="LevelData" type="CT_ValueByte"/>
-      <xs:element name="KeywordAnyData" type="CT_ValueDword64"/>
-      <xs:element name="KeywordAllData" type="CT_ValueDword64"/>
-    </xs:choice>
-    <xs:attribute name="Action" type="ST_ActionTrigger" use="required"/>
-    <xs:attribute name="Subtype" type="t:ST_GUID" use="required"/>
+    <xs:sequence minOccurs="0" maxOccurs="10000">
+      <xs:element name="TriggerCustom" minOccurs="0" maxOccurs="10000">
+        <xs:complexType>
+          <xs:choice minOccurs="1" maxOccurs="10000">
+            <xs:element name="StringData" type="CT_StringData"/>
+            <xs:element name="BinaryData" type="CT_BinaryData"/>
+            <xs:element name="LevelData" type="CT_ValueByte"/>
+            <xs:element name="KeywordAnyData" type="CT_ValueDword64"/>
+            <xs:element name="KeywordAllData" type="CT_ValueDword64"/>
+          </xs:choice>
+          <xs:attribute name="Action" type="ST_ActionTrigger" use="required"/>
+          <xs:attribute name="Subtype" type="t:ST_GUID" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="CT_StringData">
@@ -176,7 +168,6 @@
 
     </xs:all>
     <xs:attribute name="Folder" type="t:ST_FileName" use="required" />
-    <xs:attribute ref="desktop8:RunAsUser" use="optional"/>
   </xs:complexType>
 
    <xs:complexType name="CT_CustomInstallAction">
@@ -186,4 +177,3 @@
    </xs:complexType>
 
 </xs:schema>
-

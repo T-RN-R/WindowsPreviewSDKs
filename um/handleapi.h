@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -32,13 +34,13 @@ extern "C" {
 //
 // Prototypes
 //
-
 WINBASEAPI
 BOOL
 WINAPI
 CloseHandle(
     _In_ _Post_ptr_invalid_ HANDLE hObject
     );
+
 
 WINBASEAPI
 BOOL
@@ -52,6 +54,7 @@ DuplicateHandle(
     _In_ BOOL bInheritHandle,
     _In_ DWORD dwOptions
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -67,6 +70,7 @@ CompareObjectHandles(
     _In_ HANDLE hSecondObjectHandle
     );
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
@@ -81,6 +85,7 @@ GetHandleInformation(
     _Out_ LPDWORD lpdwFlags
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -89,6 +94,7 @@ SetHandleInformation(
     _In_ DWORD dwMask,
     _In_ DWORD dwFlags
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion

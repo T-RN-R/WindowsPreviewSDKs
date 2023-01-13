@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -229,21 +229,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Devices {
-            namespace Geolocation {
-                interface IGeocoordinateSatelliteData2;
-            } /* Geolocation */
-        } /* Devices */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2 ABI::Windows::Devices::Geolocation::IGeocoordinateSatelliteData2
-
-#endif // ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPoint_FWD_DEFINED__
 #define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPoint_FWD_DEFINED__
 namespace ABI {
@@ -288,21 +273,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp ABI::Windows::Devices::Geolocation::IGeocoordinateWithPositionSourceTimestamp
 
 #endif // ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_FWD_DEFINED__
-#define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Devices {
-            namespace Geolocation {
-                interface IGeocoordinateWithRemoteSource;
-            } /* Geolocation */
-        } /* Devices */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource ABI::Windows::Devices::Geolocation::IGeocoordinateWithRemoteSource
-
-#endif // ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CDevices_CGeolocation_CIGeolocator_FWD_DEFINED__
 #define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeolocator_FWD_DEFINED__
@@ -1801,7 +1771,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICivicAddress = __uuidof(ICivicAddress);
+                extern MIDL_CONST_ID IID& IID_ICivicAddress = _uuidof(ICivicAddress);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -1852,7 +1822,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeoboundingBox = __uuidof(IGeoboundingBox);
+                extern MIDL_CONST_ID IID& IID_IGeoboundingBox = _uuidof(IGeoboundingBox);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -1903,7 +1873,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeoboundingBoxFactory = __uuidof(IGeoboundingBoxFactory);
+                extern MIDL_CONST_ID IID& IID_IGeoboundingBoxFactory = _uuidof(IGeoboundingBoxFactory);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -1951,7 +1921,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeoboundingBoxStatics = __uuidof(IGeoboundingBoxStatics);
+                extern MIDL_CONST_ID IID& IID_IGeoboundingBoxStatics = _uuidof(IGeoboundingBoxStatics);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -1993,7 +1963,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeocircle = __uuidof(IGeocircle);
+                extern MIDL_CONST_ID IID& IID_IGeocircle = _uuidof(IGeocircle);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2044,7 +2014,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeocircleFactory = __uuidof(IGeocircleFactory);
+                extern MIDL_CONST_ID IID& IID_IGeocircleFactory = _uuidof(IGeocircleFactory);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2110,7 +2080,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeocoordinate = __uuidof(IGeocoordinate);
+                extern MIDL_CONST_ID IID& IID_IGeocoordinate = _uuidof(IGeocoordinate);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2152,7 +2122,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeocoordinateSatelliteData = __uuidof(IGeocoordinateSatelliteData);
+                extern MIDL_CONST_ID IID& IID_IGeocoordinateSatelliteData = _uuidof(IGeocoordinateSatelliteData);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2161,45 +2131,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData;
 #endif /* !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Devices.Geolocation.IGeocoordinateSatelliteData2
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Devices.Geolocation.GeocoordinateSatelliteData
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Devices_Geolocation_IGeocoordinateSatelliteData2[] = L"Windows.Devices.Geolocation.IGeocoordinateSatelliteData2";
-namespace ABI {
-    namespace Windows {
-        namespace Devices {
-            namespace Geolocation {
-                MIDL_INTERFACE("761c8cfd-a19d-5a51-80f5-71676115483e")
-                IGeocoordinateSatelliteData2 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_GeometricDilutionOfPrecision(
-                        __FIReference_1_double** value
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_TimeDilutionOfPrecision(
-                        __FIReference_1_double** value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IGeocoordinateSatelliteData2 = __uuidof(IGeocoordinateSatelliteData2);
-            } /* Geolocation */
-        } /* Devices */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2;
-#endif /* !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -2227,7 +2158,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeocoordinateWithPoint = __uuidof(IGeocoordinateWithPoint);
+                extern MIDL_CONST_ID IID& IID_IGeocoordinateWithPoint = _uuidof(IGeocoordinateWithPoint);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2269,7 +2200,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeocoordinateWithPositionData = __uuidof(IGeocoordinateWithPositionData);
+                extern MIDL_CONST_ID IID& IID_IGeocoordinateWithPositionData = _uuidof(IGeocoordinateWithPositionData);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2305,7 +2236,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeocoordinateWithPositionSourceTimestamp = __uuidof(IGeocoordinateWithPositionSourceTimestamp);
+                extern MIDL_CONST_ID IID& IID_IGeocoordinateWithPositionSourceTimestamp = _uuidof(IGeocoordinateWithPositionSourceTimestamp);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2314,42 +2245,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp;
 #endif /* !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Devices.Geolocation.IGeocoordinateWithRemoteSource
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 14.0
- *
- * Interface is a part of the implementation of type Windows.Devices.Geolocation.Geocoordinate
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xe0000
-#if !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Devices_Geolocation_IGeocoordinateWithRemoteSource[] = L"Windows.Devices.Geolocation.IGeocoordinateWithRemoteSource";
-namespace ABI {
-    namespace Windows {
-        namespace Devices {
-            namespace Geolocation {
-                MIDL_INTERFACE("397cebd7-ee38-5f3b-8900-c4a7bc9cf953")
-                IGeocoordinateWithRemoteSource : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_IsRemoteSource(
-                        boolean* value
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IGeocoordinateWithRemoteSource = __uuidof(IGeocoordinateWithRemoteSource);
-            } /* Geolocation */
-        } /* Devices */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource;
-#endif /* !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xe0000
 
 /*
  *
@@ -2417,7 +2312,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeolocator = __uuidof(IGeolocator);
+                extern MIDL_CONST_ID IID& IID_IGeolocator = _uuidof(IGeolocator);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2451,7 +2346,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE AllowFallbackToConsentlessPositions(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeolocator2 = __uuidof(IGeolocator2);
+                extern MIDL_CONST_ID IID& IID_IGeolocator2 = _uuidof(IGeolocator2);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2496,7 +2391,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeolocatorStatics = __uuidof(IGeolocatorStatics);
+                extern MIDL_CONST_ID IID& IID_IGeolocatorStatics = _uuidof(IGeolocatorStatics);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2538,7 +2433,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeolocatorStatics2 = __uuidof(IGeolocatorStatics2);
+                extern MIDL_CONST_ID IID& IID_IGeolocatorStatics2 = _uuidof(IGeolocatorStatics2);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2580,7 +2475,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeolocatorWithScalarAccuracy = __uuidof(IGeolocatorWithScalarAccuracy);
+                extern MIDL_CONST_ID IID& IID_IGeolocatorWithScalarAccuracy = _uuidof(IGeolocatorWithScalarAccuracy);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2619,7 +2514,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeopath = __uuidof(IGeopath);
+                extern MIDL_CONST_ID IID& IID_IGeopath = _uuidof(IGeopath);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2667,7 +2562,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeopathFactory = __uuidof(IGeopathFactory);
+                extern MIDL_CONST_ID IID& IID_IGeopathFactory = _uuidof(IGeopathFactory);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2706,7 +2601,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeopoint = __uuidof(IGeopoint);
+                extern MIDL_CONST_ID IID& IID_IGeopoint = _uuidof(IGeopoint);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2754,7 +2649,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeopointFactory = __uuidof(IGeopointFactory);
+                extern MIDL_CONST_ID IID& IID_IGeopointFactory = _uuidof(IGeopointFactory);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2793,7 +2688,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeoposition = __uuidof(IGeoposition);
+                extern MIDL_CONST_ID IID& IID_IGeoposition = _uuidof(IGeoposition);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2832,7 +2727,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeoposition2 = __uuidof(IGeoposition2);
+                extern MIDL_CONST_ID IID& IID_IGeoposition2 = _uuidof(IGeoposition2);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2872,7 +2767,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeoshape = __uuidof(IGeoshape);
+                extern MIDL_CONST_ID IID& IID_IGeoshape = _uuidof(IGeoshape);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2914,7 +2809,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeovisit = __uuidof(IGeovisit);
+                extern MIDL_CONST_ID IID& IID_IGeovisit = _uuidof(IGeovisit);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2961,7 +2856,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeovisitMonitor = __uuidof(IGeovisitMonitor);
+                extern MIDL_CONST_ID IID& IID_IGeovisitMonitor = _uuidof(IGeovisitMonitor);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -2997,7 +2892,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeovisitMonitorStatics = __uuidof(IGeovisitMonitorStatics);
+                extern MIDL_CONST_ID IID& IID_IGeovisitMonitorStatics = _uuidof(IGeovisitMonitorStatics);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -3033,7 +2928,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeovisitStateChangedEventArgs = __uuidof(IGeovisitStateChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IGeovisitStateChangedEventArgs = _uuidof(IGeovisitStateChangedEventArgs);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -3069,7 +2964,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IGeovisitTriggerDetails = __uuidof(IGeovisitTriggerDetails);
+                extern MIDL_CONST_ID IID& IID_IGeovisitTriggerDetails = _uuidof(IGeovisitTriggerDetails);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -3105,7 +3000,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IPositionChangedEventArgs = __uuidof(IPositionChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IPositionChangedEventArgs = _uuidof(IPositionChangedEventArgs);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -3141,7 +3036,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IStatusChangedEventArgs = __uuidof(IStatusChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IStatusChangedEventArgs = _uuidof(IStatusChangedEventArgs);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -3180,7 +3075,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVenueData = __uuidof(IVenueData);
+                extern MIDL_CONST_ID IID& IID_IVenueData = _uuidof(IVenueData);
             } /* Geolocation */
         } /* Devices */
     } /* Windows */
@@ -3271,7 +3166,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.Devices.Geolocation.IGeocoordinateWithPositionData
  *    Windows.Devices.Geolocation.IGeocoordinateWithPoint
  *    Windows.Devices.Geolocation.IGeocoordinateWithPositionSourceTimestamp
- *    Windows.Devices.Geolocation.IGeocoordinateWithRemoteSource
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -3291,7 +3185,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Devices.Geolocation.IGeocoordinateSatelliteData ** Default Interface **
- *    Windows.Devices.Geolocation.IGeocoordinateSatelliteData2
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -3592,12 +3485,6 @@ typedef interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatellit
 
 #endif // ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_FWD_DEFINED__
-#define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2 __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2;
-
-#endif // ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPoint_FWD_DEFINED__
 #define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPoint_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPoint __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPoint;
@@ -3615,12 +3502,6 @@ typedef interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPosi
 typedef interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp;
 
 #endif // ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_FWD_DEFINED__
-#define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource;
-
-#endif // ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CDevices_CGeolocation_CIGeolocator_FWD_DEFINED__
 #define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeolocator_FWD_DEFINED__
@@ -6256,80 +6137,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSat
 
 /*
  *
- * Interface Windows.Devices.Geolocation.IGeocoordinateSatelliteData2
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Devices.Geolocation.GeocoordinateSatelliteData
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Devices_Geolocation_IGeocoordinateSatelliteData2[] = L"Windows.Devices.Geolocation.IGeocoordinateSatelliteData2";
-typedef struct __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_GeometricDilutionOfPrecision)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2* This,
-        __FIReference_1_double** value);
-    HRESULT (STDMETHODCALLTYPE* get_TimeDilutionOfPrecision)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2* This,
-        __FIReference_1_double** value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2Vtbl;
-
-interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2
-{
-    CONST_VTBL struct __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_get_GeometricDilutionOfPrecision(This, value) \
-    ((This)->lpVtbl->get_GeometricDilutionOfPrecision(This, value))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_get_TimeDilutionOfPrecision(This, value) \
-    ((This)->lpVtbl->get_TimeDilutionOfPrecision(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2;
-#endif /* !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateSatelliteData2_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.Devices.Geolocation.IGeocoordinateWithPoint
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -6542,75 +6349,6 @@ interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSour
 EXTERN_C const IID IID___x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp;
 #endif /* !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithPositionSourceTimestamp_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Devices.Geolocation.IGeocoordinateWithRemoteSource
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 14.0
- *
- * Interface is a part of the implementation of type Windows.Devices.Geolocation.Geocoordinate
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xe0000
-#if !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Devices_Geolocation_IGeocoordinateWithRemoteSource[] = L"Windows.Devices.Geolocation.IGeocoordinateWithRemoteSource";
-typedef struct __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSourceVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_IsRemoteSource)(__x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource* This,
-        boolean* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSourceVtbl;
-
-interface __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource
-{
-    CONST_VTBL struct __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSourceVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_get_IsRemoteSource(This, value) \
-    ((This)->lpVtbl->get_IsRemoteSource(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource;
-#endif /* !defined(____x_ABI_CWindows_CDevices_CGeolocation_CIGeocoordinateWithRemoteSource_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xe0000
 
 /*
  *
@@ -8256,7 +7994,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.Devices.Geolocation.IGeocoordinateWithPositionData
  *    Windows.Devices.Geolocation.IGeocoordinateWithPoint
  *    Windows.Devices.Geolocation.IGeocoordinateWithPositionSourceTimestamp
- *    Windows.Devices.Geolocation.IGeocoordinateWithRemoteSource
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -8276,7 +8013,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Devices.Geolocation.IGeocoordinateSatelliteData ** Default Interface **
- *    Windows.Devices.Geolocation.IGeocoordinateSatelliteData2
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *

@@ -1,22 +1,21 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_UI_Xaml_Resources_2_H
 #define WINRT_Windows_UI_Xaml_Resources_2_H
 #include "winrt/impl/Windows.UI.Xaml.Resources.1.h"
 WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Resources
 {
-    struct __declspec(empty_bases) CustomXamlResourceLoader : winrt::Windows::UI::Xaml::Resources::ICustomXamlResourceLoader,
-        impl::require<CustomXamlResourceLoader, winrt::Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>
+    struct __declspec(empty_bases) CustomXamlResourceLoader : Windows::UI::Xaml::Resources::ICustomXamlResourceLoader,
+        impl::require<CustomXamlResourceLoader, Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>
     {
         CustomXamlResourceLoader(std::nullptr_t) noexcept {}
-        CustomXamlResourceLoader(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::UI::Xaml::Resources::ICustomXamlResourceLoader(ptr, take_ownership_from_abi) {}
+        CustomXamlResourceLoader(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Xaml::Resources::ICustomXamlResourceLoader(ptr, take_ownership_from_abi) {}
         CustomXamlResourceLoader();
         [[nodiscard]] static auto Current();
-        static auto Current(winrt::Windows::UI::Xaml::Resources::CustomXamlResourceLoader const& value);
+        static auto Current(Windows::UI::Xaml::Resources::CustomXamlResourceLoader const& value);
     };
     template <typename D>
     class ICustomXamlResourceLoaderOverridesT

@@ -12,6 +12,8 @@
 //    This header file provides API function signatures for expanded resources / GameMode apps.
 //
 
+
+
 #ifdef MSC_VER
 #pragma once
 #endif
@@ -38,16 +40,19 @@ HasExpandedResources(
     _Out_ BOOL* hasExpandedResources
     );
 
+
 HRESULT
 WINAPI
 GetExpandedResourceExclusiveCpuCount(
     _Out_ ULONG* exclusiveCpuCount
     );
 
+
 HRESULT
 WINAPI
 ReleaseExclusiveCpuSets(
     );
+
 
 #if defined(__cplusplus)
 } // end extern "C"

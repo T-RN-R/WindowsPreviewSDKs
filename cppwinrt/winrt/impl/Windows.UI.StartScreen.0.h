@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_UI_StartScreen_0_H
 #define WINRT_Windows_UI_StartScreen_0_H
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Core
@@ -14,10 +13,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
-    template <typename T> struct __declspec(empty_bases) IReference;
+    template <typename T> struct IReference;
     struct Point;
     struct Rect;
-    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
+    template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Perception::Spatial
@@ -110,109 +109,111 @@ WINRT_EXPORT namespace winrt::Windows::UI::StartScreen
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::UI::StartScreen::IJumpList>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IJumpListItem>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IJumpListItemStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IJumpListStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTile>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTile2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTileFactory>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTileFactory2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTileStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements3>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements4>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IStartScreenManager>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IStartScreenManager2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IStartScreenManagerStatics>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ITileMixedRealityModel>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ITileMixedRealityModel2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IVisualElementsRequest>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IVisualElementsRequestDeferral>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::JumpList>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::JumpListItem>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::SecondaryTile>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::SecondaryTileVisualElements>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::StartScreenManager>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::TileMixedRealityModel>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::VisualElementsRequest>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::VisualElementsRequestDeferral>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::VisualElementsRequestedEventArgs>{ using type = class_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::ForegroundText>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::JumpListItemKind>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::JumpListSystemGroupKind>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::TileMixedRealityModelActivationBehavior>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::TileOptions>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::UI::StartScreen::TileSize>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::JumpList> = L"Windows.UI.StartScreen.JumpList";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::JumpListItem> = L"Windows.UI.StartScreen.JumpListItem";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::SecondaryTile> = L"Windows.UI.StartScreen.SecondaryTile";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::SecondaryTileVisualElements> = L"Windows.UI.StartScreen.SecondaryTileVisualElements";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::StartScreenManager> = L"Windows.UI.StartScreen.StartScreenManager";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::TileMixedRealityModel> = L"Windows.UI.StartScreen.TileMixedRealityModel";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::VisualElementsRequest> = L"Windows.UI.StartScreen.VisualElementsRequest";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::VisualElementsRequestDeferral> = L"Windows.UI.StartScreen.VisualElementsRequestDeferral";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::VisualElementsRequestedEventArgs> = L"Windows.UI.StartScreen.VisualElementsRequestedEventArgs";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ForegroundText> = L"Windows.UI.StartScreen.ForegroundText";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::JumpListItemKind> = L"Windows.UI.StartScreen.JumpListItemKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::JumpListSystemGroupKind> = L"Windows.UI.StartScreen.JumpListSystemGroupKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::TileMixedRealityModelActivationBehavior> = L"Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::TileOptions> = L"Windows.UI.StartScreen.TileOptions";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::TileSize> = L"Windows.UI.StartScreen.TileSize";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IJumpList> = L"Windows.UI.StartScreen.IJumpList";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IJumpListItem> = L"Windows.UI.StartScreen.IJumpListItem";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IJumpListItemStatics> = L"Windows.UI.StartScreen.IJumpListItemStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IJumpListStatics> = L"Windows.UI.StartScreen.IJumpListStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTile> = L"Windows.UI.StartScreen.ISecondaryTile";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTile2> = L"Windows.UI.StartScreen.ISecondaryTile2";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTileFactory> = L"Windows.UI.StartScreen.ISecondaryTileFactory";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTileFactory2> = L"Windows.UI.StartScreen.ISecondaryTileFactory2";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTileStatics> = L"Windows.UI.StartScreen.ISecondaryTileStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements> = L"Windows.UI.StartScreen.ISecondaryTileVisualElements";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements2> = L"Windows.UI.StartScreen.ISecondaryTileVisualElements2";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements3> = L"Windows.UI.StartScreen.ISecondaryTileVisualElements3";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements4> = L"Windows.UI.StartScreen.ISecondaryTileVisualElements4";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IStartScreenManager> = L"Windows.UI.StartScreen.IStartScreenManager";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IStartScreenManager2> = L"Windows.UI.StartScreen.IStartScreenManager2";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IStartScreenManagerStatics> = L"Windows.UI.StartScreen.IStartScreenManagerStatics";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ITileMixedRealityModel> = L"Windows.UI.StartScreen.ITileMixedRealityModel";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::ITileMixedRealityModel2> = L"Windows.UI.StartScreen.ITileMixedRealityModel2";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IVisualElementsRequest> = L"Windows.UI.StartScreen.IVisualElementsRequest";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IVisualElementsRequestDeferral> = L"Windows.UI.StartScreen.IVisualElementsRequestDeferral";
-    template <> inline constexpr auto& name_v<winrt::Windows::UI::StartScreen::IVisualElementsRequestedEventArgs> = L"Windows.UI.StartScreen.IVisualElementsRequestedEventArgs";
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IJumpList>{ 0xB0234C3E,0xCD6F,0x4CB6,{ 0xA6,0x11,0x61,0xFD,0x50,0x5F,0x3E,0xD1 } }; // B0234C3E-CD6F-4CB6-A611-61FD505F3ED1
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IJumpListItem>{ 0x7ADB6717,0x8B5D,0x4820,{ 0x99,0x5B,0x9B,0x41,0x8D,0xBE,0x48,0xB0 } }; // 7ADB6717-8B5D-4820-995B-9B418DBE48B0
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IJumpListItemStatics>{ 0xF1BFC4E8,0xC7AA,0x49CB,{ 0x8D,0xDE,0xEC,0xFC,0xCD,0x7A,0xD7,0xE4 } }; // F1BFC4E8-C7AA-49CB-8DDE-ECFCCD7AD7E4
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IJumpListStatics>{ 0xA7E0C681,0xE67E,0x4B74,{ 0x82,0x50,0x3F,0x32,0x2C,0x4D,0x92,0xC3 } }; // A7E0C681-E67E-4B74-8250-3F322C4D92C3
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTile>{ 0x9E9E51E0,0x2BB5,0x4BC0,{ 0xBB,0x8D,0x42,0xB2,0x3A,0xBC,0xC8,0x8D } }; // 9E9E51E0-2BB5-4BC0-BB8D-42B23ABCC88D
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTile2>{ 0xB2F6CC35,0x3250,0x4990,{ 0x92,0x3C,0x29,0x4A,0xB4,0xB6,0x94,0xDD } }; // B2F6CC35-3250-4990-923C-294AB4B694DD
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTileFactory>{ 0x57F52CA0,0x51BC,0x4ABF,{ 0x8E,0xBF,0x62,0x7A,0x03,0x98,0xB0,0x5A } }; // 57F52CA0-51BC-4ABF-8EBF-627A0398B05A
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTileFactory2>{ 0x274B8A3B,0x522D,0x448E,{ 0x9E,0xB2,0xD0,0x67,0x2A,0xB3,0x45,0xC8 } }; // 274B8A3B-522D-448E-9EB2-D0672AB345C8
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTileStatics>{ 0x99908DAE,0xD051,0x4676,{ 0x87,0xFE,0x9E,0xC2,0x42,0xD8,0x3C,0x74 } }; // 99908DAE-D051-4676-87FE-9EC242D83C74
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements>{ 0x1D8DF333,0x815E,0x413F,{ 0x9F,0x50,0xA8,0x1D,0xA7,0x0A,0x96,0xB2 } }; // 1D8DF333-815E-413F-9F50-A81DA70A96B2
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements2>{ 0xFD2E31D0,0x57DC,0x4794,{ 0x8E,0xCF,0x56,0x82,0xF5,0xF3,0xE6,0xEF } }; // FD2E31D0-57DC-4794-8ECF-5682F5F3E6EF
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements3>{ 0x56B55AD6,0xD15C,0x40F4,{ 0x81,0xE7,0x57,0xFF,0xD8,0xF8,0xA4,0xE9 } }; // 56B55AD6-D15C-40F4-81E7-57FFD8F8A4E9
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements4>{ 0x66566117,0xB544,0x40D2,{ 0x8D,0x12,0x74,0xD4,0xEC,0x24,0xD0,0x4C } }; // 66566117-B544-40D2-8D12-74D4EC24D04C
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IStartScreenManager>{ 0x4A1DCBCB,0x26E9,0x4EB4,{ 0x89,0x33,0x85,0x9E,0xB6,0xEC,0xDB,0x29 } }; // 4A1DCBCB-26E9-4EB4-8933-859EB6ECDB29
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IStartScreenManager2>{ 0x08A716B6,0x316B,0x4AD9,{ 0xAC,0xB8,0xFE,0x9C,0xF0,0x0B,0xD6,0x08 } }; // 08A716B6-316B-4AD9-ACB8-FE9CF00BD608
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IStartScreenManagerStatics>{ 0x7865EF0F,0xB585,0x464E,{ 0x89,0x93,0x34,0xE8,0xF8,0x73,0x8D,0x48 } }; // 7865EF0F-B585-464E-8993-34E8F8738D48
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ITileMixedRealityModel>{ 0xB0764E5B,0x887D,0x4242,{ 0x9A,0x19,0x3D,0x0A,0x4E,0xA7,0x80,0x31 } }; // B0764E5B-887D-4242-9A19-3D0A4EA78031
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::ITileMixedRealityModel2>{ 0x439470B2,0xD7C5,0x410B,{ 0x83,0x19,0x94,0x86,0xA2,0x7B,0x6C,0x67 } }; // 439470B2-D7C5-410B-8319-9486A27B6C67
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IVisualElementsRequest>{ 0xC138333A,0x9308,0x4072,{ 0x88,0xCC,0xD0,0x68,0xDB,0x34,0x7C,0x68 } }; // C138333A-9308-4072-88CC-D068DB347C68
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IVisualElementsRequestDeferral>{ 0xA1656EB0,0x0126,0x4357,{ 0x82,0x04,0xBD,0x82,0xBB,0x2A,0x04,0x6D } }; // A1656EB0-0126-4357-8204-BD82BB2A046D
-    template <> inline constexpr guid guid_v<winrt::Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>{ 0x7B6FC982,0x3A0D,0x4ECE,{ 0xAF,0x96,0xCD,0x17,0xE1,0xB0,0x0B,0x2D } }; // 7B6FC982-3A0D-4ECE-AF96-CD17E1B00B2D
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::JumpList>{ using type = winrt::Windows::UI::StartScreen::IJumpList; };
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::JumpListItem>{ using type = winrt::Windows::UI::StartScreen::IJumpListItem; };
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::SecondaryTile>{ using type = winrt::Windows::UI::StartScreen::ISecondaryTile; };
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::SecondaryTileVisualElements>{ using type = winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements; };
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::StartScreenManager>{ using type = winrt::Windows::UI::StartScreen::IStartScreenManager; };
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::TileMixedRealityModel>{ using type = winrt::Windows::UI::StartScreen::ITileMixedRealityModel; };
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::VisualElementsRequest>{ using type = winrt::Windows::UI::StartScreen::IVisualElementsRequest; };
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::VisualElementsRequestDeferral>{ using type = winrt::Windows::UI::StartScreen::IVisualElementsRequestDeferral; };
-    template <> struct default_interface<winrt::Windows::UI::StartScreen::VisualElementsRequestedEventArgs>{ using type = winrt::Windows::UI::StartScreen::IVisualElementsRequestedEventArgs; };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IJumpList>
+    template <> struct category<Windows::UI::StartScreen::IJumpList>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IJumpListItem>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IJumpListItemStatics>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IJumpListStatics>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTile>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTile2>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTileFactory>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTileFactory2>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTileStatics>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTileVisualElements>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTileVisualElements2>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTileVisualElements3>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ISecondaryTileVisualElements4>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IStartScreenManager>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IStartScreenManager2>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IStartScreenManagerStatics>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ITileMixedRealityModel>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::ITileMixedRealityModel2>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IVisualElementsRequest>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IVisualElementsRequestDeferral>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>{ using type = interface_category; };
+    template <> struct category<Windows::UI::StartScreen::JumpList>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::JumpListItem>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::SecondaryTile>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::SecondaryTileVisualElements>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::StartScreenManager>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::TileMixedRealityModel>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::VisualElementsRequest>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::VisualElementsRequestDeferral>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::VisualElementsRequestedEventArgs>{ using type = class_category; };
+    template <> struct category<Windows::UI::StartScreen::ForegroundText>{ using type = enum_category; };
+    template <> struct category<Windows::UI::StartScreen::JumpListItemKind>{ using type = enum_category; };
+    template <> struct category<Windows::UI::StartScreen::JumpListSystemGroupKind>{ using type = enum_category; };
+    template <> struct category<Windows::UI::StartScreen::TileMixedRealityModelActivationBehavior>{ using type = enum_category; };
+    template <> struct category<Windows::UI::StartScreen::TileOptions>{ using type = enum_category; };
+    template <> struct category<Windows::UI::StartScreen::TileSize>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::JumpList>{ L"Windows.UI.StartScreen.JumpList" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::JumpListItem>{ L"Windows.UI.StartScreen.JumpListItem" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::SecondaryTile>{ L"Windows.UI.StartScreen.SecondaryTile" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::SecondaryTileVisualElements>{ L"Windows.UI.StartScreen.SecondaryTileVisualElements" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::StartScreenManager>{ L"Windows.UI.StartScreen.StartScreenManager" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::TileMixedRealityModel>{ L"Windows.UI.StartScreen.TileMixedRealityModel" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::VisualElementsRequest>{ L"Windows.UI.StartScreen.VisualElementsRequest" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::VisualElementsRequestDeferral>{ L"Windows.UI.StartScreen.VisualElementsRequestDeferral" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::VisualElementsRequestedEventArgs>{ L"Windows.UI.StartScreen.VisualElementsRequestedEventArgs" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ForegroundText>{ L"Windows.UI.StartScreen.ForegroundText" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::JumpListItemKind>{ L"Windows.UI.StartScreen.JumpListItemKind" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::JumpListSystemGroupKind>{ L"Windows.UI.StartScreen.JumpListSystemGroupKind" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::TileMixedRealityModelActivationBehavior>{ L"Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::TileOptions>{ L"Windows.UI.StartScreen.TileOptions" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::TileSize>{ L"Windows.UI.StartScreen.TileSize" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IJumpList>{ L"Windows.UI.StartScreen.IJumpList" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IJumpListItem>{ L"Windows.UI.StartScreen.IJumpListItem" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IJumpListItemStatics>{ L"Windows.UI.StartScreen.IJumpListItemStatics" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IJumpListStatics>{ L"Windows.UI.StartScreen.IJumpListStatics" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTile>{ L"Windows.UI.StartScreen.ISecondaryTile" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTile2>{ L"Windows.UI.StartScreen.ISecondaryTile2" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTileFactory>{ L"Windows.UI.StartScreen.ISecondaryTileFactory" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTileFactory2>{ L"Windows.UI.StartScreen.ISecondaryTileFactory2" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTileStatics>{ L"Windows.UI.StartScreen.ISecondaryTileStatics" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTileVisualElements>{ L"Windows.UI.StartScreen.ISecondaryTileVisualElements" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTileVisualElements2>{ L"Windows.UI.StartScreen.ISecondaryTileVisualElements2" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTileVisualElements3>{ L"Windows.UI.StartScreen.ISecondaryTileVisualElements3" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ISecondaryTileVisualElements4>{ L"Windows.UI.StartScreen.ISecondaryTileVisualElements4" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IStartScreenManager>{ L"Windows.UI.StartScreen.IStartScreenManager" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IStartScreenManager2>{ L"Windows.UI.StartScreen.IStartScreenManager2" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IStartScreenManagerStatics>{ L"Windows.UI.StartScreen.IStartScreenManagerStatics" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ITileMixedRealityModel>{ L"Windows.UI.StartScreen.ITileMixedRealityModel" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::ITileMixedRealityModel2>{ L"Windows.UI.StartScreen.ITileMixedRealityModel2" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IVisualElementsRequest>{ L"Windows.UI.StartScreen.IVisualElementsRequest" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IVisualElementsRequestDeferral>{ L"Windows.UI.StartScreen.IVisualElementsRequestDeferral" };
+    template <> inline constexpr auto& name_v<Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>{ L"Windows.UI.StartScreen.IVisualElementsRequestedEventArgs" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IJumpList>{ 0xB0234C3E,0xCD6F,0x4CB6,{ 0xA6,0x11,0x61,0xFD,0x50,0x5F,0x3E,0xD1 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IJumpListItem>{ 0x7ADB6717,0x8B5D,0x4820,{ 0x99,0x5B,0x9B,0x41,0x8D,0xBE,0x48,0xB0 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IJumpListItemStatics>{ 0xF1BFC4E8,0xC7AA,0x49CB,{ 0x8D,0xDE,0xEC,0xFC,0xCD,0x7A,0xD7,0xE4 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IJumpListStatics>{ 0xA7E0C681,0xE67E,0x4B74,{ 0x82,0x50,0x3F,0x32,0x2C,0x4D,0x92,0xC3 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTile>{ 0x9E9E51E0,0x2BB5,0x4BC0,{ 0xBB,0x8D,0x42,0xB2,0x3A,0xBC,0xC8,0x8D } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTile2>{ 0xB2F6CC35,0x3250,0x4990,{ 0x92,0x3C,0x29,0x4A,0xB4,0xB6,0x94,0xDD } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTileFactory>{ 0x57F52CA0,0x51BC,0x4ABF,{ 0x8E,0xBF,0x62,0x7A,0x03,0x98,0xB0,0x5A } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTileFactory2>{ 0x274B8A3B,0x522D,0x448E,{ 0x9E,0xB2,0xD0,0x67,0x2A,0xB3,0x45,0xC8 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTileStatics>{ 0x99908DAE,0xD051,0x4676,{ 0x87,0xFE,0x9E,0xC2,0x42,0xD8,0x3C,0x74 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTileVisualElements>{ 0x1D8DF333,0x815E,0x413F,{ 0x9F,0x50,0xA8,0x1D,0xA7,0x0A,0x96,0xB2 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTileVisualElements2>{ 0xFD2E31D0,0x57DC,0x4794,{ 0x8E,0xCF,0x56,0x82,0xF5,0xF3,0xE6,0xEF } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTileVisualElements3>{ 0x56B55AD6,0xD15C,0x40F4,{ 0x81,0xE7,0x57,0xFF,0xD8,0xF8,0xA4,0xE9 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ISecondaryTileVisualElements4>{ 0x66566117,0xB544,0x40D2,{ 0x8D,0x12,0x74,0xD4,0xEC,0x24,0xD0,0x4C } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IStartScreenManager>{ 0x4A1DCBCB,0x26E9,0x4EB4,{ 0x89,0x33,0x85,0x9E,0xB6,0xEC,0xDB,0x29 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IStartScreenManager2>{ 0x08A716B6,0x316B,0x4AD9,{ 0xAC,0xB8,0xFE,0x9C,0xF0,0x0B,0xD6,0x08 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IStartScreenManagerStatics>{ 0x7865EF0F,0xB585,0x464E,{ 0x89,0x93,0x34,0xE8,0xF8,0x73,0x8D,0x48 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ITileMixedRealityModel>{ 0xB0764E5B,0x887D,0x4242,{ 0x9A,0x19,0x3D,0x0A,0x4E,0xA7,0x80,0x31 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::ITileMixedRealityModel2>{ 0x439470B2,0xD7C5,0x410B,{ 0x83,0x19,0x94,0x86,0xA2,0x7B,0x6C,0x67 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IVisualElementsRequest>{ 0xC138333A,0x9308,0x4072,{ 0x88,0xCC,0xD0,0x68,0xDB,0x34,0x7C,0x68 } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IVisualElementsRequestDeferral>{ 0xA1656EB0,0x0126,0x4357,{ 0x82,0x04,0xBD,0x82,0xBB,0x2A,0x04,0x6D } };
+    template <> inline constexpr guid guid_v<Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>{ 0x7B6FC982,0x3A0D,0x4ECE,{ 0xAF,0x96,0xCD,0x17,0xE1,0xB0,0x0B,0x2D } };
+    template <> struct default_interface<Windows::UI::StartScreen::JumpList>{ using type = Windows::UI::StartScreen::IJumpList; };
+    template <> struct default_interface<Windows::UI::StartScreen::JumpListItem>{ using type = Windows::UI::StartScreen::IJumpListItem; };
+    template <> struct default_interface<Windows::UI::StartScreen::SecondaryTile>{ using type = Windows::UI::StartScreen::ISecondaryTile; };
+    template <> struct default_interface<Windows::UI::StartScreen::SecondaryTileVisualElements>{ using type = Windows::UI::StartScreen::ISecondaryTileVisualElements; };
+    template <> struct default_interface<Windows::UI::StartScreen::StartScreenManager>{ using type = Windows::UI::StartScreen::IStartScreenManager; };
+    template <> struct default_interface<Windows::UI::StartScreen::TileMixedRealityModel>{ using type = Windows::UI::StartScreen::ITileMixedRealityModel; };
+    template <> struct default_interface<Windows::UI::StartScreen::VisualElementsRequest>{ using type = Windows::UI::StartScreen::IVisualElementsRequest; };
+    template <> struct default_interface<Windows::UI::StartScreen::VisualElementsRequestDeferral>{ using type = Windows::UI::StartScreen::IVisualElementsRequestDeferral; };
+    template <> struct default_interface<Windows::UI::StartScreen::VisualElementsRequestedEventArgs>{ using type = Windows::UI::StartScreen::IVisualElementsRequestedEventArgs; };
+    template <> struct abi<Windows::UI::StartScreen::IJumpList>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -222,7 +223,7 @@ namespace winrt::impl
             virtual int32_t __stdcall SaveAsync(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IJumpListItem>
+    template <> struct abi<Windows::UI::StartScreen::IJumpListItem>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -239,7 +240,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_Logo(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IJumpListItemStatics>
+    template <> struct abi<Windows::UI::StartScreen::IJumpListItemStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -247,7 +248,7 @@ namespace winrt::impl
             virtual int32_t __stdcall CreateSeparator(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IJumpListStatics>
+    template <> struct abi<Windows::UI::StartScreen::IJumpListStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -255,7 +256,7 @@ namespace winrt::impl
             virtual int32_t __stdcall IsSupported(bool*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTile>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTile>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -284,17 +285,17 @@ namespace winrt::impl
             virtual int32_t __stdcall put_BackgroundColor(struct struct_Windows_UI_Color) noexcept = 0;
             virtual int32_t __stdcall get_BackgroundColor(struct struct_Windows_UI_Color*) noexcept = 0;
             virtual int32_t __stdcall RequestCreateAsync(void**) noexcept = 0;
-            virtual int32_t __stdcall RequestCreateAsyncWithPoint(winrt::Windows::Foundation::Point, void**) noexcept = 0;
-            virtual int32_t __stdcall RequestCreateAsyncWithRect(winrt::Windows::Foundation::Rect, void**) noexcept = 0;
-            virtual int32_t __stdcall RequestCreateAsyncWithRectAndPlacement(winrt::Windows::Foundation::Rect, int32_t, void**) noexcept = 0;
+            virtual int32_t __stdcall RequestCreateAsyncWithPoint(Windows::Foundation::Point, void**) noexcept = 0;
+            virtual int32_t __stdcall RequestCreateAsyncWithRect(Windows::Foundation::Rect, void**) noexcept = 0;
+            virtual int32_t __stdcall RequestCreateAsyncWithRectAndPlacement(Windows::Foundation::Rect, int32_t, void**) noexcept = 0;
             virtual int32_t __stdcall RequestDeleteAsync(void**) noexcept = 0;
-            virtual int32_t __stdcall RequestDeleteAsyncWithPoint(winrt::Windows::Foundation::Point, void**) noexcept = 0;
-            virtual int32_t __stdcall RequestDeleteAsyncWithRect(winrt::Windows::Foundation::Rect, void**) noexcept = 0;
-            virtual int32_t __stdcall RequestDeleteAsyncWithRectAndPlacement(winrt::Windows::Foundation::Rect, int32_t, void**) noexcept = 0;
+            virtual int32_t __stdcall RequestDeleteAsyncWithPoint(Windows::Foundation::Point, void**) noexcept = 0;
+            virtual int32_t __stdcall RequestDeleteAsyncWithRect(Windows::Foundation::Rect, void**) noexcept = 0;
+            virtual int32_t __stdcall RequestDeleteAsyncWithRectAndPlacement(Windows::Foundation::Rect, int32_t, void**) noexcept = 0;
             virtual int32_t __stdcall UpdateAsync(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTile2>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTile2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -307,7 +308,7 @@ namespace winrt::impl
             virtual int32_t __stdcall remove_VisualElementsRequested(winrt::event_token) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTileFactory>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTileFactory>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -316,14 +317,14 @@ namespace winrt::impl
             virtual int32_t __stdcall CreateWithId(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTileFactory2>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTileFactory2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall CreateMinimalTile(void*, void*, void*, void*, int32_t, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTileStatics>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTileStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -333,7 +334,7 @@ namespace winrt::impl
             virtual int32_t __stdcall FindAllForPackageAsync(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTileVisualElements>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -359,7 +360,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_ShowNameOnSquare310x310Logo(bool*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements2>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTileVisualElements2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -367,7 +368,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Square71x71Logo(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements3>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTileVisualElements3>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -375,14 +376,14 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Square44x44Logo(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements4>
+    template <> struct abi<Windows::UI::StartScreen::ISecondaryTileVisualElements4>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_MixedRealityModel(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IStartScreenManager>
+    template <> struct abi<Windows::UI::StartScreen::IStartScreenManager>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -392,7 +393,7 @@ namespace winrt::impl
             virtual int32_t __stdcall RequestAddAppListEntryAsync(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IStartScreenManager2>
+    template <> struct abi<Windows::UI::StartScreen::IStartScreenManager2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -400,7 +401,7 @@ namespace winrt::impl
             virtual int32_t __stdcall TryRemoveSecondaryTileAsync(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IStartScreenManagerStatics>
+    template <> struct abi<Windows::UI::StartScreen::IStartScreenManagerStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -408,7 +409,7 @@ namespace winrt::impl
             virtual int32_t __stdcall GetForUser(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ITileMixedRealityModel>
+    template <> struct abi<Windows::UI::StartScreen::ITileMixedRealityModel>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -418,7 +419,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_BoundingBox(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::ITileMixedRealityModel2>
+    template <> struct abi<Windows::UI::StartScreen::ITileMixedRealityModel2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -426,7 +427,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_ActivationBehavior(int32_t*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IVisualElementsRequest>
+    template <> struct abi<Windows::UI::StartScreen::IVisualElementsRequest>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -436,14 +437,14 @@ namespace winrt::impl
             virtual int32_t __stdcall GetDeferral(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IVisualElementsRequestDeferral>
+    template <> struct abi<Windows::UI::StartScreen::IVisualElementsRequestDeferral>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall Complete() noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>
+    template <> struct abi<Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -455,10 +456,10 @@ namespace winrt::impl
     {
         [[nodiscard]] auto Items() const;
         [[nodiscard]] auto SystemGroupKind() const;
-        auto SystemGroupKind(winrt::Windows::UI::StartScreen::JumpListSystemGroupKind const& value) const;
+        auto SystemGroupKind(Windows::UI::StartScreen::JumpListSystemGroupKind const& value) const;
         auto SaveAsync() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IJumpList>
+    template <> struct consume<Windows::UI::StartScreen::IJumpList>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IJumpList<D>;
     };
@@ -475,9 +476,9 @@ namespace winrt::impl
         [[nodiscard]] auto GroupName() const;
         auto GroupName(param::hstring const& value) const;
         [[nodiscard]] auto Logo() const;
-        auto Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Logo(Windows::Foundation::Uri const& value) const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IJumpListItem>
+    template <> struct consume<Windows::UI::StartScreen::IJumpListItem>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IJumpListItem<D>;
     };
@@ -487,7 +488,7 @@ namespace winrt::impl
         auto CreateWithArguments(param::hstring const& arguments, param::hstring const& displayName) const;
         auto CreateSeparator() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IJumpListItemStatics>
+    template <> struct consume<Windows::UI::StartScreen::IJumpListItemStatics>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IJumpListItemStatics<D>;
     };
@@ -497,7 +498,7 @@ namespace winrt::impl
         auto LoadCurrentAsync() const;
         auto IsSupported() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IJumpListStatics>
+    template <> struct consume<Windows::UI::StartScreen::IJumpListStatics>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IJumpListStatics<D>;
     };
@@ -512,33 +513,33 @@ namespace winrt::impl
         [[nodiscard]] auto ShortName() const;
         auto DisplayName(param::hstring const& value) const;
         [[nodiscard]] auto DisplayName() const;
-        auto Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Logo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Logo() const;
-        auto SmallLogo(winrt::Windows::Foundation::Uri const& value) const;
+        auto SmallLogo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto SmallLogo() const;
-        auto WideLogo(winrt::Windows::Foundation::Uri const& value) const;
+        auto WideLogo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto WideLogo() const;
-        auto LockScreenBadgeLogo(winrt::Windows::Foundation::Uri const& value) const;
+        auto LockScreenBadgeLogo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto LockScreenBadgeLogo() const;
         auto LockScreenDisplayBadgeAndTileText(bool value) const;
         [[nodiscard]] auto LockScreenDisplayBadgeAndTileText() const;
-        auto TileOptions(winrt::Windows::UI::StartScreen::TileOptions const& value) const;
+        auto TileOptions(Windows::UI::StartScreen::TileOptions const& value) const;
         [[nodiscard]] auto TileOptions() const;
-        auto ForegroundText(winrt::Windows::UI::StartScreen::ForegroundText const& value) const;
+        auto ForegroundText(Windows::UI::StartScreen::ForegroundText const& value) const;
         [[nodiscard]] auto ForegroundText() const;
-        auto BackgroundColor(winrt::Windows::UI::Color const& value) const;
+        auto BackgroundColor(Windows::UI::Color const& value) const;
         [[nodiscard]] auto BackgroundColor() const;
         auto RequestCreateAsync() const;
-        auto RequestCreateAsync(winrt::Windows::Foundation::Point const& invocationPoint) const;
-        auto RequestCreateForSelectionAsync(winrt::Windows::Foundation::Rect const& selection) const;
-        auto RequestCreateForSelectionAsync(winrt::Windows::Foundation::Rect const& selection, winrt::Windows::UI::Popups::Placement const& preferredPlacement) const;
+        auto RequestCreateAsync(Windows::Foundation::Point const& invocationPoint) const;
+        auto RequestCreateForSelectionAsync(Windows::Foundation::Rect const& selection) const;
+        auto RequestCreateForSelectionAsync(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
         auto RequestDeleteAsync() const;
-        auto RequestDeleteAsync(winrt::Windows::Foundation::Point const& invocationPoint) const;
-        auto RequestDeleteForSelectionAsync(winrt::Windows::Foundation::Rect const& selection) const;
-        auto RequestDeleteForSelectionAsync(winrt::Windows::Foundation::Rect const& selection, winrt::Windows::UI::Popups::Placement const& preferredPlacement) const;
+        auto RequestDeleteAsync(Windows::Foundation::Point const& invocationPoint) const;
+        auto RequestDeleteForSelectionAsync(Windows::Foundation::Rect const& selection) const;
+        auto RequestDeleteForSelectionAsync(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
         auto UpdateAsync() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTile>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTile>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTile<D>;
     };
@@ -550,32 +551,32 @@ namespace winrt::impl
         [[nodiscard]] auto VisualElements() const;
         auto RoamingEnabled(bool value) const;
         [[nodiscard]] auto RoamingEnabled() const;
-        auto VisualElementsRequested(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::StartScreen::SecondaryTile, winrt::Windows::UI::StartScreen::VisualElementsRequestedEventArgs> const& handler) const;
-        using VisualElementsRequested_revoker = impl::event_revoker<winrt::Windows::UI::StartScreen::ISecondaryTile2, &impl::abi_t<winrt::Windows::UI::StartScreen::ISecondaryTile2>::remove_VisualElementsRequested>;
-        [[nodiscard]] VisualElementsRequested_revoker VisualElementsRequested(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::StartScreen::SecondaryTile, winrt::Windows::UI::StartScreen::VisualElementsRequestedEventArgs> const& handler) const;
+        auto VisualElementsRequested(Windows::Foundation::TypedEventHandler<Windows::UI::StartScreen::SecondaryTile, Windows::UI::StartScreen::VisualElementsRequestedEventArgs> const& handler) const;
+        using VisualElementsRequested_revoker = impl::event_revoker<Windows::UI::StartScreen::ISecondaryTile2, &impl::abi_t<Windows::UI::StartScreen::ISecondaryTile2>::remove_VisualElementsRequested>;
+        [[nodiscard]] VisualElementsRequested_revoker VisualElementsRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::StartScreen::SecondaryTile, Windows::UI::StartScreen::VisualElementsRequestedEventArgs> const& handler) const;
         auto VisualElementsRequested(winrt::event_token const& token) const noexcept;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTile2>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTile2>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTile2<D>;
     };
     template <typename D>
     struct consume_Windows_UI_StartScreen_ISecondaryTileFactory
     {
-        auto CreateTile(param::hstring const& tileId, param::hstring const& shortName, param::hstring const& displayName, param::hstring const& arguments, winrt::Windows::UI::StartScreen::TileOptions const& tileOptions, winrt::Windows::Foundation::Uri const& logoReference) const;
-        auto CreateWideTile(param::hstring const& tileId, param::hstring const& shortName, param::hstring const& displayName, param::hstring const& arguments, winrt::Windows::UI::StartScreen::TileOptions const& tileOptions, winrt::Windows::Foundation::Uri const& logoReference, winrt::Windows::Foundation::Uri const& wideLogoReference) const;
+        auto CreateTile(param::hstring const& tileId, param::hstring const& shortName, param::hstring const& displayName, param::hstring const& arguments, Windows::UI::StartScreen::TileOptions const& tileOptions, Windows::Foundation::Uri const& logoReference) const;
+        auto CreateWideTile(param::hstring const& tileId, param::hstring const& shortName, param::hstring const& displayName, param::hstring const& arguments, Windows::UI::StartScreen::TileOptions const& tileOptions, Windows::Foundation::Uri const& logoReference, Windows::Foundation::Uri const& wideLogoReference) const;
         auto CreateWithId(param::hstring const& tileId) const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTileFactory>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTileFactory>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTileFactory<D>;
     };
     template <typename D>
     struct consume_Windows_UI_StartScreen_ISecondaryTileFactory2
     {
-        auto CreateMinimalTile(param::hstring const& tileId, param::hstring const& displayName, param::hstring const& arguments, winrt::Windows::Foundation::Uri const& square150x150Logo, winrt::Windows::UI::StartScreen::TileSize const& desiredSize) const;
+        auto CreateMinimalTile(param::hstring const& tileId, param::hstring const& displayName, param::hstring const& arguments, Windows::Foundation::Uri const& square150x150Logo, Windows::UI::StartScreen::TileSize const& desiredSize) const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTileFactory2>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTileFactory2>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTileFactory2<D>;
     };
@@ -587,26 +588,26 @@ namespace winrt::impl
         auto FindAllAsync(param::hstring const& applicationId) const;
         auto FindAllForPackageAsync() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTileStatics>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTileStatics>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTileStatics<D>;
     };
     template <typename D>
     struct consume_Windows_UI_StartScreen_ISecondaryTileVisualElements
     {
-        auto Square30x30Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Square30x30Logo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Square30x30Logo() const;
-        auto Square70x70Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Square70x70Logo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Square70x70Logo() const;
-        auto Square150x150Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Square150x150Logo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Square150x150Logo() const;
-        auto Wide310x150Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Wide310x150Logo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Wide310x150Logo() const;
-        auto Square310x310Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Square310x310Logo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Square310x310Logo() const;
-        auto ForegroundText(winrt::Windows::UI::StartScreen::ForegroundText const& value) const;
+        auto ForegroundText(Windows::UI::StartScreen::ForegroundText const& value) const;
         [[nodiscard]] auto ForegroundText() const;
-        auto BackgroundColor(winrt::Windows::UI::Color const& value) const;
+        auto BackgroundColor(Windows::UI::Color const& value) const;
         [[nodiscard]] auto BackgroundColor() const;
         auto ShowNameOnSquare150x150Logo(bool value) const;
         [[nodiscard]] auto ShowNameOnSquare150x150Logo() const;
@@ -615,27 +616,27 @@ namespace winrt::impl
         auto ShowNameOnSquare310x310Logo(bool value) const;
         [[nodiscard]] auto ShowNameOnSquare310x310Logo() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTileVisualElements>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTileVisualElements<D>;
     };
     template <typename D>
     struct consume_Windows_UI_StartScreen_ISecondaryTileVisualElements2
     {
-        auto Square71x71Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Square71x71Logo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Square71x71Logo() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements2>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTileVisualElements2>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTileVisualElements2<D>;
     };
     template <typename D>
     struct consume_Windows_UI_StartScreen_ISecondaryTileVisualElements3
     {
-        auto Square44x44Logo(winrt::Windows::Foundation::Uri const& value) const;
+        auto Square44x44Logo(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Square44x44Logo() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements3>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTileVisualElements3>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTileVisualElements3<D>;
     };
@@ -644,7 +645,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto MixedRealityModel() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ISecondaryTileVisualElements4>
+    template <> struct consume<Windows::UI::StartScreen::ISecondaryTileVisualElements4>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ISecondaryTileVisualElements4<D>;
     };
@@ -652,11 +653,11 @@ namespace winrt::impl
     struct consume_Windows_UI_StartScreen_IStartScreenManager
     {
         [[nodiscard]] auto User() const;
-        auto SupportsAppListEntry(winrt::Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
-        auto ContainsAppListEntryAsync(winrt::Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
-        auto RequestAddAppListEntryAsync(winrt::Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
+        auto SupportsAppListEntry(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
+        auto ContainsAppListEntryAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
+        auto RequestAddAppListEntryAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IStartScreenManager>
+    template <> struct consume<Windows::UI::StartScreen::IStartScreenManager>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IStartScreenManager<D>;
     };
@@ -666,7 +667,7 @@ namespace winrt::impl
         auto ContainsSecondaryTileAsync(param::hstring const& tileId) const;
         auto TryRemoveSecondaryTileAsync(param::hstring const& tileId) const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IStartScreenManager2>
+    template <> struct consume<Windows::UI::StartScreen::IStartScreenManager2>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IStartScreenManager2<D>;
     };
@@ -674,31 +675,31 @@ namespace winrt::impl
     struct consume_Windows_UI_StartScreen_IStartScreenManagerStatics
     {
         auto GetDefault() const;
-        auto GetForUser(winrt::Windows::System::User const& user) const;
+        auto GetForUser(Windows::System::User const& user) const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IStartScreenManagerStatics>
+    template <> struct consume<Windows::UI::StartScreen::IStartScreenManagerStatics>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IStartScreenManagerStatics<D>;
     };
     template <typename D>
     struct consume_Windows_UI_StartScreen_ITileMixedRealityModel
     {
-        auto Uri(winrt::Windows::Foundation::Uri const& value) const;
+        auto Uri(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Uri() const;
-        auto BoundingBox(winrt::Windows::Foundation::IReference<winrt::Windows::Perception::Spatial::SpatialBoundingBox> const& value) const;
+        auto BoundingBox(Windows::Foundation::IReference<Windows::Perception::Spatial::SpatialBoundingBox> const& value) const;
         [[nodiscard]] auto BoundingBox() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ITileMixedRealityModel>
+    template <> struct consume<Windows::UI::StartScreen::ITileMixedRealityModel>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ITileMixedRealityModel<D>;
     };
     template <typename D>
     struct consume_Windows_UI_StartScreen_ITileMixedRealityModel2
     {
-        auto ActivationBehavior(winrt::Windows::UI::StartScreen::TileMixedRealityModelActivationBehavior const& value) const;
+        auto ActivationBehavior(Windows::UI::StartScreen::TileMixedRealityModelActivationBehavior const& value) const;
         [[nodiscard]] auto ActivationBehavior() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::ITileMixedRealityModel2>
+    template <> struct consume<Windows::UI::StartScreen::ITileMixedRealityModel2>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_ITileMixedRealityModel2<D>;
     };
@@ -710,7 +711,7 @@ namespace winrt::impl
         [[nodiscard]] auto Deadline() const;
         auto GetDeferral() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IVisualElementsRequest>
+    template <> struct consume<Windows::UI::StartScreen::IVisualElementsRequest>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IVisualElementsRequest<D>;
     };
@@ -719,7 +720,7 @@ namespace winrt::impl
     {
         auto Complete() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IVisualElementsRequestDeferral>
+    template <> struct consume<Windows::UI::StartScreen::IVisualElementsRequestDeferral>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IVisualElementsRequestDeferral<D>;
     };
@@ -728,7 +729,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto Request() const;
     };
-    template <> struct consume<winrt::Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>
+    template <> struct consume<Windows::UI::StartScreen::IVisualElementsRequestedEventArgs>
     {
         template <typename D> using type = consume_Windows_UI_StartScreen_IVisualElementsRequestedEventArgs<D>;
     };

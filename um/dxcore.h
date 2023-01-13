@@ -1,7 +1,6 @@
 /************************************************************
 *                                                           *
-* Copyright (c) Microsoft Corporation.                      *
-* Licensed under the MIT license.                           *
+* Copyright (c) Microsoft Corporation. All rights reserved. *
 *                                                           *
 ************************************************************/
 
@@ -9,7 +8,8 @@
 #define _DXCOREEXTMODULE_H_
 
 #include <winapifamily.h>
-#include "dxcore_interface.h"
+#include <stdint.h>
+#include <dxcore_interface.h>
 
 #pragma region Application Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)

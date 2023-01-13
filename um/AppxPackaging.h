@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -37,14 +37,6 @@
 #pragma once
 #endif
 
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
-#endif
-
 /* Forward Declarations */ 
 
 #ifndef __IAppxFactory_FWD_DEFINED__
@@ -59,13 +51,6 @@ typedef interface IAppxFactory IAppxFactory;
 typedef interface IAppxFactory2 IAppxFactory2;
 
 #endif 	/* __IAppxFactory2_FWD_DEFINED__ */
-
-
-#ifndef __IAppxFactory3_FWD_DEFINED__
-#define __IAppxFactory3_FWD_DEFINED__
-typedef interface IAppxFactory3 IAppxFactory3;
-
-#endif 	/* __IAppxFactory3_FWD_DEFINED__ */
 
 
 #ifndef __IAppxPackageReader_FWD_DEFINED__
@@ -250,13 +235,6 @@ typedef interface IAppxManifestHostRuntimeDependency IAppxManifestHostRuntimeDep
 #endif 	/* __IAppxManifestHostRuntimeDependency_FWD_DEFINED__ */
 
 
-#ifndef __IAppxManifestHostRuntimeDependency2_FWD_DEFINED__
-#define __IAppxManifestHostRuntimeDependency2_FWD_DEFINED__
-typedef interface IAppxManifestHostRuntimeDependency2 IAppxManifestHostRuntimeDependency2;
-
-#endif 	/* __IAppxManifestHostRuntimeDependency2_FWD_DEFINED__ */
-
-
 #ifndef __IAppxManifestOptionalPackageInfo_FWD_DEFINED__
 #define __IAppxManifestOptionalPackageInfo_FWD_DEFINED__
 typedef interface IAppxManifestOptionalPackageInfo IAppxManifestOptionalPackageInfo;
@@ -395,13 +373,6 @@ typedef interface IAppxManifestQualifiedResource IAppxManifestQualifiedResource;
 typedef interface IAppxBundleFactory IAppxBundleFactory;
 
 #endif 	/* __IAppxBundleFactory_FWD_DEFINED__ */
-
-
-#ifndef __IAppxBundleFactory2_FWD_DEFINED__
-#define __IAppxBundleFactory2_FWD_DEFINED__
-typedef interface IAppxBundleFactory2 IAppxBundleFactory2;
-
-#endif 	/* __IAppxBundleFactory2_FWD_DEFINED__ */
 
 
 #ifndef __IAppxBundleWriter_FWD_DEFINED__
@@ -558,20 +529,6 @@ typedef interface IAppxPackagingDiagnosticEventSinkManager IAppxPackagingDiagnos
 #endif 	/* __IAppxPackagingDiagnosticEventSinkManager_FWD_DEFINED__ */
 
 
-#ifndef __IAppxAppInstallerReader_FWD_DEFINED__
-#define __IAppxAppInstallerReader_FWD_DEFINED__
-typedef interface IAppxAppInstallerReader IAppxAppInstallerReader;
-
-#endif 	/* __IAppxAppInstallerReader_FWD_DEFINED__ */
-
-
-#ifndef __IAppxDigestProvider_FWD_DEFINED__
-#define __IAppxDigestProvider_FWD_DEFINED__
-typedef interface IAppxDigestProvider IAppxDigestProvider;
-
-#endif 	/* __IAppxDigestProvider_FWD_DEFINED__ */
-
-
 #ifndef __IAppxEncryptionFactory_FWD_DEFINED__
 #define __IAppxEncryptionFactory_FWD_DEFINED__
 typedef interface IAppxEncryptionFactory IAppxEncryptionFactory;
@@ -598,13 +555,6 @@ typedef interface IAppxEncryptionFactory3 IAppxEncryptionFactory3;
 typedef interface IAppxEncryptionFactory4 IAppxEncryptionFactory4;
 
 #endif 	/* __IAppxEncryptionFactory4_FWD_DEFINED__ */
-
-
-#ifndef __IAppxEncryptionFactory5_FWD_DEFINED__
-#define __IAppxEncryptionFactory5_FWD_DEFINED__
-typedef interface IAppxEncryptionFactory5 IAppxEncryptionFactory5;
-
-#endif 	/* __IAppxEncryptionFactory5_FWD_DEFINED__ */
 
 
 #ifndef __IAppxEncryptedPackageWriter_FWD_DEFINED__
@@ -904,9 +854,6 @@ enum APPX_PACKAGING_CONTEXT_CHANGE_TYPE
 
 
 
-
-
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 #pragma endregion
 #pragma region Desktop Family
@@ -971,47 +918,39 @@ EXTERN_C const IID IID_IAppxFactory;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxFactory * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxFactory * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxFactory * This);
         
-        DECLSPEC_XFGVIRT(IAppxFactory, CreatePackageWriter)
         HRESULT ( STDMETHODCALLTYPE *CreatePackageWriter )( 
             __RPC__in IAppxFactory * This,
             /* [in] */ __RPC__in_opt IStream *outputStream,
             /* [in] */ __RPC__in APPX_PACKAGE_SETTINGS *settings,
             /* [retval][out] */ __RPC__deref_out_opt IAppxPackageWriter **packageWriter);
         
-        DECLSPEC_XFGVIRT(IAppxFactory, CreatePackageReader)
         HRESULT ( STDMETHODCALLTYPE *CreatePackageReader )( 
             __RPC__in IAppxFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [retval][out] */ __RPC__deref_out_opt IAppxPackageReader **packageReader);
         
-        DECLSPEC_XFGVIRT(IAppxFactory, CreateManifestReader)
         HRESULT ( STDMETHODCALLTYPE *CreateManifestReader )( 
             __RPC__in IAppxFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestReader **manifestReader);
         
-        DECLSPEC_XFGVIRT(IAppxFactory, CreateBlockMapReader)
         HRESULT ( STDMETHODCALLTYPE *CreateBlockMapReader )( 
             __RPC__in IAppxFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBlockMapReader **blockMapReader);
         
-        DECLSPEC_XFGVIRT(IAppxFactory, CreateValidatedBlockMapReader)
         HRESULT ( STDMETHODCALLTYPE *CreateValidatedBlockMapReader )( 
             __RPC__in IAppxFactory * This,
             /* [in] */ __RPC__in_opt IStream *blockMapStream,
@@ -1103,34 +1042,28 @@ EXTERN_C const IID IID_IAppxFactory2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxFactory2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxFactory2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxFactory2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxFactory2, CreateContentGroupMapReader)
         HRESULT ( STDMETHODCALLTYPE *CreateContentGroupMapReader )( 
             __RPC__in IAppxFactory2 * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [retval][out] */ __RPC__deref_out_opt IAppxContentGroupMapReader **contentGroupMapReader);
         
-        DECLSPEC_XFGVIRT(IAppxFactory2, CreateSourceContentGroupMapReader)
         HRESULT ( STDMETHODCALLTYPE *CreateSourceContentGroupMapReader )( 
             __RPC__in IAppxFactory2 * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [retval][out] */ __RPC__deref_out_opt IAppxSourceContentGroupMapReader **reader);
         
-        DECLSPEC_XFGVIRT(IAppxFactory2, CreateContentGroupMapWriter)
         HRESULT ( STDMETHODCALLTYPE *CreateContentGroupMapWriter )( 
             __RPC__in IAppxFactory2 * This,
             /* [in] */ __RPC__in_opt IStream *stream,
@@ -1179,124 +1112,6 @@ EXTERN_C const IID IID_IAppxFactory2;
 #endif 	/* __IAppxFactory2_INTERFACE_DEFINED__ */
 
 
-#ifndef __IAppxFactory3_INTERFACE_DEFINED__
-#define __IAppxFactory3_INTERFACE_DEFINED__
-
-/* interface IAppxFactory3 */
-/* [ref][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IAppxFactory3;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("776b2c05-e21d-4e24-ba1a-cd529a8bfdbb")
-    IAppxFactory3 : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE CreatePackageReader2( 
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxPackageReader **packageReader) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE CreateManifestReader2( 
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxManifestReader **manifestReader) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE CreateAppInstallerReader( 
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxAppInstallerReader **appInstallerReader) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IAppxFactory3Vtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IAppxFactory3 * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IAppxFactory3 * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IAppxFactory3 * This);
-        
-        DECLSPEC_XFGVIRT(IAppxFactory3, CreatePackageReader2)
-        HRESULT ( STDMETHODCALLTYPE *CreatePackageReader2 )( 
-            __RPC__in IAppxFactory3 * This,
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxPackageReader **packageReader);
-        
-        DECLSPEC_XFGVIRT(IAppxFactory3, CreateManifestReader2)
-        HRESULT ( STDMETHODCALLTYPE *CreateManifestReader2 )( 
-            __RPC__in IAppxFactory3 * This,
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxManifestReader **manifestReader);
-        
-        DECLSPEC_XFGVIRT(IAppxFactory3, CreateAppInstallerReader)
-        HRESULT ( STDMETHODCALLTYPE *CreateAppInstallerReader )( 
-            __RPC__in IAppxFactory3 * This,
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxAppInstallerReader **appInstallerReader);
-        
-        END_INTERFACE
-    } IAppxFactory3Vtbl;
-
-    interface IAppxFactory3
-    {
-        CONST_VTBL struct IAppxFactory3Vtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IAppxFactory3_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IAppxFactory3_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IAppxFactory3_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IAppxFactory3_CreatePackageReader2(This,inputStream,expectedDigest,packageReader)	\
-    ( (This)->lpVtbl -> CreatePackageReader2(This,inputStream,expectedDigest,packageReader) ) 
-
-#define IAppxFactory3_CreateManifestReader2(This,inputStream,expectedDigest,manifestReader)	\
-    ( (This)->lpVtbl -> CreateManifestReader2(This,inputStream,expectedDigest,manifestReader) ) 
-
-#define IAppxFactory3_CreateAppInstallerReader(This,inputStream,expectedDigest,appInstallerReader)	\
-    ( (This)->lpVtbl -> CreateAppInstallerReader(This,inputStream,expectedDigest,appInstallerReader) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IAppxFactory3_INTERFACE_DEFINED__ */
-
-
 #ifndef __IAppxPackageReader_INTERFACE_DEFINED__
 #define __IAppxPackageReader_INTERFACE_DEFINED__
 
@@ -1338,44 +1153,36 @@ EXTERN_C const IID IID_IAppxPackageReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxPackageReader * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxPackageReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxPackageReader * This);
         
-        DECLSPEC_XFGVIRT(IAppxPackageReader, GetBlockMap)
         HRESULT ( STDMETHODCALLTYPE *GetBlockMap )( 
             __RPC__in IAppxPackageReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBlockMapReader **blockMapReader);
         
-        DECLSPEC_XFGVIRT(IAppxPackageReader, GetFootprintFile)
         HRESULT ( STDMETHODCALLTYPE *GetFootprintFile )( 
             __RPC__in IAppxPackageReader * This,
             /* [in] */ APPX_FOOTPRINT_FILE_TYPE type,
             /* [retval][out] */ __RPC__deref_out_opt IAppxFile **file);
         
-        DECLSPEC_XFGVIRT(IAppxPackageReader, GetPayloadFile)
         HRESULT ( STDMETHODCALLTYPE *GetPayloadFile )( 
             __RPC__in IAppxPackageReader * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
             /* [retval][out] */ __RPC__deref_out_opt IAppxFile **file);
         
-        DECLSPEC_XFGVIRT(IAppxPackageReader, GetPayloadFiles)
         HRESULT ( STDMETHODCALLTYPE *GetPayloadFiles )( 
             __RPC__in IAppxPackageReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxFilesEnumerator **filesEnumerator);
         
-        DECLSPEC_XFGVIRT(IAppxPackageReader, GetManifest)
         HRESULT ( STDMETHODCALLTYPE *GetManifest )( 
             __RPC__in IAppxPackageReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestReader **manifestReader);
@@ -1462,22 +1269,18 @@ EXTERN_C const IID IID_IAppxPackageWriter;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxPackageWriter * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxPackageWriter * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxPackageWriter * This);
         
-        DECLSPEC_XFGVIRT(IAppxPackageWriter, AddPayloadFile)
         HRESULT ( STDMETHODCALLTYPE *AddPayloadFile )( 
             __RPC__in IAppxPackageWriter * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
@@ -1485,7 +1288,6 @@ EXTERN_C const IID IID_IAppxPackageWriter;
             /* [in] */ APPX_COMPRESSION_OPTION compressionOption,
             /* [in] */ __RPC__in_opt IStream *inputStream);
         
-        DECLSPEC_XFGVIRT(IAppxPackageWriter, Close)
         HRESULT ( STDMETHODCALLTYPE *Close )( 
             __RPC__in IAppxPackageWriter * This,
             /* [in] */ __RPC__in_opt IStream *manifest);
@@ -1558,22 +1360,18 @@ EXTERN_C const IID IID_IAppxPackageWriter2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxPackageWriter2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxPackageWriter2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxPackageWriter2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxPackageWriter2, Close)
         HRESULT ( STDMETHODCALLTYPE *Close )( 
             __RPC__in IAppxPackageWriter2 * This,
             /* [in] */ __RPC__in_opt IStream *manifest,
@@ -1645,22 +1443,18 @@ EXTERN_C const IID IID_IAppxPackageWriter3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxPackageWriter3 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxPackageWriter3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxPackageWriter3 * This);
         
-        DECLSPEC_XFGVIRT(IAppxPackageWriter3, AddPayloadFiles)
         HRESULT ( STDMETHODCALLTYPE *AddPayloadFiles )( 
             __RPC__in IAppxPackageWriter3 * This,
             /* [in] */ UINT32 fileCount,
@@ -1743,42 +1537,34 @@ EXTERN_C const IID IID_IAppxFile;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxFile * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxFile * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxFile * This);
         
-        DECLSPEC_XFGVIRT(IAppxFile, GetCompressionOption)
         HRESULT ( STDMETHODCALLTYPE *GetCompressionOption )( 
             __RPC__in IAppxFile * This,
             /* [retval][out] */ __RPC__out APPX_COMPRESSION_OPTION *compressionOption);
         
-        DECLSPEC_XFGVIRT(IAppxFile, GetContentType)
         HRESULT ( STDMETHODCALLTYPE *GetContentType )( 
             __RPC__in IAppxFile * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *contentType);
         
-        DECLSPEC_XFGVIRT(IAppxFile, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxFile * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *fileName);
         
-        DECLSPEC_XFGVIRT(IAppxFile, GetSize)
         HRESULT ( STDMETHODCALLTYPE *GetSize )( 
             __RPC__in IAppxFile * This,
             /* [retval][out] */ __RPC__out UINT64 *size);
         
-        DECLSPEC_XFGVIRT(IAppxFile, GetStream)
         HRESULT ( STDMETHODCALLTYPE *GetStream )( 
             __RPC__in IAppxFile * This,
             /* [retval][out] */ __RPC__deref_out_opt IStream **stream);
@@ -1865,32 +1651,26 @@ EXTERN_C const IID IID_IAppxFilesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxFilesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxFilesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxFilesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxFilesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxFilesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxFile **file);
         
-        DECLSPEC_XFGVIRT(IAppxFilesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxFilesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxFilesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxFilesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -1975,38 +1755,31 @@ EXTERN_C const IID IID_IAppxBlockMapReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBlockMapReader * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBlockMapReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBlockMapReader * This);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapReader, GetFile)
         HRESULT ( STDMETHODCALLTYPE *GetFile )( 
             __RPC__in IAppxBlockMapReader * This,
             /* [string][in] */ __RPC__in_string LPCWSTR filename,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBlockMapFile **file);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapReader, GetFiles)
         HRESULT ( STDMETHODCALLTYPE *GetFiles )( 
             __RPC__in IAppxBlockMapReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBlockMapFilesEnumerator **enumerator);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapReader, GetHashMethod)
         HRESULT ( STDMETHODCALLTYPE *GetHashMethod )( 
             __RPC__in IAppxBlockMapReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IUri **hashMethod);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapReader, GetStream)
         HRESULT ( STDMETHODCALLTYPE *GetStream )( 
             __RPC__in IAppxBlockMapReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IStream **blockMapStream);
@@ -2097,42 +1870,34 @@ EXTERN_C const IID IID_IAppxBlockMapFile;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBlockMapFile * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBlockMapFile * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBlockMapFile * This);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapFile, GetBlocks)
         HRESULT ( STDMETHODCALLTYPE *GetBlocks )( 
             __RPC__in IAppxBlockMapFile * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBlockMapBlocksEnumerator **blocks);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapFile, GetLocalFileHeaderSize)
         HRESULT ( STDMETHODCALLTYPE *GetLocalFileHeaderSize )( 
             __RPC__in IAppxBlockMapFile * This,
             /* [retval][out] */ __RPC__out UINT32 *lfhSize);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapFile, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxBlockMapFile * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapFile, GetUncompressedSize)
         HRESULT ( STDMETHODCALLTYPE *GetUncompressedSize )( 
             __RPC__in IAppxBlockMapFile * This,
             /* [retval][out] */ __RPC__out UINT64 *size);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapFile, ValidateFileHash)
         HRESULT ( STDMETHODCALLTYPE *ValidateFileHash )( 
             __RPC__in IAppxBlockMapFile * This,
             /* [in] */ __RPC__in_opt IStream *fileStream,
@@ -2220,32 +1985,26 @@ EXTERN_C const IID IID_IAppxBlockMapFilesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBlockMapFilesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBlockMapFilesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBlockMapFilesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapFilesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxBlockMapFilesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBlockMapFile **file);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapFilesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxBlockMapFilesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapFilesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxBlockMapFilesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
@@ -2324,28 +2083,23 @@ EXTERN_C const IID IID_IAppxBlockMapBlock;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBlockMapBlock * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBlockMapBlock * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBlockMapBlock * This);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapBlock, GetHash)
         HRESULT ( STDMETHODCALLTYPE *GetHash )( 
             __RPC__in IAppxBlockMapBlock * This,
             /* [out] */ __RPC__out UINT32 *bufferSize,
             /* [retval][size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*bufferSize) BYTE **buffer);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapBlock, GetCompressedSize)
         HRESULT ( STDMETHODCALLTYPE *GetCompressedSize )( 
             __RPC__in IAppxBlockMapBlock * This,
             /* [retval][out] */ __RPC__out UINT32 *size);
@@ -2423,32 +2177,26 @@ EXTERN_C const IID IID_IAppxBlockMapBlocksEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBlockMapBlocksEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBlockMapBlocksEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBlockMapBlocksEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapBlocksEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxBlockMapBlocksEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBlockMapBlock **block);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapBlocksEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxBlockMapBlocksEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxBlockMapBlocksEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxBlockMapBlocksEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -2548,63 +2296,51 @@ EXTERN_C const IID IID_IAppxManifestReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestReader * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestReader * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPackageId)
         HRESULT ( STDMETHODCALLTYPE *GetPackageId )( 
             __RPC__in IAppxManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageId **packageId);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetProperties)
         HRESULT ( STDMETHODCALLTYPE *GetProperties )( 
             __RPC__in IAppxManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestProperties **packageProperties);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPackageDependencies)
         HRESULT ( STDMETHODCALLTYPE *GetPackageDependencies )( 
             __RPC__in IAppxManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageDependenciesEnumerator **dependencies);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetCapabilities)
         HRESULT ( STDMETHODCALLTYPE *GetCapabilities )( 
             __RPC__in IAppxManifestReader * This,
             /* [retval][out] */ __RPC__out APPX_CAPABILITIES *capabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetResources)
         HRESULT ( STDMETHODCALLTYPE *GetResources )( 
             __RPC__in IAppxManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestResourcesEnumerator **resources);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetDeviceCapabilities)
         HRESULT ( STDMETHODCALLTYPE *GetDeviceCapabilities )( 
             __RPC__in IAppxManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestDeviceCapabilitiesEnumerator **deviceCapabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPrerequisite)
         HRESULT ( STDMETHODCALLTYPE *GetPrerequisite )( 
             __RPC__in IAppxManifestReader * This,
             /* [string][in] */ __RPC__in_string LPCWSTR name,
             /* [retval][out] */ __RPC__out UINT64 *value);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetApplications)
         HRESULT ( STDMETHODCALLTYPE *GetApplications )( 
             __RPC__in IAppxManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestApplicationsEnumerator **applications);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetStream)
         HRESULT ( STDMETHODCALLTYPE *GetStream )( 
             __RPC__in IAppxManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IStream **manifestStream);
@@ -2697,68 +2433,55 @@ EXTERN_C const IID IID_IAppxManifestReader2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestReader2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestReader2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPackageId)
         HRESULT ( STDMETHODCALLTYPE *GetPackageId )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageId **packageId);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetProperties)
         HRESULT ( STDMETHODCALLTYPE *GetProperties )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestProperties **packageProperties);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPackageDependencies)
         HRESULT ( STDMETHODCALLTYPE *GetPackageDependencies )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageDependenciesEnumerator **dependencies);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetCapabilities)
         HRESULT ( STDMETHODCALLTYPE *GetCapabilities )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__out APPX_CAPABILITIES *capabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetResources)
         HRESULT ( STDMETHODCALLTYPE *GetResources )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestResourcesEnumerator **resources);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetDeviceCapabilities)
         HRESULT ( STDMETHODCALLTYPE *GetDeviceCapabilities )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestDeviceCapabilitiesEnumerator **deviceCapabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPrerequisite)
         HRESULT ( STDMETHODCALLTYPE *GetPrerequisite )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR name,
             /* [retval][out] */ __RPC__out UINT64 *value);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetApplications)
         HRESULT ( STDMETHODCALLTYPE *GetApplications )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestApplicationsEnumerator **applications);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetStream)
         HRESULT ( STDMETHODCALLTYPE *GetStream )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IStream **manifestStream);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader2, GetQualifiedResources)
         HRESULT ( STDMETHODCALLTYPE *GetQualifiedResources )( 
             __RPC__in IAppxManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestQualifiedResourcesEnumerator **resources);
@@ -2859,79 +2582,64 @@ EXTERN_C const IID IID_IAppxManifestReader3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestReader3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestReader3 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPackageId)
         HRESULT ( STDMETHODCALLTYPE *GetPackageId )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageId **packageId);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetProperties)
         HRESULT ( STDMETHODCALLTYPE *GetProperties )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestProperties **packageProperties);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPackageDependencies)
         HRESULT ( STDMETHODCALLTYPE *GetPackageDependencies )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageDependenciesEnumerator **dependencies);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetCapabilities)
         HRESULT ( STDMETHODCALLTYPE *GetCapabilities )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__out APPX_CAPABILITIES *capabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetResources)
         HRESULT ( STDMETHODCALLTYPE *GetResources )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestResourcesEnumerator **resources);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetDeviceCapabilities)
         HRESULT ( STDMETHODCALLTYPE *GetDeviceCapabilities )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestDeviceCapabilitiesEnumerator **deviceCapabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPrerequisite)
         HRESULT ( STDMETHODCALLTYPE *GetPrerequisite )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR name,
             /* [retval][out] */ __RPC__out UINT64 *value);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetApplications)
         HRESULT ( STDMETHODCALLTYPE *GetApplications )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestApplicationsEnumerator **applications);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetStream)
         HRESULT ( STDMETHODCALLTYPE *GetStream )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IStream **manifestStream);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader2, GetQualifiedResources)
         HRESULT ( STDMETHODCALLTYPE *GetQualifiedResources )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestQualifiedResourcesEnumerator **resources);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader3, GetCapabilitiesByCapabilityClass)
         HRESULT ( STDMETHODCALLTYPE *GetCapabilitiesByCapabilityClass )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [in] */ APPX_CAPABILITY_CLASS_TYPE capabilityClass,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestCapabilitiesEnumerator **capabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader3, GetTargetDeviceFamilies)
         HRESULT ( STDMETHODCALLTYPE *GetTargetDeviceFamilies )( 
             __RPC__in IAppxManifestReader3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestTargetDeviceFamiliesEnumerator **targetDeviceFamilies);
@@ -3035,84 +2743,68 @@ EXTERN_C const IID IID_IAppxManifestReader4;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestReader4 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestReader4 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPackageId)
         HRESULT ( STDMETHODCALLTYPE *GetPackageId )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageId **packageId);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetProperties)
         HRESULT ( STDMETHODCALLTYPE *GetProperties )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestProperties **packageProperties);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPackageDependencies)
         HRESULT ( STDMETHODCALLTYPE *GetPackageDependencies )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageDependenciesEnumerator **dependencies);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetCapabilities)
         HRESULT ( STDMETHODCALLTYPE *GetCapabilities )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__out APPX_CAPABILITIES *capabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetResources)
         HRESULT ( STDMETHODCALLTYPE *GetResources )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestResourcesEnumerator **resources);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetDeviceCapabilities)
         HRESULT ( STDMETHODCALLTYPE *GetDeviceCapabilities )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestDeviceCapabilitiesEnumerator **deviceCapabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetPrerequisite)
         HRESULT ( STDMETHODCALLTYPE *GetPrerequisite )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR name,
             /* [retval][out] */ __RPC__out UINT64 *value);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetApplications)
         HRESULT ( STDMETHODCALLTYPE *GetApplications )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestApplicationsEnumerator **applications);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader, GetStream)
         HRESULT ( STDMETHODCALLTYPE *GetStream )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IStream **manifestStream);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader2, GetQualifiedResources)
         HRESULT ( STDMETHODCALLTYPE *GetQualifiedResources )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestQualifiedResourcesEnumerator **resources);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader3, GetCapabilitiesByCapabilityClass)
         HRESULT ( STDMETHODCALLTYPE *GetCapabilitiesByCapabilityClass )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [in] */ APPX_CAPABILITY_CLASS_TYPE capabilityClass,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestCapabilitiesEnumerator **capabilities);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader3, GetTargetDeviceFamilies)
         HRESULT ( STDMETHODCALLTYPE *GetTargetDeviceFamilies )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestTargetDeviceFamiliesEnumerator **targetDeviceFamilies);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader4, GetOptionalPackageInfo)
         HRESULT ( STDMETHODCALLTYPE *GetOptionalPackageInfo )( 
             __RPC__in IAppxManifestReader4 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestOptionalPackageInfo **optionalPackageInfo);
@@ -3220,22 +2912,18 @@ EXTERN_C const IID IID_IAppxManifestReader5;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestReader5 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestReader5 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestReader5 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader5, GetMainPackageDependencies)
         HRESULT ( STDMETHODCALLTYPE *GetMainPackageDependencies )( 
             __RPC__in IAppxManifestReader5 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestMainPackageDependenciesEnumerator **mainPackageDependencies);
@@ -3304,22 +2992,18 @@ EXTERN_C const IID IID_IAppxManifestReader6;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestReader6 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestReader6 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestReader6 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader6, GetIsNonQualifiedResourcePackage)
         HRESULT ( STDMETHODCALLTYPE *GetIsNonQualifiedResourcePackage )( 
             __RPC__in IAppxManifestReader6 * This,
             /* [retval][out] */ __RPC__out BOOL *isNonQualifiedResourcePackage);
@@ -3394,32 +3078,26 @@ EXTERN_C const IID IID_IAppxManifestReader7;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestReader7 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestReader7 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestReader7 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader7, GetDriverDependencies)
         HRESULT ( STDMETHODCALLTYPE *GetDriverDependencies )( 
             __RPC__in IAppxManifestReader7 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestDriverDependenciesEnumerator **driverDependencies);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader7, GetOSPackageDependencies)
         HRESULT ( STDMETHODCALLTYPE *GetOSPackageDependencies )( 
             __RPC__in IAppxManifestReader7 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestOSPackageDependenciesEnumerator **osPackageDependencies);
         
-        DECLSPEC_XFGVIRT(IAppxManifestReader7, GetHostRuntimeDependencies)
         HRESULT ( STDMETHODCALLTYPE *GetHostRuntimeDependencies )( 
             __RPC__in IAppxManifestReader7 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestHostRuntimeDependenciesEnumerator **hostRuntimeDependencies);
@@ -3500,32 +3178,26 @@ EXTERN_C const IID IID_IAppxManifestDriverDependenciesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestDriverDependenciesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestDriverDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestDriverDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverDependenciesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestDriverDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestDriverDependency **driverDependency);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverDependenciesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestDriverDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverDependenciesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestDriverDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -3600,22 +3272,18 @@ EXTERN_C const IID IID_IAppxManifestDriverDependency;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestDriverDependency * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestDriverDependency * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestDriverDependency * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverDependency, GetDriverConstraints)
         HRESULT ( STDMETHODCALLTYPE *GetDriverConstraints )( 
             __RPC__in IAppxManifestDriverDependency * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestDriverConstraintsEnumerator **driverConstraints);
@@ -3690,32 +3358,26 @@ EXTERN_C const IID IID_IAppxManifestDriverConstraintsEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestDriverConstraintsEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestDriverConstraintsEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestDriverConstraintsEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverConstraintsEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestDriverConstraintsEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestDriverConstraint **driverConstraint);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverConstraintsEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestDriverConstraintsEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverConstraintsEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestDriverConstraintsEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -3796,32 +3458,26 @@ EXTERN_C const IID IID_IAppxManifestDriverConstraint;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestDriverConstraint * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestDriverConstraint * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestDriverConstraint * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverConstraint, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestDriverConstraint * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverConstraint, GetMinVersion)
         HRESULT ( STDMETHODCALLTYPE *GetMinVersion )( 
             __RPC__in IAppxManifestDriverConstraint * This,
             /* [retval][out] */ __RPC__out UINT64 *minVersion);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDriverConstraint, GetMinDate)
         HRESULT ( STDMETHODCALLTYPE *GetMinDate )( 
             __RPC__in IAppxManifestDriverConstraint * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *minDate);
@@ -3902,32 +3558,26 @@ EXTERN_C const IID IID_IAppxManifestOSPackageDependenciesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestOSPackageDependenciesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestOSPackageDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestOSPackageDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestOSPackageDependenciesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestOSPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestOSPackageDependency **osPackageDependency);
         
-        DECLSPEC_XFGVIRT(IAppxManifestOSPackageDependenciesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestOSPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestOSPackageDependenciesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestOSPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -4005,27 +3655,22 @@ EXTERN_C const IID IID_IAppxManifestOSPackageDependency;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestOSPackageDependency * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestOSPackageDependency * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestOSPackageDependency * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestOSPackageDependency, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestOSPackageDependency * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestOSPackageDependency, GetVersion)
         HRESULT ( STDMETHODCALLTYPE *GetVersion )( 
             __RPC__in IAppxManifestOSPackageDependency * This,
             /* [retval][out] */ __RPC__out UINT64 *version);
@@ -4103,32 +3748,26 @@ EXTERN_C const IID IID_IAppxManifestHostRuntimeDependenciesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestHostRuntimeDependenciesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestHostRuntimeDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestHostRuntimeDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestHostRuntimeDependenciesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestHostRuntimeDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestHostRuntimeDependency **hostRuntimeDependency);
         
-        DECLSPEC_XFGVIRT(IAppxManifestHostRuntimeDependenciesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestHostRuntimeDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestHostRuntimeDependenciesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestHostRuntimeDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -4209,32 +3848,26 @@ EXTERN_C const IID IID_IAppxManifestHostRuntimeDependency;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestHostRuntimeDependency * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestHostRuntimeDependency * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestHostRuntimeDependency * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestHostRuntimeDependency, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestHostRuntimeDependency * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestHostRuntimeDependency, GetPublisher)
         HRESULT ( STDMETHODCALLTYPE *GetPublisher )( 
             __RPC__in IAppxManifestHostRuntimeDependency * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *publisher);
         
-        DECLSPEC_XFGVIRT(IAppxManifestHostRuntimeDependency, GetMinVersion)
         HRESULT ( STDMETHODCALLTYPE *GetMinVersion )( 
             __RPC__in IAppxManifestHostRuntimeDependency * This,
             /* [retval][out] */ __RPC__out UINT64 *minVersion);
@@ -4282,90 +3915,6 @@ EXTERN_C const IID IID_IAppxManifestHostRuntimeDependency;
 #endif 	/* __IAppxManifestHostRuntimeDependency_INTERFACE_DEFINED__ */
 
 
-#ifndef __IAppxManifestHostRuntimeDependency2_INTERFACE_DEFINED__
-#define __IAppxManifestHostRuntimeDependency2_INTERFACE_DEFINED__
-
-/* interface IAppxManifestHostRuntimeDependency2 */
-/* [ref][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IAppxManifestHostRuntimeDependency2;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("C26F23A8-EE10-4AD6-B898-2B4D7AEBFE6A")
-    IAppxManifestHostRuntimeDependency2 : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE GetPackageFamilyName( 
-            /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFamilyName) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IAppxManifestHostRuntimeDependency2Vtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IAppxManifestHostRuntimeDependency2 * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IAppxManifestHostRuntimeDependency2 * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IAppxManifestHostRuntimeDependency2 * This);
-        
-        DECLSPEC_XFGVIRT(IAppxManifestHostRuntimeDependency2, GetPackageFamilyName)
-        HRESULT ( STDMETHODCALLTYPE *GetPackageFamilyName )( 
-            __RPC__in IAppxManifestHostRuntimeDependency2 * This,
-            /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFamilyName);
-        
-        END_INTERFACE
-    } IAppxManifestHostRuntimeDependency2Vtbl;
-
-    interface IAppxManifestHostRuntimeDependency2
-    {
-        CONST_VTBL struct IAppxManifestHostRuntimeDependency2Vtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IAppxManifestHostRuntimeDependency2_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IAppxManifestHostRuntimeDependency2_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IAppxManifestHostRuntimeDependency2_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IAppxManifestHostRuntimeDependency2_GetPackageFamilyName(This,packageFamilyName)	\
-    ( (This)->lpVtbl -> GetPackageFamilyName(This,packageFamilyName) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IAppxManifestHostRuntimeDependency2_INTERFACE_DEFINED__ */
-
-
 #ifndef __IAppxManifestOptionalPackageInfo_INTERFACE_DEFINED__
 #define __IAppxManifestOptionalPackageInfo_INTERFACE_DEFINED__
 
@@ -4396,27 +3945,22 @@ EXTERN_C const IID IID_IAppxManifestOptionalPackageInfo;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestOptionalPackageInfo * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestOptionalPackageInfo * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestOptionalPackageInfo * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestOptionalPackageInfo, GetIsOptionalPackage)
         HRESULT ( STDMETHODCALLTYPE *GetIsOptionalPackage )( 
             __RPC__in IAppxManifestOptionalPackageInfo * This,
             /* [retval][out] */ __RPC__out BOOL *isOptionalPackage);
         
-        DECLSPEC_XFGVIRT(IAppxManifestOptionalPackageInfo, GetMainPackageName)
         HRESULT ( STDMETHODCALLTYPE *GetMainPackageName )( 
             __RPC__in IAppxManifestOptionalPackageInfo * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *mainPackageName);
@@ -4494,32 +4038,26 @@ EXTERN_C const IID IID_IAppxManifestMainPackageDependenciesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestMainPackageDependenciesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestMainPackageDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestMainPackageDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestMainPackageDependenciesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestMainPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestMainPackageDependency **mainPackageDependency);
         
-        DECLSPEC_XFGVIRT(IAppxManifestMainPackageDependenciesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestMainPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestMainPackageDependenciesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestMainPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -4600,32 +4138,26 @@ EXTERN_C const IID IID_IAppxManifestMainPackageDependency;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestMainPackageDependency * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestMainPackageDependency * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestMainPackageDependency * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestMainPackageDependency, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestMainPackageDependency * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestMainPackageDependency, GetPublisher)
         HRESULT ( STDMETHODCALLTYPE *GetPublisher )( 
             __RPC__in IAppxManifestMainPackageDependency * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *publisher);
         
-        DECLSPEC_XFGVIRT(IAppxManifestMainPackageDependency, GetPackageFamilyName)
         HRESULT ( STDMETHODCALLTYPE *GetPackageFamilyName )( 
             __RPC__in IAppxManifestMainPackageDependency * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFamilyName);
@@ -4722,58 +4254,47 @@ EXTERN_C const IID IID_IAppxManifestPackageId;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestPackageId * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestPackageId * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetArchitecture)
         HRESULT ( STDMETHODCALLTYPE *GetArchitecture )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [retval][out] */ __RPC__out APPX_PACKAGE_ARCHITECTURE *architecture);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetPublisher)
         HRESULT ( STDMETHODCALLTYPE *GetPublisher )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *publisher);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetVersion)
         HRESULT ( STDMETHODCALLTYPE *GetVersion )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [retval][out] */ __RPC__out UINT64 *packageVersion);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetResourceId)
         HRESULT ( STDMETHODCALLTYPE *GetResourceId )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *resourceId);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, ComparePublisher)
         HRESULT ( STDMETHODCALLTYPE *ComparePublisher )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [string][in] */ __RPC__in_string LPCWSTR other,
             /* [retval][out] */ __RPC__out BOOL *isSame);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetPackageFullName)
         HRESULT ( STDMETHODCALLTYPE *GetPackageFullName )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFullName);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetPackageFamilyName)
         HRESULT ( STDMETHODCALLTYPE *GetPackageFamilyName )( 
             __RPC__in IAppxManifestPackageId * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFamilyName);
@@ -4863,63 +4384,51 @@ EXTERN_C const IID IID_IAppxManifestPackageId2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestPackageId2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestPackageId2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetArchitecture)
         HRESULT ( STDMETHODCALLTYPE *GetArchitecture )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [retval][out] */ __RPC__out APPX_PACKAGE_ARCHITECTURE *architecture);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetPublisher)
         HRESULT ( STDMETHODCALLTYPE *GetPublisher )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *publisher);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetVersion)
         HRESULT ( STDMETHODCALLTYPE *GetVersion )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [retval][out] */ __RPC__out UINT64 *packageVersion);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetResourceId)
         HRESULT ( STDMETHODCALLTYPE *GetResourceId )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *resourceId);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, ComparePublisher)
         HRESULT ( STDMETHODCALLTYPE *ComparePublisher )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR other,
             /* [retval][out] */ __RPC__out BOOL *isSame);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetPackageFullName)
         HRESULT ( STDMETHODCALLTYPE *GetPackageFullName )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFullName);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId, GetPackageFamilyName)
         HRESULT ( STDMETHODCALLTYPE *GetPackageFamilyName )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFamilyName);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageId2, GetArchitecture2)
         HRESULT ( STDMETHODCALLTYPE *GetArchitecture2 )( 
             __RPC__in IAppxManifestPackageId2 * This,
             /* [retval][out] */ __RPC__out APPX_PACKAGE_ARCHITECTURE2 *architecture);
@@ -5018,28 +4527,23 @@ EXTERN_C const IID IID_IAppxManifestProperties;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestProperties * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestProperties * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestProperties * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestProperties, GetBoolValue)
         HRESULT ( STDMETHODCALLTYPE *GetBoolValue )( 
             __RPC__in IAppxManifestProperties * This,
             /* [string][in] */ __RPC__in_string LPCWSTR name,
             /* [retval][out] */ __RPC__out BOOL *value);
         
-        DECLSPEC_XFGVIRT(IAppxManifestProperties, GetStringValue)
         HRESULT ( STDMETHODCALLTYPE *GetStringValue )( 
             __RPC__in IAppxManifestProperties * This,
             /* [string][in] */ __RPC__in_string LPCWSTR name,
@@ -5118,32 +4622,26 @@ EXTERN_C const IID IID_IAppxManifestTargetDeviceFamiliesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestTargetDeviceFamiliesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestTargetDeviceFamiliesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestTargetDeviceFamiliesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestTargetDeviceFamiliesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestTargetDeviceFamiliesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestTargetDeviceFamily **targetDeviceFamily);
         
-        DECLSPEC_XFGVIRT(IAppxManifestTargetDeviceFamiliesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestTargetDeviceFamiliesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestTargetDeviceFamiliesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestTargetDeviceFamiliesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -5224,32 +4722,26 @@ EXTERN_C const IID IID_IAppxManifestTargetDeviceFamily;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestTargetDeviceFamily * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestTargetDeviceFamily * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestTargetDeviceFamily * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestTargetDeviceFamily, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestTargetDeviceFamily * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestTargetDeviceFamily, GetMinVersion)
         HRESULT ( STDMETHODCALLTYPE *GetMinVersion )( 
             __RPC__in IAppxManifestTargetDeviceFamily * This,
             /* [retval][out] */ __RPC__out UINT64 *minVersion);
         
-        DECLSPEC_XFGVIRT(IAppxManifestTargetDeviceFamily, GetMaxVersionTested)
         HRESULT ( STDMETHODCALLTYPE *GetMaxVersionTested )( 
             __RPC__in IAppxManifestTargetDeviceFamily * This,
             /* [retval][out] */ __RPC__out UINT64 *maxVersionTested);
@@ -5330,32 +4822,26 @@ EXTERN_C const IID IID_IAppxManifestPackageDependenciesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestPackageDependenciesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestPackageDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestPackageDependenciesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependenciesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageDependency **dependency);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependenciesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependenciesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestPackageDependenciesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -5436,32 +4922,26 @@ EXTERN_C const IID IID_IAppxManifestPackageDependency;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestPackageDependency * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestPackageDependency * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestPackageDependency * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependency, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestPackageDependency * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependency, GetPublisher)
         HRESULT ( STDMETHODCALLTYPE *GetPublisher )( 
             __RPC__in IAppxManifestPackageDependency * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *publisher);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependency, GetMinVersion)
         HRESULT ( STDMETHODCALLTYPE *GetMinVersion )( 
             __RPC__in IAppxManifestPackageDependency * This,
             /* [retval][out] */ __RPC__out UINT64 *minVersion);
@@ -5536,37 +5016,30 @@ EXTERN_C const IID IID_IAppxManifestPackageDependency2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestPackageDependency2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestPackageDependency2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestPackageDependency2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependency, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxManifestPackageDependency2 * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *name);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependency, GetPublisher)
         HRESULT ( STDMETHODCALLTYPE *GetPublisher )( 
             __RPC__in IAppxManifestPackageDependency2 * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *publisher);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependency, GetMinVersion)
         HRESULT ( STDMETHODCALLTYPE *GetMinVersion )( 
             __RPC__in IAppxManifestPackageDependency2 * This,
             /* [retval][out] */ __RPC__out UINT64 *minVersion);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependency2, GetMaxMajorVersionTested)
         HRESULT ( STDMETHODCALLTYPE *GetMaxMajorVersionTested )( 
             __RPC__in IAppxManifestPackageDependency2 * This,
             /* [retval][out] */ __RPC__out UINT16 *maxMajorVersionTested);
@@ -5645,22 +5118,18 @@ EXTERN_C const IID IID_IAppxManifestPackageDependency3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestPackageDependency3 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestPackageDependency3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestPackageDependency3 * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestPackageDependency3, GetIsOptional)
         HRESULT ( STDMETHODCALLTYPE *GetIsOptional )( 
             __RPC__in IAppxManifestPackageDependency3 * This,
             /* [retval][out] */ __RPC__out BOOL *isOptional);
@@ -5735,32 +5204,26 @@ EXTERN_C const IID IID_IAppxManifestResourcesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestResourcesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestResourcesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestResourcesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestResourcesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestResourcesEnumerator * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *resource);
         
-        DECLSPEC_XFGVIRT(IAppxManifestResourcesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestResourcesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestResourcesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestResourcesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -5841,32 +5304,26 @@ EXTERN_C const IID IID_IAppxManifestDeviceCapabilitiesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestDeviceCapabilitiesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestDeviceCapabilitiesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestDeviceCapabilitiesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDeviceCapabilitiesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestDeviceCapabilitiesEnumerator * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *deviceCapability);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDeviceCapabilitiesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestDeviceCapabilitiesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestDeviceCapabilitiesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestDeviceCapabilitiesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -5947,32 +5404,26 @@ EXTERN_C const IID IID_IAppxManifestCapabilitiesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestCapabilitiesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestCapabilitiesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestCapabilitiesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestCapabilitiesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestCapabilitiesEnumerator * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *capability);
         
-        DECLSPEC_XFGVIRT(IAppxManifestCapabilitiesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestCapabilitiesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestCapabilitiesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestCapabilitiesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -6053,32 +5504,26 @@ EXTERN_C const IID IID_IAppxManifestApplicationsEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestApplicationsEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestApplicationsEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestApplicationsEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestApplicationsEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestApplicationsEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestApplication **application);
         
-        DECLSPEC_XFGVIRT(IAppxManifestApplicationsEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestApplicationsEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestApplicationsEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestApplicationsEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -6157,28 +5602,23 @@ EXTERN_C const IID IID_IAppxManifestApplication;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestApplication * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestApplication * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestApplication * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestApplication, GetStringValue)
         HRESULT ( STDMETHODCALLTYPE *GetStringValue )( 
             __RPC__in IAppxManifestApplication * This,
             /* [string][in] */ __RPC__in_string LPCWSTR name,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *value);
         
-        DECLSPEC_XFGVIRT(IAppxManifestApplication, GetAppUserModelId)
         HRESULT ( STDMETHODCALLTYPE *GetAppUserModelId )( 
             __RPC__in IAppxManifestApplication * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *appUserModelId);
@@ -6256,32 +5696,26 @@ EXTERN_C const IID IID_IAppxManifestQualifiedResourcesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestQualifiedResourcesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestQualifiedResourcesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestQualifiedResourcesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestQualifiedResourcesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxManifestQualifiedResourcesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestQualifiedResource **resource);
         
-        DECLSPEC_XFGVIRT(IAppxManifestQualifiedResourcesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxManifestQualifiedResourcesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxManifestQualifiedResourcesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxManifestQualifiedResourcesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -6362,32 +5796,26 @@ EXTERN_C const IID IID_IAppxManifestQualifiedResource;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxManifestQualifiedResource * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxManifestQualifiedResource * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxManifestQualifiedResource * This);
         
-        DECLSPEC_XFGVIRT(IAppxManifestQualifiedResource, GetLanguage)
         HRESULT ( STDMETHODCALLTYPE *GetLanguage )( 
             __RPC__in IAppxManifestQualifiedResource * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *language);
         
-        DECLSPEC_XFGVIRT(IAppxManifestQualifiedResource, GetScale)
         HRESULT ( STDMETHODCALLTYPE *GetScale )( 
             __RPC__in IAppxManifestQualifiedResource * This,
             /* [retval][out] */ __RPC__out UINT32 *scale);
         
-        DECLSPEC_XFGVIRT(IAppxManifestQualifiedResource, GetDXFeatureLevel)
         HRESULT ( STDMETHODCALLTYPE *GetDXFeatureLevel )( 
             __RPC__in IAppxManifestQualifiedResource * This,
             /* [retval][out] */ __RPC__out DX_FEATURE_LEVEL *dxFeatureLevel);
@@ -6472,35 +5900,29 @@ EXTERN_C const IID IID_IAppxBundleFactory;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleFactory * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleFactory * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleFactory * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleFactory, CreateBundleWriter)
         HRESULT ( STDMETHODCALLTYPE *CreateBundleWriter )( 
             __RPC__in IAppxBundleFactory * This,
             /* [in] */ __RPC__in_opt IStream *outputStream,
             /* [in] */ UINT64 bundleVersion,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBundleWriter **bundleWriter);
         
-        DECLSPEC_XFGVIRT(IAppxBundleFactory, CreateBundleReader)
         HRESULT ( STDMETHODCALLTYPE *CreateBundleReader )( 
             __RPC__in IAppxBundleFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBundleReader **bundleReader);
         
-        DECLSPEC_XFGVIRT(IAppxBundleFactory, CreateBundleManifestReader)
         HRESULT ( STDMETHODCALLTYPE *CreateBundleManifestReader )( 
             __RPC__in IAppxBundleFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
@@ -6549,94 +5971,6 @@ EXTERN_C const IID IID_IAppxBundleFactory;
 #endif 	/* __IAppxBundleFactory_INTERFACE_DEFINED__ */
 
 
-#ifndef __IAppxBundleFactory2_INTERFACE_DEFINED__
-#define __IAppxBundleFactory2_INTERFACE_DEFINED__
-
-/* interface IAppxBundleFactory2 */
-/* [ref][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IAppxBundleFactory2;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("7325b83d-0185-42c4-82ac-be34ab1a2a8a")
-    IAppxBundleFactory2 : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE CreateBundleReader2( 
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxBundleReader **bundleReader) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IAppxBundleFactory2Vtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IAppxBundleFactory2 * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IAppxBundleFactory2 * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IAppxBundleFactory2 * This);
-        
-        DECLSPEC_XFGVIRT(IAppxBundleFactory2, CreateBundleReader2)
-        HRESULT ( STDMETHODCALLTYPE *CreateBundleReader2 )( 
-            __RPC__in IAppxBundleFactory2 * This,
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxBundleReader **bundleReader);
-        
-        END_INTERFACE
-    } IAppxBundleFactory2Vtbl;
-
-    interface IAppxBundleFactory2
-    {
-        CONST_VTBL struct IAppxBundleFactory2Vtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IAppxBundleFactory2_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IAppxBundleFactory2_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IAppxBundleFactory2_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IAppxBundleFactory2_CreateBundleReader2(This,inputStream,expectedDigest,bundleReader)	\
-    ( (This)->lpVtbl -> CreateBundleReader2(This,inputStream,expectedDigest,bundleReader) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IAppxBundleFactory2_INTERFACE_DEFINED__ */
-
-
 #ifndef __IAppxBundleWriter_INTERFACE_DEFINED__
 #define __IAppxBundleWriter_INTERFACE_DEFINED__
 
@@ -6667,28 +6001,23 @@ EXTERN_C const IID IID_IAppxBundleWriter;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleWriter * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleWriter * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleWriter * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleWriter, AddPayloadPackage)
         HRESULT ( STDMETHODCALLTYPE *AddPayloadPackage )( 
             __RPC__in IAppxBundleWriter * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
             /* [in] */ __RPC__in_opt IStream *packageStream);
         
-        DECLSPEC_XFGVIRT(IAppxBundleWriter, Close)
         HRESULT ( STDMETHODCALLTYPE *Close )( 
             __RPC__in IAppxBundleWriter * This);
         
@@ -6760,22 +6089,18 @@ EXTERN_C const IID IID_IAppxBundleWriter2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleWriter2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleWriter2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleWriter2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleWriter2, AddExternalPackageReference)
         HRESULT ( STDMETHODCALLTYPE *AddExternalPackageReference )( 
             __RPC__in IAppxBundleWriter2 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
@@ -6849,28 +6174,23 @@ EXTERN_C const IID IID_IAppxBundleWriter3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleWriter3 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleWriter3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleWriter3 * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleWriter3, AddPackageReference)
         HRESULT ( STDMETHODCALLTYPE *AddPackageReference )( 
             __RPC__in IAppxBundleWriter3 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
             /* [in] */ __RPC__in_opt IStream *inputStream);
         
-        DECLSPEC_XFGVIRT(IAppxBundleWriter3, Close)
         HRESULT ( STDMETHODCALLTYPE *Close )( 
             __RPC__in IAppxBundleWriter3 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR hashMethodString);
@@ -6954,36 +6274,30 @@ EXTERN_C const IID IID_IAppxBundleWriter4;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleWriter4 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleWriter4 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleWriter4 * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleWriter4, AddPayloadPackage)
         HRESULT ( STDMETHODCALLTYPE *AddPayloadPackage )( 
             __RPC__in IAppxBundleWriter4 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
             /* [in] */ __RPC__in_opt IStream *packageStream,
             /* [in] */ BOOL isDefaultApplicablePackage);
         
-        DECLSPEC_XFGVIRT(IAppxBundleWriter4, AddPackageReference)
         HRESULT ( STDMETHODCALLTYPE *AddPackageReference )( 
             __RPC__in IAppxBundleWriter4 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [in] */ BOOL isDefaultApplicablePackage);
         
-        DECLSPEC_XFGVIRT(IAppxBundleWriter4, AddExternalPackageReference)
         HRESULT ( STDMETHODCALLTYPE *AddExternalPackageReference )( 
             __RPC__in IAppxBundleWriter4 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
@@ -7074,43 +6388,35 @@ EXTERN_C const IID IID_IAppxBundleReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleReader * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleReader * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleReader, GetFootprintFile)
         HRESULT ( STDMETHODCALLTYPE *GetFootprintFile )( 
             __RPC__in IAppxBundleReader * This,
             /* [in] */ APPX_BUNDLE_FOOTPRINT_FILE_TYPE fileType,
             /* [retval][out] */ __RPC__deref_out_opt IAppxFile **footprintFile);
         
-        DECLSPEC_XFGVIRT(IAppxBundleReader, GetBlockMap)
         HRESULT ( STDMETHODCALLTYPE *GetBlockMap )( 
             __RPC__in IAppxBundleReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBlockMapReader **blockMapReader);
         
-        DECLSPEC_XFGVIRT(IAppxBundleReader, GetManifest)
         HRESULT ( STDMETHODCALLTYPE *GetManifest )( 
             __RPC__in IAppxBundleReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBundleManifestReader **manifestReader);
         
-        DECLSPEC_XFGVIRT(IAppxBundleReader, GetPayloadPackages)
         HRESULT ( STDMETHODCALLTYPE *GetPayloadPackages )( 
             __RPC__in IAppxBundleReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxFilesEnumerator **payloadPackages);
         
-        DECLSPEC_XFGVIRT(IAppxBundleReader, GetPayloadPackage)
         HRESULT ( STDMETHODCALLTYPE *GetPayloadPackage )( 
             __RPC__in IAppxBundleReader * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
@@ -7198,32 +6504,26 @@ EXTERN_C const IID IID_IAppxBundleManifestReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestReader * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestReader * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestReader, GetPackageId)
         HRESULT ( STDMETHODCALLTYPE *GetPackageId )( 
             __RPC__in IAppxBundleManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageId **packageId);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestReader, GetPackageInfoItems)
         HRESULT ( STDMETHODCALLTYPE *GetPackageInfoItems )( 
             __RPC__in IAppxBundleManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBundleManifestPackageInfoEnumerator **packageInfoItems);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestReader, GetStream)
         HRESULT ( STDMETHODCALLTYPE *GetStream )( 
             __RPC__in IAppxBundleManifestReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IStream **manifestStream);
@@ -7298,22 +6598,18 @@ EXTERN_C const IID IID_IAppxBundleManifestReader2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestReader2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestReader2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestReader2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestReader2, GetOptionalBundles)
         HRESULT ( STDMETHODCALLTYPE *GetOptionalBundles )( 
             __RPC__in IAppxBundleManifestReader2 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBundleManifestOptionalBundleInfoEnumerator **optionalBundles);
@@ -7388,32 +6684,26 @@ EXTERN_C const IID IID_IAppxBundleManifestPackageInfoEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestPackageInfoEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestPackageInfoEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestPackageInfoEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfoEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxBundleManifestPackageInfoEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBundleManifestPackageInfo **packageInfo);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfoEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxBundleManifestPackageInfoEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfoEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxBundleManifestPackageInfoEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -7503,47 +6793,38 @@ EXTERN_C const IID IID_IAppxBundleManifestPackageInfo;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestPackageInfo * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestPackageInfo * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestPackageInfo * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo, GetPackageType)
         HRESULT ( STDMETHODCALLTYPE *GetPackageType )( 
             __RPC__in IAppxBundleManifestPackageInfo * This,
             /* [retval][out] */ __RPC__out APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE *packageType);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo, GetPackageId)
         HRESULT ( STDMETHODCALLTYPE *GetPackageId )( 
             __RPC__in IAppxBundleManifestPackageInfo * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageId **packageId);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo, GetFileName)
         HRESULT ( STDMETHODCALLTYPE *GetFileName )( 
             __RPC__in IAppxBundleManifestPackageInfo * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *fileName);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo, GetOffset)
         HRESULT ( STDMETHODCALLTYPE *GetOffset )( 
             __RPC__in IAppxBundleManifestPackageInfo * This,
             /* [retval][out] */ __RPC__out UINT64 *offset);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo, GetSize)
         HRESULT ( STDMETHODCALLTYPE *GetSize )( 
             __RPC__in IAppxBundleManifestPackageInfo * This,
             /* [retval][out] */ __RPC__out UINT64 *size);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo, GetResources)
         HRESULT ( STDMETHODCALLTYPE *GetResources )( 
             __RPC__in IAppxBundleManifestPackageInfo * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestQualifiedResourcesEnumerator **resources);
@@ -7633,32 +6914,26 @@ EXTERN_C const IID IID_IAppxBundleManifestPackageInfo2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestPackageInfo2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestPackageInfo2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestPackageInfo2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo2, GetIsPackageReference)
         HRESULT ( STDMETHODCALLTYPE *GetIsPackageReference )( 
             __RPC__in IAppxBundleManifestPackageInfo2 * This,
             /* [retval][out] */ __RPC__out BOOL *isPackageReference);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo2, GetIsNonQualifiedResourcePackage)
         HRESULT ( STDMETHODCALLTYPE *GetIsNonQualifiedResourcePackage )( 
             __RPC__in IAppxBundleManifestPackageInfo2 * This,
             /* [retval][out] */ __RPC__out BOOL *isNonQualifiedResourcePackage);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo2, GetIsDefaultApplicablePackage)
         HRESULT ( STDMETHODCALLTYPE *GetIsDefaultApplicablePackage )( 
             __RPC__in IAppxBundleManifestPackageInfo2 * This,
             /* [retval][out] */ __RPC__out BOOL *isDefaultApplicablePackage);
@@ -7733,22 +7008,18 @@ EXTERN_C const IID IID_IAppxBundleManifestPackageInfo3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestPackageInfo3 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestPackageInfo3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestPackageInfo3 * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo3, GetTargetDeviceFamilies)
         HRESULT ( STDMETHODCALLTYPE *GetTargetDeviceFamilies )( 
             __RPC__in IAppxBundleManifestPackageInfo3 * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestTargetDeviceFamiliesEnumerator **targetDeviceFamilies);
@@ -7817,22 +7088,18 @@ EXTERN_C const IID IID_IAppxBundleManifestPackageInfo4;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestPackageInfo4 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestPackageInfo4 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestPackageInfo4 * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestPackageInfo4, GetIsStub)
         HRESULT ( STDMETHODCALLTYPE *GetIsStub )( 
             __RPC__in IAppxBundleManifestPackageInfo4 * This,
             /* [retval][out] */ __RPC__out BOOL *isStub);
@@ -7907,32 +7174,26 @@ EXTERN_C const IID IID_IAppxBundleManifestOptionalBundleInfoEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfoEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfoEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfoEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestOptionalBundleInfoEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfoEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBundleManifestOptionalBundleInfo **optionalBundle);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestOptionalBundleInfoEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfoEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestOptionalBundleInfoEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfoEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -8013,32 +7274,26 @@ EXTERN_C const IID IID_IAppxBundleManifestOptionalBundleInfo;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfo * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfo * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfo * This);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestOptionalBundleInfo, GetPackageId)
         HRESULT ( STDMETHODCALLTYPE *GetPackageId )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfo * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxManifestPackageId **packageId);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestOptionalBundleInfo, GetFileName)
         HRESULT ( STDMETHODCALLTYPE *GetFileName )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfo * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *fileName);
         
-        DECLSPEC_XFGVIRT(IAppxBundleManifestOptionalBundleInfo, GetPackageInfoItems)
         HRESULT ( STDMETHODCALLTYPE *GetPackageInfoItems )( 
             __RPC__in IAppxBundleManifestOptionalBundleInfo * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxBundleManifestPackageInfoEnumerator **packageInfoItems);
@@ -8119,32 +7374,26 @@ EXTERN_C const IID IID_IAppxContentGroupFilesEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxContentGroupFilesEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxContentGroupFilesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxContentGroupFilesEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupFilesEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxContentGroupFilesEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt LPWSTR *file);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupFilesEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxContentGroupFilesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupFilesEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxContentGroupFilesEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -8222,27 +7471,22 @@ EXTERN_C const IID IID_IAppxContentGroup;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxContentGroup * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxContentGroup * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxContentGroup * This);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroup, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             __RPC__in IAppxContentGroup * This,
             /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *groupName);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroup, GetFiles)
         HRESULT ( STDMETHODCALLTYPE *GetFiles )( 
             __RPC__in IAppxContentGroup * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxContentGroupFilesEnumerator **enumerator);
@@ -8320,32 +7564,26 @@ EXTERN_C const IID IID_IAppxContentGroupsEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxContentGroupsEnumerator * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxContentGroupsEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxContentGroupsEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupsEnumerator, GetCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetCurrent )( 
             __RPC__in IAppxContentGroupsEnumerator * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxContentGroup **stream);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupsEnumerator, GetHasCurrent)
         HRESULT ( STDMETHODCALLTYPE *GetHasCurrent )( 
             __RPC__in IAppxContentGroupsEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasCurrent);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupsEnumerator, MoveNext)
         HRESULT ( STDMETHODCALLTYPE *MoveNext )( 
             __RPC__in IAppxContentGroupsEnumerator * This,
             /* [retval][out] */ __RPC__out BOOL *hasNext);
@@ -8423,27 +7661,22 @@ EXTERN_C const IID IID_IAppxContentGroupMapReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxContentGroupMapReader * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxContentGroupMapReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxContentGroupMapReader * This);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupMapReader, GetRequiredGroup)
         HRESULT ( STDMETHODCALLTYPE *GetRequiredGroup )( 
             __RPC__in IAppxContentGroupMapReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxContentGroup **requiredGroup);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupMapReader, GetAutomaticGroups)
         HRESULT ( STDMETHODCALLTYPE *GetAutomaticGroups )( 
             __RPC__in IAppxContentGroupMapReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxContentGroupsEnumerator **automaticGroupsEnumerator);
@@ -8518,27 +7751,22 @@ EXTERN_C const IID IID_IAppxSourceContentGroupMapReader;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxSourceContentGroupMapReader * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxSourceContentGroupMapReader * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxSourceContentGroupMapReader * This);
         
-        DECLSPEC_XFGVIRT(IAppxSourceContentGroupMapReader, GetRequiredGroup)
         HRESULT ( STDMETHODCALLTYPE *GetRequiredGroup )( 
             __RPC__in IAppxSourceContentGroupMapReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxContentGroup **requiredGroup);
         
-        DECLSPEC_XFGVIRT(IAppxSourceContentGroupMapReader, GetAutomaticGroups)
         HRESULT ( STDMETHODCALLTYPE *GetAutomaticGroups )( 
             __RPC__in IAppxSourceContentGroupMapReader * This,
             /* [retval][out] */ __RPC__deref_out_opt IAppxContentGroupsEnumerator **automaticGroupsEnumerator);
@@ -8615,32 +7843,26 @@ EXTERN_C const IID IID_IAppxContentGroupMapWriter;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxContentGroupMapWriter * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxContentGroupMapWriter * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxContentGroupMapWriter * This);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupMapWriter, AddAutomaticGroup)
         HRESULT ( STDMETHODCALLTYPE *AddAutomaticGroup )( 
             __RPC__in IAppxContentGroupMapWriter * This,
             /* [string][in] */ __RPC__in_string LPCWSTR groupName);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupMapWriter, AddAutomaticFile)
         HRESULT ( STDMETHODCALLTYPE *AddAutomaticFile )( 
             __RPC__in IAppxContentGroupMapWriter * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName);
         
-        DECLSPEC_XFGVIRT(IAppxContentGroupMapWriter, Close)
         HRESULT ( STDMETHODCALLTYPE *Close )( 
             __RPC__in IAppxContentGroupMapWriter * This);
         
@@ -8721,22 +7943,18 @@ EXTERN_C const IID IID_IAppxPackagingDiagnosticEventSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxPackagingDiagnosticEventSink * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxPackagingDiagnosticEventSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxPackagingDiagnosticEventSink * This);
         
-        DECLSPEC_XFGVIRT(IAppxPackagingDiagnosticEventSink, ReportContextChange)
         HRESULT ( STDMETHODCALLTYPE *ReportContextChange )( 
             __RPC__in IAppxPackagingDiagnosticEventSink * This,
             /* [in] */ APPX_PACKAGING_CONTEXT_CHANGE_TYPE changeType,
@@ -8745,7 +7963,6 @@ EXTERN_C const IID IID_IAppxPackagingDiagnosticEventSink;
             /* [string][in] */ __RPC__in_string LPCWSTR contextMessage,
             /* [string][in] */ __RPC__in_string LPCWSTR detailsMessage);
         
-        DECLSPEC_XFGVIRT(IAppxPackagingDiagnosticEventSink, ReportError)
         HRESULT ( STDMETHODCALLTYPE *ReportError )( 
             __RPC__in IAppxPackagingDiagnosticEventSink * This,
             /* [string][in] */ __RPC__in_string LPCWSTR errorMessage);
@@ -8817,22 +8034,18 @@ EXTERN_C const IID IID_IAppxPackagingDiagnosticEventSinkManager;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxPackagingDiagnosticEventSinkManager * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxPackagingDiagnosticEventSinkManager * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxPackagingDiagnosticEventSinkManager * This);
         
-        DECLSPEC_XFGVIRT(IAppxPackagingDiagnosticEventSinkManager, SetSinkForProcess)
         HRESULT ( STDMETHODCALLTYPE *SetSinkForProcess )( 
             __RPC__in IAppxPackagingDiagnosticEventSinkManager * This,
             /* [in] */ __RPC__in_opt IAppxPackagingDiagnosticEventSink *sink);
@@ -8874,175 +8087,7 @@ EXTERN_C const IID IID_IAppxPackagingDiagnosticEventSinkManager;
 #endif 	/* __IAppxPackagingDiagnosticEventSinkManager_INTERFACE_DEFINED__ */
 
 
-#ifndef __IAppxAppInstallerReader_INTERFACE_DEFINED__
-#define __IAppxAppInstallerReader_INTERFACE_DEFINED__
-
-/* interface IAppxAppInstallerReader */
-/* [ref][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IAppxAppInstallerReader;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("f35bc38c-1d2f-43db-a1f4-586430d1fed2")
-    IAppxAppInstallerReader : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE GetXmlDom( 
-            /* [retval][out] */ __RPC__deref_out_opt IXMLDOMDocument **dom) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IAppxAppInstallerReaderVtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IAppxAppInstallerReader * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IAppxAppInstallerReader * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IAppxAppInstallerReader * This);
-        
-        DECLSPEC_XFGVIRT(IAppxAppInstallerReader, GetXmlDom)
-        HRESULT ( STDMETHODCALLTYPE *GetXmlDom )( 
-            __RPC__in IAppxAppInstallerReader * This,
-            /* [retval][out] */ __RPC__deref_out_opt IXMLDOMDocument **dom);
-        
-        END_INTERFACE
-    } IAppxAppInstallerReaderVtbl;
-
-    interface IAppxAppInstallerReader
-    {
-        CONST_VTBL struct IAppxAppInstallerReaderVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IAppxAppInstallerReader_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IAppxAppInstallerReader_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IAppxAppInstallerReader_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IAppxAppInstallerReader_GetXmlDom(This,dom)	\
-    ( (This)->lpVtbl -> GetXmlDom(This,dom) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IAppxAppInstallerReader_INTERFACE_DEFINED__ */
-
-
-#ifndef __IAppxDigestProvider_INTERFACE_DEFINED__
-#define __IAppxDigestProvider_INTERFACE_DEFINED__
-
-/* interface IAppxDigestProvider */
-/* [ref][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IAppxDigestProvider;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("9fe2702b-7640-4659-8e6c-349e43c4cdbd")
-    IAppxDigestProvider : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE GetDigest( 
-            /* [retval][out] */ __RPC__deref_out_opt LPWSTR *digest) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IAppxDigestProviderVtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IAppxDigestProvider * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IAppxDigestProvider * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IAppxDigestProvider * This);
-        
-        DECLSPEC_XFGVIRT(IAppxDigestProvider, GetDigest)
-        HRESULT ( STDMETHODCALLTYPE *GetDigest )( 
-            __RPC__in IAppxDigestProvider * This,
-            /* [retval][out] */ __RPC__deref_out_opt LPWSTR *digest);
-        
-        END_INTERFACE
-    } IAppxDigestProviderVtbl;
-
-    interface IAppxDigestProvider
-    {
-        CONST_VTBL struct IAppxDigestProviderVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IAppxDigestProvider_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IAppxDigestProvider_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IAppxDigestProvider_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IAppxDigestProvider_GetDigest(This,digest)	\
-    ( (This)->lpVtbl -> GetDigest(This,digest) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IAppxDigestProvider_INTERFACE_DEFINED__ */
-
-
-/* interface __MIDL_itf_appxpackaging_0000_0075 */
+/* interface __MIDL_itf_appxpackaging_0000_0070 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
@@ -9090,8 +8135,8 @@ typedef struct APPX_ENCRYPTED_EXEMPTIONS
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0075_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0075_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0070_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0070_v0_0_s_ifspec;
 
 #ifndef __IAppxEncryptionFactory_INTERFACE_DEFINED__
 #define __IAppxEncryptionFactory_INTERFACE_DEFINED__
@@ -9167,22 +8212,18 @@ EXTERN_C const IID IID_IAppxEncryptionFactory;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptionFactory * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptionFactory * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory, EncryptPackage)
         HRESULT ( STDMETHODCALLTYPE *EncryptPackage )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
@@ -9191,14 +8232,12 @@ EXTERN_C const IID IID_IAppxEncryptionFactory;
             /* [in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
             /* [in] */ __RPC__in const APPX_ENCRYPTED_EXEMPTIONS *exemptedFiles);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory, DecryptPackage)
         HRESULT ( STDMETHODCALLTYPE *DecryptPackage )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [in] */ __RPC__in_opt IStream *outputStream,
             /* [in] */ __RPC__in const APPX_KEY_INFO *keyInfo);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory, CreateEncryptedPackageWriter)
         HRESULT ( STDMETHODCALLTYPE *CreateEncryptedPackageWriter )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in_opt IStream *outputStream,
@@ -9208,14 +8247,12 @@ EXTERN_C const IID IID_IAppxEncryptionFactory;
             /* [in] */ __RPC__in const APPX_ENCRYPTED_EXEMPTIONS *exemptedFiles,
             /* [retval][out] */ __RPC__deref_out_opt IAppxEncryptedPackageWriter **packageWriter);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory, CreateEncryptedPackageReader)
         HRESULT ( STDMETHODCALLTYPE *CreateEncryptedPackageReader )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
             /* [retval][out] */ __RPC__deref_out_opt IAppxPackageReader **packageReader);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory, EncryptBundle)
         HRESULT ( STDMETHODCALLTYPE *EncryptBundle )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
@@ -9224,14 +8261,12 @@ EXTERN_C const IID IID_IAppxEncryptionFactory;
             /* [in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
             /* [in] */ __RPC__in const APPX_ENCRYPTED_EXEMPTIONS *exemptedFiles);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory, DecryptBundle)
         HRESULT ( STDMETHODCALLTYPE *DecryptBundle )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
             /* [in] */ __RPC__in_opt IStream *outputStream,
             /* [in] */ __RPC__in const APPX_KEY_INFO *keyInfo);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory, CreateEncryptedBundleWriter)
         HRESULT ( STDMETHODCALLTYPE *CreateEncryptedBundleWriter )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in_opt IStream *outputStream,
@@ -9241,7 +8276,6 @@ EXTERN_C const IID IID_IAppxEncryptionFactory;
             /* [in] */ __RPC__in const APPX_ENCRYPTED_EXEMPTIONS *exemptedFiles,
             /* [retval][out] */ __RPC__deref_out_opt IAppxEncryptedBundleWriter **bundleWriter);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory, CreateEncryptedBundleReader)
         HRESULT ( STDMETHODCALLTYPE *CreateEncryptedBundleReader )( 
             __RPC__in IAppxEncryptionFactory * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
@@ -9339,22 +8373,18 @@ EXTERN_C const IID IID_IAppxEncryptionFactory2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptionFactory2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptionFactory2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptionFactory2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory2, CreateEncryptedPackageWriter)
         HRESULT ( STDMETHODCALLTYPE *CreateEncryptedPackageWriter )( 
             __RPC__in IAppxEncryptionFactory2 * This,
             /* [in] */ __RPC__in_opt IStream *outputStream,
@@ -9457,22 +8487,18 @@ EXTERN_C const IID IID_IAppxEncryptionFactory3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptionFactory3 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptionFactory3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptionFactory3 * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory3, EncryptPackage)
         HRESULT ( STDMETHODCALLTYPE *EncryptPackage )( 
             __RPC__in IAppxEncryptionFactory3 * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
@@ -9481,7 +8507,6 @@ EXTERN_C const IID IID_IAppxEncryptionFactory3;
             /* [in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
             /* [in] */ __RPC__in const APPX_ENCRYPTED_EXEMPTIONS *exemptedFiles);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory3, CreateEncryptedPackageWriter)
         HRESULT ( STDMETHODCALLTYPE *CreateEncryptedPackageWriter )( 
             __RPC__in IAppxEncryptionFactory3 * This,
             /* [in] */ __RPC__in_opt IStream *outputStream,
@@ -9492,7 +8517,6 @@ EXTERN_C const IID IID_IAppxEncryptionFactory3;
             /* [in] */ __RPC__in const APPX_ENCRYPTED_EXEMPTIONS *exemptedFiles,
             /* [retval][out] */ __RPC__deref_out_opt IAppxEncryptedPackageWriter **packageWriter);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory3, EncryptBundle)
         HRESULT ( STDMETHODCALLTYPE *EncryptBundle )( 
             __RPC__in IAppxEncryptionFactory3 * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
@@ -9501,7 +8525,6 @@ EXTERN_C const IID IID_IAppxEncryptionFactory3;
             /* [in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
             /* [in] */ __RPC__in const APPX_ENCRYPTED_EXEMPTIONS *exemptedFiles);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory3, CreateEncryptedBundleWriter)
         HRESULT ( STDMETHODCALLTYPE *CreateEncryptedBundleWriter )( 
             __RPC__in IAppxEncryptionFactory3 * This,
             /* [in] */ __RPC__in_opt IStream *outputStream,
@@ -9589,22 +8612,18 @@ EXTERN_C const IID IID_IAppxEncryptionFactory4;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptionFactory4 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptionFactory4 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptionFactory4 * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory4, EncryptPackage)
         HRESULT ( STDMETHODCALLTYPE *EncryptPackage )( 
             __RPC__in IAppxEncryptionFactory4 * This,
             /* [in] */ __RPC__in_opt IStream *inputStream,
@@ -9651,113 +8670,6 @@ EXTERN_C const IID IID_IAppxEncryptionFactory4;
 #endif 	/* __IAppxEncryptionFactory4_INTERFACE_DEFINED__ */
 
 
-#ifndef __IAppxEncryptionFactory5_INTERFACE_DEFINED__
-#define __IAppxEncryptionFactory5_INTERFACE_DEFINED__
-
-/* interface IAppxEncryptionFactory5 */
-/* [ref][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IAppxEncryptionFactory5;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("68d6e77a-f446-480f-b0f0-d91a24c60746")
-    IAppxEncryptionFactory5 : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE CreateEncryptedPackageReader2( 
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxPackageReader **packageReader) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE CreateEncryptedBundleReader2( 
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxBundleReader **bundleReader) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IAppxEncryptionFactory5Vtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IAppxEncryptionFactory5 * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IAppxEncryptionFactory5 * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IAppxEncryptionFactory5 * This);
-        
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory5, CreateEncryptedPackageReader2)
-        HRESULT ( STDMETHODCALLTYPE *CreateEncryptedPackageReader2 )( 
-            __RPC__in IAppxEncryptionFactory5 * This,
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxPackageReader **packageReader);
-        
-        DECLSPEC_XFGVIRT(IAppxEncryptionFactory5, CreateEncryptedBundleReader2)
-        HRESULT ( STDMETHODCALLTYPE *CreateEncryptedBundleReader2 )( 
-            __RPC__in IAppxEncryptionFactory5 * This,
-            /* [in] */ __RPC__in_opt IStream *inputStream,
-            /* [optional][in] */ __RPC__in const APPX_KEY_INFO *keyInfo,
-            /* [optional][in] */ __RPC__in LPCWSTR expectedDigest,
-            /* [retval][out] */ __RPC__deref_out_opt IAppxBundleReader **bundleReader);
-        
-        END_INTERFACE
-    } IAppxEncryptionFactory5Vtbl;
-
-    interface IAppxEncryptionFactory5
-    {
-        CONST_VTBL struct IAppxEncryptionFactory5Vtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IAppxEncryptionFactory5_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IAppxEncryptionFactory5_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IAppxEncryptionFactory5_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IAppxEncryptionFactory5_CreateEncryptedPackageReader2(This,inputStream,keyInfo,expectedDigest,packageReader)	\
-    ( (This)->lpVtbl -> CreateEncryptedPackageReader2(This,inputStream,keyInfo,expectedDigest,packageReader) ) 
-
-#define IAppxEncryptionFactory5_CreateEncryptedBundleReader2(This,inputStream,keyInfo,expectedDigest,bundleReader)	\
-    ( (This)->lpVtbl -> CreateEncryptedBundleReader2(This,inputStream,keyInfo,expectedDigest,bundleReader) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IAppxEncryptionFactory5_INTERFACE_DEFINED__ */
-
-
 #ifndef __IAppxEncryptedPackageWriter_INTERFACE_DEFINED__
 #define __IAppxEncryptedPackageWriter_INTERFACE_DEFINED__
 
@@ -9789,29 +8701,24 @@ EXTERN_C const IID IID_IAppxEncryptedPackageWriter;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptedPackageWriter * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptedPackageWriter * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptedPackageWriter * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptedPackageWriter, AddPayloadFileEncrypted)
         HRESULT ( STDMETHODCALLTYPE *AddPayloadFileEncrypted )( 
             __RPC__in IAppxEncryptedPackageWriter * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
             /* [in] */ APPX_COMPRESSION_OPTION compressionOption,
             /* [in] */ __RPC__in_opt IStream *inputStream);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptedPackageWriter, Close)
         HRESULT ( STDMETHODCALLTYPE *Close )( 
             __RPC__in IAppxEncryptedPackageWriter * This);
         
@@ -9884,22 +8791,18 @@ EXTERN_C const IID IID_IAppxEncryptedPackageWriter2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptedPackageWriter2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptedPackageWriter2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptedPackageWriter2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptedPackageWriter2, AddPayloadFilesEncrypted)
         HRESULT ( STDMETHODCALLTYPE *AddPayloadFilesEncrypted )( 
             __RPC__in IAppxEncryptedPackageWriter2 * This,
             /* [in] */ UINT32 fileCount,
@@ -9973,28 +8876,23 @@ EXTERN_C const IID IID_IAppxEncryptedBundleWriter;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptedBundleWriter * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptedBundleWriter * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptedBundleWriter * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptedBundleWriter, AddPayloadPackageEncrypted)
         HRESULT ( STDMETHODCALLTYPE *AddPayloadPackageEncrypted )( 
             __RPC__in IAppxEncryptedBundleWriter * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
             /* [in] */ __RPC__in_opt IStream *packageStream);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptedBundleWriter, Close)
         HRESULT ( STDMETHODCALLTYPE *Close )( 
             __RPC__in IAppxEncryptedBundleWriter * This);
         
@@ -10066,22 +8964,18 @@ EXTERN_C const IID IID_IAppxEncryptedBundleWriter2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptedBundleWriter2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptedBundleWriter2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptedBundleWriter2 * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptedBundleWriter2, AddExternalPackageReference)
         HRESULT ( STDMETHODCALLTYPE *AddExternalPackageReference )( 
             __RPC__in IAppxEncryptedBundleWriter2 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
@@ -10124,7 +9018,7 @@ EXTERN_C const IID IID_IAppxEncryptedBundleWriter2;
 #endif 	/* __IAppxEncryptedBundleWriter2_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_appxpackaging_0000_0084 */
+/* interface __MIDL_itf_appxpackaging_0000_0078 */
 /* [local] */ 
 
 typedef /* [v1_enum] */ 
@@ -10144,8 +9038,8 @@ enum APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS
 DEFINE_ENUM_FLAG_OPERATORS(APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS);
 
 
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0084_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0084_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0078_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0078_v0_0_s_ifspec;
 
 #ifndef __IAppxEncryptedBundleWriter3_INTERFACE_DEFINED__
 #define __IAppxEncryptedBundleWriter3_INTERFACE_DEFINED__
@@ -10181,29 +9075,24 @@ EXTERN_C const IID IID_IAppxEncryptedBundleWriter3;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxEncryptedBundleWriter3 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxEncryptedBundleWriter3 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxEncryptedBundleWriter3 * This);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptedBundleWriter3, AddPayloadPackageEncrypted)
         HRESULT ( STDMETHODCALLTYPE *AddPayloadPackageEncrypted )( 
             __RPC__in IAppxEncryptedBundleWriter3 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
             /* [in] */ __RPC__in_opt IStream *packageStream,
             /* [in] */ BOOL isDefaultApplicablePackage);
         
-        DECLSPEC_XFGVIRT(IAppxEncryptedBundleWriter3, AddExternalPackageReference)
         HRESULT ( STDMETHODCALLTYPE *AddExternalPackageReference )( 
             __RPC__in IAppxEncryptedBundleWriter3 * This,
             /* [string][in] */ __RPC__in_string LPCWSTR fileName,
@@ -10306,34 +9195,28 @@ EXTERN_C const IID IID_IAppxPackageEditor;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAppxPackageEditor * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAppxPackageEditor * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAppxPackageEditor * This);
         
-        DECLSPEC_XFGVIRT(IAppxPackageEditor, SetWorkingDirectory)
         HRESULT ( STDMETHODCALLTYPE *SetWorkingDirectory )( 
             __RPC__in IAppxPackageEditor * This,
             /* [string][in] */ __RPC__in_string LPCWSTR workingDirectory);
         
-        DECLSPEC_XFGVIRT(IAppxPackageEditor, CreateDeltaPackage)
         HRESULT ( STDMETHODCALLTYPE *CreateDeltaPackage )( 
             __RPC__in IAppxPackageEditor * This,
             /* [in] */ __RPC__in_opt IStream *updatedPackageStream,
             /* [in] */ __RPC__in_opt IStream *baselinePackageStream,
             /* [in] */ __RPC__in_opt IStream *deltaPackageStream);
         
-        DECLSPEC_XFGVIRT(IAppxPackageEditor, CreateDeltaPackageUsingBaselineBlockMap)
         HRESULT ( STDMETHODCALLTYPE *CreateDeltaPackageUsingBaselineBlockMap )( 
             __RPC__in IAppxPackageEditor * This,
             /* [in] */ __RPC__in_opt IStream *updatedPackageStream,
@@ -10341,14 +9224,12 @@ EXTERN_C const IID IID_IAppxPackageEditor;
             /* [string][in] */ __RPC__in_string LPCWSTR baselinePackageFullName,
             /* [in] */ __RPC__in_opt IStream *deltaPackageStream);
         
-        DECLSPEC_XFGVIRT(IAppxPackageEditor, UpdatePackage)
         HRESULT ( STDMETHODCALLTYPE *UpdatePackage )( 
             __RPC__in IAppxPackageEditor * This,
             /* [in] */ __RPC__in_opt IStream *baselinePackageStream,
             /* [in] */ __RPC__in_opt IStream *deltaPackageStream,
             /* [in] */ APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption);
         
-        DECLSPEC_XFGVIRT(IAppxPackageEditor, UpdateEncryptedPackage)
         HRESULT ( STDMETHODCALLTYPE *UpdateEncryptedPackage )( 
             __RPC__in IAppxPackageEditor * This,
             /* [in] */ __RPC__in_opt IStream *baselineEncryptedPackageStream,
@@ -10357,7 +9238,6 @@ EXTERN_C const IID IID_IAppxPackageEditor;
             /* [in] */ __RPC__in const APPX_ENCRYPTED_PACKAGE_SETTINGS2 *settings,
             /* [in] */ __RPC__in const APPX_KEY_INFO *keyInfo);
         
-        DECLSPEC_XFGVIRT(IAppxPackageEditor, UpdatePackageManifest)
         HRESULT ( STDMETHODCALLTYPE *UpdatePackageManifest )( 
             __RPC__in IAppxPackageEditor * This,
             /* [in] */ __RPC__in_opt IStream *packageStream,
@@ -10417,15 +9297,15 @@ EXTERN_C const IID IID_IAppxPackageEditor;
 #endif 	/* __IAppxPackageEditor_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_appxpackaging_0000_0086 */
+/* interface __MIDL_itf_appxpackaging_0000_0080 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0086_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0086_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0080_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0080_v0_0_s_ifspec;
 
 
 #ifndef __APPXPACKAGING_LIBRARY_DEFINED__
@@ -10486,14 +9366,14 @@ AppxPackageEditor;
 #endif
 #endif /* __APPXPACKAGING_LIBRARY_DEFINED__ */
 
-/* interface __MIDL_itf_appxpackaging_0000_0087 */
+/* interface __MIDL_itf_appxpackaging_0000_0081 */
 /* [local] */ 
 
 #endif // (NTDDI >= NTDDI_WIN7)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0087_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0087_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0081_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0081_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

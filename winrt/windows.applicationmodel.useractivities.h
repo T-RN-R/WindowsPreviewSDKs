@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -1193,7 +1193,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivity = __uuidof(IUserActivity);
+                extern MIDL_CONST_ID IID& IID_IUserActivity = _uuidof(IUserActivity);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1229,7 +1229,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivity2 = __uuidof(IUserActivity2);
+                extern MIDL_CONST_ID IID& IID_IUserActivity2 = _uuidof(IUserActivity2);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1268,7 +1268,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivity3 = __uuidof(IUserActivity3);
+                extern MIDL_CONST_ID IID& IID_IUserActivity3 = _uuidof(IUserActivity3);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1319,7 +1319,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityAttribution = __uuidof(IUserActivityAttribution);
+                extern MIDL_CONST_ID IID& IID_IUserActivityAttribution = _uuidof(IUserActivityAttribution);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1356,7 +1356,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityAttributionFactory = __uuidof(IUserActivityAttributionFactory);
+                extern MIDL_CONST_ID IID& IID_IUserActivityAttributionFactory = _uuidof(IUserActivityAttributionFactory);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1400,7 +1400,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityChannel = __uuidof(IUserActivityChannel);
+                extern MIDL_CONST_ID IID& IID_IUserActivityChannel = _uuidof(IUserActivityChannel);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1442,7 +1442,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityChannel2 = __uuidof(IUserActivityChannel2);
+                extern MIDL_CONST_ID IID& IID_IUserActivityChannel2 = _uuidof(IUserActivityChannel2);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1478,7 +1478,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityChannelStatics = __uuidof(IUserActivityChannelStatics);
+                extern MIDL_CONST_ID IID& IID_IUserActivityChannelStatics = _uuidof(IUserActivityChannelStatics);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1516,7 +1516,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityChannelStatics2 = __uuidof(IUserActivityChannelStatics2);
+                extern MIDL_CONST_ID IID& IID_IUserActivityChannelStatics2 = _uuidof(IUserActivityChannelStatics2);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1553,7 +1553,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityChannelStatics3 = __uuidof(IUserActivityChannelStatics3);
+                extern MIDL_CONST_ID IID& IID_IUserActivityChannelStatics3 = _uuidof(IUserActivityChannelStatics3);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1587,7 +1587,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityContentInfo = __uuidof(IUserActivityContentInfo);
+                extern MIDL_CONST_ID IID& IID_IUserActivityContentInfo = _uuidof(IUserActivityContentInfo);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1624,7 +1624,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityContentInfoStatics = __uuidof(IUserActivityContentInfoStatics);
+                extern MIDL_CONST_ID IID& IID_IUserActivityContentInfoStatics = _uuidof(IUserActivityContentInfoStatics);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1661,7 +1661,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityFactory = __uuidof(IUserActivityFactory);
+                extern MIDL_CONST_ID IID& IID_IUserActivityFactory = _uuidof(IUserActivityFactory);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1697,7 +1697,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityRequest = __uuidof(IUserActivityRequest);
+                extern MIDL_CONST_ID IID& IID_IUserActivityRequest = _uuidof(IUserActivityRequest);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1737,7 +1737,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityRequestManager = __uuidof(IUserActivityRequestManager);
+                extern MIDL_CONST_ID IID& IID_IUserActivityRequestManager = _uuidof(IUserActivityRequestManager);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1773,7 +1773,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityRequestManagerStatics = __uuidof(IUserActivityRequestManagerStatics);
+                extern MIDL_CONST_ID IID& IID_IUserActivityRequestManagerStatics = _uuidof(IUserActivityRequestManagerStatics);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1812,7 +1812,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityRequestedEventArgs = __uuidof(IUserActivityRequestedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IUserActivityRequestedEventArgs = _uuidof(IUserActivityRequestedEventArgs);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1848,7 +1848,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivitySession = __uuidof(IUserActivitySession);
+                extern MIDL_CONST_ID IID& IID_IUserActivitySession = _uuidof(IUserActivitySession);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1890,7 +1890,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivitySessionHistoryItem = __uuidof(IUserActivitySessionHistoryItem);
+                extern MIDL_CONST_ID IID& IID_IUserActivitySessionHistoryItem = _uuidof(IUserActivitySessionHistoryItem);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1935,7 +1935,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityStatics = __uuidof(IUserActivityStatics);
+                extern MIDL_CONST_ID IID& IID_IUserActivityStatics = _uuidof(IUserActivityStatics);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -1998,7 +1998,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityVisualElements = __uuidof(IUserActivityVisualElements);
+                extern MIDL_CONST_ID IID& IID_IUserActivityVisualElements = _uuidof(IUserActivityVisualElements);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -2037,7 +2037,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUserActivityVisualElements2 = __uuidof(IUserActivityVisualElements2);
+                extern MIDL_CONST_ID IID& IID_IUserActivityVisualElements2 = _uuidof(IUserActivityVisualElements2);
             } /* UserActivities */
         } /* ApplicationModel */
     } /* Windows */
@@ -2108,9 +2108,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 5.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics3 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics2 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.UserActivities.IUserActivityChannel ** Default Interface **
@@ -5345,9 +5345,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 5.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics3 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics2 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.UserActivities.IUserActivityChannel ** Default Interface **

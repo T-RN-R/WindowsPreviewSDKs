@@ -34,7 +34,7 @@ typedef struct _WSD_EVENT WSD_EVENT;
 
 typedef HRESULT (*WSD_STUB_FUNCTION) (   
     IUnknown* server,
-    struct IWSDServiceMessaging* session,
+    IWSDServiceMessaging* session,
     WSD_EVENT* event
 );
 
@@ -95,7 +95,7 @@ typedef struct _WSD_SYNCHRONOUS_RESPONSE_CONTEXT
 {
     HRESULT hr;
     HANDLE eventHandle;
-    struct IWSDMessageParameters* messageParameters;
+    IWSDMessageParameters* messageParameters;
     void* results;
 } WSD_SYNCHRONOUS_RESPONSE_CONTEXT;
 
@@ -759,7 +759,7 @@ struct _WSD_EVENT
     WSD_HANDLER_CONTEXT HandlerContext;
     WSD_SOAP_MESSAGE* Soap;
     WSD_OPERATION* Operation;
-    struct IWSDMessageParameters* MessageParameters;
+    IWSDMessageParameters* MessageParameters;
 };
 
         

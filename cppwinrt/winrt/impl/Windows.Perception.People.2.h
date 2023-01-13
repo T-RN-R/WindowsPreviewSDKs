@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Perception_People_2_H
 #define WINRT_Windows_Perception_People_2_H
 #include "winrt/impl/Windows.Foundation.Numerics.2.h"
@@ -12,8 +11,8 @@ WINRT_EXPORT namespace winrt::Windows::Perception::People
 {
     struct HandMeshVertex
     {
-        winrt::Windows::Foundation::Numerics::float3 Position;
-        winrt::Windows::Foundation::Numerics::float3 Normal;
+        Windows::Foundation::Numerics::float3 Position;
+        Windows::Foundation::Numerics::float3 Normal;
     };
     inline bool operator==(HandMeshVertex const& left, HandMeshVertex const& right) noexcept
     {
@@ -25,10 +24,10 @@ WINRT_EXPORT namespace winrt::Windows::Perception::People
     }
     struct JointPose
     {
-        winrt::Windows::Foundation::Numerics::quaternion Orientation;
-        winrt::Windows::Foundation::Numerics::float3 Position;
+        Windows::Foundation::Numerics::quaternion Orientation;
+        Windows::Foundation::Numerics::float3 Position;
         float Radius;
-        winrt::Windows::Perception::People::JointPoseAccuracy Accuracy;
+        Windows::Perception::People::JointPoseAccuracy Accuracy;
     };
     inline bool operator==(JointPose const& left, JointPose const& right) noexcept
     {
@@ -38,32 +37,32 @@ WINRT_EXPORT namespace winrt::Windows::Perception::People
     {
         return !(left == right);
     }
-    struct __declspec(empty_bases) EyesPose : winrt::Windows::Perception::People::IEyesPose
+    struct __declspec(empty_bases) EyesPose : Windows::Perception::People::IEyesPose
     {
         EyesPose(std::nullptr_t) noexcept {}
-        EyesPose(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Perception::People::IEyesPose(ptr, take_ownership_from_abi) {}
+        EyesPose(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Perception::People::IEyesPose(ptr, take_ownership_from_abi) {}
         static auto IsSupported();
         static auto RequestAccessAsync();
     };
-    struct __declspec(empty_bases) HandMeshObserver : winrt::Windows::Perception::People::IHandMeshObserver
+    struct __declspec(empty_bases) HandMeshObserver : Windows::Perception::People::IHandMeshObserver
     {
         HandMeshObserver(std::nullptr_t) noexcept {}
-        HandMeshObserver(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Perception::People::IHandMeshObserver(ptr, take_ownership_from_abi) {}
+        HandMeshObserver(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Perception::People::IHandMeshObserver(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) HandMeshVertexState : winrt::Windows::Perception::People::IHandMeshVertexState
+    struct __declspec(empty_bases) HandMeshVertexState : Windows::Perception::People::IHandMeshVertexState
     {
         HandMeshVertexState(std::nullptr_t) noexcept {}
-        HandMeshVertexState(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Perception::People::IHandMeshVertexState(ptr, take_ownership_from_abi) {}
+        HandMeshVertexState(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Perception::People::IHandMeshVertexState(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) HandPose : winrt::Windows::Perception::People::IHandPose
+    struct __declspec(empty_bases) HandPose : Windows::Perception::People::IHandPose
     {
         HandPose(std::nullptr_t) noexcept {}
-        HandPose(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Perception::People::IHandPose(ptr, take_ownership_from_abi) {}
+        HandPose(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Perception::People::IHandPose(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) HeadPose : winrt::Windows::Perception::People::IHeadPose
+    struct __declspec(empty_bases) HeadPose : Windows::Perception::People::IHeadPose
     {
         HeadPose(std::nullptr_t) noexcept {}
-        HeadPose(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Perception::People::IHeadPose(ptr, take_ownership_from_abi) {}
+        HeadPose(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Perception::People::IHeadPose(ptr, take_ownership_from_abi) {}
     };
 }
 #endif

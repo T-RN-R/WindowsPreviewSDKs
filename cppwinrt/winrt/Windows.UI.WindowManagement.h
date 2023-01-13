@@ -1,14 +1,12 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_UI_WindowManagement_H
 #define WINRT_Windows_UI_WindowManagement_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.220418.1"), "Mismatched C++/WinRT headers.");
-#define CPPWINRT_VERSION "2.0.220418.1"
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -21,596 +19,590 @@ namespace winrt::impl
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Content() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_Content(&value));
-        return winrt::Windows::UI::UIContentRoot{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_Content(&value));
+        return Windows::UI::UIContentRoot{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::DispatcherQueue() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_DispatcherQueue(&value));
-        return winrt::Windows::System::DispatcherQueue{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_DispatcherQueue(&value));
+        return Windows::System::DispatcherQueue{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Frame() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_Frame(&value));
-        return winrt::Windows::UI::WindowManagement::AppWindowFrame{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_Frame(&value));
+        return Windows::UI::WindowManagement::AppWindowFrame{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::IsVisible() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_IsVisible(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_IsVisible(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::PersistedStateId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_PersistedStateId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_PersistedStateId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::PersistedStateId(param::hstring const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->put_PersistedStateId(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->put_PersistedStateId(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Presenter() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_Presenter(&value));
-        return winrt::Windows::UI::WindowManagement::AppWindowPresenter{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_Presenter(&value));
+        return Windows::UI::WindowManagement::AppWindowPresenter{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Title() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_Title(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Title(param::hstring const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->put_Title(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->put_Title(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::TitleBar() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_TitleBar(&value));
-        return winrt::Windows::UI::WindowManagement::AppWindowTitleBar{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_TitleBar(&value));
+        return Windows::UI::WindowManagement::AppWindowTitleBar{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::UIContext() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_UIContext(&value));
-        return winrt::Windows::UI::UIContext{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_UIContext(&value));
+        return Windows::UI::UIContext{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::WindowingEnvironment() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->get_WindowingEnvironment(&value));
-        return winrt::Windows::UI::WindowManagement::WindowingEnvironment{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->get_WindowingEnvironment(&value));
+        return Windows::UI::WindowManagement::WindowingEnvironment{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::CloseAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->CloseAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->CloseAsync(&operation));
+        return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::GetPlacement() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->GetPlacement(&result));
-        return winrt::Windows::UI::WindowManagement::AppWindowPlacement{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->GetPlacement(&result));
+        return Windows::UI::WindowManagement::AppWindowPlacement{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::GetDisplayRegions() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->GetDisplayRegions(&result));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::DisplayRegion>{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->GetDisplayRegions(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::DisplayRegion>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveToDisplayRegion(winrt::Windows::UI::WindowManagement::DisplayRegion const& displayRegion) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveToDisplayRegion(Windows::UI::WindowManagement::DisplayRegion const& displayRegion) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->RequestMoveToDisplayRegion(*(void**)(&displayRegion)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->RequestMoveToDisplayRegion(*(void**)(&displayRegion)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveAdjacentToCurrentView() const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->RequestMoveAdjacentToCurrentView());
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->RequestMoveAdjacentToCurrentView());
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveAdjacentToWindow(winrt::Windows::UI::WindowManagement::AppWindow const& anchorWindow) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveAdjacentToWindow(Windows::UI::WindowManagement::AppWindow const& anchorWindow) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->RequestMoveAdjacentToWindow(*(void**)(&anchorWindow)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->RequestMoveAdjacentToWindow(*(void**)(&anchorWindow)));
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveRelativeToWindowContent(winrt::Windows::UI::WindowManagement::AppWindow const& anchorWindow, winrt::Windows::Foundation::Point const& contentOffset) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveRelativeToWindowContent(Windows::UI::WindowManagement::AppWindow const& anchorWindow, Windows::Foundation::Point const& contentOffset) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->RequestMoveRelativeToWindowContent(*(void**)(&anchorWindow), impl::bind_in(contentOffset)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->RequestMoveRelativeToWindowContent(*(void**)(&anchorWindow), impl::bind_in(contentOffset)));
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveRelativeToCurrentViewContent(winrt::Windows::Foundation::Point const& contentOffset) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveRelativeToCurrentViewContent(Windows::Foundation::Point const& contentOffset) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->RequestMoveRelativeToCurrentViewContent(impl::bind_in(contentOffset)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->RequestMoveRelativeToCurrentViewContent(impl::bind_in(contentOffset)));
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveRelativeToDisplayRegion(winrt::Windows::UI::WindowManagement::DisplayRegion const& displayRegion, winrt::Windows::Foundation::Point const& displayRegionOffset) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestMoveRelativeToDisplayRegion(Windows::UI::WindowManagement::DisplayRegion const& displayRegion, Windows::Foundation::Point const& displayRegionOffset) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->RequestMoveRelativeToDisplayRegion(*(void**)(&displayRegion), impl::bind_in(displayRegionOffset)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->RequestMoveRelativeToDisplayRegion(*(void**)(&displayRegion), impl::bind_in(displayRegionOffset)));
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestSize(winrt::Windows::Foundation::Size const& frameSize) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::RequestSize(Windows::Foundation::Size const& frameSize) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->RequestSize(impl::bind_in(frameSize)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->RequestSize(impl::bind_in(frameSize)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::TryShowAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->TryShowAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->TryShowAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Changed(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowChangedEventArgs> const& handler) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowChangedEventArgs> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->add_Changed(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->add_Changed(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_UI_WindowManagement_IAppWindow<D>::Changed_revoker consume_Windows_UI_WindowManagement_IAppWindow<D>::Changed(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowChangedEventArgs> const& handler) const
+    template <typename D> typename consume_Windows_UI_WindowManagement_IAppWindow<D>::Changed_revoker consume_Windows_UI_WindowManagement_IAppWindow<D>::Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowChangedEventArgs> const& handler) const
     {
         return impl::make_event_revoker<D, Changed_revoker>(this, Changed(handler));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Changed(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->remove_Changed(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->remove_Changed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Closed(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowClosedEventArgs> const& handler) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Closed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowClosedEventArgs> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->add_Closed(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->add_Closed(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_UI_WindowManagement_IAppWindow<D>::Closed_revoker consume_Windows_UI_WindowManagement_IAppWindow<D>::Closed(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowClosedEventArgs> const& handler) const
+    template <typename D> typename consume_Windows_UI_WindowManagement_IAppWindow<D>::Closed_revoker consume_Windows_UI_WindowManagement_IAppWindow<D>::Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowClosedEventArgs> const& handler) const
     {
         return impl::make_event_revoker<D, Closed_revoker>(this, Closed(handler));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::Closed(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->remove_Closed(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->remove_Closed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::CloseRequested(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const& handler) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::CloseRequested(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->add_CloseRequested(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->add_CloseRequested(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_UI_WindowManagement_IAppWindow<D>::CloseRequested_revoker consume_Windows_UI_WindowManagement_IAppWindow<D>::CloseRequested(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const& handler) const
+    template <typename D> typename consume_Windows_UI_WindowManagement_IAppWindow<D>::CloseRequested_revoker consume_Windows_UI_WindowManagement_IAppWindow<D>::CloseRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const& handler) const
     {
         return impl::make_event_revoker<D, CloseRequested_revoker>(this, CloseRequested(handler));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow<D>::CloseRequested(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindow)->remove_CloseRequested(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->remove_CloseRequested(impl::bind_in(token)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidAvailableWindowPresentationsChange() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidAvailableWindowPresentationsChange(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidAvailableWindowPresentationsChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidDisplayRegionsChange() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidDisplayRegionsChange(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidDisplayRegionsChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidFrameChange() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidFrameChange(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidFrameChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidSizeChange() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidSizeChange(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidSizeChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidTitleBarChange() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidTitleBarChange(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidTitleBarChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidVisibilityChange() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidVisibilityChange(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidVisibilityChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidWindowingEnvironmentChange() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidWindowingEnvironmentChange(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidWindowingEnvironmentChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidWindowPresentationChange() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidWindowPresentationChange(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidWindowPresentationChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowCloseRequestedEventArgs<D>::Cancel() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs)->get_Cancel(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs)->get_Cancel(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowCloseRequestedEventArgs<D>::Cancel(bool value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs)->put_Cancel(value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs)->put_Cancel(value));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowCloseRequestedEventArgs<D>::GetDeferral() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs)->GetDeferral(&result));
-        return winrt::Windows::Foundation::Deferral{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs)->GetDeferral(&result));
+        return Windows::Foundation::Deferral{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowClosedEventArgs<D>::Reason() const
     {
-        winrt::Windows::UI::WindowManagement::AppWindowClosedReason value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowClosedEventArgs)->get_Reason(reinterpret_cast<int32_t*>(&value)));
+        Windows::UI::WindowManagement::AppWindowClosedReason value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowClosedEventArgs)->get_Reason(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowFrame<D>::DragRegionVisuals() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowFrame)->get_DragRegionVisuals(&value));
-        return winrt::Windows::Foundation::Collections::IVector<winrt::Windows::UI::Composition::IVisualElement>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowFrame)->get_DragRegionVisuals(&value));
+        return Windows::Foundation::Collections::IVector<Windows::UI::Composition::IVisualElement>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowFrameStyle<D>::GetFrameStyle() const
     {
-        winrt::Windows::UI::WindowManagement::AppWindowFrameStyle result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowFrameStyle)->GetFrameStyle(reinterpret_cast<int32_t*>(&result)));
+        Windows::UI::WindowManagement::AppWindowFrameStyle result;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowFrameStyle)->GetFrameStyle(reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowFrameStyle<D>::SetFrameStyle(winrt::Windows::UI::WindowManagement::AppWindowFrameStyle const& frameStyle) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowFrameStyle<D>::SetFrameStyle(Windows::UI::WindowManagement::AppWindowFrameStyle const& frameStyle) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowFrameStyle)->SetFrameStyle(static_cast<int32_t>(frameStyle)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowFrameStyle)->SetFrameStyle(static_cast<int32_t>(frameStyle)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPlacement<D>::DisplayRegion() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowPlacement)->get_DisplayRegion(&value));
-        return winrt::Windows::UI::WindowManagement::DisplayRegion{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowPlacement)->get_DisplayRegion(&value));
+        return Windows::UI::WindowManagement::DisplayRegion{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPlacement<D>::Offset() const
     {
-        winrt::Windows::Foundation::Point value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowPlacement)->get_Offset(put_abi(value)));
+        Windows::Foundation::Point value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowPlacement)->get_Offset(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPlacement<D>::Size() const
     {
-        winrt::Windows::Foundation::Size value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowPlacement)->get_Size(put_abi(value)));
+        Windows::Foundation::Size value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowPlacement)->get_Size(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPresentationConfiguration<D>::Kind() const
     {
-        winrt::Windows::UI::WindowManagement::AppWindowPresentationKind value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowPresentationConfiguration)->get_Kind(reinterpret_cast<int32_t*>(&value)));
+        Windows::UI::WindowManagement::AppWindowPresentationKind value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowPresentationConfiguration)->get_Kind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPresenter<D>::GetConfiguration() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowPresenter)->GetConfiguration(&result));
-        return winrt::Windows::UI::WindowManagement::AppWindowPresentationConfiguration{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowPresenter)->GetConfiguration(&result));
+        return Windows::UI::WindowManagement::AppWindowPresentationConfiguration{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPresenter<D>::IsPresentationSupported(winrt::Windows::UI::WindowManagement::AppWindowPresentationKind const& presentationKind) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPresenter<D>::IsPresentationSupported(Windows::UI::WindowManagement::AppWindowPresentationKind const& presentationKind) const
     {
-        bool result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowPresenter)->IsPresentationSupported(static_cast<int32_t>(presentationKind), &result));
+        bool result;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowPresenter)->IsPresentationSupported(static_cast<int32_t>(presentationKind), &result));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPresenter<D>::RequestPresentation(winrt::Windows::UI::WindowManagement::AppWindowPresentationConfiguration const& configuration) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPresenter<D>::RequestPresentation(Windows::UI::WindowManagement::AppWindowPresentationConfiguration const& configuration) const
     {
-        bool result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowPresenter)->RequestPresentation(*(void**)(&configuration), &result));
+        bool result;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowPresenter)->RequestPresentation(*(void**)(&configuration), &result));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPresenter<D>::RequestPresentation(winrt::Windows::UI::WindowManagement::AppWindowPresentationKind const& presentationKind) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowPresenter<D>::RequestPresentation(Windows::UI::WindowManagement::AppWindowPresentationKind const& presentationKind) const
     {
-        bool result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowPresenter)->RequestPresentationByKind(static_cast<int32_t>(presentationKind), &result));
+        bool result;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowPresenter)->RequestPresentationByKind(static_cast<int32_t>(presentationKind), &result));
         return result;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowStatics<D>::TryCreateAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowStatics)->TryCreateAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::UI::WindowManagement::AppWindow>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowStatics)->TryCreateAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::UI::WindowManagement::AppWindow>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowStatics<D>::ClearAllPersistedState() const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowStatics)->ClearAllPersistedState());
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowStatics)->ClearAllPersistedState());
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowStatics<D>::ClearPersistedState(param::hstring const& key) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowStatics)->ClearPersistedState(*(void**)(&key)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowStatics)->ClearPersistedState(*(void**)(&key)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::BackgroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_BackgroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_BackgroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::BackgroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::BackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_BackgroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_BackgroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonBackgroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonBackgroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonBackgroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonBackgroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonBackgroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonBackgroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonForegroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonForegroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonForegroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonForegroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonForegroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonForegroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonHoverBackgroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonHoverBackgroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonHoverBackgroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonHoverBackgroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonHoverBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonHoverBackgroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonHoverBackgroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonHoverForegroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonHoverForegroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonHoverForegroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonHoverForegroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonHoverForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonHoverForegroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonHoverForegroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonInactiveBackgroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonInactiveBackgroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonInactiveBackgroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonInactiveBackgroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonInactiveBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonInactiveBackgroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonInactiveBackgroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonInactiveForegroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonInactiveForegroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonInactiveForegroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonInactiveForegroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonInactiveForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonInactiveForegroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonInactiveForegroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonPressedBackgroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonPressedBackgroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonPressedBackgroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonPressedBackgroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonPressedBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonPressedBackgroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonPressedBackgroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonPressedForegroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonPressedForegroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ButtonPressedForegroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonPressedForegroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ButtonPressedForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonPressedForegroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ButtonPressedForegroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ExtendsContentIntoTitleBar() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ExtendsContentIntoTitleBar(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ExtendsContentIntoTitleBar(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ExtendsContentIntoTitleBar(bool value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ExtendsContentIntoTitleBar(value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ExtendsContentIntoTitleBar(value));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ForegroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ForegroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_ForegroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ForegroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::ForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ForegroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_ForegroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::InactiveBackgroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_InactiveBackgroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_InactiveBackgroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::InactiveBackgroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::InactiveBackgroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_InactiveBackgroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_InactiveBackgroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::InactiveForegroundColor() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_InactiveForegroundColor(&value));
-        return winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_InactiveForegroundColor(&value));
+        return Windows::Foundation::IReference<Windows::UI::Color>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::InactiveForegroundColor(winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const& value) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::InactiveForegroundColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->put_InactiveForegroundColor(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->put_InactiveForegroundColor(*(void**)(&value)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::IsVisible() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->get_IsVisible(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->get_IsVisible(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBar<D>::GetTitleBarOcclusions() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBar)->GetTitleBarOcclusions(&result));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::AppWindowTitleBarOcclusion>{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBar)->GetTitleBarOcclusions(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::AppWindowTitleBarOcclusion>{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBarOcclusion<D>::OccludingRect() const
     {
-        winrt::Windows::Foundation::Rect value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion)->get_OccludingRect(put_abi(value)));
+        Windows::Foundation::Rect value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion)->get_OccludingRect(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBarVisibility<D>::GetPreferredVisibility() const
     {
-        winrt::Windows::UI::WindowManagement::AppWindowTitleBarVisibility result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBarVisibility)->GetPreferredVisibility(reinterpret_cast<int32_t*>(&result)));
+        Windows::UI::WindowManagement::AppWindowTitleBarVisibility result;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBarVisibility)->GetPreferredVisibility(reinterpret_cast<int32_t*>(&result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBarVisibility<D>::SetPreferredVisibility(winrt::Windows::UI::WindowManagement::AppWindowTitleBarVisibility const& visibilityMode) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowTitleBarVisibility<D>::SetPreferredVisibility(Windows::UI::WindowManagement::AppWindowTitleBarVisibility const& visibilityMode) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IAppWindowTitleBarVisibility)->SetPreferredVisibility(static_cast<int32_t>(visibilityMode)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowTitleBarVisibility)->SetPreferredVisibility(static_cast<int32_t>(visibilityMode)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IDisplayRegion<D>::DisplayMonitorDeviceId() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IDisplayRegion)->get_DisplayMonitorDeviceId(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IDisplayRegion)->get_DisplayMonitorDeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IDisplayRegion<D>::IsVisible() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IDisplayRegion)->get_IsVisible(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IDisplayRegion)->get_IsVisible(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IDisplayRegion<D>::WorkAreaOffset() const
     {
-        winrt::Windows::Foundation::Point value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IDisplayRegion)->get_WorkAreaOffset(put_abi(value)));
+        Windows::Foundation::Point value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IDisplayRegion)->get_WorkAreaOffset(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IDisplayRegion<D>::WorkAreaSize() const
     {
-        winrt::Windows::Foundation::Size value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IDisplayRegion)->get_WorkAreaSize(put_abi(value)));
+        Windows::Foundation::Size value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IDisplayRegion)->get_WorkAreaSize(put_abi(value)));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IDisplayRegion<D>::WindowingEnvironment() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IDisplayRegion)->get_WindowingEnvironment(&value));
-        return winrt::Windows::UI::WindowManagement::WindowingEnvironment{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IDisplayRegion)->get_WindowingEnvironment(&value));
+        return Windows::UI::WindowManagement::WindowingEnvironment{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IDisplayRegion<D>::Changed(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::DisplayRegion, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IDisplayRegion<D>::Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::DisplayRegion, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IDisplayRegion)->add_Changed(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IDisplayRegion)->add_Changed(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_UI_WindowManagement_IDisplayRegion<D>::Changed_revoker consume_Windows_UI_WindowManagement_IDisplayRegion<D>::Changed(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::DisplayRegion, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> typename consume_Windows_UI_WindowManagement_IDisplayRegion<D>::Changed_revoker consume_Windows_UI_WindowManagement_IDisplayRegion<D>::Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::DisplayRegion, Windows::Foundation::IInspectable> const& handler) const
     {
         return impl::make_event_revoker<D, Changed_revoker>(this, Changed(handler));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IDisplayRegion<D>::Changed(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IDisplayRegion)->remove_Changed(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IDisplayRegion)->remove_Changed(impl::bind_in(token)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IFullScreenPresentationConfiguration<D>::IsExclusive() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IFullScreenPresentationConfiguration)->get_IsExclusive(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IFullScreenPresentationConfiguration)->get_IsExclusive(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IFullScreenPresentationConfiguration<D>::IsExclusive(bool value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IFullScreenPresentationConfiguration)->put_IsExclusive(value));
-    }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IWindowServicesStatics<D>::FindAllTopLevelWindowIds() const
-    {
-        void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowServicesStatics)->FindAllTopLevelWindowIds(&result));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowId>{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IFullScreenPresentationConfiguration)->put_IsExclusive(value));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::IsEnabled() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironment)->get_IsEnabled(&value));
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironment)->get_IsEnabled(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::Kind() const
     {
-        winrt::Windows::UI::WindowManagement::WindowingEnvironmentKind value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironment)->get_Kind(reinterpret_cast<int32_t*>(&value)));
+        Windows::UI::WindowManagement::WindowingEnvironmentKind value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironment)->get_Kind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::GetDisplayRegions() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironment)->GetDisplayRegions(&result));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::DisplayRegion>{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironment)->GetDisplayRegions(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::DisplayRegion>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::Changed(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::WindowingEnvironment, winrt::Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const& handler) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::Changed(Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::WindowingEnvironment, Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironment)->add_Changed(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironment)->add_Changed(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::Changed_revoker consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::Changed(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::WindowingEnvironment, winrt::Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const& handler) const
+    template <typename D> typename consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::Changed_revoker consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::WindowingEnvironment, Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const& handler) const
     {
         return impl::make_event_revoker<D, Changed_revoker>(this, Changed(handler));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::Changed(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironment)->remove_Changed(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironment)->remove_Changed(impl::bind_in(token)));
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironmentAddedEventArgs<D>::WindowingEnvironment() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs)->get_WindowingEnvironment(&value));
-        return winrt::Windows::UI::WindowManagement::WindowingEnvironment{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs)->get_WindowingEnvironment(&value));
+        return Windows::UI::WindowManagement::WindowingEnvironment{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironmentRemovedEventArgs<D>::WindowingEnvironment() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs)->get_WindowingEnvironment(&value));
-        return winrt::Windows::UI::WindowManagement::WindowingEnvironment{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs)->get_WindowingEnvironment(&value));
+        return Windows::UI::WindowManagement::WindowingEnvironment{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironmentStatics<D>::FindAll() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironmentStatics)->FindAll(&result));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::WindowingEnvironment>{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironmentStatics)->FindAll(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::WindowingEnvironment>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironmentStatics<D>::FindAll(winrt::Windows::UI::WindowManagement::WindowingEnvironmentKind const& kind) const
+    template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironmentStatics<D>::FindAll(Windows::UI::WindowManagement::WindowingEnvironmentKind const& kind) const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::WindowManagement::IWindowingEnvironmentStatics)->FindAllWithKind(static_cast<int32_t>(kind), &result));
-        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::WindowingEnvironment>{ result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowingEnvironmentStatics)->FindAllWithKind(static_cast<int32_t>(kind), &result));
+        return Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::WindowingEnvironment>{ result, take_ownership_from_abi };
     }
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindow> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindow>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindow> : produce_base<D, Windows::UI::WindowManagement::IAppWindow>
     {
         int32_t __stdcall get_Content(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::UIContentRoot>(this->shim().Content());
+            *value = detach_from<Windows::UI::UIContentRoot>(this->shim().Content());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -618,7 +610,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::System::DispatcherQueue>(this->shim().DispatcherQueue());
+            *value = detach_from<Windows::System::DispatcherQueue>(this->shim().DispatcherQueue());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -626,7 +618,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::AppWindowFrame>(this->shim().Frame());
+            *value = detach_from<Windows::UI::WindowManagement::AppWindowFrame>(this->shim().Frame());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -656,7 +648,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::AppWindowPresenter>(this->shim().Presenter());
+            *value = detach_from<Windows::UI::WindowManagement::AppWindowPresenter>(this->shim().Presenter());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -679,7 +671,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::AppWindowTitleBar>(this->shim().TitleBar());
+            *value = detach_from<Windows::UI::WindowManagement::AppWindowTitleBar>(this->shim().TitleBar());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -687,7 +679,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::UIContext>(this->shim().UIContext());
+            *value = detach_from<Windows::UI::UIContext>(this->shim().UIContext());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -695,7 +687,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::WindowingEnvironment>(this->shim().WindowingEnvironment());
+            *value = detach_from<Windows::UI::WindowManagement::WindowingEnvironment>(this->shim().WindowingEnvironment());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -703,7 +695,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncAction>(this->shim().CloseAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncAction>(this->shim().CloseAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -711,7 +703,7 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::UI::WindowManagement::AppWindowPlacement>(this->shim().GetPlacement());
+            *result = detach_from<Windows::UI::WindowManagement::AppWindowPlacement>(this->shim().GetPlacement());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -719,14 +711,14 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::DisplayRegion>>(this->shim().GetDisplayRegions());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::DisplayRegion>>(this->shim().GetDisplayRegions());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall RequestMoveToDisplayRegion(void* displayRegion) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().RequestMoveToDisplayRegion(*reinterpret_cast<winrt::Windows::UI::WindowManagement::DisplayRegion const*>(&displayRegion));
+            this->shim().RequestMoveToDisplayRegion(*reinterpret_cast<Windows::UI::WindowManagement::DisplayRegion const*>(&displayRegion));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -740,35 +732,35 @@ namespace winrt::impl
         int32_t __stdcall RequestMoveAdjacentToWindow(void* anchorWindow) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().RequestMoveAdjacentToWindow(*reinterpret_cast<winrt::Windows::UI::WindowManagement::AppWindow const*>(&anchorWindow));
+            this->shim().RequestMoveAdjacentToWindow(*reinterpret_cast<Windows::UI::WindowManagement::AppWindow const*>(&anchorWindow));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall RequestMoveRelativeToWindowContent(void* anchorWindow, winrt::Windows::Foundation::Point contentOffset) noexcept final try
+        int32_t __stdcall RequestMoveRelativeToWindowContent(void* anchorWindow, Windows::Foundation::Point contentOffset) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().RequestMoveRelativeToWindowContent(*reinterpret_cast<winrt::Windows::UI::WindowManagement::AppWindow const*>(&anchorWindow), *reinterpret_cast<winrt::Windows::Foundation::Point const*>(&contentOffset));
+            this->shim().RequestMoveRelativeToWindowContent(*reinterpret_cast<Windows::UI::WindowManagement::AppWindow const*>(&anchorWindow), *reinterpret_cast<Windows::Foundation::Point const*>(&contentOffset));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall RequestMoveRelativeToCurrentViewContent(winrt::Windows::Foundation::Point contentOffset) noexcept final try
+        int32_t __stdcall RequestMoveRelativeToCurrentViewContent(Windows::Foundation::Point contentOffset) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().RequestMoveRelativeToCurrentViewContent(*reinterpret_cast<winrt::Windows::Foundation::Point const*>(&contentOffset));
+            this->shim().RequestMoveRelativeToCurrentViewContent(*reinterpret_cast<Windows::Foundation::Point const*>(&contentOffset));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall RequestMoveRelativeToDisplayRegion(void* displayRegion, winrt::Windows::Foundation::Point displayRegionOffset) noexcept final try
+        int32_t __stdcall RequestMoveRelativeToDisplayRegion(void* displayRegion, Windows::Foundation::Point displayRegionOffset) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().RequestMoveRelativeToDisplayRegion(*reinterpret_cast<winrt::Windows::UI::WindowManagement::DisplayRegion const*>(&displayRegion), *reinterpret_cast<winrt::Windows::Foundation::Point const*>(&displayRegionOffset));
+            this->shim().RequestMoveRelativeToDisplayRegion(*reinterpret_cast<Windows::UI::WindowManagement::DisplayRegion const*>(&displayRegion), *reinterpret_cast<Windows::Foundation::Point const*>(&displayRegionOffset));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall RequestSize(winrt::Windows::Foundation::Size frameSize) noexcept final try
+        int32_t __stdcall RequestSize(Windows::Foundation::Size frameSize) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().RequestSize(*reinterpret_cast<winrt::Windows::Foundation::Size const*>(&frameSize));
+            this->shim().RequestSize(*reinterpret_cast<Windows::Foundation::Size const*>(&frameSize));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -776,7 +768,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<bool>>(this->shim().TryShowAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().TryShowAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -784,7 +776,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().Changed(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowChangedEventArgs> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().Changed(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowChangedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -798,7 +790,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().Closed(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowClosedEventArgs> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().Closed(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowClosedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -812,7 +804,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().CloseRequested(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::AppWindow, winrt::Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().CloseRequested(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::AppWindow, Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -826,7 +818,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowChangedEventArgs> : produce_base<D, Windows::UI::WindowManagement::IAppWindowChangedEventArgs>
     {
         int32_t __stdcall get_DidAvailableWindowPresentationsChange(bool* value) noexcept final try
         {
@@ -888,7 +880,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs> : produce_base<D, Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>
     {
         int32_t __stdcall get_Cancel(bool* value) noexcept final try
         {
@@ -908,7 +900,7 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::Deferral>(this->shim().GetDeferral());
+            *result = detach_from<Windows::Foundation::Deferral>(this->shim().GetDeferral());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -916,12 +908,12 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowClosedEventArgs> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowClosedEventArgs>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowClosedEventArgs> : produce_base<D, Windows::UI::WindowManagement::IAppWindowClosedEventArgs>
     {
         int32_t __stdcall get_Reason(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::AppWindowClosedReason>(this->shim().Reason());
+            *value = detach_from<Windows::UI::WindowManagement::AppWindowClosedReason>(this->shim().Reason());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -929,13 +921,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowFrame> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowFrame>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowFrame> : produce_base<D, Windows::UI::WindowManagement::IAppWindowFrame>
     {
         int32_t __stdcall get_DragRegionVisuals(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVector<winrt::Windows::UI::Composition::IVisualElement>>(this->shim().DragRegionVisuals());
+            *value = detach_from<Windows::Foundation::Collections::IVector<Windows::UI::Composition::IVisualElement>>(this->shim().DragRegionVisuals());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -943,19 +935,19 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowFrameStyle> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowFrameStyle>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowFrameStyle> : produce_base<D, Windows::UI::WindowManagement::IAppWindowFrameStyle>
     {
         int32_t __stdcall GetFrameStyle(int32_t* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::UI::WindowManagement::AppWindowFrameStyle>(this->shim().GetFrameStyle());
+            *result = detach_from<Windows::UI::WindowManagement::AppWindowFrameStyle>(this->shim().GetFrameStyle());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall SetFrameStyle(int32_t frameStyle) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().SetFrameStyle(*reinterpret_cast<winrt::Windows::UI::WindowManagement::AppWindowFrameStyle const*>(&frameStyle));
+            this->shim().SetFrameStyle(*reinterpret_cast<Windows::UI::WindowManagement::AppWindowFrameStyle const*>(&frameStyle));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -963,29 +955,29 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowPlacement> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowPlacement>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowPlacement> : produce_base<D, Windows::UI::WindowManagement::IAppWindowPlacement>
     {
         int32_t __stdcall get_DisplayRegion(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::DisplayRegion>(this->shim().DisplayRegion());
+            *value = detach_from<Windows::UI::WindowManagement::DisplayRegion>(this->shim().DisplayRegion());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall get_Offset(winrt::Windows::Foundation::Point* value) noexcept final try
+        int32_t __stdcall get_Offset(Windows::Foundation::Point* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::Point>(value);
+            zero_abi<Windows::Foundation::Point>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Point>(this->shim().Offset());
+            *value = detach_from<Windows::Foundation::Point>(this->shim().Offset());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall get_Size(winrt::Windows::Foundation::Size* value) noexcept final try
+        int32_t __stdcall get_Size(Windows::Foundation::Size* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::Size>(value);
+            zero_abi<Windows::Foundation::Size>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Size>(this->shim().Size());
+            *value = detach_from<Windows::Foundation::Size>(this->shim().Size());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -993,12 +985,12 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowPresentationConfiguration> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowPresentationConfiguration>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowPresentationConfiguration> : produce_base<D, Windows::UI::WindowManagement::IAppWindowPresentationConfiguration>
     {
         int32_t __stdcall get_Kind(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::AppWindowPresentationKind>(this->shim().Kind());
+            *value = detach_from<Windows::UI::WindowManagement::AppWindowPresentationKind>(this->shim().Kind());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1006,40 +998,40 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowPresentationConfigurationFactory> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowPresentationConfigurationFactory>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowPresentationConfigurationFactory> : produce_base<D, Windows::UI::WindowManagement::IAppWindowPresentationConfigurationFactory>
     {
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowPresenter> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowPresenter>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowPresenter> : produce_base<D, Windows::UI::WindowManagement::IAppWindowPresenter>
     {
         int32_t __stdcall GetConfiguration(void** result) noexcept final try
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::UI::WindowManagement::AppWindowPresentationConfiguration>(this->shim().GetConfiguration());
+            *result = detach_from<Windows::UI::WindowManagement::AppWindowPresentationConfiguration>(this->shim().GetConfiguration());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall IsPresentationSupported(int32_t presentationKind, bool* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<bool>(this->shim().IsPresentationSupported(*reinterpret_cast<winrt::Windows::UI::WindowManagement::AppWindowPresentationKind const*>(&presentationKind)));
+            *result = detach_from<bool>(this->shim().IsPresentationSupported(*reinterpret_cast<Windows::UI::WindowManagement::AppWindowPresentationKind const*>(&presentationKind)));
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall RequestPresentation(void* configuration, bool* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<bool>(this->shim().RequestPresentation(*reinterpret_cast<winrt::Windows::UI::WindowManagement::AppWindowPresentationConfiguration const*>(&configuration)));
+            *result = detach_from<bool>(this->shim().RequestPresentation(*reinterpret_cast<Windows::UI::WindowManagement::AppWindowPresentationConfiguration const*>(&configuration)));
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall RequestPresentationByKind(int32_t presentationKind, bool* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<bool>(this->shim().RequestPresentation(*reinterpret_cast<winrt::Windows::UI::WindowManagement::AppWindowPresentationKind const*>(&presentationKind)));
+            *result = detach_from<bool>(this->shim().RequestPresentation(*reinterpret_cast<Windows::UI::WindowManagement::AppWindowPresentationKind const*>(&presentationKind)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1047,13 +1039,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowStatics> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowStatics>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowStatics> : produce_base<D, Windows::UI::WindowManagement::IAppWindowStatics>
     {
         int32_t __stdcall TryCreateAsync(void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::UI::WindowManagement::AppWindow>>(this->shim().TryCreateAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::UI::WindowManagement::AppWindow>>(this->shim().TryCreateAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1075,20 +1067,20 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowTitleBar> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowTitleBar>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowTitleBar> : produce_base<D, Windows::UI::WindowManagement::IAppWindowTitleBar>
     {
         int32_t __stdcall get_BackgroundColor(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().BackgroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().BackgroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_BackgroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().BackgroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().BackgroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1096,14 +1088,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ButtonBackgroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ButtonBackgroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ButtonBackgroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ButtonBackgroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ButtonBackgroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1111,14 +1103,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ButtonForegroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ButtonForegroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ButtonForegroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ButtonForegroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ButtonForegroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1126,14 +1118,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ButtonHoverBackgroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ButtonHoverBackgroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ButtonHoverBackgroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ButtonHoverBackgroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ButtonHoverBackgroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1141,14 +1133,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ButtonHoverForegroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ButtonHoverForegroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ButtonHoverForegroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ButtonHoverForegroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ButtonHoverForegroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1156,14 +1148,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ButtonInactiveBackgroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ButtonInactiveBackgroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ButtonInactiveBackgroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ButtonInactiveBackgroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ButtonInactiveBackgroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1171,14 +1163,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ButtonInactiveForegroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ButtonInactiveForegroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ButtonInactiveForegroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ButtonInactiveForegroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ButtonInactiveForegroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1186,14 +1178,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ButtonPressedBackgroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ButtonPressedBackgroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ButtonPressedBackgroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ButtonPressedBackgroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ButtonPressedBackgroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1201,14 +1193,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ButtonPressedForegroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ButtonPressedForegroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ButtonPressedForegroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ButtonPressedForegroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ButtonPressedForegroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1230,14 +1222,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().ForegroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().ForegroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_ForegroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().ForegroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().ForegroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1245,14 +1237,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().InactiveBackgroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().InactiveBackgroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_InactiveBackgroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().InactiveBackgroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().InactiveBackgroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1260,14 +1252,14 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color>>(this->shim().InactiveForegroundColor());
+            *value = detach_from<Windows::Foundation::IReference<Windows::UI::Color>>(this->shim().InactiveForegroundColor());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall put_InactiveForegroundColor(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().InactiveForegroundColor(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::UI::Color> const*>(&value));
+            this->shim().InactiveForegroundColor(*reinterpret_cast<Windows::Foundation::IReference<Windows::UI::Color> const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1282,7 +1274,7 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::AppWindowTitleBarOcclusion>>(this->shim().GetTitleBarOcclusions());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::AppWindowTitleBarOcclusion>>(this->shim().GetTitleBarOcclusions());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1290,13 +1282,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion> : produce_base<D, Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion>
     {
-        int32_t __stdcall get_OccludingRect(winrt::Windows::Foundation::Rect* value) noexcept final try
+        int32_t __stdcall get_OccludingRect(Windows::Foundation::Rect* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::Rect>(value);
+            zero_abi<Windows::Foundation::Rect>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Rect>(this->shim().OccludingRect());
+            *value = detach_from<Windows::Foundation::Rect>(this->shim().OccludingRect());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1304,19 +1296,19 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IAppWindowTitleBarVisibility> : produce_base<D, winrt::Windows::UI::WindowManagement::IAppWindowTitleBarVisibility>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowTitleBarVisibility> : produce_base<D, Windows::UI::WindowManagement::IAppWindowTitleBarVisibility>
     {
         int32_t __stdcall GetPreferredVisibility(int32_t* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::UI::WindowManagement::AppWindowTitleBarVisibility>(this->shim().GetPreferredVisibility());
+            *result = detach_from<Windows::UI::WindowManagement::AppWindowTitleBarVisibility>(this->shim().GetPreferredVisibility());
             return 0;
         }
         catch (...) { return to_hresult(); }
         int32_t __stdcall SetPreferredVisibility(int32_t visibilityMode) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().SetPreferredVisibility(*reinterpret_cast<winrt::Windows::UI::WindowManagement::AppWindowTitleBarVisibility const*>(&visibilityMode));
+            this->shim().SetPreferredVisibility(*reinterpret_cast<Windows::UI::WindowManagement::AppWindowTitleBarVisibility const*>(&visibilityMode));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1324,19 +1316,19 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::ICompactOverlayPresentationConfiguration> : produce_base<D, winrt::Windows::UI::WindowManagement::ICompactOverlayPresentationConfiguration>
+    struct produce<D, Windows::UI::WindowManagement::ICompactOverlayPresentationConfiguration> : produce_base<D, Windows::UI::WindowManagement::ICompactOverlayPresentationConfiguration>
     {
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IDefaultPresentationConfiguration> : produce_base<D, winrt::Windows::UI::WindowManagement::IDefaultPresentationConfiguration>
+    struct produce<D, Windows::UI::WindowManagement::IDefaultPresentationConfiguration> : produce_base<D, Windows::UI::WindowManagement::IDefaultPresentationConfiguration>
     {
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IDisplayRegion> : produce_base<D, winrt::Windows::UI::WindowManagement::IDisplayRegion>
+    struct produce<D, Windows::UI::WindowManagement::IDisplayRegion> : produce_base<D, Windows::UI::WindowManagement::IDisplayRegion>
     {
         int32_t __stdcall get_DisplayMonitorDeviceId(void** value) noexcept final try
         {
@@ -1353,19 +1345,19 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall get_WorkAreaOffset(winrt::Windows::Foundation::Point* value) noexcept final try
+        int32_t __stdcall get_WorkAreaOffset(Windows::Foundation::Point* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::Point>(value);
+            zero_abi<Windows::Foundation::Point>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Point>(this->shim().WorkAreaOffset());
+            *value = detach_from<Windows::Foundation::Point>(this->shim().WorkAreaOffset());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall get_WorkAreaSize(winrt::Windows::Foundation::Size* value) noexcept final try
+        int32_t __stdcall get_WorkAreaSize(Windows::Foundation::Size* value) noexcept final try
         {
-            zero_abi<winrt::Windows::Foundation::Size>(value);
+            zero_abi<Windows::Foundation::Size>(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Size>(this->shim().WorkAreaSize());
+            *value = detach_from<Windows::Foundation::Size>(this->shim().WorkAreaSize());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1373,7 +1365,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::WindowingEnvironment>(this->shim().WindowingEnvironment());
+            *value = detach_from<Windows::UI::WindowManagement::WindowingEnvironment>(this->shim().WindowingEnvironment());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1381,7 +1373,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().Changed(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::DisplayRegion, winrt::Windows::Foundation::IInspectable> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().Changed(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::DisplayRegion, Windows::Foundation::IInspectable> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1395,7 +1387,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IFullScreenPresentationConfiguration> : produce_base<D, winrt::Windows::UI::WindowManagement::IFullScreenPresentationConfiguration>
+    struct produce<D, Windows::UI::WindowManagement::IFullScreenPresentationConfiguration> : produce_base<D, Windows::UI::WindowManagement::IFullScreenPresentationConfiguration>
     {
         int32_t __stdcall get_IsExclusive(bool* value) noexcept final try
         {
@@ -1415,21 +1407,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IWindowServicesStatics> : produce_base<D, winrt::Windows::UI::WindowManagement::IWindowServicesStatics>
-    {
-        int32_t __stdcall FindAllTopLevelWindowIds(void** result) noexcept final try
-        {
-            clear_abi(result);
-            typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowId>>(this->shim().FindAllTopLevelWindowIds());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-    };
-#endif
-#ifndef WINRT_LEAN_AND_MEAN
-    template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironment> : produce_base<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironment>
+    struct produce<D, Windows::UI::WindowManagement::IWindowingEnvironment> : produce_base<D, Windows::UI::WindowManagement::IWindowingEnvironment>
     {
         int32_t __stdcall get_IsEnabled(bool* value) noexcept final try
         {
@@ -1441,7 +1419,7 @@ namespace winrt::impl
         int32_t __stdcall get_Kind(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::WindowingEnvironmentKind>(this->shim().Kind());
+            *value = detach_from<Windows::UI::WindowManagement::WindowingEnvironmentKind>(this->shim().Kind());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1449,7 +1427,7 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::DisplayRegion>>(this->shim().GetDisplayRegions());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::DisplayRegion>>(this->shim().GetDisplayRegions());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1457,7 +1435,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().Changed(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::WindowManagement::WindowingEnvironment, winrt::Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().Changed(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::UI::WindowManagement::WindowingEnvironment, Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1471,13 +1449,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs> : produce_base<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs>
+    struct produce<D, Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs> : produce_base<D, Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs>
     {
         int32_t __stdcall get_WindowingEnvironment(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::WindowingEnvironment>(this->shim().WindowingEnvironment());
+            *value = detach_from<Windows::UI::WindowManagement::WindowingEnvironment>(this->shim().WindowingEnvironment());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1485,19 +1463,19 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs> : produce_base<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs>
+    struct produce<D, Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs> : produce_base<D, Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs>
     {
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs> : produce_base<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs>
+    struct produce<D, Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs> : produce_base<D, Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs>
     {
         int32_t __stdcall get_WindowingEnvironment(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::UI::WindowManagement::WindowingEnvironment>(this->shim().WindowingEnvironment());
+            *value = detach_from<Windows::UI::WindowManagement::WindowingEnvironment>(this->shim().WindowingEnvironment());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1505,13 +1483,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironmentStatics> : produce_base<D, winrt::Windows::UI::WindowManagement::IWindowingEnvironmentStatics>
+    struct produce<D, Windows::UI::WindowManagement::IWindowingEnvironmentStatics> : produce_base<D, Windows::UI::WindowManagement::IWindowingEnvironmentStatics>
     {
         int32_t __stdcall FindAll(void** result) noexcept final try
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::WindowingEnvironment>>(this->shim().FindAll());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::WindowingEnvironment>>(this->shim().FindAll());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1519,7 +1497,7 @@ namespace winrt::impl
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::WindowingEnvironment>>(this->shim().FindAll(*reinterpret_cast<winrt::Windows::UI::WindowManagement::WindowingEnvironmentKind const*>(&kind)));
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::WindowingEnvironment>>(this->shim().FindAll(*reinterpret_cast<Windows::UI::WindowManagement::WindowingEnvironmentKind const*>(&kind)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1530,7 +1508,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
 {
     inline auto AppWindow::TryCreateAsync()
     {
-        return impl::call_factory_cast<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::UI::WindowManagement::AppWindow>(*)(IAppWindowStatics const&), AppWindow, IAppWindowStatics>([](IAppWindowStatics const& f) { return f.TryCreateAsync(); });
+        return impl::call_factory_cast<Windows::Foundation::IAsyncOperation<Windows::UI::WindowManagement::AppWindow>(*)(IAppWindowStatics const&), AppWindow, IAppWindowStatics>([](IAppWindowStatics const& f) { return f.TryCreateAsync(); });
     }
     inline auto AppWindow::ClearAllPersistedState()
     {
@@ -1541,26 +1519,22 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         impl::call_factory<AppWindow, IAppWindowStatics>([&](IAppWindowStatics const& f) { return f.ClearPersistedState(key); });
     }
     inline CompactOverlayPresentationConfiguration::CompactOverlayPresentationConfiguration() :
-        CompactOverlayPresentationConfiguration(impl::call_factory_cast<CompactOverlayPresentationConfiguration(*)(winrt::Windows::Foundation::IActivationFactory const&), CompactOverlayPresentationConfiguration>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<CompactOverlayPresentationConfiguration>(); }))
+        CompactOverlayPresentationConfiguration(impl::call_factory_cast<CompactOverlayPresentationConfiguration(*)(Windows::Foundation::IActivationFactory const&), CompactOverlayPresentationConfiguration>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<CompactOverlayPresentationConfiguration>(); }))
     {
     }
     inline DefaultPresentationConfiguration::DefaultPresentationConfiguration() :
-        DefaultPresentationConfiguration(impl::call_factory_cast<DefaultPresentationConfiguration(*)(winrt::Windows::Foundation::IActivationFactory const&), DefaultPresentationConfiguration>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<DefaultPresentationConfiguration>(); }))
+        DefaultPresentationConfiguration(impl::call_factory_cast<DefaultPresentationConfiguration(*)(Windows::Foundation::IActivationFactory const&), DefaultPresentationConfiguration>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<DefaultPresentationConfiguration>(); }))
     {
     }
     inline FullScreenPresentationConfiguration::FullScreenPresentationConfiguration() :
-        FullScreenPresentationConfiguration(impl::call_factory_cast<FullScreenPresentationConfiguration(*)(winrt::Windows::Foundation::IActivationFactory const&), FullScreenPresentationConfiguration>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<FullScreenPresentationConfiguration>(); }))
+        FullScreenPresentationConfiguration(impl::call_factory_cast<FullScreenPresentationConfiguration(*)(Windows::Foundation::IActivationFactory const&), FullScreenPresentationConfiguration>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<FullScreenPresentationConfiguration>(); }))
     {
-    }
-    inline auto WindowServices::FindAllTopLevelWindowIds()
-    {
-        return impl::call_factory_cast<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowId>(*)(IWindowServicesStatics const&), WindowServices, IWindowServicesStatics>([](IWindowServicesStatics const& f) { return f.FindAllTopLevelWindowIds(); });
     }
     inline auto WindowingEnvironment::FindAll()
     {
-        return impl::call_factory_cast<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::UI::WindowManagement::WindowingEnvironment>(*)(IWindowingEnvironmentStatics const&), WindowingEnvironment, IWindowingEnvironmentStatics>([](IWindowingEnvironmentStatics const& f) { return f.FindAll(); });
+        return impl::call_factory_cast<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::WindowingEnvironment>(*)(IWindowingEnvironmentStatics const&), WindowingEnvironment, IWindowingEnvironmentStatics>([](IWindowingEnvironmentStatics const& f) { return f.FindAll(); });
     }
-    inline auto WindowingEnvironment::FindAll(winrt::Windows::UI::WindowManagement::WindowingEnvironmentKind const& kind)
+    inline auto WindowingEnvironment::FindAll(Windows::UI::WindowManagement::WindowingEnvironmentKind const& kind)
     {
         return impl::call_factory<WindowingEnvironment, IWindowingEnvironmentStatics>([&](IWindowingEnvironmentStatics const& f) { return f.FindAll(kind); });
     }
@@ -1586,7 +1560,6 @@ namespace std
     template<> struct hash<winrt::Windows::UI::WindowManagement::IDefaultPresentationConfiguration> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IDisplayRegion> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IFullScreenPresentationConfiguration> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowServicesStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowingEnvironment> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs> : winrt::impl::hash_base {};
@@ -1606,13 +1579,10 @@ namespace std
     template<> struct hash<winrt::Windows::UI::WindowManagement::DefaultPresentationConfiguration> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::DisplayRegion> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::FullScreenPresentationConfiguration> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::UI::WindowManagement::WindowServices> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::WindowingEnvironment> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::WindowingEnvironmentAddedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::WindowingEnvironmentRemovedEventArgs> : winrt::impl::hash_base {};
-#endif
-#ifdef __cpp_lib_format
 #endif
 }
 #endif

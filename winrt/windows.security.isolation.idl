@@ -37,51 +37,31 @@ namespace Windows
 
             typedef enum IsolatedWindowsEnvironmentCreateStatus IsolatedWindowsEnvironmentCreateStatus;
 
-            typedef enum IsolatedWindowsEnvironmentCreationPriority IsolatedWindowsEnvironmentCreationPriority;
-
             typedef enum IsolatedWindowsEnvironmentHostError IsolatedWindowsEnvironmentHostError;
 
             typedef enum IsolatedWindowsEnvironmentLaunchFileStatus IsolatedWindowsEnvironmentLaunchFileStatus;
 
             typedef enum IsolatedWindowsEnvironmentOwnerRegistrationStatus IsolatedWindowsEnvironmentOwnerRegistrationStatus;
 
-            typedef enum IsolatedWindowsEnvironmentPostMessageStatus IsolatedWindowsEnvironmentPostMessageStatus;
-
             typedef enum IsolatedWindowsEnvironmentProcessState IsolatedWindowsEnvironmentProcessState;
 
             typedef enum IsolatedWindowsEnvironmentProgressState IsolatedWindowsEnvironmentProgressState;
 
-            typedef enum IsolatedWindowsEnvironmentShareFileStatus IsolatedWindowsEnvironmentShareFileStatus;
-
             typedef enum IsolatedWindowsEnvironmentShareFolderStatus IsolatedWindowsEnvironmentShareFolderStatus;
-
-            typedef enum IsolatedWindowsEnvironmentSignInProgress IsolatedWindowsEnvironmentSignInProgress;
 
             typedef enum IsolatedWindowsEnvironmentStartProcessStatus IsolatedWindowsEnvironmentStartProcessStatus;
 
             typedef struct IsolatedWindowsEnvironmentCreateProgress IsolatedWindowsEnvironmentCreateProgress;
 
-            delegate HostMessageReceivedCallback;
-
             delegate MessageReceivedCallback;
 
             interface IIsolatedWindowsEnvironment;
 
-            interface IIsolatedWindowsEnvironment2;
-
-            interface IIsolatedWindowsEnvironment3;
-
-            interface IIsolatedWindowsEnvironment4;
-
             interface IIsolatedWindowsEnvironmentCreateResult;
-
-            interface IIsolatedWindowsEnvironmentCreateResult2;
 
             interface IIsolatedWindowsEnvironmentFactory;
 
             interface IIsolatedWindowsEnvironmentFile;
-
-            interface IIsolatedWindowsEnvironmentFile2;
 
             interface IIsolatedWindowsEnvironmentHostStatics;
 
@@ -89,23 +69,13 @@ namespace Windows
 
             interface IIsolatedWindowsEnvironmentOptions;
 
-            interface IIsolatedWindowsEnvironmentOptions2;
-
-            interface IIsolatedWindowsEnvironmentOptions3;
-
             interface IIsolatedWindowsEnvironmentOwnerRegistrationData;
 
             interface IIsolatedWindowsEnvironmentOwnerRegistrationResult;
 
             interface IIsolatedWindowsEnvironmentOwnerRegistrationStatics;
 
-            interface IIsolatedWindowsEnvironmentPostMessageResult;
-
             interface IIsolatedWindowsEnvironmentProcess;
-
-            interface IIsolatedWindowsEnvironmentShareFileRequestOptions;
-
-            interface IIsolatedWindowsEnvironmentShareFileResult;
 
             interface IIsolatedWindowsEnvironmentShareFolderRequestOptions;
 
@@ -115,13 +85,7 @@ namespace Windows
 
             interface IIsolatedWindowsEnvironmentTelemetryParameters;
 
-            interface IIsolatedWindowsEnvironmentUserInfo;
-
-            interface IIsolatedWindowsEnvironmentUserInfo2;
-
             interface IIsolatedWindowsHostMessengerStatics;
-
-            interface IIsolatedWindowsHostMessengerStatics2;
 
             runtimeclass IsolatedWindowsEnvironment;
 
@@ -141,13 +105,7 @@ namespace Windows
 
             runtimeclass IsolatedWindowsEnvironmentOwnerRegistrationResult;
 
-            runtimeclass IsolatedWindowsEnvironmentPostMessageResult;
-
             runtimeclass IsolatedWindowsEnvironmentProcess;
-
-            runtimeclass IsolatedWindowsEnvironmentShareFileRequestOptions;
-
-            runtimeclass IsolatedWindowsEnvironmentShareFileResult;
 
             runtimeclass IsolatedWindowsEnvironmentShareFolderRequestOptions;
 
@@ -156,8 +114,6 @@ namespace Windows
             runtimeclass IsolatedWindowsEnvironmentStartProcessResult;
 
             runtimeclass IsolatedWindowsEnvironmentTelemetryParameters;
-
-            runtimeclass IsolatedWindowsEnvironmentUserInfo;
 
             runtimeclass IsolatedWindowsHostMessenger;
         }
@@ -187,13 +143,7 @@ namespace Windows
 
                 interface Windows.Foundation.IAsyncOperationWithProgress<Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult*, Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress>;
 
-                interface Windows.Foundation.IAsyncOperationWithProgress<boolean, Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress>;
-
                 interface Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult*>;
-
-                interface Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult*>;
-
-                interface Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult*>;
 
                 interface Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult*>;
 
@@ -210,7 +160,7 @@ namespace Windows
     {
         namespace Isolation
         {
-            [contractversion(4.0)]
+            [contractversion(1.0)]
             apicontract IsolatedWindowsEnvironmentContract
             {
             }
@@ -228,9 +178,7 @@ namespace Windows
             {
                 None  = 0x0,
                 Text  = 0x1,
-                Image = 0x2,
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-                Rtf   = 0x4
+                Image = 0x2
             };
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -261,13 +209,6 @@ namespace Windows
                 UnknownFailure  = 2
             };
 
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-            enum IsolatedWindowsEnvironmentCreationPriority
-            {
-                Low    = 0,
-                Normal = 1
-            };
-
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             enum IsolatedWindowsEnvironmentHostError
             {
@@ -281,13 +222,11 @@ namespace Windows
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             enum IsolatedWindowsEnvironmentLaunchFileStatus
             {
-                Success                             = 0,
-                UnknownFailure                      = 1,
-                EnvironmentUnavailable              = 2,
-                FileNotFound                        = 3,
-                TimedOut                            = 4,
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-                AlreadySharedWithConflictingOptions = 5
+                Success                = 0,
+                UnknownFailure         = 1,
+                EnvironmentUnavailable = 2,
+                FileNotFound           = 3,
+                TimedOut               = 4
             };
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -298,14 +237,6 @@ namespace Windows
                 AccessDenied       = 2,
                 InsufficientMemory = 3,
                 UnknownFailure     = 4
-            };
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)]
-            enum IsolatedWindowsEnvironmentPostMessageStatus
-            {
-                Success                = 0,
-                UnknownFailure         = 1,
-                EnvironmentUnavailable = 2
             };
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -321,26 +252,7 @@ namespace Windows
             {
                 Queued     = 0,
                 Processing = 1,
-                Completed  = 2,
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-                Creating   = 3,
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-                Retrying   = 4,
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-                Starting   = 5,
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-                Finalizing = 6
-            };
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            enum IsolatedWindowsEnvironmentShareFileStatus
-            {
-                Success                             = 0,
-                UnknownFailure                      = 1,
-                EnvironmentUnavailable              = 2,
-                AlreadySharedWithConflictingOptions = 3,
-                FileNotFound                        = 4,
-                AccessDenied                        = 5
+                Completed  = 2
             };
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -351,17 +263,6 @@ namespace Windows
                 EnvironmentUnavailable = 2,
                 FolderNotFound         = 3,
                 AccessDenied           = 4
-            };
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-            enum IsolatedWindowsEnvironmentSignInProgress
-            {
-                Connecting       = 0,
-                Connected        = 1,
-                Authenticating   = 2,
-                SettingUpAccount = 3,
-                Finalizing       = 4,
-                Completed        = 5
             };
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -380,11 +281,6 @@ namespace Windows
                 Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState State;
                 UINT32 PercentComplete;
             };
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)]
-            [uuid(FAF26FFA-8CE1-4CC1-B278-322D31A5E4A3)]
-            delegate
-                HRESULT HostMessageReceivedCallback([in] GUID receiverId, [in] Windows.Foundation.Collections.IVectorView<IInspectable*>* message);
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [uuid(F5B4C8FF-1D9D-4995-9FEA-4D15257C0757)]
@@ -409,33 +305,6 @@ namespace Windows
                 HRESULT UnregisterMessageReceiver([in] GUID receiverId);
             }
 
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironment)]
-            [uuid(2D365F39-88BD-4AB4-93CF-7E2BCEF337C0)]
-            interface IIsolatedWindowsEnvironment2 : IInspectable
-            {
-                [overload("PostMessageToReceiverAsync")] HRESULT PostMessageToReceiverAsync([in] GUID receiverId, [in] Windows.Foundation.Collections.IIterable<IInspectable*>* message, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult*>** operation);
-                [overload("PostMessageToReceiverAsync")] HRESULT PostMessageToReceiverWithTelemetryAsync([in] GUID receiverId, [in] Windows.Foundation.Collections.IIterable<IInspectable*>* message, [in] Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters* telemetryParameters, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult*>** operation);
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironment)]
-            [uuid(CB7FC7D2-D06E-4C26-8ADA-DACDAAAD03F5)]
-            interface IIsolatedWindowsEnvironment3 : IInspectable
-            {
-                HRESULT GetUserInfo([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo** result);
-                [overload("ShareFileAsync")] HRESULT ShareFileAsync([in] HSTRING filePath, [in] Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions* options, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult*>** operation);
-                [overload("ShareFileAsync")] HRESULT ShareFileWithTelemetryAsync([in] HSTRING filePath, [in] Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions* options, [in] Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters* telemetryParameters, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult*>** operation);
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironment)]
-            [uuid(11E3701A-DD9E-4F1B-812C-4020F307F93C)]
-            interface IIsolatedWindowsEnvironment4 : IInspectable
-            {
-                HRESULT ChangePriority([in] Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority Priority);
-            }
-
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult)]
             [uuid(EF9A5E58-DCD7-45C2-9C85-AB642A715E8E)]
@@ -444,14 +313,6 @@ namespace Windows
                 [propget] HRESULT Status([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus* value);
                 [propget] HRESULT ExtendedError([out] [retval] HRESULT* value);
                 [propget] HRESULT Environment([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironment** value);
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult)]
-            [uuid(A547DBC7-61D4-4FB8-AB5C-EDEFA3D388AD)]
-            interface IIsolatedWindowsEnvironmentCreateResult2 : IInspectable
-            {
-                HRESULT ChangeCreationPriority([in] Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority priority);
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -473,15 +334,6 @@ namespace Windows
                 [propget] HRESULT Id([out] [retval] GUID* value);
                 [propget] HRESULT HostPath([out] [retval] HSTRING* value);
                 HRESULT Close();
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentFile)]
-            [uuid(4EEB8DEC-AD5D-4B0A-B754-F36C3D46D684)]
-            interface IIsolatedWindowsEnvironmentFile2 : IInspectable
-            {
-                [propget] HRESULT GuestPath([out] [retval] HSTRING* value);
-                [propget] HRESULT IsReadOnly([out] [retval] boolean* value);
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -527,28 +379,6 @@ namespace Windows
                 [propput] HRESULT AllowCameraAndMicrophoneAccess([in] boolean value);
             }
 
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions)]
-            [uuid(10D7CC31-8B8F-4B9D-B22C-617103B55B08)]
-            interface IIsolatedWindowsEnvironmentOptions2 : IInspectable
-            {
-                [propget] HRESULT WindowAnnotationOverride([out] [retval] HSTRING* value);
-                [propput] HRESULT WindowAnnotationOverride([in] HSTRING value);
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions)]
-            [uuid(98D5AA23-161F-4CD9-8A9C-269B30122B0D)]
-            interface IIsolatedWindowsEnvironmentOptions3 : IInspectable
-            {
-                [propget] HRESULT AllowedClipboardFormatsToEnvironment([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats* value);
-                [propput] HRESULT AllowedClipboardFormatsToEnvironment([in] Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats value);
-                [propget] HRESULT AllowedClipboardFormatsToHost([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats* value);
-                [propput] HRESULT AllowedClipboardFormatsToHost([in] Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats value);
-                [propget] HRESULT CreationPriority([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority* value);
-                [propput] HRESULT CreationPriority([in] Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority value);
-            }
-
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData)]
             [uuid(F888EC22-E8CF-56C0-B1DF-90AF4AD80E84)]
@@ -578,15 +408,6 @@ namespace Windows
                 HRESULT Unregister([in] HSTRING ownerName);
             }
 
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult)]
-            [uuid(0DFA28FA-2EF0-4D8F-B341-3171B2DF93B1)]
-            interface IIsolatedWindowsEnvironmentPostMessageResult : IInspectable
-            {
-                [propget] HRESULT Status([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus* value);
-                [propget] HRESULT ExtendedError([out] [retval] HRESULT* value);
-            }
-
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess)]
             [uuid(A858C3EF-8172-4F10-AF93-CBE60AF88D09)]
@@ -597,25 +418,6 @@ namespace Windows
                 HRESULT WaitForExit();
                 HRESULT WaitForExitWithTimeout([in] UINT32 timeoutMilliseconds);
                 HRESULT WaitForExitAsync([out] [retval] Windows.Foundation.IAsyncAction** operation);
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions)]
-            [uuid(C9190ED8-0FD0-4946-BB88-117A60737B61)]
-            interface IIsolatedWindowsEnvironmentShareFileRequestOptions : IInspectable
-            {
-                [propget] HRESULT AllowWrite([out] [retval] boolean* value);
-                [propput] HRESULT AllowWrite([in] boolean value);
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult)]
-            [uuid(AEC7CAA7-9AC6-4BF5-8B91-5C1ADF0D7D00)]
-            interface IIsolatedWindowsEnvironmentShareFileResult : IInspectable
-            {
-                [propget] HRESULT Status([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus* value);
-                [propget] HRESULT ExtendedError([out] [retval] HRESULT* value);
-                [propget] HRESULT File([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentFile** value);
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -655,24 +457,6 @@ namespace Windows
                 [propput] HRESULT CorrelationId([in] GUID value);
             }
 
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo)]
-            [uuid(8A9C75AE-69BA-4001-96FC-19A02703B340)]
-            interface IIsolatedWindowsEnvironmentUserInfo : IInspectable
-            {
-                [propget] HRESULT EnvironmentUserSid([out] [retval] HSTRING* value);
-                [propget] HRESULT EnvironmentUserName([out] [retval] HSTRING* value);
-                HRESULT TryWaitForSignInAsync([out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo)]
-            [uuid(B0BDD5DD-91D7-481E-94F2-2A5A6BDF9383)]
-            interface IIsolatedWindowsEnvironmentUserInfo2 : IInspectable
-            {
-                HRESULT TryWaitForSignInWithProgressAsync([out] [retval] Windows.Foundation.IAsyncOperationWithProgress<boolean, Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress>** operation);
-            }
-
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [exclusiveto(Windows.Security.Isolation.IsolatedWindowsHostMessenger)]
             [uuid(06E444BB-53C0-4889-8FA3-53592E37CF21)]
@@ -682,41 +466,23 @@ namespace Windows
                 HRESULT GetFileId([in] HSTRING filePath, [out] [retval] GUID* result);
             }
 
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)]
-            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsHostMessenger)]
-            [uuid(55EF9EBC-0444-42AD-832D-1B89C089D1CA)]
-            interface IIsolatedWindowsHostMessengerStatics2 : IInspectable
-            {
-                HRESULT RegisterHostMessageReceiver([in] GUID receiverId, [in] Windows.Security.Isolation.HostMessageReceivedCallback* hostMessageReceivedCallback);
-                HRESULT UnregisterHostMessageReceiver([in] GUID receiverId);
-            }
-
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
             [static(Windows.Security.Isolation.IIsolatedWindowsEnvironmentFactory, Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [threading(both)]
             runtimeclass IsolatedWindowsEnvironment
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironment;
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironment2;
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironment3;
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironment4;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
             runtimeclass IsolatedWindowsEnvironmentCreateResult
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult;
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult2;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
             runtimeclass IsolatedWindowsEnvironmentFile
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile;
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -728,7 +494,6 @@ namespace Windows
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
             runtimeclass IsolatedWindowsEnvironmentLaunchFileResult
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult;
@@ -736,13 +501,9 @@ namespace Windows
 
             [activatable(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
-            [threading(both)]
             runtimeclass IsolatedWindowsEnvironmentOptions
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions;
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2;
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions3;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -763,60 +524,31 @@ namespace Windows
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
             runtimeclass IsolatedWindowsEnvironmentOwnerRegistrationResult
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationResult;
             }
 
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)]
-            [marshaling_behavior(agile)]
-            runtimeclass IsolatedWindowsEnvironmentPostMessageResult
-            {
-                [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult;
-            }
-
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
             runtimeclass IsolatedWindowsEnvironmentProcess
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess;
             }
 
-            [activatable(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [marshaling_behavior(agile)]
-            [threading(both)]
-            runtimeclass IsolatedWindowsEnvironmentShareFileRequestOptions
-            {
-                [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions;
-            }
-
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [marshaling_behavior(agile)]
-            runtimeclass IsolatedWindowsEnvironmentShareFileResult
-            {
-                [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult;
-            }
-
             [activatable(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
-            [threading(both)]
             runtimeclass IsolatedWindowsEnvironmentShareFolderRequestOptions
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderRequestOptions;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
             runtimeclass IsolatedWindowsEnvironmentShareFolderResult
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderResult;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
             runtimeclass IsolatedWindowsEnvironmentStartProcessResult
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentStartProcessResult;
@@ -824,25 +556,14 @@ namespace Windows
 
             [activatable(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [marshaling_behavior(agile)]
-            [threading(both)]
             runtimeclass IsolatedWindowsEnvironmentTelemetryParameters
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentTelemetryParameters;
             }
 
-            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
-            [marshaling_behavior(agile)]
-            runtimeclass IsolatedWindowsEnvironmentUserInfo
-            {
-                [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo;
-                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 4.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo2;
-            }
-
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [marshaling_behavior(agile)]
             [static(Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics, Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
-            [static(Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2, Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)]
             [threading(both)]
             runtimeclass IsolatedWindowsHostMessenger
             {

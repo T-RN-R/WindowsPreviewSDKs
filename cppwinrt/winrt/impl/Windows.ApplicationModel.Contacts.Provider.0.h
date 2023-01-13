@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_ApplicationModel_Contacts_Provider_0_H
 #define WINRT_Windows_ApplicationModel_Contacts_Provider_0_H
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Contacts
@@ -14,7 +13,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Contacts
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
-    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
+    template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Contacts::Provider
 {
@@ -32,24 +31,26 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Contacts::Provider
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Contacts::Provider::ContactPickerUI>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::Contacts::Provider::AddContactResult>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Contacts::Provider::ContactPickerUI> = L"Windows.ApplicationModel.Contacts.Provider.ContactPickerUI";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs> = L"Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Contacts::Provider::AddContactResult> = L"Windows.ApplicationModel.Contacts.Provider.AddContactResult";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI> = L"Windows.ApplicationModel.Contacts.Provider.IContactPickerUI";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2> = L"Windows.ApplicationModel.Contacts.Provider.IContactPickerUI2";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs> = L"Windows.ApplicationModel.Contacts.Provider.IContactRemovedEventArgs";
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>{ 0xE2CC1366,0xCF66,0x43C4,{ 0xA9,0x6A,0xA5,0xA1,0x12,0xDB,0x47,0x46 } }; // E2CC1366-CF66-43C4-A96A-A5A112DB4746
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>{ 0x6E449E28,0x7B25,0x4999,{ 0x9B,0x0B,0x87,0x54,0x00,0xA1,0xE8,0xC8 } }; // 6E449E28-7B25-4999-9B0B-875400A1E8C8
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>{ 0x6F354338,0x3302,0x4D13,{ 0xAD,0x8D,0xAD,0xCC,0x0F,0xF9,0xE4,0x7C } }; // 6F354338-3302-4D13-AD8D-ADCC0FF9E47C
-    template <> struct default_interface<winrt::Windows::ApplicationModel::Contacts::Provider::ContactPickerUI>{ using type = winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs>{ using type = winrt::Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs; };
-    template <> struct abi<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>
+    template <> struct category<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::Contacts::Provider::ContactPickerUI>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::Contacts::Provider::AddContactResult>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::Provider::ContactPickerUI>{ L"Windows.ApplicationModel.Contacts.Provider.ContactPickerUI" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs>{ L"Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::Provider::AddContactResult>{ L"Windows.ApplicationModel.Contacts.Provider.AddContactResult" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>{ L"Windows.ApplicationModel.Contacts.Provider.IContactPickerUI" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>{ L"Windows.ApplicationModel.Contacts.Provider.IContactPickerUI2" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>{ L"Windows.ApplicationModel.Contacts.Provider.IContactRemovedEventArgs" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>{ 0xE2CC1366,0xCF66,0x43C4,{ 0xA9,0x6A,0xA5,0xA1,0x12,0xDB,0x47,0x46 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>{ 0x6E449E28,0x7B25,0x4999,{ 0x9B,0x0B,0x87,0x54,0x00,0xA1,0xE8,0xC8 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>{ 0x6F354338,0x3302,0x4D13,{ 0xAD,0x8D,0xAD,0xCC,0x0F,0xF9,0xE4,0x7C } };
+    template <> struct default_interface<Windows::ApplicationModel::Contacts::Provider::ContactPickerUI>{ using type = Windows::ApplicationModel::Contacts::Provider::IContactPickerUI; };
+    template <> struct default_interface<Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs>{ using type = Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs; };
+    template <> struct abi<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -62,7 +63,7 @@ namespace winrt::impl
             virtual int32_t __stdcall remove_ContactRemoved(winrt::event_token) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>
+    template <> struct abi<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -70,7 +71,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_DesiredFieldsWithContactFieldType(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>
+    template <> struct abi<Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -80,27 +81,27 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_Provider_IContactPickerUI
     {
-        auto AddContact(param::hstring const& id, winrt::Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        auto AddContact(param::hstring const& id, Windows::ApplicationModel::Contacts::Contact const& contact) const;
         auto RemoveContact(param::hstring const& id) const;
         auto ContainsContact(param::hstring const& id) const;
         [[nodiscard]] auto DesiredFields() const;
         [[nodiscard]] auto SelectionMode() const;
-        auto ContactRemoved(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::ApplicationModel::Contacts::Provider::ContactPickerUI, winrt::Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs> const& handler) const;
-        using ContactRemoved_revoker = impl::event_revoker<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI, &impl::abi_t<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>::remove_ContactRemoved>;
-        [[nodiscard]] ContactRemoved_revoker ContactRemoved(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::ApplicationModel::Contacts::Provider::ContactPickerUI, winrt::Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs> const& handler) const;
+        auto ContactRemoved(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::Provider::ContactPickerUI, Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs> const& handler) const;
+        using ContactRemoved_revoker = impl::event_revoker<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI, &impl::abi_t<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>::remove_ContactRemoved>;
+        [[nodiscard]] ContactRemoved_revoker ContactRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::Provider::ContactPickerUI, Windows::ApplicationModel::Contacts::Provider::ContactRemovedEventArgs> const& handler) const;
         auto ContactRemoved(winrt::event_token const& token) const noexcept;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>
+    template <> struct consume<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Contacts_Provider_IContactPickerUI<D>;
     };
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_Provider_IContactPickerUI2
     {
-        auto AddContact(winrt::Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        auto AddContact(Windows::ApplicationModel::Contacts::Contact const& contact) const;
         [[nodiscard]] auto DesiredFieldsWithContactFieldType() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>
+    template <> struct consume<Windows::ApplicationModel::Contacts::Provider::IContactPickerUI2>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Contacts_Provider_IContactPickerUI2<D>;
     };
@@ -109,7 +110,7 @@ namespace winrt::impl
     {
         [[nodiscard]] auto Id() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>
+    template <> struct consume<Windows::ApplicationModel::Contacts::Provider::IContactRemovedEventArgs>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Contacts_Provider_IContactRemovedEventArgs<D>;
     };

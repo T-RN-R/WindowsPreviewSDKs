@@ -174,7 +174,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IGameControllerProviderInfoStatics = __uuidof(IGameControllerProviderInfoStatics);
+                    extern MIDL_CONST_ID IID& IID_IGameControllerProviderInfoStatics = _uuidof(IGameControllerProviderInfoStatics);
                 } /* Preview */
             } /* Input */
         } /* Gaming */

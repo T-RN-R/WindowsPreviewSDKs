@@ -50,12 +50,8 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-
-#if !defined(WINDOWS_MANAGEMENT_DEPLOYMENT_SHAREDPACKAGECONTAINERCONTRACT_VERSION)
-#define WINDOWS_MANAGEMENT_DEPLOYMENT_SHAREDPACKAGECONTAINERCONTRACT_VERSION 0x10000
-#endif // defined(WINDOWS_MANAGEMENT_DEPLOYMENT_SHAREDPACKAGECONTAINERCONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
 #define WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION 0x70000
@@ -1253,7 +1249,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallItem = __uuidof(IAppInstallItem);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallItem = _uuidof(IAppInstallItem);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1299,7 +1295,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallItem2 = __uuidof(IAppInstallItem2);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallItem2 = _uuidof(IAppInstallItem2);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1342,7 +1338,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallItem3 = __uuidof(IAppInstallItem3);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallItem3 = _uuidof(IAppInstallItem3);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1385,7 +1381,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallItem4 = __uuidof(IAppInstallItem4);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallItem4 = _uuidof(IAppInstallItem4);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1452,7 +1448,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallItem5 = __uuidof(IAppInstallItem5);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallItem5 = _uuidof(IAppInstallItem5);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1560,7 +1556,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallManager = __uuidof(IAppInstallManager);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallManager = _uuidof(IAppInstallManager);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1642,7 +1638,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallManager2 = __uuidof(IAppInstallManager2);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallManager2 = _uuidof(IAppInstallManager2);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1739,7 +1735,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallManager3 = __uuidof(IAppInstallManager3);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallManager3 = _uuidof(IAppInstallManager3);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1795,7 +1791,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallManager4 = __uuidof(IAppInstallManager4);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallManager4 = _uuidof(IAppInstallManager4);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1835,7 +1831,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallManager5 = __uuidof(IAppInstallManager5);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallManager5 = _uuidof(IAppInstallManager5);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1932,7 +1928,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallManager6 = __uuidof(IAppInstallManager6);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallManager6 = _uuidof(IAppInstallManager6);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -1972,7 +1968,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallManager7 = __uuidof(IAppInstallManager7);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallManager7 = _uuidof(IAppInstallManager7);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2012,7 +2008,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallManagerItemEventArgs = __uuidof(IAppInstallManagerItemEventArgs);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallManagerItemEventArgs = _uuidof(IAppInstallManagerItemEventArgs);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2085,7 +2081,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallOptions = __uuidof(IAppInstallOptions);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallOptions = _uuidof(IAppInstallOptions);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2176,7 +2172,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallOptions2 = __uuidof(IAppInstallOptions2);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallOptions2 = _uuidof(IAppInstallOptions2);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2228,7 +2224,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallStatus = __uuidof(IAppInstallStatus);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallStatus = _uuidof(IAppInstallStatus);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2271,7 +2267,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallStatus2 = __uuidof(IAppInstallStatus2);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallStatus2 = _uuidof(IAppInstallStatus2);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2311,7 +2307,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppInstallStatus3 = __uuidof(IAppInstallStatus3);
+                        extern MIDL_CONST_ID IID& IID_IAppInstallStatus3 = _uuidof(IAppInstallStatus3);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2360,7 +2356,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppUpdateOptions = __uuidof(IAppUpdateOptions);
+                        extern MIDL_CONST_ID IID& IID_IAppUpdateOptions = _uuidof(IAppUpdateOptions);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2403,7 +2399,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IAppUpdateOptions2 = __uuidof(IAppUpdateOptions2);
+                        extern MIDL_CONST_ID IID& IID_IAppUpdateOptions2 = _uuidof(IAppUpdateOptions2);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */
@@ -2443,7 +2439,7 @@ namespace ABI {
                                 ) = 0;
                         };
 
-                        MIDL_CONST_ID IID& IID_IGetEntitlementResult = __uuidof(IGetEntitlementResult);
+                        extern MIDL_CONST_ID IID& IID_IGetEntitlementResult = _uuidof(IGetEntitlementResult);
                     } /* InstallControl */
                 } /* Preview */
             } /* Store */

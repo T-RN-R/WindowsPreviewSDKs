@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_PERCEPTION_AUTOMATION_CORE_PERCEPTIONAUTOMATIONCORECONTRACT_VERSION)
@@ -171,7 +171,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICorePerceptionAutomationStatics = __uuidof(ICorePerceptionAutomationStatics);
+                    extern MIDL_CONST_ID IID& IID_ICorePerceptionAutomationStatics = _uuidof(ICorePerceptionAutomationStatics);
                 } /* Core */
             } /* Automation */
         } /* Perception */

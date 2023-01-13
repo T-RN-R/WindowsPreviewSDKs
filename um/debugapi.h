@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -26,13 +28,13 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 #if (_WIN32_WINNT >= 0x0400) || (_WIN32_WINDOWS > 0x0400)
-
 WINBASEAPI
 BOOL
 WINAPI
 IsDebuggerPresent(
     VOID
     );
+
 #endif
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -48,6 +50,7 @@ DebugBreak(
     VOID
     );
 
+
 WINBASEAPI
 VOID
 WINAPI
@@ -61,6 +64,7 @@ WINAPI
 OutputDebugStringW(
     _In_opt_ LPCWSTR lpOutputString
     );
+
 #ifdef UNICODE
 #define OutputDebugString  OutputDebugStringW
 #else
@@ -82,6 +86,7 @@ ContinueDebugEvent(
     _In_ DWORD dwContinueStatus
     );
 
+
 WINBASEAPI
 BOOL
 APIENTRY
@@ -90,6 +95,7 @@ WaitForDebugEvent(
     _In_ DWORD dwMilliseconds
     );
 
+
 WINBASEAPI
 BOOL
 APIENTRY
@@ -97,12 +103,14 @@ DebugActiveProcess(
     _In_ DWORD dwProcessId
     );
 
+
 WINBASEAPI
 BOOL
 APIENTRY
 DebugActiveProcessStop(
     _In_ DWORD dwProcessId
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -120,6 +128,7 @@ CheckRemoteDebuggerPresent(
     _Out_ PBOOL pbDebuggerPresent
     );
 
+
 #endif // (_WIN32_WINNT >= 0x0501)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
@@ -135,6 +144,7 @@ WaitForDebugEventEx(
     _Out_ LPDEBUG_EVENT lpDebugEvent,
     _In_ DWORD dwMilliseconds
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion

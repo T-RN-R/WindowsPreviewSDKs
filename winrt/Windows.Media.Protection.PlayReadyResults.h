@@ -13,18 +13,15 @@
 ** This file contains all the DRM_RESULTS required for building Porting Kit
 ** applications.
 **
-** NOTE: DRM_RESULTS can be converted into Windows HRESULTS without any
-**       changes. The FACILITY values below are carefully selected to allow
-**       for this.
-*/
-#if MICROSOFT_PK_WINDOWS
-/*
-** NOTE: PC and Services error codes should ****NOT**** be added here,
+** NOTE: PC and Services error codes should ****NOT**** be added here, 
 **       but rather to the files discussed in the comments further down
 **       regarding them.
 **
+** NOTE: DRM_RESULTS can be converted into Windows HRESULTS without any
+**       changes. The FACILITY values below are carefully selected to allow
+**       for this.
+**
 */
-#endif /* MICROSOFT_PK_WINDOWS */
 
 
 
@@ -41,20 +38,17 @@
 **
 **  NOTE: The following ranges are reserved and should never be used to define PK error codes.
 **  The range from 80040000 to 80040fff is reserved for Windows error codes.
-**  The range from 80041000 to 80047fff is reserved for non-PK Microsoft error codes.
-**  The range from 8004b000 to 8004bfff is reserved for Windows PC error codes.
-**  The range from 8004e000 to 8004ffff is reserved for Windows PC error codes.
-**  The range from 8004c600 to 8004c6ff is reserved for Server and Services error codes.
-**  The range from 8004dc80 to 8004ddff is reserved for OEM-defined PK error codes.
+**  The range from 80041000 to 80047fff is reserved for non-PlayReady Microsoft error codes.
+**  The range from 8004b000 to 8004bfff is reserved for PlayReady PC error codes.
+**  The range from 8004e000 to 8004ffff is reserved for PlayReady PC error codes.
 **
 **  NOTE: The following ranges are OK to be used for PK errors.
-**  The range from 80048000 to 8004afff is reserved for PK error codes.
-**  The range from 8004c000 to 8004c5ff is reserved for PK error codes.
-**  The range from 8004c700 to 8004dc7f is reserved for PK error codes.
-**  The range from 8004de00 to 8004dfff is reserved for PK error codes.
-*/
-#if MICROSOFT_PK_WINDOWS
-/*
+**  The range from 80048000 to 8004afff is reserved for PlayReady PK error codes.
+**  The range from 8004c000 to 8004dfff is reserved for PlayReady PK error codes.
+**      Exceptions:
+**           The sub-range 8004c600 to 8004c6ff is reserved for PlayReady Server and Services error codes.
+**           The sub-range 8004dc80 to 8004ddff is reserved for OEM-defined PlayReady PK error codes.
+**
 **  There's a range of error codes that is only applicable to the PC and should
 **  not be included here. These errors are in common\include, files:
 **  msprerr.h
@@ -70,7 +64,6 @@
 #define DRM_E_NDBRIDGEONLY_BASECODE     0xB000
 #define DRM_E_MSPRSDK_BASECODE          0xB800
 #define DRM_E_MODERN_BASECODE           0xBE00
-#endif /* MICROSOFT_PK_WINDOWS */
 
 #define DRM_FACILITY_ITF DRM_FACILITY_CORE
 
@@ -89,29 +82,22 @@
  *
  *   3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1
  *   1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0
- *  +-+-+-+-+-+---------------------+-------------------------------+
- *  |S|R|C|N|r|    Facility         |               Code            |
- *  +-+-+-+-+-+---------------------+-------------------------------+
+ *  +---+-+-+-----------------------+-------------------------------+
+ *  |Sev|C|R|     Facility          |               Code            |
+ *  +---+-+-+-----------------------+-------------------------------+
  *
  *  where
  *
- *      S - Severity - indicates success/fail
+ *      Sev - is the severity code
  *
- *          0 - Success
- *          1 - Fail (COERROR)
+ *          00 - Success
+ *          01 - Informational
+ *          10 - Warning
+ *          11 - Error
  *
- *      R - reserved portion of the facility code, corresponds to NT's
- *              second severity bit.
+ *      C - is the Customer code flag
  *
- *      C - reserved portion of the facility code, corresponds to NT's
- *              C field.
- *
- *      N - reserved portion of the facility code. Used to indicate a
- *              mapped NT status value.
- *
- *      r - reserved portion of the facility code. Reserved for internal
- *              use. Used to indicate HRESULT values that are not status
- *              values, but are instead message ids for display strings.
+ *      R - is a reserved bit
  *
  *      Facility - is the facility code
  *
@@ -561,6 +547,16 @@
 #define DRM_E_CH_INVALID_CHECKSUM        ((DRM_RESULT)0x80041109L)
 
 /*
+ * MessageId: DRM_E_CH_UNABLE_TO_VERIFY
+ *
+ * MessageText:
+ *
+ * Unable to verify signature of content header.
+ *
+ */
+#define DRM_E_CH_UNABLE_TO_VERIFY        ((DRM_RESULT)0x8004110AL)
+
+/*
  * MessageId: DRM_E_CH_UNSUPPORTED_VERSION
  *
  * MessageText:
@@ -757,7 +753,7 @@
  *
  * MessageText:
  *
- * Unsupported value in license.
+ *  DRM_E_LIC_UNSUPPORTED_VALUE
  *
  */
 #define DRM_E_LIC_UNSUPPORTED_VALUE      ((DRM_RESULT)0x80041207L)
@@ -817,7 +813,7 @@
  *
  * MessageText:
  *
- * The requested key system is not supported.
+ * The requested key system is not supported by PlayReady.
  *
  */
 #define DRM_E_CDMI_UNSUPPORTED_KEY_SYSTEM ((DRM_RESULT)0x80041305L)
@@ -827,7 +823,7 @@
  *
  * MessageText:
  *
- * None of the requested initialization data types are supported.
+ * None of the requested initialization data types are supported by PlayReady.
  *
  */
 #define DRM_E_CDMI_UNSUPPORTED_INITIALIZATION_DATA_TYPES ((DRM_RESULT)0x80041306L)
@@ -837,7 +833,7 @@
  *
  * MessageText:
  *
- * The requested distinctive identifier setting is not supported.
+ * The requested distinctive identifier setting is not supported by PlayReady.
  *
  */
 #define DRM_E_CDMI_UNSUPPORTED_DISTINCTIVE_IDENTIFIER ((DRM_RESULT)0x80041307L)
@@ -847,7 +843,7 @@
  *
  * MessageText:
  *
- * The requested session type is not supported.
+ * The requested session type is not supported by PlayReady.
  *
  */
 #define DRM_E_CDMI_UNSUPPORTED_SESSION_TYPE ((DRM_RESULT)0x80041308L)
@@ -857,7 +853,7 @@
  *
  * MessageText:
  *
- * The provided initialization data is not supported.
+ * The provided initialization data is not supported by PlayReady.
  *
  */
 #define DRM_E_CDMI_UNSUPPORTED_INITIALIZATION_DATA ((DRM_RESULT)0x80041309L)
@@ -1016,7 +1012,7 @@
  *
  * MessageText:
  *
- * A version string is malformed.
+ *  DRM_E_UNSUPPORTED_VERSION
  *
  */
 #define DRM_E_UNSUPPORTED_VERSION        ((DRM_RESULT)0x80049005L)
@@ -2143,6 +2139,26 @@
 #define DRM_S_TEST_BASECODE        DRM_S_BASECODE+0x300
 
 /*
+ * MessageId: DRM_S_TEST_SKIP_FILE
+ *
+ * MessageText:
+ *
+ * Skip processing this file, not an eror.
+ *
+ */
+#define DRM_S_TEST_SKIP_FILE             ((DRM_RESULT)0x0004C300L)
+
+/*
+ * MessageId: DRM_S_TEST_CONVERTED_FILE
+ *
+ * MessageText:
+ *
+ * The file was converted to a PlayReady file during the action.
+ *
+ */
+#define DRM_S_TEST_CONVERTED_FILE        ((DRM_RESULT)0x0004C301L)
+
+/*
  * MessageId: DRM_E_TEST_ENCRYPT_ERROR
  *
  * MessageText:
@@ -2153,6 +2169,16 @@
 #define DRM_E_TEST_ENCRYPT_ERROR         ((DRM_RESULT)0x8004C302L)
 
 /*
+ * MessageId: DRM_E_TEST_RC4KEY_FAILED
+ *
+ * MessageText:
+ *
+ * RC4 key failed during crypto operations.
+ *
+ */
+#define DRM_E_TEST_RC4KEY_FAILED         ((DRM_RESULT)0x8004C303L)
+
+/*
  * MessageId: DRM_E_TEST_DECRYPT_ERROR
  *
  * MessageText:
@@ -2161,6 +2187,16 @@
  *
  */
 #define DRM_E_TEST_DECRYPT_ERROR         ((DRM_RESULT)0x8004C304L)
+
+/*
+ * MessageId: DRM_E_TEST_HMAC_FAILURE
+ *
+ * MessageText:
+ *
+ * Error in hashed data in HMAC operation.
+ *
+ */
+#define DRM_E_TEST_HMAC_FAILURE          ((DRM_RESULT)0x8004C307L)
 
 /*
  * MessageId: DRM_E_TEST_INVALIDARG
@@ -2461,6 +2497,16 @@
  *
  */
 #define DRM_E_TEST_FILE_NOT_OPEN         ((DRM_RESULT)0x8004C338L)
+
+/*
+ * MessageId: DRM_E_TEST_TUX_TEST_SKIPPED
+ *
+ * MessageText:
+ *
+ * TUX cannot find the speficied test case in target dll. Test Skipped.
+ *
+ */
+#define DRM_E_TEST_TUX_TEST_SKIPPED      ((DRM_RESULT)0x8004C33BL)
 
 /*
  * MessageId: DRM_E_TEST_KEYFILE_VERIFICATION_FAILURE
@@ -3938,16 +3984,12 @@
 /* ------------------------------------------------------------
 **
 ** Extensible Binary errors: error codes from DRM_E_BASECODE+0x1400 to
-** DRM_E_BASECODE+0x141F, 0x8004d400-0x8004d41f.
+** DRM_E_BASECODE+0x14FF, 0x8004d400-0x8004d4ff.
 **
 ** ------------------------------------------------------------
 */
 
 #define DRM_E_XB_BASECODE              DRM_E_BASECODE+0x1400
-#define DRM_E_XB_MAXCODE               DRM_E_BASECODE+0x141F
-#define DRM_IS_XB_ERROR( __dr )                                                                        \
-    ( ( ( __dr ) >= MAKE_DRM_RESULT( DRM_SEVERITY_ERROR, DRM_FACILITY_CORE, DRM_E_XB_BASECODE ) )      \
-   && ( ( __dr ) <= MAKE_DRM_RESULT( DRM_SEVERITY_ERROR, DRM_FACILITY_CORE, DRM_E_XB_MAXCODE ) ) )
 
 /*
  * MessageId: DRM_E_XB_OBJECT_NOTFOUND
@@ -4040,13 +4082,6 @@
 #define DRM_E_XB_OBJECT_OUT_OF_RANGE     ((DRM_RESULT)0x8004D408L)
 
 /* ------------------------------------------------------------
-**
-** Available range 0x8004d420-0x8004d4ff.
-**
-** ------------------------------------------------------------
-*/
-
-/* ------------------------------------------------------------
 ** DRM_E_BASECODE + 0x1600 - DRM_E_BASECODE + 0x16ff (0x8004d600-0x8004d6ff)
 ** are reserved for additional DRM Services error codes.
 **
@@ -4066,7 +4101,7 @@
 ** ------------------------------------------------------------
 */
 
-#define DRM_E_LICGEN_BASECODE          (DRM_E_BASECODE + 0x1900)
+#define DRM_E_LICGEN_BASECODE			(DRM_E_BASECODE + 0x1900)
 
 /*
  * MessageId: DRM_E_LICGEN_CANNOT_PERSIST_LICENSE
@@ -5367,27 +5402,17 @@
  */
 #define DRM_E_SECURETIME_SERVER_SECURITY_LEVEL_TOO_LOW ((DRM_RESULT)0x8004DE03L)
 
-/*
- * MessageId: DRM_E_LICENSESERVERTIME_MUST_REACQUIRE_LICENSE
- *
- * MessageText:
- *
- * This license was acquired before the LicenseServerTime feature was enabled.  It must be reacquired.
- *
- */
-#define DRM_E_LICENSESERVERTIME_MUST_REACQUIRE_LICENSE ((DRM_RESULT)0x8004DE04L)
-
 
 /* ============================================================
 **
 ** LSRD errors: error codes from DRM_E_BASECODE + 0x1F00 to
-** DRM_E_BASECODE + 0x1F0F, 0x8004df00-0x8004df0f.
+** DRM_E_BASECODE + 0x1F05, 0x8004df00-0x8004df05.
 **
 ** ============================================================
 */
 
 #define DRM_E_LSRD_BASECODE  (DRM_E_BASECODE + 0x1F00)
-#define DRM_E_LSRD_FINALCODE (DRM_E_BASECODE + 0x1F0F)
+#define DRM_E_LSRD_FINALCODE (DRM_E_BASECODE + 0x1F05)
 
 /*
  * MessageId: DRM_E_LSRD_DETECTED
@@ -5434,7 +5459,7 @@
  *
  * MessageText:
  *
- * The Process received an invalid command.
+ * The PlayReady Process received an invalid command.
  *
  */
 #define DRM_E_LSRD_INVALID_COMMAND       ((DRM_RESULT)0x8004DF04L)
@@ -5449,13 +5474,6 @@
  */
 #define DRM_E_LSRD_SEQUENCE_NUMBER_IS_AT_MAX_LIMIT ((DRM_RESULT)0x8004DF05L)
 
-
-/* ------------------------------------------------------------
-**
-** Available range 0x8004df10-0x8004df9f.
-**
-** ------------------------------------------------------------
-*/
 
 /* ============================================================
 **
@@ -5479,295 +5497,35 @@
 #define DRM_E_SECUREDELETE_INVALID_RESPONSE ((DRM_RESULT)0x8004DFA0L)
 
 
-/* ============================================================
-**
-** Provenance errors: error codes from DRM_E_BASECODE + 0x1FB0 to
-** DRM_E_BASECODE + 0x1FCF, 0x8004dfb0-0x8004dfcf.
-**
-** ============================================================
-*/
-
-#define DRM_E_PROVENANCE_BASECODE  (DRM_E_BASECODE + 0x1FB0)
-#define DRM_E_PROVENANCE_FINALCODE (DRM_E_BASECODE + 0x1FCF)
-
-/*
- * MessageId: DRM_E_PROVENANCE_VALIDATION_FAILED
- *
- * MessageText:
- *
- * The provenance validation failed. The media file has been tampered with.
- *
- */
-#define DRM_E_PROVENANCE_VALIDATION_FAILED ((DRM_RESULT)0x8004DFB0L)
-
-/*
- * MessageId: DRM_E_INVALID_PROVENANCE_MANIFEST
- *
- * MessageText:
- *
- * The provenance manifest is invalid.
- *
- */
-#define DRM_E_INVALID_PROVENANCE_MANIFEST ((DRM_RESULT)0x8004DFB1L)
-
-/*
- * MessageId: DRM_E_INVALID_PROVENANCE_CERTIFICATE_CHAIN
- *
- * MessageText:
- *
- * The provenance certificate chain stored in the manifest is invalid or a valid certificate chain could not be established.
- *
- */
-#define DRM_E_INVALID_PROVENANCE_CERTIFICATE_CHAIN ((DRM_RESULT)0x8004DFB2L)
-
-/*
- * MessageId: DRM_E_PROVENANCE_UNTRUSTED_ROOT_CERTIFICATE
- *
- * MessageText:
- *
- * The provenance certificate chain could not be validated because no root certificates were provided in the trusted list.
- *
- */
-#define DRM_E_PROVENANCE_UNTRUSTED_ROOT_CERTIFICATE ((DRM_RESULT)0x8004DFB3L)
-
-/*
- * MessageId: DRM_E_MP4_EXCEEDED_NUM_CHUNKS
- *
- * MessageText:
- *
- * A query was made to the MP4 parser to get chunk information for a chunk that does not exist.
- *
- */
-#define DRM_E_MP4_EXCEEDED_NUM_CHUNKS    ((DRM_RESULT)0x8004DFB4L)
-
-/*
- * MessageId: DRM_E_MP4_NULL_FILE_STREAM
- *
- * MessageText:
- *
- * A file stream pointer was unexpectedly null.
- *
- */
-#define DRM_E_MP4_NULL_FILE_STREAM       ((DRM_RESULT)0x8004DFB5L)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_MP4_FILE
- *
- * MessageText:
- *
- * The MP4 file is malformed.
- *
- */
-#define DRM_E_MP4_INVALID_MP4_FILE       ((DRM_RESULT)0x8004DFB6L)
-
-/*
- * MessageId: DRM_E_MP4_PARSING_ABORTED
- *
- * MessageText:
- *
- * MP4 parsing was aborted by the caller.
- *
- */
-#define DRM_E_MP4_PARSING_ABORTED        ((DRM_RESULT)0x8004DFB7L)
-
-/*
- * MessageId: DRM_E_MP4_EXCEEDED_BOX_SIZE
- *
- * MessageText:
- *
- * The MP4 file has a box that references data beyond the end of the box.
- *
- */
-#define DRM_E_MP4_EXCEEDED_BOX_SIZE      ((DRM_RESULT)0x8004DFB8L)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_BOX_SIZE
- *
- * MessageText:
- *
- * The MP4 file has an invalid box size.
- *
- */
-#define DRM_E_MP4_INVALID_BOX_SIZE       ((DRM_RESULT)0x8004DFB9L)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_PARSING_STATE
- *
- * MessageText:
- *
- * MP4 parser functions were invoked in an invalid sequence.
- *
- */
-#define DRM_E_MP4_INVALID_PARSING_STATE  ((DRM_RESULT)0x8004DFBAL)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_BOX_ATTRIBUTE
- *
- * MessageText:
- *
- * An MP4 box has a malformed attribute.
- *
- */
-#define DRM_E_MP4_INVALID_BOX_ATTRIBUTE  ((DRM_RESULT)0x8004DFBBL)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_BOX_VERSION
- *
- * MessageText:
- *
- * An MP4 box had an unrecognized version.
- *
- */
-#define DRM_E_MP4_INVALID_BOX_VERSION    ((DRM_RESULT)0x8004DFBCL)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_STTS_CONTAINS_ENTRIES
- *
- * MessageText:
- *
- * The 'stts' box should not contain entries in purely fragmented Mp4 files.
- *
- */
-#define DRM_E_MP4_INVALID_STTS_CONTAINS_ENTRIES ((DRM_RESULT)0x8004DFBDL)
-
-/*
- * MessageId: DRM_E_C2PA_FTYP_NOT_SET
- *
- * MessageText:
- *
- * The 'ftyp' box lacks the 'c2pa' compatible_brands attribute.
- *
- */
-#define DRM_E_C2PA_FTYP_NOT_SET          ((DRM_RESULT)0x8004DFBEL)
-
-/*
- * MessageId: DRM_E_MP4_BOX_LARGER_THAN_4GB
- *
- * MessageText:
- *
- * The MP4 file has a box that is larger than 4 GB in size which is not supported by this parsre.
- *
- */
-#define DRM_E_MP4_BOX_LARGER_THAN_4GB    ((DRM_RESULT)0x8004DFBFL)
-
-/*
- * MessageId: DRM_E_MP4_C2PA_BOX_ALREADY_PRESENT
- *
- * MessageText:
- *
- * The MP4 file already contains an unexpected C2PA Box.
- *
- */
-#define DRM_E_MP4_C2PA_BOX_ALREADY_PRESENT ((DRM_RESULT)0x8004DFC0L)
-
-/*
- * MessageId: DRM_E_C2PA_MANIFEST_BOX_NOT_PRESENT
- *
- * MessageText:
- *
- * The MP4 file lacks the expected c2pa Manifest Box.
- *
- */
-#define DRM_E_C2PA_MANIFEST_BOX_NOT_PRESENT ((DRM_RESULT)0x8004DFC2L)
-
-/*
- * MessageId: DRM_E_C2PA_MERKLE_BOX_NOT_PRESENT
- *
- * MessageText:
- *
- * The MP4 file lacks the expected c2pa Merkle Box.
- *
- */
-#define DRM_E_C2PA_MERKLE_BOX_NOT_PRESENT ((DRM_RESULT)0x8004DFC3L)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_C2PA_MANIFEST_BOX
- *
- * MessageText:
- *
- * The MP4 file contains an invalid c2pa box with type Manifest.
- *
- */
-#define DRM_E_MP4_INVALID_C2PA_MANIFEST_BOX ((DRM_RESULT)0x8004DFC4L)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_C2PA_MERKLE_BOX
- *
- * MessageText:
- *
- * The MP4 file contains an invalid c2pa box with type Merkle.
- *
- */
-#define DRM_E_MP4_INVALID_C2PA_MERKLE_BOX ((DRM_RESULT)0x8004DFC5L)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_PARSING_TYPE
- *
- * MessageText:
- *
- * The MP4 parser was initialized with an invalid type.
- *
- */
-#define DRM_E_MP4_INVALID_PARSING_TYPE   ((DRM_RESULT)0x8004DFC6L)
-
-/*
- * MessageId: DRM_E_MP4_FILE_LACKS_MOOV_BOX
- *
- * MessageText:
- *
- * The MP4 file does not have a 'moov' box.
- *
- */
-#define DRM_E_MP4_FILE_LACKS_MOOV_BOX    ((DRM_RESULT)0x8004DFC7L)
-
-/*
- * MessageId: DRM_E_MP4_EXCEEDED_NUM_TRACK_IDS
- *
- * MessageText:
- *
- * A query was made to the MP4 parser to get track information for a track that does not exist.
- *
- */
-#define DRM_E_MP4_EXCEEDED_NUM_TRACK_IDS ((DRM_RESULT)0x8004DFC8L)
-
-/*
- * MessageId: DRM_E_MP4_INVALID_EXCLUSION_RULE
- *
- * MessageText:
- *
- * An Exclusion Rule was passed into the MP4 Parser that was incorrectly formatted.
- *
- */
-#define DRM_E_MP4_INVALID_EXCLUSION_RULE ((DRM_RESULT)0x8004DFC9L)
-
-
 /* ------------------------------------------------------------
 **
-** Available range 0x8004dfd0-0x8004dfff.
+** Available range 0x8004dfb0-0x8004dfff.
 **
 ** ------------------------------------------------------------
 */
 
+/* Insert new PKCore sub-error facilities here */
+
+
 /* ============================================================
 **
-** Windows PC specific errors (from 0x8004e000 to 0x8004ffff)
+** PC specific errors (from 0x8004e000 to 0x8004ffff)
 **
 ** ============================================================
 */
 
-/* Nothing should be added here - Windows PC error codes are not here. */
+/* Nothing should be added here - PC error codes are not here. */
 
 
 /* ============================================================
 **
-** Deprecated errors.  Returned in previous versions of the PK but not in the current version.
+** Deprecated errors.  Returned in previous versions of PlayReady but not in the current version.
 ** Note: No new error codes should be defined with the same values as these.
 **
 ** ============================================================
 */
 
 #define DRM_E_DEPRECATED_CH_ATTR_MISSING                                           ((DRM_RESULT)0x80041107L)
-#define DRM_E_DEPRECATED_CH_UNABLE_TO_VERIFY                                       ((DRM_RESULT)0x8004110AL)
 #define DRM_E_DEPRECATED_CH_UNSUPPORTED_HASH_ALGORITHM                             ((DRM_RESULT)0x8004110CL)
 #define DRM_E_DEPRECATED_CH_UNSUPPORTED_SIGN_ALGORITHM                             ((DRM_RESULT)0x8004110DL)
 #define DRM_E_DEPRECATED_CH_NOT_SIGNED                                             ((DRM_RESULT)0x80041113L)
@@ -5883,10 +5641,8 @@
 #define DRM_E_DEPRECATED_BAD_CRL_BLOB                                              ((DRM_RESULT)0x8004C101L)
 #define DRM_E_DEPRECATED_TEST_PKCRYPTO_FAILURE                                     ((DRM_RESULT)0x8004C300L)
 #define DRM_E_DEPRECATED_TEST_PKSIGN_VERIFY_ERROR                                  ((DRM_RESULT)0x8004C301L)
-#define DRM_E_DEPRECATED_TEST_RC4KEY_FAILED                                        ((DRM_RESULT)0x8004C303L)
 #define DRM_E_DEPRECATED_TEST_DESKEY_FAILED                                        ((DRM_RESULT)0x8004C305L)
 #define DRM_E_DEPRECATED_TEST_CBC_INVERSEMAC_FAILURE                               ((DRM_RESULT)0x8004C306L)
-#define DRM_E_DEPRECATED_TEST_HMAC_FAILURE                                         ((DRM_RESULT)0x8004C307L)
 #define DRM_E_DEPRECATED_TEST_DEVICE_PRIVATE_KEY_INCORRECTLY_STORED                ((DRM_RESULT)0x8004C30AL)
 #define DRM_E_DEPRECATED_TEST_DRMMANAGER_CONTEXT_NULL                              ((DRM_RESULT)0x8004C30BL)
 #define DRM_E_DEPRECATED_TEST_LICENSE_STATE_MISMATCH                               ((DRM_RESULT)0x8004C313L)
@@ -5903,7 +5659,6 @@
 #define DRM_E_DEPRECATED_TEST_FILE_ALREADY_OPEN                                    ((DRM_RESULT)0x8004C337L)
 #define DRM_E_DEPRECATED_TEST_PICT_COLUMN_TOO_WIDE                                 ((DRM_RESULT)0x8004C339L)
 #define DRM_E_DEPRECATED_TEST_PICT_COLUMN_MISMATCH                                 ((DRM_RESULT)0x8004C33AL)
-#define DRM_E_DEPRECATED_TEST_TUX_TEST_SKIPPED                                     ((DRM_RESULT)0x8004C33BL)
 #define DRM_E_DEPRECATED_SYNCLIST_NOT_SUPPORTED                                    ((DRM_RESULT)0x8004C3EAL)
 #define DRM_E_DEPRECATED_DEVICE_ALREADY_REGISTERED                                 ((DRM_RESULT)0x8004C3ECL)
 #define DRM_E_DEPRECATED_FEATURE_NOT_SUPPORTED                                     ((DRM_RESULT)0x8004C3F4L)
@@ -6071,8 +5826,5 @@
 #define DRM_E_DEPRECATED_LICGEN_EXPIRE_AFTER_FIRST_PLAY_REMOTE_LICENSE             ((DRM_RESULT)0x8004D903L)
 #define DRM_E_DEPRECATED_LICGEN_LOCAL_LICENSE_WITH_REMOTE_CERTIFICATE              ((DRM_RESULT)0x8004D906L)
 #define DRM_E_DEPRECATED_LICGEN_PLAY_ENABLER_REMOTE_LICENSE                        ((DRM_RESULT)0x8004D907L)
-
-#define DRM_S_DEPRECATED_TEST_SKIP_FILE                                            ((DRM_RESULT)0x0004C300L)
-#define DRM_S_DEPRECATED_TEST_CONVERTED_FILE                                       ((DRM_RESULT)0x0004C301L)
 #endif /*__WINDOWS_MEDIA_PROTECTION_PLAYREADY_RESULTS_H_ */
 

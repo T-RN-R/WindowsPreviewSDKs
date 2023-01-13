@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -31,14 +31,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -178,42 +170,34 @@ EXTERN_C const IID IID_IRendezvousSession;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IRendezvousSession * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IRendezvousSession * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IRendezvousSession * This);
         
-        DECLSPEC_XFGVIRT(IRendezvousSession, get_State)
         /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_State )( 
             __RPC__in IRendezvousSession * This,
             /* [retval][out] */ __RPC__out RENDEZVOUS_SESSION_STATE *pSessionState);
         
-        DECLSPEC_XFGVIRT(IRendezvousSession, get_RemoteUser)
         /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_RemoteUser )( 
             __RPC__in IRendezvousSession * This,
             /* [retval][out] */ __RPC__deref_out_opt BSTR *bstrUserName);
         
-        DECLSPEC_XFGVIRT(IRendezvousSession, get_Flags)
         /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_Flags )( 
             __RPC__in IRendezvousSession * This,
             /* [retval][out] */ __RPC__out LONG *pFlags);
         
-        DECLSPEC_XFGVIRT(IRendezvousSession, SendContextData)
         HRESULT ( STDMETHODCALLTYPE *SendContextData )( 
             __RPC__in IRendezvousSession * This,
             /* [in] */ __RPC__in BSTR bstrData);
         
-        DECLSPEC_XFGVIRT(IRendezvousSession, Terminate)
         HRESULT ( STDMETHODCALLTYPE *Terminate )( 
             __RPC__in IRendezvousSession * This,
             /* [in] */ HRESULT hr,
@@ -290,34 +274,28 @@ EXTERN_C const IID DIID_DRendezvousSessionEvents;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in DRendezvousSessionEvents * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in DRendezvousSessionEvents * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in DRendezvousSessionEvents * This);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             __RPC__in DRendezvousSessionEvents * This,
             /* [out] */ __RPC__out UINT *pctinfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             __RPC__in DRendezvousSessionEvents * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ __RPC__deref_out_opt ITypeInfo **ppTInfo);
         
-        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             __RPC__in DRendezvousSessionEvents * This,
             /* [in] */ __RPC__in REFIID riid,
@@ -326,7 +304,6 @@ EXTERN_C const IID DIID_DRendezvousSessionEvents;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ __RPC__out_ecount_full(cNames) DISPID *rgDispId);
         
-        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             DRendezvousSessionEvents * This,
             /* [annotation][in] */ 
@@ -417,22 +394,18 @@ EXTERN_C const IID IID_IRendezvousApplication;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IRendezvousApplication * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IRendezvousApplication * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IRendezvousApplication * This);
         
-        DECLSPEC_XFGVIRT(IRendezvousApplication, SetRendezvousSession)
         HRESULT ( STDMETHODCALLTYPE *SetRendezvousSession )( 
             __RPC__in IRendezvousApplication * This,
             /* [in] */ __RPC__in_opt IUnknown *pRendezvousSession);

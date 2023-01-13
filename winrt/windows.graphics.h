@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -143,26 +143,6 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Struct Windows.Graphics.DisplayId
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-namespace ABI {
-    namespace Windows {
-        namespace Graphics {
-            struct DisplayId
-            {
-                UINT64 Value;
-            };
-        } /* Graphics */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -249,7 +229,7 @@ namespace ABI {
             public:
             };
 
-            MIDL_CONST_ID IID& IID_IGeometrySource2D = __uuidof(IGeometrySource2D);
+            extern MIDL_CONST_ID IID& IID_IGeometrySource2D = _uuidof(IGeometrySource2D);
         } /* Graphics */
     } /* Windows */
 } /* ABI */
@@ -284,20 +264,6 @@ struct __x_ABI_CWindows_CGraphics_CDisplayAdapterId
     INT32 HighPart;
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Struct Windows.Graphics.DisplayId
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-struct __x_ABI_CWindows_CGraphics_CDisplayId
-{
-    UINT64 Value;
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *

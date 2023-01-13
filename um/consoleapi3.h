@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -39,6 +41,7 @@ GetNumberOfConsoleMouseButtons(
     _Out_ LPDWORD lpNumberOfMouseButtons
     );
 
+
 #if (_WIN32_WINNT >= 0x0500)
 
 WINBASEAPI
@@ -49,6 +52,7 @@ GetConsoleFontSize(
     _In_ DWORD nFont
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -57,6 +61,7 @@ GetCurrentConsoleFont(
     _In_ BOOL bMaximumWindow,
     _Out_ PCONSOLE_FONT_INFO lpConsoleCurrentFont
     );
+
 
 #ifndef NOGDI
 
@@ -78,6 +83,7 @@ GetCurrentConsoleFontEx(
     _Out_ PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -86,6 +92,7 @@ SetCurrentConsoleFontEx(
     _In_ BOOL bMaximumWindow,
     _In_ PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx
     );
+
 
 #endif
 
@@ -112,6 +119,7 @@ GetConsoleSelectionInfo(
     _Out_ PCONSOLE_SELECTION_INFO lpConsoleSelectionInfo
     );
 
+
 //
 // History flags
 //
@@ -132,12 +140,14 @@ GetConsoleHistoryInfo(
     _Out_ PCONSOLE_HISTORY_INFO lpConsoleHistoryInfo
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 SetConsoleHistoryInfo(
     _In_ PCONSOLE_HISTORY_INFO lpConsoleHistoryInfo
     );
+
 
 #define CONSOLE_FULLSCREEN 1            // fullscreen console
 #define CONSOLE_FULLSCREEN_HARDWARE 2   // console owns the hardware
@@ -148,6 +158,7 @@ APIENTRY
 GetConsoleDisplayMode(
     _Out_ LPDWORD lpModeFlags
     );
+
 
 #define CONSOLE_FULLSCREEN_MODE 1
 #define CONSOLE_WINDOWED_MODE 2
@@ -161,12 +172,14 @@ SetConsoleDisplayMode(
     _Out_opt_ PCOORD lpNewScreenBufferDimensions
     );
 
+    
 WINBASEAPI
 HWND
 APIENTRY
 GetConsoleWindow(
     VOID
     );
+
 
 #endif /* _WIN32_WINNT >= 0x0500 */
 
@@ -189,6 +202,7 @@ AddConsoleAliasW(
     _In_ LPWSTR Target,
     _In_ LPWSTR ExeName
     );
+
 #ifdef UNICODE
 #define AddConsoleAlias  AddConsoleAliasW
 #else
@@ -214,6 +228,7 @@ GetConsoleAliasW(
     _In_ DWORD TargetBufferLength,
     _In_ LPWSTR ExeName
     );
+
 #ifdef UNICODE
 #define GetConsoleAlias  GetConsoleAliasW
 #else
@@ -233,6 +248,7 @@ APIENTRY
 GetConsoleAliasesLengthW(
     _In_ LPWSTR ExeName
     );
+
 #ifdef UNICODE
 #define GetConsoleAliasesLength  GetConsoleAliasesLengthW
 #else
@@ -252,6 +268,7 @@ APIENTRY
 GetConsoleAliasExesLengthW(
     VOID
     );
+
 #ifdef UNICODE
 #define GetConsoleAliasExesLength  GetConsoleAliasExesLengthW
 #else
@@ -275,6 +292,7 @@ GetConsoleAliasesW(
     _In_ DWORD AliasBufferLength,
     _In_ LPWSTR ExeName
     );
+
 #ifdef UNICODE
 #define GetConsoleAliases  GetConsoleAliasesW
 #else
@@ -296,6 +314,7 @@ GetConsoleAliasExesW(
     _Out_writes_(ExeNameBufferLength) LPWSTR ExeNameBuffer,
     _In_ DWORD ExeNameBufferLength
     );
+
 #ifdef UNICODE
 #define GetConsoleAliasExes  GetConsoleAliasExesW
 #else
@@ -317,6 +336,7 @@ APIENTRY
 ExpungeConsoleCommandHistoryW(
     _In_ LPWSTR ExeName
     );
+
 #ifdef UNICODE
 #define ExpungeConsoleCommandHistory  ExpungeConsoleCommandHistoryW
 #else
@@ -338,6 +358,7 @@ SetConsoleNumberOfCommandsW(
     _In_ DWORD Number,
     _In_ LPWSTR ExeName
     );
+
 #ifdef UNICODE
 #define SetConsoleNumberOfCommands  SetConsoleNumberOfCommandsW
 #else
@@ -357,6 +378,7 @@ APIENTRY
 GetConsoleCommandHistoryLengthW(
     _In_ LPWSTR ExeName
     );
+
 #ifdef UNICODE
 #define GetConsoleCommandHistoryLength  GetConsoleCommandHistoryLengthW
 #else
@@ -380,6 +402,7 @@ GetConsoleCommandHistoryW(
     _In_ DWORD CommandBufferLength,
     _In_ LPWSTR ExeName
     );
+
 #ifdef UNICODE
 #define GetConsoleCommandHistory  GetConsoleCommandHistoryW
 #else
@@ -396,11 +419,12 @@ GetConsoleProcessList(
     _In_ DWORD dwProcessCount
     );
 
+
 #endif /* _WIN32_WINNT >= 0x0501 */
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
-
+    
 #ifdef __cplusplus
 }
 #endif

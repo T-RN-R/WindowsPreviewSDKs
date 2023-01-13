@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -31,14 +31,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -188,18 +180,6 @@ typedef struct FWPM_CLASSIFY_OPTIONS0_
     /* [ref][size_is] */ FWPM_CLASSIFY_OPTION0 *options;
     } 	FWPM_CLASSIFY_OPTIONS0;
 
-typedef struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0_
-    {
-    FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE type;
-    FWP_VALUE0 value;
-    } 	FWPM_NETWORK_CONNECTION_POLICY_SETTING0;
-
-typedef struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0_
-    {
-    UINT32 numSettings;
-    /* [ref][size_is] */ FWPM_NETWORK_CONNECTION_POLICY_SETTING0 *settings;
-    } 	FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0;
-
 typedef /* [v1_enum] */ 
 enum FWPM_PROVIDER_CONTEXT_TYPE_
     {
@@ -216,8 +196,7 @@ enum FWPM_PROVIDER_CONTEXT_TYPE_
         FWPM_IPSEC_IKEV2_MM_CONTEXT	= ( FWPM_IPSEC_IKEV2_QM_TUNNEL_CONTEXT + 1 ) ,
         FWPM_IPSEC_DOSP_CONTEXT	= ( FWPM_IPSEC_IKEV2_MM_CONTEXT + 1 ) ,
         FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT	= ( FWPM_IPSEC_DOSP_CONTEXT + 1 ) ,
-        FWPM_NETWORK_CONNECTION_POLICY_CONTEXT	= ( FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT + 1 ) ,
-        FWPM_PROVIDER_CONTEXT_TYPE_MAX	= ( FWPM_NETWORK_CONNECTION_POLICY_CONTEXT + 1 ) 
+        FWPM_PROVIDER_CONTEXT_TYPE_MAX	= ( FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT + 1 ) 
     } 	FWPM_PROVIDER_CONTEXT_TYPE;
 
 typedef struct FWPM_PROVIDER_CONTEXT0_
@@ -325,7 +304,6 @@ typedef struct FWPM_PROVIDER_CONTEXT3_
         /* [case()][unique] */ IPSEC_TRANSPORT_POLICY2 *ikeV2QmTransportPolicy;
         /* [case()][unique] */ IKEEXT_POLICY2 *ikeV2MmPolicy;
         /* [case()][unique] */ IPSEC_DOSP_OPTIONS0 *idpOptions;
-        /* [case()][unique] */ FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 *networkConnectionPolicy;
         } 	;
     UINT64 providerContextId;
     } 	FWPM_PROVIDER_CONTEXT3;
@@ -457,6 +435,7 @@ typedef struct FWPM_ACTION0_
         {
         /* [case()] */ GUID filterType;
         /* [case()] */ GUID calloutKey;
+        /* [case()] */ UINT8 bitmapIndex;
         } 	;
     } 	FWPM_ACTION0;
 
@@ -480,8 +459,6 @@ typedef struct FWPM_FILTER_CONDITION0_
 #define FWPM_FILTER_FLAG_GAMEOS_ONLY (0x00000200)
 #define FWPM_FILTER_FLAG_SILENT_MODE (0x00000400)
 #define FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE   (0x00000800)
-#define FWPM_FILTER_FLAG_RESERVED0   (0x00001000)
-#define FWPM_FILTER_FLAG_RESERVED1   (0x00002000)
 typedef struct FWPM_FILTER0_
     {
     GUID filterKey;
@@ -578,6 +555,10 @@ typedef struct FWPM_STATISTICS0_
     UINT64 reauthReasonSocketPropertyChanged;
     UINT64 reauthReasonNewInboundMCastBCastPacket;
     UINT64 reauthReasonEDPPolicyChanged;
+    UINT64 reauthReasonPreclassifyLocalAddrLayerChange;
+    UINT64 reauthReasonPreclassifyRemoteAddrLayerChange;
+    UINT64 reauthReasonPreclassifyLocalPortLayerChange;
+    UINT64 reauthReasonPreclassifyRemotePortLayerChange;
     UINT64 reauthReasonProxyHandleChanged;
     } 	FWPM_STATISTICS0;
 

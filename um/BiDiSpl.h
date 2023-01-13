@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -176,39 +168,32 @@ EXTERN_C const IID IID_IBidiRequest;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IBidiRequest * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IBidiRequest * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IBidiRequest * This);
         
-        DECLSPEC_XFGVIRT(IBidiRequest, SetSchema)
         HRESULT ( STDMETHODCALLTYPE *SetSchema )( 
             __RPC__in IBidiRequest * This,
             /* [in] */ __RPC__in const LPCWSTR pszSchema);
         
-        DECLSPEC_XFGVIRT(IBidiRequest, SetInputData)
         HRESULT ( STDMETHODCALLTYPE *SetInputData )( 
             __RPC__in IBidiRequest * This,
             /* [in] */ const DWORD dwType,
             /* [in] */ __RPC__in const BYTE *pData,
             /* [in] */ const UINT uSize);
         
-        DECLSPEC_XFGVIRT(IBidiRequest, GetResult)
         HRESULT ( STDMETHODCALLTYPE *GetResult )( 
             __RPC__in IBidiRequest * This,
             /* [out] */ __RPC__out HRESULT *phr);
         
-        DECLSPEC_XFGVIRT(IBidiRequest, GetOutputData)
         HRESULT ( STDMETHODCALLTYPE *GetOutputData )( 
             __RPC__in IBidiRequest * This,
             /* [in] */ const DWORD dwIndex,
@@ -217,7 +202,6 @@ EXTERN_C const IID IID_IBidiRequest;
             /* [out] */ __RPC__deref_out_opt BYTE **ppData,
             /* [out] */ __RPC__out ULONG *uSize);
         
-        DECLSPEC_XFGVIRT(IBidiRequest, GetEnumCount)
         HRESULT ( STDMETHODCALLTYPE *GetEnumCount )( 
             __RPC__in IBidiRequest * This,
             /* [out] */ __RPC__out DWORD *pdwTotal);
@@ -304,32 +288,26 @@ EXTERN_C const IID IID_IBidiRequestContainer;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IBidiRequestContainer * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IBidiRequestContainer * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IBidiRequestContainer * This);
         
-        DECLSPEC_XFGVIRT(IBidiRequestContainer, AddRequest)
         HRESULT ( STDMETHODCALLTYPE *AddRequest )( 
             __RPC__in IBidiRequestContainer * This,
             /* [in] */ __RPC__in_opt IBidiRequest *pRequest);
         
-        DECLSPEC_XFGVIRT(IBidiRequestContainer, GetEnumObject)
         HRESULT ( STDMETHODCALLTYPE *GetEnumObject )( 
             __RPC__in IBidiRequestContainer * This,
             /* [out] */ __RPC__deref_out_opt IEnumUnknown **ppenum);
         
-        DECLSPEC_XFGVIRT(IBidiRequestContainer, GetRequestCount)
         HRESULT ( STDMETHODCALLTYPE *GetRequestCount )( 
             __RPC__in IBidiRequestContainer * This,
             /* [out] */ __RPC__out ULONG *puCount);
@@ -415,38 +393,31 @@ EXTERN_C const IID IID_IBidiSpl;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IBidiSpl * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IBidiSpl * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IBidiSpl * This);
         
-        DECLSPEC_XFGVIRT(IBidiSpl, BindDevice)
         HRESULT ( STDMETHODCALLTYPE *BindDevice )( 
             __RPC__in IBidiSpl * This,
             /* [in] */ __RPC__in const LPCWSTR pszDeviceName,
             /* [in] */ const DWORD dwAccess);
         
-        DECLSPEC_XFGVIRT(IBidiSpl, UnbindDevice)
         HRESULT ( STDMETHODCALLTYPE *UnbindDevice )( 
             __RPC__in IBidiSpl * This);
         
-        DECLSPEC_XFGVIRT(IBidiSpl, SendRecv)
         HRESULT ( STDMETHODCALLTYPE *SendRecv )( 
             __RPC__in IBidiSpl * This,
             /* [in] */ __RPC__in const LPCWSTR pszAction,
             /* [in] */ __RPC__in_opt IBidiRequest *pRequest);
         
-        DECLSPEC_XFGVIRT(IBidiSpl, MultiSendRecv)
         HRESULT ( STDMETHODCALLTYPE *MultiSendRecv )( 
             __RPC__in IBidiSpl * This,
             /* [in] */ __RPC__in const LPCWSTR pszAction,
@@ -536,38 +507,31 @@ EXTERN_C const IID IID_IBidiSpl2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IBidiSpl2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IBidiSpl2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IBidiSpl2 * This);
         
-        DECLSPEC_XFGVIRT(IBidiSpl2, BindDevice)
         HRESULT ( STDMETHODCALLTYPE *BindDevice )( 
             __RPC__in IBidiSpl2 * This,
             /* [in] */ __RPC__in const LPCWSTR pszDeviceName,
             /* [in] */ const DWORD dwAccess);
         
-        DECLSPEC_XFGVIRT(IBidiSpl2, UnbindDevice)
         HRESULT ( STDMETHODCALLTYPE *UnbindDevice )( 
             __RPC__in IBidiSpl2 * This);
         
-        DECLSPEC_XFGVIRT(IBidiSpl2, SendRecvXMLString)
         HRESULT ( STDMETHODCALLTYPE *SendRecvXMLString )( 
             __RPC__in IBidiSpl2 * This,
             /* [in] */ __RPC__in BSTR bstrRequest,
             /* [out] */ __RPC__deref_out_opt BSTR *pbstrResponse);
         
-        DECLSPEC_XFGVIRT(IBidiSpl2, SendRecvXMLStream)
         HRESULT ( STDMETHODCALLTYPE *SendRecvXMLStream )( 
             __RPC__in IBidiSpl2 * This,
             /* [in] */ __RPC__in_opt IStream *pSRequest,

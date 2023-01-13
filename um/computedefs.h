@@ -1,6 +1,6 @@
 /*++
 
-Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation.  All rights reserved.
 
 Module Name:
 
@@ -10,11 +10,8 @@ Abstract:
 
     Contains the public types and definitions used by the Host Compute APIs.
 
-Environment:
-
-    User mode.
-
 --*/
+
 #ifndef _HYPERV_COMPUTEDEFS_H_
 #define _HYPERV_COMPUTEDEFS_H_
 
@@ -53,8 +50,7 @@ typedef enum HCS_OPERATION_TYPE
     HcsOperationTypeGetProcessInfo = 12,
     HcsOperationTypeGetProcessProperties = 13,
     HcsOperationTypeModifyProcess = 14,
-    HcsOperationTypeCrash = 15,
-    HcsOperationTypeReserved1 = 16
+    HcsOperationTypeCrash = 15
 } HCS_OPERATION_TYPE;
 
 #define HCS_INVALID_OPERATION_ID (UINT64)(-1)
@@ -84,13 +80,7 @@ typedef enum HCS_EVENT_TYPE
 
     /// Common Events
     HcsEventOperationCallback = 0x01000000,
-    HcsEventServiceDisconnect = 0x02000000,
-
-    // Event groups, enabled by HCS_EVENT_OPTIONS set by clients
-    HcsEventGroupVmLifecycle = 0x80000002,
-
-    // Events for HCS_OPERATION
-    HcsEventGroupOperationInfo = 0xC0000001,
+    HcsEventServiceDisconnect = 0x02000000
 
 } HCS_EVENT_TYPE;
 
@@ -112,34 +102,17 @@ typedef struct HCS_EVENT
 typedef enum HCS_EVENT_OPTIONS
 {
     HcsEventOptionNone = 0x00000000,
-    HcsEventOptionEnableOperationCallbacks = 0x00000001,
-    HcsEventOptionEnableVmLifecycle = 0x00000002,
+    HcsEventOptionEnableOperationCallbacks = 0x00000001
+
 } HCS_EVENT_OPTIONS;
 
 DEFINE_ENUM_FLAG_OPERATORS(HCS_EVENT_OPTIONS);
-
-// Filter for an operation's events
-typedef enum HCS_OPERATION_OPTIONS
-{
-    HcsOperationOptionNone = 0x00000000,
-    HcsOperationOptionProgressUpdate = 0x00000001,
-} HCS_OPERATION_OPTIONS;
-
-DEFINE_ENUM_FLAG_OPERATORS(HCS_OPERATION_OPTIONS);
 
 // Function type for compute system event callbacks
 typedef void (CALLBACK *HCS_EVENT_CALLBACK)(
     _In_ HCS_EVENT* event,
     _In_opt_ void* context
     );
-
-// Resource type for HCS_OPERATION resource support.
-typedef enum HCS_RESOURCE_TYPE
-{
-    HcsResourceTypeNone = 0,
-    HcsResourceTypeFile = 1,
-    HcsResourceTypeJob = 2
-} HCS_RESOURCE_TYPE;
 
 // Flags applicable to HCS_NOTIFICATIONS
 typedef enum HCS_NOTIFICATION_FLAGS
@@ -170,11 +143,6 @@ typedef enum HCS_NOTIFICATIONS
     HcsNotificationSystemModifyCompleted = 0x0000000C,
     HcsNotificationSystemCrashInitiated =  0x0000000D,
     HcsNotificationSystemGuestConnectionClosed = 0x0000000E,
-    HcsNotificationSystemOperationCompletion = 0x0000000F,
-
-    HcsNotificationSystemPassThru = 0x00000010,
-
-    HcsNotificationOperationProgressUpdate = 0x00000100,
 
     // Notifications for HCS_PROCESS handles
     HcsNotificationProcessExited = 0x00010000,
@@ -223,4 +191,4 @@ typedef struct
     HCS_EVENT_CALLBACK      Callback;
 } HCS_CREATE_OPTIONS_1;
 
-#endif
+#endif // _HYPERV_COMPUTEDEFS_H_

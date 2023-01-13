@@ -3,7 +3,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -212,22 +204,18 @@ EXTERN_C const IID IID_IOleDocument;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IOleDocument * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IOleDocument * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IOleDocument * This);
         
-        DECLSPEC_XFGVIRT(IOleDocument, CreateView)
         HRESULT ( STDMETHODCALLTYPE *CreateView )( 
             __RPC__in IOleDocument * This,
             /* [unique][in] */ __RPC__in_opt IOleInPlaceSite *pIPSite,
@@ -235,12 +223,10 @@ EXTERN_C const IID IID_IOleDocument;
             /* [in] */ DWORD dwReserved,
             /* [out] */ __RPC__deref_out_opt IOleDocumentView **ppView);
         
-        DECLSPEC_XFGVIRT(IOleDocument, GetDocMiscStatus)
         HRESULT ( STDMETHODCALLTYPE *GetDocMiscStatus )( 
             __RPC__in IOleDocument * This,
             /* [out] */ __RPC__out DWORD *pdwStatus);
         
-        DECLSPEC_XFGVIRT(IOleDocument, EnumViews)
         HRESULT ( STDMETHODCALLTYPE *EnumViews )( 
             __RPC__in IOleDocument * This,
             /* [out] */ __RPC__deref_out_opt IEnumOleDocumentViews **ppEnum,
@@ -329,22 +315,18 @@ EXTERN_C const IID IID_IOleDocumentSite;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IOleDocumentSite * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IOleDocumentSite * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IOleDocumentSite * This);
         
-        DECLSPEC_XFGVIRT(IOleDocumentSite, ActivateMe)
         HRESULT ( STDMETHODCALLTYPE *ActivateMe )( 
             __RPC__in IOleDocumentSite * This,
             /* [in] */ __RPC__in_opt IOleDocumentView *pViewToActivate);
@@ -465,47 +447,38 @@ EXTERN_C const IID IID_IOleDocumentView;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IOleDocumentView * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IOleDocumentView * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IOleDocumentView * This);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, SetInPlaceSite)
         HRESULT ( STDMETHODCALLTYPE *SetInPlaceSite )( 
             __RPC__in IOleDocumentView * This,
             /* [unique][in] */ __RPC__in_opt IOleInPlaceSite *pIPSite);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, GetInPlaceSite)
         HRESULT ( STDMETHODCALLTYPE *GetInPlaceSite )( 
             __RPC__in IOleDocumentView * This,
             /* [out] */ __RPC__deref_out_opt IOleInPlaceSite **ppIPSite);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, GetDocument)
         HRESULT ( STDMETHODCALLTYPE *GetDocument )( 
             __RPC__in IOleDocumentView * This,
             /* [out] */ __RPC__deref_out_opt IUnknown **ppunk);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, SetRect)
         /* [input_sync] */ HRESULT ( STDMETHODCALLTYPE *SetRect )( 
             __RPC__in IOleDocumentView * This,
             /* [in] */ __RPC__in LPRECT prcView);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, GetRect)
         HRESULT ( STDMETHODCALLTYPE *GetRect )( 
             __RPC__in IOleDocumentView * This,
             /* [out] */ __RPC__out LPRECT prcView);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, SetRectComplex)
         /* [input_sync] */ HRESULT ( STDMETHODCALLTYPE *SetRectComplex )( 
             __RPC__in IOleDocumentView * This,
             /* [unique][in] */ __RPC__in_opt LPRECT prcView,
@@ -513,36 +486,29 @@ EXTERN_C const IID IID_IOleDocumentView;
             /* [unique][in] */ __RPC__in_opt LPRECT prcVScroll,
             /* [unique][in] */ __RPC__in_opt LPRECT prcSizeBox);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, Show)
         HRESULT ( STDMETHODCALLTYPE *Show )( 
             __RPC__in IOleDocumentView * This,
             /* [in] */ BOOL fShow);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, UIActivate)
         HRESULT ( STDMETHODCALLTYPE *UIActivate )( 
             __RPC__in IOleDocumentView * This,
             /* [in] */ BOOL fUIActivate);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, Open)
         HRESULT ( STDMETHODCALLTYPE *Open )( 
             __RPC__in IOleDocumentView * This);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, CloseView)
         HRESULT ( STDMETHODCALLTYPE *CloseView )( 
             __RPC__in IOleDocumentView * This,
             /* [in] */ DWORD dwReserved);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, SaveViewState)
         HRESULT ( STDMETHODCALLTYPE *SaveViewState )( 
             __RPC__in IOleDocumentView * This,
             /* [in] */ __RPC__in_opt LPSTREAM pstm);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, ApplyViewState)
         HRESULT ( STDMETHODCALLTYPE *ApplyViewState )( 
             __RPC__in IOleDocumentView * This,
             /* [in] */ __RPC__in_opt LPSTREAM pstm);
         
-        DECLSPEC_XFGVIRT(IOleDocumentView, Clone)
         HRESULT ( STDMETHODCALLTYPE *Clone )( 
             __RPC__in IOleDocumentView * This,
             /* [in] */ __RPC__in_opt IOleInPlaceSite *pIPSiteNew,
@@ -671,38 +637,31 @@ EXTERN_C const IID IID_IEnumOleDocumentViews;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IEnumOleDocumentViews * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IEnumOleDocumentViews * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IEnumOleDocumentViews * This);
         
-        DECLSPEC_XFGVIRT(IEnumOleDocumentViews, Next)
         /* [local] */ HRESULT ( __stdcall *Next )( 
             IEnumOleDocumentViews * This,
             /* [in] */ ULONG cViews,
             /* [out] */ IOleDocumentView **rgpView,
             /* [out] */ ULONG *pcFetched);
         
-        DECLSPEC_XFGVIRT(IEnumOleDocumentViews, Skip)
         HRESULT ( STDMETHODCALLTYPE *Skip )( 
             __RPC__in IEnumOleDocumentViews * This,
             /* [in] */ ULONG cViews);
         
-        DECLSPEC_XFGVIRT(IEnumOleDocumentViews, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             __RPC__in IEnumOleDocumentViews * This);
         
-        DECLSPEC_XFGVIRT(IEnumOleDocumentViews, Clone)
         HRESULT ( STDMETHODCALLTYPE *Clone )( 
             __RPC__in IEnumOleDocumentViews * This,
             /* [out] */ __RPC__deref_out_opt IEnumOleDocumentViews **ppEnum);
@@ -811,26 +770,21 @@ EXTERN_C const IID IID_IContinueCallback;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IContinueCallback * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IContinueCallback * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IContinueCallback * This);
         
-        DECLSPEC_XFGVIRT(IContinueCallback, FContinue)
         HRESULT ( STDMETHODCALLTYPE *FContinue )( 
             __RPC__in IContinueCallback * This);
         
-        DECLSPEC_XFGVIRT(IContinueCallback, FContinuePrinting)
         HRESULT ( STDMETHODCALLTYPE *FContinuePrinting )( 
             __RPC__in IContinueCallback * This,
             /* [in] */ LONG nCntPrinted,
@@ -959,33 +913,27 @@ EXTERN_C const IID IID_IPrint;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IPrint * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IPrint * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IPrint * This);
         
-        DECLSPEC_XFGVIRT(IPrint, SetInitialPageNum)
         HRESULT ( STDMETHODCALLTYPE *SetInitialPageNum )( 
             __RPC__in IPrint * This,
             /* [in] */ LONG nFirstPage);
         
-        DECLSPEC_XFGVIRT(IPrint, GetPageInfo)
         HRESULT ( STDMETHODCALLTYPE *GetPageInfo )( 
             __RPC__in IPrint * This,
             /* [out] */ __RPC__out LONG *pnFirstPage,
             /* [out] */ __RPC__out LONG *pcPages);
         
-        DECLSPEC_XFGVIRT(IPrint, Print)
         /* [local] */ HRESULT ( __stdcall *Print )( 
             IPrint * This,
             /* [in] */ DWORD grfFlags,
@@ -1289,22 +1237,18 @@ EXTERN_C const IID IID_IOleCommandTarget;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IOleCommandTarget * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IOleCommandTarget * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IOleCommandTarget * This);
         
-        DECLSPEC_XFGVIRT(IOleCommandTarget, QueryStatus)
         /* [input_sync] */ HRESULT ( STDMETHODCALLTYPE *QueryStatus )( 
             __RPC__in IOleCommandTarget * This,
             /* [unique][in] */ __RPC__in_opt const GUID *pguidCmdGroup,
@@ -1312,7 +1256,6 @@ EXTERN_C const IID IID_IOleCommandTarget;
             /* [out][in][size_is] */ __RPC__inout_ecount_full(cCmds) OLECMD prgCmds[  ],
             /* [unique][out][in] */ __RPC__inout_opt OLECMDTEXT *pCmdText);
         
-        DECLSPEC_XFGVIRT(IOleCommandTarget, Exec)
         HRESULT ( STDMETHODCALLTYPE *Exec )( 
             __RPC__in IOleCommandTarget * This,
             /* [unique][in] */ __RPC__in_opt const GUID *pguidCmdGroup,
@@ -1558,22 +1501,18 @@ EXTERN_C const IID IID_IZoomEvents;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IZoomEvents * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IZoomEvents * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IZoomEvents * This);
         
-        DECLSPEC_XFGVIRT(IZoomEvents, OnZoomPercentChanged)
         HRESULT ( STDMETHODCALLTYPE *OnZoomPercentChanged )( 
             __RPC__in IZoomEvents * This,
             /* [in] */ ULONG ulZoomPercent);
@@ -1642,22 +1581,18 @@ EXTERN_C const IID IID_IProtectFocus;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IProtectFocus * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IProtectFocus * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IProtectFocus * This);
         
-        DECLSPEC_XFGVIRT(IProtectFocus, AllowFocusChange)
         HRESULT ( STDMETHODCALLTYPE *AllowFocusChange )( 
             __RPC__in IProtectFocus * This,
             /* [out] */ __RPC__out BOOL *pfAllow);
@@ -1747,34 +1682,28 @@ EXTERN_C const IID IID_IProtectedModeMenuServices;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IProtectedModeMenuServices * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IProtectedModeMenuServices * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IProtectedModeMenuServices * This);
         
-        DECLSPEC_XFGVIRT(IProtectedModeMenuServices, CreateMenu)
         HRESULT ( STDMETHODCALLTYPE *CreateMenu )( 
             __RPC__in IProtectedModeMenuServices * This,
             /* [out] */ __RPC__deref_out_opt HMENU *phMenu);
         
-        DECLSPEC_XFGVIRT(IProtectedModeMenuServices, LoadMenu)
         HRESULT ( STDMETHODCALLTYPE *LoadMenu )( 
             __RPC__in IProtectedModeMenuServices * This,
             /* [string][in] */ __RPC__in_string LPCWSTR pszModuleName,
             /* [string][in] */ __RPC__in_string LPCWSTR pszMenuName,
             /* [out] */ __RPC__deref_out_opt HMENU *phMenu);
         
-        DECLSPEC_XFGVIRT(IProtectedModeMenuServices, LoadMenuID)
         HRESULT ( STDMETHODCALLTYPE *LoadMenuID )( 
             __RPC__in IProtectedModeMenuServices * This,
             /* [string][in] */ __RPC__in_string LPCWSTR pszModuleName,

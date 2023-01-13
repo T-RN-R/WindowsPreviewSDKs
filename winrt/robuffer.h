@@ -1,5 +1,7 @@
 // Copyright (C) Microsoft Corporation. All rights reserved.
 
+
+
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -21,7 +23,8 @@ RoGetBufferMarshaler(
     _Outptr_ IMarshal** bufferMarshaler
     );
 
-#ifdef __cplusplus
+
+#ifdef __cplusplus  
 namespace Windows { namespace Storage { namespace Streams {
 
 struct __declspec(uuid("905a0fef-bc53-11df-8c49-001e4fc686da")) IBufferByteAccess : public IUnknown

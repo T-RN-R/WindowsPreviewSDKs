@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #pragma once
 #ifndef _JOBAPISET2_H_
 #define _JOBAPISET2_H_
@@ -40,6 +42,7 @@ CreateJobObjectW(
     _In_opt_ LPCWSTR lpName
     );
 
+
 WINBASEAPI
 VOID
 WINAPI
@@ -56,6 +59,7 @@ OpenJobObjectW(
     _In_ LPCWSTR lpName
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -64,6 +68,7 @@ AssignProcessToJobObject(
     _In_ HANDLE hProcess
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -71,6 +76,7 @@ TerminateJobObject(
     _In_ HANDLE hJob,
     _In_ UINT uExitCode
     );
+
 
 WINBASEAPI
 BOOL
@@ -81,6 +87,7 @@ SetInformationJobObject(
     _In_reads_bytes_(cbJobObjectInformationLength) LPVOID lpJobObjectInformation,
     _In_ DWORD cbJobObjectInformationLength
     );
+
 
 WINBASEAPI
 DWORD
@@ -101,6 +108,7 @@ QueryInformationJobObject(
     _Out_opt_ LPDWORD lpReturnLength
     );
 
+
 WINBASEAPI
 DWORD
 WINAPI
@@ -110,6 +118,7 @@ QueryIoRateControlInformationJobObject(
     _Outptr_result_buffer_(*InfoBlockCount) JOBOBJECT_IO_RATE_CONTROL_INFORMATION** InfoBlocks,
     _Out_ ULONG* InfoBlockCount
     );
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 
 #pragma endregion

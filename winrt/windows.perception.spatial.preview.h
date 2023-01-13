@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -288,7 +288,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ISpatialGraphInteropFrameOfReferencePreview = __uuidof(ISpatialGraphInteropFrameOfReferencePreview);
+                    extern MIDL_CONST_ID IID& IID_ISpatialGraphInteropFrameOfReferencePreview = _uuidof(ISpatialGraphInteropFrameOfReferencePreview);
                 } /* Preview */
             } /* Spatial */
         } /* Perception */
@@ -342,7 +342,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ISpatialGraphInteropPreviewStatics = __uuidof(ISpatialGraphInteropPreviewStatics);
+                    extern MIDL_CONST_ID IID& IID_ISpatialGraphInteropPreviewStatics = _uuidof(ISpatialGraphInteropPreviewStatics);
                 } /* Preview */
             } /* Spatial */
         } /* Perception */
@@ -392,7 +392,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ISpatialGraphInteropPreviewStatics2 = __uuidof(ISpatialGraphInteropPreviewStatics2);
+                    extern MIDL_CONST_ID IID& IID_ISpatialGraphInteropPreviewStatics2 = _uuidof(ISpatialGraphInteropPreviewStatics2);
                 } /* Preview */
             } /* Spatial */
         } /* Perception */

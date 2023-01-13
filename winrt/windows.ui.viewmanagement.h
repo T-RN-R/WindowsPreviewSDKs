@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_PHONE_PHONECONTRACT_VERSION)
@@ -1963,29 +1963,6 @@ namespace ABI {
 
 /*
  *
- * Struct Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace ViewManagement {
-                enum ScreenCaptureDisabledBehavior : int
-                {
-                    ScreenCaptureDisabledBehavior_DrawAsBlack = 0,
-                    ScreenCaptureDisabledBehavior_ExcludeFromCapture = 1,
-                };
-            } /* ViewManagement */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
-
-/*
- *
  * Struct Windows.UI.ViewManagement.UIColorType
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -2177,7 +2154,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IAccessibilitySettings = __uuidof(IAccessibilitySettings);
+                extern MIDL_CONST_ID IID& IID_IAccessibilitySettings = _uuidof(IAccessibilitySettings);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2223,7 +2200,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IActivationViewSwitcher = __uuidof(IActivationViewSwitcher);
+                extern MIDL_CONST_ID IID& IID_IActivationViewSwitcher = _uuidof(IActivationViewSwitcher);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2296,7 +2273,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationView = __uuidof(IApplicationView);
+                extern MIDL_CONST_ID IID& IID_IApplicationView = _uuidof(IApplicationView);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2358,7 +2335,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationView2 = __uuidof(IApplicationView2);
+                extern MIDL_CONST_ID IID& IID_IApplicationView2 = _uuidof(IApplicationView2);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2415,7 +2392,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationView3 = __uuidof(IApplicationView3);
+                extern MIDL_CONST_ID IID& IID_IApplicationView3 = _uuidof(IApplicationView3);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2467,7 +2444,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationView4 = __uuidof(IApplicationView4);
+                extern MIDL_CONST_ID IID& IID_IApplicationView4 = _uuidof(IApplicationView4);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2506,7 +2483,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationView7 = __uuidof(IApplicationView7);
+                extern MIDL_CONST_ID IID& IID_IApplicationView7 = _uuidof(IApplicationView7);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2545,7 +2522,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationView9 = __uuidof(IApplicationView9);
+                extern MIDL_CONST_ID IID& IID_IApplicationView9 = _uuidof(IApplicationView9);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2581,7 +2558,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewConsolidatedEventArgs = __uuidof(IApplicationViewConsolidatedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewConsolidatedEventArgs = _uuidof(IApplicationViewConsolidatedEventArgs);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2617,7 +2594,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewConsolidatedEventArgs2 = __uuidof(IApplicationViewConsolidatedEventArgs2);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewConsolidatedEventArgs2 = _uuidof(IApplicationViewConsolidatedEventArgs2);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2659,7 +2636,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewFullscreenStatics = __uuidof(IApplicationViewFullscreenStatics);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewFullscreenStatics = _uuidof(IApplicationViewFullscreenStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2696,7 +2673,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewInteropStatics = __uuidof(IApplicationViewInteropStatics);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewInteropStatics = _uuidof(IApplicationViewInteropStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2729,7 +2706,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewScaling = __uuidof(IApplicationViewScaling);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewScaling = _uuidof(IApplicationViewScaling);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2769,7 +2746,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewScalingStatics = __uuidof(IApplicationViewScalingStatics);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewScalingStatics = _uuidof(IApplicationViewScalingStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2817,7 +2794,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewStatics = __uuidof(IApplicationViewStatics);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewStatics = _uuidof(IApplicationViewStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2859,7 +2836,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewStatics2 = __uuidof(IApplicationViewStatics2);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewStatics2 = _uuidof(IApplicationViewStatics2);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2904,7 +2881,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewStatics3 = __uuidof(IApplicationViewStatics3);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewStatics3 = _uuidof(IApplicationViewStatics3);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -2941,7 +2918,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewStatics4 = __uuidof(IApplicationViewStatics4);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewStatics4 = _uuidof(IApplicationViewStatics4);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3012,7 +2989,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewSwitcherStatics = __uuidof(IApplicationViewSwitcherStatics);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewSwitcherStatics = _uuidof(IApplicationViewSwitcherStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3046,7 +3023,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE DisableSystemViewActivationPolicy(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewSwitcherStatics2 = __uuidof(IApplicationViewSwitcherStatics2);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewSwitcherStatics2 = _uuidof(IApplicationViewSwitcherStatics2);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3090,7 +3067,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewSwitcherStatics3 = __uuidof(IApplicationViewSwitcherStatics3);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewSwitcherStatics3 = _uuidof(IApplicationViewSwitcherStatics3);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3195,7 +3172,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewTitleBar = __uuidof(IApplicationViewTitleBar);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewTitleBar = _uuidof(IApplicationViewTitleBar);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3234,7 +3211,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewTransferContext = __uuidof(IApplicationViewTransferContext);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewTransferContext = _uuidof(IApplicationViewTransferContext);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3270,7 +3247,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewTransferContextStatics = __uuidof(IApplicationViewTransferContextStatics);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewTransferContextStatics = _uuidof(IApplicationViewTransferContextStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3306,7 +3283,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IApplicationViewWithContext = __uuidof(IApplicationViewWithContext);
+                extern MIDL_CONST_ID IID& IID_IApplicationViewWithContext = _uuidof(IApplicationViewWithContext);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3356,7 +3333,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInputPane = __uuidof(IInputPane);
+                extern MIDL_CONST_ID IID& IID_IInputPane = _uuidof(IInputPane);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3395,7 +3372,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInputPane2 = __uuidof(IInputPane2);
+                extern MIDL_CONST_ID IID& IID_IInputPane2 = _uuidof(IInputPane2);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3434,7 +3411,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInputPaneControl = __uuidof(IInputPaneControl);
+                extern MIDL_CONST_ID IID& IID_IInputPaneControl = _uuidof(IInputPaneControl);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3470,7 +3447,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInputPaneStatics = __uuidof(IInputPaneStatics);
+                extern MIDL_CONST_ID IID& IID_IInputPaneStatics = _uuidof(IInputPaneStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3507,7 +3484,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInputPaneStatics2 = __uuidof(IInputPaneStatics2);
+                extern MIDL_CONST_ID IID& IID_IInputPaneStatics2 = _uuidof(IInputPaneStatics2);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3549,7 +3526,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IInputPaneVisibilityEventArgs = __uuidof(IInputPaneVisibilityEventArgs);
+                extern MIDL_CONST_ID IID& IID_IInputPaneVisibilityEventArgs = _uuidof(IInputPaneVisibilityEventArgs);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3607,7 +3584,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IProjectionManagerStatics = __uuidof(IProjectionManagerStatics);
+                extern MIDL_CONST_ID IID& IID_IProjectionManagerStatics = _uuidof(IProjectionManagerStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3662,7 +3639,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IProjectionManagerStatics2 = __uuidof(IProjectionManagerStatics2);
+                extern MIDL_CONST_ID IID& IID_IProjectionManagerStatics2 = _uuidof(IProjectionManagerStatics2);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3739,7 +3716,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IStatusBar = __uuidof(IStatusBar);
+                extern MIDL_CONST_ID IID& IID_IStatusBar = _uuidof(IStatusBar);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3790,7 +3767,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IStatusBarProgressIndicator = __uuidof(IStatusBarProgressIndicator);
+                extern MIDL_CONST_ID IID& IID_IStatusBarProgressIndicator = _uuidof(IStatusBarProgressIndicator);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3826,7 +3803,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IStatusBarStatics = __uuidof(IStatusBarStatics);
+                extern MIDL_CONST_ID IID& IID_IStatusBarStatics = _uuidof(IStatusBarStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3899,7 +3876,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettings = __uuidof(IUISettings);
+                extern MIDL_CONST_ID IID& IID_IUISettings = _uuidof(IUISettings);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3942,7 +3919,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettings2 = __uuidof(IUISettings2);
+                extern MIDL_CONST_ID IID& IID_IUISettings2 = _uuidof(IUISettings2);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -3986,7 +3963,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettings3 = __uuidof(IUISettings3);
+                extern MIDL_CONST_ID IID& IID_IUISettings3 = _uuidof(IUISettings3);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4029,7 +4006,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettings4 = __uuidof(IUISettings4);
+                extern MIDL_CONST_ID IID& IID_IUISettings4 = _uuidof(IUISettings4);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4072,7 +4049,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettings5 = __uuidof(IUISettings5);
+                extern MIDL_CONST_ID IID& IID_IUISettings5 = _uuidof(IUISettings5);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4119,7 +4096,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettings6 = __uuidof(IUISettings6);
+                extern MIDL_CONST_ID IID& IID_IUISettings6 = _uuidof(IUISettings6);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4152,7 +4129,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettingsAnimationsEnabledChangedEventArgs = __uuidof(IUISettingsAnimationsEnabledChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IUISettingsAnimationsEnabledChangedEventArgs = _uuidof(IUISettingsAnimationsEnabledChangedEventArgs);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4185,7 +4162,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettingsAutoHideScrollBarsChangedEventArgs = __uuidof(IUISettingsAutoHideScrollBarsChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IUISettingsAutoHideScrollBarsChangedEventArgs = _uuidof(IUISettingsAutoHideScrollBarsChangedEventArgs);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4218,7 +4195,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IUISettingsMessageDurationChangedEventArgs = __uuidof(IUISettingsMessageDurationChangedEventArgs);
+                extern MIDL_CONST_ID IID& IID_IUISettingsMessageDurationChangedEventArgs = _uuidof(IUISettingsMessageDurationChangedEventArgs);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4254,7 +4231,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUIViewSettings = __uuidof(IUIViewSettings);
+                extern MIDL_CONST_ID IID& IID_IUIViewSettings = _uuidof(IUIViewSettings);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4290,7 +4267,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IUIViewSettingsStatics = __uuidof(IUIViewSettingsStatics);
+                extern MIDL_CONST_ID IID& IID_IUIViewSettingsStatics = _uuidof(IUIViewSettingsStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4335,7 +4312,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IViewModePreferences = __uuidof(IViewModePreferences);
+                extern MIDL_CONST_ID IID& IID_IViewModePreferences = _uuidof(IViewModePreferences);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4372,7 +4349,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IViewModePreferencesStatics = __uuidof(IViewModePreferencesStatics);
+                extern MIDL_CONST_ID IID& IID_IViewModePreferencesStatics = _uuidof(IViewModePreferencesStatics);
             } /* ViewManagement */
         } /* UI */
     } /* Windows */
@@ -4430,11 +4407,11 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewFullscreenStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics3 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics4 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics3 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewFullscreenStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewInteropStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
@@ -4505,8 +4482,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -4570,8 +4547,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics2 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.ViewManagement.IInputPane ** Default Interface **
@@ -6278,21 +6255,6 @@ enum __x_ABI_CWindows_CUI_CViewManagement_CHandPreference
     HandPreference_RightHanded = 1,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Struct Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
-enum __x_ABI_CWindows_CUI_CViewManagement_CScreenCaptureDisabledBehavior
-{
-    ScreenCaptureDisabledBehavior_DrawAsBlack = 0,
-    ScreenCaptureDisabledBehavior_ExcludeFromCapture = 1,
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 
 /*
  *
@@ -10614,11 +10576,11 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewFullscreenStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics3 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics4 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics3 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewFullscreenStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewInteropStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
@@ -10689,8 +10651,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -10754,8 +10716,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics2 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.ViewManagement.IInputPane ** Default Interface **

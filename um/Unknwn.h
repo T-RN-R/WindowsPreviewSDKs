@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -199,18 +191,15 @@ EXTERN_C const IID IID_IUnknown;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IUnknown * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IUnknown * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IUnknown * This);
         
@@ -335,45 +324,36 @@ EXTERN_C const IID IID_AsyncIUnknown;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             AsyncIUnknown * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             AsyncIUnknown * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             AsyncIUnknown * This);
         
-        DECLSPEC_XFGVIRT(AsyncIUnknown, Begin_QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *Begin_QueryInterface )( 
             AsyncIUnknown * This,
             /* [in] */ REFIID riid);
         
-        DECLSPEC_XFGVIRT(AsyncIUnknown, Finish_QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *Finish_QueryInterface )( 
             AsyncIUnknown * This,
             /* [annotation][out] */ 
             __RPC__deref_out  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(AsyncIUnknown, Begin_AddRef)
         HRESULT ( STDMETHODCALLTYPE *Begin_AddRef )( 
             AsyncIUnknown * This);
         
-        DECLSPEC_XFGVIRT(AsyncIUnknown, Finish_AddRef)
         ULONG ( STDMETHODCALLTYPE *Finish_AddRef )( 
             AsyncIUnknown * This);
         
-        DECLSPEC_XFGVIRT(AsyncIUnknown, Begin_Release)
         HRESULT ( STDMETHODCALLTYPE *Begin_Release )( 
             AsyncIUnknown * This);
         
-        DECLSPEC_XFGVIRT(AsyncIUnknown, Finish_Release)
         ULONG ( STDMETHODCALLTYPE *Finish_Release )( 
             AsyncIUnknown * This);
         
@@ -478,22 +458,18 @@ EXTERN_C const IID IID_IClassFactory;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IClassFactory * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IClassFactory * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IClassFactory * This);
         
-        DECLSPEC_XFGVIRT(IClassFactory, CreateInstance)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *CreateInstance )( 
             IClassFactory * This,
             /* [annotation][unique][in] */ 
@@ -503,7 +479,6 @@ EXTERN_C const IID IID_IClassFactory;
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IClassFactory, LockServer)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *LockServer )( 
             IClassFactory * This,
             /* [in] */ BOOL fLock);

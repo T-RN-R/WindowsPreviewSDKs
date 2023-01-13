@@ -96,7 +96,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -301,7 +301,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE ShowBlockedMessagesUI(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICommunicationBlockingAccessManagerStatics = __uuidof(ICommunicationBlockingAccessManagerStatics);
+                extern MIDL_CONST_ID IID& IID_ICommunicationBlockingAccessManagerStatics = _uuidof(ICommunicationBlockingAccessManagerStatics);
             } /* CommunicationBlocking */
         } /* ApplicationModel */
     } /* Windows */
@@ -338,7 +338,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE ShowCommunicationBlockingSettingsUI(void) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICommunicationBlockingAppManagerStatics = __uuidof(ICommunicationBlockingAppManagerStatics);
+                extern MIDL_CONST_ID IID& IID_ICommunicationBlockingAppManagerStatics = _uuidof(ICommunicationBlockingAppManagerStatics);
             } /* CommunicationBlocking */
         } /* ApplicationModel */
     } /* Windows */
@@ -377,7 +377,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_ICommunicationBlockingAppManagerStatics2 = __uuidof(ICommunicationBlockingAppManagerStatics2);
+                extern MIDL_CONST_ID IID& IID_ICommunicationBlockingAppManagerStatics2 = _uuidof(ICommunicationBlockingAppManagerStatics2);
             } /* CommunicationBlocking */
         } /* ApplicationModel */
     } /* Windows */

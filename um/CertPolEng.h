@@ -12,6 +12,13 @@
 extern "C" {
 #endif
 
+#if !defined(_CERT_POL_ENG_)
+#define CERTPOLENGAPI DECLSPEC_IMPORT
+#else 
+#define CERTPOLENGAPI
+#endif
+
+CERTPOLENGAPI
 NTSTATUS 
 NTAPI
 PstGetTrustAnchors(
@@ -21,6 +28,7 @@ PstGetTrustAnchors(
     _Outptr_                       PSecPkgContext_IssuerListInfoEx*            ppTrustedIssuers
     );
 
+CERTPOLENGAPI
 NTSTATUS 
 NTAPI
 PstGetTrustAnchorsEx(
@@ -31,6 +39,7 @@ PstGetTrustAnchorsEx(
     _Outptr_                       PSecPkgContext_IssuerListInfoEx*            ppTrustedIssuers
     );
 
+CERTPOLENGAPI
 NTSTATUS 
 NTAPI
 PstGetCertificateChain(
@@ -39,6 +48,7 @@ PstGetCertificateChain(
     _Out_                                   PCCERT_CHAIN_CONTEXT*               ppCertChainContext
     );
     
+CERTPOLENGAPI
 NTSTATUS 
 NTAPI
 PstGetCertificates(
@@ -50,6 +60,7 @@ PstGetCertificates(
     _Outptr_result_buffer_(*pdwCertChainContextCount) PCCERT_CHAIN_CONTEXT**    ppCertChainContexts
     );
     
+CERTPOLENGAPI
 NTSTATUS
 NTAPI
 PstAcquirePrivateKey(
@@ -57,6 +68,7 @@ PstAcquirePrivateKey(
     );
 
 
+CERTPOLENGAPI
 NTSTATUS 
 NTAPI
 PstValidate(
@@ -68,6 +80,7 @@ PstValidate(
     _Out_opt_                               GUID*                               pProvGUID
    );
 
+CERTPOLENGAPI
 NTSTATUS 
 NTAPI
 PstMapCertificate(
@@ -76,6 +89,7 @@ PstMapCertificate(
     _Outptr_                             PVOID*                              ppTokenInformation
   );
 
+CERTPOLENGAPI
 NTSTATUS 
 NTAPI
 PstGetUserNameForCertificate(

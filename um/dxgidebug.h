@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -392,22 +384,18 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDXGIInfoQueue * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDXGIInfoQueue * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDXGIInfoQueue * This);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, SetMessageCountLimit)
         HRESULT ( STDMETHODCALLTYPE *SetMessageCountLimit )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -415,13 +403,11 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  UINT64 MessageCountLimit);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, ClearStoredMessages)
         void ( STDMETHODCALLTYPE *ClearStoredMessages )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetMessage)
         HRESULT ( STDMETHODCALLTYPE *GetMessage )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -433,43 +419,36 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _Inout_  SIZE_T *pMessageByteLength);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetNumStoredMessagesAllowedByRetrievalFilters)
         UINT64 ( STDMETHODCALLTYPE *GetNumStoredMessagesAllowedByRetrievalFilters )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetNumStoredMessages)
         UINT64 ( STDMETHODCALLTYPE *GetNumStoredMessages )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetNumMessagesDiscardedByMessageCountLimit)
         UINT64 ( STDMETHODCALLTYPE *GetNumMessagesDiscardedByMessageCountLimit )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetMessageCountLimit)
         UINT64 ( STDMETHODCALLTYPE *GetMessageCountLimit )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetNumMessagesAllowedByStorageFilter)
         UINT64 ( STDMETHODCALLTYPE *GetNumMessagesAllowedByStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetNumMessagesDeniedByStorageFilter)
         UINT64 ( STDMETHODCALLTYPE *GetNumMessagesDeniedByStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, AddStorageFilterEntries)
         HRESULT ( STDMETHODCALLTYPE *AddStorageFilterEntries )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -477,7 +456,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  DXGI_INFO_QUEUE_FILTER *pFilter);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetStorageFilter)
         HRESULT ( STDMETHODCALLTYPE *GetStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -487,31 +465,26 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _Inout_  SIZE_T *pFilterByteLength);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, ClearStorageFilter)
         void ( STDMETHODCALLTYPE *ClearStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PushEmptyStorageFilter)
         HRESULT ( STDMETHODCALLTYPE *PushEmptyStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PushDenyAllStorageFilter)
         HRESULT ( STDMETHODCALLTYPE *PushDenyAllStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PushCopyOfStorageFilter)
         HRESULT ( STDMETHODCALLTYPE *PushCopyOfStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PushStorageFilter)
         HRESULT ( STDMETHODCALLTYPE *PushStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -519,19 +492,16 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  DXGI_INFO_QUEUE_FILTER *pFilter);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PopStorageFilter)
         void ( STDMETHODCALLTYPE *PopStorageFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetStorageFilterStackSize)
         UINT ( STDMETHODCALLTYPE *GetStorageFilterStackSize )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, AddRetrievalFilterEntries)
         HRESULT ( STDMETHODCALLTYPE *AddRetrievalFilterEntries )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -539,7 +509,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  DXGI_INFO_QUEUE_FILTER *pFilter);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetRetrievalFilter)
         HRESULT ( STDMETHODCALLTYPE *GetRetrievalFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -549,31 +518,26 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _Inout_  SIZE_T *pFilterByteLength);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, ClearRetrievalFilter)
         void ( STDMETHODCALLTYPE *ClearRetrievalFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PushEmptyRetrievalFilter)
         HRESULT ( STDMETHODCALLTYPE *PushEmptyRetrievalFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PushDenyAllRetrievalFilter)
         HRESULT ( STDMETHODCALLTYPE *PushDenyAllRetrievalFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PushCopyOfRetrievalFilter)
         HRESULT ( STDMETHODCALLTYPE *PushCopyOfRetrievalFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PushRetrievalFilter)
         HRESULT ( STDMETHODCALLTYPE *PushRetrievalFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -581,19 +545,16 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  DXGI_INFO_QUEUE_FILTER *pFilter);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, PopRetrievalFilter)
         void ( STDMETHODCALLTYPE *PopRetrievalFilter )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetRetrievalFilterStackSize)
         UINT ( STDMETHODCALLTYPE *GetRetrievalFilterStackSize )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
             _In_  DXGI_DEBUG_ID Producer);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, AddMessage)
         HRESULT ( STDMETHODCALLTYPE *AddMessage )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -607,7 +568,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  LPCSTR pDescription);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, AddApplicationMessage)
         HRESULT ( STDMETHODCALLTYPE *AddApplicationMessage )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -615,7 +575,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  LPCSTR pDescription);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, SetBreakOnCategory)
         HRESULT ( STDMETHODCALLTYPE *SetBreakOnCategory )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -625,7 +584,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  BOOL bEnable);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, SetBreakOnSeverity)
         HRESULT ( STDMETHODCALLTYPE *SetBreakOnSeverity )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -635,7 +593,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  BOOL bEnable);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, SetBreakOnID)
         HRESULT ( STDMETHODCALLTYPE *SetBreakOnID )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -645,7 +602,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  BOOL bEnable);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetBreakOnCategory)
         BOOL ( STDMETHODCALLTYPE *GetBreakOnCategory )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -653,7 +609,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  DXGI_INFO_QUEUE_MESSAGE_CATEGORY Category);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetBreakOnSeverity)
         BOOL ( STDMETHODCALLTYPE *GetBreakOnSeverity )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -661,7 +616,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  DXGI_INFO_QUEUE_MESSAGE_SEVERITY Severity);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetBreakOnID)
         BOOL ( STDMETHODCALLTYPE *GetBreakOnID )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -669,7 +623,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  DXGI_INFO_QUEUE_MESSAGE_ID ID);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, SetMuteDebugOutput)
         void ( STDMETHODCALLTYPE *SetMuteDebugOutput )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -677,7 +630,6 @@ EXTERN_C const IID IID_IDXGIInfoQueue;
             /* [annotation] */ 
             _In_  BOOL bMute);
         
-        DECLSPEC_XFGVIRT(IDXGIInfoQueue, GetMuteDebugOutput)
         BOOL ( STDMETHODCALLTYPE *GetMuteDebugOutput )( 
             IDXGIInfoQueue * This,
             /* [annotation] */ 
@@ -856,22 +808,18 @@ EXTERN_C const IID IID_IDXGIDebug;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDXGIDebug * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDXGIDebug * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDXGIDebug * This);
         
-        DECLSPEC_XFGVIRT(IDXGIDebug, ReportLiveObjects)
         HRESULT ( STDMETHODCALLTYPE *ReportLiveObjects )( 
             IDXGIDebug * This,
             GUID apiid,
@@ -944,36 +892,29 @@ EXTERN_C const IID IID_IDXGIDebug1;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDXGIDebug1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDXGIDebug1 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDXGIDebug1 * This);
         
-        DECLSPEC_XFGVIRT(IDXGIDebug, ReportLiveObjects)
         HRESULT ( STDMETHODCALLTYPE *ReportLiveObjects )( 
             IDXGIDebug1 * This,
             GUID apiid,
             DXGI_DEBUG_RLO_FLAGS flags);
         
-        DECLSPEC_XFGVIRT(IDXGIDebug1, EnableLeakTrackingForThread)
         void ( STDMETHODCALLTYPE *EnableLeakTrackingForThread )( 
             IDXGIDebug1 * This);
         
-        DECLSPEC_XFGVIRT(IDXGIDebug1, DisableLeakTrackingForThread)
         void ( STDMETHODCALLTYPE *DisableLeakTrackingForThread )( 
             IDXGIDebug1 * This);
         
-        DECLSPEC_XFGVIRT(IDXGIDebug1, IsLeakTrackingEnabledForThread)
         BOOL ( STDMETHODCALLTYPE *IsLeakTrackingEnabledForThread )( 
             IDXGIDebug1 * This);
         

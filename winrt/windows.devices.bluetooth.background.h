@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_NETWORKING_SOCKETS_CONTROLCHANNELTRIGGERCONTRACT_VERSION)
@@ -964,7 +964,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IBluetoothLEAdvertisementPublisherTriggerDetails = __uuidof(IBluetoothLEAdvertisementPublisherTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IBluetoothLEAdvertisementPublisherTriggerDetails = _uuidof(IBluetoothLEAdvertisementPublisherTriggerDetails);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1002,7 +1002,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IBluetoothLEAdvertisementPublisherTriggerDetails2 = __uuidof(IBluetoothLEAdvertisementPublisherTriggerDetails2);
+                    extern MIDL_CONST_ID IID& IID_IBluetoothLEAdvertisementPublisherTriggerDetails2 = _uuidof(IBluetoothLEAdvertisementPublisherTriggerDetails2);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1046,7 +1046,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IBluetoothLEAdvertisementWatcherTriggerDetails = __uuidof(IBluetoothLEAdvertisementWatcherTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IBluetoothLEAdvertisementWatcherTriggerDetails = _uuidof(IBluetoothLEAdvertisementWatcherTriggerDetails);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1087,7 +1087,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IGattCharacteristicNotificationTriggerDetails = __uuidof(IGattCharacteristicNotificationTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IGattCharacteristicNotificationTriggerDetails = _uuidof(IGattCharacteristicNotificationTriggerDetails);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1131,7 +1131,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IGattCharacteristicNotificationTriggerDetails2 = __uuidof(IGattCharacteristicNotificationTriggerDetails2);
+                    extern MIDL_CONST_ID IID& IID_IGattCharacteristicNotificationTriggerDetails2 = _uuidof(IGattCharacteristicNotificationTriggerDetails2);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1173,7 +1173,7 @@ namespace ABI {
                         virtual HRESULT STDMETHODCALLTYPE Start(void) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IGattServiceProviderConnection = __uuidof(IGattServiceProviderConnection);
+                    extern MIDL_CONST_ID IID& IID_IGattServiceProviderConnection = _uuidof(IGattServiceProviderConnection);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1211,7 +1211,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IGattServiceProviderConnectionStatics = __uuidof(IGattServiceProviderConnectionStatics);
+                    extern MIDL_CONST_ID IID& IID_IGattServiceProviderConnectionStatics = _uuidof(IGattServiceProviderConnectionStatics);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1249,7 +1249,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IGattServiceProviderTriggerDetails = __uuidof(IGattServiceProviderTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IGattServiceProviderTriggerDetails = _uuidof(IGattServiceProviderTriggerDetails);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1293,7 +1293,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IRfcommConnectionTriggerDetails = __uuidof(IRfcommConnectionTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IRfcommConnectionTriggerDetails = _uuidof(IRfcommConnectionTriggerDetails);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1346,7 +1346,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IRfcommInboundConnectionInformation = __uuidof(IRfcommInboundConnectionInformation);
+                    extern MIDL_CONST_ID IID& IID_IRfcommInboundConnectionInformation = _uuidof(IRfcommInboundConnectionInformation);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */
@@ -1387,7 +1387,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IRfcommOutboundConnectionInformation = __uuidof(IRfcommOutboundConnectionInformation);
+                    extern MIDL_CONST_ID IID& IID_IRfcommOutboundConnectionInformation = _uuidof(IRfcommOutboundConnectionInformation);
                 } /* Background */
             } /* Bluetooth */
         } /* Devices */

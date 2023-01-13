@@ -79,10 +79,6 @@ enum ErrorPropagationPolicy
 {
     PropagateDelegateError = 1,
     IgnoreDelegateError = 2
-#if defined(BUILD_WINDOWS)
-    // negative numbers are a good choice for Windows defined ErrorPropagationPolicy.
-    , PropagateErrorWithWin8Quirk = -1
-#endif
 };
 
 namespace Details
@@ -283,7 +279,7 @@ struct AsyncCausalityOptionsHelper < true, TComplete, TOptions >
         return TOptions::GetPlatformId();
     }
 
-    static ::ABI::Windows::Foundation::Diagnostics::CausalitySource GetCausalitySource()
+    static const ::ABI::Windows::Foundation::Diagnostics::CausalitySource GetCausalitySource()
     {
         return TOptions::GetCausalitySource();
     }
@@ -552,14 +548,14 @@ public:
     // since this is designed to be used inside of a RuntimeClass<> template, we can
     // only have a default constructor
     AsyncBase() :
-        cCallbackMade_(0),
-        cCompleteDelegateAssigned_(0),
+        currentStatus_(Details::AsyncStatusInternal::_Created),
+        id_(1),
+        errorCode_(S_OK),
         completeDelegate_(nullptr),
         completeDelegateBucketAssist_(nullptr),
-        currentStatus_(Details::AsyncStatusInternal::_Created),
-        errorCode_(S_OK),
-        id_(1),
-        asyncOperationBucketAssist_(nullptr)
+        asyncOperationBucketAssist_(nullptr),
+        cCompleteDelegateAssigned_(0),
+        cCallbackMade_(0)
     {
     }
 
@@ -662,7 +658,7 @@ protected:
 
 public:
     // IAsyncInfo::Cancel
-    STDMETHOD(Cancel)(void) override
+    STDMETHOD(Cancel)(void)
     {
         if (TransitionToState(Details::_Canceled))
         {
@@ -961,10 +957,6 @@ private:
         UNREFERENCED_PARAMETER(Parameter);
         UNREFERENCED_PARAMETER(Context);
 
-        __WRL_ASSERT__(!Context);
-        _Analysis_assume_(!Context);
-
-
 #ifdef _NO_CAUSALITY_DOWNLEVEL_
         // do not attempt to trace causality on OS versions less than 6.2 (Windows 8)
         OSVERSIONINFOEX osvi;
@@ -996,7 +988,7 @@ private:
         }
 #endif
     }
-#endif // _WRL_DISABLE_CAUSALITY_
+#endif _WRL_DISABLE_CAUSALITY_
 
     // This method is used to check if calls to the AsyncInfo properties
     // (id, status, error code) are legal in the current state. It also

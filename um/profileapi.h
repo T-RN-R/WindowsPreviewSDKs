@@ -1,10 +1,12 @@
 /********************************************************************************
 *                                                                               *
-* profileapi.h -- ApiSet Contract for api-ms-win-core-profile-l1                *
+* profileapi.h -- ApiSet Contract for api-ms-win-core-profile-l1                *  
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
+
+
 
 #ifdef _MSC_VER
 #pragma once
@@ -35,12 +37,14 @@ QueryPerformanceCounter(
     _Out_ LARGE_INTEGER* lpPerformanceCount
     );
 
+
 WINBASEAPI
 BOOL
 WINAPI
 QueryPerformanceFrequency(
     _Out_ LARGE_INTEGER* lpFrequency
     );
+
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion

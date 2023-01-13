@@ -1,14 +1,12 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_Media_DialProtocol_H
 #define WINRT_Windows_Media_DialProtocol_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.220418.1"), "Mismatched C++/WinRT headers.");
-#define CPPWINRT_VERSION "2.0.220418.1"
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Media.h"
 #include "winrt/impl/Windows.Devices.Enumeration.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -21,208 +19,208 @@ namespace winrt::impl
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialApp<D>::AppName() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialApp)->get_AppName(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialApp)->get_AppName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialApp<D>::RequestLaunchAsync(param::hstring const& appArgument) const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialApp)->RequestLaunchAsync(*(void**)(&appArgument), &value));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialAppLaunchResult>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialApp)->RequestLaunchAsync(*(void**)(&appArgument), &value));
+        return Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialAppLaunchResult>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialApp<D>::StopAsync() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialApp)->StopAsync(&value));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialAppStopResult>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialApp)->StopAsync(&value));
+        return Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialAppStopResult>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialApp<D>::GetAppStateAsync() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialApp)->GetAppStateAsync(&value));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialAppStateDetails>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialApp)->GetAppStateAsync(&value));
+        return Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialAppStateDetails>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialAppStateDetails<D>::State() const
     {
-        winrt::Windows::Media::DialProtocol::DialAppState value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialAppStateDetails)->get_State(reinterpret_cast<int32_t*>(&value)));
+        Windows::Media::DialProtocol::DialAppState value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialAppStateDetails)->get_State(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialAppStateDetails<D>::FullXml() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialAppStateDetails)->get_FullXml(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialAppStateDetails)->get_FullXml(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevice<D>::Id() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevice)->get_Id(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevice)->get_Id(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevice<D>::GetDialApp(param::hstring const& appName) const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevice)->GetDialApp(*(void**)(&appName), &value));
-        return winrt::Windows::Media::DialProtocol::DialApp{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevice)->GetDialApp(*(void**)(&appName), &value));
+        return Windows::Media::DialProtocol::DialApp{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevice2<D>::FriendlyName() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevice2)->get_FriendlyName(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevice2)->get_FriendlyName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevice2<D>::Thumbnail() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevice2)->get_Thumbnail(&value));
-        return winrt::Windows::Storage::Streams::IRandomAccessStreamReference{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevice2)->get_Thumbnail(&value));
+        return Windows::Storage::Streams::IRandomAccessStreamReference{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::Filter() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->get_Filter(&value));
-        return winrt::Windows::Media::DialProtocol::DialDevicePickerFilter{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->get_Filter(&value));
+        return Windows::Media::DialProtocol::DialDevicePickerFilter{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::Appearance() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->get_Appearance(&value));
-        return winrt::Windows::Devices::Enumeration::DevicePickerAppearance{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->get_Appearance(&value));
+        return Windows::Devices::Enumeration::DevicePickerAppearance{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDeviceSelected(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Media::DialProtocol::DialDeviceSelectedEventArgs> const& handler) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDeviceSelected(Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Media::DialProtocol::DialDeviceSelectedEventArgs> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->add_DialDeviceSelected(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->add_DialDeviceSelected(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDeviceSelected_revoker consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDeviceSelected(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Media::DialProtocol::DialDeviceSelectedEventArgs> const& handler) const
+    template <typename D> typename consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDeviceSelected_revoker consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDeviceSelected(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Media::DialProtocol::DialDeviceSelectedEventArgs> const& handler) const
     {
         return impl::make_event_revoker<D, DialDeviceSelected_revoker>(this, DialDeviceSelected(handler));
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDeviceSelected(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->remove_DialDeviceSelected(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->remove_DialDeviceSelected(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DisconnectButtonClicked(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Media::DialProtocol::DialDisconnectButtonClickedEventArgs> const& handler) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DisconnectButtonClicked(Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Media::DialProtocol::DialDisconnectButtonClickedEventArgs> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->add_DisconnectButtonClicked(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->add_DisconnectButtonClicked(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DisconnectButtonClicked_revoker consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DisconnectButtonClicked(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Media::DialProtocol::DialDisconnectButtonClickedEventArgs> const& handler) const
+    template <typename D> typename consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DisconnectButtonClicked_revoker consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DisconnectButtonClicked(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Media::DialProtocol::DialDisconnectButtonClickedEventArgs> const& handler) const
     {
         return impl::make_event_revoker<D, DisconnectButtonClicked_revoker>(this, DisconnectButtonClicked(handler));
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DisconnectButtonClicked(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->remove_DisconnectButtonClicked(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->remove_DisconnectButtonClicked(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDevicePickerDismissed(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDevicePickerDismissed(Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token token{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->add_DialDevicePickerDismissed(*(void**)(&handler), put_abi(token)));
+        winrt::event_token token;
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->add_DialDevicePickerDismissed(*(void**)(&handler), put_abi(token)));
         return token;
     }
-    template <typename D> typename consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDevicePickerDismissed_revoker consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDevicePickerDismissed(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> typename consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDevicePickerDismissed_revoker consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDevicePickerDismissed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Foundation::IInspectable> const& handler) const
     {
         return impl::make_event_revoker<D, DialDevicePickerDismissed_revoker>(this, DialDevicePickerDismissed(handler));
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::DialDevicePickerDismissed(winrt::event_token const& token) const noexcept
     {
-        WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->remove_DialDevicePickerDismissed(impl::bind_in(token));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->remove_DialDevicePickerDismissed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::Show(winrt::Windows::Foundation::Rect const& selection) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::Show(Windows::Foundation::Rect const& selection) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->Show(impl::bind_in(selection)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->Show(impl::bind_in(selection)));
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::Show(winrt::Windows::Foundation::Rect const& selection, winrt::Windows::UI::Popups::Placement const& preferredPlacement) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::Show(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->ShowWithPlacement(impl::bind_in(selection), static_cast<int32_t>(preferredPlacement)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->ShowWithPlacement(impl::bind_in(selection), static_cast<int32_t>(preferredPlacement)));
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::PickSingleDialDeviceAsync(winrt::Windows::Foundation::Rect const& selection) const
-    {
-        void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->PickSingleDialDeviceAsync(impl::bind_in(selection), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialDevice>{ operation, take_ownership_from_abi };
-    }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::PickSingleDialDeviceAsync(winrt::Windows::Foundation::Rect const& selection, winrt::Windows::UI::Popups::Placement const& preferredPlacement) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::PickSingleDialDeviceAsync(Windows::Foundation::Rect const& selection) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->PickSingleDialDeviceAsyncWithPlacement(impl::bind_in(selection), static_cast<int32_t>(preferredPlacement), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialDevice>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->PickSingleDialDeviceAsync(impl::bind_in(selection), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialDevice>{ operation, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::PickSingleDialDeviceAsync(Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->PickSingleDialDeviceAsyncWithPlacement(impl::bind_in(selection), static_cast<int32_t>(preferredPlacement), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialDevice>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::Hide() const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->Hide());
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->Hide());
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::SetDisplayStatus(winrt::Windows::Media::DialProtocol::DialDevice const& device, winrt::Windows::Media::DialProtocol::DialDeviceDisplayStatus const& status) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePicker<D>::SetDisplayStatus(Windows::Media::DialProtocol::DialDevice const& device, Windows::Media::DialProtocol::DialDeviceDisplayStatus const& status) const
     {
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePicker)->SetDisplayStatus(*(void**)(&device), static_cast<int32_t>(status)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePicker)->SetDisplayStatus(*(void**)(&device), static_cast<int32_t>(status)));
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDevicePickerFilter<D>::SupportedAppNames() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDevicePickerFilter)->get_SupportedAppNames(&value));
-        return winrt::Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDevicePickerFilter)->get_SupportedAppNames(&value));
+        return Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDeviceSelectedEventArgs<D>::SelectedDialDevice() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDeviceSelectedEventArgs)->get_SelectedDialDevice(&value));
-        return winrt::Windows::Media::DialProtocol::DialDevice{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDeviceSelectedEventArgs)->get_SelectedDialDevice(&value));
+        return Windows::Media::DialProtocol::DialDevice{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDeviceStatics<D>::GetDeviceSelector(param::hstring const& appName) const
     {
         void* selector{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDeviceStatics)->GetDeviceSelector(*(void**)(&appName), &selector));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDeviceStatics)->GetDeviceSelector(*(void**)(&appName), &selector));
         return hstring{ selector, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDeviceStatics<D>::FromIdAsync(param::hstring const& value) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDeviceStatics)->FromIdAsync(*(void**)(&value), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialDevice>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDeviceStatics)->FromIdAsync(*(void**)(&value), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialDevice>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDeviceStatics<D>::DeviceInfoSupportsDialAsync(winrt::Windows::Devices::Enumeration::DeviceInformation const& device) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialDeviceStatics<D>::DeviceInfoSupportsDialAsync(Windows::Devices::Enumeration::DeviceInformation const& device) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDeviceStatics)->DeviceInfoSupportsDialAsync(*(void**)(&device), &operation));
-        return winrt::Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDeviceStatics)->DeviceInfoSupportsDialAsync(*(void**)(&device), &operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialDisconnectButtonClickedEventArgs<D>::Device() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialDisconnectButtonClickedEventArgs)->get_Device(&value));
-        return winrt::Windows::Media::DialProtocol::DialDevice{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialDisconnectButtonClickedEventArgs)->get_Device(&value));
+        return Windows::Media::DialProtocol::DialDevice{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialReceiverApp<D>::GetAdditionalDataAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialReceiverApp)->GetAdditionalDataAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IMap<hstring, hstring>>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialReceiverApp)->GetAdditionalDataAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IMap<hstring, hstring>>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_DialProtocol_IDialReceiverApp<D>::SetAdditionalDataAsync(param::async_iterable<winrt::Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& additionalData) const
+    template <typename D> auto consume_Windows_Media_DialProtocol_IDialReceiverApp<D>::SetAdditionalDataAsync(param::async_iterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const& additionalData) const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialReceiverApp)->SetAdditionalDataAsync(*(void**)(&additionalData), &operation));
-        return winrt::Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialReceiverApp)->SetAdditionalDataAsync(*(void**)(&additionalData), &operation));
+        return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialReceiverApp2<D>::GetUniqueDeviceNameAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialReceiverApp2)->GetUniqueDeviceNameAsync(&operation));
-        return winrt::Windows::Foundation::IAsyncOperation<hstring>{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialReceiverApp2)->GetUniqueDeviceNameAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<hstring>{ operation, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Media_DialProtocol_IDialReceiverAppStatics<D>::Current() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Media::DialProtocol::IDialReceiverAppStatics)->get_Current(&value));
-        return winrt::Windows::Media::DialProtocol::DialReceiverApp{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::DialProtocol::IDialReceiverAppStatics)->get_Current(&value));
+        return Windows::Media::DialProtocol::DialReceiverApp{ value, take_ownership_from_abi };
     }
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialApp> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialApp>
+    struct produce<D, Windows::Media::DialProtocol::IDialApp> : produce_base<D, Windows::Media::DialProtocol::IDialApp>
     {
         int32_t __stdcall get_AppName(void** value) noexcept final try
         {
@@ -236,7 +234,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialAppLaunchResult>>(this->shim().RequestLaunchAsync(*reinterpret_cast<hstring const*>(&appArgument)));
+            *value = detach_from<Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialAppLaunchResult>>(this->shim().RequestLaunchAsync(*reinterpret_cast<hstring const*>(&appArgument)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -244,7 +242,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialAppStopResult>>(this->shim().StopAsync());
+            *value = detach_from<Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialAppStopResult>>(this->shim().StopAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -252,7 +250,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialAppStateDetails>>(this->shim().GetAppStateAsync());
+            *value = detach_from<Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialAppStateDetails>>(this->shim().GetAppStateAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -260,12 +258,12 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialAppStateDetails> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialAppStateDetails>
+    struct produce<D, Windows::Media::DialProtocol::IDialAppStateDetails> : produce_base<D, Windows::Media::DialProtocol::IDialAppStateDetails>
     {
         int32_t __stdcall get_State(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Media::DialProtocol::DialAppState>(this->shim().State());
+            *value = detach_from<Windows::Media::DialProtocol::DialAppState>(this->shim().State());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -281,7 +279,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialDevice> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialDevice>
+    struct produce<D, Windows::Media::DialProtocol::IDialDevice> : produce_base<D, Windows::Media::DialProtocol::IDialDevice>
     {
         int32_t __stdcall get_Id(void** value) noexcept final try
         {
@@ -295,7 +293,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Media::DialProtocol::DialApp>(this->shim().GetDialApp(*reinterpret_cast<hstring const*>(&appName)));
+            *value = detach_from<Windows::Media::DialProtocol::DialApp>(this->shim().GetDialApp(*reinterpret_cast<hstring const*>(&appName)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -303,7 +301,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialDevice2> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialDevice2>
+    struct produce<D, Windows::Media::DialProtocol::IDialDevice2> : produce_base<D, Windows::Media::DialProtocol::IDialDevice2>
     {
         int32_t __stdcall get_FriendlyName(void** value) noexcept final try
         {
@@ -317,7 +315,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Storage::Streams::IRandomAccessStreamReference>(this->shim().Thumbnail());
+            *value = detach_from<Windows::Storage::Streams::IRandomAccessStreamReference>(this->shim().Thumbnail());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -325,13 +323,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialDevicePicker> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialDevicePicker>
+    struct produce<D, Windows::Media::DialProtocol::IDialDevicePicker> : produce_base<D, Windows::Media::DialProtocol::IDialDevicePicker>
     {
         int32_t __stdcall get_Filter(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Media::DialProtocol::DialDevicePickerFilter>(this->shim().Filter());
+            *value = detach_from<Windows::Media::DialProtocol::DialDevicePickerFilter>(this->shim().Filter());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -339,7 +337,7 @@ namespace winrt::impl
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Devices::Enumeration::DevicePickerAppearance>(this->shim().Appearance());
+            *value = detach_from<Windows::Devices::Enumeration::DevicePickerAppearance>(this->shim().Appearance());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -347,7 +345,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().DialDeviceSelected(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Media::DialProtocol::DialDeviceSelectedEventArgs> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().DialDeviceSelected(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Media::DialProtocol::DialDeviceSelectedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -361,7 +359,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().DisconnectButtonClicked(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Media::DialProtocol::DialDisconnectButtonClickedEventArgs> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().DisconnectButtonClicked(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Media::DialProtocol::DialDisconnectButtonClickedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -375,7 +373,7 @@ namespace winrt::impl
         {
             zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *token = detach_from<winrt::event_token>(this->shim().DialDevicePickerDismissed(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Media::DialProtocol::DialDevicePicker, winrt::Windows::Foundation::IInspectable> const*>(&handler)));
+            *token = detach_from<winrt::event_token>(this->shim().DialDevicePickerDismissed(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::Media::DialProtocol::DialDevicePicker, Windows::Foundation::IInspectable> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -385,33 +383,33 @@ namespace winrt::impl
             this->shim().DialDevicePickerDismissed(*reinterpret_cast<winrt::event_token const*>(&token));
             return 0;
         }
-        int32_t __stdcall Show(winrt::Windows::Foundation::Rect selection) noexcept final try
+        int32_t __stdcall Show(Windows::Foundation::Rect selection) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().Show(*reinterpret_cast<winrt::Windows::Foundation::Rect const*>(&selection));
+            this->shim().Show(*reinterpret_cast<Windows::Foundation::Rect const*>(&selection));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall ShowWithPlacement(winrt::Windows::Foundation::Rect selection, int32_t preferredPlacement) noexcept final try
+        int32_t __stdcall ShowWithPlacement(Windows::Foundation::Rect selection, int32_t preferredPlacement) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().Show(*reinterpret_cast<winrt::Windows::Foundation::Rect const*>(&selection), *reinterpret_cast<winrt::Windows::UI::Popups::Placement const*>(&preferredPlacement));
+            this->shim().Show(*reinterpret_cast<Windows::Foundation::Rect const*>(&selection), *reinterpret_cast<Windows::UI::Popups::Placement const*>(&preferredPlacement));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall PickSingleDialDeviceAsync(winrt::Windows::Foundation::Rect selection, void** operation) noexcept final try
+        int32_t __stdcall PickSingleDialDeviceAsync(Windows::Foundation::Rect selection, void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialDevice>>(this->shim().PickSingleDialDeviceAsync(*reinterpret_cast<winrt::Windows::Foundation::Rect const*>(&selection)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialDevice>>(this->shim().PickSingleDialDeviceAsync(*reinterpret_cast<Windows::Foundation::Rect const*>(&selection)));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall PickSingleDialDeviceAsyncWithPlacement(winrt::Windows::Foundation::Rect selection, int32_t preferredPlacement, void** operation) noexcept final try
+        int32_t __stdcall PickSingleDialDeviceAsyncWithPlacement(Windows::Foundation::Rect selection, int32_t preferredPlacement, void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialDevice>>(this->shim().PickSingleDialDeviceAsync(*reinterpret_cast<winrt::Windows::Foundation::Rect const*>(&selection), *reinterpret_cast<winrt::Windows::UI::Popups::Placement const*>(&preferredPlacement)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialDevice>>(this->shim().PickSingleDialDeviceAsync(*reinterpret_cast<Windows::Foundation::Rect const*>(&selection), *reinterpret_cast<Windows::UI::Popups::Placement const*>(&preferredPlacement)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -425,7 +423,7 @@ namespace winrt::impl
         int32_t __stdcall SetDisplayStatus(void* device, int32_t status) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().SetDisplayStatus(*reinterpret_cast<winrt::Windows::Media::DialProtocol::DialDevice const*>(&device), *reinterpret_cast<winrt::Windows::Media::DialProtocol::DialDeviceDisplayStatus const*>(&status));
+            this->shim().SetDisplayStatus(*reinterpret_cast<Windows::Media::DialProtocol::DialDevice const*>(&device), *reinterpret_cast<Windows::Media::DialProtocol::DialDeviceDisplayStatus const*>(&status));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -433,13 +431,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialDevicePickerFilter> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialDevicePickerFilter>
+    struct produce<D, Windows::Media::DialProtocol::IDialDevicePickerFilter> : produce_base<D, Windows::Media::DialProtocol::IDialDevicePickerFilter>
     {
         int32_t __stdcall get_SupportedAppNames(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Foundation::Collections::IVector<hstring>>(this->shim().SupportedAppNames());
+            *value = detach_from<Windows::Foundation::Collections::IVector<hstring>>(this->shim().SupportedAppNames());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -447,13 +445,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialDeviceSelectedEventArgs> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialDeviceSelectedEventArgs>
+    struct produce<D, Windows::Media::DialProtocol::IDialDeviceSelectedEventArgs> : produce_base<D, Windows::Media::DialProtocol::IDialDeviceSelectedEventArgs>
     {
         int32_t __stdcall get_SelectedDialDevice(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Media::DialProtocol::DialDevice>(this->shim().SelectedDialDevice());
+            *value = detach_from<Windows::Media::DialProtocol::DialDevice>(this->shim().SelectedDialDevice());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -461,7 +459,7 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialDeviceStatics> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialDeviceStatics>
+    struct produce<D, Windows::Media::DialProtocol::IDialDeviceStatics> : produce_base<D, Windows::Media::DialProtocol::IDialDeviceStatics>
     {
         int32_t __stdcall GetDeviceSelector(void* appName, void** selector) noexcept final try
         {
@@ -475,7 +473,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Media::DialProtocol::DialDevice>>(this->shim().FromIdAsync(*reinterpret_cast<hstring const*>(&value)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Media::DialProtocol::DialDevice>>(this->shim().FromIdAsync(*reinterpret_cast<hstring const*>(&value)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -483,7 +481,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<bool>>(this->shim().DeviceInfoSupportsDialAsync(*reinterpret_cast<winrt::Windows::Devices::Enumeration::DeviceInformation const*>(&device)));
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().DeviceInfoSupportsDialAsync(*reinterpret_cast<Windows::Devices::Enumeration::DeviceInformation const*>(&device)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -491,13 +489,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialDisconnectButtonClickedEventArgs> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialDisconnectButtonClickedEventArgs>
+    struct produce<D, Windows::Media::DialProtocol::IDialDisconnectButtonClickedEventArgs> : produce_base<D, Windows::Media::DialProtocol::IDialDisconnectButtonClickedEventArgs>
     {
         int32_t __stdcall get_Device(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Media::DialProtocol::DialDevice>(this->shim().Device());
+            *value = detach_from<Windows::Media::DialProtocol::DialDevice>(this->shim().Device());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -505,13 +503,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialReceiverApp> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialReceiverApp>
+    struct produce<D, Windows::Media::DialProtocol::IDialReceiverApp> : produce_base<D, Windows::Media::DialProtocol::IDialReceiverApp>
     {
         int32_t __stdcall GetAdditionalDataAsync(void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IMap<hstring, hstring>>>(this->shim().GetAdditionalDataAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IMap<hstring, hstring>>>(this->shim().GetAdditionalDataAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -519,7 +517,7 @@ namespace winrt::impl
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncAction>(this->shim().SetAdditionalDataAsync(*reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<winrt::Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const*>(&additionalData)));
+            *operation = detach_from<Windows::Foundation::IAsyncAction>(this->shim().SetAdditionalDataAsync(*reinterpret_cast<Windows::Foundation::Collections::IIterable<Windows::Foundation::Collections::IKeyValuePair<hstring, hstring>> const*>(&additionalData)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -527,13 +525,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialReceiverApp2> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialReceiverApp2>
+    struct produce<D, Windows::Media::DialProtocol::IDialReceiverApp2> : produce_base<D, Windows::Media::DialProtocol::IDialReceiverApp2>
     {
         int32_t __stdcall GetUniqueDeviceNameAsync(void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<hstring>>(this->shim().GetUniqueDeviceNameAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<hstring>>(this->shim().GetUniqueDeviceNameAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -541,13 +539,13 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, winrt::Windows::Media::DialProtocol::IDialReceiverAppStatics> : produce_base<D, winrt::Windows::Media::DialProtocol::IDialReceiverAppStatics>
+    struct produce<D, Windows::Media::DialProtocol::IDialReceiverAppStatics> : produce_base<D, Windows::Media::DialProtocol::IDialReceiverAppStatics>
     {
         int32_t __stdcall get_Current(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<winrt::Windows::Media::DialProtocol::DialReceiverApp>(this->shim().Current());
+            *value = detach_from<Windows::Media::DialProtocol::DialReceiverApp>(this->shim().Current());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -564,17 +562,17 @@ WINRT_EXPORT namespace winrt::Windows::Media::DialProtocol
     {
         return impl::call_factory<DialDevice, IDialDeviceStatics>([&](IDialDeviceStatics const& f) { return f.FromIdAsync(value); });
     }
-    inline auto DialDevice::DeviceInfoSupportsDialAsync(winrt::Windows::Devices::Enumeration::DeviceInformation const& device)
+    inline auto DialDevice::DeviceInfoSupportsDialAsync(Windows::Devices::Enumeration::DeviceInformation const& device)
     {
         return impl::call_factory<DialDevice, IDialDeviceStatics>([&](IDialDeviceStatics const& f) { return f.DeviceInfoSupportsDialAsync(device); });
     }
     inline DialDevicePicker::DialDevicePicker() :
-        DialDevicePicker(impl::call_factory_cast<DialDevicePicker(*)(winrt::Windows::Foundation::IActivationFactory const&), DialDevicePicker>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<DialDevicePicker>(); }))
+        DialDevicePicker(impl::call_factory_cast<DialDevicePicker(*)(Windows::Foundation::IActivationFactory const&), DialDevicePicker>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<DialDevicePicker>(); }))
     {
     }
     inline auto DialReceiverApp::Current()
     {
-        return impl::call_factory_cast<winrt::Windows::Media::DialProtocol::DialReceiverApp(*)(IDialReceiverAppStatics const&), DialReceiverApp, IDialReceiverAppStatics>([](IDialReceiverAppStatics const& f) { return f.Current(); });
+        return impl::call_factory_cast<Windows::Media::DialProtocol::DialReceiverApp(*)(IDialReceiverAppStatics const&), DialReceiverApp, IDialReceiverAppStatics>([](IDialReceiverAppStatics const& f) { return f.Current(); });
     }
 }
 namespace std
@@ -600,8 +598,6 @@ namespace std
     template<> struct hash<winrt::Windows::Media::DialProtocol::DialDeviceSelectedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Media::DialProtocol::DialDisconnectButtonClickedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Media::DialProtocol::DialReceiverApp> : winrt::impl::hash_base {};
-#endif
-#ifdef __cpp_lib_format
 #endif
 }
 #endif

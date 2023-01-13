@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -1733,10 +1733,10 @@ namespace ABI {
  *
  * Struct Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 namespace ABI {
     namespace Windows {
         namespace UI {
@@ -1752,7 +1752,7 @@ namespace ABI {
         } /* UI */
     } /* Windows */
 } /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -1821,7 +1821,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICompositionConditionalValue = __uuidof(ICompositionConditionalValue);
+                    extern MIDL_CONST_ID IID& IID_ICompositionConditionalValue = _uuidof(ICompositionConditionalValue);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -1860,7 +1860,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICompositionConditionalValueStatics = __uuidof(ICompositionConditionalValueStatics);
+                    extern MIDL_CONST_ID IID& IID_ICompositionConditionalValueStatics = _uuidof(ICompositionConditionalValueStatics);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -1893,7 +1893,7 @@ namespace ABI {
                     public:
                     };
 
-                    MIDL_CONST_ID IID& IID_ICompositionInteractionSource = __uuidof(ICompositionInteractionSource);
+                    extern MIDL_CONST_ID IID& IID_ICompositionInteractionSource = _uuidof(ICompositionInteractionSource);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -1938,7 +1938,7 @@ namespace ABI {
                         virtual HRESULT STDMETHODCALLTYPE RemoveAll(void) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_ICompositionInteractionSourceCollection = __uuidof(ICompositionInteractionSourceCollection);
+                    extern MIDL_CONST_ID IID& IID_ICompositionInteractionSourceCollection = _uuidof(ICompositionInteractionSourceCollection);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -1991,7 +1991,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionSourceConfiguration = __uuidof(IInteractionSourceConfiguration);
+                    extern MIDL_CONST_ID IID& IID_IInteractionSourceConfiguration = _uuidof(IInteractionSourceConfiguration);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2137,7 +2137,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTracker = __uuidof(IInteractionTracker);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTracker = _uuidof(IInteractionTracker);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2178,7 +2178,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTracker2 = __uuidof(IInteractionTracker2);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTracker2 = _uuidof(IInteractionTracker2);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2216,7 +2216,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTracker3 = __uuidof(IInteractionTracker3);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTracker3 = _uuidof(IInteractionTracker3);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2264,7 +2264,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTracker4 = __uuidof(IInteractionTracker4);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTracker4 = _uuidof(IInteractionTracker4);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2279,12 +2279,12 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CInteractions_CIInterac
  *
  * Interface Windows.UI.Composition.Interactions.IInteractionTracker5
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
  *
  * Interface is a part of the implementation of type Windows.UI.Composition.Interactions.InteractionTracker
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 #if !defined(____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_Interactions_IInteractionTracker5[] = L"Windows.UI.Composition.Interactions.IInteractionTracker5";
@@ -2305,7 +2305,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTracker5 = __uuidof(IInteractionTracker5);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTracker5 = _uuidof(IInteractionTracker5);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2314,7 +2314,7 @@ namespace ABI {
 
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -2343,7 +2343,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerCustomAnimationStateEnteredArgs = __uuidof(IInteractionTrackerCustomAnimationStateEnteredArgs);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerCustomAnimationStateEnteredArgs = _uuidof(IInteractionTrackerCustomAnimationStateEnteredArgs);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2381,7 +2381,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerCustomAnimationStateEnteredArgs2 = __uuidof(IInteractionTrackerCustomAnimationStateEnteredArgs2);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerCustomAnimationStateEnteredArgs2 = _uuidof(IInteractionTrackerCustomAnimationStateEnteredArgs2);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2419,7 +2419,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerIdleStateEnteredArgs = __uuidof(IInteractionTrackerIdleStateEnteredArgs);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerIdleStateEnteredArgs = _uuidof(IInteractionTrackerIdleStateEnteredArgs);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2457,7 +2457,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerIdleStateEnteredArgs2 = __uuidof(IInteractionTrackerIdleStateEnteredArgs2);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerIdleStateEnteredArgs2 = _uuidof(IInteractionTrackerIdleStateEnteredArgs2);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2492,7 +2492,7 @@ namespace ABI {
                     public:
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaModifier = __uuidof(IInteractionTrackerInertiaModifier);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaModifier = _uuidof(IInteractionTrackerInertiaModifier);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2527,7 +2527,7 @@ namespace ABI {
                     public:
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaModifierFactory = __uuidof(IInteractionTrackerInertiaModifierFactory);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaModifierFactory = _uuidof(IInteractionTrackerInertiaModifierFactory);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2574,7 +2574,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaMotion = __uuidof(IInteractionTrackerInertiaMotion);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaMotion = _uuidof(IInteractionTrackerInertiaMotion);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2613,7 +2613,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaMotionStatics = __uuidof(IInteractionTrackerInertiaMotionStatics);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaMotionStatics = _uuidof(IInteractionTrackerInertiaMotionStatics);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2660,7 +2660,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaNaturalMotion = __uuidof(IInteractionTrackerInertiaNaturalMotion);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaNaturalMotion = _uuidof(IInteractionTrackerInertiaNaturalMotion);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2699,7 +2699,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaNaturalMotionStatics = __uuidof(IInteractionTrackerInertiaNaturalMotionStatics);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaNaturalMotionStatics = _uuidof(IInteractionTrackerInertiaNaturalMotionStatics);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2746,7 +2746,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaRestingValue = __uuidof(IInteractionTrackerInertiaRestingValue);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaRestingValue = _uuidof(IInteractionTrackerInertiaRestingValue);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2785,7 +2785,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaRestingValueStatics = __uuidof(IInteractionTrackerInertiaRestingValueStatics);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaRestingValueStatics = _uuidof(IInteractionTrackerInertiaRestingValueStatics);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2841,7 +2841,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaStateEnteredArgs = __uuidof(IInteractionTrackerInertiaStateEnteredArgs);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaStateEnteredArgs = _uuidof(IInteractionTrackerInertiaStateEnteredArgs);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2879,7 +2879,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaStateEnteredArgs2 = __uuidof(IInteractionTrackerInertiaStateEnteredArgs2);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaStateEnteredArgs2 = _uuidof(IInteractionTrackerInertiaStateEnteredArgs2);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2917,7 +2917,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaStateEnteredArgs3 = __uuidof(IInteractionTrackerInertiaStateEnteredArgs3);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInertiaStateEnteredArgs3 = _uuidof(IInteractionTrackerInertiaStateEnteredArgs3);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2955,7 +2955,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInteractingStateEnteredArgs = __uuidof(IInteractionTrackerInteractingStateEnteredArgs);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInteractingStateEnteredArgs = _uuidof(IInteractionTrackerInteractingStateEnteredArgs);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -2993,7 +2993,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerInteractingStateEnteredArgs2 = __uuidof(IInteractionTrackerInteractingStateEnteredArgs2);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerInteractingStateEnteredArgs2 = _uuidof(IInteractionTrackerInteractingStateEnteredArgs2);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3050,7 +3050,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerOwner = __uuidof(IInteractionTrackerOwner);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerOwner = _uuidof(IInteractionTrackerOwner);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3088,7 +3088,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerRequestIgnoredArgs = __uuidof(IInteractionTrackerRequestIgnoredArgs);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerRequestIgnoredArgs = _uuidof(IInteractionTrackerRequestIgnoredArgs);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3132,7 +3132,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerStatics = __uuidof(IInteractionTrackerStatics);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerStatics = _uuidof(IInteractionTrackerStatics);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3177,7 +3177,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerStatics2 = __uuidof(IInteractionTrackerStatics2);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerStatics2 = _uuidof(IInteractionTrackerStatics2);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3221,7 +3221,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerValuesChangedArgs = __uuidof(IInteractionTrackerValuesChangedArgs);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerValuesChangedArgs = _uuidof(IInteractionTrackerValuesChangedArgs);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3256,7 +3256,7 @@ namespace ABI {
                     public:
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerVector2InertiaModifier = __uuidof(IInteractionTrackerVector2InertiaModifier);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerVector2InertiaModifier = _uuidof(IInteractionTrackerVector2InertiaModifier);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3291,7 +3291,7 @@ namespace ABI {
                     public:
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerVector2InertiaModifierFactory = __uuidof(IInteractionTrackerVector2InertiaModifierFactory);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerVector2InertiaModifierFactory = _uuidof(IInteractionTrackerVector2InertiaModifierFactory);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3338,7 +3338,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerVector2InertiaNaturalMotion = __uuidof(IInteractionTrackerVector2InertiaNaturalMotion);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerVector2InertiaNaturalMotion = _uuidof(IInteractionTrackerVector2InertiaNaturalMotion);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3377,7 +3377,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IInteractionTrackerVector2InertiaNaturalMotionStatics = __uuidof(IInteractionTrackerVector2InertiaNaturalMotionStatics);
+                    extern MIDL_CONST_ID IID& IID_IInteractionTrackerVector2InertiaNaturalMotionStatics = _uuidof(IInteractionTrackerVector2InertiaNaturalMotionStatics);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3472,7 +3472,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVisualInteractionSource = __uuidof(IVisualInteractionSource);
+                    extern MIDL_CONST_ID IID& IID_IVisualInteractionSource = _uuidof(IVisualInteractionSource);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3540,7 +3540,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVisualInteractionSource2 = __uuidof(IVisualInteractionSource2);
+                    extern MIDL_CONST_ID IID& IID_IVisualInteractionSource2 = _uuidof(IVisualInteractionSource2);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3578,7 +3578,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVisualInteractionSource3 = __uuidof(IVisualInteractionSource3);
+                    extern MIDL_CONST_ID IID& IID_IVisualInteractionSource3 = _uuidof(IVisualInteractionSource3);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3613,7 +3613,7 @@ namespace ABI {
                     public:
                     };
 
-                    MIDL_CONST_ID IID& IID_IVisualInteractionSourceObjectFactory = __uuidof(IVisualInteractionSourceObjectFactory);
+                    extern MIDL_CONST_ID IID& IID_IVisualInteractionSourceObjectFactory = _uuidof(IVisualInteractionSourceObjectFactory);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3652,7 +3652,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVisualInteractionSourceStatics = __uuidof(IVisualInteractionSourceStatics);
+                    extern MIDL_CONST_ID IID& IID_IVisualInteractionSourceStatics = _uuidof(IVisualInteractionSourceStatics);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -3691,7 +3691,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IVisualInteractionSourceStatics2 = __uuidof(IVisualInteractionSourceStatics2);
+                    extern MIDL_CONST_ID IID& IID_IVisualInteractionSourceStatics2 = _uuidof(IVisualInteractionSourceStatics2);
                 } /* Interactions */
             } /* Composition */
         } /* UI */
@@ -5200,16 +5200,16 @@ enum __x_ABI_CWindows_CUI_CComposition_CInteractions_CInteractionTrackerClamping
  *
  * Struct Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 enum __x_ABI_CWindows_CUI_CComposition_CInteractions_CInteractionTrackerPositionUpdateOption
 {
     InteractionTrackerPositionUpdateOption_Default = 0,
     InteractionTrackerPositionUpdateOption_AllowActiveCustomScaleAnimation = 1,
 };
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -6096,12 +6096,12 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CInteractions_CIInterac
  *
  * Interface Windows.UI.Composition.Interactions.IInteractionTracker5
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
  *
  * Interface is a part of the implementation of type Windows.UI.Composition.Interactions.InteractionTracker
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 #if !defined(____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_Interactions_IInteractionTracker5[] = L"Windows.UI.Composition.Interactions.IInteractionTracker5";
@@ -6162,7 +6162,7 @@ interface __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5
 
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *

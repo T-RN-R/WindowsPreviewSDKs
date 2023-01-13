@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -203,22 +195,18 @@ EXTERN_C const IID IID_ITSGAuthorizeConnectionSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ITSGAuthorizeConnectionSink * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ITSGAuthorizeConnectionSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ITSGAuthorizeConnectionSink * This);
         
-        DECLSPEC_XFGVIRT(ITSGAuthorizeConnectionSink, OnConnectionAuthorized)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *OnConnectionAuthorized )( 
             __RPC__in ITSGAuthorizeConnectionSink * This,
             /* [in] */ HRESULT hrIn,
@@ -301,22 +289,18 @@ EXTERN_C const IID IID_ITSGAuthorizeResourceSink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ITSGAuthorizeResourceSink * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ITSGAuthorizeResourceSink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ITSGAuthorizeResourceSink * This);
         
-        DECLSPEC_XFGVIRT(ITSGAuthorizeResourceSink, OnChannelAuthorized)
         /* [helpstring] */ HRESULT ( STDMETHODCALLTYPE *OnChannelAuthorized )( 
             __RPC__in ITSGAuthorizeResourceSink * This,
             /* [in] */ HRESULT hrIn,
@@ -420,22 +404,18 @@ EXTERN_C const IID IID_ITSGPolicyEngine;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ITSGPolicyEngine * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ITSGPolicyEngine * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ITSGPolicyEngine * This);
         
-        DECLSPEC_XFGVIRT(ITSGPolicyEngine, AuthorizeConnection)
         HRESULT ( STDMETHODCALLTYPE *AuthorizeConnection )( 
             __RPC__in ITSGPolicyEngine * This,
             /* [in] */ GUID mainSessionId,
@@ -450,7 +430,6 @@ EXTERN_C const IID IID_ITSGPolicyEngine;
             /* [in] */ HANDLE_PTR userToken,
             /* [in] */ __RPC__in_opt ITSGAuthorizeConnectionSink *pSink);
         
-        DECLSPEC_XFGVIRT(ITSGPolicyEngine, AuthorizeResource)
         HRESULT ( STDMETHODCALLTYPE *AuthorizeResource )( 
             __RPC__in ITSGPolicyEngine * This,
             /* [in] */ GUID mainSessionId,
@@ -466,11 +445,9 @@ EXTERN_C const IID IID_ITSGPolicyEngine;
             /* [in] */ ULONG numBytesInCookie,
             /* [in] */ __RPC__in_opt ITSGAuthorizeResourceSink *pSink);
         
-        DECLSPEC_XFGVIRT(ITSGPolicyEngine, Refresh)
         HRESULT ( STDMETHODCALLTYPE *Refresh )( 
             __RPC__in ITSGPolicyEngine * This);
         
-        DECLSPEC_XFGVIRT(ITSGPolicyEngine, IsQuarantineEnabled)
         HRESULT ( STDMETHODCALLTYPE *IsQuarantineEnabled )( 
             __RPC__in ITSGPolicyEngine * This,
             /* [out] */ __RPC__out BOOL *quarantineEnabled);
@@ -549,22 +526,18 @@ EXTERN_C const IID IID_ITSGAccountingEngine;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ITSGAccountingEngine * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ITSGAccountingEngine * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ITSGAccountingEngine * This);
         
-        DECLSPEC_XFGVIRT(ITSGAccountingEngine, DoAccounting)
         HRESULT ( STDMETHODCALLTYPE *DoAccounting )( 
             __RPC__in ITSGAccountingEngine * This,
             /* [in] */ AAAccountingDataType accountingDataType,

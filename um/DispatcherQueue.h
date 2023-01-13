@@ -13,11 +13,7 @@
 
 #pragma once
 
-
 #include <Windows.System.h>
-typedef ABI::Windows::System::IDispatcherQueue * PDISPATCHERQUEUE;
-typedef ABI::Windows::System::IDispatcherQueueController * PDISPATCHERQUEUECONTROLLER;
-
 
 #pragma region Application Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
@@ -90,8 +86,7 @@ struct DispatcherQueueOptions
 extern "C" HRESULT  __declspec(dllexport) WINAPI
 CreateDispatcherQueueController(
     _In_ DispatcherQueueOptions options,
-    _Deref_out_ PDISPATCHERQUEUECONTROLLER * dispatcherQueueController);
-
+    _Deref_out_ ABI::Windows::System::IDispatcherQueueController **dispatcherQueueController);
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 #pragma endregion

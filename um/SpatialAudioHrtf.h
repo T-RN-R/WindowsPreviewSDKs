@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -76,8 +68,8 @@ extern "C"{
 /* [local] */ 
 
 #include <winapifamily.h>
-#pragma region Application and Games Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
+#pragma region Application Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 typedef 
 enum SpatialAudioHrtfDirectivityType
     {
@@ -157,22 +149,6 @@ typedef struct SpatialAudioHrtfActivationParams
     SpatialAudioHrtfOrientation *Orientation;
     } 	SpatialAudioHrtfActivationParams;
 
-typedef struct SpatialAudioHrtfActivationParams2
-    {
-    const WAVEFORMATEX *ObjectFormat;
-    AudioObjectType StaticObjectTypeMask;
-    UINT32 MinDynamicObjectCount;
-    UINT32 MaxDynamicObjectCount;
-    AUDIO_STREAM_CATEGORY Category;
-    HANDLE EventHandle;
-    ISpatialAudioObjectRenderStreamNotify *NotifyObject;
-    SpatialAudioHrtfDistanceDecay *DistanceDecay;
-    SpatialAudioHrtfDirectivityUnion *Directivity;
-    SpatialAudioHrtfEnvironmentType *Environment;
-    SpatialAudioHrtfOrientation *Orientation;
-    SPATIAL_AUDIO_STREAM_OPTIONS Options;
-    } 	SpatialAudioHrtfActivationParams2;
-
 
 #pragma pack(pop)
 
@@ -232,22 +208,18 @@ EXTERN_C const IID IID_ISpatialAudioObjectForHrtf;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISpatialAudioObjectForHrtf * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISpatialAudioObjectForHrtf * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISpatialAudioObjectForHrtf * This);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectBase, GetBuffer)
         HRESULT ( STDMETHODCALLTYPE *GetBuffer )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][size_is][size_is][out] */ 
@@ -255,25 +227,21 @@ EXTERN_C const IID IID_ISpatialAudioObjectForHrtf;
             /* [annotation][out] */ 
             _Out_  UINT32 *bufferLength);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectBase, SetEndOfStream)
         HRESULT ( STDMETHODCALLTYPE *SetEndOfStream )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][in] */ 
             _In_  UINT32 frameCount);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectBase, IsActive)
         HRESULT ( STDMETHODCALLTYPE *IsActive )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][out] */ 
             _Out_  BOOL *isActive);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectBase, GetAudioObjectType)
         HRESULT ( STDMETHODCALLTYPE *GetAudioObjectType )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][out] */ 
             _Out_  AudioObjectType *audioObjectType);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectForHrtf, SetPosition)
         HRESULT ( STDMETHODCALLTYPE *SetPosition )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][in] */ 
@@ -283,31 +251,26 @@ EXTERN_C const IID IID_ISpatialAudioObjectForHrtf;
             /* [annotation][in] */ 
             _In_  float z);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectForHrtf, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][in] */ 
             _In_  float gain);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectForHrtf, SetOrientation)
         HRESULT ( STDMETHODCALLTYPE *SetOrientation )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][in] */ 
             _In_  const SpatialAudioHrtfOrientation *orientation);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectForHrtf, SetEnvironment)
         HRESULT ( STDMETHODCALLTYPE *SetEnvironment )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][in] */ 
             _In_  SpatialAudioHrtfEnvironmentType environment);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectForHrtf, SetDistanceDecay)
         HRESULT ( STDMETHODCALLTYPE *SetDistanceDecay )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][in] */ 
             _In_  SpatialAudioHrtfDistanceDecay *distanceDecay);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectForHrtf, SetDirectivity)
         HRESULT ( STDMETHODCALLTYPE *SetDirectivity )( 
             ISpatialAudioObjectForHrtf * This,
             /* [annotation][in] */ 
@@ -408,28 +371,23 @@ EXTERN_C const IID IID_ISpatialAudioObjectRenderStreamForHrtf;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISpatialAudioObjectRenderStreamForHrtf * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISpatialAudioObjectRenderStreamForHrtf * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISpatialAudioObjectRenderStreamForHrtf * This);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectRenderStreamBase, GetAvailableDynamicObjectCount)
         HRESULT ( STDMETHODCALLTYPE *GetAvailableDynamicObjectCount )( 
             ISpatialAudioObjectRenderStreamForHrtf * This,
             /* [annotation][out] */ 
             _Out_  UINT32 *value);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectRenderStreamBase, GetService)
         HRESULT ( STDMETHODCALLTYPE *GetService )( 
             ISpatialAudioObjectRenderStreamForHrtf * This,
             /* [annotation][in] */ 
@@ -437,19 +395,15 @@ EXTERN_C const IID IID_ISpatialAudioObjectRenderStreamForHrtf;
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **service);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectRenderStreamBase, Start)
         HRESULT ( STDMETHODCALLTYPE *Start )( 
             ISpatialAudioObjectRenderStreamForHrtf * This);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectRenderStreamBase, Stop)
         HRESULT ( STDMETHODCALLTYPE *Stop )( 
             ISpatialAudioObjectRenderStreamForHrtf * This);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectRenderStreamBase, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             ISpatialAudioObjectRenderStreamForHrtf * This);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectRenderStreamBase, BeginUpdatingAudioObjects)
         HRESULT ( STDMETHODCALLTYPE *BeginUpdatingAudioObjects )( 
             ISpatialAudioObjectRenderStreamForHrtf * This,
             /* [annotation][out] */ 
@@ -457,11 +411,9 @@ EXTERN_C const IID IID_ISpatialAudioObjectRenderStreamForHrtf;
             /* [annotation][out] */ 
             _Out_  UINT32 *frameCountPerBuffer);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectRenderStreamBase, EndUpdatingAudioObjects)
         HRESULT ( STDMETHODCALLTYPE *EndUpdatingAudioObjects )( 
             ISpatialAudioObjectRenderStreamForHrtf * This);
         
-        DECLSPEC_XFGVIRT(ISpatialAudioObjectRenderStreamForHrtf, ActivateSpatialAudioObjectForHrtf)
         HRESULT ( STDMETHODCALLTYPE *ActivateSpatialAudioObjectForHrtf )( 
             ISpatialAudioObjectRenderStreamForHrtf * This,
             /* [annotation][in] */ 
@@ -531,7 +483,7 @@ EXTERN_C const IID IID_ISpatialAudioObjectRenderStreamForHrtf;
 /* interface __MIDL_itf_spatialaudiohrtf_0000_0002 */
 /* [local] */ 
 
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 
 
 extern RPC_IF_HANDLE __MIDL_itf_spatialaudiohrtf_0000_0002_v0_0_c_ifspec;

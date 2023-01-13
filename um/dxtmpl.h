@@ -75,8 +75,8 @@ inline void DXDestructElements(TYPE* pElements, int nCount)
 {
     _ASSERT( ( nCount == 0 ||
                DXIsValidAddress( pElements, nCount * sizeof(TYPE), TRUE  ) ) );
-    (void)pElements;  // not used
-    (void)nCount; // not used
+    pElements;  // not used
+    nCount; // not used
 
     // default does nothing
 }
@@ -121,7 +121,7 @@ struct CDXPlex    // warning variable length structure
 
     static CDXPlex* PASCAL_INLINE Create( CDXPlex*& pHead, UINT nMax, UINT cbElement )
     {
-	if ((SIZE_T)(nMax * cbElement) > (SIZE_MAX - sizeof(CDXPlex)))
+	if ((nMax * cbElement) > (SIZE_MAX - sizeof(CDXPlex)))
 	    return NULL;
         CDXPlex* p = (CDXPlex*) new BYTE[sizeof(CDXPlex) + nMax * cbElement];
         if (p == NULL)

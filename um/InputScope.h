@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -247,44 +239,36 @@ EXTERN_C const IID IID_ITfInputScope;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ITfInputScope * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ITfInputScope * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ITfInputScope * This);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetInputScopes)
         HRESULT ( STDMETHODCALLTYPE *GetInputScopes )( 
             __RPC__in ITfInputScope * This,
             /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pcCount) InputScope **pprgInputScopes,
             /* [out] */ __RPC__out UINT *pcCount);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetPhrase)
         HRESULT ( STDMETHODCALLTYPE *GetPhrase )( 
             __RPC__in ITfInputScope * This,
             /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pcCount) BSTR **ppbstrPhrases,
             /* [out] */ __RPC__out UINT *pcCount);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetRegularExpression)
         HRESULT ( STDMETHODCALLTYPE *GetRegularExpression )( 
             __RPC__in ITfInputScope * This,
             /* [out] */ __RPC__deref_out_opt BSTR *pbstrRegExp);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetSRGS)
         HRESULT ( STDMETHODCALLTYPE *GetSRGS )( 
             __RPC__in ITfInputScope * This,
             /* [out] */ __RPC__deref_out_opt BSTR *pbstrSRGS);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetXML)
         HRESULT ( STDMETHODCALLTYPE *GetXML )( 
             __RPC__in ITfInputScope * This,
             /* [out] */ __RPC__deref_out_opt BSTR *pbstrXML);
@@ -365,49 +349,40 @@ EXTERN_C const IID IID_ITfInputScope2;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in ITfInputScope2 * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in ITfInputScope2 * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in ITfInputScope2 * This);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetInputScopes)
         HRESULT ( STDMETHODCALLTYPE *GetInputScopes )( 
             __RPC__in ITfInputScope2 * This,
             /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pcCount) InputScope **pprgInputScopes,
             /* [out] */ __RPC__out UINT *pcCount);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetPhrase)
         HRESULT ( STDMETHODCALLTYPE *GetPhrase )( 
             __RPC__in ITfInputScope2 * This,
             /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pcCount) BSTR **ppbstrPhrases,
             /* [out] */ __RPC__out UINT *pcCount);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetRegularExpression)
         HRESULT ( STDMETHODCALLTYPE *GetRegularExpression )( 
             __RPC__in ITfInputScope2 * This,
             /* [out] */ __RPC__deref_out_opt BSTR *pbstrRegExp);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetSRGS)
         HRESULT ( STDMETHODCALLTYPE *GetSRGS )( 
             __RPC__in ITfInputScope2 * This,
             /* [out] */ __RPC__deref_out_opt BSTR *pbstrSRGS);
         
-        DECLSPEC_XFGVIRT(ITfInputScope, GetXML)
         HRESULT ( STDMETHODCALLTYPE *GetXML )( 
             __RPC__in ITfInputScope2 * This,
             /* [out] */ __RPC__deref_out_opt BSTR *pbstrXML);
         
-        DECLSPEC_XFGVIRT(ITfInputScope2, EnumWordList)
         HRESULT ( STDMETHODCALLTYPE *EnumWordList )( 
             __RPC__in ITfInputScope2 * This,
             /* [out] */ __RPC__deref_out_opt IEnumString **ppEnumString);

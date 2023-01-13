@@ -36,7 +36,7 @@ Revision History:
 #define DebugPrint(x)
 #endif
 
-// begin_storport begin_privstorport
+// begin_storport begin_storportp
 
 //
 // Define SCSI maximum configuration parameters.
@@ -70,7 +70,7 @@ Revision History:
 #define SCSI_MAXIMUM_TARGETS 8
 #define SCSI_MAXIMUM_LOGICAL_UNITS 8
 
-//end_storport end_privstorport
+//end_storport end_storportp
 
 typedef PHYSICAL_ADDRESS SCSI_PHYSICAL_ADDRESS, *PSCSI_PHYSICAL_ADDRESS;
 
@@ -447,7 +447,7 @@ typedef struct _SCSI_SUPPORTED_CONTROL_TYPE_LIST {
 } SCSI_SUPPORTED_CONTROL_TYPE_LIST, *PSCSI_SUPPORTED_CONTROL_TYPE_LIST;
 #pragma warning(default:4200)
 
-// begin_storport begin_privstorport
+// begin_storport begin_storportp
 
 //
 // Uninitialized flag value.
@@ -705,7 +705,6 @@ typedef struct _SCSI_PNP_REQUEST_BLOCK {
 #define SRB_FUNCTION_SHUTDOWN               0x07
 #define SRB_FUNCTION_FLUSH                  0x08
 #define SRB_FUNCTION_PROTOCOL_COMMAND       0x09
-#define SRB_FUNCTION_EXECUTE_NVME           0x0A
 #define SRB_FUNCTION_ABORT_COMMAND          0x10
 #define SRB_FUNCTION_RELEASE_RECOVERY       0x11
 #define SRB_FUNCTION_RESET_BUS              0x12
@@ -726,7 +725,6 @@ typedef struct _SCSI_PNP_REQUEST_BLOCK {
 #define SRB_FUNCTION_DUMP_POINTERS          0x26
 #define SRB_FUNCTION_FREE_DUMP_POINTERS     0x27
 
-
 //
 // Define extended SRB function that will be used to identify a new
 // type of SRB that is not a SCSI_REQUEST_BLOCK. A
@@ -739,7 +737,6 @@ typedef struct _SCSI_PNP_REQUEST_BLOCK {
 
 #define SRB_FUNCTION_GET_DUMP_INFO          0x2a
 #define SRB_FUNCTION_FREE_DUMP_INFO         0x2b
-#define SRB_FUNCTION_NVMEOF_OPERATION       0x2c
 
 // begin_storport
 
@@ -777,7 +774,6 @@ typedef struct _SCSI_PNP_REQUEST_BLOCK {
 #define SRB_STATUS_LINK_DOWN                0x25
 #define SRB_STATUS_INSUFFICIENT_RESOURCES   0x26
 #define SRB_STATUS_THROTTLED_REQUEST        0x27
-#define SRB_STATUS_INVALID_PARAMETER        0x28
 
 
 //
@@ -892,12 +888,10 @@ typedef enum _SRBEXDATATYPE {
     SrbExDataTypeScsiCdb16 = 0x40,
     SrbExDataTypeScsiCdb32,
     SrbExDataTypeScsiCdbVar,
-    SrbExDataTypeNvmeCommand,
     SrbExDataTypeWmi = 0x60,
     SrbExDataTypePower,
     SrbExDataTypePnP,
     SrbExDataTypeIoInfo = 0x80,
-    SrbExDataTypePassthroughDirect = 0xa0,
     SrbExDataTypeMSReservedStart = 0xf0000000,
     SrbExDataTypeReserved = 0xffffffff
 } SRBEXDATATYPE, *PSRBEXDATATYPE;
@@ -929,7 +923,6 @@ typedef struct SRB_ALIGN _SRBEX_DATA_BIDIRECTIONAL {
     _Field_size_bytes_full_(DataInTransferLength)
     PVOID POINTER_ALIGN DataInBuffer;
 } SRBEX_DATA_BIDIRECTIONAL, *PSRBEX_DATA_BIDIRECTIONAL;
-
 
 // SRB_FUNCTION_EXECUTE_SCSI for up to 16 byte CDBs
 #define SRBEX_DATA_SCSI_CDB16_LENGTH ((20 * sizeof(UCHAR)) + sizeof(ULONG) + sizeof(PVOID))
@@ -1071,64 +1064,6 @@ typedef struct SRB_ALIGN _SRBEX_DATA_IO_INFO {
     ULONG Reserved1[2];
 } SRBEX_DATA_IO_INFO, *PSRBEX_DATA_IO_INFO;
 
-// Use in NVMe command requests to provide additional info about the IO.
-#define SRBEX_DATA_NVME_COMMAND_LENGTH ((13 * sizeof(ULONG)) + (3 * sizeof(ULONGLONG)) + (2 * sizeof(USHORT)))
-
-typedef enum {
-    SRBEX_DATA_NVME_COMMAND_TYPE_NVM     = 0,
-    SRBEX_DATA_NVME_COMMAND_TYPE_ADMIN,
-} SRBEX_DATA_NVME_COMMAND_TYPE, *PSRBEX_DATA_NVME_COMMAND_TYPE;
-
-typedef enum {
-    SRBEX_DATA_NVME_COMMAND_FLAG_REQUIRE_DATA_TRANSFER_IN  = 0x1,
-    SRBEX_DATA_NVME_COMMAND_FLAG_REQUIRE_DATA_TRANSFER_OUT = 0x2,
-    SRBEX_DATA_NVME_COMMAND_FLAG_PRP_SET_ALREADY           = 0x4,
-    SRBEX_DATA_NVME_COMMAND_FLAG_SIGNATURE_ENABLED         = 0x8,
-} SRBEX_DATA_NVME_COMMAND_FLAG, *PSRBEX_DATA_NVME_COMMAND_FLAG;
-
-typedef struct SRB_ALIGN _SRBEX_DATA_NVME_COMMAND {
-    _Field_range_(SrbExDataTypeNvmeCommand, SrbExDataTypeNvmeCommand)
-    SRBEXDATATYPE Type;
-    _Field_range_(SRBEX_DATA_NVME_COMMAND_LENGTH, SRBEX_DATA_NVME_COMMAND_LENGTH)
-    ULONG Length;
-    ULONG CommandDWORD0;
-    ULONG CommandNSID;
-    ULONG Reserved0[2];
-    ULONGLONG CommandMPTR;
-    ULONGLONG CommandPRP1;
-    ULONGLONG CommandPRP2;
-
-    ULONG CommandCDW10;
-    ULONG CommandCDW11;
-    ULONG CommandCDW12;
-    ULONG CommandCDW13;
-    ULONG CommandCDW14;
-    ULONG CommandCDW15;
-    UCHAR CommandType;          // Defined in SRBEX_DATA_NVME_COMMAND_TYPE
-    UCHAR CommandFlags;         // Defined in SRBEX_DATA_NVME_COMMAND_FLAG
-        
-    union {
-        struct {
-            USHORT  P           : 1;        // Phase Tag (P)
-    
-            USHORT  SC          : 8;        // Status Code (SC)
-            USHORT  SCT         : 3;        // Status Code Type (SCT)
-            USHORT  Reserved    : 2;
-            USHORT  M           : 1;        // More (M)
-            USHORT  DNR         : 1;        // Do Not Retry (DNR)
-        } DUMMYSTRUCTNAME;
-    
-        USHORT AsUshort;
-
-    } CommandStatus; // Status field from Completion Queue Entry (NVME_COMMAND_STATUS defined in nvme.h)
-    
-    ULONG QID;                  // User choice of Queue ID, if unspecified it should be 0xFFFFFFFF
-    ULONG CommandTag;           // Unique identifier for the command
-
-    ULONG CQEntryDW0;           // Completion queue entry DW0.
-
-} SRBEX_DATA_NVME_COMMAND, *PSRBEX_DATA_NVME_COMMAND;
-
 
 // SRB signature - "SRBX" in ASCII
 #define SRB_SIGNATURE 0x53524258
@@ -1198,31 +1133,11 @@ typedef _Struct_size_bytes_(SrbLength) struct SRB_ALIGN _STORAGE_REQUEST_BLOCK {
     // Request timeout value
     ULONG TimeOutValue;
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_CU)
-
-    union {
-        //
-        // Used to store system failure status information in
-        // SrbStatus failure conditions (e.g. SRB_STATUS_INTERNAL_ERROR).
-        //
-        ULONG SystemStatus;
-
-        //
-        // Used to store high 4 bytes of unique tag if unique tag feature is enabled.
-        //
-        ULONG RequestTagHigh4Bytes;
-
-    } DUMMYUNIONNAME;
-
-#else
-
     //
     // Used to store system failure status information in
     // SrbStatus failure conditions (e.g. SRB_STATUS_INTERNAL_ERROR).
     //
     ULONG SystemStatus;
-
-#endif
 
     //
     // Guard page that should always be zero. Use to guard against misbehaving
@@ -1283,18 +1198,16 @@ typedef _Struct_size_bytes_(SrbLength) struct SRB_ALIGN _STORAGE_REQUEST_BLOCK {
 // Define SRB types supported
 #define SRB_TYPE_SCSI_REQUEST_BLOCK         0
 #define SRB_TYPE_STORAGE_REQUEST_BLOCK      1
-#define SRB_TYPE_NVME_REQUEST_BLOCK         2
 
 // Define address type supported
-#define STORAGE_ADDRESS_TYPE_BTL8           0
-#define STORAGE_ADDRESS_TYPE_NVME           1
+#define STORAGE_ADDRESS_TYPE_BTL8        0
 
 
 #endif //(NTDDI_VERSION >= NTDDI_WIN8)
 
 // end_ntminitape
 
-// end_storport end_privstorport
+// end_storport end_storportp
 
 //
 // SCSI Adapter Dependent Routines

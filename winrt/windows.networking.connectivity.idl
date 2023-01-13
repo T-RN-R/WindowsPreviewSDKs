@@ -68,8 +68,6 @@ namespace Windows
 
             typedef enum DataUsageGranularity DataUsageGranularity;
 
-            typedef enum DomainAuthenticationKind DomainAuthenticationKind;
-
             typedef enum DomainConnectivityLevel DomainConnectivityLevel;
 
             typedef enum NetworkAuthenticationType NetworkAuthenticationType;
@@ -115,8 +113,6 @@ namespace Windows
             interface IConnectionProfile4;
 
             interface IConnectionProfile5;
-
-            interface IConnectionProfile6;
 
             interface IConnectionProfileFilter;
 
@@ -299,7 +295,7 @@ namespace Windows
     {
         namespace Connectivity
         {
-            [contractversion(3.0)]
+            [contractversion(2.0)]
             apicontract WwanContract
             {
             }
@@ -331,14 +327,6 @@ namespace Windows
                 Total     = 3
             };
 
-            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
-            enum DomainAuthenticationKind
-            {
-                None = 0,
-                Ldap = 1,
-                Tls  = 2
-            };
-
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             enum DomainConnectivityLevel
             {
@@ -350,26 +338,22 @@ namespace Windows
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             enum NetworkAuthenticationType
             {
-                None                  = 0,
-                Unknown               = 1,
-                Open80211             = 2,
-                SharedKey80211        = 3,
-                Wpa                   = 4,
-                WpaPsk                = 5,
-                WpaNone               = 6,
-                Rsna                  = 7,
-                RsnaPsk               = 8,
-                Ihv                   = 9,
+                None           = 0,
+                Unknown        = 1,
+                Open80211      = 2,
+                SharedKey80211 = 3,
+                Wpa            = 4,
+                WpaPsk         = 5,
+                WpaNone        = 6,
+                Rsna           = 7,
+                RsnaPsk        = 8,
+                Ihv            = 9,
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)]
-                Wpa3                  = 10,
-                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-                Wpa3Enterprise192Bits = 10,
+                Wpa3           = 10,
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)]
-                Wpa3Sae               = 11,
+                Wpa3Sae        = 11,
                 [contract(Windows.Foundation.UniversalApiContract, 10.0)]
-                Owe                   = 12,
-                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-                Wpa3Enterprise        = 13
+                Owe            = 12
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -402,11 +386,7 @@ namespace Windows
                 Ccmp        = 6,
                 WpaUseGroup = 7,
                 RsnUseGroup = 8,
-                Ihv         = 9,
-                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-                Gcmp        = 10,
-                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-                Gcmp256     = 11
+                Ihv         = 9
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -439,25 +419,21 @@ namespace Windows
             [flags]
             enum WwanDataClass
             {
-                None                  = 0x0,
-                Gprs                  = 0x1,
-                Edge                  = 0x2,
-                Umts                  = 0x4,
-                Hsdpa                 = 0x8,
-                Hsupa                 = 0x10,
-                LteAdvanced           = 0x20,
-                [contract(Windows.Networking.Connectivity.WwanContract, 3.0)]
-                NewRadioNonStandalone = 0x40,
-                [contract(Windows.Networking.Connectivity.WwanContract, 3.0)]
-                NewRadioStandalone    = 0x80,
-                Cdma1xRtt             = 0x10000,
-                Cdma1xEvdo            = 0x20000,
-                Cdma1xEvdoRevA        = 0x40000,
-                Cdma1xEvdv            = 0x80000,
-                Cdma3xRtt             = 0x100000,
-                Cdma1xEvdoRevB        = 0x200000,
-                CdmaUmb               = 0x400000,
-                Custom                = 0x80000000
+                None           = 0x0,
+                Gprs           = 0x1,
+                Edge           = 0x2,
+                Umts           = 0x4,
+                Hsdpa          = 0x8,
+                Hsupa          = 0x10,
+                LteAdvanced    = 0x20,
+                Cdma1xRtt      = 0x10000,
+                Cdma1xEvdo     = 0x20000,
+                Cdma1xEvdoRevA = 0x40000,
+                Cdma1xEvdv     = 0x80000,
+                Cdma3xRtt      = 0x100000,
+                Cdma1xEvdoRevB = 0x200000,
+                CdmaUmb        = 0x400000,
+                Custom         = 0x80000000
             };
 
             [contract(Windows.Networking.Connectivity.WwanContract, 2.0)]
@@ -608,14 +584,6 @@ namespace Windows
             {
                 [propget] HRESULT CanDelete([out] [retval] boolean* value);
                 HRESULT TryDeleteAsync([out] [retval] Windows.Foundation.IAsyncOperation<Windows.Networking.Connectivity.ConnectionProfileDeleteStatus>** operation);
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
-            [exclusiveto(Windows.Networking.Connectivity.ConnectionProfile)]
-            [uuid(DC27DFE2-7A6F-5D0E-9589-2FE2E5B6F9AA)]
-            interface IConnectionProfile6 : IInspectable
-            {
-                HRESULT IsDomainAuthenticatedBy([in] Windows.Networking.Connectivity.DomainAuthenticationKind kind, [out] [retval] boolean* result);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -931,7 +899,6 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Networking.Connectivity.IConnectionProfile3;
                 [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.Networking.Connectivity.IConnectionProfile4;
                 [contract(Windows.Foundation.UniversalApiContract, 7.0)] interface Windows.Networking.Connectivity.IConnectionProfile5;
-                [contract(Windows.Foundation.UniversalApiContract, 13.0)] interface Windows.Networking.Connectivity.IConnectionProfile6;
             }
 
             [activatable(Windows.Foundation.UniversalApiContract, 1.0)]

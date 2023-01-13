@@ -88,7 +88,7 @@
 //  API Contract Inclusion Definitions
 #if !defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
 #if !defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION 0x70000
+#define WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION 0x50000
 #endif // defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_CALLS_CALLSVOIPCONTRACT_VERSION)
@@ -100,7 +100,7 @@
 #endif // defined(WINDOWS_APPLICATIONMODEL_CALLS_LOCKSCREENCALLCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION 0x40000
+#define WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION 0x20000
 #endif // defined(WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
@@ -108,7 +108,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -174,23 +174,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails ABI::Windows::ApplicationModel::Calls::Background::IPhoneIncomingCallDismissedTriggerDetails
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Calls {
-                namespace Background {
-                    interface IPhoneIncomingCallNotificationTriggerDetails;
-                } /* Background */
-            } /* Calls */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails ABI::Windows::ApplicationModel::Calls::Background::IPhoneIncomingCallNotificationTriggerDetails
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_FWD_DEFINED__
@@ -293,7 +276,7 @@ namespace ABI {
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 namespace ABI {
     namespace Windows {
         namespace ApplicationModel {
@@ -311,7 +294,7 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -326,11 +309,7 @@ namespace ABI {
         namespace ApplicationModel {
             namespace Calls {
                 namespace Background {
-                    enum
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                    DEPRECATED("PhoneIncomingCallDismissedReason is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                    PhoneIncomingCallDismissedReason : int
+                    enum PhoneIncomingCallDismissedReason : int
                     {
                         PhoneIncomingCallDismissedReason_Unknown = 0,
                         PhoneIncomingCallDismissedReason_CallRejected = 1,
@@ -352,7 +331,7 @@ namespace ABI {
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 namespace ABI {
     namespace Windows {
         namespace ApplicationModel {
@@ -370,7 +349,7 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -380,7 +359,7 @@ namespace ABI {
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 namespace ABI {
     namespace Windows {
         namespace ApplicationModel {
@@ -407,7 +386,7 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -417,7 +396,7 @@ namespace ABI {
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 namespace ABI {
     namespace Windows {
         namespace ApplicationModel {
@@ -429,22 +408,11 @@ namespace ABI {
                         PhoneTriggerType_CallHistoryChanged = 1,
                         PhoneTriggerType_LineChanged = 2,
                         PhoneTriggerType_AirplaneModeDisabledForEmergencyCall = 3,
-                        PhoneTriggerType_CallOriginDataRequest
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATEDENUMERATOR("CallOriginDataRequest is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        = 4,
+                        PhoneTriggerType_CallOriginDataRequest = 4,
                         PhoneTriggerType_CallBlocked = 5,
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
-                        PhoneTriggerType_IncomingCallDismissed
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATEDENUMERATOR("IncomingCallDismissed is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        = 6,
+                        PhoneTriggerType_IncomingCallDismissed = 6,
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
-                        PhoneTriggerType_IncomingCallNotification = 7,
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
                     };
                 } /* Background */
             } /* Calls */
@@ -452,7 +420,7 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -464,7 +432,7 @@ namespace ABI {
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlockedTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlockedTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneCallBlockedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneCallBlockedTriggerDetails";
@@ -488,7 +456,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPhoneCallBlockedTriggerDetails = __uuidof(IPhoneCallBlockedTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IPhoneCallBlockedTriggerDetails = _uuidof(IPhoneCallBlockedTriggerDetails);
                 } /* Background */
             } /* Calls */
         } /* ApplicationModel */
@@ -498,7 +466,7 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlockedTriggerDetails;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlockedTriggerDetails_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -510,7 +478,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneCallOriginDataRequestTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneCallOriginDataRequestTriggerDetails";
@@ -520,27 +488,18 @@ namespace ABI {
             namespace Calls {
                 namespace Background {
                     MIDL_INTERFACE("6e9b5b3f-c54b-4e82-4cc9-e329a4184592")
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                    DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                     IPhoneCallOriginDataRequestTriggerDetails : public IInspectable
                     {
                     public:
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                         virtual HRESULT STDMETHODCALLTYPE get_RequestId(
                             GUID* result
                             ) = 0;
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                         virtual HRESULT STDMETHODCALLTYPE get_PhoneNumber(
                             HSTRING* result
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPhoneCallOriginDataRequestTriggerDetails = __uuidof(IPhoneCallOriginDataRequestTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IPhoneCallOriginDataRequestTriggerDetails = _uuidof(IPhoneCallOriginDataRequestTriggerDetails);
                 } /* Background */
             } /* Calls */
         } /* ApplicationModel */
@@ -550,7 +509,7 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -571,51 +530,30 @@ namespace ABI {
             namespace Calls {
                 namespace Background {
                     MIDL_INTERFACE("bad30276-83b6-5732-9c38-0c206546196a")
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                     IPhoneIncomingCallDismissedTriggerDetails : public IInspectable
                     {
                     public:
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                         virtual HRESULT STDMETHODCALLTYPE get_LineId(
                             GUID* value
                             ) = 0;
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                         virtual HRESULT STDMETHODCALLTYPE get_PhoneNumber(
                             HSTRING* value
                             ) = 0;
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                         virtual HRESULT STDMETHODCALLTYPE get_DisplayName(
                             HSTRING* value
                             ) = 0;
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                         virtual HRESULT STDMETHODCALLTYPE get_DismissalTime(
                             ABI::Windows::Foundation::DateTime* value
                             ) = 0;
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                         virtual HRESULT STDMETHODCALLTYPE get_TextReplyMessage(
                             HSTRING* value
                             ) = 0;
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-                        DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
                         virtual HRESULT STDMETHODCALLTYPE get_Reason(
                             ABI::Windows::ApplicationModel::Calls::Background::PhoneIncomingCallDismissedReason* value
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPhoneIncomingCallDismissedTriggerDetails = __uuidof(IPhoneIncomingCallDismissedTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IPhoneIncomingCallDismissedTriggerDetails = _uuidof(IPhoneIncomingCallDismissedTriggerDetails);
                 } /* Background */
             } /* Calls */
         } /* ApplicationModel */
@@ -628,47 +566,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
 
 /*
  *
- * Interface Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallNotificationTriggerDetails
- *
- * Introduced to Windows.ApplicationModel.Calls.Background.CallsBackgroundContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails
- *
- */
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneIncomingCallNotificationTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallNotificationTriggerDetails";
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Calls {
-                namespace Background {
-                    MIDL_INTERFACE("2b0e6044-9b32-5d42-8222-d2812e39fb21")
-                    IPhoneIncomingCallNotificationTriggerDetails : public IInspectable
-                    {
-                    public:
-                        virtual HRESULT STDMETHODCALLTYPE get_LineId(
-                            GUID* value
-                            ) = 0;
-                        virtual HRESULT STDMETHODCALLTYPE get_CallId(
-                            HSTRING* value
-                            ) = 0;
-                    };
-
-                    MIDL_CONST_ID IID& IID_IPhoneIncomingCallNotificationTriggerDetails = __uuidof(IPhoneIncomingCallNotificationTriggerDetails);
-                } /* Background */
-            } /* Calls */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails;
-#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_INTERFACE_DEFINED__) */
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
-
-/*
- *
  * Interface Windows.ApplicationModel.Calls.Background.IPhoneLineChangedTriggerDetails
  *
  * Introduced to Windows.ApplicationModel.Calls.Background.CallsBackgroundContract in version 1.0
@@ -677,7 +574,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneLineChangedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneLineChangedTriggerDetails";
@@ -702,7 +599,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPhoneLineChangedTriggerDetails = __uuidof(IPhoneLineChangedTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IPhoneLineChangedTriggerDetails = _uuidof(IPhoneLineChangedTriggerDetails);
                 } /* Background */
             } /* Calls */
         } /* ApplicationModel */
@@ -712,7 +609,7 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -724,7 +621,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicemailMessageTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicemailMessageTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneNewVoicemailMessageTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneNewVoicemailMessageTriggerDetails";
@@ -748,7 +645,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IPhoneNewVoicemailMessageTriggerDetails = __uuidof(IPhoneNewVoicemailMessageTriggerDetails);
+                    extern MIDL_CONST_ID IID& IID_IPhoneNewVoicemailMessageTriggerDetails = _uuidof(IPhoneNewVoicemailMessageTriggerDetails);
                 } /* Background */
             } /* Calls */
         } /* ApplicationModel */
@@ -758,7 +655,7 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicemailMessageTriggerDetails;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicemailMessageTriggerDetails_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -775,13 +672,13 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneCallBlockedTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneCallBlockedTriggerDetails_DEFINED
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneCallBlockedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -798,16 +695,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneCallOriginDataRequestTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneCallOriginDataRequestTriggerDetails_DEFINED
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneCallOriginDataRequestTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -824,31 +718,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallDismissedTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallDismissedTriggerDetails_DEFINED
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallDismissedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Class Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails
- *
- * Introduced to Windows.ApplicationModel.Calls.Background.CallsBackgroundContract in version 3.0
- *
- * Class implements the following interfaces:
- *    Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallNotificationTriggerDetails ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
-#ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallNotificationTriggerDetails_DEFINED
-#define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallNotificationTriggerDetails_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallNotificationTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails";
-#endif
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -865,13 +737,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneLineChangedTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneLineChangedTriggerDetails_DEFINED
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneLineChangedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -888,13 +760,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneNewVoicemailMessageTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneNewVoicemailMessageTriggerDetails_DEFINED
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneNewVoicemailMessageTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 #else // !defined(__cplusplus)
 /* Forward Declarations */
@@ -915,12 +787,6 @@ typedef interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneC
 typedef interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails;
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails;
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_FWD_DEFINED__
@@ -956,7 +822,7 @@ typedef enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneLinePro
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneCallBlockedReason
 {
     PhoneCallBlockedReason_InCallBlockingList = 0,
@@ -964,7 +830,7 @@ enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneCallBlockedReas
     PhoneCallBlockedReason_UnknownNumber = 2,
 };
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -974,11 +840,7 @@ enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneCallBlockedReas
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
-enum
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-DEPRECATED("PhoneIncomingCallDismissedReason is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneIncomingCallDismissedReason
+enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneIncomingCallDismissedReason
 {
     PhoneIncomingCallDismissedReason_Unknown = 0,
     PhoneIncomingCallDismissedReason_CallRejected = 1,
@@ -995,7 +857,7 @@ __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneIncomingCallDismisse
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneLineChangeKind
 {
     PhoneLineChangeKind_Added = 0,
@@ -1003,7 +865,7 @@ enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneLineChangeKind
     PhoneLineChangeKind_PropertiesChanged = 2,
 };
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1013,7 +875,7 @@ enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneLineChangeKind
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneLineProperties
 {
     PhoneLineProperties_None = 0,
@@ -1028,7 +890,7 @@ enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneLineProperties
     PhoneLineProperties_Voicemail = 0x100,
 };
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1038,32 +900,21 @@ enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneLineProperties
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneTriggerType
 {
     PhoneTriggerType_NewVoicemailMessage = 0,
     PhoneTriggerType_CallHistoryChanged = 1,
     PhoneTriggerType_LineChanged = 2,
     PhoneTriggerType_AirplaneModeDisabledForEmergencyCall = 3,
-    PhoneTriggerType_CallOriginDataRequest
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATEDENUMERATOR("CallOriginDataRequest is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    = 4,
+    PhoneTriggerType_CallOriginDataRequest = 4,
     PhoneTriggerType_CallBlocked = 5,
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
-    PhoneTriggerType_IncomingCallDismissed
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATEDENUMERATOR("IncomingCallDismissed is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    = 6,
+    PhoneTriggerType_IncomingCallDismissed = 6,
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
-    PhoneTriggerType_IncomingCallNotification = 7,
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
 };
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1075,7 +926,7 @@ enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneTriggerType
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlockedTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlockedTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneCallBlockedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneCallBlockedTriggerDetails";
@@ -1144,7 +995,7 @@ interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlock
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlockedTriggerDetails;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallBlockedTriggerDetails_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1156,15 +1007,11 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneCallOriginDataRequestTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneCallOriginDataRequestTriggerDetails";
-typedef struct
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetailsVtbl
+typedef struct __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetailsVtbl
 {
     BEGIN_INTERFACE
 
@@ -1180,14 +1027,8 @@ __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataReque
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails* This,
         TrustLevel* trustLevel);
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
     HRESULT (STDMETHODCALLTYPE* get_RequestId)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails* This,
         GUID* result);
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
     HRESULT (STDMETHODCALLTYPE* get_PhoneNumber)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails* This,
         HSTRING* result);
 
@@ -1219,15 +1060,9 @@ interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOrigi
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_get_RequestId(This, result) \
     ((This)->lpVtbl->get_RequestId(This, result))
 
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_get_PhoneNumber(This, result) \
     ((This)->lpVtbl->get_PhoneNumber(This, result))
 
@@ -1236,7 +1071,7 @@ interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOrigi
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneCallOriginDataRequestTriggerDetails_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1251,11 +1086,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneIncomingCallDismissedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallDismissedTriggerDetails";
-typedef struct
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetailsVtbl
+typedef struct __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetailsVtbl
 {
     BEGIN_INTERFACE
 
@@ -1271,34 +1102,16 @@ __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismiss
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails* This,
         TrustLevel* trustLevel);
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
     HRESULT (STDMETHODCALLTYPE* get_LineId)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails* This,
         GUID* value);
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
     HRESULT (STDMETHODCALLTYPE* get_PhoneNumber)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails* This,
         HSTRING* value);
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
     HRESULT (STDMETHODCALLTYPE* get_DisplayName)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails* This,
         HSTRING* value);
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
     HRESULT (STDMETHODCALLTYPE* get_DismissalTime)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails* This,
         struct __x_ABI_CWindows_CFoundation_CDateTime* value);
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
     HRESULT (STDMETHODCALLTYPE* get_TextReplyMessage)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails* This,
         HSTRING* value);
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
     HRESULT (STDMETHODCALLTYPE* get_Reason)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails* This,
         enum __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CPhoneIncomingCallDismissedReason* value);
 
@@ -1330,39 +1143,21 @@ interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingC
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_get_LineId(This, value) \
     ((This)->lpVtbl->get_LineId(This, value))
 
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_get_PhoneNumber(This, value) \
     ((This)->lpVtbl->get_PhoneNumber(This, value))
 
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_get_DisplayName(This, value) \
     ((This)->lpVtbl->get_DisplayName(This, value))
 
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_get_DismissalTime(This, value) \
     ((This)->lpVtbl->get_DismissalTime(This, value))
 
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_get_TextReplyMessage(This, value) \
     ((This)->lpVtbl->get_TextReplyMessage(This, value))
 
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-    DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 #define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallDismissedTriggerDetails_get_Reason(This, value) \
     ((This)->lpVtbl->get_Reason(This, value))
 
@@ -1374,80 +1169,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
 
 /*
  *
- * Interface Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallNotificationTriggerDetails
- *
- * Introduced to Windows.ApplicationModel.Calls.Background.CallsBackgroundContract in version 3.0
- *
- * Interface is a part of the implementation of type Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails
- *
- */
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
-#if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneIncomingCallNotificationTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallNotificationTriggerDetails";
-typedef struct __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetailsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_LineId)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails* This,
-        GUID* value);
-    HRESULT (STDMETHODCALLTYPE* get_CallId)(__x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails* This,
-        HSTRING* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetailsVtbl;
-
-interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails
-{
-    CONST_VTBL struct __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetailsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_get_LineId(This, value) \
-    ((This)->lpVtbl->get_LineId(This, value))
-
-#define __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_get_CallId(This, value) \
-    ((This)->lpVtbl->get_CallId(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails;
-#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneIncomingCallNotificationTriggerDetails_INTERFACE_DEFINED__) */
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
-
-/*
- *
  * Interface Windows.ApplicationModel.Calls.Background.IPhoneLineChangedTriggerDetails
  *
  * Introduced to Windows.ApplicationModel.Calls.Background.CallsBackgroundContract in version 1.0
@@ -1456,7 +1177,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneLineChangedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneLineChangedTriggerDetails";
@@ -1526,7 +1247,7 @@ interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChang
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneLineChangedTriggerDetails_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1538,7 +1259,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicemailMessageTriggerDetails_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicemailMessageTriggerDetails_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Calls_Background_IPhoneNewVoicemailMessageTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.IPhoneNewVoicemailMessageTriggerDetails";
@@ -1607,7 +1328,7 @@ interface __x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicem
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicemailMessageTriggerDetails;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIPhoneNewVoicemailMessageTriggerDetails_INTERFACE_DEFINED__) */
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1624,13 +1345,13 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CCalls_CBackground_CIP
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneCallBlockedTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneCallBlockedTriggerDetails_DEFINED
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneCallBlockedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1647,16 +1368,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneCallOriginDataRequestTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneCallOriginDataRequestTriggerDetails_DEFINED
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-DEPRECATED("PhoneCallOriginDataRequestTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneCallOriginDataRequestTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1673,31 +1391,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallDismissedTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallDismissedTriggerDetails_DEFINED
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
-DEPRECATED("PhoneIncomingCallDismissedTriggerDetails is deprecated and might not work for all platforms. For more info, see MSDN.")
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x40000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallDismissedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x20000
-
-/*
- *
- * Class Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails
- *
- * Introduced to Windows.ApplicationModel.Calls.Background.CallsBackgroundContract in version 3.0
- *
- * Class implements the following interfaces:
- *    Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallNotificationTriggerDetails ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
-#ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallNotificationTriggerDetails_DEFINED
-#define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallNotificationTriggerDetails_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneIncomingCallNotificationTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails";
-#endif
-#endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x30000
 
 /*
  *
@@ -1714,13 +1410,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneLineChangedTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneLineChangedTriggerDetails_DEFINED
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneLineChangedTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 /*
  *
@@ -1737,13 +1433,13 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  */
 #if WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+    WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneNewVoicemailMessageTriggerDetails_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Calls_Background_PhoneNewVoicemailMessageTriggerDetails_DEFINED
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Calls_Background_PhoneNewVoicemailMessageTriggerDetails[] = L"Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_CALLS_BACKGROUND_CALLSBACKGROUNDCONTRACT_VERSION >= 0x10000 || \
-       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x30000
+       // WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION >= 0x10000 && WINDOWS_APPLICATIONMODEL_CALLS_CALLSPHONECONTRACT_VERSION < 0x20000
 
 #endif // defined(__cplusplus)
 #pragma pop_macro("MIDL_CONST_ID")

@@ -93,7 +93,7 @@ DEFINE_GUID(EXTINT_NOTIFY_TYPE_GUID,
             0x17, 0x98, 0x2e, 0x07, 0x84, 0x70);
 
 /* 0033f803-2e70-4e88-992c-6f26daf3db7a */
-DEFINE_GUID(DEVICE_DRIVER_NOTIFY_TYPE_GUID,
+DEFINE_GUID(DEVICE_DRIVER_NOTIFY_TYPE_GUID, 
             0x0033f803, 0x2e70, 0x4e88, 0x99, 0x2c,
             0x6f, 0x26, 0xda, 0xf3, 0xdb, 0x7a);
 
@@ -102,13 +102,6 @@ DEFINE_GUID(CMCI_NOTIFY_TYPE_GUID,
             0x919448b2, 0x3739, 0x4b7f, 0xa8, 0xf1,
             0xe0, 0x06, 0x28, 0x05, 0xc2, 0xa3);
 
-//------------------------------------------- Summary Error Section type GUIDs
-
-/* 990b31e9-541a-4db0-a42f-837d344f6923 */
-DEFINE_GUID(WHEA_DEVICE_ERROR_SUMMARY_GUID,
-            0x990b31e9, 0x541a, 0x4db0, 0xa4, 0x2f,
-            0x83, 0x7d, 0x34, 0x4f, 0x69, 0x23);
-            
 //------------------------------------------- Standard Error Section type GUIDs
 
 /* 9876ccad-47b4-4bdb-b65e-16f193c4f3db */
@@ -165,11 +158,6 @@ DEFINE_GUID(PMEM_ERROR_SECTION_GUID,
 DEFINE_GUID(MU_TELEMETRY_SECTION_GUID,
             0x85183a8b, 0x9c41, 0x429c, 0x93, 0x9c,
             0x5c, 0x3c, 0x08, 0x7c, 0xa2, 0x80);
-
-/* c34832a1-02c3-4c52-a9f1-9f1d5d7723fc */
-DEFINE_GUID(RECOVERY_INFO_SECTION_GUID,
-            0xc34832a1, 0x02c3, 0x4c52, 0xa9, 0xf1,
-            0x9f, 0x1d, 0x5d, 0x77, 0x23, 0xfc);
 
 //-------------------------------------- Processor check information type GUIDs
 
@@ -272,43 +260,6 @@ DEFINE_GUID(WHEA_DPC_CAPABILITY_SECTION_GUID,
             0xec49534b,
             0x30e7, 0x4358,
             0x97, 0x2f, 0xec, 0xa6, 0x95, 0x8f, 0xae, 0x3b);
-
-/* e96eca99-53e2-4f52-9be7-d2dbe9508ed0 */
-DEFINE_GUID(PCIE_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID,
-            0xe96eca99,
-            0x53e2, 0x4f52,
-            0x9b, 0xe7, 0xd2, 0xdb, 0xe9, 0x50, 0x8e, 0xd0);
-
-/* 0e36c93e-ca15-4a83-ba8a-cbe80f7f0017 */
-DEFINE_GUID(MEMORY_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID,
-            0x0e36c93e,
-            0xca15, 0x4a83,
-            0xba, 0x8a, 0xcb, 0xe8, 0x0f, 0x7f, 0x00, 0x17);
-
-/* f5fe48a6-84ce-4c1e-aa64-20c9a53099f1 */
-DEFINE_GUID(SEA_SECTION_GUID,
-            0xf5fe48a6, 0x84ce, 0x4c1e, 0xaa, 0x64,
-            0x20, 0xc9, 0xa5, 0x30, 0x99, 0xf1);
-
-/* f2a4a152-9c6d-4020-aecf-7695b389251b */
-DEFINE_GUID(SEI_SECTION_GUID,
-            0xf2a4a152, 0x9c6d, 0x4020, 0xae, 0xcf,
-            0x76, 0x95, 0xb3, 0x89, 0x25, 0x1b);
-
-/* dd060800-f6e1-4204-ac27-c4bca9568402 */
-DEFINE_GUID(PCI_RECOVERY_SECTION_GUID,
-            0xdd060800, 0xf6e1, 0x4204, 0xac, 0x27, 
-            0xc4, 0xbc, 0xa9, 0x56, 0x84, 0x02);
-
-/* e3ebf4a2-df50-4708-b2d7-0b29ec2f7aa9 */
-DEFINE_GUID(ARM_RAS_NODE_SECTION_GUID,
-            0xe3ebf4a2, 0xdf50, 0x4708, 0xb2, 0xd7,
-            0x0b, 0x29, 0xec, 0x2f, 0x7a, 0xa9);
-
-/* e16edb28-6113-4263-a41d-e53f8de78751 */
-DEFINE_GUID(MEMORY_ERROR_EXT_SECTION_INTEL_GUID,
-            0xe16edb28, 0x6113, 0x4263, 0xa4, 0x1d,
-            0xe5, 0x3f, 0x8d, 0xe7, 0x87, 0x51);
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion

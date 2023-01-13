@@ -1,9 +1,8 @@
-// C++/WinRT v2.0.220418.1
+// C++/WinRT v2.0.191023.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-#pragma once
 #ifndef WINRT_Windows_ApplicationModel_SocialInfo_0_H
 #define WINRT_Windows_ApplicationModel_SocialInfo_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
@@ -58,51 +57,53 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::SocialInfo
 }
 namespace winrt::impl
 {
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedContent>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedItem>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::ISocialUserInfo>{ using type = interface_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedChildItem>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedContent>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedItem>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialItemThumbnail>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialUserInfo>{ using type = class_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedItemStyle>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedKind>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedUpdateMode>{ using type = enum_category; };
-    template <> struct category<winrt::Windows::ApplicationModel::SocialInfo::SocialItemBadgeStyle>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedChildItem> = L"Windows.ApplicationModel.SocialInfo.SocialFeedChildItem";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedContent> = L"Windows.ApplicationModel.SocialInfo.SocialFeedContent";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedItem> = L"Windows.ApplicationModel.SocialInfo.SocialFeedItem";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem> = L"Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialItemThumbnail> = L"Windows.ApplicationModel.SocialInfo.SocialItemThumbnail";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialUserInfo> = L"Windows.ApplicationModel.SocialInfo.SocialUserInfo";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedItemStyle> = L"Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedKind> = L"Windows.ApplicationModel.SocialInfo.SocialFeedKind";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedUpdateMode> = L"Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::SocialItemBadgeStyle> = L"Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem> = L"Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedContent> = L"Windows.ApplicationModel.SocialInfo.ISocialFeedContent";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedItem> = L"Windows.ApplicationModel.SocialInfo.ISocialFeedItem";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem> = L"Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail> = L"Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail";
-    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialUserInfo> = L"Windows.ApplicationModel.SocialInfo.ISocialUserInfo";
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>{ 0x0B6A985A,0xD59D,0x40BE,{ 0x98,0x0C,0x48,0x8A,0x2A,0xB3,0x0A,0x83 } }; // 0B6A985A-D59D-40BE-980C-488A2AB30A83
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedContent>{ 0xA234E429,0x3E39,0x494D,{ 0xA3,0x7C,0xF4,0x62,0xA2,0x49,0x45,0x14 } }; // A234E429-3E39-494D-A37C-F462A2494514
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedItem>{ 0x4F1392AB,0x1F72,0x4D33,{ 0xB6,0x95,0xDE,0x3E,0x1D,0xB6,0x03,0x17 } }; // 4F1392AB-1F72-4D33-B695-DE3E1DB60317
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>{ 0x7BFB9E40,0xA6AA,0x45A7,{ 0x9F,0xF6,0x54,0xC4,0x21,0x05,0xDD,0x1F } }; // 7BFB9E40-A6AA-45A7-9FF6-54C42105DD1F
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>{ 0x5CBF831A,0x3F08,0x497F,{ 0x91,0x7F,0x57,0xE0,0x9D,0x84,0xB1,0x41 } }; // 5CBF831A-3F08-497F-917F-57E09D84B141
-    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::SocialInfo::ISocialUserInfo>{ 0x9E5E1BD1,0x90D0,0x4E1D,{ 0x95,0x54,0x84,0x4D,0x46,0x60,0x7F,0x61 } }; // 9E5E1BD1-90D0-4E1D-9554-844D46607F61
-    template <> struct default_interface<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedChildItem>{ using type = winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedContent>{ using type = winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedContent; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedItem>{ using type = winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedItem; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem>{ using type = winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::SocialInfo::SocialItemThumbnail>{ using type = winrt::Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail; };
-    template <> struct default_interface<winrt::Windows::ApplicationModel::SocialInfo::SocialUserInfo>{ using type = winrt::Windows::ApplicationModel::SocialInfo::ISocialUserInfo; };
-    template <> struct abi<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>
+    template <> struct category<Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::ISocialFeedContent>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::ISocialFeedItem>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::ISocialUserInfo>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialFeedChildItem>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialFeedContent>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialFeedItem>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialItemThumbnail>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialUserInfo>{ using type = class_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialFeedItemStyle>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialFeedKind>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialFeedUpdateMode>{ using type = enum_category; };
+    template <> struct category<Windows::ApplicationModel::SocialInfo::SocialItemBadgeStyle>{ using type = enum_category; };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialFeedChildItem>{ L"Windows.ApplicationModel.SocialInfo.SocialFeedChildItem" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialFeedContent>{ L"Windows.ApplicationModel.SocialInfo.SocialFeedContent" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialFeedItem>{ L"Windows.ApplicationModel.SocialInfo.SocialFeedItem" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem>{ L"Windows.ApplicationModel.SocialInfo.SocialFeedSharedItem" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialItemThumbnail>{ L"Windows.ApplicationModel.SocialInfo.SocialItemThumbnail" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialUserInfo>{ L"Windows.ApplicationModel.SocialInfo.SocialUserInfo" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialFeedItemStyle>{ L"Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialFeedKind>{ L"Windows.ApplicationModel.SocialInfo.SocialFeedKind" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialFeedUpdateMode>{ L"Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::SocialItemBadgeStyle>{ L"Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle" };
+#ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>{ L"Windows.ApplicationModel.SocialInfo.ISocialFeedChildItem" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialFeedContent>{ L"Windows.ApplicationModel.SocialInfo.ISocialFeedContent" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialFeedItem>{ L"Windows.ApplicationModel.SocialInfo.ISocialFeedItem" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>{ L"Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>{ L"Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialUserInfo>{ L"Windows.ApplicationModel.SocialInfo.ISocialUserInfo" };
+#endif
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>{ 0x0B6A985A,0xD59D,0x40BE,{ 0x98,0x0C,0x48,0x8A,0x2A,0xB3,0x0A,0x83 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedContent>{ 0xA234E429,0x3E39,0x494D,{ 0xA3,0x7C,0xF4,0x62,0xA2,0x49,0x45,0x14 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedItem>{ 0x4F1392AB,0x1F72,0x4D33,{ 0xB6,0x95,0xDE,0x3E,0x1D,0xB6,0x03,0x17 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>{ 0x7BFB9E40,0xA6AA,0x45A7,{ 0x9F,0xF6,0x54,0xC4,0x21,0x05,0xDD,0x1F } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>{ 0x5CBF831A,0x3F08,0x497F,{ 0x91,0x7F,0x57,0xE0,0x9D,0x84,0xB1,0x41 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialUserInfo>{ 0x9E5E1BD1,0x90D0,0x4E1D,{ 0x95,0x54,0x84,0x4D,0x46,0x60,0x7F,0x61 } };
+    template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialFeedChildItem>{ using type = Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem; };
+    template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialFeedContent>{ using type = Windows::ApplicationModel::SocialInfo::ISocialFeedContent; };
+    template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialFeedItem>{ using type = Windows::ApplicationModel::SocialInfo::ISocialFeedItem; };
+    template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem>{ using type = Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem; };
+    template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialItemThumbnail>{ using type = Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail; };
+    template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialUserInfo>{ using type = Windows::ApplicationModel::SocialInfo::ISocialUserInfo; };
+    template <> struct abi<Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -118,7 +119,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_SharedItem(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedContent>
+    template <> struct abi<Windows::ApplicationModel::SocialInfo::ISocialFeedContent>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -130,7 +131,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_TargetUri(void*) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedItem>
+    template <> struct abi<Windows::ApplicationModel::SocialInfo::ISocialFeedItem>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -156,7 +157,7 @@ namespace winrt::impl
             virtual int32_t __stdcall put_Style(int32_t) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>
+    template <> struct abi<Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -171,7 +172,7 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Thumbnail(void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>
+    template <> struct abi<Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -184,7 +185,7 @@ namespace winrt::impl
             virtual int32_t __stdcall SetImageAsync(void*, void**) noexcept = 0;
         };
     };
-    template <> struct abi<winrt::Windows::ApplicationModel::SocialInfo::ISocialUserInfo>
+    template <> struct abi<Windows::ApplicationModel::SocialInfo::ISocialUserInfo>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
@@ -205,14 +206,14 @@ namespace winrt::impl
         [[nodiscard]] auto PrimaryContent() const;
         [[nodiscard]] auto SecondaryContent() const;
         [[nodiscard]] auto Timestamp() const;
-        auto Timestamp(winrt::Windows::Foundation::DateTime const& value) const;
+        auto Timestamp(Windows::Foundation::DateTime const& value) const;
         [[nodiscard]] auto TargetUri() const;
-        auto TargetUri(winrt::Windows::Foundation::Uri const& value) const;
+        auto TargetUri(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Thumbnails() const;
         [[nodiscard]] auto SharedItem() const;
-        auto SharedItem(winrt::Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem const& value) const;
+        auto SharedItem(Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem const& value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>
+    template <> struct consume<Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_SocialInfo_ISocialFeedChildItem<D>;
     };
@@ -224,9 +225,9 @@ namespace winrt::impl
         [[nodiscard]] auto Message() const;
         auto Message(param::hstring const& value) const;
         [[nodiscard]] auto TargetUri() const;
-        auto TargetUri(winrt::Windows::Foundation::Uri const& value) const;
+        auto TargetUri(Windows::Foundation::Uri const& value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedContent>
+    template <> struct consume<Windows::ApplicationModel::SocialInfo::ISocialFeedContent>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_SocialInfo_ISocialFeedContent<D>;
     };
@@ -237,24 +238,24 @@ namespace winrt::impl
         [[nodiscard]] auto PrimaryContent() const;
         [[nodiscard]] auto SecondaryContent() const;
         [[nodiscard]] auto Timestamp() const;
-        auto Timestamp(winrt::Windows::Foundation::DateTime const& value) const;
+        auto Timestamp(Windows::Foundation::DateTime const& value) const;
         [[nodiscard]] auto TargetUri() const;
-        auto TargetUri(winrt::Windows::Foundation::Uri const& value) const;
+        auto TargetUri(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Thumbnails() const;
         [[nodiscard]] auto SharedItem() const;
-        auto SharedItem(winrt::Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem const& value) const;
+        auto SharedItem(Windows::ApplicationModel::SocialInfo::SocialFeedSharedItem const& value) const;
         [[nodiscard]] auto BadgeStyle() const;
-        auto BadgeStyle(winrt::Windows::ApplicationModel::SocialInfo::SocialItemBadgeStyle const& value) const;
+        auto BadgeStyle(Windows::ApplicationModel::SocialInfo::SocialItemBadgeStyle const& value) const;
         [[nodiscard]] auto BadgeCountValue() const;
         auto BadgeCountValue(int32_t value) const;
         [[nodiscard]] auto RemoteId() const;
         auto RemoteId(param::hstring const& value) const;
         [[nodiscard]] auto ChildItem() const;
-        auto ChildItem(winrt::Windows::ApplicationModel::SocialInfo::SocialFeedChildItem const& value) const;
+        auto ChildItem(Windows::ApplicationModel::SocialInfo::SocialFeedChildItem const& value) const;
         [[nodiscard]] auto Style() const;
-        auto Style(winrt::Windows::ApplicationModel::SocialInfo::SocialFeedItemStyle const& value) const;
+        auto Style(Windows::ApplicationModel::SocialInfo::SocialFeedItemStyle const& value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedItem>
+    template <> struct consume<Windows::ApplicationModel::SocialInfo::ISocialFeedItem>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_SocialInfo_ISocialFeedItem<D>;
     };
@@ -262,16 +263,16 @@ namespace winrt::impl
     struct consume_Windows_ApplicationModel_SocialInfo_ISocialFeedSharedItem
     {
         [[nodiscard]] auto OriginalSource() const;
-        auto OriginalSource(winrt::Windows::Foundation::Uri const& value) const;
+        auto OriginalSource(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto Content() const;
         [[nodiscard]] auto Timestamp() const;
-        auto Timestamp(winrt::Windows::Foundation::DateTime const& value) const;
+        auto Timestamp(Windows::Foundation::DateTime const& value) const;
         [[nodiscard]] auto TargetUri() const;
-        auto TargetUri(winrt::Windows::Foundation::Uri const& value) const;
-        auto Thumbnail(winrt::Windows::ApplicationModel::SocialInfo::SocialItemThumbnail const& value) const;
+        auto TargetUri(Windows::Foundation::Uri const& value) const;
+        auto Thumbnail(Windows::ApplicationModel::SocialInfo::SocialItemThumbnail const& value) const;
         [[nodiscard]] auto Thumbnail() const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>
+    template <> struct consume<Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_SocialInfo_ISocialFeedSharedItem<D>;
     };
@@ -279,14 +280,14 @@ namespace winrt::impl
     struct consume_Windows_ApplicationModel_SocialInfo_ISocialItemThumbnail
     {
         [[nodiscard]] auto TargetUri() const;
-        auto TargetUri(winrt::Windows::Foundation::Uri const& value) const;
+        auto TargetUri(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto ImageUri() const;
-        auto ImageUri(winrt::Windows::Foundation::Uri const& value) const;
+        auto ImageUri(Windows::Foundation::Uri const& value) const;
         [[nodiscard]] auto BitmapSize() const;
-        auto BitmapSize(winrt::Windows::Graphics::Imaging::BitmapSize const& value) const;
-        auto SetImageAsync(winrt::Windows::Storage::Streams::IInputStream const& image) const;
+        auto BitmapSize(Windows::Graphics::Imaging::BitmapSize const& value) const;
+        auto SetImageAsync(Windows::Storage::Streams::IInputStream const& image) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>
+    template <> struct consume<Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_SocialInfo_ISocialItemThumbnail<D>;
     };
@@ -300,9 +301,9 @@ namespace winrt::impl
         [[nodiscard]] auto RemoteId() const;
         auto RemoteId(param::hstring const& value) const;
         [[nodiscard]] auto TargetUri() const;
-        auto TargetUri(winrt::Windows::Foundation::Uri const& value) const;
+        auto TargetUri(Windows::Foundation::Uri const& value) const;
     };
-    template <> struct consume<winrt::Windows::ApplicationModel::SocialInfo::ISocialUserInfo>
+    template <> struct consume<Windows::ApplicationModel::SocialInfo::ISocialUserInfo>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_SocialInfo_ISocialUserInfo<D>;
     };

@@ -53,7 +53,7 @@
 #include <winstring.h> // needed for WindowsDeleteString
 
 /* Use of templates and namespaces */
-#if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
 
 #include <asyncinfo.h>
 
@@ -1153,13 +1153,13 @@ namespace Windows { namespace Foundation
 }} // namespace Windows::Foundation
 } // namespace ABI
 
-#endif /* #if defined(__cplusplus) && !defined(CINTERFACE) */
+#endif /*ifdef __cplusplus*/
 
 //  Definitions of the CollectionChange enum and IVectorChangedEventArgs
 //  interface.
 #include <IVectorChangedEventArgs.h>
 
-#if defined(__cplusplus) && !defined(CINTERFACE)
+#ifdef __cplusplus
 namespace ABI {
 namespace Windows { namespace Foundation { namespace Collections {
 
@@ -1229,7 +1229,7 @@ namespace Windows { namespace Foundation { namespace Collections {
 }}} // namespace Windows::Foundation::Collections
 } // namespace ABI
 
-#endif /* #if defined(__cplusplus) && !defined(CINTERFACE) */
+#endif /* __cplusplus */
 #endif /* WINDOWS_FOUNDATION_COLLECTIONS_H */
 
 

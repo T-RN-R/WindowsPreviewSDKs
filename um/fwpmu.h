@@ -892,29 +892,6 @@ DEFINE_GUID(
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_NI)
-
-//037f317a-d696-494a-bba5-bffc265e6052
-DEFINE_GUID(
-   FWPM_LAYER_OUTBOUND_NETWORK_CONNECTION_POLICY_V4,
-   0x037f317a,
-   0xd696,
-   0x494a,
-   0xbb, 0xa5, 0xbf, 0xfc, 0x26, 0x5e, 0x60, 0x52
-);
-
-//22a4fdb1-6d7e-48ae-ae77-3742525c3119
-DEFINE_GUID(
-   FWPM_LAYER_OUTBOUND_NETWORK_CONNECTION_POLICY_V6,
-   0x22a4fdb1,
-   0x6d7e,
-   0x48ae,
-   0xae, 0x77, 0x37, 0x42, 0x52, 0x5c, 0x31, 0x19
-);
-
-#endif //  (NTDDI_VERSION >= NTDDI_WIN10_NI)
-
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // GUIDs for built-in sublayers.
@@ -1045,61 +1022,8 @@ DEFINE_GUID(
 
 #endif // (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
 
-// B3CDD441-AF90-41BA-A745-7C6008FF2300
-DEFINE_GUID(
-   FWPM_SUBLAYER_MPSSVC_WSH,
-   0xb3cdd441,
-   0xaf90,
-   0x41ba,
-   0xa7, 0x45, 0x7c, 0x60, 0x08, 0xff, 0x23, 0x00
-);
-
-// B3CDD441-AF90-41BA-A745-7C6008FF2301
-DEFINE_GUID(
-   FWPM_SUBLAYER_MPSSVC_WF,
-   0xb3cdd441,
-   0xaf90,
-   0x41ba,
-   0xa7, 0x45, 0x7c, 0x60, 0x08, 0xff, 0x23, 0x01
-);
-
-// B3CDD441-AF90-41BA-A745-7C6008FF2302
-DEFINE_GUID(
-   FWPM_SUBLAYER_MPSSVC_QUARANTINE,
-   0xb3cdd441,
-   0xaf90,
-   0x41ba,
-   0xa7, 0x45, 0x7c, 0x60, 0x08, 0xff, 0x23, 0x02
-);
-
-// 09A47E38-FA97-471B-B12318BCD7E65071
-DEFINE_GUID(
-   FWPM_SUBLAYER_MPSSVC_EDP,
-   0x09a47e38,
-   0xfa97,
-   0x471b,
-   0xb1, 0x23, 0x18, 0xbc, 0xd7, 0xe6, 0x50, 0x71
-);
-
-// 1EC6C7E1-FDD9-478A-B55F-FF8BA1D2C17D
-DEFINE_GUID(
-   FWPM_SUBLAYER_MPSSVC_TENANT_RESTRICTIONS,
-   0x1ec6c7e1,
-   0xfdd9,
-   0x478a,
-   0xb5, 0x5f, 0xff, 0x8b, 0xa1, 0xd2, 0xc1, 0x7d
-);
-
-// FFE221C3-92A8-4564-A59F-DAFB70756020
-DEFINE_GUID(
-   FWPM_SUBLAYER_MPSSVC_APP_ISOLATION,
-   0xffe221c3,
-   0x92a8,
-   0x4564,
-   0xa5, 0x9f, 0xda, 0xfb, 0x70, 0x75, 0x60, 0x20
-);
-
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -2461,52 +2385,8 @@ DEFINE_GUID(
    0x432d,
    0xbe, 0xd3, 0x44, 0x1a, 0xe5, 0x0e, 0x63, 0xc3
 );
-
-// 4b153735-1049-4480-aab4-d1b9bdc03710
-DEFINE_GUID(
-   FWPM_PROVIDER_MPSSVC_WSH,
-   0x4b153735,
-   0x1049,
-   0x4480,
-   0xaa, 0xb4, 0xd1, 0xb9, 0xbd, 0xc0, 0x37, 0x10
-);
-
-// decc16ca-3f33-4346-be1e-8fb4ae0f3d62
-DEFINE_GUID(
-   FWPM_PROVIDER_MPSSVC_WF,
-   0xdecc16ca,
-   0x3f33,
-   0x4346,
-   0xbe, 0x1e, 0x8f, 0xb4, 0xae, 0x0f, 0x3d, 0x62
-);
-
-// a90296f7-46b8-4457-8f84-b05e05d3c622
-DEFINE_GUID(
-   FWPM_PROVIDER_MPSSVC_EDP,
-   0xa90296f7,
-   0x46b8,
-   0x4457,
-   0x8f, 0x84, 0xb0, 0x5e, 0x05, 0xd3, 0xc6, 0x22
-);
-
-// d0718ff9-44da-4f50-9dc2-c963a4247613
-DEFINE_GUID(
-   FWPM_PROVIDER_MPSSVC_TENANT_RESTRICTIONS,
-   0xd0718ff9,
-   0x44da,
-   0x4f50,
-   0x9d, 0xc2, 0xc9, 0x63, 0xa4, 0x24, 0x76, 0x13
-);
-
-// 3cc2631f-2d5d-43a0-b174-614837d863a1
-DEFINE_GUID(
-   FWPM_PROVIDER_MPSSVC_APP_ISOLATION,
-   0x3cc2631f,
-   0x2d5d,
-   0x43a0,
-   0xb1, 0x74, 0x61, 0x48, 0x37, 0xd8, 0x63, 0xa1
-);
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -2944,67 +2824,6 @@ DEFINE_GUID(
     );
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_NI)
-
-//103090d4-8e28-4fd6-9894-d1d67d6b10c9
-DEFINE_GUID(
-    FWPM_CALLOUT_OUTBOUND_NETWORK_CONNECTION_POLICY_LAYER_V4,
-    0x103090d4,
-    0x8e28,
-    0x4fd6,
-    0x98, 0x94, 0xd1, 0xd6, 0x7d, 0x6b, 0x10, 0xc9
-    );
-
-//4ed3446d-8dc7-459b-b09f-c1cb7a8f8689
-DEFINE_GUID(
-    FWPM_CALLOUT_OUTBOUND_NETWORK_CONNECTION_POLICY_LAYER_V6,
-    0x4ed3446d,
-    0x8dc7,
-    0x459b,
-    0xb0, 0x9f, 0xc1, 0xcb, 0x7a, 0x8f, 0x86, 0x89
-    );
-
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_NI)
-
-///////////////////////////////////////////////////////////////////////////////
-//
-// GUIDs for private built-in callouts.
-//
-///////////////////////////////////////////////////////////////////////////////
-#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
-// {779719a4-e695-47b6-a199-7999fec9163b}
-DEFINE_GUID(FWPM_CALLOUT_BUILT_IN_RESERVED_1,
-   0x779719a4,
-   0xe695,
-   0x47b6,
-   0xa1, 0x99, 0x79, 0x99, 0xfe, 0xc9, 0x16, 0x3b
-);
-
-// {ef9661b6-7c5e-48fd-a130-96678ceacc41}
-DEFINE_GUID(FWPM_CALLOUT_BUILT_IN_RESERVED_2,
-   0xef9661b6,
-   0x7c5e,
-   0x48fd,
-   0xa1, 0x30, 0x96, 0x67, 0x8c, 0xea, 0xcc, 0x41
-);
-
-// {18729c7a-2f62-4be0-966f-974b21b86df1}
-DEFINE_GUID(FWPM_CALLOUT_BUILT_IN_RESERVED_3,
-   0x18729c7a,
-   0x2f62,
-   0x4be0,
-   0x96, 0x6f, 0x97, 0x4b, 0x21, 0xb8, 0x6d, 0xf1
-);
-
-// {6c3fb801-daff-40e9-91e6-f7ff7e52f7d9}
-DEFINE_GUID(FWPM_CALLOUT_BUILT_IN_RESERVED_4,
-   0x6c3fb801,
-   0xdaff,
-   0x40e9,
-   0x91, 0xe6, 0xf7, 0xff, 0x7e, 0x52, 0xf7, 0xd9
-);
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -4253,8 +4072,9 @@ FwpmGetAppIdFromFileName0(
 #endif // (NTDDI_VERSION >= NTDDI_WIN7)
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
-// Reserved flags.
-#define FWPM_TUNNEL_FLAG_RESERVED0 (0x00000004)
+// Enable S2S IPsec tunnel mode.
+#define FWPM_TUNNEL_FLAG_SITE_TO_SITE (0x00000004)
+
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 
 DWORD
@@ -5125,39 +4945,6 @@ FwpmNetEventSubscribe4(
    );
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
-
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
-///////////////////////////////////////////////////////////////////////////////
-//
-// Functions for Tracking Dynamic Keyword Changes
-//
-///////////////////////////////////////////////////////////////////////////////
-#define FWPM_NOTIFY_ADDRESSES_AUTO_RESOLVE 0x01ui64
-#define FWPM_NOTIFY_ADDRESSES_NON_AUTO_RESOLVE 0x02ui64
-#define FWPM_NOTIFY_ADDRESSES_ALL (FWPM_NOTIFY_ADDRESSES_AUTO_RESOLVE | FWPM_NOTIFY_ADDRESSES_NON_AUTO_RESOLVE)
-#define FWPM_NOTIFY_GRANULAR 0x04ui64
-
-typedef void (CALLBACK *FWPM_DYNAMIC_KEYWORD_CALLBACK0)(
-                           _Inout_ void* notification,
-                           _Inout_ void* context
-                           );
-
-DWORD
-WINAPI
-FwpmDynamicKeywordSubscribe0(
-   _In_ DWORD flags,
-   _In_ FWPM_DYNAMIC_KEYWORD_CALLBACK0 callback,
-   _In_opt_ void* context,
-   _Out_ HANDLE* subscriptionHandle
-   );
-
-DWORD
-WINAPI
-FwpmDynamicKeywordUnsubscribe0(
-   _In_ HANDLE subscriptionHandle
-   );
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO)
 
 
 #if (NTDDI_VERSION >= NTDDI_WIN7)

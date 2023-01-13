@@ -87,28 +87,12 @@
 
 //  API Contract Inclusion Definitions
 #if !defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
-#if !defined(WINDOWS_APPLICATIONMODEL_ACTIVATION_ACTIVATEDEVENTSCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_ACTIVATION_ACTIVATEDEVENTSCONTRACT_VERSION 0x10000
-#endif // defined(WINDOWS_APPLICATIONMODEL_ACTIVATION_ACTIVATEDEVENTSCONTRACT_VERSION)
-
-#if !defined(WINDOWS_APPLICATIONMODEL_ACTIVATION_ACTIVATIONCAMERASETTINGSCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_ACTIVATION_ACTIVATIONCAMERASETTINGSCONTRACT_VERSION 0x10000
-#endif // defined(WINDOWS_APPLICATIONMODEL_ACTIVATION_ACTIVATIONCAMERASETTINGSCONTRACT_VERSION)
-
-#if !defined(WINDOWS_APPLICATIONMODEL_ACTIVATION_CONTACTACTIVATEDEVENTSCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_ACTIVATION_CONTACTACTIVATEDEVENTSCONTRACT_VERSION 0x10000
-#endif // defined(WINDOWS_APPLICATIONMODEL_ACTIVATION_CONTACTACTIVATEDEVENTSCONTRACT_VERSION)
-
-#if !defined(WINDOWS_APPLICATIONMODEL_ACTIVATION_WEBUISEARCHACTIVATEDEVENTSCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_ACTIVATION_WEBUISEARCHACTIVATEDEVENTSCONTRACT_VERSION 0x10000
-#endif // defined(WINDOWS_APPLICATIONMODEL_ACTIVATION_WEBUISEARCHACTIVATEDEVENTSCONTRACT_VERSION)
-
 #if !defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 #define WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION 0x40000
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_NETWORKING_SOCKETS_CONTROLCHANNELTRIGGERCONTRACT_VERSION)
@@ -124,7 +108,6 @@
 #include "EventToken.h"
 #include "windowscontracts.h"
 #include "Windows.Foundation.h"
-#include "Windows.ApplicationModel.Activation.h"
 #include "Windows.Networking.h"
 #include "Windows.Networking.Sockets.h"
 #include "Windows.Security.Credentials.h"
@@ -209,36 +192,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4 ABI::Windows::Networking::Vpn::IVpnChannel4
 
 #endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                interface IVpnChannel5;
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5 ABI::Windows::Networking::Vpn::IVpnChannel5
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                interface IVpnChannel6;
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6 ABI::Windows::Networking::Vpn::IVpnChannel6
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannelActivityEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannelActivityEventArgs_FWD_DEFINED__
@@ -555,36 +508,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnDomainNameInfoFactory_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                interface IVpnForegroundActivatedEventArgs;
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs ABI::Windows::Networking::Vpn::IVpnForegroundActivatedEventArgs
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                interface IVpnForegroundActivationOperation;
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation ABI::Windows::Networking::Vpn::IVpnForegroundActivationOperation
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnInterfaceId_FWD_DEFINED__
 #define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnInterfaceId_FWD_DEFINED__
 namespace ABI {
@@ -854,21 +777,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile2 ABI::Windows::Networking::Vpn::IVpnPlugInProfile2
 
 #endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                interface IVpnPlugInReconnectTransport;
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport ABI::Windows::Networking::Vpn::IVpnPlugInReconnectTransport
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnProfile_FWD_DEFINED__
 #define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnProfile_FWD_DEFINED__
@@ -2568,61 +2476,6 @@ typedef ITypedEventHandler<ABI::Windows::Networking::Vpn::VpnChannel*, ABI::Wind
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Activation {
-                interface IActivatedEventArgs;
-            } /* Activation */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs ABI::Windows::ApplicationModel::Activation::IActivatedEventArgs
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Activation {
-                interface IActivatedEventArgsWithUser;
-            } /* Activation */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser ABI::Windows::ApplicationModel::Activation::IActivatedEventArgsWithUser
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser_FWD_DEFINED__
-
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            namespace Collections {
-                class ValueSet;
-            } /* Collections */
-        } /* Foundation */
-    } /* Windows */
-} /* ABI */
-
-#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
-            namespace Collections {
-                interface IPropertySet;
-            } /* Collections */
-        } /* Foundation */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet ABI::Windows::Foundation::Collections::IPropertySet
-
-#endif // ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
 namespace ABI {
@@ -2850,16 +2703,6 @@ namespace ABI {
         namespace Networking {
             namespace Vpn {
                 class VpnDomainNameAssignment;
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                class VpnForegroundActivationOperation;
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3332,7 +3175,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnAppId = __uuidof(IVpnAppId);
+                extern MIDL_CONST_ID IID& IID_IVpnAppId = _uuidof(IVpnAppId);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3370,7 +3213,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnAppIdFactory = __uuidof(IVpnAppIdFactory);
+                extern MIDL_CONST_ID IID& IID_IVpnAppIdFactory = _uuidof(IVpnAppIdFactory);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3466,7 +3309,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnChannel = __uuidof(IVpnChannel);
+                extern MIDL_CONST_ID IID& IID_IVpnChannel = _uuidof(IVpnChannel);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3568,7 +3411,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnChannel2 = __uuidof(IVpnChannel2);
+                extern MIDL_CONST_ID IID& IID_IVpnChannel2 = _uuidof(IVpnChannel2);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3632,7 +3475,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnChannel4 = __uuidof(IVpnChannel4);
+                extern MIDL_CONST_ID IID& IID_IVpnChannel4 = _uuidof(IVpnChannel4);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3641,85 +3484,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4;
 #endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.Networking.Vpn.IVpnChannel5
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Networking.Vpn.VpnChannel
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnChannel5[] = L"Windows.Networking.Vpn.IVpnChannel5";
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                MIDL_INTERFACE("de7a0992-8384-4fbc-882c-1fd23124cd3b")
-                IVpnChannel5 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE AppendVpnReceivePacketBuffer(
-                        ABI::Windows::Networking::Vpn::IVpnPacketBuffer* decapsulatedPacketBuffer
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE AppendVpnSendPacketBuffer(
-                        ABI::Windows::Networking::Vpn::IVpnPacketBuffer* encapsulatedPacketBuffer
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE FlushVpnReceivePacketBuffers(void) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE FlushVpnSendPacketBuffers(void) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IVpnChannel5 = __uuidof(IVpnChannel5);
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.Networking.Vpn.IVpnChannel6
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Interface is a part of the implementation of type Windows.Networking.Vpn.VpnChannel
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnChannel6[] = L"Windows.Networking.Vpn.IVpnChannel6";
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                MIDL_INTERFACE("55843696-bd63-49c5-abca-5da77885551a")
-                IVpnChannel6 : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE ActivateForeground(
-                        HSTRING packageRelativeAppId,
-                        ABI::Windows::Foundation::Collections::IPropertySet* sharedContext,
-                        ABI::Windows::Foundation::Collections::IPropertySet** result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IVpnChannel6 = __uuidof(IVpnChannel6);
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *
@@ -3747,7 +3511,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnChannelActivityEventArgs = __uuidof(IVpnChannelActivityEventArgs);
+                extern MIDL_CONST_ID IID& IID_IVpnChannelActivityEventArgs = _uuidof(IVpnChannelActivityEventArgs);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3783,7 +3547,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnChannelActivityStateChangedArgs = __uuidof(IVpnChannelActivityStateChangedArgs);
+                extern MIDL_CONST_ID IID& IID_IVpnChannelActivityStateChangedArgs = _uuidof(IVpnChannelActivityStateChangedArgs);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3825,7 +3589,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnChannelConfiguration = __uuidof(IVpnChannelConfiguration);
+                extern MIDL_CONST_ID IID& IID_IVpnChannelConfiguration = _uuidof(IVpnChannelConfiguration);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3861,7 +3625,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnChannelConfiguration2 = __uuidof(IVpnChannelConfiguration2);
+                extern MIDL_CONST_ID IID& IID_IVpnChannelConfiguration2 = _uuidof(IVpnChannelConfiguration2);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3896,7 +3660,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnChannelStatics = __uuidof(IVpnChannelStatics);
+                extern MIDL_CONST_ID IID& IID_IVpnChannelStatics = _uuidof(IVpnChannelStatics);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3939,7 +3703,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCredential = __uuidof(IVpnCredential);
+                extern MIDL_CONST_ID IID& IID_IVpnCredential = _uuidof(IVpnCredential);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -3984,7 +3748,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomCheckBox = __uuidof(IVpnCustomCheckBox);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomCheckBox = _uuidof(IVpnCustomCheckBox);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4029,7 +3793,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomComboBox = __uuidof(IVpnCustomComboBox);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomComboBox = _uuidof(IVpnCustomComboBox);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4080,7 +3844,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomEditBox = __uuidof(IVpnCustomEditBox);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomEditBox = _uuidof(IVpnCustomEditBox);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4116,7 +3880,7 @@ namespace ABI {
                 public:
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomErrorBox = __uuidof(IVpnCustomErrorBox);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomErrorBox = _uuidof(IVpnCustomErrorBox);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4165,7 +3929,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomPrompt = __uuidof(IVpnCustomPrompt);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomPrompt = _uuidof(IVpnCustomPrompt);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4210,7 +3974,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomPromptBooleanInput = __uuidof(IVpnCustomPromptBooleanInput);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomPromptBooleanInput = _uuidof(IVpnCustomPromptBooleanInput);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4259,7 +4023,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomPromptElement = __uuidof(IVpnCustomPromptElement);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomPromptElement = _uuidof(IVpnCustomPromptElement);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4301,7 +4065,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomPromptOptionSelector = __uuidof(IVpnCustomPromptOptionSelector);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomPromptOptionSelector = _uuidof(IVpnCustomPromptOptionSelector);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4343,7 +4107,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomPromptText = __uuidof(IVpnCustomPromptText);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomPromptText = _uuidof(IVpnCustomPromptText);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4394,7 +4158,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomPromptTextInput = __uuidof(IVpnCustomPromptTextInput);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomPromptTextInput = _uuidof(IVpnCustomPromptTextInput);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4436,7 +4200,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnCustomTextBox = __uuidof(IVpnCustomTextBox);
+                extern MIDL_CONST_ID IID& IID_IVpnCustomTextBox = _uuidof(IVpnCustomTextBox);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4478,7 +4242,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnDomainNameAssignment = __uuidof(IVpnDomainNameAssignment);
+                extern MIDL_CONST_ID IID& IID_IVpnDomainNameAssignment = _uuidof(IVpnDomainNameAssignment);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4529,7 +4293,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnDomainNameInfo = __uuidof(IVpnDomainNameInfo);
+                extern MIDL_CONST_ID IID& IID_IVpnDomainNameInfo = _uuidof(IVpnDomainNameInfo);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4565,7 +4329,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnDomainNameInfo2 = __uuidof(IVpnDomainNameInfo2);
+                extern MIDL_CONST_ID IID& IID_IVpnDomainNameInfo2 = _uuidof(IVpnDomainNameInfo2);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4603,7 +4367,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnDomainNameInfoFactory = __uuidof(IVpnDomainNameInfoFactory);
+                extern MIDL_CONST_ID IID& IID_IVpnDomainNameInfoFactory = _uuidof(IVpnDomainNameInfoFactory);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4612,84 +4376,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnDomainNameInfoFactory;
 #endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnDomainNameInfoFactory_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Interface Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Interface is a part of the implementation of type Windows.Networking.Vpn.VpnForegroundActivatedEventArgs
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnForegroundActivatedEventArgs[] = L"Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs";
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                MIDL_INTERFACE("85b465b0-cadb-4d70-ac92-543a24dc9ebc")
-                IVpnForegroundActivatedEventArgs : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_ProfileName(
-                        HSTRING* name
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_SharedContext(
-                        ABI::Windows::Foundation::Collections::IPropertySet** sharedContext
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE get_ActivationOperation(
-                        ABI::Windows::Networking::Vpn::IVpnForegroundActivationOperation** activationOperation
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IVpnForegroundActivatedEventArgs = __uuidof(IVpnForegroundActivatedEventArgs);
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
- * Interface Windows.Networking.Vpn.IVpnForegroundActivationOperation
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Interface is a part of the implementation of type Windows.Networking.Vpn.VpnForegroundActivationOperation
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnForegroundActivationOperation[] = L"Windows.Networking.Vpn.IVpnForegroundActivationOperation";
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                MIDL_INTERFACE("9e010d57-f17a-4bd5-9b6d-f984f1297d3c")
-                IVpnForegroundActivationOperation : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE Complete(
-                        ABI::Windows::Foundation::Collections::IPropertySet* result
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IVpnForegroundActivationOperation = __uuidof(IVpnForegroundActivationOperation);
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *
@@ -4718,7 +4404,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnInterfaceId = __uuidof(IVpnInterfaceId);
+                extern MIDL_CONST_ID IID& IID_IVpnInterfaceId = _uuidof(IVpnInterfaceId);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4754,7 +4440,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnInterfaceIdFactory = __uuidof(IVpnInterfaceIdFactory);
+                extern MIDL_CONST_ID IID& IID_IVpnInterfaceIdFactory = _uuidof(IVpnInterfaceIdFactory);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4823,7 +4509,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnManagementAgent = __uuidof(IVpnManagementAgent);
+                extern MIDL_CONST_ID IID& IID_IVpnManagementAgent = _uuidof(IVpnManagementAgent);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4868,7 +4554,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnNamespaceAssignment = __uuidof(IVpnNamespaceAssignment);
+                extern MIDL_CONST_ID IID& IID_IVpnNamespaceAssignment = _uuidof(IVpnNamespaceAssignment);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4919,7 +4605,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnNamespaceInfo = __uuidof(IVpnNamespaceInfo);
+                extern MIDL_CONST_ID IID& IID_IVpnNamespaceInfo = _uuidof(IVpnNamespaceInfo);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -4956,7 +4642,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnNamespaceInfoFactory = __uuidof(IVpnNamespaceInfoFactory);
+                extern MIDL_CONST_ID IID& IID_IVpnNamespaceInfoFactory = _uuidof(IVpnNamespaceInfoFactory);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5025,7 +4711,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnNativeProfile = __uuidof(IVpnNativeProfile);
+                extern MIDL_CONST_ID IID& IID_IVpnNativeProfile = _uuidof(IVpnNativeProfile);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5067,7 +4753,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnNativeProfile2 = __uuidof(IVpnNativeProfile2);
+                extern MIDL_CONST_ID IID& IID_IVpnNativeProfile2 = _uuidof(IVpnNativeProfile2);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5115,7 +4801,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPacketBuffer = __uuidof(IVpnPacketBuffer);
+                extern MIDL_CONST_ID IID& IID_IVpnPacketBuffer = _uuidof(IVpnPacketBuffer);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5151,7 +4837,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPacketBuffer2 = __uuidof(IVpnPacketBuffer2);
+                extern MIDL_CONST_ID IID& IID_IVpnPacketBuffer2 = _uuidof(IVpnPacketBuffer2);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5190,7 +4876,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPacketBuffer3 = __uuidof(IVpnPacketBuffer3);
+                extern MIDL_CONST_ID IID& IID_IVpnPacketBuffer3 = _uuidof(IVpnPacketBuffer3);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5227,7 +4913,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPacketBufferFactory = __uuidof(IVpnPacketBufferFactory);
+                extern MIDL_CONST_ID IID& IID_IVpnPacketBufferFactory = _uuidof(IVpnPacketBufferFactory);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5285,7 +4971,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPacketBufferList = __uuidof(IVpnPacketBufferList);
+                extern MIDL_CONST_ID IID& IID_IVpnPacketBufferList = _uuidof(IVpnPacketBufferList);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5333,7 +5019,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPacketBufferList2 = __uuidof(IVpnPacketBufferList2);
+                extern MIDL_CONST_ID IID& IID_IVpnPacketBufferList2 = _uuidof(IVpnPacketBufferList2);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5375,7 +5061,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPickedCredential = __uuidof(IVpnPickedCredential);
+                extern MIDL_CONST_ID IID& IID_IVpnPickedCredential = _uuidof(IVpnPickedCredential);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5427,7 +5113,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPlugIn = __uuidof(IVpnPlugIn);
+                extern MIDL_CONST_ID IID& IID_IVpnPlugIn = _uuidof(IVpnPlugIn);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5478,7 +5164,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPlugInProfile = __uuidof(IVpnPlugInProfile);
+                extern MIDL_CONST_ID IID& IID_IVpnPlugInProfile = _uuidof(IVpnPlugInProfile);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5523,7 +5209,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnPlugInProfile2 = __uuidof(IVpnPlugInProfile2);
+                extern MIDL_CONST_ID IID& IID_IVpnPlugInProfile2 = _uuidof(IVpnPlugInProfile2);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5532,41 +5218,6 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile2;
 #endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
-
-/*
- *
- * Interface Windows.Networking.Vpn.IVpnPlugInReconnectTransport
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnPlugInReconnectTransport[] = L"Windows.Networking.Vpn.IVpnPlugInReconnectTransport";
-namespace ABI {
-    namespace Windows {
-        namespace Networking {
-            namespace Vpn {
-                MIDL_INTERFACE("9d5a1092-bb46-4d34-9d88-f217893076f4")
-                IVpnPlugInReconnectTransport : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE ReconnectTransport(
-                        ABI::Windows::Networking::Vpn::IVpnChannel* channel,
-                        IInspectable* context
-                        ) = 0;
-                };
-
-                MIDL_CONST_ID IID& IID_IVpnPlugInReconnectTransport = __uuidof(IVpnPlugInReconnectTransport);
-            } /* Vpn */
-        } /* Networking */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -5619,7 +5270,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnProfile = __uuidof(IVpnProfile);
+                extern MIDL_CONST_ID IID& IID_IVpnProfile = _uuidof(IVpnProfile);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5664,7 +5315,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnRoute = __uuidof(IVpnRoute);
+                extern MIDL_CONST_ID IID& IID_IVpnRoute = _uuidof(IVpnRoute);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5727,7 +5378,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnRouteAssignment = __uuidof(IVpnRouteAssignment);
+                extern MIDL_CONST_ID IID& IID_IVpnRouteAssignment = _uuidof(IVpnRouteAssignment);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5763,7 +5414,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnRouteFactory = __uuidof(IVpnRouteFactory);
+                extern MIDL_CONST_ID IID& IID_IVpnRouteFactory = _uuidof(IVpnRouteFactory);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5799,7 +5450,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnSystemHealth = __uuidof(IVpnSystemHealth);
+                extern MIDL_CONST_ID IID& IID_IVpnSystemHealth = _uuidof(IVpnSystemHealth);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5865,7 +5516,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnTrafficFilter = __uuidof(IVpnTrafficFilter);
+                extern MIDL_CONST_ID IID& IID_IVpnTrafficFilter = _uuidof(IVpnTrafficFilter);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5913,7 +5564,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnTrafficFilterAssignment = __uuidof(IVpnTrafficFilterAssignment);
+                extern MIDL_CONST_ID IID& IID_IVpnTrafficFilterAssignment = _uuidof(IVpnTrafficFilterAssignment);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5950,7 +5601,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                MIDL_CONST_ID IID& IID_IVpnTrafficFilterFactory = __uuidof(IVpnTrafficFilterFactory);
+                extern MIDL_CONST_ID IID& IID_IVpnTrafficFilterFactory = _uuidof(IVpnTrafficFilterFactory);
             } /* Vpn */
         } /* Networking */
     } /* Windows */
@@ -5997,8 +5648,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.Networking.Vpn.IVpnChannel ** Default Interface **
  *    Windows.Networking.Vpn.IVpnChannel2
  *    Windows.Networking.Vpn.IVpnChannel4
- *    Windows.Networking.Vpn.IVpnChannel5
- *    Windows.Networking.Vpn.IVpnChannel6
  *
  * Class Threading Model:  Multi Threaded Apartment
  *
@@ -6373,46 +6022,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.Networking.Vpn.VpnForegroundActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Class implements the following interfaces:
- *    Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs ** Default Interface **
- *    Windows.ApplicationModel.Activation.IActivatedEventArgs
- *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#ifndef RUNTIMECLASS_Windows_Networking_Vpn_VpnForegroundActivatedEventArgs_DEFINED
-#define RUNTIMECLASS_Windows_Networking_Vpn_VpnForegroundActivatedEventArgs_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Networking_Vpn_VpnForegroundActivatedEventArgs[] = L"Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
- * Class Windows.Networking.Vpn.VpnForegroundActivationOperation
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Class implements the following interfaces:
- *    Windows.Networking.Vpn.IVpnForegroundActivationOperation ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#ifndef RUNTIMECLASS_Windows_Networking_Vpn_VpnForegroundActivationOperation_DEFINED
-#define RUNTIMECLASS_Windows_Networking_Vpn_VpnForegroundActivationOperation_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Networking_Vpn_VpnForegroundActivationOperation[] = L"Windows.Networking.Vpn.VpnForegroundActivationOperation";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
  * Class Windows.Networking.Vpn.VpnInterfaceId
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -6777,18 +6386,6 @@ typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4 __x_ABI_CWindo
 
 #endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5 __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5;
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6 __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6;
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannelActivityEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannelActivityEventArgs_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannelActivityEventArgs __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannelActivityEventArgs;
@@ -6915,18 +6512,6 @@ typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnDomainNameInfoFactory _
 
 #endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnDomainNameInfoFactory_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs;
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation;
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnInterfaceId_FWD_DEFINED__
 #define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnInterfaceId_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnInterfaceId __x_ABI_CWindows_CNetworking_CVpn_CIVpnInterfaceId;
@@ -7034,12 +6619,6 @@ typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile __x_ABI_C
 typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile2 __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile2;
 
 #endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile2_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_FWD_DEFINED__
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport;
-
-#endif // ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CNetworking_CVpn_CIVpnProfile_FWD_DEFINED__
 #define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnProfile_FWD_DEFINED__
@@ -11400,24 +10979,6 @@ interface __FITypedEventHandler_2_Windows__CNetworking__CVpn__CVpnChannel_Window
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs;
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgs_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser __x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser;
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIActivatedEventArgsWithUser_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-#define ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet;
-
-#endif // ____x_ABI_CWindows_CFoundation_CCollections_CIPropertySet_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
 #define ____x_ABI_CWindows_CFoundation_CIAsyncAction_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CFoundation_CIAsyncAction __x_ABI_CWindows_CFoundation_CIAsyncAction;
@@ -12300,159 +11861,6 @@ interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4
 EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4;
 #endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel4_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-
-/*
- *
- * Interface Windows.Networking.Vpn.IVpnChannel5
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Interface is a part of the implementation of type Windows.Networking.Vpn.VpnChannel
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnChannel5[] = L"Windows.Networking.Vpn.IVpnChannel5";
-typedef struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* AppendVpnReceivePacketBuffer)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This,
-        __x_ABI_CWindows_CNetworking_CVpn_CIVpnPacketBuffer* decapsulatedPacketBuffer);
-    HRESULT (STDMETHODCALLTYPE* AppendVpnSendPacketBuffer)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This,
-        __x_ABI_CWindows_CNetworking_CVpn_CIVpnPacketBuffer* encapsulatedPacketBuffer);
-    HRESULT (STDMETHODCALLTYPE* FlushVpnReceivePacketBuffers)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This);
-    HRESULT (STDMETHODCALLTYPE* FlushVpnSendPacketBuffers)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5* This);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5Vtbl;
-
-interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5
-{
-    CONST_VTBL struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_AppendVpnReceivePacketBuffer(This, decapsulatedPacketBuffer) \
-    ((This)->lpVtbl->AppendVpnReceivePacketBuffer(This, decapsulatedPacketBuffer))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_AppendVpnSendPacketBuffer(This, encapsulatedPacketBuffer) \
-    ((This)->lpVtbl->AppendVpnSendPacketBuffer(This, encapsulatedPacketBuffer))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_FlushVpnReceivePacketBuffers(This) \
-    ((This)->lpVtbl->FlushVpnReceivePacketBuffers(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_FlushVpnSendPacketBuffers(This) \
-    ((This)->lpVtbl->FlushVpnSendPacketBuffers(This))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel5_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
- * Interface Windows.Networking.Vpn.IVpnChannel6
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Interface is a part of the implementation of type Windows.Networking.Vpn.VpnChannel
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnChannel6[] = L"Windows.Networking.Vpn.IVpnChannel6";
-typedef struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6Vtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* ActivateForeground)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6* This,
-        HSTRING packageRelativeAppId,
-        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* sharedContext,
-        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet** result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6Vtbl;
-
-interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6
-{
-    CONST_VTBL struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6Vtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_ActivateForeground(This, packageRelativeAppId, sharedContext, result) \
-    ((This)->lpVtbl->ActivateForeground(This, packageRelativeAppId, sharedContext, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel6_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *
@@ -14117,154 +13525,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnDomainNameInfoFact
 
 /*
  *
- * Interface Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Interface is a part of the implementation of type Windows.Networking.Vpn.VpnForegroundActivatedEventArgs
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnForegroundActivatedEventArgs[] = L"Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs";
-typedef struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_ProfileName)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This,
-        HSTRING* name);
-    HRESULT (STDMETHODCALLTYPE* get_SharedContext)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This,
-        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet** sharedContext);
-    HRESULT (STDMETHODCALLTYPE* get_ActivationOperation)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs* This,
-        __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation** activationOperation);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgsVtbl;
-
-interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs
-{
-    CONST_VTBL struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_get_ProfileName(This, name) \
-    ((This)->lpVtbl->get_ProfileName(This, name))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_get_SharedContext(This, sharedContext) \
-    ((This)->lpVtbl->get_SharedContext(This, sharedContext))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_get_ActivationOperation(This, activationOperation) \
-    ((This)->lpVtbl->get_ActivationOperation(This, activationOperation))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivatedEventArgs_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
- * Interface Windows.Networking.Vpn.IVpnForegroundActivationOperation
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Interface is a part of the implementation of type Windows.Networking.Vpn.VpnForegroundActivationOperation
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnForegroundActivationOperation[] = L"Windows.Networking.Vpn.IVpnForegroundActivationOperation";
-typedef struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperationVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* Complete)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation* This,
-        __x_ABI_CWindows_CFoundation_CCollections_CIPropertySet* result);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperationVtbl;
-
-interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation
-{
-    CONST_VTBL struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperationVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_Complete(This, result) \
-    ((This)->lpVtbl->Complete(This, result))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnForegroundActivationOperation_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
  * Interface Windows.Networking.Vpn.IVpnInterfaceId
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -15812,74 +15072,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInProfile2;
 
 /*
  *
- * Interface Windows.Networking.Vpn.IVpnPlugInReconnectTransport
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-#if !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Networking_Vpn_IVpnPlugInReconnectTransport[] = L"Windows.Networking.Vpn.IVpnPlugInReconnectTransport";
-typedef struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransportVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* ReconnectTransport)(__x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport* This,
-        __x_ABI_CWindows_CNetworking_CVpn_CIVpnChannel* channel,
-        IInspectable* context);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransportVtbl;
-
-interface __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport
-{
-    CONST_VTBL struct __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransportVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_ReconnectTransport(This, channel, context) \
-    ((This)->lpVtbl->ReconnectTransport(This, channel, context))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport;
-#endif /* !defined(____x_ABI_CWindows_CNetworking_CVpn_CIVpnPlugInReconnectTransport_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
-
-/*
- *
  * Interface Windows.Networking.Vpn.IVpnProfile
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -16641,8 +15833,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.Networking.Vpn.IVpnChannel ** Default Interface **
  *    Windows.Networking.Vpn.IVpnChannel2
  *    Windows.Networking.Vpn.IVpnChannel4
- *    Windows.Networking.Vpn.IVpnChannel5
- *    Windows.Networking.Vpn.IVpnChannel6
  *
  * Class Threading Model:  Multi Threaded Apartment
  *
@@ -17014,46 +16204,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Networking_Vpn_VpnDomainNameInfo[] = L"Windows.Networking.Vpn.VpnDomainNameInfo";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
-
-/*
- *
- * Class Windows.Networking.Vpn.VpnForegroundActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Class implements the following interfaces:
- *    Windows.Networking.Vpn.IVpnForegroundActivatedEventArgs ** Default Interface **
- *    Windows.ApplicationModel.Activation.IActivatedEventArgs
- *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#ifndef RUNTIMECLASS_Windows_Networking_Vpn_VpnForegroundActivatedEventArgs_DEFINED
-#define RUNTIMECLASS_Windows_Networking_Vpn_VpnForegroundActivatedEventArgs_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Networking_Vpn_VpnForegroundActivatedEventArgs[] = L"Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-
-/*
- *
- * Class Windows.Networking.Vpn.VpnForegroundActivationOperation
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
- *
- * Class implements the following interfaces:
- *    Windows.Networking.Vpn.IVpnForegroundActivationOperation ** Default Interface **
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
-#ifndef RUNTIMECLASS_Windows_Networking_Vpn_VpnForegroundActivationOperation_DEFINED
-#define RUNTIMECLASS_Windows_Networking_Vpn_VpnForegroundActivationOperation_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Networking_Vpn_VpnForegroundActivationOperation[] = L"Windows.Networking.Vpn.VpnForegroundActivationOperation";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 
 /*
  *

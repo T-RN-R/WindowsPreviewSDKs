@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -153,27 +145,22 @@ EXTERN_C const IID IID_IMediaRadioManager;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMediaRadioManager * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMediaRadioManager * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMediaRadioManager * This);
         
-        DECLSPEC_XFGVIRT(IMediaRadioManager, GetRadioInstances)
         HRESULT ( STDMETHODCALLTYPE *GetRadioInstances )( 
             IMediaRadioManager * This,
             /* [out] */ IRadioInstanceCollection **ppCollection);
         
-        DECLSPEC_XFGVIRT(IMediaRadioManager, OnSystemRadioStateChange)
         HRESULT ( STDMETHODCALLTYPE *OnSystemRadioStateChange )( 
             IMediaRadioManager * This,
             /* [in] */ SYSTEM_RADIO_STATE sysRadioState,
@@ -250,27 +237,22 @@ EXTERN_C const IID IID_IRadioInstanceCollection;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IRadioInstanceCollection * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IRadioInstanceCollection * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IRadioInstanceCollection * This);
         
-        DECLSPEC_XFGVIRT(IRadioInstanceCollection, GetCount)
         HRESULT ( STDMETHODCALLTYPE *GetCount )( 
             IRadioInstanceCollection * This,
             /* [out] */ UINT32 *pcInstance);
         
-        DECLSPEC_XFGVIRT(IRadioInstanceCollection, GetAt)
         HRESULT ( STDMETHODCALLTYPE *GetAt )( 
             IRadioInstanceCollection * This,
             /* [in] */ UINT32 uIndex,
@@ -361,53 +343,43 @@ EXTERN_C const IID IID_IRadioInstance;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IRadioInstance * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IRadioInstance * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IRadioInstance * This);
         
-        DECLSPEC_XFGVIRT(IRadioInstance, GetRadioManagerSignature)
         HRESULT ( STDMETHODCALLTYPE *GetRadioManagerSignature )( 
             IRadioInstance * This,
             /* [out] */ GUID *pguidSignature);
         
-        DECLSPEC_XFGVIRT(IRadioInstance, GetInstanceSignature)
         HRESULT ( STDMETHODCALLTYPE *GetInstanceSignature )( 
             IRadioInstance * This,
             /* [string][out] */ BSTR *pbstrId);
         
-        DECLSPEC_XFGVIRT(IRadioInstance, GetFriendlyName)
         HRESULT ( STDMETHODCALLTYPE *GetFriendlyName )( 
             IRadioInstance * This,
             /* [in] */ LCID lcid,
             /* [string][out] */ BSTR *pbstrName);
         
-        DECLSPEC_XFGVIRT(IRadioInstance, GetRadioState)
         HRESULT ( STDMETHODCALLTYPE *GetRadioState )( 
             IRadioInstance * This,
             /* [out] */ DEVICE_RADIO_STATE *pRadioState);
         
-        DECLSPEC_XFGVIRT(IRadioInstance, SetRadioState)
         HRESULT ( STDMETHODCALLTYPE *SetRadioState )( 
             IRadioInstance * This,
             /* [in] */ DEVICE_RADIO_STATE radioState,
             /* [in] */ UINT32 uTimeoutSec);
         
-        DECLSPEC_XFGVIRT(IRadioInstance, IsMultiComm)
         BOOL ( STDMETHODCALLTYPE *IsMultiComm )( 
             IRadioInstance * This);
         
-        DECLSPEC_XFGVIRT(IRadioInstance, IsAssociatingDevice)
         BOOL ( STDMETHODCALLTYPE *IsAssociatingDevice )( 
             IRadioInstance * This);
         
@@ -500,32 +472,26 @@ EXTERN_C const IID IID_IMediaRadioManagerNotifySink;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMediaRadioManagerNotifySink * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMediaRadioManagerNotifySink * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMediaRadioManagerNotifySink * This);
         
-        DECLSPEC_XFGVIRT(IMediaRadioManagerNotifySink, OnInstanceAdd)
         HRESULT ( STDMETHODCALLTYPE *OnInstanceAdd )( 
             IMediaRadioManagerNotifySink * This,
             /* [in] */ IRadioInstance *pRadioInstance);
         
-        DECLSPEC_XFGVIRT(IMediaRadioManagerNotifySink, OnInstanceRemove)
         HRESULT ( STDMETHODCALLTYPE *OnInstanceRemove )( 
             IMediaRadioManagerNotifySink * This,
             /* [string][in] */ BSTR bstrRadioInstanceId);
         
-        DECLSPEC_XFGVIRT(IMediaRadioManagerNotifySink, OnInstanceRadioChange)
         HRESULT ( STDMETHODCALLTYPE *OnInstanceRadioChange )( 
             IMediaRadioManagerNotifySink * This,
             /* [string][in] */ BSTR bstrRadioInstanceId,

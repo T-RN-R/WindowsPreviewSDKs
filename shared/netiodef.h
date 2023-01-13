@@ -102,16 +102,10 @@ extern "C" {
 //
 // Opaque handles that are a specific number of bits wide.
 //
-
 typedef UINT8 HANDLE8, *PHANDLE8;
 typedef UINT16 HANDLE16, *PHANDLE16;
 typedef UINT32 HANDLE32, *PHANDLE32;
-
-#ifndef __HANDLE64_DEFINED__
-#define __HANDLE64_DEFINED__
-typedef void* POINTER_64 HANDLE64;
-typedef HANDLE64 *PHANDLE64;
-#endif
+typedef UINT64 HANDLE64, *PHANDLE64;
 
 
 #define MAKE_DD_DEVICE_NAME(x)  (L"\\Device\\" x)
@@ -303,7 +297,6 @@ C_ASSERT(ETH_LENGTH_OF_SNAP_HEADER == sizeof(SNAP_HEADER));
 #define ETHERNET_TYPE_ARP 0x0806
 #define ETHERNET_TYPE_IPV6 0x86dd
 #define ETHERNET_TYPE_802_1Q 0x8100
-#define ETHERNET_TYPE_802_1AD 0x88a8
 
 //
 // VLAN_TAG
@@ -1122,8 +1115,7 @@ typedef ICMP_MESSAGE ICMPV6_MESSAGE, *PICMPV6_MESSAGE;
 
 #define ICMP6_PARAMPROB_HEADER 0        // Erroneous header field.
 #define ICMP6_PARAMPROB_NEXTHEADER 1    // Unrecognized Next Header.
-#define ICMP6_PARAMPROB_OPTION 2        // Unrecognized IPv6 option.
-#define ICMP6_PARAMPROB_FIRSTFRAGMENT 3 // IPv6 First Fragment is incomplete.
+#define ICMP6_PARAMPROB_OPTION 2    // Unrecognized IPv6 option.
 
 #define ICMPV6_ECHO_REQUEST_FLAG_REVERSE 0x1
 
@@ -2039,8 +2031,7 @@ extern CONST NPI_MODULEID NPI_MS_NMR_MODULEID;
 //
 
 #define FL_PACKET_TYPE_FLAGS \
-    (NDIS_PACKET_TYPE_ALL_MULTICAST | NDIS_PACKET_TYPE_PROMISCUOUS | \
-     NDIS_PACKET_TYPE_NO_LOCAL)
+    (NDIS_PACKET_TYPE_ALL_MULTICAST | NDIS_PACKET_TYPE_PROMISCUOUS)
 
 extern CONST NPIID NPI_FRAMING_LAYER_ID;
 

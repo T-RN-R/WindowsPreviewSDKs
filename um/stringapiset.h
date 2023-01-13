@@ -6,6 +6,8 @@
 *                                                                               *
 ********************************************************************************/
 
+
+
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -42,6 +44,7 @@ CompareStringEx(
     _Reserved_ LPARAM lParam
     );
 
+
 WINBASEAPI
 int
 WINAPI
@@ -52,6 +55,7 @@ CompareStringOrdinal(
     _In_ int cchCount2,
     _In_ BOOL bIgnoreCase
     );
+
 
 #endif //(WINVER >= 0x0600)
 
@@ -66,6 +70,7 @@ CompareStringW(
     _In_NLS_string_(cchCount2) PCNZWCH lpString2,
     _In_ int cchCount2
     );
+
 #ifdef UNICODE
 #define CompareString  CompareStringW
 #endif
@@ -80,6 +85,7 @@ FoldStringW(
     _Out_writes_opt_(cchDest) LPWSTR lpDestStr,
     _In_ int cchDest
     );
+
 #ifdef UNICODE
 #define FoldString  FoldStringW
 #endif
@@ -94,6 +100,7 @@ GetStringTypeExW(
     _In_ int cchSrc,
     _Out_writes_(cchSrc) LPWORD lpCharType
     );
+
 #ifdef UNICODE
 #define GetStringTypeEx  GetStringTypeExW
 #endif
@@ -107,6 +114,7 @@ GetStringTypeW(
     _In_ int cchSrc,
     _Out_ LPWORD lpCharType
     );
+
 
 //
 //  NLS Code Page Dependent APIs.
@@ -126,6 +134,7 @@ MultiByteToWideChar(
     _In_ int cchWideChar
     );
 
+
 WINBASEAPI
 _Success_(return != 0)
          _When_((cchWideChar == -1) && (cbMultiByte != 0), _Post_equal_to_(_String_length_(lpMultiByteStr)+1))
@@ -141,6 +150,7 @@ WideCharToMultiByte(
     _In_opt_ LPCCH lpDefaultChar,
     _Out_opt_ LPBOOL lpUsedDefaultChar
     );
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 #pragma endregion

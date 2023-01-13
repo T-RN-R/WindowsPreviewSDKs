@@ -92,7 +92,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0x100000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xb0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #endif // defined(SPECIFIC_API_CONTRACT_DEFINITIONS)
@@ -311,7 +311,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IDataProtectionProvider = __uuidof(IDataProtectionProvider);
+                    extern MIDL_CONST_ID IID& IID_IDataProtectionProvider = _uuidof(IDataProtectionProvider);
                 } /* DataProtection */
             } /* Cryptography */
         } /* Security */
@@ -350,7 +350,7 @@ namespace ABI {
                             ) = 0;
                     };
 
-                    MIDL_CONST_ID IID& IID_IDataProtectionProviderFactory = __uuidof(IDataProtectionProviderFactory);
+                    extern MIDL_CONST_ID IID& IID_IDataProtectionProviderFactory = _uuidof(IDataProtectionProviderFactory);
                 } /* DataProtection */
             } /* Cryptography */
         } /* Security */

@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0628 */
+ /* File created by MIDL compiler version 8.01.0622 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -35,14 +35,6 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
-#endif
-
-#ifndef DECLSPEC_XFGVIRT
-#if defined(_CONTROL_FLOW_GUARD_XFG)
-#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
-#else
-#define DECLSPEC_XFGVIRT(base, func)
-#endif
 #endif
 
 /* Forward Declarations */ 
@@ -101,20 +93,6 @@ typedef interface IActivateAudioInterfaceCompletionHandler IActivateAudioInterfa
 typedef interface IActivateAudioInterfaceAsyncOperation IActivateAudioInterfaceAsyncOperation;
 
 #endif 	/* __IActivateAudioInterfaceAsyncOperation_FWD_DEFINED__ */
-
-
-#ifndef __IAudioSystemEffectsPropertyChangeNotificationClient_FWD_DEFINED__
-#define __IAudioSystemEffectsPropertyChangeNotificationClient_FWD_DEFINED__
-typedef interface IAudioSystemEffectsPropertyChangeNotificationClient IAudioSystemEffectsPropertyChangeNotificationClient;
-
-#endif 	/* __IAudioSystemEffectsPropertyChangeNotificationClient_FWD_DEFINED__ */
-
-
-#ifndef __IAudioSystemEffectsPropertyStore_FWD_DEFINED__
-#define __IAudioSystemEffectsPropertyStore_FWD_DEFINED__
-typedef interface IAudioSystemEffectsPropertyStore IAudioSystemEffectsPropertyStore;
-
-#endif 	/* __IAudioSystemEffectsPropertyStore_FWD_DEFINED__ */
 
 
 #ifndef __MMDeviceEnumerator_FWD_DEFINED__
@@ -287,7 +265,7 @@ EXTERN_C const IID IID_IMMNotificationClient;
             /* [annotation][in] */ 
             _In_  ERole role,
             /* [annotation][in] */ 
-            _In_opt_  LPCWSTR pwstrDefaultDeviceId) = 0;
+            _In_  LPCWSTR pwstrDefaultDeviceId) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE OnPropertyValueChanged( 
             /* [annotation][in] */ 
@@ -304,22 +282,18 @@ EXTERN_C const IID IID_IMMNotificationClient;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMMNotificationClient * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMMNotificationClient * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMMNotificationClient * This);
         
-        DECLSPEC_XFGVIRT(IMMNotificationClient, OnDeviceStateChanged)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *OnDeviceStateChanged )( 
             IMMNotificationClient * This,
             /* [annotation][in] */ 
@@ -327,19 +301,16 @@ EXTERN_C const IID IID_IMMNotificationClient;
             /* [annotation][in] */ 
             _In_  DWORD dwNewState);
         
-        DECLSPEC_XFGVIRT(IMMNotificationClient, OnDeviceAdded)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *OnDeviceAdded )( 
             IMMNotificationClient * This,
             /* [annotation][in] */ 
             _In_  LPCWSTR pwstrDeviceId);
         
-        DECLSPEC_XFGVIRT(IMMNotificationClient, OnDeviceRemoved)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *OnDeviceRemoved )( 
             IMMNotificationClient * This,
             /* [annotation][in] */ 
             _In_  LPCWSTR pwstrDeviceId);
         
-        DECLSPEC_XFGVIRT(IMMNotificationClient, OnDefaultDeviceChanged)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *OnDefaultDeviceChanged )( 
             IMMNotificationClient * This,
             /* [annotation][in] */ 
@@ -347,9 +318,8 @@ EXTERN_C const IID IID_IMMNotificationClient;
             /* [annotation][in] */ 
             _In_  ERole role,
             /* [annotation][in] */ 
-            _In_opt_  LPCWSTR pwstrDefaultDeviceId);
+            _In_  LPCWSTR pwstrDefaultDeviceId);
         
-        DECLSPEC_XFGVIRT(IMMNotificationClient, OnPropertyValueChanged)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *OnPropertyValueChanged )( 
             IMMNotificationClient * This,
             /* [annotation][in] */ 
@@ -454,22 +424,18 @@ EXTERN_C const IID IID_IMMDevice;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMMDevice * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMMDevice * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMMDevice * This);
         
-        DECLSPEC_XFGVIRT(IMMDevice, Activate)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Activate )( 
             IMMDevice * This,
             /* [annotation][in] */ 
@@ -481,7 +447,6 @@ EXTERN_C const IID IID_IMMDevice;
             /* [annotation][iid_is][out] */ 
             _Out_  void **ppInterface);
         
-        DECLSPEC_XFGVIRT(IMMDevice, OpenPropertyStore)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *OpenPropertyStore )( 
             IMMDevice * This,
             /* [annotation][in] */ 
@@ -489,13 +454,11 @@ EXTERN_C const IID IID_IMMDevice;
             /* [annotation][out] */ 
             _Out_  IPropertyStore **ppProperties);
         
-        DECLSPEC_XFGVIRT(IMMDevice, GetId)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IMMDevice * This,
             /* [annotation][out] */ 
             _Outptr_  LPWSTR *ppstrId);
         
-        DECLSPEC_XFGVIRT(IMMDevice, GetState)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *GetState )( 
             IMMDevice * This,
             /* [annotation][out] */ 
@@ -581,28 +544,23 @@ EXTERN_C const IID IID_IMMDeviceCollection;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMMDeviceCollection * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMMDeviceCollection * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMMDeviceCollection * This);
         
-        DECLSPEC_XFGVIRT(IMMDeviceCollection, GetCount)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *GetCount )( 
             IMMDeviceCollection * This,
             /* [annotation][out] */ 
             _Out_  UINT *pcDevices);
         
-        DECLSPEC_XFGVIRT(IMMDeviceCollection, Item)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Item )( 
             IMMDeviceCollection * This,
             /* [annotation][in] */ 
@@ -678,22 +636,18 @@ EXTERN_C const IID IID_IMMEndpoint;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMMEndpoint * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMMEndpoint * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMMEndpoint * This);
         
-        DECLSPEC_XFGVIRT(IMMEndpoint, GetDataFlow)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *GetDataFlow )( 
             IMMEndpoint * This,
             /* [annotation][out] */ 
@@ -790,22 +744,18 @@ EXTERN_C const IID IID_IMMDeviceEnumerator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMMDeviceEnumerator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMMDeviceEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMMDeviceEnumerator * This);
         
-        DECLSPEC_XFGVIRT(IMMDeviceEnumerator, EnumAudioEndpoints)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *EnumAudioEndpoints )( 
             IMMDeviceEnumerator * This,
             /* [annotation][in] */ 
@@ -815,7 +765,6 @@ EXTERN_C const IID IID_IMMDeviceEnumerator;
             /* [annotation][out] */ 
             _Out_  IMMDeviceCollection **ppDevices);
         
-        DECLSPEC_XFGVIRT(IMMDeviceEnumerator, GetDefaultAudioEndpoint)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *GetDefaultAudioEndpoint )( 
             IMMDeviceEnumerator * This,
             /* [annotation][in] */ 
@@ -825,7 +774,6 @@ EXTERN_C const IID IID_IMMDeviceEnumerator;
             /* [annotation][out] */ 
             _Out_  IMMDevice **ppEndpoint);
         
-        DECLSPEC_XFGVIRT(IMMDeviceEnumerator, GetDevice)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *GetDevice )( 
             IMMDeviceEnumerator * This,
             /* [annotation][in] */ 
@@ -833,13 +781,11 @@ EXTERN_C const IID IID_IMMDeviceEnumerator;
             /* [annotation][out] */ 
             _Out_  IMMDevice **ppDevice);
         
-        DECLSPEC_XFGVIRT(IMMDeviceEnumerator, RegisterEndpointNotificationCallback)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *RegisterEndpointNotificationCallback )( 
             IMMDeviceEnumerator * This,
             /* [annotation][in] */ 
             _In_  IMMNotificationClient *pClient);
         
-        DECLSPEC_XFGVIRT(IMMDeviceEnumerator, UnregisterEndpointNotificationCallback)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *UnregisterEndpointNotificationCallback )( 
             IMMDeviceEnumerator * This,
             /* [annotation][in] */ 
@@ -941,22 +887,18 @@ EXTERN_C const IID IID_IMMDeviceActivator;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMMDeviceActivator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMMDeviceActivator * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMMDeviceActivator * This);
         
-        DECLSPEC_XFGVIRT(IMMDeviceActivator, Activate)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Activate )( 
             IMMDeviceActivator * This,
             /* [annotation][in] */ 
@@ -1011,8 +953,8 @@ EXTERN_C const IID IID_IMMDeviceActivator;
 /* IMMDeviceActivator is reserved for system use */
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
-#pragma region Application or Games Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
+#pragma region Application Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 
 
 
@@ -1047,22 +989,18 @@ EXTERN_C const IID IID_IActivateAudioInterfaceCompletionHandler;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IActivateAudioInterfaceCompletionHandler * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IActivateAudioInterfaceCompletionHandler * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IActivateAudioInterfaceCompletionHandler * This);
         
-        DECLSPEC_XFGVIRT(IActivateAudioInterfaceCompletionHandler, ActivateCompleted)
         HRESULT ( STDMETHODCALLTYPE *ActivateCompleted )( 
             IActivateAudioInterfaceCompletionHandler * This,
             /* [annotation][in] */ 
@@ -1135,22 +1073,18 @@ EXTERN_C const IID IID_IActivateAudioInterfaceAsyncOperation;
     {
         BEGIN_INTERFACE
         
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IActivateAudioInterfaceAsyncOperation * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IActivateAudioInterfaceAsyncOperation * This);
         
-        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IActivateAudioInterfaceAsyncOperation * This);
         
-        DECLSPEC_XFGVIRT(IActivateAudioInterfaceAsyncOperation, GetActivateResult)
         HRESULT ( STDMETHODCALLTYPE *GetActivateResult )( 
             IActivateAudioInterfaceAsyncOperation * This,
             /* [annotation][out] */ 
@@ -1215,9 +1149,7 @@ STDAPI ActivateAudioInterfaceAsync(
     _In_ IActivateAudioInterfaceCompletionHandler *completionHandler,
     _COM_Outptr_ IActivateAudioInterfaceAsyncOperation **activationOperation
     );
-// The AUDIOCLIENT_ACTIVATION_PARAMS structure can be used when creating an IAudioClient.
-// It is defined in AudioClientActivationParams.h
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 #pragma endregion
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
@@ -1231,291 +1163,12 @@ typedef /* [public] */ struct __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0001
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
-#pragma region Desktop and Application Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_APP)
-typedef /* [public][public] */ 
-enum __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002
-    {
-        AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT	= 0,
-        AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER	= 1,
-        AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE	= 2,
-        AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT	= ( AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE + 1 ) 
-    } 	AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE;
-
-
-
-extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0008_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0008_v0_0_s_ifspec;
-
-#ifndef __IAudioSystemEffectsPropertyChangeNotificationClient_INTERFACE_DEFINED__
-#define __IAudioSystemEffectsPropertyChangeNotificationClient_INTERFACE_DEFINED__
-
-/* interface IAudioSystemEffectsPropertyChangeNotificationClient */
-/* [unique][helpstring][nonextensible][uuid][local][object] */ 
-
-
-EXTERN_C const IID IID_IAudioSystemEffectsPropertyChangeNotificationClient;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("20049D40-56D5-400E-A2EF-385599FEED49")
-    IAudioSystemEffectsPropertyChangeNotificationClient : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE OnPropertyChanged( 
-            /* [annotation][in] */ 
-            _In_  AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE type,
-            /* [annotation][in] */ 
-            _In_  const PROPERTYKEY key) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IAudioSystemEffectsPropertyChangeNotificationClientVtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            IAudioSystemEffectsPropertyChangeNotificationClient * This,
-            /* [in] */ REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            IAudioSystemEffectsPropertyChangeNotificationClient * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            IAudioSystemEffectsPropertyChangeNotificationClient * This);
-        
-        DECLSPEC_XFGVIRT(IAudioSystemEffectsPropertyChangeNotificationClient, OnPropertyChanged)
-        HRESULT ( STDMETHODCALLTYPE *OnPropertyChanged )( 
-            IAudioSystemEffectsPropertyChangeNotificationClient * This,
-            /* [annotation][in] */ 
-            _In_  AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE type,
-            /* [annotation][in] */ 
-            _In_  const PROPERTYKEY key);
-        
-        END_INTERFACE
-    } IAudioSystemEffectsPropertyChangeNotificationClientVtbl;
-
-    interface IAudioSystemEffectsPropertyChangeNotificationClient
-    {
-        CONST_VTBL struct IAudioSystemEffectsPropertyChangeNotificationClientVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IAudioSystemEffectsPropertyChangeNotificationClient_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IAudioSystemEffectsPropertyChangeNotificationClient_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IAudioSystemEffectsPropertyChangeNotificationClient_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IAudioSystemEffectsPropertyChangeNotificationClient_OnPropertyChanged(This,type,key)	\
-    ( (This)->lpVtbl -> OnPropertyChanged(This,type,key) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IAudioSystemEffectsPropertyChangeNotificationClient_INTERFACE_DEFINED__ */
-
-
-#ifndef __IAudioSystemEffectsPropertyStore_INTERFACE_DEFINED__
-#define __IAudioSystemEffectsPropertyStore_INTERFACE_DEFINED__
-
-/* interface IAudioSystemEffectsPropertyStore */
-/* [unique][helpstring][nonextensible][uuid][local][object] */ 
-
-
-EXTERN_C const IID IID_IAudioSystemEffectsPropertyStore;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("302AE7F9-D7E0-43E4-971B-1F8293613D2A")
-    IAudioSystemEffectsPropertyStore : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE OpenDefaultPropertyStore( 
-            /* [annotation][in] */ 
-            _In_  DWORD stgmAccess,
-            /* [annotation][out] */ 
-            _COM_Outptr_  IPropertyStore **propStore) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE OpenUserPropertyStore( 
-            /* [annotation][in] */ 
-            _In_  DWORD stgmAccess,
-            /* [annotation][out] */ 
-            _COM_Outptr_  IPropertyStore **propStore) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE OpenVolatilePropertyStore( 
-            /* [annotation][in] */ 
-            _In_  DWORD stgmAccess,
-            /* [annotation][out] */ 
-            _COM_Outptr_  IPropertyStore **propStore) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE ResetUserPropertyStore( void) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE ResetVolatilePropertyStore( void) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE RegisterPropertyChangeNotification( 
-            /* [annotation][in] */ 
-            _In_  IAudioSystemEffectsPropertyChangeNotificationClient *callback) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE UnregisterPropertyChangeNotification( 
-            /* [annotation][in] */ 
-            _In_  IAudioSystemEffectsPropertyChangeNotificationClient *callback) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IAudioSystemEffectsPropertyStoreVtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            IAudioSystemEffectsPropertyStore * This,
-            /* [in] */ REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            IAudioSystemEffectsPropertyStore * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            IAudioSystemEffectsPropertyStore * This);
-        
-        DECLSPEC_XFGVIRT(IAudioSystemEffectsPropertyStore, OpenDefaultPropertyStore)
-        HRESULT ( STDMETHODCALLTYPE *OpenDefaultPropertyStore )( 
-            IAudioSystemEffectsPropertyStore * This,
-            /* [annotation][in] */ 
-            _In_  DWORD stgmAccess,
-            /* [annotation][out] */ 
-            _COM_Outptr_  IPropertyStore **propStore);
-        
-        DECLSPEC_XFGVIRT(IAudioSystemEffectsPropertyStore, OpenUserPropertyStore)
-        HRESULT ( STDMETHODCALLTYPE *OpenUserPropertyStore )( 
-            IAudioSystemEffectsPropertyStore * This,
-            /* [annotation][in] */ 
-            _In_  DWORD stgmAccess,
-            /* [annotation][out] */ 
-            _COM_Outptr_  IPropertyStore **propStore);
-        
-        DECLSPEC_XFGVIRT(IAudioSystemEffectsPropertyStore, OpenVolatilePropertyStore)
-        HRESULT ( STDMETHODCALLTYPE *OpenVolatilePropertyStore )( 
-            IAudioSystemEffectsPropertyStore * This,
-            /* [annotation][in] */ 
-            _In_  DWORD stgmAccess,
-            /* [annotation][out] */ 
-            _COM_Outptr_  IPropertyStore **propStore);
-        
-        DECLSPEC_XFGVIRT(IAudioSystemEffectsPropertyStore, ResetUserPropertyStore)
-        HRESULT ( STDMETHODCALLTYPE *ResetUserPropertyStore )( 
-            IAudioSystemEffectsPropertyStore * This);
-        
-        DECLSPEC_XFGVIRT(IAudioSystemEffectsPropertyStore, ResetVolatilePropertyStore)
-        HRESULT ( STDMETHODCALLTYPE *ResetVolatilePropertyStore )( 
-            IAudioSystemEffectsPropertyStore * This);
-        
-        DECLSPEC_XFGVIRT(IAudioSystemEffectsPropertyStore, RegisterPropertyChangeNotification)
-        HRESULT ( STDMETHODCALLTYPE *RegisterPropertyChangeNotification )( 
-            IAudioSystemEffectsPropertyStore * This,
-            /* [annotation][in] */ 
-            _In_  IAudioSystemEffectsPropertyChangeNotificationClient *callback);
-        
-        DECLSPEC_XFGVIRT(IAudioSystemEffectsPropertyStore, UnregisterPropertyChangeNotification)
-        HRESULT ( STDMETHODCALLTYPE *UnregisterPropertyChangeNotification )( 
-            IAudioSystemEffectsPropertyStore * This,
-            /* [annotation][in] */ 
-            _In_  IAudioSystemEffectsPropertyChangeNotificationClient *callback);
-        
-        END_INTERFACE
-    } IAudioSystemEffectsPropertyStoreVtbl;
-
-    interface IAudioSystemEffectsPropertyStore
-    {
-        CONST_VTBL struct IAudioSystemEffectsPropertyStoreVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IAudioSystemEffectsPropertyStore_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IAudioSystemEffectsPropertyStore_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IAudioSystemEffectsPropertyStore_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IAudioSystemEffectsPropertyStore_OpenDefaultPropertyStore(This,stgmAccess,propStore)	\
-    ( (This)->lpVtbl -> OpenDefaultPropertyStore(This,stgmAccess,propStore) ) 
-
-#define IAudioSystemEffectsPropertyStore_OpenUserPropertyStore(This,stgmAccess,propStore)	\
-    ( (This)->lpVtbl -> OpenUserPropertyStore(This,stgmAccess,propStore) ) 
-
-#define IAudioSystemEffectsPropertyStore_OpenVolatilePropertyStore(This,stgmAccess,propStore)	\
-    ( (This)->lpVtbl -> OpenVolatilePropertyStore(This,stgmAccess,propStore) ) 
-
-#define IAudioSystemEffectsPropertyStore_ResetUserPropertyStore(This)	\
-    ( (This)->lpVtbl -> ResetUserPropertyStore(This) ) 
-
-#define IAudioSystemEffectsPropertyStore_ResetVolatilePropertyStore(This)	\
-    ( (This)->lpVtbl -> ResetVolatilePropertyStore(This) ) 
-
-#define IAudioSystemEffectsPropertyStore_RegisterPropertyChangeNotification(This,callback)	\
-    ( (This)->lpVtbl -> RegisterPropertyChangeNotification(This,callback) ) 
-
-#define IAudioSystemEffectsPropertyStore_UnregisterPropertyChangeNotification(This,callback)	\
-    ( (This)->lpVtbl -> UnregisterPropertyChangeNotification(This,callback) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IAudioSystemEffectsPropertyStore_INTERFACE_DEFINED__ */
-
-
-/* interface __MIDL_itf_mmdeviceapi_0000_0010 */
-/* [local] */ 
-
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_APP) */
-#pragma endregion
 #pragma region Desktop and Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0010_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0010_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0008_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0008_v0_0_s_ifspec;
 
 
 #ifndef __MMDeviceAPILib_LIBRARY_DEFINED__
@@ -1536,15 +1189,15 @@ MMDeviceEnumerator;
 #endif
 #endif /* __MMDeviceAPILib_LIBRARY_DEFINED__ */
 
-/* interface __MIDL_itf_mmdeviceapi_0000_0011 */
+/* interface __MIDL_itf_mmdeviceapi_0000_0009 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0011_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0011_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0009_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mmdeviceapi_0000_0009_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 
