@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,12 +7,12 @@
 #define WINRT_Windows_Web_Http_Headers_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
-    template <typename T> struct IReference;
+    template <typename T> struct __declspec(empty_bases) IReference;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IVector;
+    template <typename T> struct __declspec(empty_bases) IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking
 {

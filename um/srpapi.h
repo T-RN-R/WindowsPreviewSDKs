@@ -140,6 +140,32 @@ SrpDoesPolicyAllowAppExecution(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 #pragma endregion
 
+typedef enum
+{
+    SRPHOSTING_TYPE_NONE = 0,
+    SRPHOSTING_TYPE_WINHTTP = 1,
+    SRPHOSTING_TYPE_WININET = 2
+} SRPHOSTING_TYPE;
+
+typedef enum
+{
+   SRPHOSTING_VERSION1 = 1
+}  SRPHOSTING_VERSION;
+
+STDAPI
+SrpHostingInitialize(
+    _In_ SRPHOSTING_VERSION Version,
+    _In_ SRPHOSTING_TYPE Type,
+    _In_ VOID* pvData,
+    _In_ ULONG cbData
+);
+
+VOID
+SrpHostingTerminate(
+    _In_ SRPHOSTING_TYPE Type
+);
+
+
 #ifdef __cplusplus
 }
 #endif

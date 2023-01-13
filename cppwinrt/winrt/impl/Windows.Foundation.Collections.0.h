@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -18,23 +18,23 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
         ItemRemoved = 2,
         ItemChanged = 3,
     };
-    template <typename T> struct IIterable;
-    template <typename T> struct IIterator;
-    template <typename K, typename V> struct IKeyValuePair;
-    template <typename K> struct IMapChangedEventArgs;
-    template <typename K, typename V> struct IMapView;
-    template <typename K, typename V> struct IMap;
-    template <typename K, typename V> struct IObservableMap;
-    template <typename T> struct IObservableVector;
+    template <typename T> struct __declspec(empty_bases) IIterable;
+    template <typename T> struct __declspec(empty_bases) IIterator;
+    template <typename K, typename V> struct __declspec(empty_bases) IKeyValuePair;
+    template <typename K> struct __declspec(empty_bases) IMapChangedEventArgs;
+    template <typename K, typename V> struct __declspec(empty_bases) IMapView;
+    template <typename K, typename V> struct __declspec(empty_bases) IMap;
+    template <typename K, typename V> struct __declspec(empty_bases) IObservableMap;
+    template <typename T> struct __declspec(empty_bases) IObservableVector;
     struct IPropertySet;
     struct IVectorChangedEventArgs;
-    template <typename T> struct IVectorView;
-    template <typename T> struct IVector;
+    template <typename T> struct __declspec(empty_bases) IVectorView;
+    template <typename T> struct __declspec(empty_bases) IVector;
     struct PropertySet;
     struct StringMap;
     struct ValueSet;
-    template <typename K, typename V> struct MapChangedEventHandler;
-    template <typename T> struct VectorChangedEventHandler;
+    template <typename K, typename V> struct __declspec(empty_bases) MapChangedEventHandler;
+    template <typename T> struct __declspec(empty_bases) VectorChangedEventHandler;
 }
 namespace winrt::impl
 {

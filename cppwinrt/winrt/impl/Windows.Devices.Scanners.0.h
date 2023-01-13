@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,14 +7,14 @@
 #define WINRT_Windows_Devices_Scanners_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
-    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
-    template <typename TResult> struct IAsyncOperation;
+    template <typename TResult, typename TProgress> struct __declspec(empty_bases) IAsyncOperationWithProgress;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     struct Rect;
     struct Size;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IVectorView;
+    template <typename T> struct __declspec(empty_bases) IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::Printing
 {

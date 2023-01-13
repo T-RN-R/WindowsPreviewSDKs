@@ -402,7 +402,10 @@ Abstract:
 #endif
 
 //
-// CFORCEINLINE: __forceinline required for correctness.
+// CFORCEINLINE: __forceinline required for correctness.  Such definitions are
+//               typically required to be visible in the same translation unit
+//               (i.e., so that they may still be forceinlined, even in the
+//               event of non-LTCG code being encountered).
 //
 
 #define CFORCEINLINE FORCEINLINE

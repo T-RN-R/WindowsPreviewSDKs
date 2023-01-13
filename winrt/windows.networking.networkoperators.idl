@@ -781,7 +781,17 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 7.0)]
                 ProfileNotPresent                  = 22,
                 [contract(Windows.Foundation.UniversalApiContract, 7.0)]
-                NoCorrespondingRequest             = 23
+                NoCorrespondingRequest             = 23,
+                [contract(Windows.Foundation.UniversalApiContract, 8.0)]
+                TimeoutWaitingForResponse          = 24,
+                [contract(Windows.Foundation.UniversalApiContract, 8.0)]
+                IccidAlreadyExists                 = 25,
+                [contract(Windows.Foundation.UniversalApiContract, 8.0)]
+                ProfileProcessingError             = 26,
+                [contract(Windows.Foundation.UniversalApiContract, 8.0)]
+                ServerNotTrusted                   = 27,
+                [contract(Windows.Foundation.UniversalApiContract, 8.0)]
+                ProfileDownloadMaxRetriesExceeded  = 28
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]

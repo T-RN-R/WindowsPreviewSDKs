@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,15 +10,15 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
-    template <typename T> struct IReference;
+    template <typename T> struct __declspec(empty_bases) IReference;
     struct Size;
-    template <typename TSender, typename TResult> struct TypedEventHandler;
+    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IIterable;
-    template <typename K, typename V> struct IMap;
-    template <typename T> struct IVector;
+    template <typename T> struct __declspec(empty_bases) IIterable;
+    template <typename K, typename V> struct __declspec(empty_bases) IMap;
+    template <typename T> struct __declspec(empty_bases) IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {

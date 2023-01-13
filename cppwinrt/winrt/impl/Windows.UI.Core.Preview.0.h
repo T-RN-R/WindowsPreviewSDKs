@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,7 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
-    template <typename T> struct EventHandler;
+    template <typename T> struct __declspec(empty_bases) EventHandler;
     struct EventRegistrationToken;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement

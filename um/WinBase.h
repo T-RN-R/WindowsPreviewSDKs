@@ -2442,10 +2442,6 @@ DosDateTimeToFileTime(
 #pragma region Application Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
-//
-// FORMAT_MESSAGE_ALLOCATE_BUFFER requires use of HeapFree
-//
-
 #define FORMAT_MESSAGE_ALLOCATE_BUFFER 0x00000100
 
 #if !defined(MIDL_PASS)
@@ -3502,6 +3498,9 @@ typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
     ProcThreadAttributeMitigationAuditPolicy        = 24,
 #endif
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+    ProcThreadAttributeMachineType                  = 25,
+#endif
 } PROC_THREAD_ATTRIBUTE_NUM;
 #endif
 
@@ -3545,6 +3544,11 @@ typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
 #define PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE \
     ProcThreadAttributeValue (ProcThreadAttributePseudoConsole, FALSE, TRUE, FALSE)
+#endif
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+#define PROC_THREAD_ATTRIBUTE_MACHINE_TYPE \
+    ProcThreadAttributeValue (ProcThreadAttributeMachineType, FALSE, TRUE, FALSE)
 #endif
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN7)

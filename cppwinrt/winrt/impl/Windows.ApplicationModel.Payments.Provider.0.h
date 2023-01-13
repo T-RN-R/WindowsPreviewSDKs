@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -18,11 +18,11 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Payments
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
-    template <typename TResult> struct IAsyncOperation;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IIterable;
+    template <typename T> struct __declspec(empty_bases) IIterable;
 }
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Payments::Provider
 {

@@ -1211,7 +1211,9 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 6.0)]
                 HdrWithWcgPhoto       = 8,
                 [contract(Windows.Foundation.UniversalApiContract, 6.0)]
-                VideoHdr8             = 9
+                VideoHdr8             = 9,
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+                CompressedCamera      = 10
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 4.0)]

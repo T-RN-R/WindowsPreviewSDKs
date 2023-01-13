@@ -7404,6 +7404,9 @@ namespace ABI {
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
                     KnownVideoProfile_VideoHdr8 = 9,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+                    KnownVideoProfile_CompressedCamera = 10,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
                 };
             } /* Capture */
         } /* Media */
@@ -13894,8 +13897,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.Capture.IAppCaptureStatics2 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Capture.IAppCaptureStatics interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.Capture.IAppCaptureStatics2 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.Capture.IAppCapture ** Default Interface **
@@ -22648,6 +22651,9 @@ enum __x_ABI_CWindows_CMedia_CCapture_CKnownVideoProfile
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
     KnownVideoProfile_VideoHdr8 = 9,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+    KnownVideoProfile_CompressedCamera = 10,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
@@ -33668,8 +33674,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.Capture.IAppCaptureStatics2 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.Capture.IAppCaptureStatics interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.Capture.IAppCaptureStatics2 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.Capture.IAppCapture ** Default Interface **

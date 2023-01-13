@@ -740,6 +740,7 @@ NCryptCreatePersistedKey(
 #define NCRYPT_PCP_EKPUB_PROPERTY                          L"PCP_EKPUB"
 #define NCRYPT_PCP_EKCERT_PROPERTY                         L"PCP_EKCERT"
 #define NCRYPT_PCP_EKNVCERT_PROPERTY                       L"PCP_EKNVCERT"
+#define NCRYPT_PCP_INTERMEDIATE_CA_EKCERT_PROPERTY         L"PCP_INTERMEDIATE_CA_EKCERT"
 #define NCRYPT_PCP_RSA_EKPUB_PROPERTY                      L"PCP_RSA_EKPUB"
 #define NCRYPT_PCP_RSA_EKCERT_PROPERTY                     L"PCP_RSA_EKCERT"
 #define NCRYPT_PCP_RSA_EKNVCERT_PROPERTY                   L"PCP_RSA_EKNVCERT"

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,10 +9,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
-    template <typename TResult> struct IAsyncOperation;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     struct Rect;
     struct Size;
-    template <typename TSender, typename TResult> struct TypedEventHandler;
+    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Composition
 {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,7 +7,7 @@
 #define WINRT_Windows_UI_Xaml_Automation_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IVector;
+    template <typename T> struct __declspec(empty_bases) IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Xaml
 {

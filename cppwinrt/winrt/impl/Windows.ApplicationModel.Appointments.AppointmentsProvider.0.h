@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -11,7 +11,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Appointments
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
-    template <typename T> struct IReference;
+    template <typename T> struct __declspec(empty_bases) IReference;
 }
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Appointments::AppointmentsProvider
 {
