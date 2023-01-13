@@ -2534,10 +2534,10 @@ namespace ABI {
                 IIsolatedWindowsEnvironmentOptions2 : public IInspectable
                 {
                 public:
-                    virtual HRESULT STDMETHODCALLTYPE get_WindowTitleOverride(
+                    virtual HRESULT STDMETHODCALLTYPE get_WindowAnnotationOverride(
                         HSTRING* value
                         ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE put_WindowTitleOverride(
+                    virtual HRESULT STDMETHODCALLTYPE put_WindowAnnotationOverride(
                         HSTRING value
                         ) = 0;
                 };
@@ -3475,8 +3475,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2 interface starting with version 2.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
+ *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -6866,9 +6866,9 @@ typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmen
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
         TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_WindowTitleOverride)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
+    HRESULT (STDMETHODCALLTYPE* get_WindowAnnotationOverride)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
         HSTRING* value);
-    HRESULT (STDMETHODCALLTYPE* put_WindowTitleOverride)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
+    HRESULT (STDMETHODCALLTYPE* put_WindowAnnotationOverride)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2* This,
         HSTRING value);
 
     END_INTERFACE
@@ -6899,11 +6899,11 @@ interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOpti
 #define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_get_WindowTitleOverride(This, value) \
-    ((This)->lpVtbl->get_WindowTitleOverride(This, value))
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_get_WindowAnnotationOverride(This, value) \
+    ((This)->lpVtbl->get_WindowAnnotationOverride(This, value))
 
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_put_WindowTitleOverride(This, value) \
-    ((This)->lpVtbl->put_WindowTitleOverride(This, value))
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsEnvironmentOptions2_put_WindowAnnotationOverride(This, value) \
+    ((This)->lpVtbl->put_WindowAnnotationOverride(This, value))
 
 #endif /* COBJMACROS */
 
@@ -8346,8 +8346,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2 interface starting with version 2.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
+ *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *

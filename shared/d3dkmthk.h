@@ -67,25 +67,26 @@ typedef struct _D3DKMT_DESTROYDEVICE
 
 typedef enum _D3DKMT_CLIENTHINT
 {
-    D3DKMT_CLIENTHINT_UNKNOWN     = 0,
-    D3DKMT_CLIENTHINT_OPENGL      = 1,
-    D3DKMT_CLIENTHINT_CDD         = 2,       // Internal
-    D3DKMT_CLIENTHINT_OPENCL      = 3,
-    D3DKMT_CLIENTHINT_VULKAN      = 4,
-    D3DKMT_CLIENTHINT_CUDA        = 5,
-    D3DKMT_CLIENTHINT_RESERVED    = 6,
-    D3DKMT_CLIENTHINT_DX7         = 7,
-    D3DKMT_CLIENTHINT_DX8         = 8,
-    D3DKMT_CLIENTHINT_DX9         = 9,
-    D3DKMT_CLIENTHINT_DX10        = 10,
-    D3DKMT_CLIENTHINT_DX11        = 11,
-    D3DKMT_CLIENTHINT_DX12        = 12,
-    D3DKMT_CLIENTHINT_9ON12       = 13,
-    D3DKMT_CLIENTHINT_11ON12      = 14,
-    D3DKMT_CLIENTHINT_MFT_ENCODE  = 15,
-    D3DKMT_CLIENTHINT_GLON12      = 16,
-    D3DKMT_CLIENTHINT_CLON12      = 17,
+    D3DKMT_CLIENTHINT_UNKNOWN        = 0,
+    D3DKMT_CLIENTHINT_OPENGL         = 1,
+    D3DKMT_CLIENTHINT_CDD            = 2,       // Internal
+    D3DKMT_CLIENTHINT_OPENCL         = 3,
+    D3DKMT_CLIENTHINT_VULKAN         = 4,
+    D3DKMT_CLIENTHINT_CUDA           = 5,
+    D3DKMT_CLIENTHINT_RESERVED       = 6,
+    D3DKMT_CLIENTHINT_DX7            = 7,
+    D3DKMT_CLIENTHINT_DX8            = 8,
+    D3DKMT_CLIENTHINT_DX9            = 9,
+    D3DKMT_CLIENTHINT_DX10           = 10,
+    D3DKMT_CLIENTHINT_DX11           = 11,
+    D3DKMT_CLIENTHINT_DX12           = 12,
+    D3DKMT_CLIENTHINT_9ON12          = 13,
+    D3DKMT_CLIENTHINT_11ON12         = 14,
+    D3DKMT_CLIENTHINT_MFT_ENCODE     = 15,
+    D3DKMT_CLIENTHINT_GLON12         = 16,
+    D3DKMT_CLIENTHINT_CLON12         = 17,
     D3DKMT_CLIENTHINT_DML_TENSORFLOW = 18,
+    D3DKMT_CLIENTHINT_ONEAPI_LEVEL0  = 19,
     D3DKMT_CLIENTHINT_MAX
 } D3DKMT_CLIENTHINT;
 
@@ -2392,7 +2393,10 @@ typedef enum _D3DKMT_VIDMMESCAPETYPE
     D3DKMT_VIDMMESCAPETYPE_DELAYEXECUTION               = 16,
 #if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_7)
     D3DKMT_VIDMMESCAPETYPE_VALIDATE_INTEGRITY           = 17,
-#endif
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
+    D3DKMT_VIDMMESCAPETYPE_SET_EVICTION_CONFIG          = 18,
+#endif // DXGKDDI_INTERFACE_VERSION_WDDM2_9
+#endif // DXGKDDI_INTERFACE_VERSION_WDDM2_7
 } D3DKMT_VIDMMESCAPETYPE;
 
 typedef enum _D3DKMT_VIDSCHESCAPETYPE
@@ -2683,7 +2687,13 @@ typedef struct _D3DKMT_VIDMM_ESCAPE
         {
             UINT SegmentId;
         } VerifyIntegrity;
-#endif
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
+        struct
+        {
+            LONGLONG TimerValue;
+        } DelayedEvictionConfig;
+#endif // DXGKDDI_INTERFACE_VERSION_WDDM2_9
+#endif // DXGKDDI_INTERFACE_VERSION_WDDM2_7
     };
 } D3DKMT_VIDMM_ESCAPE;
 
@@ -2895,7 +2905,8 @@ typedef union _D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS
         UINT AlwaysDecommitOffer                : 1;
         UINT NeverMoveDefrag                    : 1;
         UINT AlwaysRelocateDisplayableResources : 1;
-        UINT Reserved                           : 13;
+        UINT AlwaysFailGrowVPRMoves             : 1;
+        UINT Reserved                           : 12;
     };
     UINT32 Value;
 } D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS;
@@ -3469,10 +3480,20 @@ typedef struct _D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION
         UINT64 Reserved : 61;
     } PowerFlags;
 
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
+    struct
+    {
+        UINT64 SystemMemory : 1;
+        UINT64 PopulatedByReservedDDRByFirmware : 1;
+        UINT64 Reserved : 62;
+    } SegmentProperties;
+    UINT64 Reserved[5];
+#else
     UINT64 Reserved[6];
+#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
 #else
     UINT64 Reserved[8];
-#endif
+#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WIN8)
 } D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION;
 
 //
@@ -3851,6 +3872,8 @@ typedef struct _D3DKMT_PRESENT_STATS_DWM
     UINT SyncRefreshCount;
     LARGE_INTEGER SyncQPCTime;
     UINT CustomPresentDuration;
+    UINT VirtualSyncRefreshCount;
+    LARGE_INTEGER VirtualSyncQPCTime;
 } D3DKMT_PRESENT_STATS_DWM;
 
 #if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_0)

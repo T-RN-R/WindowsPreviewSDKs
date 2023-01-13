@@ -419,6 +419,19 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            interface IAppUriHandlerHost2;
+        } /* System */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2 ABI::Windows::System::IAppUriHandlerHost2
+
+#endif // ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory_FWD_DEFINED__
 namespace ABI {
@@ -431,6 +444,19 @@ namespace ABI {
 #define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory ABI::Windows::System::IAppUriHandlerHostFactory
 
 #endif // ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            interface IAppUriHandlerHostStatics;
+        } /* System */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics ABI::Windows::System::IAppUriHandlerHostStatics
+
+#endif // ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSystem_CIAppUriHandlerRegistration_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CIAppUriHandlerRegistration_FWD_DEFINED__
@@ -5963,6 +5989,46 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CIAppUriHandlerHost;
 
 /*
  *
+ * Interface Windows.System.IAppUriHandlerHost2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.System.AppUriHandlerHost
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_IAppUriHandlerHost2[] = L"Windows.System.IAppUriHandlerHost2";
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            MIDL_INTERFACE("680e6023-f820-57e9-8b4d-7d21998b9118")
+            IAppUriHandlerHost2 : public IInspectable
+            {
+            public:
+                virtual HRESULT STDMETHODCALLTYPE get_Uri(
+                    ABI::Windows::Foundation::IUriRuntimeClass** value
+                    ) = 0;
+                virtual HRESULT STDMETHODCALLTYPE put_Uri(
+                    ABI::Windows::Foundation::IUriRuntimeClass* value
+                    ) = 0;
+                virtual HRESULT STDMETHODCALLTYPE get_Path(
+                    HSTRING* value
+                    ) = 0;
+            };
+
+            extern MIDL_CONST_ID IID& IID_IAppUriHandlerHost2 = _uuidof(IAppUriHandlerHost2);
+        } /* System */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CIAppUriHandlerHost2;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.System.IAppUriHandlerHostFactory
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -5995,6 +6061,41 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory;
 #endif /* !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Interface Windows.System.IAppUriHandlerHostStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.System.AppUriHandlerHost
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_IAppUriHandlerHostStatics[] = L"Windows.System.IAppUriHandlerHostStatics";
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            MIDL_INTERFACE("47ba50d4-0b97-5712-8f2a-db5ae8f1e846")
+            IAppUriHandlerHostStatics : public IInspectable
+            {
+            public:
+                virtual HRESULT STDMETHODCALLTYPE CreateFromUri(
+                    ABI::Windows::Foundation::IUriRuntimeClass* uri,
+                    ABI::Windows::System::IAppUriHandlerHost** result
+                    ) = 0;
+            };
+
+            extern MIDL_CONST_ID IID& IID_IAppUriHandlerHostStatics = _uuidof(IAppUriHandlerHostStatics);
+        } /* System */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -8585,11 +8686,15 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.System.IAppUriHandlerHostFactory interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.System.IAppUriHandlerHostStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.System.IAppUriHandlerHost ** Default Interface **
+ *    Windows.System.IAppUriHandlerHost2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -8826,11 +8931,11 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.System.ILauncherStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.System.ILauncherStatics5 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.ILauncherStatics4 interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.ILauncherStatics3 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.System.ILauncherStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.ILauncherStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.System.ILauncherStatics5 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -8898,10 +9003,10 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.System.IMemoryManagerStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.System.IMemoryManagerStatics4 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.IMemoryManagerStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.IMemoryManagerStatics3 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.System.IMemoryManagerStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.System.IMemoryManagerStatics4 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -9405,11 +9510,23 @@ typedef interface __x_ABI_CWindows_CSystem_CIAppUriHandlerHost __x_ABI_CWindows_
 
 #endif // ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2 __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2;
+
+#endif // ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory __x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory;
 
 #endif // ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics;
+
+#endif // ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSystem_CIAppUriHandlerRegistration_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CIAppUriHandlerRegistration_FWD_DEFINED__
@@ -18514,6 +18631,85 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CIAppUriHandlerHost;
 
 /*
  *
+ * Interface Windows.System.IAppUriHandlerHost2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.System.AppUriHandlerHost
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_IAppUriHandlerHost2[] = L"Windows.System.IAppUriHandlerHost2";
+typedef struct __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Uri)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass** value);
+    HRESULT (STDMETHODCALLTYPE* put_Uri)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* value);
+    HRESULT (STDMETHODCALLTYPE* get_Path)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHost2* This,
+        HSTRING* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2Vtbl;
+
+interface __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_get_Uri(This, value) \
+    ((This)->lpVtbl->get_Uri(This, value))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_put_Uri(This, value) \
+    ((This)->lpVtbl->put_Uri(This, value))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_get_Path(This, value) \
+    ((This)->lpVtbl->get_Path(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CIAppUriHandlerHost2;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHost2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.System.IAppUriHandlerHostFactory
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -18581,6 +18777,76 @@ interface __x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory
 EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory;
 #endif /* !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHostFactory_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Interface Windows.System.IAppUriHandlerHostStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.System.AppUriHandlerHost
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_IAppUriHandlerHostStatics[] = L"Windows.System.IAppUriHandlerHostStatics";
+typedef struct __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStaticsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* CreateFromUri)(__x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* uri,
+        __x_ABI_CWindows_CSystem_CIAppUriHandlerHost** result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStaticsVtbl;
+
+interface __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics
+{
+    CONST_VTBL struct __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_CreateFromUri(This, uri, result) \
+    ((This)->lpVtbl->CreateFromUri(This, uri, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CIAppUriHandlerHostStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -23281,11 +23547,15 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.System.IAppUriHandlerHostFactory interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.System.IAppUriHandlerHostStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.System.IAppUriHandlerHost ** Default Interface **
+ *    Windows.System.IAppUriHandlerHost2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -23522,11 +23792,11 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.System.ILauncherStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.System.ILauncherStatics5 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.ILauncherStatics4 interface starting with version 3.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.ILauncherStatics3 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.System.ILauncherStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.ILauncherStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.System.ILauncherStatics5 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -23594,10 +23864,10 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.System.IMemoryManagerStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.System.IMemoryManagerStatics4 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.IMemoryManagerStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.IMemoryManagerStatics3 interface starting with version 2.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.System.IMemoryManagerStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.System.IMemoryManagerStatics4 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *

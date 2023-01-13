@@ -422,7 +422,9 @@ WINRT_EXPORT namespace winrt::Windows::System
     struct IAppResourceGroupMemoryReport;
     struct IAppResourceGroupStateReport;
     struct IAppUriHandlerHost;
+    struct IAppUriHandlerHost2;
     struct IAppUriHandlerHostFactory;
+    struct IAppUriHandlerHostStatics;
     struct IAppUriHandlerRegistration;
     struct IAppUriHandlerRegistrationManager;
     struct IAppUriHandlerRegistrationManagerStatics;
@@ -546,7 +548,9 @@ namespace winrt::impl
     template <> struct category<Windows::System::IAppResourceGroupMemoryReport>{ using type = interface_category; };
     template <> struct category<Windows::System::IAppResourceGroupStateReport>{ using type = interface_category; };
     template <> struct category<Windows::System::IAppUriHandlerHost>{ using type = interface_category; };
+    template <> struct category<Windows::System::IAppUriHandlerHost2>{ using type = interface_category; };
     template <> struct category<Windows::System::IAppUriHandlerHostFactory>{ using type = interface_category; };
+    template <> struct category<Windows::System::IAppUriHandlerHostStatics>{ using type = interface_category; };
     template <> struct category<Windows::System::IAppUriHandlerRegistration>{ using type = interface_category; };
     template <> struct category<Windows::System::IAppUriHandlerRegistrationManager>{ using type = interface_category; };
     template <> struct category<Windows::System::IAppUriHandlerRegistrationManagerStatics>{ using type = interface_category; };
@@ -759,7 +763,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupMemoryReport> = L"Windows.System.IAppResourceGroupMemoryReport";
     template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupStateReport> = L"Windows.System.IAppResourceGroupStateReport";
     template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerHost> = L"Windows.System.IAppUriHandlerHost";
+    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerHost2> = L"Windows.System.IAppUriHandlerHost2";
     template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerHostFactory> = L"Windows.System.IAppUriHandlerHostFactory";
+    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerHostStatics> = L"Windows.System.IAppUriHandlerHostStatics";
     template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistration> = L"Windows.System.IAppUriHandlerRegistration";
     template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistrationManager> = L"Windows.System.IAppUriHandlerRegistrationManager";
     template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistrationManagerStatics> = L"Windows.System.IAppUriHandlerRegistrationManagerStatics";
@@ -834,7 +840,9 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::System::IAppResourceGroupMemoryReport>{ 0x2C8C06B1,0x7DB1,0x4C51,{ 0xA2,0x25,0x7F,0xAE,0x2D,0x49,0xE4,0x31 } }; // 2C8C06B1-7DB1-4C51-A225-7FAE2D49E431
     template <> inline constexpr guid guid_v<Windows::System::IAppResourceGroupStateReport>{ 0x52849F18,0x2F70,0x4236,{ 0xAB,0x40,0xD0,0x4D,0xB0,0xC7,0xB9,0x31 } }; // 52849F18-2F70-4236-AB40-D04DB0C7B931
     template <> inline constexpr guid guid_v<Windows::System::IAppUriHandlerHost>{ 0x5D50CAC5,0x92D2,0x5409,{ 0xB5,0x6F,0x7F,0x73,0xE1,0x0E,0xA4,0xC3 } }; // 5D50CAC5-92D2-5409-B56F-7F73E10EA4C3
+    template <> inline constexpr guid guid_v<Windows::System::IAppUriHandlerHost2>{ 0x680E6023,0xF820,0x57E9,{ 0x8B,0x4D,0x7D,0x21,0x99,0x8B,0x91,0x18 } }; // 680E6023-F820-57E9-8B4D-7D21998B9118
     template <> inline constexpr guid guid_v<Windows::System::IAppUriHandlerHostFactory>{ 0x257C3C96,0xCE04,0x5F98,{ 0x96,0xBB,0x3E,0xBD,0x3E,0x92,0x75,0xBB } }; // 257C3C96-CE04-5F98-96BB-3EBD3E9275BB
+    template <> inline constexpr guid guid_v<Windows::System::IAppUriHandlerHostStatics>{ 0x47BA50D4,0x0B97,0x5712,{ 0x8F,0x2A,0xDB,0x5A,0xE8,0xF1,0xE8,0x46 } }; // 47BA50D4-0B97-5712-8F2A-DB5AE8F1E846
     template <> inline constexpr guid guid_v<Windows::System::IAppUriHandlerRegistration>{ 0x6F73AEB1,0x4569,0x5C3F,{ 0x9B,0xA0,0x99,0x12,0x3E,0xEA,0x32,0xC3 } }; // 6F73AEB1-4569-5C3F-9BA0-99123EEA32C3
     template <> inline constexpr guid guid_v<Windows::System::IAppUriHandlerRegistrationManager>{ 0xE62C9A52,0xAC94,0x5750,{ 0xAC,0x1B,0x6C,0xFB,0x6F,0x25,0x02,0x63 } }; // E62C9A52-AC94-5750-AC1B-6CFB6F250263
     template <> inline constexpr guid guid_v<Windows::System::IAppUriHandlerRegistrationManagerStatics>{ 0xD5CEDD9F,0x5729,0x5B76,{ 0xA1,0xD4,0x02,0x85,0xF2,0x95,0xC1,0x24 } }; // D5CEDD9F-5729-5B76-A1D4-0285F295C124
@@ -1121,11 +1129,27 @@ namespace winrt::impl
             virtual int32_t __stdcall put_Name(void*) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::System::IAppUriHandlerHost2>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Uri(void**) noexcept = 0;
+            virtual int32_t __stdcall put_Uri(void*) noexcept = 0;
+            virtual int32_t __stdcall get_Path(void**) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::System::IAppUriHandlerHostFactory>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall CreateInstance(void*, void**) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::System::IAppUriHandlerHostStatics>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall CreateFromUri(void*, void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::System::IAppUriHandlerRegistration>
@@ -1895,6 +1919,17 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_System_IAppUriHandlerHost<D>;
     };
     template <typename D>
+    struct consume_Windows_System_IAppUriHandlerHost2
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Path() const;
+    };
+    template <> struct consume<Windows::System::IAppUriHandlerHost2>
+    {
+        template <typename D> using type = consume_Windows_System_IAppUriHandlerHost2<D>;
+    };
+    template <typename D>
     struct consume_Windows_System_IAppUriHandlerHostFactory
     {
         WINRT_IMPL_AUTO(Windows::System::AppUriHandlerHost) CreateInstance(param::hstring const& name) const;
@@ -1902,6 +1937,15 @@ namespace winrt::impl
     template <> struct consume<Windows::System::IAppUriHandlerHostFactory>
     {
         template <typename D> using type = consume_Windows_System_IAppUriHandlerHostFactory<D>;
+    };
+    template <typename D>
+    struct consume_Windows_System_IAppUriHandlerHostStatics
+    {
+        WINRT_IMPL_AUTO(Windows::System::AppUriHandlerHost) CreateFromUri(Windows::Foundation::Uri const& uri) const;
+    };
+    template <> struct consume<Windows::System::IAppUriHandlerHostStatics>
+    {
+        template <typename D> using type = consume_Windows_System_IAppUriHandlerHostStatics<D>;
     };
     template <typename D>
     struct consume_Windows_System_IAppUriHandlerRegistration

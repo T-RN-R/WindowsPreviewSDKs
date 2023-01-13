@@ -448,11 +448,33 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::System::IAppUriHandlerHost)->put_Name(*(void**)(&value)));
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_System_IAppUriHandlerHost2<D>::Uri() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::IAppUriHandlerHost2)->get_Uri(&value));
+        return Windows::Foundation::Uri{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_System_IAppUriHandlerHost2<D>::Uri(Windows::Foundation::Uri const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::IAppUriHandlerHost2)->put_Uri(*(void**)(&value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_System_IAppUriHandlerHost2<D>::Path() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::IAppUriHandlerHost2)->get_Path(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(Windows::System::AppUriHandlerHost) consume_Windows_System_IAppUriHandlerHostFactory<D>::CreateInstance(param::hstring const& name) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::IAppUriHandlerHostFactory)->CreateInstance(*(void**)(&name), &value));
         return Windows::System::AppUriHandlerHost{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::AppUriHandlerHost) consume_Windows_System_IAppUriHandlerHostStatics<D>::CreateFromUri(Windows::Foundation::Uri const& uri) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::IAppUriHandlerHostStatics)->CreateFromUri(*(void**)(&uri), &result));
+        return Windows::System::AppUriHandlerHost{ result, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_System_IAppUriHandlerRegistration<D>::Name() const
     {
@@ -2216,6 +2238,35 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::System::IAppUriHandlerHost2> : produce_base<D, Windows::System::IAppUriHandlerHost2>
+    {
+        int32_t __stdcall get_Uri(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Foundation::Uri>(this->shim().Uri());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_Uri(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Uri(*reinterpret_cast<Windows::Foundation::Uri const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Path(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().Path());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::System::IAppUriHandlerHostFactory> : produce_base<D, Windows::System::IAppUriHandlerHostFactory>
     {
         int32_t __stdcall CreateInstance(void* name, void** value) noexcept final try
@@ -2223,6 +2274,20 @@ namespace winrt::impl
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
             *value = detach_from<Windows::System::AppUriHandlerHost>(this->shim().CreateInstance(*reinterpret_cast<hstring const*>(&name)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::System::IAppUriHandlerHostStatics> : produce_base<D, Windows::System::IAppUriHandlerHostStatics>
+    {
+        int32_t __stdcall CreateFromUri(void* uri, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::System::AppUriHandlerHost>(this->shim().CreateFromUri(*reinterpret_cast<Windows::Foundation::Uri const*>(&uri)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -4040,6 +4105,10 @@ WINRT_EXPORT namespace winrt::Windows::System
         AppUriHandlerHost(impl::call_factory<AppUriHandlerHost, IAppUriHandlerHostFactory>([&](IAppUriHandlerHostFactory const& f) { return f.CreateInstance(name); }))
     {
     }
+    inline auto AppUriHandlerHost::CreateFromUri(Windows::Foundation::Uri const& uri)
+    {
+        return impl::call_factory<AppUriHandlerHost, IAppUriHandlerHostStatics>([&](IAppUriHandlerHostStatics const& f) { return f.CreateFromUri(uri); });
+    }
     inline auto AppUriHandlerRegistrationManager::GetDefault()
     {
         return impl::call_factory_cast<Windows::System::AppUriHandlerRegistrationManager(*)(IAppUriHandlerRegistrationManagerStatics const&), AppUriHandlerRegistrationManager, IAppUriHandlerRegistrationManagerStatics>([](IAppUriHandlerRegistrationManagerStatics const& f) { return f.GetDefault(); });
@@ -4449,7 +4518,9 @@ namespace std
     template<> struct hash<winrt::Windows::System::IAppResourceGroupMemoryReport> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::IAppResourceGroupStateReport> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::IAppUriHandlerHost> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::System::IAppUriHandlerHost2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::IAppUriHandlerHostFactory> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::System::IAppUriHandlerHostStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::IAppUriHandlerRegistration> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::IAppUriHandlerRegistrationManager> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::IAppUriHandlerRegistrationManagerStatics> : winrt::impl::hash_base {};

@@ -1542,8 +1542,9 @@ typedef struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS
     {
         struct
         {
-            UINT AccessedPhysically : 1;    // The new value for AccessedPhysically on an allocation
-            UINT Reserved : 31;
+            UINT AccessedPhysically :  1; // The new value for AccessedPhysically on an allocation
+            UINT Unmoveable         :  1; // Indicates an allocation cannot be moved while pinned in a memory segment
+            UINT Reserved           : 30;
         };
         UINT Value;
     };
@@ -1563,10 +1564,11 @@ typedef struct D3DDDI_UPDATEALLOCPROPERTY
     {
         struct
         {                
-            UINT SetAccessedPhysically : 1;     // [in] When set to 1, will set AccessedPhysically to new value
-            UINT SetSupportedSegmentSet : 1;    // [in] When set to 1, will set SupportedSegmentSet to new value
-            UINT SetPreferredSegment : 1;       // [in] When set to 1, will set PreferredSegment to new value
-            UINT Reserved : 29;
+            UINT SetAccessedPhysically  :  1; // [in] When set to 1, will set AccessedPhysically to new value
+            UINT SetSupportedSegmentSet :  1; // [in] When set to 1, will set SupportedSegmentSet to new value
+            UINT SetPreferredSegment    :  1; // [in] When set to 1, will set PreferredSegment to new value
+            UINT SetUnmoveable          :  1; // [in] When set to 1, will set Unmoveable to new value
+            UINT Reserved               : 28;
         };
         UINT PropertyMaskValue;
     };

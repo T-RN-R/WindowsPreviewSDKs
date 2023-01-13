@@ -18769,6 +18769,15 @@ Notes:
 //
 #define STATUS_FVE_OSV_KSR_NOT_ALLOWED   ((NTSTATUS)0xC0210040L)
 
+//
+// MessageId: STATUS_FVE_EDRIVE_BAND_ENUMERATION_FAILED
+//
+// MessageText:
+//
+// This command cannot be performed on an eDrive volume where the bands couldn't be enumerated.
+//
+#define STATUS_FVE_EDRIVE_BAND_ENUMERATION_FAILED ((NTSTATUS)0xC0210041L)
+
 
 //
 // FWP error codes (fwpkclnt.sys)
