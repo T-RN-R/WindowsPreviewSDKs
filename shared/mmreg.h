@@ -2369,6 +2369,8 @@ extern "C" {            /* Assume C declarations for C++ */
 #define  WAVE_FORMAT_NICE_G728                  0xA122 /* Nice Systems */
 #define  WAVE_FORMAT_FRACE_TELECOM_G729         0xA123 /* France Telecom */
 #define  WAVE_FORMAT_CODIAN                     0xA124 /* CODIAN */
+#define  WAVE_FORMAT_DOLBY_AC4                  0xAC40 /* Dolby AC-4 */
+#define  WAVE_FORMAT_DOLBY_AC4_IMS              0xAC41 /* Dolby AC-4 Immersive Stereo */
 #define  WAVE_FORMAT_FLAC                       0xF1AC /* flac.sourceforge.net */
 
 #if !defined(WAVE_FORMAT_EXTENSIBLE)

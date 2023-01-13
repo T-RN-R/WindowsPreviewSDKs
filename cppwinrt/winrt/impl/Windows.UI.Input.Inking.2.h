@@ -5,10 +5,39 @@
 
 #ifndef WINRT_Windows_UI_Input_Inking_2_H
 #define WINRT_Windows_UI_Input_Inking_2_H
-#include "winrt/impl/Windows.Foundation.1.h"
+#include "winrt/impl/Windows.Foundation.2.h"
+#include "winrt/impl/Windows.Foundation.Numerics.2.h"
+#include "winrt/impl/Windows.UI.2.h"
 #include "winrt/impl/Windows.UI.Input.Inking.1.h"
 WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
 {
+    struct DelegatedInkTrailRenderParams
+    {
+        Windows::Foundation::Numerics::float3x2 transform;
+        Windows::UI::Color color;
+        Windows::Foundation::Rect clipRect;
+    };
+    inline bool operator==(DelegatedInkTrailRenderParams const& left, DelegatedInkTrailRenderParams const& right) noexcept
+    {
+        return left.transform == right.transform && left.color == right.color && left.clipRect == right.clipRect;
+    }
+    inline bool operator!=(DelegatedInkTrailRenderParams const& left, DelegatedInkTrailRenderParams const& right) noexcept
+    {
+        return !(left == right);
+    }
+    struct __declspec(empty_bases) DelegatedInkTrail : Windows::UI::Input::Inking::IDelegatedInkTrail,
+        impl::require<DelegatedInkTrail, Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface>
+    {
+        DelegatedInkTrail(std::nullptr_t) noexcept {}
+        DelegatedInkTrail(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkTrail(ptr, take_ownership_from_abi) {}
+        DelegatedInkTrail();
+    };
+    struct __declspec(empty_bases) DelegatedInkTrailPoints : Windows::UI::Input::Inking::IDelegatedInkTrailPoints
+    {
+        DelegatedInkTrailPoints(std::nullptr_t) noexcept {}
+        DelegatedInkTrailPoints(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkTrailPoints(ptr, take_ownership_from_abi) {}
+        DelegatedInkTrailPoints();
+    };
     struct __declspec(empty_bases) InkDrawingAttributes : Windows::UI::Input::Inking::IInkDrawingAttributes,
         impl::require<InkDrawingAttributes, Windows::UI::Input::Inking::IInkDrawingAttributes2, Windows::UI::Input::Inking::IInkDrawingAttributes3, Windows::UI::Input::Inking::IInkDrawingAttributes4, Windows::UI::Input::Inking::IInkDrawingAttributes5>
     {

@@ -118,6 +118,57 @@
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 /* Forward Declarations */
+#ifndef ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
+                    interface IDelegatedInkTrail;
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail ABI::Windows::UI::Input::Inking::IDelegatedInkTrail
+
+#endif // ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
+                    interface IDelegatedInkTrailPoints;
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints ABI::Windows::UI::Input::Inking::IDelegatedInkTrailPoints
+
+#endif // ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
+                    interface IDelegatedInkTrailReferenceSurface;
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface ABI::Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface
+
+#endif // ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CInput_CInking_CIInkDrawingAttributes_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CInput_CInking_CIInkDrawingAttributes_FWD_DEFINED__
 namespace ABI {
@@ -1300,6 +1351,72 @@ namespace ABI {
         namespace UI {
             namespace Input {
                 namespace Inking {
+                    class DelegatedInkTrailPoints;
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE
+#define DEF___FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("d719f116-0c60-54f0-8ecd-6248f1239470"))
+IIterator<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*> : IIterator_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*, ABI::Windows::UI::Input::Inking::IDelegatedInkTrailPoints*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.Inking.DelegatedInkTrailPoints>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterator<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*> __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_t;
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints ABI::Windows::Foundation::Collections::__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE
+#define DEF___FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("2a00c0a6-c227-50b1-a2b0-650c30214974"))
+IIterable<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*> : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*, ABI::Windows::UI::Input::Inking::IDelegatedInkTrailPoints*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.DelegatedInkTrailPoints>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterable<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*> __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_t;
+#define __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints ABI::Windows::Foundation::Collections::__FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
                     class InkPoint;
                 } /* Inking */
             } /* Input */
@@ -1584,6 +1701,33 @@ typedef IVectorView<HSTRING> __FIVectorView_1_HSTRING_t;
 #endif /* DEF___FIVectorView_1_HSTRING_USE */
 
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE
+#define DEF___FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("ff9036d2-a629-52a1-a784-82469b7435ee"))
+IVectorView<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*> : IVectorView_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*, ABI::Windows::UI::Input::Inking::IDelegatedInkTrailPoints*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.DelegatedInkTrailPoints>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IVectorView<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*> __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_t;
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints ABI::Windows::Foundation::Collections::__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
 #ifndef DEF___FIVectorView_1_Windows__CUI__CInput__CInking__CInkPoint_USE
@@ -1691,6 +1835,33 @@ typedef IVectorView<ABI::Windows::UI::Input::Inking::InkStrokeRenderingSegment*>
 #endif /* DEF___FIVectorView_1_Windows__CUI__CInput__CInking__CInkStrokeRenderingSegment_USE */
 
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE
+#define DEF___FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("3f2a0d21-ee04-5bc9-9093-bc293238a85b"))
+IVector<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*> : IVector_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*, ABI::Windows::UI::Input::Inking::IDelegatedInkTrailPoints*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IVector`1<Windows.UI.Input.Inking.DelegatedInkTrailPoints>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IVector<ABI::Windows::UI::Input::Inking::DelegatedInkTrailPoints*> __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_t;
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints ABI::Windows::Foundation::Collections::__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 namespace ABI {
     namespace Windows {
@@ -2224,6 +2395,18 @@ namespace ABI {
         namespace UI {
             namespace Input {
                 namespace Inking {
+                    typedef struct DelegatedInkTrailRenderParams DelegatedInkTrailRenderParams;
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
                     class InkDrawingAttributes;
                 } /* Inking */
             } /* Input */
@@ -2646,6 +2829,169 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+/*
+ *
+ * Struct Windows.UI.Input.Inking.DelegatedInkTrailRenderParams
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
+                    struct DelegatedInkTrailRenderParams
+                    {
+                        ABI::Windows::Foundation::Numerics::Matrix3x2 transform;
+                        ABI::Windows::UI::Color color;
+                        ABI::Windows::Foundation::Rect clipRect;
+                    };
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.UI.Input.Inking.IDelegatedInkTrail
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Input.Inking.DelegatedInkTrail
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Input_Inking_IDelegatedInkTrail[] = L"Windows.UI.Input.Inking.IDelegatedInkTrail";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
+                    MIDL_INTERFACE("2fd347fd-f42b-41f0-96f9-0016cd4184da")
+                    IDelegatedInkTrail : public IInspectable
+                    {
+                    public:
+                        virtual HRESULT STDMETHODCALLTYPE AddTipPoints(
+                            __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* inkPoints,
+                            __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* predictedInkPoints,
+                            boolean isNewStroke
+                            ) = 0;
+                        virtual HRESULT STDMETHODCALLTYPE SetRenderedBallpointInkForSwapchainPresentCount(
+                            UINT32 presentCount,
+                            ABI::Windows::UI::Input::Inking::IInkPoint* lastRenderedInkPoint,
+                            ABI::Windows::UI::Input::Inking::DelegatedInkTrailRenderParams renderedInkParams
+                            ) = 0;
+                    };
+
+                    extern MIDL_CONST_ID IID& IID_IDelegatedInkTrail = _uuidof(IDelegatedInkTrail);
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail;
+#endif /* !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.UI.Input.Inking.IDelegatedInkTrailPoints
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Input.Inking.DelegatedInkTrailPoints
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Input_Inking_IDelegatedInkTrailPoints[] = L"Windows.UI.Input.Inking.IDelegatedInkTrailPoints";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
+                    MIDL_INTERFACE("dff7c61b-1b3e-4270-8810-92d6c4a6b103")
+                    IDelegatedInkTrailPoints : public IInspectable
+                    {
+                    public:
+                        virtual HRESULT STDMETHODCALLTYPE get_frameId(
+                            UINT32* value
+                            ) = 0;
+                        virtual HRESULT STDMETHODCALLTYPE put_frameId(
+                            UINT32 value
+                            ) = 0;
+                        virtual HRESULT STDMETHODCALLTYPE get_pointerId(
+                            UINT32* value
+                            ) = 0;
+                        virtual HRESULT STDMETHODCALLTYPE put_pointerId(
+                            UINT32 value
+                            ) = 0;
+                        virtual HRESULT STDMETHODCALLTYPE get_inkPoint(
+                            ABI::Windows::UI::Input::Inking::IInkPoint** value
+                            ) = 0;
+                        virtual HRESULT STDMETHODCALLTYPE put_inkPoint(
+                            ABI::Windows::UI::Input::Inking::IInkPoint* value
+                            ) = 0;
+                    };
+
+                    extern MIDL_CONST_ID IID& IID_IDelegatedInkTrailPoints = _uuidof(IDelegatedInkTrailPoints);
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints;
+#endif /* !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.UI.Input.Inking.IDelegatedInkTrailReferenceSurface
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Input.Inking.DelegatedInkTrail
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Input_Inking_IDelegatedInkTrailReferenceSurface[] = L"Windows.UI.Input.Inking.IDelegatedInkTrailReferenceSurface";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Input {
+                namespace Inking {
+                    MIDL_INTERFACE("89bff594-d807-568f-ae80-508763bdb3f9")
+                    IDelegatedInkTrailReferenceSurface : public IInspectable
+                    {
+                    public:
+                        virtual HRESULT STDMETHODCALLTYPE SetReferenceSurface(
+                            IInspectable* surface,
+                            IInspectable* dcompDevice
+                            ) = 0;
+                    };
+
+                    extern MIDL_CONST_ID IID& IID_IDelegatedInkTrailReferenceSurface = _uuidof(IDelegatedInkTrailReferenceSurface);
+                } /* Inking */
+            } /* Input */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface;
+#endif /* !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -4846,6 +5192,55 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CInput_CInking_CIPenAndInkSettingsSt
 
 /*
  *
+ * Class Windows.UI.Input.Inking.DelegatedInkTrail
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Input.Inking.IDelegatedInkTrailReferenceSurface
+ *    Windows.UI.Input.Inking.IDelegatedInkTrail ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_UI_Input_Inking_DelegatedInkTrail_DEFINED
+#define RUNTIMECLASS_Windows_UI_Input_Inking_DelegatedInkTrail_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Input_Inking_DelegatedInkTrail[] = L"Windows.UI.Input.Inking.DelegatedInkTrail";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Class Windows.UI.Input.Inking.DelegatedInkTrailPoints
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Input.Inking.IDelegatedInkTrailPoints ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_UI_Input_Inking_DelegatedInkTrailPoints_DEFINED
+#define RUNTIMECLASS_Windows_UI_Input_Inking_DelegatedInkTrailPoints_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Input_Inking_DelegatedInkTrailPoints[] = L"Windows.UI.Input.Inking.DelegatedInkTrailPoints";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Class Windows.UI.Input.Inking.InkDrawingAttributes
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -5347,6 +5742,24 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 #else // !defined(__cplusplus)
 /* Forward Declarations */
+#ifndef ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail;
+
+#endif // ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints;
+
+#endif // ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface;
+
+#endif // ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CInput_CInking_CIInkDrawingAttributes_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CInput_CInking_CIInkDrawingAttributes_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CInput_CInking_CIInkDrawingAttributes __x_ABI_CWindows_CUI_CInput_CInking_CIInkDrawingAttributes;
@@ -6623,6 +7036,151 @@ interface __FIIterable_1_Windows__CFoundation__CPoint
 #endif // ____FIIterable_1_Windows__CFoundation__CPoint_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__)
+#define ____FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__
+
+typedef interface __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints;
+
+typedef struct __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Current)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints** result);
+    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* MoveNext)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 itemsLength,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints** items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl;
+
+interface __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints
+{
+    CONST_VTBL struct __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_get_Current(This, result) \
+    ((This)->lpVtbl->get_Current(This, result))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_get_HasCurrent(This, result) \
+    ((This)->lpVtbl->get_HasCurrent(This, result))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_MoveNext(This, result) \
+    ((This)->lpVtbl->MoveNext(This, result))
+
+#define __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetMany(This, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__)
+#define ____FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__
+
+typedef interface __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints;
+
+typedef struct __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* First)(__FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        __FIIterator_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints** result);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl;
+
+interface __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints
+{
+    CONST_VTBL struct __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_First(This, result) \
+    ((This)->lpVtbl->First(This, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterable_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____FIIterator_1_Windows__CUI__CInput__CInking__CInkPoint_INTERFACE_DEFINED__)
 #define ____FIIterator_1_Windows__CUI__CInput__CInking__CInkPoint_INTERFACE_DEFINED__
@@ -7286,6 +7844,91 @@ interface __FIVectorView_1_HSTRING
 
 #endif // ____FIVectorView_1_HSTRING_INTERFACE_DEFINED__
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__)
+#define ____FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__
+
+typedef interface __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints;
+
+typedef struct __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetAt)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 index,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints** result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* IndexOf)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* value,
+        UINT32* index,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 startIndex,
+        UINT32 itemsLength,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints** items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl;
+
+interface __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints
+{
+    CONST_VTBL struct __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetAt(This, index, result) \
+    ((This)->lpVtbl->GetAt(This, index, result))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_get_Size(This, result) \
+    ((This)->lpVtbl->get_Size(This, result))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_IndexOf(This, value, index, result) \
+    ((This)->lpVtbl->IndexOf(This, value, index, result))
+
+#define __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetMany(This, startIndex, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, startIndex, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____FIVectorView_1_Windows__CUI__CInput__CInking__CInkPoint_INTERFACE_DEFINED__)
 #define ____FIVectorView_1_Windows__CUI__CInput__CInking__CInkPoint_INTERFACE_DEFINED__
@@ -7625,6 +8268,132 @@ interface __FIVectorView_1_Windows__CUI__CInput__CInking__CInkStrokeRenderingSeg
 
 #endif // ____FIVectorView_1_Windows__CUI__CInput__CInking__CInkStrokeRenderingSegment_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__)
+#define ____FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__
+
+typedef interface __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints;
+
+typedef struct __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetAt)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 index,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints** result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* GetView)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        __FIVectorView_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints** result);
+    HRESULT (STDMETHODCALLTYPE* IndexOf)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* value,
+        UINT32* index,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* SetAt)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 index,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* value);
+    HRESULT (STDMETHODCALLTYPE* InsertAt)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 index,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* value);
+    HRESULT (STDMETHODCALLTYPE* RemoveAt)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 index);
+    HRESULT (STDMETHODCALLTYPE* Append)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* value);
+    HRESULT (STDMETHODCALLTYPE* RemoveAtEnd)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    HRESULT (STDMETHODCALLTYPE* Clear)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 startIndex,
+        UINT32 itemsLength,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints** items,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* ReplaceAll)(__FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* This,
+        UINT32 itemsLength,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints** items);
+
+    END_INTERFACE
+} __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl;
+
+interface __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints
+{
+    CONST_VTBL struct __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPointsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetAt(This, index, result) \
+    ((This)->lpVtbl->GetAt(This, index, result))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_get_Size(This, result) \
+    ((This)->lpVtbl->get_Size(This, result))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetView(This, result) \
+    ((This)->lpVtbl->GetView(This, result))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_IndexOf(This, value, index, result) \
+    ((This)->lpVtbl->IndexOf(This, value, index, result))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_SetAt(This, index, value) \
+    ((This)->lpVtbl->SetAt(This, index, value))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_InsertAt(This, index, value) \
+    ((This)->lpVtbl->InsertAt(This, index, value))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_RemoveAt(This, index) \
+    ((This)->lpVtbl->RemoveAt(This, index))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_Append(This, value) \
+    ((This)->lpVtbl->Append(This, value))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_RemoveAtEnd(This) \
+    ((This)->lpVtbl->RemoveAtEnd(This))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_Clear(This) \
+    ((This)->lpVtbl->Clear(This))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_GetMany(This, startIndex, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, startIndex, itemsLength, items, result))
+
+#define __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_ReplaceAll(This, itemsLength, items) \
+    ((This)->lpVtbl->ReplaceAll(This, itemsLength, items))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 typedef struct __x_ABI_CWindows_CFoundation_CDateTime __x_ABI_CWindows_CFoundation_CDateTime;
 
@@ -8026,6 +8795,8 @@ typedef enum __x_ABI_CWindows_CUI_CInput_CInking_CPenHandedness __x_ABI_CWindows
 
 typedef enum __x_ABI_CWindows_CUI_CInput_CInking_CPenTipShape __x_ABI_CWindows_CUI_CInput_CInking_CPenTipShape;
 
+typedef struct __x_ABI_CWindows_CUI_CInput_CInking_CDelegatedInkTrailRenderParams __x_ABI_CWindows_CUI_CInput_CInking_CDelegatedInkTrailRenderParams;
+
 /*
  *
  * Struct Windows.UI.Input.Inking.HandwritingLineHeight
@@ -8213,6 +8984,264 @@ enum __x_ABI_CWindows_CUI_CInput_CInking_CPenTipShape
     PenTipShape_Rectangle = 1,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+/*
+ *
+ * Struct Windows.UI.Input.Inking.DelegatedInkTrailRenderParams
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+struct __x_ABI_CWindows_CUI_CInput_CInking_CDelegatedInkTrailRenderParams
+{
+    struct __x_ABI_CWindows_CFoundation_CNumerics_CMatrix3x2 transform;
+    struct __x_ABI_CWindows_CUI_CColor color;
+    struct __x_ABI_CWindows_CFoundation_CRect clipRect;
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.UI.Input.Inking.IDelegatedInkTrail
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Input.Inking.DelegatedInkTrail
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Input_Inking_IDelegatedInkTrail[] = L"Windows.UI.Input.Inking.IDelegatedInkTrail";
+typedef struct __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* AddTipPoints)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail* This,
+        __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* inkPoints,
+        __FIVector_1_Windows__CUI__CInput__CInking__CDelegatedInkTrailPoints* predictedInkPoints,
+        boolean isNewStroke);
+    HRESULT (STDMETHODCALLTYPE* SetRenderedBallpointInkForSwapchainPresentCount)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail* This,
+        UINT32 presentCount,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIInkPoint* lastRenderedInkPoint,
+        struct __x_ABI_CWindows_CUI_CInput_CInking_CDelegatedInkTrailRenderParams renderedInkParams);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailVtbl;
+
+interface __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_AddTipPoints(This, inkPoints, predictedInkPoints, isNewStroke) \
+    ((This)->lpVtbl->AddTipPoints(This, inkPoints, predictedInkPoints, isNewStroke))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_SetRenderedBallpointInkForSwapchainPresentCount(This, presentCount, lastRenderedInkPoint, renderedInkParams) \
+    ((This)->lpVtbl->SetRenderedBallpointInkForSwapchainPresentCount(This, presentCount, lastRenderedInkPoint, renderedInkParams))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail;
+#endif /* !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrail_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.UI.Input.Inking.IDelegatedInkTrailPoints
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Input.Inking.DelegatedInkTrailPoints
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Input_Inking_IDelegatedInkTrailPoints[] = L"Windows.UI.Input.Inking.IDelegatedInkTrailPoints";
+typedef struct __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPointsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_frameId)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        UINT32* value);
+    HRESULT (STDMETHODCALLTYPE* put_frameId)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        UINT32 value);
+    HRESULT (STDMETHODCALLTYPE* get_pointerId)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        UINT32* value);
+    HRESULT (STDMETHODCALLTYPE* put_pointerId)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        UINT32 value);
+    HRESULT (STDMETHODCALLTYPE* get_inkPoint)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIInkPoint** value);
+    HRESULT (STDMETHODCALLTYPE* put_inkPoint)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints* This,
+        __x_ABI_CWindows_CUI_CInput_CInking_CIInkPoint* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPointsVtbl;
+
+interface __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPointsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_get_frameId(This, value) \
+    ((This)->lpVtbl->get_frameId(This, value))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_put_frameId(This, value) \
+    ((This)->lpVtbl->put_frameId(This, value))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_get_pointerId(This, value) \
+    ((This)->lpVtbl->get_pointerId(This, value))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_put_pointerId(This, value) \
+    ((This)->lpVtbl->put_pointerId(This, value))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_get_inkPoint(This, value) \
+    ((This)->lpVtbl->get_inkPoint(This, value))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_put_inkPoint(This, value) \
+    ((This)->lpVtbl->put_inkPoint(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints;
+#endif /* !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailPoints_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.UI.Input.Inking.IDelegatedInkTrailReferenceSurface
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Input.Inking.DelegatedInkTrail
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Input_Inking_IDelegatedInkTrailReferenceSurface[] = L"Windows.UI.Input.Inking.IDelegatedInkTrailReferenceSurface";
+typedef struct __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurfaceVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* SetReferenceSurface)(__x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface* This,
+        IInspectable* surface,
+        IInspectable* dcompDevice);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurfaceVtbl;
+
+interface __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurfaceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_SetReferenceSurface(This, surface, dcompDevice) \
+    ((This)->lpVtbl->SetReferenceSurface(This, surface, dcompDevice))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface;
+#endif /* !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIDelegatedInkTrailReferenceSurface_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -12104,6 +13133,55 @@ interface __x_ABI_CWindows_CUI_CInput_CInking_CIPenAndInkSettingsStatics
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CInput_CInking_CIPenAndInkSettingsStatics;
 #endif /* !defined(____x_ABI_CWindows_CUI_CInput_CInking_CIPenAndInkSettingsStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Class Windows.UI.Input.Inking.DelegatedInkTrail
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Input.Inking.IDelegatedInkTrailReferenceSurface
+ *    Windows.UI.Input.Inking.IDelegatedInkTrail ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_UI_Input_Inking_DelegatedInkTrail_DEFINED
+#define RUNTIMECLASS_Windows_UI_Input_Inking_DelegatedInkTrail_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Input_Inking_DelegatedInkTrail[] = L"Windows.UI.Input.Inking.DelegatedInkTrail";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Class Windows.UI.Input.Inking.DelegatedInkTrailPoints
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Input.Inking.IDelegatedInkTrailPoints ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_UI_Input_Inking_DelegatedInkTrailPoints_DEFINED
+#define RUNTIMECLASS_Windows_UI_Input_Inking_DelegatedInkTrailPoints_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Input_Inking_DelegatedInkTrailPoints[] = L"Windows.UI.Input.Inking.DelegatedInkTrailPoints";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *

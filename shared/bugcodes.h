@@ -4411,6 +4411,15 @@ Notes:
 #define AZURE_DEVICE_FW_DUMP             ((ULONG)0x000001E2L)
 
 //
+// MessageId: BREAKAWAY_CABLE_TRANSITION
+//
+// MessageText:
+//
+//  BREAKAWAY_CABLE_TRANSITION
+//
+#define BREAKAWAY_CABLE_TRANSITION       ((ULONG)0x000001E3L)
+
+//
 // MessageId: XBOX_VMCTRL_CS_TIMEOUT
 //
 // MessageText:

@@ -197,6 +197,33 @@ class MSFT_Volume : MSFT_StorageObject {
         [In]
         Boolean SpotFix,
 
+        [In]
+        UInt32 DetectLeaks,
+
+        [In]
+        String ScratchFile,
+
+        [In]
+        UInt32 Threads,
+
+        [In]
+        Boolean Triage,
+
+        [In]
+        UInt64 DirectoryIds[],
+
+        [In] 
+        Uint32 Salvage,
+
+        [In]
+        String ScratchDir,
+
+        [In]
+        String TargetFile,
+
+        [In]
+        String TargetDir,
+
         [Out]
         UInt32 Output,
 

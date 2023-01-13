@@ -70,7 +70,7 @@ cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)") //TODO_NTDDI_WIN10_TH2
 
         // Creates an instance of InkPresenter and defines the ink-enabled area
         // through a DComposition visual and a size
-        // This is equivalent to the following sequence of calls –
+        // This is equivalent to the following sequence of calls:
         //  1. CreateInkPresenter
         //  2. IInkPresenterDesktop->SetRootVisual
         //  3. IInkPresenterDesktop->SetSize
@@ -81,6 +81,16 @@ cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)") //TODO_NTDDI_WIN10_TH2
                         [in] float width, [in] float height,
                         [in] REFIID riid,
                         [out, iid_is(riid)] void **ppv);
+    }
+
+    [object, uuid(6F2CCD0D-6475-4753-B75A-CC2864E3535E)]
+    interface IDelegatedInkTrailDesktopReferenceSurface : IInspectable
+    {
+        // This interface is implemented by the DelegatedInkTrail Runtime class for use on desktop.
+
+        // Sets the dcomp surface that will be used for the coordinate space of the super wet ink,
+        // and will trigger the dirtying of the super wet ink.
+        HRESULT SetReferenceSurface([in] IUnknown* surface, [in] IUnknown* dcompDevice);
     }
 
     [uuid(2aef0967-c833-4f38-91f3-16e67d55d717)]

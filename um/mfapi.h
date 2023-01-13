@@ -2265,8 +2265,11 @@ DEFINE_MEDIATYPE_GUID( MFAudioFormat_Float,             WAVE_FORMAT_IEEE_FLOAT )
 
 // MFAudioFormat_DTS is for S/PDIF-encapsulated DTS core streams. It is the same as KSDATAFORMAT_SUBTYPE_IEC61937_DTS in ksmedia.h.
 // Use MEDIASUBTYPE_DTS2 (defined in wmcodecdsp.h) for raw DTS core streams.
-// If DTS extension substreams may be present, use MEDIASUBTYPE_DTS_HD instead for Master Audio, and MEDIASUBTYPE_DTS_HD_HRA for
-// High Resolution Audio and other extension substream variants.
+// MFAudioFormat_DTS_RAW (same as MEDIASUBTYPE_DTS) can also be used for raw DTS core streams. While the values for MEDIASUBTYPE_DTS and
+// MEDIASUBTYPE_DTS2 are different, the stream type is the same.
+//
+// If DTS extension substreams may be present, use MFAudioFormat_DTS_HD (same as MEDIASUBTYPE_DTS_HD) for Master Audio,
+// and MEDIASUBTYPE_DTS_HD_HRA for High Resolution Audio and other extension substream variants.
 // (KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD is the S/PDIF media subtype for MEDIASUBTYPE_DTS_HD and MEDIASUBTYPE_DTS_HD_HRA.)
 DEFINE_MEDIATYPE_GUID( MFAudioFormat_DTS,               WAVE_FORMAT_DTS );
 
@@ -2292,6 +2295,8 @@ DEFINE_MEDIATYPE_GUID( MFAudioFormat_FLAC,              WAVE_FORMAT_FLAC );
 DEFINE_MEDIATYPE_GUID( MFAudioFormat_ALAC,              WAVE_FORMAT_ALAC );
 DEFINE_MEDIATYPE_GUID( MFAudioFormat_Opus,              WAVE_FORMAT_OPUS );
 #endif
+DEFINE_MEDIATYPE_GUID( MFAudioFormat_Dolby_AC4,         WAVE_FORMAT_DOLBY_AC4 );
+DEFINE_MEDIATYPE_GUID( MFAudioFormat_Dolby_AC4_IMS,     WAVE_FORMAT_DOLBY_AC4_IMS );
 
 // These audio types are not derived from an existing wFormatTag 
 DEFINE_GUID(MFAudioFormat_Dolby_AC3, // == MEDIASUBTYPE_DOLBY_AC3 defined in ksuuids.h
@@ -2300,7 +2305,7 @@ DEFINE_GUID(MFAudioFormat_Dolby_DDPlus, // == MEDIASUBTYPE_DOLBY_DDPLUS defined 
 0xa7fb87af, 0x2d02, 0x42fb, 0xa4, 0xd4, 0x5, 0xcd, 0x93, 0x84, 0x3b, 0xdd);
 DEFINE_GUID(MFAudioFormat_Vorbis,      // {8D2FD10B-5841-4a6b-8905-588FEC1ADED9}
 0x8D2FD10B, 0x5841, 0x4a6b, 0x89, 0x05, 0x58, 0x8F, 0xEC, 0x1A, 0xDE, 0xD9);
-DEFINE_GUID(MFAudioFormat_DTS_RAW, // == MEDIASUBTYPE_DTS defined in wmcodecdsp.h
+DEFINE_GUID(MFAudioFormat_DTS_RAW, // == MEDIASUBTYPE_DTS defined in ksuuids.h
 0xE06D8033, 0xDB46, 0x11CF, 0xB4, 0xD1, 0x00, 0x80, 0x5F, 0x6C, 0xBB, 0xEA);
 DEFINE_GUID(MFAudioFormat_DTS_HD, // == MEDIASUBTYPE_DTS_HD defined in wmcodecdsp.h
 0xA2E58EB7, 0x0FA9, 0x48BB, 0xA4, 0x0C, 0xFA, 0x0E, 0x15, 0x6D, 0x06, 0x45);

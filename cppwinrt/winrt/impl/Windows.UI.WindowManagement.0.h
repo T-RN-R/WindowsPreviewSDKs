@@ -57,6 +57,14 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         Default = 0,
         AlwaysHidden = 1,
     };
+    enum class VisibilityChangedDetails : int32_t
+    {
+        Unknown = 0,
+        Visible = 1,
+        HiddenBySystem = 2,
+        HiddenByApp = 3,
+        Minimized = 4,
+    };
     enum class WindowVisibilityState : int32_t
     {
         Unknown = 0,
@@ -73,6 +81,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
     struct IAppWindow2;
     struct IAppWindowChangedEventArgs;
     struct IAppWindowChangedEventArgs2;
+    struct IAppWindowChangedEventArgs22;
     struct IAppWindowCloseRequestedEventArgs;
     struct IAppWindowClosedEventArgs;
     struct IAppWindowFrame;
@@ -124,6 +133,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::WindowManagement::IAppWindow2>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>{ using type = interface_category; };
+    template <> struct category<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::WindowManagement::IAppWindowFrame>{ using type = interface_category; };
@@ -173,6 +183,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::WindowManagement::AppWindowPresentationKind>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::AppWindowShowOptions>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::AppWindowTitleBarVisibility>{ using type = enum_category; };
+    template <> struct category<Windows::UI::WindowManagement::VisibilityChangedDetails>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::WindowVisibilityState>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::WindowingEnvironmentKind>{ using type = enum_category; };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindow>{ L"Windows.UI.WindowManagement.AppWindow" };
@@ -200,6 +211,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPresentationKind>{ L"Windows.UI.WindowManagement.AppWindowPresentationKind" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowShowOptions>{ L"Windows.UI.WindowManagement.AppWindowShowOptions" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowTitleBarVisibility>{ L"Windows.UI.WindowManagement.AppWindowTitleBarVisibility" };
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::VisibilityChangedDetails>{ L"Windows.UI.WindowManagement.VisibilityChangedDetails" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowVisibilityState>{ L"Windows.UI.WindowManagement.WindowVisibilityState" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentKind>{ L"Windows.UI.WindowManagement.WindowingEnvironmentKind" };
 #ifndef WINRT_LEAN_AND_MEAN
@@ -207,6 +219,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindow2>{ L"Windows.UI.WindowManagement.IAppWindow2" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>{ L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>{ L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs2" };
+    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>{ L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs22" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>{ L"Windows.UI.WindowManagement.IAppWindowCloseRequestedEventArgs" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>{ L"Windows.UI.WindowManagement.IAppWindowClosedEventArgs" };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindowFrame>{ L"Windows.UI.WindowManagement.IAppWindowFrame" };
@@ -236,6 +249,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindow2>{ 0x06B045F1,0xFB8D,0x5587,{ 0x9D,0x5F,0xC4,0x92,0x75,0x22,0xB1,0x4B } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>{ 0x1DE1F3BE,0xA655,0x55AD,{ 0xB2,0xB6,0xEB,0x24,0x0F,0x88,0x03,0x56 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>{ 0x77071B54,0x3E18,0x520B,{ 0xA9,0x5D,0x55,0xD7,0xB5,0xCB,0x97,0x40 } };
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>{ 0x54D35696,0xACFF,0x5BCD,{ 0x93,0xE9,0x49,0xEB,0x5D,0xBC,0x61,0x73 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>{ 0xE9FF01DA,0xE7A2,0x57A8,{ 0x8B,0x5E,0x39,0xC4,0x00,0x3A,0xFD,0xBB } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>{ 0xCC7DF816,0x9520,0x5A06,{ 0x82,0x1E,0x45,0x6A,0xD8,0xB3,0x58,0xAA } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowFrame>{ 0x9EE22601,0x7E5D,0x52AF,{ 0x84,0x6B,0x01,0xDC,0x6C,0x29,0x65,0x67 } };
@@ -344,6 +358,13 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_DidOffsetChange(bool*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_VisibilityChangedDetails(int32_t*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>
@@ -640,6 +661,15 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>
     {
         template <typename D> using type = consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs2<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs22
+    {
+        [[nodiscard]] auto VisibilityChangedDetails() const;
+    };
+    template <> struct consume<Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>
+    {
+        template <typename D> using type = consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs22<D>;
     };
     template <typename D>
     struct consume_Windows_UI_WindowManagement_IAppWindowCloseRequestedEventArgs

@@ -11978,7 +11978,11 @@ typedef struct _PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
         DWORD Flags;
         struct {
             DWORD EnableUserShadowStack : 1;
-            DWORD ReservedFlags : 31;
+            DWORD AuditUserShadowStack : 1;
+            DWORD SetContextIpValidation : 1;
+            DWORD AuditSetContextIpValidation : 1;
+            DWORD ReservedFlags : 28;
+
         } DUMMYSTRUCTNAME;
     } DUMMYUNIONNAME;
 } PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY, *PPROCESS_MITIGATION_USER_SHADOW_STACK_POLICY;

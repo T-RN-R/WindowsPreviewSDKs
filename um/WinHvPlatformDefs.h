@@ -622,6 +622,7 @@ typedef enum WHV_REGISTER_NAME
     WHvX64RegisterMsrMtrrFix4kF8000  = 0x0000207A,
 
     WHvX64RegisterTscAux           = 0x0000207B,
+    WHvX64RegisterBndcfgs          = 0x0000207C,
     WHvX64RegisterSpecCtrl         = 0x00002084,
     WHvX64RegisterPredCmd          = 0x00002085,
     WHvX64RegisterTscVirtualOffset = 0x00002087,

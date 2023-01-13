@@ -4,11 +4,7 @@
 #define DIRECTML_H
 #pragma once
 
-#ifdef _GAMING_XBOX
-#include "d3d12_xs.h"
-#else
 #include "d3d12.h"
-#endif
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
 

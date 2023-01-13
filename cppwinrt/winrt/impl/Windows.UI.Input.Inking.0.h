@@ -18,6 +18,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {
@@ -108,6 +109,9 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
         Circle = 0,
         Rectangle = 1,
     };
+    struct IDelegatedInkTrail;
+    struct IDelegatedInkTrailPoints;
+    struct IDelegatedInkTrailReferenceSurface;
     struct IInkDrawingAttributes;
     struct IInkDrawingAttributes2;
     struct IInkDrawingAttributes3;
@@ -153,6 +157,8 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
     struct IInkUnprocessedInput;
     struct IPenAndInkSettings;
     struct IPenAndInkSettingsStatics;
+    struct DelegatedInkTrail;
+    struct DelegatedInkTrailPoints;
     struct InkDrawingAttributes;
     struct InkDrawingAttributesPencilProperties;
     struct InkInputConfiguration;
@@ -176,9 +182,13 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
     struct InkSynchronizer;
     struct InkUnprocessedInput;
     struct PenAndInkSettings;
+    struct DelegatedInkTrailRenderParams;
 }
 namespace winrt::impl
 {
+    template <> struct category<Windows::UI::Input::Inking::IDelegatedInkTrail>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Input::Inking::IDelegatedInkTrailPoints>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::IInkDrawingAttributes>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::IInkDrawingAttributes2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::IInkDrawingAttributes3>{ using type = interface_category; };
@@ -224,6 +234,8 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Input::Inking::IInkUnprocessedInput>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::IPenAndInkSettings>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::IPenAndInkSettingsStatics>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Input::Inking::DelegatedInkTrail>{ using type = class_category; };
+    template <> struct category<Windows::UI::Input::Inking::DelegatedInkTrailPoints>{ using type = class_category; };
     template <> struct category<Windows::UI::Input::Inking::InkDrawingAttributes>{ using type = class_category; };
     template <> struct category<Windows::UI::Input::Inking::InkDrawingAttributesPencilProperties>{ using type = class_category; };
     template <> struct category<Windows::UI::Input::Inking::InkInputConfiguration>{ using type = class_category; };
@@ -259,6 +271,9 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Input::Inking::InkRecognitionTarget>{ using type = enum_category; };
     template <> struct category<Windows::UI::Input::Inking::PenHandedness>{ using type = enum_category; };
     template <> struct category<Windows::UI::Input::Inking::PenTipShape>{ using type = enum_category; };
+    template <> struct category<Windows::UI::Input::Inking::DelegatedInkTrailRenderParams>{ using type = struct_category<Windows::Foundation::Numerics::float3x2, Windows::UI::Color, Windows::Foundation::Rect>; };
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::DelegatedInkTrail>{ L"Windows.UI.Input.Inking.DelegatedInkTrail" };
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::DelegatedInkTrailPoints>{ L"Windows.UI.Input.Inking.DelegatedInkTrailPoints" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::InkDrawingAttributes>{ L"Windows.UI.Input.Inking.InkDrawingAttributes" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::InkDrawingAttributesPencilProperties>{ L"Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::InkInputConfiguration>{ L"Windows.UI.Input.Inking.InkInputConfiguration" };
@@ -294,7 +309,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::InkRecognitionTarget>{ L"Windows.UI.Input.Inking.InkRecognitionTarget" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::PenHandedness>{ L"Windows.UI.Input.Inking.PenHandedness" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::PenTipShape>{ L"Windows.UI.Input.Inking.PenTipShape" };
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::DelegatedInkTrailRenderParams>{ L"Windows.UI.Input.Inking.DelegatedInkTrailRenderParams" };
 #ifndef WINRT_LEAN_AND_MEAN
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IDelegatedInkTrail>{ L"Windows.UI.Input.Inking.IDelegatedInkTrail" };
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IDelegatedInkTrailPoints>{ L"Windows.UI.Input.Inking.IDelegatedInkTrailPoints" };
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface>{ L"Windows.UI.Input.Inking.IDelegatedInkTrailReferenceSurface" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IInkDrawingAttributes>{ L"Windows.UI.Input.Inking.IInkDrawingAttributes" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IInkDrawingAttributes2>{ L"Windows.UI.Input.Inking.IInkDrawingAttributes2" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IInkDrawingAttributes3>{ L"Windows.UI.Input.Inking.IInkDrawingAttributes3" };
@@ -341,6 +360,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IPenAndInkSettings>{ L"Windows.UI.Input.Inking.IPenAndInkSettings" };
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IPenAndInkSettingsStatics>{ L"Windows.UI.Input.Inking.IPenAndInkSettingsStatics" };
 #endif
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IDelegatedInkTrail>{ 0x2FD347FD,0xF42B,0x41F0,{ 0x96,0xF9,0x00,0x16,0xCD,0x41,0x84,0xDA } };
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IDelegatedInkTrailPoints>{ 0xDFF7C61B,0x1B3E,0x4270,{ 0x88,0x10,0x92,0xD6,0xC4,0xA6,0xB1,0x03 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface>{ 0x89BFF594,0xD807,0x568F,{ 0xAE,0x80,0x50,0x87,0x63,0xBD,0xB3,0xF9 } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IInkDrawingAttributes>{ 0x97A2176C,0x6774,0x48AD,{ 0x84,0xF0,0x48,0xF5,0xA9,0xBE,0x74,0xF9 } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IInkDrawingAttributes2>{ 0x7CAB6508,0x8EC4,0x42FD,{ 0xA5,0xA5,0xE4,0xB7,0xD1,0xD5,0x31,0x6D } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IInkDrawingAttributes3>{ 0x72020002,0x7D5B,0x4690,{ 0x8A,0xF4,0xE6,0x64,0xCB,0xE2,0xB7,0x4F } };
@@ -386,6 +408,8 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IInkUnprocessedInput>{ 0xDB4445E0,0x8398,0x4921,{ 0xAC,0x3B,0xAB,0x97,0x8C,0x5B,0xA2,0x56 } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IPenAndInkSettings>{ 0xBC2CEB8F,0x0066,0x44A8,{ 0xBB,0x7A,0xB8,0x39,0xB3,0xDE,0xB8,0xF5 } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IPenAndInkSettingsStatics>{ 0xED6DD036,0x5708,0x5C3C,{ 0x96,0xDB,0xF2,0xF5,0x52,0xEA,0xB6,0x41 } };
+    template <> struct default_interface<Windows::UI::Input::Inking::DelegatedInkTrail>{ using type = Windows::UI::Input::Inking::IDelegatedInkTrail; };
+    template <> struct default_interface<Windows::UI::Input::Inking::DelegatedInkTrailPoints>{ using type = Windows::UI::Input::Inking::IDelegatedInkTrailPoints; };
     template <> struct default_interface<Windows::UI::Input::Inking::InkDrawingAttributes>{ using type = Windows::UI::Input::Inking::IInkDrawingAttributes; };
     template <> struct default_interface<Windows::UI::Input::Inking::InkDrawingAttributesPencilProperties>{ using type = Windows::UI::Input::Inking::IInkDrawingAttributesPencilProperties; };
     template <> struct default_interface<Windows::UI::Input::Inking::InkInputConfiguration>{ using type = Windows::UI::Input::Inking::IInkInputConfiguration; };
@@ -409,6 +433,33 @@ namespace winrt::impl
     template <> struct default_interface<Windows::UI::Input::Inking::InkSynchronizer>{ using type = Windows::UI::Input::Inking::IInkSynchronizer; };
     template <> struct default_interface<Windows::UI::Input::Inking::InkUnprocessedInput>{ using type = Windows::UI::Input::Inking::IInkUnprocessedInput; };
     template <> struct default_interface<Windows::UI::Input::Inking::PenAndInkSettings>{ using type = Windows::UI::Input::Inking::IPenAndInkSettings; };
+    template <> struct abi<Windows::UI::Input::Inking::IDelegatedInkTrail>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall AddTipPoints(void*, void*, bool) noexcept = 0;
+            virtual int32_t __stdcall SetRenderedBallpointInkForSwapchainPresentCount(uint32_t, void*, struct struct_Windows_UI_Input_Inking_DelegatedInkTrailRenderParams) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Input::Inking::IDelegatedInkTrailPoints>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_frameId(uint32_t*) noexcept = 0;
+            virtual int32_t __stdcall put_frameId(uint32_t) noexcept = 0;
+            virtual int32_t __stdcall get_pointerId(uint32_t*) noexcept = 0;
+            virtual int32_t __stdcall put_pointerId(uint32_t) noexcept = 0;
+            virtual int32_t __stdcall get_inkPoint(void**) noexcept = 0;
+            virtual int32_t __stdcall put_inkPoint(void*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall SetReferenceSurface(void*, void*) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::UI::Input::Inking::IInkDrawingAttributes>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -871,6 +922,39 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall GetDefault(void**) noexcept = 0;
         };
+    };
+    template <typename D>
+    struct consume_Windows_UI_Input_Inking_IDelegatedInkTrail
+    {
+        auto AddTipPoints(param::vector<Windows::UI::Input::Inking::DelegatedInkTrailPoints> const& inkPoints, param::vector<Windows::UI::Input::Inking::DelegatedInkTrailPoints> const& predictedInkPoints, bool isNewStroke) const;
+        auto SetRenderedBallpointInkForSwapchainPresentCount(uint32_t presentCount, Windows::UI::Input::Inking::InkPoint const& lastRenderedInkPoint, Windows::UI::Input::Inking::DelegatedInkTrailRenderParams const& renderedInkParams) const;
+    };
+    template <> struct consume<Windows::UI::Input::Inking::IDelegatedInkTrail>
+    {
+        template <typename D> using type = consume_Windows_UI_Input_Inking_IDelegatedInkTrail<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Input_Inking_IDelegatedInkTrailPoints
+    {
+        [[nodiscard]] auto frameId() const;
+        auto frameId(uint32_t value) const;
+        [[nodiscard]] auto pointerId() const;
+        auto pointerId(uint32_t value) const;
+        [[nodiscard]] auto inkPoint() const;
+        auto inkPoint(Windows::UI::Input::Inking::InkPoint const& value) const;
+    };
+    template <> struct consume<Windows::UI::Input::Inking::IDelegatedInkTrailPoints>
+    {
+        template <typename D> using type = consume_Windows_UI_Input_Inking_IDelegatedInkTrailPoints<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Input_Inking_IDelegatedInkTrailReferenceSurface
+    {
+        auto SetReferenceSurface(Windows::Foundation::IInspectable const& surface, Windows::Foundation::IInspectable const& dcompDevice) const;
+    };
+    template <> struct consume<Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface>
+    {
+        template <typename D> using type = consume_Windows_UI_Input_Inking_IDelegatedInkTrailReferenceSurface<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Input_Inking_IInkDrawingAttributes
@@ -1450,6 +1534,16 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Input::Inking::IPenAndInkSettingsStatics>
     {
         template <typename D> using type = consume_Windows_UI_Input_Inking_IPenAndInkSettingsStatics<D>;
+    };
+    struct struct_Windows_UI_Input_Inking_DelegatedInkTrailRenderParams
+    {
+        Windows::Foundation::Numerics::float3x2 transform;
+        struct{ uint8_t A; uint8_t R; uint8_t G; uint8_t B; } color;
+        Windows::Foundation::Rect clipRect;
+    };
+    template <> struct abi<Windows::UI::Input::Inking::DelegatedInkTrailRenderParams>
+    {
+        using type = struct_Windows_UI_Input_Inking_DelegatedInkTrailRenderParams;
     };
 }
 #endif

@@ -36,6 +36,13 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         IAppWindowChangedEventArgs2(std::nullptr_t = nullptr) noexcept {}
         IAppWindowChangedEventArgs2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IAppWindowChangedEventArgs22 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IAppWindowChangedEventArgs22>
+    {
+        IAppWindowChangedEventArgs22(std::nullptr_t = nullptr) noexcept {}
+        IAppWindowChangedEventArgs22(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IAppWindowCloseRequestedEventArgs :
         Windows::Foundation::IInspectable,
         impl::consume_t<IAppWindowCloseRequestedEventArgs>

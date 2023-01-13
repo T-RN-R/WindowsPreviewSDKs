@@ -176,6 +176,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace WindowManagement {
+                interface IAppWindowChangedEventArgs22;
+            } /* WindowManagement */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22 ABI::Windows::UI::WindowManagement::IAppWindowChangedEventArgs22
+
+#endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowCloseRequestedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowCloseRequestedEventArgs_FWD_DEFINED__
 namespace ABI {
@@ -1557,6 +1572,16 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace WindowManagement {
+                typedef enum VisibilityChangedDetails : int VisibilityChangedDetails;
+            } /* WindowManagement */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace WindowManagement {
                 typedef enum WindowVisibilityState : int WindowVisibilityState;
             } /* WindowManagement */
         } /* UI */
@@ -1754,6 +1779,32 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+
+/*
+ *
+ * Struct Windows.UI.WindowManagement.VisibilityChangedDetails
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace WindowManagement {
+                enum VisibilityChangedDetails : int
+                {
+                    VisibilityChangedDetails_Unknown = 0,
+                    VisibilityChangedDetails_Visible = 1,
+                    VisibilityChangedDetails_HiddenBySystem = 2,
+                    VisibilityChangedDetails_HiddenByApp = 3,
+                    VisibilityChangedDetails_Minimized = 4,
+                };
+            } /* WindowManagement */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -2065,6 +2116,42 @@ namespace ABI {
 
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2;
 #endif /* !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs22
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.WindowManagement.AppWindowChangedEventArgs
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_WindowManagement_IAppWindowChangedEventArgs22[] = L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs22";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace WindowManagement {
+                MIDL_INTERFACE("54d35696-acff-5bcd-93e9-49eb5dbc6173")
+                IAppWindowChangedEventArgs22 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_VisibilityChangedDetails(
+                        ABI::Windows::UI::WindowManagement::VisibilityChangedDetails* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IAppWindowChangedEventArgs22 = _uuidof(IAppWindowChangedEventArgs22);
+            } /* WindowManagement */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22;
+#endif /* !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
@@ -3111,6 +3198,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.UI.WindowManagement.IAppWindowChangedEventArgs ** Default Interface **
  *    Windows.UI.WindowManagement.IAppWindowChangedEventArgs2
+ *    Windows.UI.WindowManagement.IAppWindowChangedEventArgs22
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -3523,6 +3611,12 @@ typedef interface __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEvent
 typedef interface __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2 __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2;
 
 #endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22 __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22;
+
+#endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowCloseRequestedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowCloseRequestedEventArgs_FWD_DEFINED__
@@ -5577,6 +5671,8 @@ typedef enum __x_ABI_CWindows_CUI_CWindowManagement_CAppWindowShowOptions __x_AB
 
 typedef enum __x_ABI_CWindows_CUI_CWindowManagement_CAppWindowTitleBarVisibility __x_ABI_CWindows_CUI_CWindowManagement_CAppWindowTitleBarVisibility;
 
+typedef enum __x_ABI_CWindows_CUI_CWindowManagement_CVisibilityChangedDetails __x_ABI_CWindows_CUI_CWindowManagement_CVisibilityChangedDetails;
+
 typedef enum __x_ABI_CWindows_CUI_CWindowManagement_CWindowVisibilityState __x_ABI_CWindows_CUI_CWindowManagement_CWindowVisibilityState;
 
 typedef enum __x_ABI_CWindows_CUI_CWindowManagement_CWindowingEnvironmentKind __x_ABI_CWindows_CUI_CWindowManagement_CWindowingEnvironmentKind;
@@ -5660,6 +5756,24 @@ enum __x_ABI_CWindows_CUI_CWindowManagement_CAppWindowTitleBarVisibility
     AppWindowTitleBarVisibility_AlwaysHidden = 1,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+
+/*
+ *
+ * Struct Windows.UI.WindowManagement.VisibilityChangedDetails
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+enum __x_ABI_CWindows_CUI_CWindowManagement_CVisibilityChangedDetails
+{
+    VisibilityChangedDetails_Unknown = 0,
+    VisibilityChangedDetails_Visible = 1,
+    VisibilityChangedDetails_HiddenBySystem = 2,
+    VisibilityChangedDetails_HiddenByApp = 3,
+    VisibilityChangedDetails_Minimized = 4,
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -6164,6 +6278,75 @@ interface __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2
 
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2;
 #endif /* !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
+ * Interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs22
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.WindowManagement.AppWindowChangedEventArgs
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_WindowManagement_IAppWindowChangedEventArgs22[] = L"Windows.UI.WindowManagement.IAppWindowChangedEventArgs22";
+typedef struct __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_VisibilityChangedDetails)(__x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22* This,
+        enum __x_ABI_CWindows_CUI_CWindowManagement_CVisibilityChangedDetails* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22Vtbl;
+
+interface __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_get_VisibilityChangedDetails(This, value) \
+    ((This)->lpVtbl->get_VisibilityChangedDetails(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22;
+#endif /* !defined(____x_ABI_CWindows_CUI_CWindowManagement_CIAppWindowChangedEventArgs22_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
@@ -8097,6 +8280,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.UI.WindowManagement.IAppWindowChangedEventArgs ** Default Interface **
  *    Windows.UI.WindowManagement.IAppWindowChangedEventArgs2
+ *    Windows.UI.WindowManagement.IAppWindowChangedEventArgs22
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
