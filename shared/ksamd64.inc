@@ -1138,7 +1138,7 @@ PbExceptionDispatchCount equ 08170H
 PbVendorString equ 08990H
 ProcessorBlockLength equ 0BF00H
 PbShadowFlags equ 09E98H
-PbTrappedSecurityDomain equ 000F0H
+PbTrappedSecurityDomain equ 006D0H
 PbKernelShadowStackInitial equ 09428H
 
 ;
@@ -1908,8 +1908,8 @@ KMRC_KERNEL_CONSUMER equ 00010H
 ThNpxState equ 00250H
 ThThreadFlags2 equ 00200H
 ThSpecCtrl equ 0007FH
-KTHREAD_RUNNING_NON_RETPOLINE_CODE_BIT equ 00001H
-KTHREAD_RUNNING_NON_RETPOLINE_CODE equ 00002H
+KTHREAD_RUNNING_NON_RETPOLINE_CODE_BIT equ 00000H
+KTHREAD_RUNNING_NON_RETPOLINE_CODE equ 00001H
 ThKernelShadowStack equ 00408H
 ThKernelShadowStackBase equ 00418H
 ThKernelShadowStackInitial equ 00410H

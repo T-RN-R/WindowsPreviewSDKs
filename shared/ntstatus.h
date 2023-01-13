@@ -19319,6 +19319,15 @@ Notes:
 //
 #define STATUS_FVE_METADATA_FULL         ((NTSTATUS)0xC0210044L)
 
+//
+// MessageId: STATUS_FVE_SUSPEND_PROTECTION_NOT_ALLOWED
+//
+// MessageText:
+//
+// The operation failed because BitLocker Drive Encryption is configured to not allow suspending protection.
+//
+#define STATUS_FVE_SUSPEND_PROTECTION_NOT_ALLOWED ((NTSTATUS)0xC0210045L)
+
 
 //
 // FWP error codes (fwpkclnt.sys)
