@@ -1316,7 +1316,7 @@ namespace ABI {
 #if !defined(RO_NO_TEMPLATE_NAME)
 namespace ABI { namespace Windows { namespace Foundation {
 template <>
-struct __declspec(uuid("8e01dd29-801f-539e-bcdb-4b09b56ff7e4"))
+struct __declspec(uuid("03d7ca7e-089d-5ff2-bae1-46d664f818af"))
 ITypedEventHandler<ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowJobBackgroundSession*, ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowJobStartingEventArgs*> : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowJobBackgroundSession*, ABI::Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession*>, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowJobStartingEventArgs*, ABI::Windows::Graphics::Printing::Workflow::IPrintWorkflowJobStartingEventArgs*>>
 {
     static const wchar_t* z_get_rc_name_impl()
@@ -1359,7 +1359,7 @@ namespace ABI {
 #if !defined(RO_NO_TEMPLATE_NAME)
 namespace ABI { namespace Windows { namespace Foundation {
 template <>
-struct __declspec(uuid("c786a5ae-b45e-517d-89df-502386b89702"))
+struct __declspec(uuid("70ca3d04-0fc4-5d4f-a6dd-5d7bee62802d"))
 ITypedEventHandler<ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowJobBackgroundSession*, ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowPdlModificationRequestedEventArgs*> : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowJobBackgroundSession*, ABI::Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession*>, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowPdlModificationRequestedEventArgs*, ABI::Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlModificationRequestedEventArgs*>>
 {
     static const wchar_t* z_get_rc_name_impl()
@@ -2377,10 +2377,13 @@ namespace ABI {
         namespace Graphics {
             namespace Printing {
                 namespace Workflow {
-                    MIDL_INTERFACE("2bf9daef-be4c-5527-81fc-5cd81b46c1d9")
+                    MIDL_INTERFACE("c5ec6ad8-20c9-5d51-8507-2734b46f96c5")
                     IPrintWorkflowJobBackgroundSession : public IInspectable
                     {
                     public:
+                        virtual HRESULT STDMETHODCALLTYPE get_Status(
+                            ABI::Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus* value
+                            ) = 0;
                         virtual HRESULT STDMETHODCALLTYPE add_JobStarting(
                             __FITypedEventHandler_2_Windows__CGraphics__CPrinting__CWorkflow__CPrintWorkflowJobBackgroundSession_Windows__CGraphics__CPrinting__CWorkflow__CPrintWorkflowJobStartingEventArgs* handler,
                             EventRegistrationToken* token
@@ -6387,6 +6390,8 @@ typedef struct __x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CIPrintWorkflowJob
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CIPrintWorkflowJobBackgroundSession* This,
         TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Status)(__x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CIPrintWorkflowJobBackgroundSession* This,
+        enum __x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CPrintWorkflowSessionStatus* value);
     HRESULT (STDMETHODCALLTYPE* add_JobStarting)(__x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CIPrintWorkflowJobBackgroundSession* This,
         __FITypedEventHandler_2_Windows__CGraphics__CPrinting__CWorkflow__CPrintWorkflowJobBackgroundSession_Windows__CGraphics__CPrinting__CWorkflow__CPrintWorkflowJobStartingEventArgs* handler,
         EventRegistrationToken* token);
@@ -6426,6 +6431,9 @@ interface __x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CIPrintWorkflowJobBackg
 
 #define __x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CIPrintWorkflowJobBackgroundSession_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CIPrintWorkflowJobBackgroundSession_get_Status(This, value) \
+    ((This)->lpVtbl->get_Status(This, value))
 
 #define __x_ABI_CWindows_CGraphics_CPrinting_CWorkflow_CIPrintWorkflowJobBackgroundSession_add_JobStarting(This, handler, token) \
     ((This)->lpVtbl->add_JobStarting(This, handler, token))

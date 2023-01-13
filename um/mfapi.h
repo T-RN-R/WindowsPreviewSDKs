@@ -1605,7 +1605,7 @@ DEFINE_GUID(MF_CAPTURE_METADATA_SCANLINE_DIRECTION,
 
 // {276F72A2-59C8-4F69-97B4-068B8C0EC044}
 // Value type: BLOB
-// Reports the current Digital Window as a 
+// Reports the current Digital Window as a DigitalWindowSetting structure.
 DEFINE_GUID(MF_CAPTURE_METADATA_DIGITALWINDOW,
     0x276f72a2, 0x59c8, 0x4f69, 0x97, 0xb4, 0x6, 0x8b, 0x8c, 0xe, 0xc0, 0x44);
 

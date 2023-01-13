@@ -2507,7 +2507,7 @@ interface IMFTimedTextRuby : IUnknown
 ]
 interface IMFTimedTextBouten : IUnknown
 {
-    HRESULT GetBoutenStyle(
+    HRESULT GetBoutenType(
         [out, annotation("_Out_")] MF_TIMED_TEXT_BOUTEN_TYPE* value
     );
     HRESULT GetBoutenColor(

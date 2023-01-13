@@ -86,24 +86,11 @@ extern "C" {
 #include <pciprop.h>
 #endif // (NTDDI_VERSION >= NTDDI_VISTA)
 
+#define NDIS_INCLUDE_LEGACY_NAMES
+
 #include <ndis/version.h>
 
-//
-// Device Name - this string is the name of the device. It is the name
-// that should be passed to NtOpenFile when accessing the device.
-//
-
-#define DD_NDIS_DEVICE_NAME L"\\Device\\NDIS"
-
-//
-// NtDeviceIoControlFile IoControlCode values for this device.
-//
-// Warning: Remember that the low two bits of the code specify how the
-//          buffers are passed to the driver!
-//
-
-#define _NDIS_CONTROL_CODE(request,method) \
-            CTL_CODE(FILE_DEVICE_PHYSICAL_NETCARD, request, method, FILE_ANY_ACCESS)
+#include <ndis/ioctltypes.h>
 
 #define IOCTL_NDIS_QUERY_GLOBAL_STATS   _NDIS_CONTROL_CODE(0, METHOD_OUT_DIRECT)
 #define IOCTL_NDIS_QUERY_ALL_STATS      _NDIS_CONTROL_CODE(1, METHOD_OUT_DIRECT)
@@ -145,17 +132,12 @@ extern "C" {
 #define IOCTL_NDIS_RESERVED29           _NDIS_CONTROL_CODE(0x25, METHOD_BUFFERED)
 #define IOCTL_NDIS_RESERVED30           _NDIS_CONTROL_CODE(0x26, METHOD_BUFFERED)
 
-
 //
 // NtDeviceIoControlFile InputBuffer/OutputBuffer record structures for
 // this device.
 //
 
-//
-// This is the type of an NDIS OID value.
-//
-
-typedef ULONG NDIS_OID, *PNDIS_OID;
+#include <ndis/oidtypes.h>
 
 //
 // IOCTL_NDIS_QUERY_ALL_STATS returns a sequence of these, packed
@@ -225,8 +207,7 @@ typedef struct _NDIS_VAR_DATA_DESC
 #define NDIS_OBJECT_TYPE_CLIENT_CHIMNEY_OFFLOAD_CHARACTERISTICS     0x93
 #define NDIS_OBJECT_TYPE_PROVIDER_CHIMNEY_OFFLOAD_CHARACTERISTICS   0x94
 #define NDIS_OBJECT_TYPE_PROTOCOL_DRIVER_CHARACTERISTICS    0x95
-#define NDIS_OBJECT_TYPE_REQUEST_EX                         0x96
-#define NDIS_OBJECT_TYPE_OID_REQUEST                        0x96
+#define NDIS_OBJECT_TYPE_REQUEST_EX                         0x96 // deprecated
 #define NDIS_OBJECT_TYPE_TIMER_CHARACTERISTICS              0x97
 #define NDIS_OBJECT_TYPE_STATUS_INDICATION                  0x98
 #define NDIS_OBJECT_TYPE_FILTER_ATTACH_PARAMETERS           0x99
@@ -289,39 +270,7 @@ typedef struct _NDIS_VAR_DATA_DESC
 #define NDIS_OBJECT_TYPE_RSS_PARAMETERS_V2                              0xC8    // used by miniport and protocol in NDIS_RECEIVE_SCALE_PARAMETERS_V2
 #define NDIS_OBJECT_TYPE_RSS_SET_INDIRECTION_ENTRIES                    0xC9    // used by miniport and protocol in NDIS_RSS_SET_INDIRECTION_ENTRIES
 
-typedef struct _NDIS_OBJECT_HEADER
-{
-    UCHAR   Type;
-    UCHAR   Revision;
-    USHORT  Size;
-} NDIS_OBJECT_HEADER, *PNDIS_OBJECT_HEADER;
-
-#define NDIS_OBJECT_REVISION_1                  1
-
-//
-// Request types used by NdisRequest; constants are added for
-// all entry points in the MAC, for those that want to create
-// their own internal requests.
-//
-
-typedef enum _NDIS_REQUEST_TYPE
-{
-    NdisRequestQueryInformation,
-    NdisRequestSetInformation,
-    NdisRequestQueryStatistics,
-    NdisRequestOpen,
-    NdisRequestClose,
-    NdisRequestSend,
-    NdisRequestTransferData,
-    NdisRequestReset,
-    NdisRequestGeneric1,
-    NdisRequestGeneric2,
-    NdisRequestGeneric3,
-    NdisRequestGeneric4,
-#if NDIS_SUPPORT_NDIS6
-    NdisRequestMethod,
-#endif
-} NDIS_REQUEST_TYPE, *PNDIS_REQUEST_TYPE;
+#include <ndis/objectheader.h>
 
 #if ((NTDDI_VERSION >= NTDDI_VISTA) || NDIS_SUPPORT_NDIS6)
 
@@ -1302,7 +1251,6 @@ typedef struct _NDIS_PCI_DEVICE_CUSTOM_PROPERTIES
 #define OID_802_11_PMKID                        0x0D010123
 #define OID_802_11_NON_BCAST_SSID_LIST          0x0D010124
 #define OID_802_11_RADIO_STATUS                 0x0D010125
-
 
 //
 // some of well known Ethernet frame types (in big endian notation)
@@ -3167,22 +3115,7 @@ typedef struct _NDIS_OFFLOAD_PARAMETERS
 #define NDIS_SIZEOF_OFFLOAD_PARAMETERS_REVISION_5 RTL_SIZEOF_THROUGH_FIELD(NDIS_OFFLOAD_PARAMETERS, UdpSegmentation)
 #endif // (NDIS_SUPPORT_NDIS683)
 
-#define NDIS_OFFLOAD_NOT_SUPPORTED             0
-#define NDIS_OFFLOAD_SUPPORTED                 1
-
-#define NDIS_OFFLOAD_SET_NO_CHANGE             0
-#define NDIS_OFFLOAD_SET_ON                    1
-#define NDIS_OFFLOAD_SET_OFF                   2
-
-//
-// Encapsulation types that are used during offload in query and set
-//
-#define NDIS_ENCAPSULATION_NOT_SUPPORTED                0x00000000
-#define NDIS_ENCAPSULATION_NULL                         0x00000001
-#define NDIS_ENCAPSULATION_IEEE_802_3                   0x00000002
-#define NDIS_ENCAPSULATION_IEEE_802_3_P_AND_Q           0x00000004
-#define NDIS_ENCAPSULATION_IEEE_802_3_P_AND_Q_IN_OOB    0x00000008
-#define NDIS_ENCAPSULATION_IEEE_LLC_SNAP_ROUTED         0x00000010
+#include <ndis/offloadtypes.h>
 
 #pragma warning(push)
 #pragma warning(disable:4214) //nonstandard extension used : bit field types other than int
@@ -3412,6 +3345,10 @@ typedef struct _NDIS_ENCAPSULATED_PACKET_TASK_OFFLOAD {
     ULONG LsoV2Supported:4;
     ULONG RssSupported:4;
     ULONG VmqSupported:4;
+#if (NDIS_SUPPORT_NDIS685)
+    ULONG UsoSupported:4;
+    ULONG Reserved:8;
+#endif // (NDIS_SUPPORT_NDIS685)
     ULONG MaxHeaderSizeSupported;
 } NDIS_ENCAPSULATED_PACKET_TASK_OFFLOAD, *PNDIS_ENCAPSULATED_PACKET_TASK_OFFLOAD;
 
@@ -3431,7 +3368,12 @@ typedef struct _NDIS_ENCAPSULATED_PACKET_TASK_OFFLOAD_V2 {
     ULONG LsoV2Supported:4;
     ULONG RssSupported:4;
     ULONG VmqSupported:4;
+#if (NDIS_SUPPORT_NDIS685)
+    ULONG UsoSupported:4;
+    ULONG Reserved:8;
+#else
     ULONG Reserved:12;
+#endif // (NDIS_SUPPORT_NDIS685)
     ULONG MaxHeaderSizeSupported;
 
     union _ENCAPSULATION_PROTOCOL_INFO {
@@ -3539,6 +3481,10 @@ typedef struct _NDIS_UDP_SEGMENTATION_OFFLOAD
 #define NDIS_OFFLOAD_REVISION_6    6
 #endif // (NDIS_SUPPORT_NDIS683)
 
+#if (NDIS_SUPPORT_NDIS685)
+#define NDIS_OFFLOAD_REVISION_7    7
+#endif // (NDIS_SUPPORT_NDIS685)
+
 typedef struct _NDIS_OFFLOAD
 {
     NDIS_OBJECT_HEADER                       Header;
@@ -3634,6 +3580,10 @@ typedef struct _NDIS_OFFLOAD
 #if (NDIS_SUPPORT_NDIS683)
 #define NDIS_SIZEOF_NDIS_OFFLOAD_REVISION_6   RTL_SIZEOF_THROUGH_FIELD(NDIS_OFFLOAD, UdpSegmentation)
 #endif // (NDIS_SUPPORT_NDIS683)
+
+#if (NDIS_SUPPORT_NDIS685)
+#define NDIS_SIZEOF_NDIS_OFFLOAD_REVISION_7   RTL_SIZEOF_THROUGH_FIELD(NDIS_OFFLOAD, UdpSegmentation)
+#endif // (NDIS_SUPPORT_NDIS685)
 
 //
 // The following data structures are used with offload related WMI
@@ -3889,34 +3839,7 @@ typedef struct _NDIS_WMI_TCP_CONNECTION_OFFLOAD
 
 #define NDIS_SIZEOF_WMI_TCP_CONNECTION_OFFLOAD_REVISION_1 RTL_SIZEOF_THROUGH_FIELD(NDIS_WMI_TCP_CONNECTION_OFFLOAD, Flags)
 
-#define NDIS_MAXIMUM_PORTS 0x1000000
-
-//
-// definitions for NDIS PORTs
-//
-
-typedef ULONG NDIS_PORT_NUMBER, *PNDIS_PORT_NUMBER;
-
-//
-// port related data structures
-//
-#define NDIS_DEFAULT_PORT_NUMBER ((NDIS_PORT_NUMBER)0)
-
-//
-// NDIS_PORT_TYPE defines the application of a port
-//
-typedef enum _NDIS_PORT_TYPE
-{
-    NdisPortTypeUndefined,
-    NdisPortTypeBridge,
-    NdisPortTypeRasConnection,
-    NdisPortType8021xSupplicant,
-#if (NDIS_SUPPORT_NDIS630)
-    NdisPortTypeNdisImPlatform,
-#endif // (NDIS_SUPPORT_NDIS630)
-    NdisPortTypeMax,
-}NDIS_PORT_TYPE, *PNDIS_PORT_TYPE;
-
+#include <ndis/ndisport.h>
 
 //
 // NDIS_PORT_AUTHENTICATION_STATE defines the authentication state of a port
@@ -3943,9 +3866,11 @@ typedef enum _NDIS_PORT_CONTROL_STATE
     NdisPortControlStateUncontrolled
 } NDIS_PORT_CONTROL_STATE, *PNDIS_PORT_CONTROL_STATE;
 
+#ifdef NDIS_INCLUDE_LEGACY_NAMES
 // Legacy spelling errors
 typedef NDIS_PORT_CONTROL_STATE  NDIS_PORT_CONTROLL_STATE;
 typedef PNDIS_PORT_CONTROL_STATE PNDIS_PORT_CONTROLL_STATE;
+#endif // NDIS_INCLUDE_LEGACY_NAMES
 
 //
 // NDIS_PORT_PARAMETERS is used in OID_GEN_PORT_PARAMETERS set OID
@@ -5190,10 +5115,7 @@ typedef struct _NDIS_RECEIVE_FILTER_FIELD_PARAMETERS
     RTL_SIZEOF_THROUGH_FIELD(NDIS_RECEIVE_FILTER_FIELD_PARAMETERS, ResultValue)
 #endif // (NDIS_SUPPORT_NDIS630)
 
-typedef ULONG NDIS_NIC_SWITCH_ID, *PNDIS_NIC_SWITCH_ID;
-#if (NDIS_SUPPORT_NDIS630)
-typedef ULONG NDIS_NIC_SWITCH_VPORT_ID, *PNDIS_NIC_SWITCH_VPORT_ID;
-#endif // (NDIS_SUPPORT_NDIS630)
+#include <ndis/nicswitchtypes.h>
 
 //
 // Flags used in NDIS_RECEIVE_FILTER_PARAMETERS.Flags field
@@ -5637,47 +5559,7 @@ typedef struct _NDIS_RECEIVE_SCALE_CAPABILITIES
         RTL_SIZEOF_THROUGH_FIELD(NDIS_RECEIVE_SCALE_CAPABILITIES, NumberOfIndirectionTableEntries)
 #endif // (NDIS_SUPPORT_NDIS660)
 
-//
-// What hash functions does NDIS support
-//
-#define NdisHashFunctionToeplitz                            0x00000001 // supported hash function 1 -- Main RSS hash function
-#define NdisHashFunctionReserved1                           0x00000002 // supported hash function 2
-#define NdisHashFunctionReserved2                           0x00000004 // supported hash function 3
-#define NdisHashFunctionReserved3                           0x00000008 // supported hash function 4
-
-#define NDIS_HASH_FUNCTION_MASK                             0x000000FF
-#define NDIS_HASH_TYPE_MASK                                 0x00FFFF00
-
-#define NDIS_RSS_HASH_FUNC_FROM_HASH_INFO(_HashInfo)  \
-        ((_HashInfo) & (NDIS_HASH_FUNCTION_MASK))
-
-#define NDIS_RSS_HASH_TYPE_FROM_HASH_INFO(_HashInfo)  \
-        ((_HashInfo) & (NDIS_HASH_TYPE_MASK))
-
-#define NDIS_RSS_HASH_INFO_FROM_TYPE_AND_FUNC(_HashType, _HashFunction) \
-        ((_HashType) | (_HashFunction))
-
-//
-// What kind of hash field type the protocol asks the miniport to do
-//
-#define NDIS_HASH_IPV4              0x00000100
-#define NDIS_HASH_TCP_IPV4          0x00000200
-#define NDIS_HASH_IPV6              0x00000400
-#define NDIS_HASH_IPV6_EX           0x00000800
-#define NDIS_HASH_TCP_IPV6          0x00001000
-#define NDIS_HASH_TCP_IPV6_EX       0x00002000
-#if (NDIS_SUPPORT_NDIS680)
-    #define NDIS_HASH_UDP_IPV4      0x00004000
-    #define NDIS_HASH_UDP_IPV6      0x00008000
-    #define NDIS_HASH_UDP_IPV6_EX   0x00010000
-#endif // (NDIS_SUPPORT_NDIS680)
-
-
-//
-// Typedef to use as flags holder to correlate to the NDIS_HAS_ prefixed flags above.
-//
-typedef ULONG NDIS_HASH_FLAGS;
-
+#include <ndis/hashtypes.h>
 
 //
 // Flags to denote the parameters that are kept unmodified.
@@ -6144,10 +6026,6 @@ typedef struct _NDIS_WMI_RECEIVE_QUEUE_INFO
 #endif // NDIS_SUPPORT_NDIS620
 
 #if (NDIS_SUPPORT_NDIS630)
-//
-// Interfaces for supporting SRIOV and NIC embedded switch
-//
-
 
 #include <ndkinfo.h>
 
@@ -6809,7 +6687,7 @@ typedef struct _NDIS_NDK_REQUEST_PARAMETERS {
   NDIS_SWITCH_PORT_ID SwitchPortId;
   NET_IFINDEX IfIndex;
   UCHAR MacAddress[NDIS_MAX_PHYS_ADDRESS_LENGTH];
-  UINT VlanId;
+  UINT32 VlanId;
   NDIS_NDK_CAPABILITIES NdkReserved;
 } NDIS_NDK_REQUEST_PARAMETERS, *PNDIS_NDK_REQUEST_PARAMETERS;
 
@@ -9509,7 +9387,7 @@ typedef struct _NDIS_GFT_COUNTER_PARAMETERS
         _Inout_ PNDIS_GFT_PACKET_COUNTER_VALUE                  PacketCounters;
         _Inout_ PNDIS_GFT_BYTE_COUNTER_VALUE                    ByteCounters;
         _Inout_ PNDIS_GFT_PACKET_BYTE_COUNTER_VALUE             PacketByteCounters;
-        _Inout_ PNDIS_GFT_PACKET_BYTE_COUNTER_VALUE_AND_STATE   PacketByteCountersAndState;       
+        _Inout_ PNDIS_GFT_PACKET_BYTE_COUNTER_VALUE_AND_STATE   PacketByteCountersAndState;
     } CounterValuesBufferStart;
 
 } NDIS_GFT_COUNTER_PARAMETERS, *PNDIS_GFT_COUNTER_PARAMETERS;
@@ -10054,7 +9932,7 @@ typedef struct _NDIS_GFT_EXACT_MATCH_FLOW_ENTRY
         _Inout_ PNDIS_GFT_PACKET_COUNTER_VALUE                  PacketCounterAddress;
         _Inout_ PNDIS_GFT_BYTE_COUNTER_VALUE                    ByteCounterAddress;
         _Inout_ PNDIS_GFT_PACKET_BYTE_COUNTER_VALUE             PacketByteCounterAddress;
-        _Inout_ PNDIS_GFT_PACKET_BYTE_COUNTER_VALUE_AND_STATE   PacketByteCounterAndStateAddress;        
+        _Inout_ PNDIS_GFT_PACKET_BYTE_COUNTER_VALUE_AND_STATE   PacketByteCounterAndStateAddress;
     } CounterValueBuffer;
 
     //
@@ -10843,18 +10721,18 @@ typedef struct _NDIS_QOS_SQ_STATS
     ULONG               Flags;
     NDIS_QOS_SQ_ID      SqId;
     NDIS_QOS_SQ_TYPE    SqType;
-    UINT64              TxBytesRequested[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
-    UINT64              TxPktsRequested[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
-    UINT64              TxBytesSuccessfullySent[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
-    UINT64              TxPktsSuccessfullySent[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
-    UINT64              TxBytesDroppedByRateLimiting[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
-    UINT64              TxPktsDroppedByRateLimiting[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
-    UINT64              TxBytesDroppedTotal[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
-    UINT64              TxPktsDroppedTotal[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
+    UINT64              TxBytesRequested[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
+    UINT64              TxPktsRequested[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
+    UINT64              TxBytesSuccessfullySent[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
+    UINT64              TxPktsSuccessfullySent[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
+    UINT64              TxBytesDroppedByRateLimiting[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
+    UINT64              TxPktsDroppedByRateLimiting[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
+    UINT64              TxBytesDroppedTotal[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
+    UINT64              TxPktsDroppedTotal[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
 } NDIS_QOS_SQ_STATS, *PNDIS_QOS_SQ_STATS;
 
 #define NDIS_SIZEOF_QOS_SQ_STATS_REVISION_1     \
-    RTL_SIZEOF_THROUGH_FIELD(NDIS_QOS_SQ_STATS, TxPktsDroppedTotal) 
+    RTL_SIZEOF_THROUGH_FIELD(NDIS_QOS_SQ_STATS, TxPktsDroppedTotal)
 
 #endif // (NDIS_SUPPORT_NDIS684)
 

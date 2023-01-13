@@ -2608,6 +2608,7 @@ typedef ADPCMCOEFSET FAR  *LPADPCMCOEFSET;
  *
  */
 #ifdef _MSC_VER
+#pragma warning(push)
 #pragma warning(disable:4200)
 #endif
 
@@ -2626,7 +2627,7 @@ typedef ADPCMWAVEFORMAT NEAR *NPADPCMWAVEFORMAT;
 typedef ADPCMWAVEFORMAT FAR  *LPADPCMWAVEFORMAT;
 
 #ifdef _MSC_VER
-#pragma warning(default:4200)
+#pragma warning(pop)
 #endif
 
 //

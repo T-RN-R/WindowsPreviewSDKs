@@ -107,6 +107,22 @@ WINRT_EXPORT namespace winrt::Windows::Media::Devices
         DialRequestedEventArgs(std::nullptr_t) noexcept {}
         DialRequestedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Devices::IDialRequestedEventArgs(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) DigitalWindowBounds : Windows::Media::Devices::IDigitalWindowBounds
+    {
+        DigitalWindowBounds(std::nullptr_t) noexcept {}
+        DigitalWindowBounds(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Devices::IDigitalWindowBounds(ptr, take_ownership_from_abi) {}
+        DigitalWindowBounds();
+    };
+    struct __declspec(empty_bases) DigitalWindowCapability : Windows::Media::Devices::IDigitalWindowCapability
+    {
+        DigitalWindowCapability(std::nullptr_t) noexcept {}
+        DigitalWindowCapability(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Devices::IDigitalWindowCapability(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) DigitalWindowControl : Windows::Media::Devices::IDigitalWindowControl
+    {
+        DigitalWindowControl(std::nullptr_t) noexcept {}
+        DigitalWindowControl(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Devices::IDigitalWindowControl(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) ExposureCompensationControl : Windows::Media::Devices::IExposureCompensationControl
     {
         ExposureCompensationControl(std::nullptr_t) noexcept {}
@@ -246,7 +262,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Devices
         TorchControl(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Devices::ITorchControl(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) VideoDeviceController : Windows::Media::Devices::IVideoDeviceController,
-        impl::require<VideoDeviceController, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController2, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController3, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController4, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController5, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController6, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController7, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController8>
+        impl::require<VideoDeviceController, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController2, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController3, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController4, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController5, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController6, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController7, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController8, Windows::Media::Devices::IAdvancedVideoCaptureDeviceController9>
     {
         VideoDeviceController(std::nullptr_t) noexcept {}
         VideoDeviceController(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Devices::IVideoDeviceController(ptr, take_ownership_from_abi) {}

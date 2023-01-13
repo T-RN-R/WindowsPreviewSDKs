@@ -162,6 +162,12 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Printing::Workflow::IPrintWorkflowJobActivatedEventArgs)->get_Session(&value));
         return Windows::Graphics::Printing::Workflow::PrintWorkflowJobUISession{ value, take_ownership_from_abi };
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus) consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowJobBackgroundSession<D>::Status() const
+    {
+        Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
     template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowJobBackgroundSession<D>::JobStarting(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowJobBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowJobStartingEventArgs> const& handler) const
     {
         winrt::event_token token{};
@@ -762,6 +768,13 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession> : produce_base<D, Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession>
     {
+        int32_t __stdcall get_Status(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus>(this->shim().Status());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
         int32_t __stdcall add_JobStarting(void* handler, winrt::event_token* token) noexcept final try
         {
             zero_abi<winrt::event_token>(token);

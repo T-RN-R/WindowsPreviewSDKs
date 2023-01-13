@@ -17,11 +17,11 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200609.3"), "Mismatche
 #include "winrt/impl/Windows.Graphics.Printing.PrintSupport.2.h"
 namespace winrt::impl
 {
-    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintSupport::PrintSupportSessionInfo) consume_Windows_Graphics_Printing_PrintSupport_IPrintSupportExtensionSession<D>::SessionInfo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Printers::IppPrintDevice) consume_Windows_Graphics_Printing_PrintSupport_IPrintSupportExtensionSession<D>::Printer() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession)->get_SessionInfo(&value));
-        return Windows::Graphics::Printing::PrintSupport::PrintSupportSessionInfo{ value, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession)->get_Printer(&value));
+        return Windows::Devices::Printers::IppPrintDevice{ value, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Graphics_Printing_PrintSupport_IPrintSupportExtensionSession<D>::PrintTicketValidationRequested(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::PrintSupport::PrintSupportExtensionSession, Windows::Graphics::Printing::PrintSupport::PrintSupportPrintTicketValidationRequestedEventArgs> const& handler) const
     {
@@ -149,11 +149,11 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession> : produce_base<D, Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession>
     {
-        int32_t __stdcall get_SessionInfo(void** value) noexcept final try
+        int32_t __stdcall get_Printer(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::Graphics::Printing::PrintSupport::PrintSupportSessionInfo>(this->shim().SessionInfo());
+            *value = detach_from<Windows::Devices::Printers::IppPrintDevice>(this->shim().Printer());
             return 0;
         }
         catch (...) { return to_hresult(); }

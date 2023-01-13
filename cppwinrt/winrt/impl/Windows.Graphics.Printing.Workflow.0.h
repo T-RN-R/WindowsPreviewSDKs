@@ -279,7 +279,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession>{ 0xC79B63D0,0xF8EC,0x4CEB,{ 0x95,0x3A,0xC8,0x87,0x61,0x57,0xDD,0x33 } }; // C79B63D0-F8EC-4CEB-953A-C8876157DD33
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSetupRequestedEventArgs>{ 0xBBE38247,0x9C1B,0x4DD3,{ 0x9B,0x2B,0xC8,0x04,0x68,0xD9,0x41,0xB3 } }; // BBE38247-9C1B-4DD3-9B2B-C80468D941B3
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobActivatedEventArgs>{ 0xD4BD5E6D,0x034E,0x5E00,{ 0xA6,0x16,0xF9,0x61,0xA0,0x33,0xDC,0xC8 } }; // D4BD5E6D-034E-5E00-A616-F961A033DCC8
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession>{ 0x2BF9DAEF,0xBE4C,0x5527,{ 0x81,0xFC,0x5C,0xD8,0x1B,0x46,0xC1,0xD9 } }; // 2BF9DAEF-BE4C-5527-81FC-5CD81B46C1D9
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession>{ 0xC5EC6AD8,0x20C9,0x5D51,{ 0x85,0x07,0x27,0x34,0xB4,0x6F,0x96,0xC5 } }; // C5EC6AD8-20C9-5D51-8507-2734B46F96C5
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobNotificationEventArgs>{ 0x0AE16FBA,0x5398,0x5EBA,{ 0xB4,0x72,0x97,0x86,0x50,0x18,0x6A,0x9A } }; // 0AE16FBA-5398-5EBA-B472-978650186A9A
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobStartingEventArgs>{ 0xE3D99BA8,0x31AD,0x5E09,{ 0xB0,0xD7,0x60,0x1B,0x97,0xF1,0x61,0xAD } }; // E3D99BA8-31AD-5E09-B0D7-601B97F161AD
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobTriggerDetails>{ 0xFF296129,0x60E2,0x51DB,{ 0xBA,0x8C,0xE2,0xCC,0xDD,0xB5,0x16,0xB9 } }; // FF296129-60E2-51DB-BA8C-E2CCDDB516B9
@@ -401,6 +401,7 @@ namespace winrt::impl
     {
         struct __declspec(novtable) type : inspectable_abi
         {
+            virtual int32_t __stdcall get_Status(int32_t*) noexcept = 0;
             virtual int32_t __stdcall add_JobStarting(void*, winrt::event_token*) noexcept = 0;
             virtual int32_t __stdcall remove_JobStarting(winrt::event_token) noexcept = 0;
             virtual int32_t __stdcall add_PdlModificationRequested(void*, winrt::event_token*) noexcept = 0;
@@ -689,6 +690,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_Workflow_IPrintWorkflowJobBackgroundSession
     {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::Workflow::PrintWorkflowSessionStatus) Status() const;
         WINRT_IMPL_AUTO(winrt::event_token) JobStarting(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowJobBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowJobStartingEventArgs> const& handler) const;
         using JobStarting_revoker = impl::event_revoker<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession, &impl::abi_t<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession>::remove_JobStarting>;
         [[nodiscard]] JobStarting_revoker JobStarting(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::Workflow::PrintWorkflowJobBackgroundSession, Windows::Graphics::Printing::Workflow::PrintWorkflowJobStartingEventArgs> const& handler) const;

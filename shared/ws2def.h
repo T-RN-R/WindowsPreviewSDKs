@@ -896,8 +896,9 @@ typedef WSACMSGHDR CMSGHDR, *PCMSGHDR;
 #define AI_FQDN                     0x00020000  // Return the FQDN in ai_canonname
 #define AI_FILESERVER               0x00040000  // Resolving fileserver name resolution
 #define AI_DISABLE_IDN_ENCODING     0x00080000  // Disable Internationalized Domain Names handling
-#define AI_EXTENDED                 0x80000000  // Indicates this is extended ADDRINFOEX(2/..) struct
+#define AI_REQUIRE_SECURE           0x20000000  // Forces the DNS query to be done over seucre protocols
 #define AI_RESOLUTION_HANDLE        0x40000000  // Request resolution handle
+#define AI_EXTENDED                 0x80000000  // Indicates this is extended ADDRINFOEX(2/..) struct
 
 //
 //  Structure used in getaddrinfo() call

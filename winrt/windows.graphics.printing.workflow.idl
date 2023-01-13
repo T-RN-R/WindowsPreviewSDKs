@@ -408,9 +408,10 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 12.0)]
                 [exclusiveto(Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession)]
                 [experimental]
-                [uuid(2BF9DAEF-BE4C-5527-81FC-5CD81B46C1D9)]
+                [uuid(C5EC6AD8-20C9-5D51-8507-2734B46F96C5)]
                 interface IPrintWorkflowJobBackgroundSession : IInspectable
                 {
+                    [propget] HRESULT Status([out] [retval] Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus* value);
                     [eventadd] HRESULT JobStarting([in] Windows.Foundation.TypedEventHandler<Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession*, Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs*>* handler, [out] [retval] EventRegistrationToken* token);
                     [eventremove] HRESULT JobStarting([in] EventRegistrationToken token);
                     [eventadd] HRESULT PdlModificationRequested([in] Windows.Foundation.TypedEventHandler<Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession*, Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs*>* handler, [out] [retval] EventRegistrationToken* token);

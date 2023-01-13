@@ -295,7 +295,7 @@ namespace ABI {
 #if !defined(RO_NO_TEMPLATE_NAME)
 namespace ABI { namespace Windows { namespace Foundation {
 template <>
-struct __declspec(uuid("cf428d35-18ae-5155-a521-08ed6a0a0638"))
+struct __declspec(uuid("f9203731-8ec4-5001-a5b7-b67fee4ca00b"))
 ITypedEventHandler<ABI::Windows::Graphics::Printing::PrintSupport::PrintSupportExtensionSession*, ABI::Windows::Graphics::Printing::PrintSupport::PrintSupportPrintDeviceCapabilitiesChangedEventArgs*> : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Printing::PrintSupport::PrintSupportExtensionSession*, ABI::Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession*>, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Printing::PrintSupport::PrintSupportPrintDeviceCapabilitiesChangedEventArgs*, ABI::Windows::Graphics::Printing::PrintSupport::IPrintSupportPrintDeviceCapabilitiesChangedEventArgs*>>
 {
     static const wchar_t* z_get_rc_name_impl()
@@ -338,7 +338,7 @@ namespace ABI {
 #if !defined(RO_NO_TEMPLATE_NAME)
 namespace ABI { namespace Windows { namespace Foundation {
 template <>
-struct __declspec(uuid("c90bb10b-3d02-5561-ae93-5832d0218de5"))
+struct __declspec(uuid("ad13135a-1c8f-5ebd-a426-eb7434639d11"))
 ITypedEventHandler<ABI::Windows::Graphics::Printing::PrintSupport::PrintSupportExtensionSession*, ABI::Windows::Graphics::Printing::PrintSupport::PrintSupportPrintTicketValidationRequestedEventArgs*> : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Printing::PrintSupport::PrintSupportExtensionSession*, ABI::Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession*>, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Printing::PrintSupport::PrintSupportPrintTicketValidationRequestedEventArgs*, ABI::Windows::Graphics::Printing::PrintSupport::IPrintSupportPrintTicketValidationRequestedEventArgs*>>
 {
     static const wchar_t* z_get_rc_name_impl()
@@ -643,12 +643,12 @@ namespace ABI {
         namespace Graphics {
             namespace Printing {
                 namespace PrintSupport {
-                    MIDL_INTERFACE("66b29039-d317-5c17-8230-c84b8b9e91cf")
+                    MIDL_INTERFACE("eea45f1a-f4c6-54b3-a0b8-a559839aa4c3")
                     IPrintSupportExtensionSession : public IInspectable
                     {
                     public:
-                        virtual HRESULT STDMETHODCALLTYPE get_SessionInfo(
-                            ABI::Windows::Graphics::Printing::PrintSupport::IPrintSupportSessionInfo** value
+                        virtual HRESULT STDMETHODCALLTYPE get_Printer(
+                            ABI::Windows::Devices::Printers::IIppPrintDevice** value
                             ) = 0;
                         virtual HRESULT STDMETHODCALLTYPE add_PrintTicketValidationRequested(
                             __FITypedEventHandler_2_Windows__CGraphics__CPrinting__CPrintSupport__CPrintSupportExtensionSession_Windows__CGraphics__CPrinting__CPrintSupport__CPrintSupportPrintTicketValidationRequestedEventArgs* handler,
@@ -1395,8 +1395,8 @@ typedef struct __x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupport
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExtensionSession* This,
         TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_SessionInfo)(__x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExtensionSession* This,
-        __x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportSessionInfo** value);
+    HRESULT (STDMETHODCALLTYPE* get_Printer)(__x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExtensionSession* This,
+        __x_ABI_CWindows_CDevices_CPrinters_CIIppPrintDevice** value);
     HRESULT (STDMETHODCALLTYPE* add_PrintTicketValidationRequested)(__x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExtensionSession* This,
         __FITypedEventHandler_2_Windows__CGraphics__CPrinting__CPrintSupport__CPrintSupportExtensionSession_Windows__CGraphics__CPrinting__CPrintSupport__CPrintSupportPrintTicketValidationRequestedEventArgs* handler,
         EventRegistrationToken* token);
@@ -1437,8 +1437,8 @@ interface __x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExten
 #define __x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExtensionSession_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#define __x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExtensionSession_get_SessionInfo(This, value) \
-    ((This)->lpVtbl->get_SessionInfo(This, value))
+#define __x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExtensionSession_get_Printer(This, value) \
+    ((This)->lpVtbl->get_Printer(This, value))
 
 #define __x_ABI_CWindows_CGraphics_CPrinting_CPrintSupport_CIPrintSupportExtensionSession_add_PrintTicketValidationRequested(This, handler, token) \
     ((This)->lpVtbl->add_PrintTicketValidationRequested(This, handler, token))

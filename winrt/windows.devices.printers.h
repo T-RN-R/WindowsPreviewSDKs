@@ -2119,6 +2119,7 @@ namespace ABI {
                     IppAttributeErrorReason_AttributeNotSupported = 1,
                     IppAttributeErrorReason_AttributeValuesNotSupported = 2,
                     IppAttributeErrorReason_AttributeNotSettable = 3,
+                    IppAttributeErrorReason_ConflictingAttributes = 4,
                 };
             } /* Printers */
         } /* Devices */
@@ -8284,6 +8285,7 @@ enum __x_ABI_CWindows_CDevices_CPrinters_CIppAttributeErrorReason
     IppAttributeErrorReason_AttributeNotSupported = 1,
     IppAttributeErrorReason_AttributeValuesNotSupported = 2,
     IppAttributeErrorReason_AttributeNotSettable = 3,
+    IppAttributeErrorReason_ConflictingAttributes = 4,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 #endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)

@@ -89,7 +89,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintSupport::IPrintSupportSessionInfo> = L"Windows.Graphics.Printing.PrintSupport.IPrintSupportSessionInfo";
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintSupport::IPrintSupportSettingsActivatedEventArgs> = L"Windows.Graphics.Printing.PrintSupport.IPrintSupportSettingsActivatedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintSupport::IPrintSupportSettingsUISession> = L"Windows.Graphics.Printing.PrintSupport.IPrintSupportSettingsUISession";
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession>{ 0x66B29039,0xD317,0x5C17,{ 0x82,0x30,0xC8,0x4B,0x8B,0x9E,0x91,0xCF } }; // 66B29039-D317-5C17-8230-C84B8B9E91CF
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession>{ 0xEEA45F1A,0xF4C6,0x54B3,{ 0xA0,0xB8,0xA5,0x59,0x83,0x9A,0xA4,0xC3 } }; // EEA45F1A-F4C6-54B3-A0B8-A559839AA4C3
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionTriggerDetails>{ 0xAE083711,0x9B09,0x55D1,{ 0xA0,0xAE,0x2A,0x14,0xC5,0xF8,0x3D,0x6A } }; // AE083711-9B09-55D1-A0AE-2A14C5F83D6A
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintSupport::IPrintSupportPrintDeviceCapabilitiesChangedEventArgs>{ 0x15969BF0,0x9028,0x5722,{ 0x8A,0x37,0x7D,0x7C,0x34,0xB4,0x1D,0xD6 } }; // 15969BF0-9028-5722-8A37-7D7C34B41DD6
     template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintSupport::IPrintSupportPrintTicketValidationRequestedEventArgs>{ 0x338E4E69,0xDB55,0x55C7,{ 0x83,0x38,0xEF,0x64,0x68,0x0A,0x8F,0x90 } }; // 338E4E69-DB55-55C7-8338-EF64680A8F90
@@ -107,7 +107,7 @@ namespace winrt::impl
     {
         struct __declspec(novtable) type : inspectable_abi
         {
-            virtual int32_t __stdcall get_SessionInfo(void**) noexcept = 0;
+            virtual int32_t __stdcall get_Printer(void**) noexcept = 0;
             virtual int32_t __stdcall add_PrintTicketValidationRequested(void*, winrt::event_token*) noexcept = 0;
             virtual int32_t __stdcall remove_PrintTicketValidationRequested(winrt::event_token) noexcept = 0;
             virtual int32_t __stdcall add_PrintDeviceCapabilitiesChanged(void*, winrt::event_token*) noexcept = 0;
@@ -170,7 +170,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Printing_PrintSupport_IPrintSupportExtensionSession
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintSupport::PrintSupportSessionInfo) SessionInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Printers::IppPrintDevice) Printer() const;
         WINRT_IMPL_AUTO(winrt::event_token) PrintTicketValidationRequested(Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::PrintSupport::PrintSupportExtensionSession, Windows::Graphics::Printing::PrintSupport::PrintSupportPrintTicketValidationRequestedEventArgs> const& handler) const;
         using PrintTicketValidationRequested_revoker = impl::event_revoker<Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession, &impl::abi_t<Windows::Graphics::Printing::PrintSupport::IPrintSupportExtensionSession>::remove_PrintTicketValidationRequested>;
         [[nodiscard]] PrintTicketValidationRequested_revoker PrintTicketValidationRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Printing::PrintSupport::PrintSupportExtensionSession, Windows::Graphics::Printing::PrintSupport::PrintSupportPrintTicketValidationRequestedEventArgs> const& handler) const;

@@ -8598,7 +8598,7 @@ EXTERN_C const IID IID_IMFTimedTextBouten;
     IMFTimedTextBouten : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE GetBoutenStyle( 
+        virtual HRESULT STDMETHODCALLTYPE GetBoutenType( 
             /* [annotation][out] */ 
             _Out_  MF_TIMED_TEXT_BOUTEN_TYPE *value) = 0;
         
@@ -8634,8 +8634,8 @@ EXTERN_C const IID IID_IMFTimedTextBouten;
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMFTimedTextBouten * This);
         
-        DECLSPEC_XFGVIRT(IMFTimedTextBouten, GetBoutenStyle)
-        HRESULT ( STDMETHODCALLTYPE *GetBoutenStyle )( 
+        DECLSPEC_XFGVIRT(IMFTimedTextBouten, GetBoutenType)
+        HRESULT ( STDMETHODCALLTYPE *GetBoutenType )( 
             IMFTimedTextBouten * This,
             /* [annotation][out] */ 
             _Out_  MF_TIMED_TEXT_BOUTEN_TYPE *value);
@@ -8675,8 +8675,8 @@ EXTERN_C const IID IID_IMFTimedTextBouten;
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define IMFTimedTextBouten_GetBoutenStyle(This,value)	\
-    ( (This)->lpVtbl -> GetBoutenStyle(This,value) ) 
+#define IMFTimedTextBouten_GetBoutenType(This,value)	\
+    ( (This)->lpVtbl -> GetBoutenType(This,value) ) 
 
 #define IMFTimedTextBouten_GetBoutenColor(This,value)	\
     ( (This)->lpVtbl -> GetBoutenColor(This,value) ) 

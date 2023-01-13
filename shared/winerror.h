@@ -61406,6 +61406,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define ERROR_SMB_BAD_CLUSTER_DIALECT    _HRESULT_TYPEDEF_(0xC05D0001L)
 
 //
+// MessageId: ERROR_SMB_NO_SIGNING_ALGORITHM_OVERLAP
+//
+// MessageText:
+//
+// Failed to negotiate a signing hash function.
+//
+#define ERROR_SMB_NO_SIGNING_ALGORITHM_OVERLAP _HRESULT_TYPEDEF_(0xC05D0002L)
+
+//
 // WININET.DLL errors - propagated as HRESULT's using FACILITY=WIN32
 //
 //

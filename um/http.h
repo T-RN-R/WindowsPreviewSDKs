@@ -916,6 +916,8 @@ typedef HTTP_OPAQUE_ID HTTP_SERVER_SESSION_ID, *PHTTP_SERVER_SESSION_ID;
 
 // #if _WIN32_WINNT >= Somevalue
 typedef HTTP_OPAQUE_ID HTTP_CLIENT_REQUEST_ID, *PHTTP_CLIENT_REQUEST_ID;
+typedef HTTP_OPAQUE_ID HTTP_CLIENT_CONNECTION_ID, *PHTTP_CLIENT_CONNECTION_ID;
+typedef HTTP_OPAQUE_ID HTTP_CLIENT_STREAM_ID, *PHTTP_CLIENT_STREAM_ID;
 
 #endif // _WIN32_WINNT >= 0x0600
 
@@ -2336,6 +2338,7 @@ typedef enum _HTTP_PERFORMANCE_PARAM_TYPE
     PerformanceParamMaxSendBufferSize,
     PerformanceParamMaxConcurrentClientStreams,
     PerformanceParamMaxReceiveBufferSize,
+    PerformanceParamDecryptOnSspiThread,
     PerformanceParamMax,
 } HTTP_PERFORMANCE_PARAM_TYPE, *PHTTP_PERFORMANCE_PARAM_TYPE;
 
