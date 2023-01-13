@@ -116,9 +116,39 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationPropertyInfo2)->GetResolvedCompositionObjectProperty(&result));
         return hstring{ result, take_ownership_from_abi };
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) consume_Windows_UI_Composition_IBackEasingFunction<D>::Mode() const
+    {
+        Windows::UI::Composition::CompositionEasingFunctionMode value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBackEasingFunction)->get_Mode(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBackEasingFunction<D>::Amplitude() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBackEasingFunction)->get_Amplitude(&value));
+        return value;
+    }
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBooleanKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBooleanKeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, value));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) consume_Windows_UI_Composition_IBounceEasingFunction<D>::Mode() const
+    {
+        Windows::UI::Composition::CompositionEasingFunctionMode value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceEasingFunction)->get_Mode(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IBounceEasingFunction<D>::Bounces() const
+    {
+        int32_t value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceEasingFunction)->get_Bounces(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBounceEasingFunction<D>::Bounciness() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceEasingFunction)->get_Bounciness(&value));
+        return value;
     }
     template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation<D>::Acceleration() const
     {
@@ -179,6 +209,12 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>::Restitution(float value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBounceVector3NaturalMotionAnimation)->put_Restitution(value));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) consume_Windows_UI_Composition_ICircleEasingFunction<D>::Mode() const
+    {
+        Windows::UI::Composition::CompositionEasingFunctionMode value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICircleEasingFunction)->get_Mode(reinterpret_cast<int32_t*>(&value)));
+        return value;
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionColorSpace) consume_Windows_UI_Composition_IColorKeyFrameAnimation<D>::InterpolationColorSpace() const
     {
@@ -491,6 +527,72 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_ICompositionDrawingSurface2<D>::ScrollWithClip(Windows::Graphics::PointInt32 const& offset, Windows::Graphics::RectInt32 const& clipRect, Windows::Graphics::RectInt32 const& scrollRect) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionDrawingSurface2)->ScrollRectWithClip(impl::bind_in(offset), impl::bind_in(clipRect), impl::bind_in(scrollRect)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CubicBezierEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateCubicBezierEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::Foundation::Numerics::float2 const& controlPoint1, Windows::Foundation::Numerics::float2 const& controlPoint2) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateCubicBezierEasingFunction(*(void**)(&owner), impl::bind_in(controlPoint1), impl::bind_in(controlPoint2), &result));
+        return Windows::UI::Composition::CubicBezierEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::LinearEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateLinearEasingFunction(Windows::UI::Composition::Compositor const& owner) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateLinearEasingFunction(*(void**)(&owner), &result));
+        return Windows::UI::Composition::LinearEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::StepEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateStepEasingFunction(Windows::UI::Composition::Compositor const& owner) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateStepEasingFunction(*(void**)(&owner), &result));
+        return Windows::UI::Composition::StepEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::StepEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateStepEasingFunction(Windows::UI::Composition::Compositor const& owner, int32_t stepCount) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateStepEasingFunctionWithStepCount(*(void**)(&owner), stepCount, &result));
+        return Windows::UI::Composition::StepEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::BackEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateBackEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float amplitude) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateBackEasingFunction(*(void**)(&owner), static_cast<int32_t>(mode), amplitude, &result));
+        return Windows::UI::Composition::BackEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::BounceEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateBounceEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, int32_t bounces, float bounciness) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateBounceEasingFunction(*(void**)(&owner), static_cast<int32_t>(mode), bounces, bounciness, &result));
+        return Windows::UI::Composition::BounceEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CircleEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateCircleEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateCircleEasingFunction(*(void**)(&owner), static_cast<int32_t>(mode), &result));
+        return Windows::UI::Composition::CircleEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ElasticEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateElasticEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, int32_t oscillations, float springiness) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateElasticEasingFunction(*(void**)(&owner), static_cast<int32_t>(mode), oscillations, springiness, &result));
+        return Windows::UI::Composition::ElasticEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ExponentialEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateExponentialEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float exponent) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateExponentialEasingFunction(*(void**)(&owner), static_cast<int32_t>(mode), exponent, &result));
+        return Windows::UI::Composition::ExponentialEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::PowerEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreatePowerEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float power) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreatePowerEasingFunction(*(void**)(&owner), static_cast<int32_t>(mode), power, &result));
+        return Windows::UI::Composition::PowerEasingFunction{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::SineEasingFunction) consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>::CreateSineEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionEasingFunctionStatics)->CreateSineEasingFunction(*(void**)(&owner), static_cast<int32_t>(mode), &result));
+        return Windows::UI::Composition::SineEasingFunction{ result, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBrush) consume_Windows_UI_Composition_ICompositionEffectBrush<D>::GetSourceParameter(param::hstring const& name) const
     {
@@ -1718,6 +1820,12 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceBrush3)->put_SnapToPixels(value));
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::ICompositionSurface) consume_Windows_UI_Composition_ICompositionSurfaceFacade<D>::GetRealSurface() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionSurfaceFacade)->GetRealSurface(&result));
+        return Windows::UI::Composition::ICompositionSurface{ result, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_ICompositionTarget<D>::Root() const
     {
         void* value{};
@@ -2222,6 +2330,18 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor6)->CreateBooleanKeyFrameAnimation(&result));
         return Windows::UI::Composition::BooleanKeyFrameAnimation{ result, take_ownership_from_abi };
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) consume_Windows_UI_Composition_ICompositor7<D>::DispatcherQueue() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->get_DispatcherQueue(&value));
+        return Windows::System::DispatcherQueue{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationPropertyInfo) consume_Windows_UI_Composition_ICompositor7<D>::CreateAnimationPropertyInfo() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->CreateAnimationPropertyInfo(&result));
+        return Windows::UI::Composition::AnimationPropertyInfo{ result, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositorStatics<D>::MaxGlobalPlaybackRate() const
     {
         float value{};
@@ -2381,6 +2501,36 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDropShadow2<D>::SourcePolicy(Windows::UI::Composition::CompositionDropShadowSourcePolicy const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDropShadow2)->put_SourcePolicy(static_cast<int32_t>(value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) consume_Windows_UI_Composition_IElasticEasingFunction<D>::Mode() const
+    {
+        Windows::UI::Composition::CompositionEasingFunctionMode value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IElasticEasingFunction)->get_Mode(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IElasticEasingFunction<D>::Oscillations() const
+    {
+        int32_t value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IElasticEasingFunction)->get_Oscillations(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IElasticEasingFunction<D>::Springiness() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IElasticEasingFunction)->get_Springiness(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) consume_Windows_UI_Composition_IExponentialEasingFunction<D>::Mode() const
+    {
+        Windows::UI::Composition::CompositionEasingFunctionMode value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IExponentialEasingFunction)->get_Mode(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IExponentialEasingFunction<D>::Exponent() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IExponentialEasingFunction)->get_Exponent(&value));
+        return value;
     }
     template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Composition_IExpressionAnimation<D>::Expression() const
     {
@@ -2664,6 +2814,18 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPointLight3)->put_MaxAttenuationCutoff(value));
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) consume_Windows_UI_Composition_IPowerEasingFunction<D>::Mode() const
+    {
+        Windows::UI::Composition::CompositionEasingFunctionMode value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPowerEasingFunction)->get_Mode(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IPowerEasingFunction<D>::Power() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IPowerEasingFunction)->get_Power(&value));
+        return value;
+    }
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IQuaternionKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::quaternion const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IQuaternionKeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, impl::bind_in(value)));
@@ -2741,6 +2903,12 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IShapeVisual<D>::ViewBox(Windows::UI::Composition::CompositionViewBox const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IShapeVisual)->put_ViewBox(*(void**)(&value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) consume_Windows_UI_Composition_ISineEasingFunction<D>::Mode() const
+    {
+        Windows::UI::Composition::CompositionEasingFunctionMode value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ISineEasingFunction)->get_Mode(reinterpret_cast<int32_t*>(&value)));
+        return value;
     }
     template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ISpotLight<D>::ConstantAttenuation() const
     {
@@ -3554,12 +3722,59 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::UI::Composition::IBackEasingFunction> : produce_base<D, Windows::UI::Composition::IBackEasingFunction>
+    {
+        int32_t __stdcall get_Mode(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::Composition::CompositionEasingFunctionMode>(this->shim().Mode());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Amplitude(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Amplitude());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::UI::Composition::IBooleanKeyFrameAnimation> : produce_base<D, Windows::UI::Composition::IBooleanKeyFrameAnimation>
     {
         int32_t __stdcall InsertKeyFrame(float normalizedProgressKey, bool value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
             this->shim().InsertKeyFrame(normalizedProgressKey, value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::IBounceEasingFunction> : produce_base<D, Windows::UI::Composition::IBounceEasingFunction>
+    {
+        int32_t __stdcall get_Mode(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::Composition::CompositionEasingFunctionMode>(this->shim().Mode());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Bounces(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<int32_t>(this->shim().Bounces());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Bounciness(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Bounciness());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -3662,6 +3877,19 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().Restitution(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::ICircleEasingFunction> : produce_base<D, Windows::UI::Composition::ICircleEasingFunction>
+    {
+        int32_t __stdcall get_Mode(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::Composition::CompositionEasingFunctionMode>(this->shim().Mode());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -4279,6 +4507,100 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::UI::Composition::ICompositionEasingFunctionFactory> : produce_base<D, Windows::UI::Composition::ICompositionEasingFunctionFactory>
     {
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::ICompositionEasingFunctionStatics> : produce_base<D, Windows::UI::Composition::ICompositionEasingFunctionStatics>
+    {
+        int32_t __stdcall CreateCubicBezierEasingFunction(void* owner, Windows::Foundation::Numerics::float2 controlPoint1, Windows::Foundation::Numerics::float2 controlPoint2, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::CubicBezierEasingFunction>(this->shim().CreateCubicBezierEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&controlPoint1), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&controlPoint2)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateLinearEasingFunction(void* owner, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::LinearEasingFunction>(this->shim().CreateLinearEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateStepEasingFunction(void* owner, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::StepEasingFunction>(this->shim().CreateStepEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateStepEasingFunctionWithStepCount(void* owner, int32_t stepCount, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::StepEasingFunction>(this->shim().CreateStepEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), stepCount));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateBackEasingFunction(void* owner, int32_t mode, float amplitude, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::BackEasingFunction>(this->shim().CreateBackEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), *reinterpret_cast<Windows::UI::Composition::CompositionEasingFunctionMode const*>(&mode), amplitude));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateBounceEasingFunction(void* owner, int32_t mode, int32_t bounces, float bounciness, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::BounceEasingFunction>(this->shim().CreateBounceEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), *reinterpret_cast<Windows::UI::Composition::CompositionEasingFunctionMode const*>(&mode), bounces, bounciness));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateCircleEasingFunction(void* owner, int32_t mode, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::CircleEasingFunction>(this->shim().CreateCircleEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), *reinterpret_cast<Windows::UI::Composition::CompositionEasingFunctionMode const*>(&mode)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateElasticEasingFunction(void* owner, int32_t mode, int32_t oscillations, float springiness, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::ElasticEasingFunction>(this->shim().CreateElasticEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), *reinterpret_cast<Windows::UI::Composition::CompositionEasingFunctionMode const*>(&mode), oscillations, springiness));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateExponentialEasingFunction(void* owner, int32_t mode, float exponent, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::ExponentialEasingFunction>(this->shim().CreateExponentialEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), *reinterpret_cast<Windows::UI::Composition::CompositionEasingFunctionMode const*>(&mode), exponent));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreatePowerEasingFunction(void* owner, int32_t mode, float power, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::PowerEasingFunction>(this->shim().CreatePowerEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), *reinterpret_cast<Windows::UI::Composition::CompositionEasingFunctionMode const*>(&mode), power));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateSineEasingFunction(void* owner, int32_t mode, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::SineEasingFunction>(this->shim().CreateSineEasingFunction(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&owner), *reinterpret_cast<Windows::UI::Composition::CompositionEasingFunctionMode const*>(&mode)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
@@ -6365,6 +6687,18 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
 #endif
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::ICompositionSurfaceFacade> : produce_base<D, Windows::UI::Composition::ICompositionSurfaceFacade>
+    {
+        int32_t __stdcall GetRealSurface(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::ICompositionSurface>(this->shim().GetRealSurface());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
     struct produce<D, Windows::UI::Composition::ICompositionTarget> : produce_base<D, Windows::UI::Composition::ICompositionTarget>
@@ -7139,6 +7473,28 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::UI::Composition::ICompositor7> : produce_base<D, Windows::UI::Composition::ICompositor7>
+    {
+        int32_t __stdcall get_DispatcherQueue(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::System::DispatcherQueue>(this->shim().DispatcherQueue());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateAnimationPropertyInfo(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::AnimationPropertyInfo>(this->shim().CreateAnimationPropertyInfo());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::UI::Composition::ICompositorStatics> : produce_base<D, Windows::UI::Composition::ICompositorStatics>
     {
         int32_t __stdcall get_MaxGlobalPlaybackRate(float* value) noexcept final try
@@ -7422,6 +7778,53 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().SourcePolicy(*reinterpret_cast<Windows::UI::Composition::CompositionDropShadowSourcePolicy const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::IElasticEasingFunction> : produce_base<D, Windows::UI::Composition::IElasticEasingFunction>
+    {
+        int32_t __stdcall get_Mode(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::Composition::CompositionEasingFunctionMode>(this->shim().Mode());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Oscillations(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<int32_t>(this->shim().Oscillations());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Springiness(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Springiness());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::IExponentialEasingFunction> : produce_base<D, Windows::UI::Composition::IExponentialEasingFunction>
+    {
+        int32_t __stdcall get_Mode(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::Composition::CompositionEasingFunctionMode>(this->shim().Mode());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Exponent(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Exponent());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -7933,6 +8336,26 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::UI::Composition::IPowerEasingFunction> : produce_base<D, Windows::UI::Composition::IPowerEasingFunction>
+    {
+        int32_t __stdcall get_Mode(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::Composition::CompositionEasingFunctionMode>(this->shim().Mode());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Power(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Power());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::UI::Composition::IQuaternionKeyFrameAnimation> : produce_base<D, Windows::UI::Composition::IQuaternionKeyFrameAnimation>
     {
         int32_t __stdcall InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::quaternion value) noexcept final try
@@ -8086,6 +8509,19 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().ViewBox(*reinterpret_cast<Windows::UI::Composition::CompositionViewBox const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::ISineEasingFunction> : produce_base<D, Windows::UI::Composition::ISineEasingFunction>
+    {
+        int32_t __stdcall get_Mode(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::Composition::CompositionEasingFunctionMode>(this->shim().Mode());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -9210,6 +9646,50 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     {
         return impl::call_factory_cast<Windows::UI::Composition::CompositionCapabilities(*)(ICompositionCapabilitiesStatics const&), CompositionCapabilities, ICompositionCapabilitiesStatics>([](ICompositionCapabilitiesStatics const& f) { return f.GetForCurrentView(); });
     }
+    inline auto CompositionEasingFunction::CreateCubicBezierEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::Foundation::Numerics::float2 const& controlPoint1, Windows::Foundation::Numerics::float2 const& controlPoint2)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateCubicBezierEasingFunction(owner, controlPoint1, controlPoint2); });
+    }
+    inline auto CompositionEasingFunction::CreateLinearEasingFunction(Windows::UI::Composition::Compositor const& owner)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateLinearEasingFunction(owner); });
+    }
+    inline auto CompositionEasingFunction::CreateStepEasingFunction(Windows::UI::Composition::Compositor const& owner)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateStepEasingFunction(owner); });
+    }
+    inline auto CompositionEasingFunction::CreateStepEasingFunction(Windows::UI::Composition::Compositor const& owner, int32_t stepCount)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateStepEasingFunction(owner, stepCount); });
+    }
+    inline auto CompositionEasingFunction::CreateBackEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float amplitude)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateBackEasingFunction(owner, mode, amplitude); });
+    }
+    inline auto CompositionEasingFunction::CreateBounceEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, int32_t bounces, float bounciness)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateBounceEasingFunction(owner, mode, bounces, bounciness); });
+    }
+    inline auto CompositionEasingFunction::CreateCircleEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateCircleEasingFunction(owner, mode); });
+    }
+    inline auto CompositionEasingFunction::CreateElasticEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, int32_t oscillations, float springiness)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateElasticEasingFunction(owner, mode, oscillations, springiness); });
+    }
+    inline auto CompositionEasingFunction::CreateExponentialEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float exponent)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateExponentialEasingFunction(owner, mode, exponent); });
+    }
+    inline auto CompositionEasingFunction::CreatePowerEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float power)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreatePowerEasingFunction(owner, mode, power); });
+    }
+    inline auto CompositionEasingFunction::CreateSineEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode)
+    {
+        return impl::call_factory<CompositionEasingFunction, ICompositionEasingFunctionStatics>([&](ICompositionEasingFunctionStatics const& f) { return f.CreateSineEasingFunction(owner, mode); });
+    }
     inline CompositionEffectSourceParameter::CompositionEffectSourceParameter(param::hstring const& name) :
         CompositionEffectSourceParameter(impl::call_factory<CompositionEffectSourceParameter, ICompositionEffectSourceParameterFactory>([&](ICompositionEffectSourceParameterFactory const& f) { return f.Create(name); }))
     {
@@ -9253,10 +9733,13 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IAnimationObject> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IAnimationPropertyInfo> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IAnimationPropertyInfo2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IBackEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IBooleanKeyFrameAnimation> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IBounceEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IBounceScalarNaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IBounceVector2NaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IBounceVector3NaturalMotionAnimation> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::ICircleEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IColorKeyFrameAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionAnimation2> : winrt::impl::hash_base {};
@@ -9284,6 +9767,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionDrawingSurfaceFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionEasingFunctionFactory> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::ICompositionEasingFunctionStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionEffectBrush> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionEffectFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionEffectSourceParameter> : winrt::impl::hash_base {};
@@ -9337,6 +9821,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionSurfaceBrush> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionSurfaceBrush2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionSurfaceBrush3> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::ICompositionSurfaceFacade> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionTarget> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionTargetFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionTransform> : winrt::impl::hash_base {};
@@ -9351,6 +9836,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::ICompositor4> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositor5> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositor6> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::ICompositor7> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositorStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositorWithProjectedShadow> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositorWithRadialGradient> : winrt::impl::hash_base {};
@@ -9362,6 +9848,8 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IDistantLight2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IDropShadow> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IDropShadow2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IElasticEasingFunction> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IExponentialEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IExpressionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IImplicitAnimationCollection> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IInsetClip> : winrt::impl::hash_base {};
@@ -9378,6 +9866,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IPointLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IPointLight2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IPointLight3> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IPowerEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IQuaternionKeyFrameAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IRedirectVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IRenderingDeviceReplacedEventArgs> : winrt::impl::hash_base {};
@@ -9385,6 +9874,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IScalarNaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IScalarNaturalMotionAnimationFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IShapeVisual> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::ISineEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ISpotLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ISpotLight2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ISpotLight3> : winrt::impl::hash_base {};
@@ -9412,10 +9902,13 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::AmbientLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::AnimationController> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::AnimationPropertyInfo> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::BackEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::BooleanKeyFrameAnimation> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::BounceEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::BounceScalarNaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::BounceVector2NaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::BounceVector3NaturalMotionAnimation> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::CircleEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ColorKeyFrameAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::CompositionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::CompositionAnimationGroup> : winrt::impl::hash_base {};
@@ -9474,6 +9967,8 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::CubicBezierEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::DistantLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::DropShadow> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::ElasticEasingFunction> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::ExponentialEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ExpressionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ImplicitAnimationCollection> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::InitialValueExpressionCollection> : winrt::impl::hash_base {};
@@ -9484,12 +9979,14 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::NaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::PathKeyFrameAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::PointLight> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::PowerEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::QuaternionKeyFrameAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::RedirectVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::RenderingDeviceReplacedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ScalarKeyFrameAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ScalarNaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ShapeVisual> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::SineEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::SpotLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::SpringScalarNaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::SpringVector2NaturalMotionAnimation> : winrt::impl::hash_base {};

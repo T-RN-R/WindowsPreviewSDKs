@@ -57,6 +57,13 @@ typedef interface ILearningModelDeviceFactoryNative ILearningModelDeviceFactoryN
 #endif 	/* __ILearningModelDeviceFactoryNative_FWD_DEFINED__ */
 
 
+#ifndef __ILearningModelSessionOptionsNative_FWD_DEFINED__
+#define __ILearningModelSessionOptionsNative_FWD_DEFINED__
+typedef interface ILearningModelSessionOptionsNative ILearningModelSessionOptionsNative;
+
+#endif 	/* __ILearningModelSessionOptionsNative_FWD_DEFINED__ */
+
+
 /* header files for imported files */
 #include "oaidl.h"
 #include "ocidl.h"
@@ -343,14 +350,94 @@ EXTERN_C const IID IID_ILearningModelDeviceFactoryNative;
 #endif 	/* __ILearningModelDeviceFactoryNative_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_windows2Eai2Emachinelearning2Enative_0000_0003 */
+#ifndef __ILearningModelSessionOptionsNative_INTERFACE_DEFINED__
+#define __ILearningModelSessionOptionsNative_INTERFACE_DEFINED__
+
+/* interface ILearningModelSessionOptionsNative */
+/* [local][object][uuid] */ 
+
+
+EXTERN_C const IID IID_ILearningModelSessionOptionsNative;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("c71e953f-37b4-4564-8658-d8396866db0d")
+    ILearningModelSessionOptionsNative : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE SetIntraOpNumThreadsOverride( 
+            UINT32 intraOpNumThreads) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct ILearningModelSessionOptionsNativeVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ILearningModelSessionOptionsNative * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ILearningModelSessionOptionsNative * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ILearningModelSessionOptionsNative * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *SetIntraOpNumThreadsOverride )( 
+            ILearningModelSessionOptionsNative * This,
+            UINT32 intraOpNumThreads);
+        
+        END_INTERFACE
+    } ILearningModelSessionOptionsNativeVtbl;
+
+    interface ILearningModelSessionOptionsNative
+    {
+        CONST_VTBL struct ILearningModelSessionOptionsNativeVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ILearningModelSessionOptionsNative_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ILearningModelSessionOptionsNative_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ILearningModelSessionOptionsNative_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ILearningModelSessionOptionsNative_SetIntraOpNumThreadsOverride(This,intraOpNumThreads)	\
+    ( (This)->lpVtbl -> SetIntraOpNumThreadsOverride(This,intraOpNumThreads) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ILearningModelSessionOptionsNative_INTERFACE_DEFINED__ */
+
+
+/* interface __MIDL_itf_windows2Eai2Emachinelearning2Enative_0000_0004 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
 
 
-extern RPC_IF_HANDLE __MIDL_itf_windows2Eai2Emachinelearning2Enative_0000_0003_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_windows2Eai2Emachinelearning2Enative_0000_0003_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_windows2Eai2Emachinelearning2Enative_0000_0004_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_windows2Eai2Emachinelearning2Enative_0000_0004_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

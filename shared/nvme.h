@@ -834,7 +834,8 @@ typedef struct {
         UCHAR   CommandEffectsLog       : 1;
         UCHAR   LogPageExtendedData     : 1;
         UCHAR   TelemetrySupport        : 1;
-        UCHAR   Reserved                : 4;
+        UCHAR   PersistentEventLog      : 1;
+        UCHAR   Reserved                : 3;
     } LPA;                      // byte 261.    M - Log Page Attributes (LPA)
 
     UCHAR   ELPE;               // byte 262.    M - Error Log Page Entries (ELPE)
@@ -886,9 +887,31 @@ typedef struct {
         ULONG   Reserved                : 29;
     } SANICAP;                  // byte 328:331  O - Sanitize Capabilities (SANICAP)
 
-    USHORT  NSETIDMAX;          // byte 332:333  O - NVM Set Identifier Maximum
+    ULONG   HMMINDS;            // byte 332:335  O - Host Memory Buffer Minimum Descriptor Entry Size (HMMINDS)
+    USHORT  HMMAXD;             // byte 336:337  O - Host Memory Maxiumum Descriptors Entries (HMMAXD)
 
-    UCHAR   Reserved1[178];     // byte 334:511.
+    USHORT  NSETIDMAX;          // byte 338:339  O - NVM Set Identifier Maximum
+    USHORT  ENDGIDMAX;          // byte 340:341  O - Endurance Group Identifier Maximum (ENDGIDMAX)
+
+    UCHAR   ANATT;              // byte 342      O - ANA Transition Time (ANATT)
+
+    struct {
+        UCHAR   OptimizedState          : 1;     // Report ANA Optimized State
+        UCHAR   NonOptimizedState       : 1;     // Report ANA Non-Optimized State
+        UCHAR   InaccessibleState       : 1;     // Report ANA Inaccessible State
+        UCHAR   PersistentLossState     : 1;     // Report ANA Persistent Loss State
+        UCHAR   ChangeState             : 1;     // Report ANA Change State
+        UCHAR   Reserved                : 1;
+        UCHAR   StaticANAGRPID          : 1;     // If set, ANAGRPID in Identify Namespace doesn't change
+        UCHAR   SupportNonZeroANAGRPID  : 1;     // If set, Controller supports a non-zero value in ANAGRPID field of Namespace Mgmt Command
+    } ANACAP;                   // byte 343      O - Asymmetric Namespace Access Capabilities (ANACAP)
+
+    ULONG   ANAGRPMAX;          // byte 344:347  O - ANA Group Identifier Maximum (ANAGRPMAX)
+    ULONG   NANAGRPID;          // byte 348:351  O - Number of ANA Group Identifiers (NANAGRPID)
+
+    ULONG   PELS;               // byte 352:355  O - Persistent Event Log Size (PELS)
+
+    UCHAR   Reserved1[156];     // byte 356:511.
 
     //
     // byte 512 : 703, NVM Command Set Attributes
@@ -1030,6 +1053,22 @@ typedef union {
 
 } NVME_LBA_FORMAT, *PNVME_LBA_FORMAT;
 
+typedef union {
+
+    struct {
+        UCHAR   PersistThroughPowerLoss                     : 1;
+        UCHAR   WriteExclusiveReservation                   : 1;
+        UCHAR   ExclusiveAccessReservation                  : 1;
+        UCHAR   WriteExclusiveRegistrantsOnlyReservation    : 1;
+        UCHAR   ExclusiveAccessRegistrantsOnlyReservation   : 1;
+        UCHAR   WriteExclusiveAllRegistrantsReservation     : 1;
+        UCHAR   ExclusiveAccessAllRegistrantsReservation    : 1;
+        UCHAR   Reserved                                    : 1;
+    } DUMMYSTRUCTNAME;
+
+    UCHAR AsUchar;
+} NVM_RESERVATION_CAPABILITIES, *PNVME_RESERVATION_CAPABILITIES;
+
 typedef struct {
 
     ULONGLONG   NSZE;                   // byte 0:7.    M - Namespace Size (NSZE)
@@ -1079,16 +1118,7 @@ typedef struct {
         UCHAR   Reserved            : 7;
     } NMIC;                             // byte 30      O - Namespace Multi-path I/O and Namespace Sharing Capabilities (NMIC)
 
-    struct {
-        UCHAR   PersistThroughPowerLoss                     : 1;
-        UCHAR   WriteExclusiveReservation                   : 1;
-        UCHAR   ExclusiveAccessReservation                  : 1;
-        UCHAR   WriteExclusiveRegistrantsOnlyReservation    : 1;
-        UCHAR   ExclusiveAccessRegistrantsOnlyReservation   : 1;
-        UCHAR   WriteExclusiveAllRegistrantsReservation     : 1;
-        UCHAR   ExclusiveAccessAllRegistrantsReservation    : 1;
-        UCHAR   Reserved                                    : 1;
-    } RESCAP;                           // byte 31      O - Reservation Capabilities (RESCAP)
+    NVM_RESERVATION_CAPABILITIES RESCAP;    // byte 31      O - Reservation Capabilities (RESCAP)
 
     struct {
         UCHAR   PercentageRemained  : 7;    // Bits 6:0: indicate the percentage of the namespace that remains to be formatted
@@ -1184,10 +1214,10 @@ typedef enum {
 
 //
 // SMART Attributes Log Page GUID is defined in spec as byte stream: 0xAFD514C97C6F4F9CA4F2BFEA2810AFC5
-// which is converted to GUID format as: {2810AFC5-BFEA-A4F2-4F9C-6F7CC914D5AF}
+// which is converted to GUID format as: {2810AFC5-BFEA-A4F2-9C4F-6F7CC914D5AF}
 //
-#define GUID_WCS_DEVICE_SMART_ATTRIBUTESGuid { 0x2810AFC5, 0xBFEA, 0xA4F2, { 0x4F, 0x9C, 0x6F, 0x7C, 0xC9, 0x14, 0xD5, 0xAF} }
-DEFINE_GUID(GUID_WCS_DEVICE_SMART_ATTRIBUTES, 0x2810AFC5, 0xBFEA, 0xA4F2, 0x4F, 0x9C, 0x6F, 0x7C, 0xC9, 0x14, 0xD5, 0xAF);
+#define GUID_WCS_DEVICE_SMART_ATTRIBUTESGuid { 0x2810AFC5, 0xBFEA, 0xA4F2, { 0x9C, 0x4F, 0x6F, 0x7C, 0xC9, 0x14, 0xD5, 0xAF} }
+DEFINE_GUID(GUID_WCS_DEVICE_SMART_ATTRIBUTES, 0x2810AFC5, 0xBFEA, 0xA4F2, 0x9C, 0x4F, 0x6F, 0x7C, 0xC9, 0x14, 0xD5, 0xAF);
 
 //
 // Error Recovery Log Page GUID is defined in spec as byte stream: 0x5A1983BA3DFD4DABAE3430FE2131D944
@@ -1907,6 +1937,45 @@ typedef struct {
 
 } NVME_CDW11_SECURITY_RECEIVE, *PNVME_CDW11_SECURITY_RECEIVE;
 
+//
+// Parameters for NVME_FEATURE_NVM_HOST_IDENTIFIER
+//
+#define NVME_MAX_HOST_IDENTIFIER_SIZE       16  // 16 Bytes, 128 Bits
+#define NVME_HOST_IDENTIFIER_SIZE           8   // 8 Bytes, 64 Bits
+#define NVME_EXTENDED_HOST_IDENTIFIER_SIZE  16  // 16 Bytes, 128 Bits
+
+typedef struct {
+
+    ULONG EXHID     : 1;                // Enable Extended Host Identifier (EXHID)
+    ULONG Reserved  : 31;
+
+} NVME_CDW11_FEATURE_HOST_IDENTIFIER, *PNVME_CDW11_FEATURE_HOST_IDENTIFIER;
+
+typedef struct {
+
+    UCHAR HOSTID[NVME_MAX_HOST_IDENTIFIER_SIZE];    // Host Identifier (HOSTID)
+
+} NVME_FEATURE_HOST_IDENTIFIER_DATA, *PNVME_FEATURE_HOST_IDENTIFIER_DATA;
+
+typedef struct {
+
+    ULONG PTPL      : 1;                // Persist Through Power Loss (PTPL)
+    ULONG Reserved  : 31;
+
+} NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE, *PNVME_CDW11_FEATURE_RESERVATION_PERSISTENCE;
+
+typedef struct {
+
+    ULONG Reserved      : 1;
+
+    ULONG REGPRE        : 1;            // Mask Registration Preempted Notification (REGPRE)
+    ULONG RESREL        : 1;            // Mask Reservation Released Notification (RESREL)
+    ULONG RESPRE        : 1;            // Mast Reservation Preempted Notification (RESPRE)
+
+    ULONG Reserved1      : 28;
+
+} NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK, *PNVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK;
+
 
 typedef union {
     NVME_CDW11_FEATURE_NUMBER_OF_QUEUES             NumberOfQueues;
@@ -1923,6 +1992,9 @@ typedef union {
     NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL       WriteAtomicityNormal;
     NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE  NonOperationalPowerState;
     NVME_CDW11_FEATURE_ERROR_INJECTION              ErrorInjection;
+    NVME_CDW11_FEATURE_HOST_IDENTIFIER              HostIdentifier;
+    NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE      ReservationPersistence;
+    NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK    ReservationNotificationMask;
 
     ULONG   AsUlong;
 } NVME_CDW11_FEATURES, *PNVME_CDW11_FEATURES;
@@ -1970,6 +2042,8 @@ typedef enum {
     NVME_LOG_PAGE_TELEMETRY_HOST_INITIATED      = 0x07,
     NVME_LOG_PAGE_TELEMETRY_CTLR_INITIATED      = 0x08,
     NVME_LOG_PAGE_ENDURANCE_GROUP_INFORMATION   = 0x09,
+
+    NVME_LOG_PAGE_PERSISTENT_EVENT_LOG          = 0x0D,
 
     NVME_LOG_PAGE_RESERVATION_NOTIFICATION      = 0x80,
     NVME_LOG_PAGE_SANITIZE_STATUS               = 0x81,
@@ -2287,6 +2361,76 @@ typedef struct {
 
 } NVME_ENDURANCE_GROUP_LOG, *PNVME_ENDURANCE_GROUP_LOG;
 
+//
+// Information of log: NVME_LOG_PAGE_PERSISTENT_EVENT_LOG. Header Size: 512 bytes
+//
+typedef struct {
+
+    UCHAR     LogIdentifier;                      // Byte 0      - Shall be set to 0x0D
+    UCHAR     Reserved0[3];                       // Bytes 1-3
+    ULONG     TotalNumberOfEvents;                // Bytes 4-7   - Contains the number of event entries in the log.
+    ULONGLONG TotalLogLength;                     // Bytes 8-15  - Contains the total number of bytes of persistent event log page data available, including the header.
+    UCHAR     LogRevision;                        // Bytes 16    - Contains a number indicating the revision of the Get Log Page data structure that this log page data complies with.
+    UCHAR     Reserved1;                          // Bytes 17
+    USHORT    LogHeaderLength;                    // Bytes 18-19 - Contains the length in bytes of the log header information that follows. The total length of the log header in bytes is the value in this field plus 20.
+    ULONGLONG Timestamp;                          // Bytes 20-27
+    UCHAR     PowerOnHours[16];                   // Bytes 28-43 - Indicates the number of power-on hours at the time the Persistent Event log was retrieved.
+    ULONGLONG PowerCycleCount;                    // Bytes 44-51 - Contains the number of power cycles for the controller.
+    USHORT    PciVendorId;                        // Bytes 52-53 - Same value as reported in the Identify Controller data PCI Vendor ID field.
+    USHORT    PciSubsystemVendorId;               // Bytes 54-55 - Same value as reported in the Identify Controller data PCI Subsystem Vendor ID field.
+    UCHAR     SerialNumber[20];                   // Bytes 56-75 - Same value as reported in the Identify Controller data Serial Number field.
+    UCHAR     ModelNumber[40];                    // Bytes 76-115 - Same value as reported in the Identify Controller data Model Number field.
+    UCHAR     NVMSubsystemNVMeQualifiedName[256]; // Bytes 116-371 - Same value as reported in the Identify Controller data.
+    UCHAR     Reserved[108];                      // Bytes 372-479
+    UCHAR     SupportedEventsBitmap[32];          // Bytes 480-511 - Contains a bitmap indicating support for the persistent event log events.
+
+} NVME_PERSISTENT_EVENT_LOG_HEADER, *PNVME_PERSISTENT_EVENT_LOG_HEADER;
+
+typedef struct {
+
+    UCHAR     EventType;                          // Byte 0      - Indicates the event type for this entry.
+    UCHAR     EventTypeRevision;                  // Byte 1      - Contains a number indicating the revision of the event data.
+    UCHAR     EventHeaderLength;                  // Byte 2      - Contains the length in bytes of the event header information that follows.
+    UCHAR     Reserved0;                          // Byte 3
+    USHORT    ControllerIdentifier;               // Bytes 4-5   - Contains the NVM subsystem unique controller identifier for the controller that created this event.
+    ULONGLONG EventTimestamp;                     // Bytes 6-13
+    UCHAR     Reserved1[6];                       // Bytes 14-19
+    USHORT    VendorSpecificInformationLength;    // Bytes 20-21 - Indicates the length in bytes of the Vendor Specific Information.
+    USHORT    EventLength;                        // Bytes 22-23 - Indicates the length in bytes of the Vendor Specific Information.
+
+} NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER, *PNVME_PERSISTENT_EVENT_LOG_EVENT_HEADER;
+
+typedef enum {
+
+    NVME_PERSISTENT_EVENT_TYPE_RESERVED0                    = 0x00,
+
+    NVME_PERSISTENT_EVENT_TYPE_SMART_HEALTH_LOG_SNAPSHOT    = 0x01,
+    NVME_PERSISTENT_EVENT_TYPE_FIRMWARE_COMMIT              = 0x02,
+    NVME_PERSISTENT_EVENT_TYPE_TIMESTAMP_CHANGE             = 0x03,
+    NVME_PERSISTENT_EVENT_TYPE_POWER_ON_OR_RESET            = 0x04,
+    NVME_PERSISTENT_EVENT_TYPE_NVM_SUBSYSTEM_HARDWARE_ERROR = 0x05,
+    NVME_PERSISTENT_EVENT_TYPE_CHANGE_NAMESPACE             = 0x06,
+    NVME_PERSISTENT_EVENT_TYPE_FORMAT_NVM_START             = 0x07,
+    NVME_PERSISTENT_EVENT_TYPE_FORMAT_NVM_COMPLETION        = 0x08,
+    NVME_PERSISTENT_EVENT_TYPE_SANITIZE_START               = 0x09,
+    NVME_PERSISTENT_EVENT_TYPE_SANITIZE_COMPLETION          = 0x0A,
+    NVME_PERSISTENT_EVENT_TYPE_SET_FEATURE                  = 0x0B,
+    NVME_PERSISTENT_EVENT_TYPE_TELEMETRY_LOG_CREATED        = 0x0C,
+    NVME_PERSISTENT_EVENT_TYPE_THERMAL_EXCURSION            = 0x0D,
+
+    NVME_PERSISTENT_EVENT_TYPE_RESERVED1_BEGIN              = 0x0E,
+    NVME_PERSISTENT_EVENT_TYPE_RESERVED1_END                = 0xDD,
+
+    NVME_PERSISTENT_EVENT_TYPE_VENDOR_SPECIFIC_EVENT        = 0xDE,
+    NVME_PERSISTENT_EVENT_TYPE_TCG_DEFINED                  = 0xDF,
+
+    NVME_PERSISTENT_EVENT_TYPE_RESERVED2_BEGIN              = 0xE0,
+    NVME_PERSISTENT_EVENT_TYPE_RESERVED2_END                = 0xFF,
+
+    NVME_PERSISTENT_EVENT_TYPE_MAX                          = 0xFF,
+
+} NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES;
+
 #pragma pack(pop)
 
 //
@@ -2387,8 +2531,264 @@ typedef union {
 
 } NVME_CDW10_FORMAT_NVM, *PNVME_CDW10_FORMAT_NVM;
 
+//
+// Parameters for RESERVATION Commands
+//
+typedef enum {
+
+    NVME_RESERVATION_TYPE_RESERVED                              = 0,
+    NVME_RESERVATION_TYPE_WRITE_EXCLUSIVE                       = 1,
+    NVME_RESERVATION_TYPE_EXCLUSIVE_ACCESS                      = 2,
+    NVME_RESERVATION_TYPE_WRITE_EXCLUSIVE_REGISTRANTS_ONLY      = 3,
+    NVME_RESERVATION_TYPE_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY     = 4,
+    NVME_RESERVATION_TYPE_WRITE_EXCLUSIVE_ALL_REGISTRANTS       = 5,
+    NVME_RESERVATION_TYPE_EXCLUSIVE_ACCESS_ALL_REGISTRANTS      = 6,
+
+} NVME_RESERVATION_TYPES;
+
+//
+// Parameters for RESERVATION ACQUIRE Commands
+//
+typedef enum {
+
+    NVME_RESERVATION_ACQUIRE_ACTION_ACQUIRE             = 0,
+    NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT             = 1,
+    NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT_AND_ABORT   = 2,
+
+} NVME_RESERVATION_ACQUIRE_ACTIONS;
+
+typedef struct {
+
+    ULONG PTPL          : 1;        // Persist Through Power Loss (PTPL)
+    ULONG Reserved      : 31;
+
+} NVME_CDW0_RESERVATION_PERSISTENCE, *PNVME_CDW0_RESERVATION_PERSISTENCE;
+
+typedef union {
+
+    struct {
+        ULONG RACQA         : 3;    // Reservation Acquire Action (RACQA)
+        ULONG IEKEY         : 1;    // Ignore Existing Key (IEKEY)
+        ULONG Reserved      : 4;
+        ULONG RTYPE         : 8;    // Reservation Type (RTYPE)
+
+        ULONG Reserved1     : 16;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+} NVME_CDW10_RESERVATION_ACQUIRE, *PNVME_CDW10_RESERVATION_ACQUIRE;
 
 
+//
+// Reservation Acquire Data Structure
+//
+typedef struct {
+
+    ULONGLONG CRKEY;    // Current Reservation Key (CRKEY)
+
+    //
+    // If the Reseravation Acquire Action is set to 001b (Preempt) or 010b (Preempt and Abort),
+    // then this field specifies the reservation key to be unregistered from the namespace.
+    // For all other Reservation Acquire Action values, this field is reserved.
+    //
+    ULONGLONG PRKEY;    // Preempt Reservation Key (PRKEY)
+
+} NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE, *PNVME_RESERVATION_ACQUIRE_DATA_STRUCTURE;
+
+//
+// Parameters for RESERVATION REGISTER Commands
+//
+typedef enum {
+
+    NVME_RESERVATION_REGISTER_ACTION_REGISTER       = 0,
+    NVME_RESERVATION_REGISTER_ACTION_UNREGISTER     = 1,
+    NVME_RESERVATION_REGISTER_ACTION_REPLACE        = 2,
+
+} NVME_RESERVATION_REGISTER_ACTIONS;
+
+typedef enum {
+
+    NVME_RESERVATION_REGISTER_PTPL_STATE_NO_CHANGE  = 0,
+    NVME_RESERVATION_REGISTER_PTPL_STATE_RESERVED   = 1,
+    NVME_RESERVATION_REGISTER_PTPL_STATE_SET_TO_0   = 2,    // Reservations are released and registrants are cleared on a power on.
+    NVME_RESERVATION_REGISTER_PTPL_STATE_SET_TO_1   = 3,    // Reservations and registrants persist across a power loss.
+
+} NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES;
+
+typedef union {
+
+    struct {
+        ULONG RREGA         : 3;        // Reservation Register Action (RREGA)
+        ULONG IEKEY         : 1;        // Ignore Existing Key (IEKEY)
+        ULONG Reserved      : 26;
+        ULONG CPTPL         : 2;        // Change Persist Through Power Loss State (CPTPL)
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+} NVME_CDW10_RESERVATION_REGISTER, *PNVME_CDW10_RESERVATION_REGISTER;
+
+//
+// Reservation Register Data Structure
+//
+typedef struct {
+
+    ULONGLONG CRKEY;    // Current Reservation Key (CRKEY)
+
+    //
+    // If the Reseravation Acquire Action is set to 001b (Preempt) or 010b (Preempt and Abort),
+    // then this field specifies the reservation key to be unregistered from the namespace.
+    // For all other Reservation Acquire Action values, this field is reserved.
+    //
+    ULONGLONG NRKEY;    // New Reservation Key (NRKEY)
+
+} NVME_RESERVATION_REGISTER_DATA_STRUCTURE, *PNVME_RESERVATION_REGISTER_DATA_STRUCTURE;
+
+//
+// Parameters for RESERVATION RELEASE Commands
+//
+typedef enum {
+
+    NVME_RESERVATION_RELEASE_ACTION_RELEASE     = 0,
+    NVME_RESERVATION_RELEASE_ACTION_CLEAR       = 1,
+
+} NVME_RESERVATION_RELEASE_ACTIONS;
+
+typedef union {
+
+    struct {
+        ULONG RRELA         : 3;        // Reservation Release Action (RRELA)
+        ULONG IEKEY         : 1;        // IgnoreExistingKey (IEKEY)
+        ULONG Reserved      : 4;
+        ULONG RTYPE         : 8;        // Reservation Type (RTYPE)
+
+        ULONG Reserved1     : 16;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW10_RESERVATION_RELEASE, *PNVME_CDW10_RESERVATION_RELEASE;
+
+//
+// Reservation Release Data Structure
+//
+typedef struct {
+
+    ULONGLONG CRKEY;    // Current Reservation Key (CRKEY)
+
+} NVME_RESERVATION_RELEASE_DATA_STRUCTURE, *PNVME_RESERVATION_RELEASE_DATA_STRUCTURE;
+
+//
+// Parameters for RESERVATION REPORT Commands
+//
+
+typedef union {
+
+    struct {
+        ULONG NUMD;     // Number of Dwords (NUMD), NOTE: 0's based value.
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW10_RESERVATION_REPORT, *PNVME_CDW10_RESERVATION_REPORT;
+
+typedef union {
+
+    struct {
+        ULONG EDS           : 1;    // Extended Data Structure (EDS)
+
+        ULONG Reserved      : 31;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW11_RESERVATION_REPORT, *PNVME_CDW11_RESERVATION_REPORT;
+
+#pragma pack(push, 1)
+typedef struct {
+
+    //
+    // This field is a counter that increments any time the below occurs:
+    //      a. a Reservation Register command completes successfully on any controller associated with the namespace;
+    //      b. a Reservation Release command with Reservation Release Action set to 001b (Clear) completes successfully
+    //         on any controller associated with the name space;
+    //      c. a Reservation Acquire command with Reservation Acquire Action set to 001b (Preempt) or 010b (Preempt and Abort)
+    //         completes successfully on any controller associated with the namespace.
+    // If the value of this field is FFFFFFFFh, then the field shall be cleared to 0b when incremented.
+    //
+    ULONG GEN;          // Generation (Gen)
+
+    UCHAR RTYPE;        // Reservation Type (RTYPE)
+
+    USHORT REGCTL;      // Number of Registered Controllers (REGCTL)
+
+    UCHAR Reserved[2];
+
+    UCHAR PTPLS;        // Persist Through Power Loss State (PTPLS)
+
+    UCHAR Reserved1[14];
+
+} NVME_RESERVATION_REPORT_STATUS_HEADER, *PNVME_RESERVATION_REPORT_STATUS_HEADER;
+#pragma pack(pop)
+
+C_ASSERT(sizeof(NVME_RESERVATION_REPORT_STATUS_HEADER) == 24);
+
+typedef struct {
+
+    USHORT CNTLID;                  // Controller ID (CNTLID)
+
+    struct {
+        UCHAR HoldReservation : 1;
+
+        UCHAR Reserved        : 7;
+    } RCSTS;                        // Reservation Status (RCSTS)
+
+    UCHAR Reserved[5];
+
+    UCHAR HOSTID[8];                // Host Identifier (HOSTID)
+    ULONGLONG RKEY;                 // Reservation Key (RKEY)
+
+} NVME_REGISTERED_CONTROLLER_DATA, *PNVME_REGISTERED_CONTROLLER_DATA;
+
+C_ASSERT(sizeof(NVME_REGISTERED_CONTROLLER_DATA) == 24);
+
+typedef struct {
+
+    NVME_RESERVATION_REPORT_STATUS_HEADER Header;
+
+    NVME_REGISTERED_CONTROLLER_DATA RegisteredControllersData[ANYSIZE_ARRAY];
+
+} NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE, *PNVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE;
+
+typedef struct {
+
+    USHORT CNTLID;                  // Controller ID (CNTLID)
+
+    struct {
+        UCHAR HoldReservation : 1;
+
+        UCHAR Reserved        : 7;
+    } RCSTS;                        // Reservation Status (RCSTS)
+
+    UCHAR Reserved[5];
+
+    ULONGLONG RKEY;             // Reservation Key (RKEY)
+    UCHAR HOSTID[16];           // 128-bit Host Identifier (HOSTID)
+
+    UCHAR Reserved1[32];
+
+} NVME_REGISTERED_CONTROLLER_EXTENDED_DATA, *PNVME_REGISTERED_CONTROLLER_EXTENDED_DATA;
+
+C_ASSERT(sizeof(NVME_REGISTERED_CONTROLLER_EXTENDED_DATA) == 64);
+
+typedef struct {
+
+    NVME_RESERVATION_REPORT_STATUS_HEADER Header;
+
+    UCHAR Reserved1[40];
+
+    NVME_REGISTERED_CONTROLLER_EXTENDED_DATA RegisteredControllersExtendedData[ANYSIZE_ARRAY];
+
+} NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE, *PNVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE;
 
 //
 // Parameters for Directives.
@@ -3005,6 +3405,54 @@ typedef struct {
             ULONG                   CDW14;
             NVME_CDW15_READ_WRITE   CDW15;
         } READWRITE;
+
+        //
+        // NVM Command: RESERVATION ACQUIRE
+        //
+        struct {
+            NVME_CDW10_RESERVATION_ACQUIRE      CDW10;
+            ULONG   CDW11;
+            ULONG   CDW12;
+            ULONG   CDW13;
+            ULONG   CDW14;
+            ULONG   CDW15;
+        } RESERVATIONACQUIRE;
+
+        //
+        // NVM Command: RESERVATION REGISTER
+        //
+        struct {
+            NVME_CDW10_RESERVATION_REGISTER     CDW10;
+            ULONG   CDW11;
+            ULONG   CDW12;
+            ULONG   CDW13;
+            ULONG   CDW14;
+            ULONG   CDW15;
+        } RESERVATIONREGISTER;
+
+        //
+        // NVM Command: RESERVATION RELEASE
+        //
+        struct {
+            NVME_CDW10_RESERVATION_RELEASE      CDW10;
+            ULONG   CDW11;
+            ULONG   CDW12;
+            ULONG   CDW13;
+            ULONG   CDW14;
+            ULONG   CDW15;
+        } RESERVATIONRELEASE;
+
+        //
+        // NVM Command: RESERVATION REPORT
+        //
+        struct {
+            NVME_CDW10_RESERVATION_REPORT       CDW10;
+            NVME_CDW11_RESERVATION_REPORT       CDW11;
+            ULONG   CDW12;
+            ULONG   CDW13;
+            ULONG   CDW14;
+            ULONG   CDW15;
+        } RESERVATIONREPORT;
 
     } u;
 

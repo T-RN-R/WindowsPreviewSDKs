@@ -378,6 +378,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Capture
         Speech = 4,
         FarFieldSpeech = 5,
         UniformSpeech = 6,
+        VoiceTyping = 7,
     };
     enum class MediaStreamType : int32_t
     {

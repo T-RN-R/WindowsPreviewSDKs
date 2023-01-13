@@ -33,6 +33,9 @@
 // ===================================================================================================================
 
 static const UINT DML_TENSOR_DIMENSION_COUNT_MAX = 5;
+#if DML_TARGET_VERSION >= 0x3000
+static const UINT DML_TENSOR_DIMENSION_COUNT_MAX1 = 8;
+#endif
 
 static const UINT DML_TEMPORARY_BUFFER_ALIGNMENT = 256;
 static const UINT DML_PERSISTENT_BUFFER_ALIGNMENT = 256;

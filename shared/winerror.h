@@ -28968,6 +28968,15 @@
 //
 #define ERROR_STAGEFROMUPDATEAGENT_PACKAGE_NOT_APPLICABLE 15668L
 
+//
+// MessageId: ERROR_PACKAGE_NOT_REGISTERED_FOR_USER
+//
+// MessageText:
+//
+// The application cannot be started for the target user.  Please have the user explicitly install this package.
+//
+#define ERROR_PACKAGE_NOT_REGISTERED_FOR_USER 15669L
+
 //////////////////////////
 //                      //
 // AppModel Error Codes //

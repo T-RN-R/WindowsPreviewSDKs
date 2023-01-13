@@ -188,6 +188,23 @@ DECLARE_INTERFACE_IID_(IDesktopWindowContentBridgeInterop, IUnknown, "37642806-F
 };
 
 } // namespace Desktop
+
+
+namespace Experimental {
+
+#undef INTERFACE
+#define INTERFACE IExpCompositionContentInterop
+DECLARE_INTERFACE_IID_(IExpCompositionContentInterop, IUnknown, "82A3A131-AE9E-4FE8-A494-FB0C09D3E686")
+{
+    IFACEMETHOD(GetAutomationHostProvider)(
+        _COM_Outptr_ IUnknown ** hostProvider) PURE;
+
+    IFACEMETHOD(SetAutomationHostProvider)(
+        _In_ IUnknown * hostProvider) PURE;
+};
+
+} // namespace Experimental
+
 } // namespace Composition
 } // namespace UI
 } // namespace Windows

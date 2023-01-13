@@ -30,6 +30,13 @@ extern "C" {
 #if _WIN32_WINNT >= 0x0501 || defined(WINBASE_DECLARE_GET_SYSTEM_WOW64_DIRECTORY)
 
 WINBASEAPI
+BOOLEAN
+WINAPI
+Wow64EnableWow64FsRedirection(
+    _In_ BOOLEAN Wow64FsEnableRedirection
+    );
+
+WINBASEAPI
 BOOL
 WINAPI
 Wow64DisableWow64FsRedirection(
