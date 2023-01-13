@@ -368,7 +368,7 @@
 #define DpDpcData 0x1c
 #define DpcObjectLength 0x20
 
-#define KI_DPC_ALL_FLAGS 0x3f
+#define KI_DPC_ALL_FLAGS 0xbf
 #define KI_DPC_ANY_DPC_ACTIVE 0x10001
 
 //
@@ -854,11 +854,11 @@
 #define PcDeferredReadyListHead 0xb84
 #define PcInterruptCount 0xe80
 #define PcSystemCalls 0xbb0
-#define PcDpcRoutineActive 0xc5a
+#define PcDpcRoutineActive 0xc62
 #define PcDeferredReadyListHead 0xb84
 #define PcSkipTick 0xe98
 #define PcStartCycles 0xec8
-#define PcSpBase 0xc44
+#define PcSpBase 0xc4c
 #define PcCycleCounterHigh 0xef0
 #define ProcessorControlRegisterLength 0x6ae0
 
@@ -931,17 +931,17 @@
 #define PbDpcList 0x690
 #define PbDpcLock 0x698
 #define PbDpcCount 0x6a0
-#define PbDpcStack 0x6c0
-#define PbSpBase 0x6c4
-#define PbMaximumDpcQueueDepth 0x6c8
-#define PbDpcRequestRate 0x6cc
-#define PbMinimumDpcRate 0x6d0
-#define PbDpcRoutineActive 0x6da
-#define PbDpcRequestSummary 0x6dc
-#define PbNormalDpcState 0x6dc
-#define PbDpcLastCount 0x6d4
-#define PbQuantumEnd 0x6d9
-#define PbIdleSchedule 0x6db
+#define PbDpcStack 0x6c8
+#define PbSpBase 0x6cc
+#define PbMaximumDpcQueueDepth 0x6d0
+#define PbDpcRequestRate 0x6d4
+#define PbMinimumDpcRate 0x6d8
+#define PbDpcRoutineActive 0x6e2
+#define PbDpcRequestSummary 0x6e4
+#define PbNormalDpcState 0x6e4
+#define PbDpcLastCount 0x6dc
+#define PbQuantumEnd 0x6e1
+#define PbIdleSchedule 0x6e3
 #define PbDispatcherReadyListHead 0x800
 #define PbInterruptCount 0x900
 #define PbKernelTime 0x904
@@ -1493,7 +1493,7 @@
 #define KI_EXCEPTION_INVALID_OP 0x10000002
 #define KI_EXCEPTION_ACCESS_VIOLATION 0x10000004
 #define KI_EXCEPTION_HARDWARE_ERROR 0x10000005
-#define KI_DPC_INTERRUPT_FLAGS 0x2f
+#define KI_DPC_INTERRUPT_FLAGS 0xaf
 
 //
 // Exception Frame Offset Definitions and Length

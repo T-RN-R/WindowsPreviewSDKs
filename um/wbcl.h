@@ -447,6 +447,14 @@ extern "C" {
 #define SIPAEVENT_VBS_DUMP_USES_AMEROOT    (SIPAEVENTTYPE_VBS + \
                                            0x009)
 
+#if NTDDI_VERSION >= NTDDI_WIN10_VB
+
+#define SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED \
+                                           (SIPAEVENTTYPE_VBS + \
+                                           0x00A)
+
+#endif // NTDDI_VERSION >= NTDDI_WIN10_VB
+
 #if NTDDI_VERSION >= NTDDI_WIN10_RS3
 
 // SIPAEVENTTYPE_KSR

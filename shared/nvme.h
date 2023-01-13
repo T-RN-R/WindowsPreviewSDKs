@@ -1728,8 +1728,6 @@ typedef struct {
 // "Telemetry Host-Initiated Log" structure definition.
 //
 
-#define NVME_TELEMETRY_HOST_INITIATED_LOG_IDENTIFIER    0x7
-
 #define NVME_TELEMETRY_DATA_BLOCK_SIZE                  0x200 // All NVMe Telemetry Data Blocks are 512 bytes in size.
 
 typedef struct _NVME_TELEMETRY_HOST_INITIATED_LOG {
@@ -1746,6 +1744,13 @@ typedef struct _NVME_TELEMETRY_HOST_INITIATED_LOG {
     UCHAR   ReasonIdentifier[128];              // Bytes 384-511
 
 } NVME_TELEMETRY_HOST_INITIATED_LOG, *PNVME_TELEMETRY_HOST_INITIATED_LOG;
+
+//
+// "Telemetry Controller-Initiated Log" structure has the same definition
+// with "Telemetry Host-Initiated Log" structure according to NVMe spec 1.3.
+//
+
+typedef NVME_TELEMETRY_HOST_INITIATED_LOG NVME_TELEMETRY_CONTROLLER_INITIATED_LOG, *PNVME_TELEMETRY_CONTROLLER_INITIATED_LOG;
 
 //
 // Information of log: NVME_LOG_PAGE_FIRMWARE_SLOT_INFO. Size: 512 bytes
