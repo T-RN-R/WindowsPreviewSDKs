@@ -2460,7 +2460,6 @@ typedef struct {
 #define WM_GETDPISCALEDSIZE             0x02E4
 #endif /* WINVER >= 0x0605 */
 
-
 #define WM_CUT                          0x0300
 #define WM_COPY                         0x0301
 #define WM_PASTE                        0x0302
@@ -3614,6 +3613,7 @@ UnregisterHotKey(
 #define EWX_BOOTOPTIONS             0x01000000
 #define EWX_ARSO                    0x04000000
 #define EWX_CHECK_SAFE_FOR_SERVER   0x08000000
+#define EWX_SYSTEM_INITIATED        0x10000000
 
 
 #pragma region Desktop Family
@@ -4877,8 +4877,8 @@ IsZoomed(
 #define SWP_NOREPOSITION    SWP_NOOWNERZORDER
 
 #if(WINVER >= 0x0400)
-#define SWP_DEFERERASE      0x2000
-#define SWP_ASYNCWINDOWPOS  0x4000
+#define SWP_DEFERERASE      0x2000 // same as SWP_DEFERDRAWING
+#define SWP_ASYNCWINDOWPOS  0x4000 // same as SWP_CREATESPB
 #endif /* WINVER >= 0x0400 */
 
 
@@ -5302,7 +5302,6 @@ DefDlgProcW(
 #else
 #define DefDlgProc  DefDlgProcA
 #endif // !UNICODE
-
 
 typedef enum DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
      DCDC_DEFAULT                  = 0x0000,
@@ -8722,11 +8721,11 @@ ScrollWindowEx(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
-#define SW_SCROLLCHILDREN           0x0001  /* Scroll children within *lprcScroll. */
-#define SW_INVALIDATE               0x0002  /* Invalidate after scrolling */
-#define SW_ERASE                    0x0004  /* If SW_INVALIDATE, don't send WM_ERASEBACKGROUND */
+#define SW_SCROLLCHILDREN   0x0001  /* Scroll children within *lprcScroll. */
+#define SW_INVALIDATE       0x0002  /* Invalidate after scrolling */
+#define SW_ERASE            0x0004  /* If SW_INVALIDATE, don't send WM_ERASEBACKGROUND */
 #if(WINVER >= 0x0500)
-#define SW_SMOOTHSCROLL             0x0010  /* Use smooth scrolling */
+#define SW_SMOOTHSCROLL     0x0010  /* Use smooth scrolling */
 #endif /* WINVER >= 0x0500 */
 
 #pragma region Desktop Family
@@ -10786,6 +10785,21 @@ typedef struct tagCURSORSHAPE
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
+#pragma region Desktop or Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)
+#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
+#define CURSOR_CREATION_SCALING_NONE    1
+#define CURSOR_CREATION_SCALING_DEFAULT 2
+
+WINUSERAPI
+UINT
+WINAPI
+SetThreadCursorCreationScaling(
+    UINT cursorDpi);
+#endif /* NTDDI_VERSION >= NTDDI_WIN10_CO */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
+#pragma endregion
+
 #define IMAGE_BITMAP        0
 #define IMAGE_ICON          1
 #define IMAGE_CURSOR        2
@@ -11605,7 +11619,7 @@ DlgDirSelectComboBoxExW(
  */
 #define DS_ABSALIGN         0x01L
 #define DS_SYSMODAL         0x02L
-#define DS_LOCALEDIT        0x20L   /* Edit items get Local storage. */
+#define DS_LOCALEDIT        0x20L   /* 16-bit: Edit items get Local storage. 32-bit and up: meaningless. */
 #define DS_SETFONT          0x40L   /* User specified font for Dlg controls */
 #define DS_MODALFRAME       0x80L   /* Can be combined with WS_CAPTION  */
 #define DS_NOIDLEMSG        0x100L  /* WM_ENTERIDLE message will not be sent */
@@ -12554,6 +12568,10 @@ typedef struct tagTouchPredictionParameters
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_19H1)
 #endif
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
+/* constants for SPI_{GET|SET}WAKEONINPUTDEVICETYPES */
+#endif // NTDDI_VERSION >= NTDDI_WIN10_CO
 
 
 #if(WINVER >= 0x0500)
@@ -13613,7 +13631,6 @@ EnumDisplayMonitors(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
-
 #ifndef NOWINABLE
 
 #pragma region Desktop Family
@@ -14441,6 +14458,7 @@ SetProcessDpiAwarenessContext(
     _In_ DPI_AWARENESS_CONTEXT value);
 
 #endif /* WINVER >= 0x0605 */
+
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_19H1)
 
@@ -15806,7 +15824,7 @@ GetCIMSSM(
 
 #endif /* WINVER >= 0x0601 */
 
-#if(WINVER >= 0x0601)
+#if(WINVER >= 0x0602)
 
 #pragma region Application Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
@@ -15888,7 +15906,7 @@ SetDisplayAutoRotationPreferences(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
-#endif /* WINVER >= 0x0601 */
+#endif /* WINVER >= 0x0602 */
 
 
 #if(WINVER >= 0x0601)
@@ -15924,6 +15942,51 @@ SetProcessRestrictionExemption(
 /*
  * Ink Feedback APIs
  */
+
+#if(WINVER >= 0x0607)
+
+WINUSERAPI
+BOOL
+WINAPI
+SetAdditionalForegroundBoostProcesses(HWND topLevelWindow,
+                                      DWORD processHandleCount,
+                                      _In_reads_(processHandleCount) HANDLE *processHandleArray);
+
+/* TOOLTIP_DISMISS_FLAGS:
+ *
+ * These are flags used with the RegisterForTooltipDismissNotification API.
+ *
+ * TDF_REGISTER -   Used to register tooltip to receive notification of trigger key combination
+ *                  via WM_TOOLTIPDISMISS.
+ *
+ * TDF_UNREGISTER - Used to unregister tooltip from receiving notification of trigger key
+ *                  combination via WM_TOOLTIPDISMISS.
+ */
+
+typedef enum {
+    TDF_REGISTER                = 0x0001,
+    TDF_UNREGISTER              = 0x0002,
+} TOOLTIP_DISMISS_FLAGS;
+
+WINUSERAPI
+BOOL
+WINAPI
+RegisterForTooltipDismissNotification(HWND hWnd,
+                                      TOOLTIP_DISMISS_FLAGS tdFlags);
+
+/*
+ * Support for Accessibility Tooltip Dismissal API:
+ *
+ * This message notifies apps/frameworks that a trigger event has occurred and they should dismiss the
+ * respective tooltip window.
+ * This is used with RegisterForTooltipDismissNotification.
+ *
+ * Note that only kernel mode can originate this message.
+ */
+#define WM_TOOLTIPDISMISS               0x0345
+
+#endif /* WINVER >= 0x0607 */
+
 
 #if _MSC_VER >= 1200
 #pragma warning(pop)

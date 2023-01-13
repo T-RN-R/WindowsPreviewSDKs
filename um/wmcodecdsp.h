@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
+#define __REQUIRED_RPCNDR_H_VERSION__ 501
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -38,7 +38,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -664,6 +664,30 @@ typedef struct CWMAudioGFXAPO CWMAudioGFXAPO;
 #endif /* __cplusplus */
 
 #endif 	/* __CWMAudioGFXAPO_FWD_DEFINED__ */
+
+
+#ifndef __CWMAudioCAPXLFXAPO_FWD_DEFINED__
+#define __CWMAudioCAPXLFXAPO_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class CWMAudioCAPXLFXAPO CWMAudioCAPXLFXAPO;
+#else
+typedef struct CWMAudioCAPXLFXAPO CWMAudioCAPXLFXAPO;
+#endif /* __cplusplus */
+
+#endif 	/* __CWMAudioCAPXLFXAPO_FWD_DEFINED__ */
+
+
+#ifndef __CWMAudioCAPXGFXAPO_FWD_DEFINED__
+#define __CWMAudioCAPXGFXAPO_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class CWMAudioCAPXGFXAPO CWMAudioCAPXGFXAPO;
+#else
+typedef struct CWMAudioCAPXGFXAPO CWMAudioCAPXGFXAPO;
+#endif /* __cplusplus */
+
+#endif 	/* __CWMAudioCAPXGFXAPO_FWD_DEFINED__ */
 
 
 #ifndef __CWMAudioSpdTxDMO_FWD_DEFINED__
@@ -5552,6 +5576,22 @@ EXTERN_C const CLSID CLSID_CWMAudioGFXAPO;
 
 class DECLSPEC_UUID("637c490d-eee3-4c0a-973f-371958802da2")
 CWMAudioGFXAPO;
+#endif
+
+EXTERN_C const CLSID CLSID_CWMAudioCAPXLFXAPO;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("C9453E73-8C5C-4463-9984-AF8BAB2F5447")
+CWMAudioCAPXLFXAPO;
+#endif
+
+EXTERN_C const CLSID CLSID_CWMAudioCAPXGFXAPO;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("13AB3EBD-137E-4903-9D89-60BE8277FD17")
+CWMAudioCAPXGFXAPO;
 #endif
 
 EXTERN_C const CLSID CLSID_CWMAudioSpdTxDMO;

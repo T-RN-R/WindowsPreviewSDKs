@@ -92,9 +92,15 @@ namespace Windows
 
         typedef enum AppExecutionContext AppExecutionContext;
 
+        typedef enum AppInstallerPolicySource AppInstallerPolicySource;
+
+        typedef enum FullTrustLaunchResult FullTrustLaunchResult;
+
         typedef enum LimitedAccessFeatureStatus LimitedAccessFeatureStatus;
 
         typedef enum PackageContentGroupState PackageContentGroupState;
+
+        typedef enum PackageRelationship PackageRelationship;
 
         typedef enum PackageSignatureKind PackageSignatureKind;
 
@@ -120,6 +126,8 @@ namespace Windows
 
         interface IAppInstallerInfo;
 
+        interface IAppInstallerInfo2;
+
         interface IAppInstance;
 
         interface IAppInstanceStatics;
@@ -130,7 +138,15 @@ namespace Windows
 
         interface IEnteredBackgroundEventArgs;
 
+        interface IFindRelatedPackagesOptions;
+
+        interface IFindRelatedPackagesOptionsFactory;
+
+        interface IFullTrustProcessLaunchResult;
+
         interface IFullTrustProcessLauncherStatics;
+
+        interface IFullTrustProcessLauncherStatics2;
 
         interface ILeavingBackgroundEventArgs;
 
@@ -153,6 +169,8 @@ namespace Windows
         interface IPackage7;
 
         interface IPackage8;
+
+        interface IPackage9;
 
         interface IPackageCatalog;
 
@@ -223,6 +241,10 @@ namespace Windows
         runtimeclass DesignMode;
 
         runtimeclass EnteredBackgroundEventArgs;
+
+        runtimeclass FindRelatedPackagesOptions;
+
+        runtimeclass FullTrustProcessLaunchResult;
 
         runtimeclass FullTrustProcessLauncher;
 
@@ -325,6 +347,8 @@ namespace Windows
 
             interface Windows.Foundation.IAsyncOperationWithProgress<Windows.ApplicationModel.PackageCatalogAddResourcePackageResult*, Windows.ApplicationModel.PackageInstallProgress>;
 
+            interface Windows.Foundation.IAsyncOperation<Windows.ApplicationModel.FullTrustProcessLaunchResult*>;
+
             interface Windows.Foundation.IAsyncOperation<Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult*>;
 
             interface Windows.Foundation.IAsyncOperation<Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult*>;
@@ -365,7 +389,7 @@ namespace Windows
 {
     namespace ApplicationModel
     {
-        [contractversion(1.0)]
+        [contractversion(2.0)]
         apicontract FullTrustAppContract
         {
         }
@@ -392,6 +416,22 @@ namespace Windows
             Guest   = 2
         };
 
+        [contract(Windows.Foundation.UniversalApiContract, 13.0)]
+        enum AppInstallerPolicySource
+        {
+            Default = 0,
+            System  = 1
+        };
+
+        [contract(Windows.ApplicationModel.FullTrustAppContract, 2.0)]
+        enum FullTrustLaunchResult
+        {
+            Success      = 0,
+            AccessDenied = 1,
+            FileNotFound = 2,
+            Unknown      = 3
+        };
+
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
         enum LimitedAccessFeatureStatus
         {
@@ -408,6 +448,14 @@ namespace Windows
             Queued    = 1,
             Staging   = 2,
             Staged    = 3
+        };
+
+        [contract(Windows.Foundation.UniversalApiContract, 15.0)]
+        enum PackageRelationship
+        {
+            Dependencies = 0,
+            Dependents   = 1,
+            All          = 2
         };
 
         [contract(Windows.Foundation.UniversalApiContract, 3.0)]
@@ -520,6 +568,28 @@ namespace Windows
             [propget] HRESULT Uri([out] [retval] Windows.Foundation.Uri** value);
         }
 
+        [contract(Windows.Foundation.UniversalApiContract, 13.0)]
+        [exclusiveto(Windows.ApplicationModel.AppInstallerInfo)]
+        [uuid(D20F1388-8256-597C-8511-C84EC50D5E2B)]
+        interface IAppInstallerInfo2 : IInspectable
+        {
+            [propget] HRESULT OnLaunch([out] [retval] boolean* value);
+            [propget] HRESULT HoursBetweenUpdateChecks([out] [retval] UINT32* value);
+            [propget] HRESULT ShowPrompt([out] [retval] boolean* value);
+            [propget] HRESULT UpdateBlocksActivation([out] [retval] boolean* value);
+            [propget] HRESULT AutomaticBackgroundTask([out] [retval] boolean* value);
+            [propget] HRESULT ForceUpdateFromAnyVersion([out] [retval] boolean* value);
+            [propget] HRESULT IsAutoRepairEnabled([out] [retval] boolean* value);
+            [propget] HRESULT Version([out] [retval] Windows.ApplicationModel.PackageVersion* value);
+            [propget] HRESULT LastChecked([out] [retval] Windows.Foundation.DateTime* value);
+            [propget] HRESULT PausedUntil([out] [retval] Windows.Foundation.IReference<Windows.Foundation.DateTime>** value);
+            [propget] HRESULT UpdateUris([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.Foundation.Uri*>** value);
+            [propget] HRESULT RepairUris([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.Foundation.Uri*>** value);
+            [propget] HRESULT DependencyPackageUris([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.Foundation.Uri*>** value);
+            [propget] HRESULT OptionalPackageUris([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.Foundation.Uri*>** value);
+            [propget] HRESULT PolicySource([out] [retval] Windows.ApplicationModel.AppInstallerPolicySource* value);
+        }
+
         [contract(Windows.Foundation.UniversalApiContract, 6.0)]
         [exclusiveto(Windows.ApplicationModel.AppInstance)]
         [uuid(675F2B47-F25F-4532-9FD6-3633E0634D01)]
@@ -565,6 +635,40 @@ namespace Windows
             HRESULT GetDeferral([out] [retval] Windows.Foundation.Deferral** value);
         }
 
+        [contract(Windows.Foundation.UniversalApiContract, 15.0)]
+        [exclusiveto(Windows.ApplicationModel.FindRelatedPackagesOptions)]
+        [uuid(41DD7EEA-B335-521F-B96C-5EA07F5B7329)]
+        interface IFindRelatedPackagesOptions : IInspectable
+        {
+            [propget] HRESULT Relationship([out] [retval] Windows.ApplicationModel.PackageRelationship* value);
+            [propput] HRESULT Relationship([in] Windows.ApplicationModel.PackageRelationship value);
+            [propget] HRESULT IncludeFrameworks([out] [retval] boolean* value);
+            [propput] HRESULT IncludeFrameworks([in] boolean value);
+            [propget] HRESULT IncludeHostRuntimes([out] [retval] boolean* value);
+            [propput] HRESULT IncludeHostRuntimes([in] boolean value);
+            [propget] HRESULT IncludeOptionals([out] [retval] boolean* value);
+            [propput] HRESULT IncludeOptionals([in] boolean value);
+            [propget] HRESULT IncludeResources([out] [retval] boolean* value);
+            [propput] HRESULT IncludeResources([in] boolean value);
+        }
+
+        [contract(Windows.Foundation.UniversalApiContract, 15.0)]
+        [exclusiveto(Windows.ApplicationModel.FindRelatedPackagesOptions)]
+        [uuid(D7D17254-A4FD-55C4-98CF-F2710B7D8BE2)]
+        interface IFindRelatedPackagesOptionsFactory : IInspectable
+        {
+            HRESULT CreateInstance([in] Windows.ApplicationModel.PackageRelationship Relationship, [out] [retval] Windows.ApplicationModel.FindRelatedPackagesOptions** value);
+        }
+
+        [contract(Windows.ApplicationModel.FullTrustAppContract, 2.0)]
+        [exclusiveto(Windows.ApplicationModel.FullTrustProcessLaunchResult)]
+        [uuid(8917D888-EDFB-515F-8E22-5EBCEB69DFD9)]
+        interface IFullTrustProcessLaunchResult : IInspectable
+        {
+            [propget] HRESULT LaunchResult([out] [retval] Windows.ApplicationModel.FullTrustLaunchResult* value);
+            [propget] HRESULT ExtendedError([out] [retval] HRESULT* value);
+        }
+
         [contract(Windows.ApplicationModel.FullTrustAppContract, 1.0)]
         [exclusiveto(Windows.ApplicationModel.FullTrustProcessLauncher)]
         [uuid(D784837F-1100-3C6B-A455-F6262CC331B6)]
@@ -574,6 +678,15 @@ namespace Windows
             [overload("LaunchFullTrustProcessForCurrentAppAsync")] HRESULT LaunchFullTrustProcessForCurrentAppWithParametersAsync([in] HSTRING parameterGroupId, [out] [retval] Windows.Foundation.IAsyncAction** asyncAction);
             [overload("LaunchFullTrustProcessForAppAsync")] HRESULT LaunchFullTrustProcessForAppAsync([in] HSTRING fullTrustPackageRelativeAppId, [out] [retval] Windows.Foundation.IAsyncAction** asyncAction);
             [overload("LaunchFullTrustProcessForAppAsync")] HRESULT LaunchFullTrustProcessForAppWithParametersAsync([in] HSTRING fullTrustPackageRelativeAppId, [in] HSTRING parameterGroupId, [out] [retval] Windows.Foundation.IAsyncAction** asyncAction);
+        }
+
+        [contract(Windows.ApplicationModel.FullTrustAppContract, 2.0)]
+        [exclusiveto(Windows.ApplicationModel.FullTrustProcessLauncher)]
+        [uuid(8B8ED72F-B65C-56CF-A1A7-2BF77CBC6EA8)]
+        interface IFullTrustProcessLauncherStatics2 : IInspectable
+        {
+            HRESULT LaunchFullTrustProcessForCurrentAppWithArgumentsAsync([in] HSTRING commandLine, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.ApplicationModel.FullTrustProcessLaunchResult*>** operation);
+            HRESULT LaunchFullTrustProcessForAppWithArgumentsAsync([in] HSTRING fullTrustPackageRelativeAppId, [in] HSTRING commandLine, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.ApplicationModel.FullTrustProcessLaunchResult*>** operation);
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 3.0)]
@@ -693,6 +806,13 @@ namespace Windows
             HRESULT GetLogoAsRandomAccessStreamReference([in] Windows.Foundation.Size size, [out] [retval] Windows.Storage.Streams.RandomAccessStreamReference** result);
             HRESULT GetAppListEntries([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.Core.AppListEntry*>** result);
             [propget] HRESULT IsStub([out] [retval] boolean* value);
+        }
+
+        [contract(Windows.Foundation.UniversalApiContract, 15.0)]
+        [uuid(59891E1C-FBFA-5194-85DA-F9A65A755DB7)]
+        interface IPackage9 : IInspectable
+        {
+            HRESULT FindRelatedPackages([in] Windows.ApplicationModel.FindRelatedPackagesOptions* options, [out] [retval] Windows.Foundation.Collections.IVector<Windows.ApplicationModel.Package*>** result);
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 3.0)]
@@ -1021,6 +1141,7 @@ namespace Windows
         runtimeclass AppInstallerInfo
         {
             [default] interface Windows.ApplicationModel.IAppInstallerInfo;
+            [contract(Windows.Foundation.UniversalApiContract, 13.0)] interface Windows.ApplicationModel.IAppInstallerInfo2;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 6.0)]
@@ -1048,9 +1169,26 @@ namespace Windows
             [default] interface Windows.ApplicationModel.IEnteredBackgroundEventArgs;
         }
 
+        [activatable(Windows.ApplicationModel.IFindRelatedPackagesOptionsFactory, Windows.Foundation.UniversalApiContract, 15.0)]
+        [contract(Windows.Foundation.UniversalApiContract, 15.0)]
+        [marshaling_behavior(agile)]
+        [threading(both)]
+        runtimeclass FindRelatedPackagesOptions
+        {
+            [default] interface Windows.ApplicationModel.IFindRelatedPackagesOptions;
+        }
+
+        [contract(Windows.ApplicationModel.FullTrustAppContract, 2.0)]
+        [marshaling_behavior(agile)]
+        runtimeclass FullTrustProcessLaunchResult
+        {
+            [default] interface Windows.ApplicationModel.IFullTrustProcessLaunchResult;
+        }
+
         [contract(Windows.ApplicationModel.FullTrustAppContract, 1.0)]
         [marshaling_behavior(agile)]
         [static(Windows.ApplicationModel.IFullTrustProcessLauncherStatics, Windows.ApplicationModel.FullTrustAppContract, 1.0)]
+        [static(Windows.ApplicationModel.IFullTrustProcessLauncherStatics2, Windows.ApplicationModel.FullTrustAppContract, 2.0)]
         [threading(both)]
         runtimeclass FullTrustProcessLauncher
         {
@@ -1093,6 +1231,7 @@ namespace Windows
             [contract(Windows.Foundation.UniversalApiContract, 7.0)] interface Windows.ApplicationModel.IPackage6;
             [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.ApplicationModel.IPackage7;
             [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.ApplicationModel.IPackage8;
+            [contract(Windows.Foundation.UniversalApiContract, 15.0)] interface Windows.ApplicationModel.IPackage9;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 3.0)]

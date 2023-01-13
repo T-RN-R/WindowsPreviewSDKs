@@ -3,7 +3,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
@@ -38,7 +38,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -611,6 +611,7 @@ STDAPI FindMimeFromData(
 #define     FMFD_RESPECTTEXTPLAIN   0x00000010 
 #define     FMFD_RETURNUPDATEDIMGMIMES   0x00000020
 #define     FMFD_RESERVED_1   0x00000040
+#define     FMFD_RESERVED_2   0x00000080
 #define     UAS_EXACTLEGACY   0x00001000 
 STDAPI ObtainUserAgentString(                           
                                          DWORD dwOption, 
@@ -1570,7 +1571,8 @@ enum tagBINDSTATUS
         BINDSTATUS_RESERVED_11	= ( BINDSTATUS_RESERVED_10 + 1 ) ,
         BINDSTATUS_RESERVED_12	= ( BINDSTATUS_RESERVED_11 + 1 ) ,
         BINDSTATUS_RESERVED_13	= ( BINDSTATUS_RESERVED_12 + 1 ) ,
-        BINDSTATUS_LAST_PRIVATE	= BINDSTATUS_RESERVED_13
+        BINDSTATUS_RESERVED_14	= ( BINDSTATUS_RESERVED_13 + 1 ) ,
+        BINDSTATUS_LAST_PRIVATE	= BINDSTATUS_RESERVED_14
     } 	BINDSTATUS;
 
 

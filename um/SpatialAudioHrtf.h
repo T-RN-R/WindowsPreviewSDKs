@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
+#define __REQUIRED_RPCNDR_H_VERSION__ 501
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -38,7 +38,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -156,6 +156,22 @@ typedef struct SpatialAudioHrtfActivationParams
     SpatialAudioHrtfEnvironmentType *Environment;
     SpatialAudioHrtfOrientation *Orientation;
     } 	SpatialAudioHrtfActivationParams;
+
+typedef struct SpatialAudioHrtfActivationParams2
+    {
+    const WAVEFORMATEX *ObjectFormat;
+    AudioObjectType StaticObjectTypeMask;
+    UINT32 MinDynamicObjectCount;
+    UINT32 MaxDynamicObjectCount;
+    AUDIO_STREAM_CATEGORY Category;
+    HANDLE EventHandle;
+    ISpatialAudioObjectRenderStreamNotify *NotifyObject;
+    SpatialAudioHrtfDistanceDecay *DistanceDecay;
+    SpatialAudioHrtfDirectivityUnion *Directivity;
+    SpatialAudioHrtfEnvironmentType *Environment;
+    SpatialAudioHrtfOrientation *Orientation;
+    SPATIAL_AUDIO_STREAM_OPTIONS Options;
+    } 	SpatialAudioHrtfActivationParams2;
 
 
 #pragma pack(pop)

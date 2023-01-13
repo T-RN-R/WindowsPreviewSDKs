@@ -27,7 +27,7 @@ Abstract:
     
     Finally, the SCM bus driver is responsible for enumerating all physical and logical persistent memory
     devices on the system. The IOCTLs and structures related to it have "SCM_BUS" in their names.
-    
+
 
 --*/
 
@@ -127,6 +127,7 @@ DEFINE_GUID(GUID_SCM_PD_PASSTHROUGH_INVDIMM, 0x4309AC30, 0x0D11, 0x11E4, 0x91, 0
 // This IOCTL does not require any input nor produce any output data.
 //
 #define IOCTL_SCM_BUS_RUNTIME_FW_ACTIVATE           CTL_CODE(IOCTL_SCMBUS_BASE, SCMBUS_FUNCTION(0x04), METHOD_BUFFERED, FILE_WRITE_ACCESS)
+#define IOCTL_SCM_BUS_REFRESH_NAMESPACE             CTL_CODE(IOCTL_SCMBUS_BASE, SCMBUS_FUNCTION(0x06), METHOD_BUFFERED, FILE_ANY_ACCESS)
 
 
 //
@@ -473,14 +474,14 @@ typedef enum _SCM_BUS_PROPERTY_ID {
     ScmBusProperty_RuntimeFwActivationInfo = 0,
 
     //
-    // Special Purpose Memory Information.
+    // Dedicated Memory Information.
     //
-    ScmBusProperty_SpecialPurposeMemoryInfo = 1,
+    ScmBusProperty_DedicatedMemoryInfo = 1,
 
     //
-    // Activate/Deactivate the Special Purpose Memory.
+    // Activate/Deactivate the Dedicated Memory.
     //
-    ScmBusProperty_SpecialPurposeMemoryState = 2,
+    ScmBusProperty_DedicatedMemoryState = 2,
 
     ScmBusProperty_Max
 } SCM_BUS_PROPERTY_ID, *PSCM_BUS_PROPERTY_ID;
@@ -608,29 +609,29 @@ typedef struct _SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
 } SCM_BUS_RUNTIME_FW_ACTIVATION_INFO, *PSCM_BUS_RUNTIME_FW_ACTIVATION_INFO;
 
 //
-// Output buffer for ScmBusProperty_SpecialPurposeMemoryInfo
+// Output buffer for ScmBusProperty_DedicatedMemoryInfo
 //
-typedef struct _SCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO {
+typedef struct _SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
 
     //
-    // The special purpose device GUID.
+    // The dedicated memory device GUID.
     //
     GUID DeviceGuid;
 
     //
-    // The special purpose device number.
+    // The dedicated memory device number.
     //
     ULONG DeviceNumber;
 
     struct {
 
         //
-        // Indicates if the special purpose memory is created by registry settings.
+        // Indicates if the dedicated memory is created by registry settings.
         //
-        ULONG ForcedSpecialPurposeMemory : 1;
+        ULONG ForcedByRegistry : 1;
 
         //
-        // Indicates if the special purpose memory is initialized.
+        // Indicates if the dedicated memory is initialized.
         //
         ULONG Initialized : 1;
 
@@ -638,13 +639,13 @@ typedef struct _SCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO {
     } Flags;
 
     //
-    // The special purpose device size in bytes.
+    // The dedicated memory device size in bytes.
     //
     ULONGLONG DeviceSize;
 
-} SCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO, *PSCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO;
+} SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO, *PSCM_BUS_DEDICATED_MEMORY_DEVICE_INFO;
 
-typedef struct _SCM_BUS_SPECIAL_PURPOSE_DEVICES_INFO {
+typedef struct _SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
 
     //
     // Sizeof() of this structure serves as the version.
@@ -663,11 +664,11 @@ typedef struct _SCM_BUS_SPECIAL_PURPOSE_DEVICES_INFO {
     ULONG DeviceCount;
 
     //
-    // Array of special purpose device infos.
+    // Array of dedicated memory devices info.
     //
-    SCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO Devices[ANYSIZE_ARRAY];
+    SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO Devices[ANYSIZE_ARRAY];
 
-} SCM_BUS_SPECIAL_PURPOSE_DEVICES_INFO, *PSCM_BUS_SPECIAL_PURPOSE_DEVICES_INFO;
+} SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO, *PSCM_BUS_DEDICATED_MEMORY_DEVICES_INFO;
 
 
 //
@@ -706,16 +707,16 @@ typedef struct _SCM_BUS_PROPERTY_SET {
 } SCM_BUS_PROPERTY_SET, *PSCM_BUS_PROPERTY_SET;
 
 //
-// Input AdditionalParameters for ScmBusProperty_SpecialPurposeMemoryState
+// Input AdditionalParameters for ScmBusProperty_DedicatedMemoryState
 //
 
-typedef struct _SCM_BUS_SPECIAL_PURPOSE_MEMORY_STATE {
+typedef struct _SCM_BUS_DEDICATED_MEMORY_STATE {
 
     //
-    // Special Purpose Memory state (Deactivate - FALSE, Activate - TRUE).
+    // Dedicated Memory state (Deactivate - FALSE, Activate - TRUE).
     //
     BOOLEAN ActivateState;
-} SCM_BUS_SPECIAL_PURPOSE_MEMORY_STATE, *PSCM_BUS_SPECIAL_PURPOSE_MEMORY_STATE;
+} SCM_BUS_DEDICATED_MEMORY_STATE, *PSCM_BUS_DEDICATED_MEMORY_STATE;
 
 
 //

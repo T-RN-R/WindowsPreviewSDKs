@@ -895,6 +895,7 @@ typedef enum _SRBEXDATATYPE {
     SrbExDataTypePower,
     SrbExDataTypePnP,
     SrbExDataTypeIoInfo = 0x80,
+    SrbExDataTypePassthroughDirect = 0xa0,
     SrbExDataTypeMSReservedStart = 0xf0000000,
     SrbExDataTypeReserved = 0xffffffff
 } SRBEXDATATYPE, *PSRBEXDATATYPE;
@@ -926,6 +927,7 @@ typedef struct SRB_ALIGN _SRBEX_DATA_BIDIRECTIONAL {
     _Field_size_bytes_full_(DataInTransferLength)
     PVOID POINTER_ALIGN DataInBuffer;
 } SRBEX_DATA_BIDIRECTIONAL, *PSRBEX_DATA_BIDIRECTIONAL;
+
 
 // SRB_FUNCTION_EXECUTE_SCSI for up to 16 byte CDBs
 #define SRBEX_DATA_SCSI_CDB16_LENGTH ((20 * sizeof(UCHAR)) + sizeof(ULONG) + sizeof(PVOID))
@@ -1068,7 +1070,7 @@ typedef struct SRB_ALIGN _SRBEX_DATA_IO_INFO {
 } SRBEX_DATA_IO_INFO, *PSRBEX_DATA_IO_INFO;
 
 // Use in NVMe command requests to provide additional info about the IO.
-#define SRBEX_DATA_NVME_COMMAND_LENGTH ((14 * sizeof(ULONG)) + (3 * sizeof(ULONGLONG)) + (2 * sizeof(USHORT)))
+#define SRBEX_DATA_NVME_COMMAND_LENGTH ((13 * sizeof(ULONG)) + (3 * sizeof(ULONGLONG)) + (2 * sizeof(USHORT)))
 
 typedef enum {
     SRBEX_DATA_NVME_COMMAND_TYPE_NVM     = 0,
@@ -1120,6 +1122,9 @@ typedef struct SRB_ALIGN _SRBEX_DATA_NVME_COMMAND {
     
     ULONG QID;                  // User choice of Queue ID, if unspecified it should be 0xFFFFFFFF
     ULONG CommandTag;           // Unique identifier for the command
+
+    ULONG CQEntryDW0;           // Completion queue entry DW0.
+
 } SRBEX_DATA_NVME_COMMAND, *PSRBEX_DATA_NVME_COMMAND;
 
 

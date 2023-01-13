@@ -695,7 +695,7 @@ typedef enum {
     NVME_FEATURE_READONLY_WRITETHROUGH_MODE             = 0xC2, // This is from OCP NVMe Cloud SSD spec.
     NVME_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS  = 0xC3, // This is from OCP NVMe Cloud SSD spec.
     NVME_FEATURE_ENABLE_IEEE1667_SILO                   = 0xC4, // This is from OCP NVMe Cloud SSD spec.
-    NVME_FEATURE_PLP_HEALTH_MONITOR                     = 0Xc5, // This is from OCP NVMe Cloud SSD spec.
+    NVME_FEATURE_PLP_HEALTH_MONITOR                     = 0xC5, // This is from OCP NVMe Cloud SSD spec.
 
 } NVME_FEATURES;
 
@@ -1003,7 +1003,8 @@ typedef struct {
         UCHAR   MultiPCIePorts      : 1;
         UCHAR   MultiControllers    : 1;
         UCHAR   SRIOV               : 1;
-        UCHAR   Reserved            : 5;
+        UCHAR   ANAR                : 1;
+        UCHAR   Reserved            : 4;
     } CMIC;                     // byte 76.     O - Controller Multi-Path I/O and Namespace Sharing Capabilities (CMIC)
 
     UCHAR   MDTS;               // byte 77.     M - Maximum Data Transfer Size (MDTS)
@@ -1344,6 +1345,16 @@ typedef enum {
 } NVME_IDENTIFIER_TYPE_LENGTH;
 
 //
+// Output of NVME_IDENTIFY_CNS_ACTIVE_NAMESPACES (0x02)
+//
+
+typedef struct {
+
+    ULONG   NSID[1024];  // List of Namespace ID upto 1024 entries
+
+} NVME_ACTIVE_NAMESPACE_ID_LIST, *PNVME_ACTIVE_NAMESPACE_ID_LIST;
+
+//
 // Output of NVME_IDENTIFY_CNS_DESCRIPTOR_NAMESPACE (0x03)
 //
 
@@ -1532,6 +1543,13 @@ DEFINE_GUID(GUID_WCS_DEVICE_SMART_ATTRIBUTES, 0x2810AFC5, 0xBFEA, 0xA4F2, 0x9C, 
 //
 #define GUID_WCS_DEVICE_ERROR_RECOVERYGuid { 0x2131D944, 0x30FE, 0xAE34, {0xAB, 0x4D, 0xFD, 0x3D, 0xBA, 0x83, 0x19, 0x5A} }
 DEFINE_GUID(GUID_WCS_DEVICE_ERROR_RECOVERY, 0x2131D944, 0x30FE, 0xAE34, 0xAB, 0x4D, 0xFD, 0x3D, 0xBA, 0x83, 0x19, 0x5A);
+
+//
+// MFND child controller event Log Page GUID is defined in spec as byte stream: 0x9C669D257FD944A5BF35A5F098BCCE18
+// which is converted to GUID format as: {98BCCE18-A5F0-BF35-A544-D97F259D669C}
+//
+#define GUID_MFND_CHILD_CONTROLLER_EVENT_LOG_PAGEGuid { 0x98BCCE18, 0xA5F0, 0xBF35, {0xA5, 0x44, 0xD9, 0x7F, 0x25, 0x9D, 0x66, 0x9C} }
+DEFINE_GUID(GUID_MFND_CHILD_CONTROLLER_EVENT_LOG_PAGE, 0x98BCCE18, 0xA5F0, 0xBF35, 0xA5, 0x44, 0xD9, 0x7F, 0x25, 0x9D, 0x66, 0x9C);
 
 //
 // Notice Status: NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC

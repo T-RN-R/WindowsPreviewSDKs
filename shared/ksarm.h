@@ -66,6 +66,13 @@
 
 
 //
+// Apc Callback Data Structure Offset Definitions
+//
+
+#define AcdContextRecord 0x4
+#define KAPC_CALLBACK_DATA_LENGTH 0x10
+
+//
 // Bug Check Code Definitions
 //
 
@@ -475,9 +482,9 @@
 #define PfBuffer 0x1c
 #define PfSegment 0x20
 #define PfAffinity 0x24
-#define PfSource 0x34
-#define PfStarted 0x36
-#define ProfileObjectLength 0x38
+#define PfSource 0x40
+#define PfStarted 0x42
+#define ProfileObjectLength 0x44
 
 //
 // Queue Object Structure Offset Definitions
@@ -742,6 +749,8 @@
 #define CxxLegacyLength 0xc
 #define CxxXStateOffset 0x10
 #define CxxXStateLength 0x14
+#define CxxKernelCetOffset 0x18
+#define CxxKernelCetLength 0x1c
 
 //
 // KAFFINITY_EX offsets
@@ -749,11 +758,17 @@
 
 #define AfCount 0x0
 #define AfBitmap 0x8
-#define PbEntropyCount 0x97c
-#define PbEntropyBuffer 0x980
+#define PbEntropyCount 0x980
+#define PbEntropyBuffer 0x984
 #define KENTROPY_TIMING_INTERRUPTS_PER_BUFFER 0x400
 #define KENTROPY_TIMING_BUFFER_MASK 0x7ff
 #define KENTROPY_TIMING_ANALYSIS 0x0
+
+//
+// Priority state definitions
+//
+
+#define KPRIORITY_STATE_PRIORITY_BITMASK 0x7f
 
 //
 // Special Register Structure Offset Definition
@@ -863,7 +878,7 @@
 #define PcStartCycles 0xec8
 #define PcSpBase 0xc4c
 #define PcCycleCounterHigh 0xef0
-#define ProcessorControlRegisterLength 0x7060
+#define ProcessorControlRegisterLength 0x70e0
 
 //
 // Defines for user shared data
@@ -905,8 +920,8 @@
 #define PbMinorVersion 0x40c
 #define PbMajorVersion 0x40e
 #define PbBuildType 0x410
-#define PbCoresPerPhysicalProcessor 0x412
-#define PbLogicalProcessorsPerCore 0x413
+#define PbCoresPerPhysicalProcessor 0x420
+#define PbLogicalProcessorsPerCore 0x424
 #define PbPriorityState 0x1c
 #define PbLockQueue 0x480
 #define PbPPLookasideList 0x580
@@ -915,7 +930,7 @@
 #define PbPacketBarrier 0x600
 #define PbDeferredReadyListHead 0x604
 #define PbLookasideIrpFloat 0x650
-#define PbRequestMailbox 0x6680
+#define PbRequestMailbox 0x6700
 #define PbMailbox 0x680
 #define PbDpcGate 0x700
 #define PbWaitListHead 0x780
@@ -953,11 +968,11 @@
 #define PbInterruptTime 0x910
 #define PbAdjustDpcThreshold 0x914
 #define PbStartCycles 0x948
-#define PbPageColor 0xab4
-#define PbNodeColor 0xab8
-#define PbNodeShiftedColor 0xabc
-#define PbSecondaryColorMask 0xac0
-#define PbCycleTime 0xac8
+#define PbPageColor 0xabc
+#define PbNodeColor 0xac0
+#define PbNodeShiftedColor 0xac4
+#define PbSecondaryColorMask 0xac8
+#define PbCycleTime 0xad0
 #define PbFastReadNoWait 0x638
 #define PbFastReadWait 0x63c
 #define PbFastReadNotPossible 0x640

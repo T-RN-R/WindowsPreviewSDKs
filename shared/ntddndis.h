@@ -25,7 +25,9 @@ Notes:
 
         Version     First available in
         ------------------------------------------------------------------
-        685         Windows 10, iron release
+        687         Windows 11, nickel release
+        686         Windows 11, cobalt release
+        685         Windows 10, iron release / Windows Server 2022
         684         Windows 10, vibranium release
         683         Windows 10, version 1903
         682         Windows 10, version 1809
@@ -698,6 +700,10 @@ typedef struct _NDIS_PCI_DEVICE_CUSTOM_PROPERTIES
 #define OID_WWAN_NETWORK_PARAMS                     0x0e01014d
 #endif // ((NTDDI_VERSION >= NTDDI_WIN10_VB) || NDIS_SUPPORT_NDIS684)
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
+#define OID_WWAN_UE_POLICY                          0x0e01014e
+#endif
+
 //
 //  Required statistics
 //
@@ -836,6 +842,18 @@ typedef struct _NDIS_PCI_DEVICE_CUSTOM_PROPERTIES
 #define OID_GEN_CO_DEVICE_PROFILE               OID_GEN_DEVICE_PROFILE
 #define OID_GEN_CO_BYTES_XMIT_OUTSTANDING       0x00020221
 
+
+#if (NDIS_SUPPORT_NDIS686)
+
+//
+// Optional OIDs to handle network multiple PF feature.
+//
+#define OID_KDNET_ENUMERATE_PFS                 0x00020222
+#define OID_KDNET_ADD_PF                        0x00020223
+#define OID_KDNET_REMOVE_PF                     0x00020224
+#define OID_KDNET_QUERY_PF_INFORMATION          0x00020225
+
+#endif // (NDIS_SUPPORT_NDIS686)
 
 //
 // 802.3 Objects (Ethernet)
@@ -10727,7 +10745,7 @@ typedef struct _NDIS_QOS_SQ_STATS
     ULONG               Flags;
     NDIS_QOS_SQ_ID      SqId;
     NDIS_QOS_SQ_TYPE    SqType;
-    UINT64              BytesTransmitted[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
+    UINT64              BytesTransmitted[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
     UINT64              PktsTransmitted[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
 } NDIS_QOS_SQ_STATS, *PNDIS_QOS_SQ_STATS;
 
@@ -10799,6 +10817,7 @@ typedef struct _NDIS_HARDWARE_CROSSTIMESTAMP
 
 
 #endif //((NTDDI_VERSION >= NTDDI_WIN10_RS5) || NDIS_SUPPORT_NDIS682)
+
 
 
 #ifdef __cplusplus

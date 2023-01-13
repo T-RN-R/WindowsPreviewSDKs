@@ -93,7 +93,7 @@ DEFINE_GUID(EXTINT_NOTIFY_TYPE_GUID,
             0x17, 0x98, 0x2e, 0x07, 0x84, 0x70);
 
 /* 0033f803-2e70-4e88-992c-6f26daf3db7a */
-DEFINE_GUID(DEVICE_DRIVER_NOTIFY_TYPE_GUID, 
+DEFINE_GUID(DEVICE_DRIVER_NOTIFY_TYPE_GUID,
             0x0033f803, 0x2e70, 0x4e88, 0x99, 0x2c,
             0x6f, 0x26, 0xda, 0xf3, 0xdb, 0x7a);
 
@@ -102,11 +102,13 @@ DEFINE_GUID(CMCI_NOTIFY_TYPE_GUID,
             0x919448b2, 0x3739, 0x4b7f, 0xa8, 0xf1,
             0xe0, 0x06, 0x28, 0x05, 0xc2, 0xa3);
 
+//------------------------------------------- Summary Error Section type GUIDs
+
 /* 990b31e9-541a-4db0-a42f-837d344f6923 */
-DEFINE_GUID(PCIE_DEVICE_ERROR_SUMMARY_NOTIFY_TYPE_GUID,
+DEFINE_GUID(WHEA_DEVICE_ERROR_SUMMARY_GUID,
             0x990b31e9, 0x541a, 0x4db0, 0xa4, 0x2f,
             0x83, 0x7d, 0x34, 0x4f, 0x69, 0x23);
-
+            
 //------------------------------------------- Standard Error Section type GUIDs
 
 /* 9876ccad-47b4-4bdb-b65e-16f193c4f3db */
@@ -276,6 +278,22 @@ DEFINE_GUID(PCIE_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID,
             0xe96eca99,
             0x53e2, 0x4f52,
             0x9b, 0xe7, 0xd2, 0xdb, 0xe9, 0x50, 0x8e, 0xd0);
+
+/* 0e36c93e-ca15-4a83-ba8a-cbe80f7f0017 */
+DEFINE_GUID(MEMORY_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID,
+            0x0e36c93e,
+            0xca15, 0x4a83,
+            0xba, 0x8a, 0xcb, 0xe8, 0x0f, 0x7f, 0x00, 0x17);
+
+/* f5fe48a6-84ce-4c1e-aa64-20c9a53099f1 */
+DEFINE_GUID(SEA_SECTION_GUID,
+            0xf5fe48a6, 0x84ce, 0x4c1e, 0xaa, 0x64,
+            0x20, 0xc9, 0xa5, 0x30, 0x99, 0xf1);
+
+/* f2a4a152-9c6d-4020-aecf-7695b389251b */
+DEFINE_GUID(SEI_SECTION_GUID,
+            0xf2a4a152, 0x9c6d, 0x4020, 0xae, 0xcf,
+            0x76, 0x95, 0xb3, 0x89, 0x25, 0x1b);
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion

@@ -85,6 +85,7 @@ DECLARE_INTERFACE_IID_(ICompositionGraphicsDeviceInterop, IUnknown, "A116FF71-F8
 #define INTERFACE ICompositorInterop
 DECLARE_INTERFACE_IID_(ICompositorInterop, IUnknown, "25297D5C-3AD4-4C9C-B5CF-E36A38512330")
 {
+
     IFACEMETHOD(CreateCompositionSurfaceForHandle)(
         _In_ HANDLE swapChain,
         _COM_Outptr_ ICompositionSurface ** result
@@ -99,15 +100,6 @@ DECLARE_INTERFACE_IID_(ICompositorInterop, IUnknown, "25297D5C-3AD4-4C9C-B5CF-E3
         _In_ IUnknown * renderingDevice,
         _COM_Outptr_ ICompositionGraphicsDevice ** result
         ) PURE;
-};
-
-
-#undef INTERFACE
-#define INTERFACE ISwapChainInterop
-DECLARE_INTERFACE_IID_(ISwapChainInterop, IUnknown, "26f496a0-7f38-45fb-88f7-faaabe67dd59")
-{
-    IFACEMETHOD(SetSwapChain)(
-        _In_ IUnknown * swapChain) PURE;
 };
 
 #pragma region Desktop Family
@@ -130,10 +122,10 @@ DECLARE_INTERFACE_IID_(IVisualInteractionSourceInterop, IUnknown, "11F62CD1-2F9D
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
+
 namespace Desktop {
 
-    typedef interface IDesktopWindowTarget IDesktopWindowTarget;
-
+typedef interface IDesktopWindowTarget IDesktopWindowTarget;
 
 #undef INTERFACE
 #define INTERFACE ICompositionCapabilitiesInteropFactory
@@ -144,7 +136,6 @@ DECLARE_INTERFACE_IID_(ICompositionCapabilitiesInteropFactory, IInspectable, "2C
         _COM_Outptr_ ICompositionCapabilities ** result
         ) PURE;
 };
-
 
 #undef INTERFACE
 #define INTERFACE ICompositorDesktopInterop
@@ -171,8 +162,8 @@ DECLARE_INTERFACE_IID_(IDesktopWindowTargetInterop, IUnknown, "35DBF59E-E3F9-45B
         ) PURE;
 };
 
-
 } // namespace Desktop
+
 
 } // namespace Composition
 } // namespace UI

@@ -1,289 +1,291 @@
-// C++/WinRT v2.0.200609.3
+// C++/WinRT v2.0.210707.1
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+#pragma once
 #ifndef WINRT_Windows_Foundation_Collections_H
 #define WINRT_Windows_Foundation_Collections_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200609.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.210707.1"), "Mismatched C++/WinRT headers.");
+#define CPPWINRT_VERSION "2.0.210707.1"
 #include "winrt/Windows.Foundation.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 namespace winrt::impl
 {
-    template <typename D, typename T> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterator<T>) consume_Windows_Foundation_Collections_IIterable<D, T>::First() const
+    template <typename D, typename T> WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IIterator<T>) consume_Windows_Foundation_Collections_IIterable<D, T>::First() const
     {
         void* winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IIterable<T>)->First(&winrt_impl_result));
-        return Windows::Foundation::Collections::IIterator<T>{ winrt_impl_result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IIterable<T>)->First(&winrt_impl_result));
+        return winrt::Windows::Foundation::Collections::IIterator<T>{ winrt_impl_result, take_ownership_from_abi };
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(T) consume_Windows_Foundation_Collections_IIterator<D, T>::Current() const
     {
         T winrt_impl_result{ empty_value<T>() };
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IIterator<T>)->get_Current(put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IIterator<T>)->get_Current(put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_Collections_IIterator<D, T>::HasCurrent() const
     {
         bool winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IIterator<T>)->get_HasCurrent(&winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IIterator<T>)->get_HasCurrent(&winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_Collections_IIterator<D, T>::MoveNext() const
     {
         bool winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IIterator<T>)->MoveNext(&winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IIterator<T>)->MoveNext(&winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_Collections_IIterator<D, T>::GetMany(array_view<T> items) const
     {
         uint32_t winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IIterator<T>)->GetMany(items.size(), put_abi(items), &winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IIterator<T>)->GetMany(items.size(), put_abi(items), &winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(K) consume_Windows_Foundation_Collections_IKeyValuePair<D, K, V>::Key() const
     {
         K winrt_impl_result{ empty_value<K>() };
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IKeyValuePair<K, V>)->get_Key(put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IKeyValuePair<K, V>)->get_Key(put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(V) consume_Windows_Foundation_Collections_IKeyValuePair<D, K, V>::Value() const
     {
         V winrt_impl_result{ empty_value<V>() };
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IKeyValuePair<K, V>)->get_Value(put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IKeyValuePair<K, V>)->get_Value(put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
-    template <typename D, typename K> WINRT_IMPL_AUTO(Windows::Foundation::Collections::CollectionChange) consume_Windows_Foundation_Collections_IMapChangedEventArgs<D, K>::CollectionChange() const
+    template <typename D, typename K> WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::CollectionChange) consume_Windows_Foundation_Collections_IMapChangedEventArgs<D, K>::CollectionChange() const
     {
-        Windows::Foundation::Collections::CollectionChange winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMapChangedEventArgs<K>)->get_CollectionChange(reinterpret_cast<int32_t*>(&winrt_impl_result)));
+        winrt::Windows::Foundation::Collections::CollectionChange winrt_impl_result{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMapChangedEventArgs<K>)->get_CollectionChange(reinterpret_cast<int32_t*>(&winrt_impl_result)));
         return winrt_impl_result;
     }
     template <typename D, typename K> WINRT_IMPL_AUTO(K) consume_Windows_Foundation_Collections_IMapChangedEventArgs<D, K>::Key() const
     {
         K winrt_impl_result{ empty_value<K>() };
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMapChangedEventArgs<K>)->get_Key(put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMapChangedEventArgs<K>)->get_Key(put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(V) consume_Windows_Foundation_Collections_IMapView<D, K, V>::Lookup(impl::param_type<K> const& key) const
     {
         V winrt_impl_result{ empty_value<V>() };
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMapView<K, V>)->Lookup(impl::bind_in(key), put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMapView<K, V>)->Lookup(impl::bind_in(key), put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_Collections_IMapView<D, K, V>::Size() const
     {
         uint32_t winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMapView<K, V>)->get_Size(&winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMapView<K, V>)->get_Size(&winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_Collections_IMapView<D, K, V>::HasKey(impl::param_type<K> const& key) const
     {
         bool winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMapView<K, V>)->HasKey(impl::bind_in(key), &winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMapView<K, V>)->HasKey(impl::bind_in(key), &winrt_impl_result));
         return winrt_impl_result;
     }
-    template <typename D, typename K, typename V> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IMapView<D, K, V>::Split(Windows::Foundation::Collections::IMapView<K, V>& first, Windows::Foundation::Collections::IMapView<K, V>& second) const
+    template <typename D, typename K, typename V> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IMapView<D, K, V>::Split(winrt::Windows::Foundation::Collections::IMapView<K, V>& first, winrt::Windows::Foundation::Collections::IMapView<K, V>& second) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMapView<K, V>)->Split(impl::bind_out(first), impl::bind_out(second)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMapView<K, V>)->Split(impl::bind_out(first), impl::bind_out(second)));
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(V) consume_Windows_Foundation_Collections_IMap<D, K, V>::Lookup(impl::param_type<K> const& key) const
     {
         V winrt_impl_result{ empty_value<V>() };
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMap<K, V>)->Lookup(impl::bind_in(key), put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMap<K, V>)->Lookup(impl::bind_in(key), put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_Collections_IMap<D, K, V>::Size() const
     {
         uint32_t winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMap<K, V>)->get_Size(&winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMap<K, V>)->get_Size(&winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_Collections_IMap<D, K, V>::HasKey(impl::param_type<K> const& key) const
     {
         bool winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMap<K, V>)->HasKey(impl::bind_in(key), &winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMap<K, V>)->HasKey(impl::bind_in(key), &winrt_impl_result));
         return winrt_impl_result;
     }
-    template <typename D, typename K, typename V> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<K, V>) consume_Windows_Foundation_Collections_IMap<D, K, V>::GetView() const
+    template <typename D, typename K, typename V> WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<K, V>) consume_Windows_Foundation_Collections_IMap<D, K, V>::GetView() const
     {
         void* winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMap<K, V>)->GetView(&winrt_impl_result));
-        return Windows::Foundation::Collections::IMapView<K, V>{ winrt_impl_result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMap<K, V>)->GetView(&winrt_impl_result));
+        return winrt::Windows::Foundation::Collections::IMapView<K, V>{ winrt_impl_result, take_ownership_from_abi };
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_Collections_IMap<D, K, V>::Insert(impl::param_type<K> const& key, impl::param_type<V> const& value) const
     {
         bool winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMap<K, V>)->Insert(impl::bind_in(key), impl::bind_in(value), &winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMap<K, V>)->Insert(impl::bind_in(key), impl::bind_in(value), &winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IMap<D, K, V>::Remove(impl::param_type<K> const& key) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMap<K, V>)->Remove(impl::bind_in(key)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMap<K, V>)->Remove(impl::bind_in(key)));
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IMap<D, K, V>::Clear() const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IMap<K, V>)->Clear());
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IMap<K, V>)->Clear());
     }
-    template <typename D, typename K, typename V> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Foundation_Collections_IObservableMap<D, K, V>::MapChanged(Windows::Foundation::Collections::MapChangedEventHandler<K, V> const& vhnd) const
+    template <typename D, typename K, typename V> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Foundation_Collections_IObservableMap<D, K, V>::MapChanged(winrt::Windows::Foundation::Collections::MapChangedEventHandler<K, V> const& vhnd) const
     {
         winrt::event_token winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IObservableMap<K, V>)->add_MapChanged(*(void**)(&vhnd), put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IObservableMap<K, V>)->add_MapChanged(*(void**)(&vhnd), put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
-    template <typename D, typename K, typename V> typename consume_Windows_Foundation_Collections_IObservableMap<D, K, V>::MapChanged_revoker consume_Windows_Foundation_Collections_IObservableMap<D, K, V>::MapChanged(auto_revoke_t, Windows::Foundation::Collections::MapChangedEventHandler<K, V> const& vhnd) const
+    template <typename D, typename K, typename V> typename consume_Windows_Foundation_Collections_IObservableMap<D, K, V>::MapChanged_revoker consume_Windows_Foundation_Collections_IObservableMap<D, K, V>::MapChanged(auto_revoke_t, winrt::Windows::Foundation::Collections::MapChangedEventHandler<K, V> const& vhnd) const
     {
         return impl::make_event_revoker<D, MapChanged_revoker>(this, MapChanged(vhnd));
     }
     template <typename D, typename K, typename V> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IObservableMap<D, K, V>::MapChanged(winrt::event_token const& token) const noexcept
     {
-        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Foundation::Collections::IObservableMap<K, V>)->remove_MapChanged(impl::bind_in(token)));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IObservableMap<K, V>)->remove_MapChanged(impl::bind_in(token)));
     }
-    template <typename D, typename T> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Foundation_Collections_IObservableVector<D, T>::VectorChanged(Windows::Foundation::Collections::VectorChangedEventHandler<T> const& vhnd) const
+    template <typename D, typename T> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Foundation_Collections_IObservableVector<D, T>::VectorChanged(winrt::Windows::Foundation::Collections::VectorChangedEventHandler<T> const& vhnd) const
     {
         winrt::event_token winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IObservableVector<T>)->add_VectorChanged(*(void**)(&vhnd), put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IObservableVector<T>)->add_VectorChanged(*(void**)(&vhnd), put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
-    template <typename D, typename T> typename consume_Windows_Foundation_Collections_IObservableVector<D, T>::VectorChanged_revoker consume_Windows_Foundation_Collections_IObservableVector<D, T>::VectorChanged(auto_revoke_t, Windows::Foundation::Collections::VectorChangedEventHandler<T> const& vhnd) const
+    template <typename D, typename T> typename consume_Windows_Foundation_Collections_IObservableVector<D, T>::VectorChanged_revoker consume_Windows_Foundation_Collections_IObservableVector<D, T>::VectorChanged(auto_revoke_t, winrt::Windows::Foundation::Collections::VectorChangedEventHandler<T> const& vhnd) const
     {
         return impl::make_event_revoker<D, VectorChanged_revoker>(this, VectorChanged(vhnd));
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IObservableVector<D, T>::VectorChanged(winrt::event_token const& token) const noexcept
     {
-        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Foundation::Collections::IObservableVector<T>)->remove_VectorChanged(impl::bind_in(token)));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IObservableVector<T>)->remove_VectorChanged(impl::bind_in(token)));
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::CollectionChange) consume_Windows_Foundation_Collections_IVectorChangedEventArgs<D>::CollectionChange() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::CollectionChange) consume_Windows_Foundation_Collections_IVectorChangedEventArgs<D>::CollectionChange() const
     {
-        Windows::Foundation::Collections::CollectionChange value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVectorChangedEventArgs)->get_CollectionChange(reinterpret_cast<int32_t*>(&value)));
+        winrt::Windows::Foundation::Collections::CollectionChange value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVectorChangedEventArgs)->get_CollectionChange(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
     template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_Collections_IVectorChangedEventArgs<D>::Index() const
     {
         uint32_t value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVectorChangedEventArgs)->get_Index(&value));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVectorChangedEventArgs)->get_Index(&value));
         return value;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(T) consume_Windows_Foundation_Collections_IVectorView<D, T>::GetAt(uint32_t index) const
     {
         T winrt_impl_result{ empty_value<T>() };
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVectorView<T>)->GetAt(index, put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVectorView<T>)->GetAt(index, put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_Collections_IVectorView<D, T>::Size() const
     {
         uint32_t winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVectorView<T>)->get_Size(&winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVectorView<T>)->get_Size(&winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_Collections_IVectorView<D, T>::IndexOf(impl::param_type<T> const& value, uint32_t& index) const
     {
         bool winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVectorView<T>)->IndexOf(impl::bind_in(value), &index, &winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVectorView<T>)->IndexOf(impl::bind_in(value), &index, &winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_Collections_IVectorView<D, T>::GetMany(uint32_t startIndex, array_view<T> items) const
     {
         uint32_t winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVectorView<T>)->GetMany(startIndex, items.size(), put_abi(items), &winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVectorView<T>)->GetMany(startIndex, items.size(), put_abi(items), &winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(T) consume_Windows_Foundation_Collections_IVector<D, T>::GetAt(uint32_t index) const
     {
         T winrt_impl_result{ empty_value<T>() };
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->GetAt(index, put_abi(winrt_impl_result)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->GetAt(index, put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_Collections_IVector<D, T>::Size() const
     {
         uint32_t winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->get_Size(&winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->get_Size(&winrt_impl_result));
         return winrt_impl_result;
     }
-    template <typename D, typename T> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<T>) consume_Windows_Foundation_Collections_IVector<D, T>::GetView() const
+    template <typename D, typename T> WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IVectorView<T>) consume_Windows_Foundation_Collections_IVector<D, T>::GetView() const
     {
         void* winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->GetView(&winrt_impl_result));
-        return Windows::Foundation::Collections::IVectorView<T>{ winrt_impl_result, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->GetView(&winrt_impl_result));
+        return winrt::Windows::Foundation::Collections::IVectorView<T>{ winrt_impl_result, take_ownership_from_abi };
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_Collections_IVector<D, T>::IndexOf(impl::param_type<T> const& value, uint32_t& index) const
     {
         bool winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->IndexOf(impl::bind_in(value), &index, &winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->IndexOf(impl::bind_in(value), &index, &winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IVector<D, T>::SetAt(uint32_t index, impl::param_type<T> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->SetAt(index, impl::bind_in(value)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->SetAt(index, impl::bind_in(value)));
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IVector<D, T>::InsertAt(uint32_t index, impl::param_type<T> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->InsertAt(index, impl::bind_in(value)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->InsertAt(index, impl::bind_in(value)));
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IVector<D, T>::RemoveAt(uint32_t index) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->RemoveAt(index));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->RemoveAt(index));
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IVector<D, T>::Append(impl::param_type<T> const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->Append(impl::bind_in(value)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->Append(impl::bind_in(value)));
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IVector<D, T>::RemoveAtEnd() const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->RemoveAtEnd());
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->RemoveAtEnd());
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IVector<D, T>::Clear() const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->Clear());
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->Clear());
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_Collections_IVector<D, T>::GetMany(uint32_t startIndex, array_view<T> items) const
     {
         uint32_t winrt_impl_result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->GetMany(startIndex, items.size(), put_abi(items), &winrt_impl_result));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->GetMany(startIndex, items.size(), put_abi(items), &winrt_impl_result));
         return winrt_impl_result;
     }
     template <typename D, typename T> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_Collections_IVector<D, T>::ReplaceAll(array_view<T const> items) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::Collections::IVector<T>)->ReplaceAll(items.size(), get_abi(items)));
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Foundation::Collections::IVector<T>)->ReplaceAll(items.size(), get_abi(items)));
     }
-    template <typename H, typename K, typename V> struct delegate<Windows::Foundation::Collections::MapChangedEventHandler<K, V>, H> final : implements_delegate<Windows::Foundation::Collections::MapChangedEventHandler<K, V>, H>
+    template <typename H, typename K, typename V> struct delegate<winrt::Windows::Foundation::Collections::MapChangedEventHandler<K, V>, H> final : implements_delegate<winrt::Windows::Foundation::Collections::MapChangedEventHandler<K, V>, H>
     {
-        delegate(H&& handler) : implements_delegate<Windows::Foundation::Collections::MapChangedEventHandler<K, V>, H>(std::forward<H>(handler)) {}
+        delegate(H&& handler) : implements_delegate<winrt::Windows::Foundation::Collections::MapChangedEventHandler<K, V>, H>(std::forward<H>(handler)) {}
 
         int32_t __stdcall Invoke(void* sender, void* event) noexcept final try
         {
-            (*this)(*reinterpret_cast<Windows::Foundation::Collections::IObservableMap<K, V> const*>(&sender), *reinterpret_cast<Windows::Foundation::Collections::IMapChangedEventArgs<K> const*>(&event));
+            (*this)(*reinterpret_cast<winrt::Windows::Foundation::Collections::IObservableMap<K, V> const*>(&sender), *reinterpret_cast<winrt::Windows::Foundation::Collections::IMapChangedEventArgs<K> const*>(&event));
             return 0;
         }
         catch (...) { return to_hresult(); }
     };
-    template <typename H, typename T> struct delegate<Windows::Foundation::Collections::VectorChangedEventHandler<T>, H> final : implements_delegate<Windows::Foundation::Collections::VectorChangedEventHandler<T>, H>
+    template <typename H, typename T> struct delegate<winrt::Windows::Foundation::Collections::VectorChangedEventHandler<T>, H> final : implements_delegate<winrt::Windows::Foundation::Collections::VectorChangedEventHandler<T>, H>
     {
-        delegate(H&& handler) : implements_delegate<Windows::Foundation::Collections::VectorChangedEventHandler<T>, H>(std::forward<H>(handler)) {}
+        delegate(H&& handler) : implements_delegate<winrt::Windows::Foundation::Collections::VectorChangedEventHandler<T>, H>(std::forward<H>(handler)) {}
 
         int32_t __stdcall Invoke(void* sender, void* event) noexcept final try
         {
-            (*this)(*reinterpret_cast<Windows::Foundation::Collections::IObservableVector<T> const*>(&sender), *reinterpret_cast<Windows::Foundation::Collections::IVectorChangedEventArgs const*>(&event));
+            (*this)(*reinterpret_cast<winrt::Windows::Foundation::Collections::IObservableVector<T> const*>(&sender), *reinterpret_cast<winrt::Windows::Foundation::Collections::IVectorChangedEventArgs const*>(&event));
             return 0;
         }
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename T>
-    struct produce<D, Windows::Foundation::Collections::IIterable<T>> : produce_base<D, Windows::Foundation::Collections::IIterable<T>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IIterable<T>> : produce_base<D, winrt::Windows::Foundation::Collections::IIterable<T>>
     {
         int32_t __stdcall First(void** winrt_impl_result) noexcept final try
         {
             clear_abi(winrt_impl_result);
             typename D::abi_guard guard(this->shim());
-            *winrt_impl_result = detach_from<Windows::Foundation::Collections::IIterator<T>>(this->shim().First());
+            *winrt_impl_result = detach_from<winrt::Windows::Foundation::Collections::IIterator<T>>(this->shim().First());
             return 0;
         }
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename T>
-    struct produce<D, Windows::Foundation::Collections::IIterator<T>> : produce_base<D, Windows::Foundation::Collections::IIterator<T>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IIterator<T>> : produce_base<D, winrt::Windows::Foundation::Collections::IIterator<T>>
     {
         int32_t __stdcall get_Current(arg_out<T> winrt_impl_result) noexcept final try
         {
@@ -317,7 +319,7 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename K, typename V>
-    struct produce<D, Windows::Foundation::Collections::IKeyValuePair<K, V>> : produce_base<D, Windows::Foundation::Collections::IKeyValuePair<K, V>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IKeyValuePair<K, V>> : produce_base<D, winrt::Windows::Foundation::Collections::IKeyValuePair<K, V>>
     {
         int32_t __stdcall get_Key(arg_out<K> winrt_impl_result) noexcept final try
         {
@@ -337,12 +339,12 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename K>
-    struct produce<D, Windows::Foundation::Collections::IMapChangedEventArgs<K>> : produce_base<D, Windows::Foundation::Collections::IMapChangedEventArgs<K>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IMapChangedEventArgs<K>> : produce_base<D, winrt::Windows::Foundation::Collections::IMapChangedEventArgs<K>>
     {
         int32_t __stdcall get_CollectionChange(int32_t* winrt_impl_result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *winrt_impl_result = detach_from<Windows::Foundation::Collections::CollectionChange>(this->shim().CollectionChange());
+            *winrt_impl_result = detach_from<winrt::Windows::Foundation::Collections::CollectionChange>(this->shim().CollectionChange());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -356,7 +358,7 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename K, typename V>
-    struct produce<D, Windows::Foundation::Collections::IMapView<K, V>> : produce_base<D, Windows::Foundation::Collections::IMapView<K, V>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IMapView<K, V>> : produce_base<D, winrt::Windows::Foundation::Collections::IMapView<K, V>>
     {
         int32_t __stdcall Lookup(arg_in<K> key, arg_out<V> winrt_impl_result) noexcept final try
         {
@@ -385,13 +387,13 @@ namespace winrt::impl
             clear_abi(first);
             clear_abi(second);
             typename D::abi_guard guard(this->shim());
-            this->shim().Split(*reinterpret_cast<Windows::Foundation::Collections::IMapView<K, V>*>(first), *reinterpret_cast<Windows::Foundation::Collections::IMapView<K, V>*>(second));
+            this->shim().Split(*reinterpret_cast<winrt::Windows::Foundation::Collections::IMapView<K, V>*>(first), *reinterpret_cast<winrt::Windows::Foundation::Collections::IMapView<K, V>*>(second));
             return 0;
         }
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename K, typename V>
-    struct produce<D, Windows::Foundation::Collections::IMap<K, V>> : produce_base<D, Windows::Foundation::Collections::IMap<K, V>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IMap<K, V>> : produce_base<D, winrt::Windows::Foundation::Collections::IMap<K, V>>
     {
         int32_t __stdcall Lookup(arg_in<K> key, arg_out<V> winrt_impl_result) noexcept final try
         {
@@ -419,7 +421,7 @@ namespace winrt::impl
         {
             clear_abi(winrt_impl_result);
             typename D::abi_guard guard(this->shim());
-            *winrt_impl_result = detach_from<Windows::Foundation::Collections::IMapView<K, V>>(this->shim().GetView());
+            *winrt_impl_result = detach_from<winrt::Windows::Foundation::Collections::IMapView<K, V>>(this->shim().GetView());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -446,13 +448,13 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename K, typename V>
-    struct produce<D, Windows::Foundation::Collections::IObservableMap<K, V>> : produce_base<D, Windows::Foundation::Collections::IObservableMap<K, V>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IObservableMap<K, V>> : produce_base<D, winrt::Windows::Foundation::Collections::IObservableMap<K, V>>
     {
         int32_t __stdcall add_MapChanged(void* vhnd, winrt::event_token* winrt_impl_result) noexcept final try
         {
             zero_abi<winrt::event_token>(winrt_impl_result);
             typename D::abi_guard guard(this->shim());
-            *winrt_impl_result = detach_from<winrt::event_token>(this->shim().MapChanged(*reinterpret_cast<Windows::Foundation::Collections::MapChangedEventHandler<K, V> const*>(&vhnd)));
+            *winrt_impl_result = detach_from<winrt::event_token>(this->shim().MapChanged(*reinterpret_cast<winrt::Windows::Foundation::Collections::MapChangedEventHandler<K, V> const*>(&vhnd)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -464,13 +466,13 @@ namespace winrt::impl
         }
     };
     template <typename D, typename T>
-    struct produce<D, Windows::Foundation::Collections::IObservableVector<T>> : produce_base<D, Windows::Foundation::Collections::IObservableVector<T>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IObservableVector<T>> : produce_base<D, winrt::Windows::Foundation::Collections::IObservableVector<T>>
     {
         int32_t __stdcall add_VectorChanged(void* vhnd, winrt::event_token* winrt_impl_result) noexcept final try
         {
             zero_abi<winrt::event_token>(winrt_impl_result);
             typename D::abi_guard guard(this->shim());
-            *winrt_impl_result = detach_from<winrt::event_token>(this->shim().VectorChanged(*reinterpret_cast<Windows::Foundation::Collections::VectorChangedEventHandler<T> const*>(&vhnd)));
+            *winrt_impl_result = detach_from<winrt::event_token>(this->shim().VectorChanged(*reinterpret_cast<winrt::Windows::Foundation::Collections::VectorChangedEventHandler<T> const*>(&vhnd)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -482,16 +484,16 @@ namespace winrt::impl
         }
     };
     template <typename D>
-    struct produce<D, Windows::Foundation::Collections::IPropertySet> : produce_base<D, Windows::Foundation::Collections::IPropertySet>
+    struct produce<D, winrt::Windows::Foundation::Collections::IPropertySet> : produce_base<D, winrt::Windows::Foundation::Collections::IPropertySet>
     {
     };
     template <typename D>
-    struct produce<D, Windows::Foundation::Collections::IVectorChangedEventArgs> : produce_base<D, Windows::Foundation::Collections::IVectorChangedEventArgs>
+    struct produce<D, winrt::Windows::Foundation::Collections::IVectorChangedEventArgs> : produce_base<D, winrt::Windows::Foundation::Collections::IVectorChangedEventArgs>
     {
         int32_t __stdcall get_CollectionChange(int32_t* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::Foundation::Collections::CollectionChange>(this->shim().CollectionChange());
+            *value = detach_from<winrt::Windows::Foundation::Collections::CollectionChange>(this->shim().CollectionChange());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -504,7 +506,7 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename T>
-    struct produce<D, Windows::Foundation::Collections::IVectorView<T>> : produce_base<D, Windows::Foundation::Collections::IVectorView<T>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IVectorView<T>> : produce_base<D, winrt::Windows::Foundation::Collections::IVectorView<T>>
     {
         int32_t __stdcall GetAt(uint32_t index, arg_out<T> winrt_impl_result) noexcept final try
         {
@@ -538,7 +540,7 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
     template <typename D, typename T>
-    struct produce<D, Windows::Foundation::Collections::IVector<T>> : produce_base<D, Windows::Foundation::Collections::IVector<T>>
+    struct produce<D, winrt::Windows::Foundation::Collections::IVector<T>> : produce_base<D, winrt::Windows::Foundation::Collections::IVector<T>>
     {
         int32_t __stdcall GetAt(uint32_t index, arg_out<T> winrt_impl_result) noexcept final try
         {
@@ -559,7 +561,7 @@ namespace winrt::impl
         {
             clear_abi(winrt_impl_result);
             typename D::abi_guard guard(this->shim());
-            *winrt_impl_result = detach_from<Windows::Foundation::Collections::IVectorView<T>>(this->shim().GetView());
+            *winrt_impl_result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<T>>(this->shim().GetView());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -632,15 +634,15 @@ namespace winrt::impl
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     inline PropertySet::PropertySet() :
-        PropertySet(impl::call_factory_cast<PropertySet(*)(Windows::Foundation::IActivationFactory const&), PropertySet>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<PropertySet>(); }))
+        PropertySet(impl::call_factory_cast<PropertySet(*)(winrt::Windows::Foundation::IActivationFactory const&), PropertySet>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<PropertySet>(); }))
     {
     }
     inline StringMap::StringMap() :
-        StringMap(impl::call_factory_cast<StringMap(*)(Windows::Foundation::IActivationFactory const&), StringMap>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<StringMap>(); }))
+        StringMap(impl::call_factory_cast<StringMap(*)(winrt::Windows::Foundation::IActivationFactory const&), StringMap>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<StringMap>(); }))
     {
     }
     inline ValueSet::ValueSet() :
-        ValueSet(impl::call_factory_cast<ValueSet(*)(Windows::Foundation::IActivationFactory const&), ValueSet>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<ValueSet>(); }))
+        ValueSet(impl::call_factory_cast<ValueSet(*)(winrt::Windows::Foundation::IActivationFactory const&), ValueSet>([](winrt::Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<ValueSet>(); }))
     {
     }
     template <typename K, typename V> template <typename L> MapChangedEventHandler<K, V>::MapChangedEventHandler(L handler) :
@@ -663,7 +665,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
         MapChangedEventHandler([o = std::move(object), method](auto&&... args) { if (auto s = o.get()) { ((*s).*(method))(args...); } })
     {
     }
-    template <typename K, typename V> auto MapChangedEventHandler<K, V>::operator()(Windows::Foundation::Collections::IObservableMap<K, V> const& sender, Windows::Foundation::Collections::IMapChangedEventArgs<K> const& event) const
+    template <typename K, typename V> auto MapChangedEventHandler<K, V>::operator()(winrt::Windows::Foundation::Collections::IObservableMap<K, V> const& sender, winrt::Windows::Foundation::Collections::IMapChangedEventArgs<K> const& event) const
     {
         check_hresult((*(impl::abi_t<MapChangedEventHandler<K, V>>**)this)->Invoke(*(void**)(&sender), *(void**)(&event)));
     }
@@ -687,7 +689,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
         VectorChangedEventHandler([o = std::move(object), method](auto&&... args) { if (auto s = o.get()) { ((*s).*(method))(args...); } })
     {
     }
-    template <typename T> auto VectorChangedEventHandler<T>::operator()(Windows::Foundation::Collections::IObservableVector<T> const& sender, Windows::Foundation::Collections::IVectorChangedEventArgs const& event) const
+    template <typename T> auto VectorChangedEventHandler<T>::operator()(winrt::Windows::Foundation::Collections::IObservableVector<T> const& sender, winrt::Windows::Foundation::Collections::IVectorChangedEventArgs const& event) const
     {
         check_hresult((*(impl::abi_t<VectorChangedEventHandler<T>>**)this)->Invoke(*(void**)(&sender), *(void**)(&event)));
     }
@@ -717,174 +719,15 @@ namespace winrt::impl
 {
     namespace wfc = Windows::Foundation::Collections;
 
-    template <typename T>
-    struct fast_iterator
+    template <typename D, typename T>
+    auto consume_Windows_Foundation_Collections_IIterable<D, T>::begin() const
     {
-        using iterator_category = std::input_iterator_tag;
-        using value_type = decltype(std::declval<T>().GetAt(0));
-        using difference_type = ptrdiff_t;
-        using pointer = value_type*;
-        using reference = value_type;
-
-        fast_iterator() noexcept : m_collection(nullptr), m_index(0) {}
-
-        fast_iterator(T const& collection, uint32_t const index) noexcept :
-        m_collection(&collection),
-            m_index(index)
-        {}
-
-        fast_iterator& operator++() noexcept
-        {
-            ++m_index;
-            return*this;
-        }
-
-        fast_iterator operator++(int) noexcept
-        {
-            auto previous = *this;
-            ++m_index;
-            return previous;
-        }
-
-        fast_iterator& operator--() noexcept
-        {
-            --m_index;
-            return*this;
-        }
-
-        fast_iterator operator--(int) noexcept
-        {
-            auto previous = *this;
-            --m_index;
-            return previous;
-        }
-
-        fast_iterator& operator+=(difference_type n) noexcept
-        {
-            m_index += static_cast<uint32_t>(n);
-            return*this;
-        }
-
-        fast_iterator operator+(difference_type n) const noexcept
-        {
-            return fast_iterator(*this) += n;
-        }
-
-        fast_iterator& operator-=(difference_type n) noexcept
-        {
-            return *this += -n;
-        }
-
-        fast_iterator operator-(difference_type n) const noexcept
-        {
-            return *this + -n;
-        }
-
-        difference_type operator-(fast_iterator const& other) const noexcept
-        {
-            return static_cast<difference_type>(m_index) - static_cast<difference_type>(other.m_index);
-        }
-
-        reference operator*() const
-        {
-            return m_collection->GetAt(m_index);
-        }
-
-        reference operator[](difference_type n) const
-        {
-            return m_collection->GetAt(m_index + static_cast<uint32_t>(n));
-        }
-
-        bool operator==(fast_iterator const& other) const noexcept
-        {
-            WINRT_ASSERT(m_collection == other.m_collection);
-            return m_index == other.m_index;
-        }
-
-        bool operator<(fast_iterator const& other) const noexcept
-        {
-            WINRT_ASSERT(m_collection == other.m_collection);
-            return m_index < other.m_index;
-        }
-
-        bool operator!=(fast_iterator const& other) const noexcept
-        {
-            return !(*this == other);
-        }
-
-        bool operator>(fast_iterator const& other) const noexcept
-        {
-            return !(*this < other);
-        }
-
-        bool operator<=(fast_iterator const& other) const noexcept
-        {
-            return !(*this > other);
-        }
-
-        bool operator>=(fast_iterator const& other) const noexcept
-        {
-            return !(*this < other);
-        }
-
-    private:
-
-        T const* m_collection{};
-        uint32_t m_index{};
-    };
-
-    template <typename T>
-    class has_GetAt
-    {
-        template <typename U, typename = decltype(std::declval<U>().GetAt(0))> static constexpr bool get_value(int) { return true; }
-        template <typename> static constexpr bool get_value(...) { return false; }
-
-    public:
-
-        static constexpr bool value = get_value<T>(0);
-    };
-
-    template <typename T, std::enable_if_t<!has_GetAt<T>::value, int> = 0>
-    auto begin(T const& collection) -> decltype(collection.First())
-    {
-        auto result = collection.First();
-
-        if (!result.HasCurrent())
-        {
-            return {};
-        }
-
-        return result;
+        return get_begin_iterator(static_cast<D const&>(*this));
     }
-
-    template <typename T, std::enable_if_t<!has_GetAt<T>::value, int> = 0>
-    auto end([[maybe_unused]] T const& collection) noexcept -> decltype(collection.First())
+    template <typename D, typename T>
+    auto consume_Windows_Foundation_Collections_IIterable<D, T>::end() const
     {
-        return {};
-    }
-
-    template <typename T, std::enable_if_t<has_GetAt<T>::value, int> = 0>
-    fast_iterator<T> begin(T const& collection) noexcept
-    {
-        return { collection, 0 };
-    }
-
-    template <typename T, std::enable_if_t<has_GetAt<T>::value, int> = 0>
-    fast_iterator<T> end(T const& collection)
-    {
-        return { collection, collection.Size() };
-    }
-
-    template <typename T, std::enable_if_t<has_GetAt<T>::value, int> = 0>
-    auto rbegin(T const& collection)
-    {
-        return std::make_reverse_iterator(end(collection));
-    }
-
-    template <typename T, std::enable_if_t<has_GetAt<T>::value, int> = 0>
-    auto rend(T const& collection)
-    {
-        return std::make_reverse_iterator(begin(collection));
+        return get_end_iterator(static_cast<D const&>(*this));
     }
 
     template <typename T>
@@ -1009,6 +852,85 @@ namespace winrt::impl
         }
     };
 }
+namespace winrt::impl
+{
+    struct nop_lock_guard {};
+
+    struct single_threaded_collection_base
+    {
+        [[nodiscard]] auto acquire_exclusive() const
+        {
+            return nop_lock_guard{};
+        }
+
+        [[nodiscard]] auto acquire_shared() const
+        {
+            return nop_lock_guard();
+        }
+    };
+
+    struct multi_threaded_collection_base
+    {
+        [[nodiscard]] auto acquire_exclusive() const
+        {
+            return slim_lock_guard{m_mutex};
+        }
+
+        [[nodiscard]] auto acquire_shared() const
+        {
+            return slim_shared_lock_guard{m_mutex};
+        }
+
+    private:
+
+        mutable slim_mutex m_mutex;
+    };
+
+    template <typename D>
+    using container_type_t = std::decay_t<decltype(std::declval<D>().get_container())>;
+
+    template <typename D, typename = void>
+    struct removed_values
+    {
+        void assign(container_type_t<D>& value)
+        {
+            // Trivially destructible; okay to run destructors under lock and clearing allows potential re-use of buffers
+            value.clear();
+        }
+    };
+
+    template <typename D>
+    struct removed_values<D, std::enable_if_t<!std::is_trivially_destructible_v<typename container_type_t<D>::value_type>>>
+    {
+        container_type_t<D> m_value;
+
+        void assign(container_type_t<D>& value)
+        {
+            m_value.swap(value);
+        }
+    };
+
+    template <typename T, typename = void>
+    struct removed_value
+    {
+        // Trivially destructible; okay to run destructor under lock
+        template <typename U>
+        void assign(U&&) {}
+    };
+
+    template <typename T>
+    struct removed_value<T, std::enable_if_t<std::is_move_constructible_v<T> && !std::is_trivially_destructible_v<T>>>
+    {
+        std::optional<T> m_value;
+
+        template <typename U>
+        void assign(U&& value)
+        {
+            m_value.emplace(std::move(value));
+        }
+    };
+}
+
 WINRT_EXPORT namespace winrt
 {
     template <typename D, typename T, typename Version = impl::no_collection_version>
@@ -1026,8 +948,21 @@ WINRT_EXPORT namespace winrt
             return value;
         }
 
+        auto acquire_exclusive() const
+        {
+            return impl::nop_lock_guard{};
+        }
+
+        auto acquire_shared() const
+        {
+            // Support for concurrent "shared" operations is optional
+            return static_cast<D const&>(*this).acquire_exclusive();
+        }
+
         auto First()
         {
+            // NOTE: iterator's constructor requires shared access
+            auto guard = static_cast<D&>(*this).acquire_shared();
             return make<iterator>(static_cast<D*>(this));
         }
 
@@ -1063,7 +998,6 @@ WINRT_EXPORT namespace winrt
             void abi_enter()
             {
                 m_owner->abi_enter();
-                this->check_version(*m_owner);
             }
 
             void abi_exit()
@@ -1081,11 +1015,48 @@ WINRT_EXPORT namespace winrt
 
             T Current() const
             {
+                auto guard = m_owner->acquire_shared();
+                this->check_version(*m_owner);
+
                 if (m_current == m_end)
                 {
                     throw hresult_out_of_bounds();
                 }
 
+                return current_value_withlock();
+            }
+
+            bool HasCurrent() const
+            {
+                auto guard = m_owner->acquire_shared();
+                this->check_version(*m_owner);
+                return m_current != m_end;
+            }
+
+            bool MoveNext()
+            {
+                auto guard = m_owner->acquire_exclusive();
+                this->check_version(*m_owner);
+                if (m_current != m_end)
+                {
+                    ++m_current;
+                }
+
+                return m_current != m_end;
+            }
+
+            uint32_t GetMany(array_view<T> values)
+            {
+                auto guard = m_owner->acquire_exclusive();
+                this->check_version(*m_owner);
+                return GetMany(values, typename std::iterator_traits<iterator_type>::iterator_category());
+            }
+
+        private:
+
+            T current_value_withlock() const
+            {
+                WINRT_ASSERT(m_current != m_end);
                 if constexpr (!impl::is_key_value_pair<T>::value)
                 {
                     return m_owner->unwrap_value(*m_current);
@@ -1095,28 +1066,6 @@ WINRT_EXPORT namespace winrt
                     return make<impl::key_value_pair<T>>(m_owner->unwrap_value(m_current->first), m_owner->unwrap_value(m_current->second));
                 }
             }
-
-            bool HasCurrent() const noexcept
-            {
-                return m_current != m_end;
-            }
-
-            bool MoveNext() noexcept
-            {
-                if (m_current != m_end)
-                {
-                    ++m_current;
-                }
-
-                return HasCurrent();
-            }
-
-            uint32_t GetMany(array_view<T> values)
-            {
-                return GetMany(values, typename std::iterator_traits<iterator_type>::iterator_category());
-            }
-
-        private:
 
             uint32_t GetMany(array_view<T> values, std::random_access_iterator_tag)
             {
@@ -1132,7 +1081,7 @@ WINRT_EXPORT namespace winrt
 
                 while (output < values.end() && m_current != m_end)
                 {
-                    *output = Current();
+                    *output = current_value_withlock();
                     ++output;
                     ++m_current;
                 }
@@ -1153,7 +1102,8 @@ WINRT_EXPORT namespace winrt
     {
         T GetAt(uint32_t const index) const
         {
-            if (index >= Size())
+            auto guard = static_cast<D const&>(*this).acquire_shared();
+            if (index >= container_size())
             {
                 throw hresult_out_of_bounds();
             }
@@ -1163,30 +1113,40 @@ WINRT_EXPORT namespace winrt
 
         uint32_t Size() const noexcept
         {
-            return static_cast<uint32_t>(std::distance(static_cast<D const&>(*this).get_container().begin(), static_cast<D const&>(*this).get_container().end()));
+            auto guard = static_cast<D const&>(*this).acquire_shared();
+            return container_size();
         }
 
         bool IndexOf(T const& value, uint32_t& index) const noexcept
         {
+            auto guard = static_cast<D const&>(*this).acquire_shared();
             auto first = std::find_if(static_cast<D const&>(*this).get_container().begin(), static_cast<D const&>(*this).get_container().end(), [&](auto&& match)
             {
                 return value == static_cast<D const&>(*this).unwrap_value(match);
             });
 
             index = static_cast<uint32_t>(first - static_cast<D const&>(*this).get_container().begin());
-            return index < Size();
+            return index < container_size();
         }
 
         uint32_t GetMany(uint32_t const startIndex, array_view<T> values) const
         {
-            if (startIndex >= Size())
+            auto guard = static_cast<D const&>(*this).acquire_shared();
+            if (startIndex >= container_size())
             {
                 return 0;
             }
 
-            uint32_t const actual = (std::min)(Size() - startIndex, values.size());
+            uint32_t const actual = (std::min)(container_size() - startIndex, values.size());
             this->copy_n(static_cast<D const&>(*this).get_container().begin() + startIndex, actual, values.begin());
             return actual;
+        }
+
+    private:
+
+        uint32_t container_size() const noexcept
+        {
+            return static_cast<uint32_t>(std::distance(static_cast<D const&>(*this).get_container().begin(), static_cast<D const&>(*this).get_container().end()));
         }
     };
 
@@ -1200,17 +1160,23 @@ WINRT_EXPORT namespace winrt
 
         void SetAt(uint32_t const index, T const& value)
         {
+            impl::removed_value<typename impl::container_type_t<D>::value_type> oldValue;
+
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             if (index >= static_cast<D const&>(*this).get_container().size())
             {
                 throw hresult_out_of_bounds();
             }
 
             this->increment_version();
-            static_cast<D&>(*this).get_container()[index] = static_cast<D const&>(*this).wrap_value(value);
+            auto&& pos = static_cast<D&>(*this).get_container()[index];
+            oldValue.assign(pos);
+            pos = static_cast<D const&>(*this).wrap_value(value);
         }
 
         void InsertAt(uint32_t const index, T const& value)
         {
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             if (index > static_cast<D const&>(*this).get_container().size())
             {
                 throw hresult_out_of_bounds();
@@ -1222,41 +1188,58 @@ WINRT_EXPORT namespace winrt
 
         void RemoveAt(uint32_t const index)
         {
+            impl::removed_value<typename impl::container_type_t<D>::value_type> removedValue;
+
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             if (index >= static_cast<D const&>(*this).get_container().size())
             {
                 throw hresult_out_of_bounds();
             }
 
             this->increment_version();
-            static_cast<D&>(*this).get_container().erase(static_cast<D const&>(*this).get_container().begin() + index);
+            auto itr = static_cast<D&>(*this).get_container().begin() + index;
+            removedValue.assign(*itr);
+            static_cast<D&>(*this).get_container().erase(itr);
         }
 
         void Append(T const& value)
         {
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             this->increment_version();
             static_cast<D&>(*this).get_container().push_back(static_cast<D const&>(*this).wrap_value(value));
         }
 
         void RemoveAtEnd()
         {
+            impl::removed_value<typename impl::container_type_t<D>::value_type> removedValue;
+
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             if (static_cast<D const&>(*this).get_container().empty())
             {
                 throw hresult_out_of_bounds();
             }
 
             this->increment_version();
+            removedValue.assign(static_cast<D&>(*this).get_container().back());
             static_cast<D&>(*this).get_container().pop_back();
         }
 
         void Clear() noexcept
         {
+            impl::removed_values<D> oldContainer;
+
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             this->increment_version();
-            static_cast<D&>(*this).get_container().clear();
+            oldContainer.assign(static_cast<D&>(*this).get_container());
         }
 
         void ReplaceAll(array_view<T const> value)
         {
+            impl::removed_values<D> oldContainer;
+
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             this->increment_version();
+            oldContainer.assign(static_cast<D&>(*this).get_container());
             assign(value.begin(), value.end());
         }
 
@@ -1265,16 +1248,14 @@ WINRT_EXPORT namespace winrt
         template <typename InputIt>
         void assign(InputIt first, InputIt last)
         {
-            using container_type = std::remove_reference_t<decltype(static_cast<D&>(*this).get_container())>;
-
-            if constexpr (std::is_same_v<T, typename container_type::value_type>)
+            if constexpr (std::is_same_v<T, typename impl::container_type_t<D>::value_type>)
             {
                 static_cast<D&>(*this).get_container().assign(first, last);
             }
             else
             {
                 auto& container = static_cast<D&>(*this).get_container();
-                container.clear();
+                WINRT_ASSERT(container.empty());
                 container.reserve(std::distance(first, last));
 
                 std::transform(first, last, std::back_inserter(container), [&](auto&& value)
@@ -1381,6 +1362,7 @@ WINRT_EXPORT namespace winrt
     {
         V Lookup(K const& key) const
         {
+            auto guard = static_cast<D const&>(*this).acquire_shared();
             auto pair = static_cast<D const&>(*this).get_container().find(static_cast<D const&>(*this).wrap_value(key));
 
             if (pair == static_cast<D const&>(*this).get_container().end())
@@ -1393,11 +1375,13 @@ WINRT_EXPORT namespace winrt
 
         uint32_t Size() const noexcept
         {
+            auto guard = static_cast<D const&>(*this).acquire_shared();
             return static_cast<uint32_t>(static_cast<D const&>(*this).get_container().size());
         }
 
         bool HasKey(K const& key) const noexcept
         {
+            auto guard = static_cast<D const&>(*this).acquire_shared();
             return static_cast<D const&>(*this).get_container().find(static_cast<D const&>(*this).wrap_value(key)) != static_cast<D const&>(*this).get_container().end();
         }
 
@@ -1418,13 +1402,25 @@ WINRT_EXPORT namespace winrt
 
         bool Insert(K const& key, V const& value)
         {
+            impl::removed_value<typename impl::container_type_t<D>::mapped_type> oldValue;
+
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             this->increment_version();
-            auto pair = static_cast<D&>(*this).get_container().insert_or_assign(static_cast<D const&>(*this).wrap_value(key), static_cast<D const&>(*this).wrap_value(value));
-            return !pair.second;
+            auto [itr, added] = static_cast<D&>(*this).get_container().emplace(static_cast<D const&>(*this).wrap_value(key), static_cast<D const&>(*this).wrap_value(value));
+            if (!added)
+            {
+                oldValue.assign(itr->second);
+                itr->second = static_cast<D const&>(*this).wrap_value(value);
+            }
+
+            return !added;
         }
 
         void Remove(K const& key)
         {
+            typename impl::container_type_t<D>::node_type removedNode;
+
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             auto& container = static_cast<D&>(*this).get_container();
             auto found = container.find(static_cast<D const&>(*this).wrap_value(key));
             if (found == container.end())
@@ -1432,13 +1428,16 @@ WINRT_EXPORT namespace winrt
                 throw hresult_out_of_bounds();
             }
             this->increment_version();
-            container.erase(found);
+            removedNode = container.extract(found);
         }
 
         void Clear() noexcept
         {
+            impl::removed_values<D> oldContainer;
+
+            auto guard = static_cast<D&>(*this).acquire_exclusive();
             this->increment_version();
-            static_cast<D&>(*this).get_container().clear();
+            oldContainer.assign(static_cast<D&>(*this).get_container());
         }
     };
 
@@ -2289,14 +2288,15 @@ WINRT_EXPORT namespace winrt::param
 
 namespace winrt::impl
 {
-    template <typename T, typename Container>
-    struct input_vector :
-        implements<input_vector<T, Container>, wfc::IVector<T>, wfc::IVectorView<T>, wfc::IIterable<T>>,
-        vector_base<input_vector<T, Container>, T>
+    template <typename T, typename Container, typename ThreadingBase>
+    struct vector_impl :
+        implements<vector_impl<T, Container, ThreadingBase>, wfc::IVector<T>, wfc::IVectorView<T>, wfc::IIterable<T>>,
+        vector_base<vector_impl<T, Container, ThreadingBase>, T>,
+        ThreadingBase
     {
         static_assert(std::is_same_v<Container, std::remove_reference_t<Container>>, "Must be constructed with rvalue.");
 
-        explicit input_vector(Container&& values) : m_values(std::forward<Container>(values))
+        explicit vector_impl(Container&& values) : m_values(std::forward<Container>(values))
         {
         }
 
@@ -2310,10 +2310,16 @@ namespace winrt::impl
             return m_values;
         }
 
+        using ThreadingBase::acquire_shared;
+        using ThreadingBase::acquire_exclusive;
+
     private:
 
         Container m_values;
     };
+
+    template <typename T, typename Container>
+    using input_vector = vector_impl<T, Container, single_threaded_collection_base>;
 }
 
 WINRT_EXPORT namespace winrt::param
@@ -2381,14 +2387,15 @@ WINRT_EXPORT namespace winrt::param
 
 namespace winrt::impl
 {
-    template <typename K, typename V, typename Container>
-    struct input_map :
-        implements<input_map<K, V, Container>, wfc::IMap<K, V>, wfc::IMapView<K, V>, wfc::IIterable<wfc::IKeyValuePair<K, V>>>,
-        map_base<input_map<K, V, Container>, K, V>
+    template <typename K, typename V, typename Container, typename ThreadingBase>
+    struct map_impl :
+        implements<map_impl<K, V, Container, ThreadingBase>, wfc::IMap<K, V>, wfc::IMapView<K, V>, wfc::IIterable<wfc::IKeyValuePair<K, V>>>,
+        map_base<map_impl<K, V, Container, ThreadingBase>, K, V>,
+        ThreadingBase
     {
         static_assert(std::is_same_v<Container, std::remove_reference_t<Container>>, "Must be constructed with rvalue.");
 
-        explicit input_map(Container&& values) : m_values(std::forward<Container>(values))
+        explicit map_impl(Container&& values) : m_values(std::forward<Container>(values))
         {
         }
 
@@ -2402,10 +2409,16 @@ namespace winrt::impl
             return m_values;
         }
 
+        using ThreadingBase::acquire_shared;
+        using ThreadingBase::acquire_exclusive;
+
     private:
 
         Container m_values;
     };
+
+    template <typename K, typename V, typename Container>
+    using input_map = map_impl<K, V, Container, single_threaded_collection_base>;
 
     template <typename K, typename V, typename Container>
     auto make_input_map(Container&& values)
@@ -2485,11 +2498,15 @@ WINRT_EXPORT namespace winrt::param
 
 namespace winrt::impl
 {
-    template <typename Container>
+    template <typename T, typename Container>
+    using multi_threaded_vector = vector_impl<T, Container, multi_threaded_collection_base>;
+
+    template <typename Container, typename ThreadingBase = single_threaded_collection_base>
     struct inspectable_observable_vector :
-        observable_vector_base<inspectable_observable_vector<Container>, Windows::Foundation::IInspectable>,
-        implements<inspectable_observable_vector<Container>,
-        wfc::IObservableVector<Windows::Foundation::IInspectable>, wfc::IVector<Windows::Foundation::IInspectable>, wfc::IVectorView<Windows::Foundation::IInspectable>, wfc::IIterable<Windows::Foundation::IInspectable>>
+        observable_vector_base<inspectable_observable_vector<Container, ThreadingBase>, Windows::Foundation::IInspectable>,
+        implements<inspectable_observable_vector<Container, ThreadingBase>,
+        wfc::IObservableVector<Windows::Foundation::IInspectable>, wfc::IVector<Windows::Foundation::IInspectable>, wfc::IVectorView<Windows::Foundation::IInspectable>, wfc::IIterable<Windows::Foundation::IInspectable>>,
+        ThreadingBase
     {
         static_assert(std::is_same_v<Container, std::remove_reference_t<Container>>, "Must be constructed with rvalue.");
 
@@ -2507,23 +2524,30 @@ namespace winrt::impl
             return m_values;
         }
 
+        using ThreadingBase::acquire_shared;
+        using ThreadingBase::acquire_exclusive;
+
     private:
 
         Container m_values;
     };
 
-    template <typename T, typename Container>
+    template <typename Container>
+    using multi_threaded_inspectable_observable_vector = inspectable_observable_vector<Container, multi_threaded_collection_base>;
+
+    template <typename T, typename Container, typename ThreadingBase = single_threaded_collection_base>
     struct convertible_observable_vector :
-        observable_vector_base<convertible_observable_vector<T, Container>, T>,
-        implements<convertible_observable_vector<T, Container>,
+        observable_vector_base<convertible_observable_vector<T, Container, ThreadingBase>, T>,
+        implements<convertible_observable_vector<T, Container, ThreadingBase>,
         wfc::IObservableVector<T>, wfc::IVector<T>, wfc::IVectorView<T>, wfc::IIterable<T>,
-        wfc::IObservableVector<Windows::Foundation::IInspectable>, wfc::IVector<Windows::Foundation::IInspectable>, wfc::IVectorView<Windows::Foundation::IInspectable>, wfc::IIterable<Windows::Foundation::IInspectable>>
+        wfc::IObservableVector<Windows::Foundation::IInspectable>, wfc::IVector<Windows::Foundation::IInspectable>, wfc::IVectorView<Windows::Foundation::IInspectable>, wfc::IIterable<Windows::Foundation::IInspectable>>,
+        ThreadingBase
     {
         static_assert(!std::is_same_v<T, Windows::Foundation::IInspectable>);
         static_assert(std::is_same_v<Container, std::remove_reference_t<Container>>, "Must be constructed with rvalue.");
 
-        using container_type = convertible_observable_vector<T, Container>;
-        using base_type = observable_vector_base<convertible_observable_vector<T, Container>, T>;
+        using container_type = convertible_observable_vector<T, Container, ThreadingBase>;
+        using base_type = observable_vector_base<convertible_observable_vector<T, Container, ThreadingBase>, T>;
 
         explicit convertible_observable_vector(Container&& values) : m_values(std::forward<Container>(values))
         {
@@ -2539,6 +2563,9 @@ namespace winrt::impl
             return m_values;
         }
 
+        using ThreadingBase::acquire_shared;
+        using ThreadingBase::acquire_exclusive;
+
         auto First()
         {
             struct result
@@ -2552,6 +2579,7 @@ namespace winrt::impl
 
                 operator wfc::IIterator<Windows::Foundation::IInspectable>()
                 {
+                    auto guard = container->acquire_shared();
                     return make<iterator>(container);
                 }
             };
@@ -2599,6 +2627,7 @@ namespace winrt::impl
 
         uint32_t GetMany(uint32_t const startIndex, array_view<Windows::Foundation::IInspectable> values) const
         {
+            auto guard = this->acquire_shared();
             if (startIndex >= m_values.size())
             {
                 return 0;
@@ -2686,11 +2715,6 @@ namespace winrt::impl
             impl::collection_version::iterator_type,
             implements<iterator, Windows::Foundation::Collections::IIterator<Windows::Foundation::IInspectable>>
         {
-            void abi_enter()
-            {
-                check_version(*m_owner);
-            }
-
             explicit iterator(container_type* const container) noexcept :
                 impl::collection_version::iterator_type(*container),
                 m_current(container->get_container().begin()),
@@ -2701,6 +2725,8 @@ namespace winrt::impl
 
             Windows::Foundation::IInspectable Current() const
             {
+                auto guard = m_owner->acquire_shared();
+                check_version(*m_owner);
                 if (m_current == m_end)
                 {
                     throw hresult_out_of_bounds();
@@ -2709,23 +2735,29 @@ namespace winrt::impl
                 return box_value(*m_current);
             }
 
-            bool HasCurrent() const noexcept
+            bool HasCurrent() const
             {
+                auto guard = m_owner->acquire_shared();
+                check_version(*m_owner);
                 return m_current != m_end;
             }
 
-            bool MoveNext() noexcept
+            bool MoveNext()
             {
+                auto guard = m_owner->acquire_exclusive();
+                check_version(*m_owner);
                 if (m_current != m_end)
                 {
                     ++m_current;
                 }
 
-                return HasCurrent();
+                return m_current != m_end;
             }
 
             uint32_t GetMany(array_view<Windows::Foundation::IInspectable> values)
             {
+                auto guard = m_owner->acquire_exclusive();
+                check_version(*m_owner);
                 uint32_t const actual = (std::min)(static_cast<uint32_t>(std::distance(m_current, m_end)), values.size());
 
                 std::transform(m_current, m_current + actual, values.begin(), [&](auto && value)
@@ -2746,6 +2778,9 @@ namespace winrt::impl
 
         Container m_values;
     };
+
+    template <typename T, typename Container>
+    using multi_threaded_convertible_observable_vector = convertible_observable_vector<T, Container, multi_threaded_collection_base>;
 }
 
 WINRT_EXPORT namespace winrt
@@ -2754,6 +2789,12 @@ WINRT_EXPORT namespace winrt
     Windows::Foundation::Collections::IVector<T> single_threaded_vector(std::vector<T, Allocator>&& values = {})
     {
         return make<impl::input_vector<T, std::vector<T, Allocator>>>(std::move(values));
+    }
+
+    template <typename T, typename Allocator = std::allocator<T>>
+    Windows::Foundation::Collections::IVector<T> multi_threaded_vector(std::vector<T, Allocator>&& values = {})
+    {
+        return make<impl::multi_threaded_vector<T, std::vector<T, Allocator>>>(std::move(values));
     }
 
     template <typename T, typename Allocator = std::allocator<T>>
@@ -2768,18 +2809,35 @@ WINRT_EXPORT namespace winrt
             return make<impl::convertible_observable_vector<T, std::vector<T, Allocator>>>(std::move(values));
         }
     }
+
+    template <typename T, typename Allocator = std::allocator<T>>
+    Windows::Foundation::Collections::IObservableVector<T> multi_threaded_observable_vector(std::vector<T, Allocator>&& values = {})
+    {
+        if constexpr (std::is_same_v<T, Windows::Foundation::IInspectable>)
+        {
+            return make<impl::multi_threaded_inspectable_observable_vector<std::vector<T, Allocator>>>(std::move(values));
+        }
+        else
+        {
+            return make<impl::multi_threaded_convertible_observable_vector<T, std::vector<T, Allocator>>>(std::move(values));
+        }
+    }
 }
 
 namespace winrt::impl
 {
     template <typename K, typename V, typename Container>
-    struct observable_map :
-        implements<observable_map<K, V, Container>, wfc::IObservableMap<K, V>, wfc::IMap<K, V>, wfc::IMapView<K, V>, wfc::IIterable<wfc::IKeyValuePair<K, V>>>,
-        observable_map_base<observable_map<K, V, Container>, K, V>
+    using multi_threaded_map = map_impl<K, V, Container, multi_threaded_collection_base>;
+
+    template <typename K, typename V, typename Container, typename ThreadingBase>
+    struct observable_map_impl :
+        implements<observable_map_impl<K, V, Container, ThreadingBase>, wfc::IObservableMap<K, V>, wfc::IMap<K, V>, wfc::IMapView<K, V>, wfc::IIterable<wfc::IKeyValuePair<K, V>>>,
+        observable_map_base<observable_map_impl<K, V, Container, ThreadingBase>, K, V>,
+        ThreadingBase
     {
         static_assert(std::is_same_v<Container, std::remove_reference_t<Container>>, "Must be constructed with rvalue.");
 
-        explicit observable_map(Container&& values) : m_values(std::forward<Container>(values))
+        explicit observable_map_impl(Container&& values) : m_values(std::forward<Container>(values))
         {
         }
 
@@ -2793,10 +2851,19 @@ namespace winrt::impl
             return m_values;
         }
 
+        using ThreadingBase::acquire_shared;
+        using ThreadingBase::acquire_exclusive;
+
     private:
 
         Container m_values;
     };
+
+    template <typename K, typename V, typename Container>
+    using observable_map = observable_map_impl<K, V, Container, single_threaded_collection_base>;
+
+    template <typename K, typename V, typename Container>
+    using multi_threaded_observable_map = observable_map_impl<K, V, Container, multi_threaded_collection_base>;
 }
 
 WINRT_EXPORT namespace winrt
@@ -2820,6 +2887,24 @@ WINRT_EXPORT namespace winrt
     }
 
     template <typename K, typename V, typename Compare = std::less<K>, typename Allocator = std::allocator<std::pair<K const, V>>>
+    Windows::Foundation::Collections::IMap<K, V> multi_threaded_map()
+    {
+        return make<impl::multi_threaded_map<K, V, std::map<K, V, Compare, Allocator>>>(std::map<K, V, Compare, Allocator>{});
+    }
+
+    template <typename K, typename V, typename Compare = std::less<K>, typename Allocator = std::allocator<std::pair<K const, V>>>
+    Windows::Foundation::Collections::IMap<K, V> multi_threaded_map(std::map<K, V, Compare, Allocator>&& values)
+    {
+        return make<impl::multi_threaded_map<K, V, std::map<K, V, Compare, Allocator>>>(std::move(values));
+    }
+
+    template <typename K, typename V, typename Hash = std::hash<K>, typename KeyEqual = std::equal_to<K>, typename Allocator = std::allocator<std::pair<K const, V>>>
+    Windows::Foundation::Collections::IMap<K, V> multi_threaded_map(std::unordered_map<K, V, Hash, KeyEqual, Allocator>&& values)
+    {
+        return make<impl::multi_threaded_map<K, V, std::unordered_map<K, V, Hash, KeyEqual, Allocator>>>(std::move(values));
+    }
+
+    template <typename K, typename V, typename Compare = std::less<K>, typename Allocator = std::allocator<std::pair<K const, V>>>
     Windows::Foundation::Collections::IObservableMap<K, V> single_threaded_observable_map()
     {
         return make<impl::observable_map<K, V, std::map<K, V, Compare, Allocator>>>(std::map<K, V, Compare, Allocator>{});
@@ -2835,6 +2920,24 @@ WINRT_EXPORT namespace winrt
     Windows::Foundation::Collections::IObservableMap<K, V> single_threaded_observable_map(std::unordered_map<K, V, Hash, KeyEqual, Allocator>&& values)
     {
         return make<impl::observable_map<K, V, std::unordered_map<K, V, Hash, KeyEqual, Allocator>>>(std::move(values));
+    }
+
+    template <typename K, typename V, typename Compare = std::less<K>, typename Allocator = std::allocator<std::pair<K const, V>>>
+    Windows::Foundation::Collections::IObservableMap<K, V> multi_threaded_observable_map()
+    {
+        return make<impl::multi_threaded_observable_map<K, V, std::map<K, V, Compare, Allocator>>>(std::map<K, V, Compare, Allocator>{});
+    }
+
+    template <typename K, typename V, typename Compare = std::less<K>, typename Allocator = std::allocator<std::pair<K const, V>>>
+    Windows::Foundation::Collections::IObservableMap<K, V> multi_threaded_observable_map(std::map<K, V, Compare, Allocator>&& values)
+    {
+        return make<impl::multi_threaded_observable_map<K, V, std::map<K, V, Compare, Allocator>>>(std::move(values));
+    }
+
+    template <typename K, typename V, typename Hash = std::hash<K>, typename KeyEqual = std::equal_to<K>, typename Allocator = std::allocator<std::pair<K const, V>>>
+    Windows::Foundation::Collections::IObservableMap<K, V> multi_threaded_observable_map(std::unordered_map<K, V, Hash, KeyEqual, Allocator>&& values)
+    {
+        return make<impl::multi_threaded_observable_map<K, V, std::unordered_map<K, V, Hash, KeyEqual, Allocator>>>(std::move(values));
     }
 }
 

@@ -154,6 +154,24 @@ extern "C" {
 
 #endif
 
+#if defined(NTDDI_WIN10_NI) && (NTDDI_VERSION >= NTDDI_WIN10_NI)
+
+typedef enum FILE_WRITE_FLAGS
+{
+    FILE_WRITE_FLAGS_NONE = 0,
+    FILE_WRITE_FLAGS_WRITE_THROUGH = 0x000000001,
+} FILE_WRITE_FLAGS;
+DEFINE_ENUM_FLAG_OPERATORS(FILE_WRITE_FLAGS)
+
+typedef enum FILE_FLUSH_MODE
+{
+    FILE_FLUSH_ALL,
+    FILE_FLUSH_FILE_DATA_ONLY,
+    FILE_FLUSH_NO_SYNC,
+    FILE_FLUSH_FILE_DATA_SYNC_ONLY,
+} FILE_FLUSH_MODE;
+
+#endif // NTDDI_WIN10_NI
 
 
 #if(_WIN32_WINNT >= 0x0400)
@@ -240,6 +258,7 @@ extern "C" {
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
 #endif /* _WIN32_WINNT >= 0x0400 */
+
 
 #if (_WIN32_WINNT >= 0x0500)
 //
@@ -2028,8 +2047,20 @@ SetFileShortNameW(
 #define SetFileShortName  SetFileShortNameA
 #endif // !UNICODE
 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
+#pragma endregion
+
+#pragma region Desktop Family or Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)
+
 #define HANDLE_FLAG_INHERIT             0x00000001
 #define HANDLE_FLAG_PROTECT_FROM_CLOSE  0x00000002
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
+#pragma endregion
+
+#pragma region Desktop Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 #define HINSTANCE_ERROR 32
 
@@ -3049,6 +3080,12 @@ typedef struct _WIN32_STREAM_ID {
 #define STREAM_SPARSE_ATTRIBUTE         0x00000008
 #define STREAM_CONTAINS_GHOSTED_FILE_EXTENTS 0x00000010
 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
+#pragma endregion
+
+#pragma region Desktop Family or Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)
+
 //
 // Dual Mode API below this line. Dual Mode Structures also included.
 //
@@ -3080,7 +3117,7 @@ typedef struct _WIN32_STREAM_ID {
      #define STARTF_HOLOGRAPHIC    0x00040000
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
 
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
 #pragma region Desktop Family or OneCore Family or Games Family
@@ -3476,6 +3513,9 @@ typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
 #endif
 #if (NTDDI_VERSION >= NTDDI_WIN10_FE)
     ProcThreadAttributeEnableOptionalXStateFeatures = 27,
+#endif
+#if (NTDDI_VERSION >= NTDDI_WIN10_NI)
+    ProcThreadAttributeTrustedApp                   = 29,
 #endif
 } PROC_THREAD_ATTRIBUTE_NUM;
 #endif
@@ -3939,6 +3979,14 @@ typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
 #define PROCESS_CREATION_MITIGATION_AUDIT_POLICY2_XTENDED_CONTROL_FLOW_GUARD_RESERVED            (0x00000003ui64 << 40)
 
 #endif // NTDDI_WIN10_MN
+
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_NI)
+
+#define PROC_THREAD_ATTRIBUTE_TRUSTED_APP \
+    ProcThreadAttributeValue (ProcThreadAttributeTrustedApp, FALSE, TRUE, FALSE)
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_NI)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -5836,6 +5884,19 @@ typedef struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
   PVOID                         reserved[8];
 
 } COPYFILE2_EXTENDED_PARAMETERS_V2;
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_NI)
+
+//
+//  Disable copying junctions (dwCopyFlagsV2 field of COPYFILE2_EXTENDED_PARAMETERS_V2).
+//
+
+#define COPY_FILE2_V2_DONT_COPY_JUNCTIONS        0x00000001
+
+#define COPY_FILE2_V2_VALID_FLAGS               \
+    (COPY_FILE2_V2_DONT_COPY_JUNCTIONS)         \
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_NI)
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
 
@@ -9070,6 +9131,11 @@ typedef struct _FILE_ID_EXTD_DIR_INFO {
 #define RPI_FLAG_SMB2_SHARECAP_CLUSTER                 0x00000040
 #endif
 
+// Protocol specific SMB2 share flags
+
+#define RPI_SMB2_SHAREFLAG_ENCRYPT_DATA           0x00000001
+#define RPI_SMB2_SHAREFLAG_COMPRESS_DATA          0x00000002
+
 // Protocol specific SMB2 server capability flags.
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
@@ -9122,7 +9188,11 @@ typedef struct _FILE_REMOTE_PROTOCOL_INFO
 
             struct {
                 ULONG Capabilities;
+#if (NTDDI_VERSION >= NTDDI_WIN10_NI)
+                ULONG ShareFlags;
+#else
                 ULONG CachingFlags;
+#endif
             } Share;
 
         } Smb2;

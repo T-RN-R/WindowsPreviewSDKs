@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
+#define __REQUIRED_RPCNDR_H_VERSION__ 501
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -38,7 +38,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -6470,9 +6470,9 @@ CEnroll;
 /* interface __MIDL_itf_xenroll_0000_0008 */
 /* [local] */ 
 
-extern "C" IEnroll * WINAPI PIEnrollGetNoCOM(void);
-extern "C" IEnroll2 * WINAPI PIEnroll2GetNoCOM(void);
-extern "C" IEnroll4 * WINAPI PIEnroll4GetNoCOM(void);
+EXTERN_C IEnroll * WINAPI PIEnrollGetNoCOM(void);
+EXTERN_C IEnroll2 * WINAPI PIEnroll2GetNoCOM(void);
+EXTERN_C IEnroll4 * WINAPI PIEnroll4GetNoCOM(void);
 #define CRYPT_ENUM_ALL_PROVIDERS  0x1
 #define XEPR_ENUM_FIRST        -1
 #define XEPR_CADNS           0x01

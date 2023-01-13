@@ -144,7 +144,7 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xc0000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xf0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_MEDIA_CAPTURE_APPBROADCASTCONTRACT_VERSION)
@@ -172,7 +172,7 @@
 #endif // defined(WINDOWS_NETWORKING_SOCKETS_CONTROLCHANNELTRIGGERCONTRACT_VERSION)
 
 #if !defined(WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION)
-#define WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION 0x60000
+#define WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION 0x70000
 #endif // defined(WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -436,6 +436,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics2 ABI::Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics2
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            namespace Background {
+                interface IBackgroundExecutionManagerStatics3;
+            } /* Background */
+        } /* ApplicationModel */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3 ABI::Windows::ApplicationModel::Background::IBackgroundExecutionManagerStatics3
+
+#endif // ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTask_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTask_FWD_DEFINED__
@@ -4639,6 +4654,51 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgrou
 
 /*
  *
+ * Interface Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
+ *
+ * Interface is a part of the implementation of type Windows.ApplicationModel.Background.BackgroundExecutionManager
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if !defined(____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics3[] = L"Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3";
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            namespace Background {
+                MIDL_INTERFACE("98a5d3f6-5a25-5b6c-9192-d77a43dfedc4")
+                IBackgroundExecutionManagerStatics3 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE RequestAccessKindForModernStandbyAsync(
+                        ABI::Windows::ApplicationModel::Background::BackgroundAccessRequestKind requestedAccess,
+                        HSTRING reason,
+                        __FIAsyncOperation_1_boolean** operation
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetAccessStatusForModernStandby(
+                        ABI::Windows::ApplicationModel::Background::BackgroundAccessStatus* result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetAccessStatusForModernStandbyForApplication(
+                        HSTRING applicationId,
+                        ABI::Windows::ApplicationModel::Background::BackgroundAccessStatus* result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IBackgroundExecutionManagerStatics3 = _uuidof(IBackgroundExecutionManagerStatics3);
+            } /* Background */
+        } /* ApplicationModel */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3;
+#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+
+/*
+ *
  * Interface Windows.ApplicationModel.Background.IBackgroundTask
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -4733,9 +4793,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgrou
  *
  * Interface is a part of the implementation of type Windows.ApplicationModel.Background.BackgroundTaskBuilder
  *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Background.IBackgroundTaskBuilder
- *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskBuilder2_INTERFACE_DEFINED__)
@@ -4775,9 +4832,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgrou
  *
  * Interface is a part of the implementation of type Windows.ApplicationModel.Background.BackgroundTaskBuilder
  *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Background.IBackgroundTaskBuilder
- *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskBuilder3_INTERFACE_DEFINED__)
@@ -4816,9 +4870,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgrou
  * Introduced to Windows.Foundation.UniversalApiContract in version 4.0
  *
  * Interface is a part of the implementation of type Windows.ApplicationModel.Background.BackgroundTaskBuilder
- *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Background.IBackgroundTaskBuilder
  *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
@@ -8137,8 +8188,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3 interface starting with version 13.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -8512,8 +8564,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.ApplicationModel.Background.IContentPrefetchTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IContentPrefetchTrigger ** Default Interface **
@@ -8733,8 +8785,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via the Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via the Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger ** Default Interface **
@@ -9151,8 +9203,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.ApplicationModel.Background.IPushNotificationTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
@@ -9497,8 +9549,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.ApplicationModel.Background.IToastNotificationActionTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
@@ -9522,8 +9574,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via the Windows.ApplicationModel.Background.IToastNotificationHistoryChangedTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via the Windows.ApplicationModel.Background.IToastNotificationHistoryChangedTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
@@ -9563,6 +9615,54 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Background_UserNotificationChangedTrigger[] = L"Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+
+/*
+ *
+ * Class Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 15.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#ifndef RUNTIMECLASS_Windows_ApplicationModel_Background_WiFiOnDemandHotspotConnectTrigger_DEFINED
+#define RUNTIMECLASS_Windows_ApplicationModel_Background_WiFiOnDemandHotspotConnectTrigger_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Background_WiFiOnDemandHotspotConnectTrigger[] = L"Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+
+/*
+ *
+ * Class Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 15.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#ifndef RUNTIMECLASS_Windows_ApplicationModel_Background_WiFiOnDemandHotspotUpdateMetadataTrigger_DEFINED
+#define RUNTIMECLASS_Windows_ApplicationModel_Background_WiFiOnDemandHotspotUpdateMetadataTrigger_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Background_WiFiOnDemandHotspotUpdateMetadataTrigger[] = L"Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 #else // !defined(__cplusplus)
 /* Forward Declarations */
@@ -9655,6 +9755,12 @@ typedef interface __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExe
 typedef interface __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics2 __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics2;
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3 __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3;
+
+#endif // ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTask_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTask_FWD_DEFINED__
@@ -14204,6 +14310,88 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgrou
 
 /*
  *
+ * Interface Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
+ *
+ * Interface is a part of the implementation of type Windows.ApplicationModel.Background.BackgroundExecutionManager
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if !defined(____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Background_IBackgroundExecutionManagerStatics3[] = L"Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3";
+typedef struct __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* RequestAccessKindForModernStandbyAsync)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This,
+        enum __x_ABI_CWindows_CApplicationModel_CBackground_CBackgroundAccessRequestKind requestedAccess,
+        HSTRING reason,
+        __FIAsyncOperation_1_boolean** operation);
+    HRESULT (STDMETHODCALLTYPE* GetAccessStatusForModernStandby)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This,
+        enum __x_ABI_CWindows_CApplicationModel_CBackground_CBackgroundAccessStatus* result);
+    HRESULT (STDMETHODCALLTYPE* GetAccessStatusForModernStandbyForApplication)(__x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3* This,
+        HSTRING applicationId,
+        enum __x_ABI_CWindows_CApplicationModel_CBackground_CBackgroundAccessStatus* result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3Vtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3
+{
+    CONST_VTBL struct __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_RequestAccessKindForModernStandbyAsync(This, requestedAccess, reason, operation) \
+    ((This)->lpVtbl->RequestAccessKindForModernStandbyAsync(This, requestedAccess, reason, operation))
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_GetAccessStatusForModernStandby(This, result) \
+    ((This)->lpVtbl->GetAccessStatusForModernStandby(This, result))
+
+#define __x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_GetAccessStatusForModernStandbyForApplication(This, applicationId, result) \
+    ((This)->lpVtbl->GetAccessStatusForModernStandbyForApplication(This, applicationId, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3;
+#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundExecutionManagerStatics3_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+
+/*
+ *
  * Interface Windows.ApplicationModel.Background.IBackgroundTask
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -14376,9 +14564,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgrou
  *
  * Interface is a part of the implementation of type Windows.ApplicationModel.Background.BackgroundTaskBuilder
  *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Background.IBackgroundTaskBuilder
- *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskBuilder2_INTERFACE_DEFINED__)
@@ -14453,9 +14638,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgrou
  *
  * Interface is a part of the implementation of type Windows.ApplicationModel.Background.BackgroundTaskBuilder
  *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Background.IBackgroundTaskBuilder
- *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CBackground_CIBackgroundTaskBuilder3_INTERFACE_DEFINED__)
@@ -14529,9 +14711,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CBackground_CIBackgrou
  * Introduced to Windows.Foundation.UniversalApiContract in version 4.0
  *
  * Interface is a part of the implementation of type Windows.ApplicationModel.Background.BackgroundTaskBuilder
- *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Background.IBackgroundTaskBuilder
  *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
@@ -20575,8 +20754,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3 interface starting with version 13.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  */
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
@@ -20950,8 +21130,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.ApplicationModel.Background.IContentPrefetchTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IContentPrefetchTrigger ** Default Interface **
@@ -21171,8 +21351,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via the Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via the Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IGattCharacteristicNotificationTrigger ** Default Interface **
@@ -21589,8 +21769,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.ApplicationModel.Background.IPushNotificationTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
@@ -21935,8 +22115,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via the Windows.ApplicationModel.Background.IToastNotificationActionTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
@@ -21960,8 +22140,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via the Windows.ApplicationModel.Background.IToastNotificationHistoryChangedTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via the Windows.ApplicationModel.Background.IToastNotificationHistoryChangedTriggerFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
@@ -22001,6 +22181,54 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Background_UserNotificationChangedTrigger[] = L"Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+
+/*
+ *
+ * Class Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 15.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#ifndef RUNTIMECLASS_Windows_ApplicationModel_Background_WiFiOnDemandHotspotConnectTrigger_DEFINED
+#define RUNTIMECLASS_Windows_ApplicationModel_Background_WiFiOnDemandHotspotConnectTrigger_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Background_WiFiOnDemandHotspotConnectTrigger[] = L"Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+
+/*
+ *
+ * Class Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * RuntimeClass can be activated.
+ *   Type can be activated via RoActivateInstance starting with version 15.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.ApplicationModel.Background.IBackgroundTrigger ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#ifndef RUNTIMECLASS_Windows_ApplicationModel_Background_WiFiOnDemandHotspotUpdateMetadataTrigger_DEFINED
+#define RUNTIMECLASS_Windows_ApplicationModel_Background_WiFiOnDemandHotspotUpdateMetadataTrigger_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Background_WiFiOnDemandHotspotUpdateMetadataTrigger[] = L"Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 #endif // defined(__cplusplus)
 #pragma pop_macro("MIDL_CONST_ID")

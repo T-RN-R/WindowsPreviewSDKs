@@ -34,7 +34,8 @@ typedef enum WHV_CAPABILITY_CODE
     WHvCapabilityCodeExtendedVmExits                  = 0x00000002,
     WHvCapabilityCodeExceptionExitBitmap              = 0x00000003,
     WHvCapabilityCodeX64MsrExitBitmap                 = 0x00000004,
-    WHvCapabilityCodeGpaRangePrefetchFlags            = 0x00000005,
+    WHvCapabilityCodeGpaRangePopulateFlags            = 0x00000005,
+    WHvCapabilityCodeSchedulerFeatures                = 0x00000006,
 
     // Capabilities of the system's processor
     WHvCapabilityCodeProcessorVendor                 = 0x00001000,
@@ -45,7 +46,8 @@ typedef enum WHV_CAPABILITY_CODE
     WHvCapabilityCodeInterruptClockFrequency         = 0x00001005,
     WHvCapabilityCodeProcessorFeaturesBanks          = 0x00001006,
     WHvCapabilityCodeProcessorFrequencyCap           = 0x00001007,
-    WHvCapabilityCodeSyntheticProcessorFeaturesBanks = 0x00001008
+    WHvCapabilityCodeSyntheticProcessorFeaturesBanks = 0x00001008,
+    WHvCapabilityCodeProcessorPerfmonFeatures        = 0x00001009,
 } WHV_CAPABILITY_CODE;
 
 //
@@ -62,9 +64,9 @@ typedef union WHV_CAPABILITY_FEATURES
         UINT64 SpeculationControl : 1;
         UINT64 ApicRemoteRead : 1;
         UINT64 IdleSuspend : 1;
-        UINT64 CpuSchedulerProperties : 1;
         UINT64 VirtualPciDeviceSupport : 1;
         UINT64 IommuSupport : 1;
+        UINT64 VpHotAddRemove : 1;
         UINT64 Reserved : 54;
     };
 
@@ -92,10 +94,11 @@ typedef union WHV_EXTENDED_VM_EXITS
         UINT64 X64ApicWriteLint1ExitTrap  : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
         UINT64 X64ApicWriteSvrExitTrap    : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
         UINT64 UnknownSynicConnection     : 1; // WHvRunVpExitReasonHypercall supported for unknown synic connection to HvSignalEvent
-        UINT64 RetargetUnknownVpciDevice  : 1; // WHvRUnVpExitReasonHypercall supported for unknown device to HvRetargetDeviceInterrupt
+        UINT64 RetargetUnknownVpciDevice  : 1; // WHvRunVpExitReasonHypercall supported for unknown device to HvRetargetDeviceInterrupt
         UINT64 X64ApicWriteLdrExitTrap    : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
         UINT64 X64ApicWriteDfrExitTrap    : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
-        UINT64 Reserved                   : 50;
+        UINT64 GpaAccessFaultExit         : 1; // WHvRunVpExitReasonMemoryAccess supported for second-level page faults
+        UINT64 Reserved                   : 49;
     };
 
     UINT64 AsUINT64;
@@ -183,7 +186,9 @@ typedef union WHV_PROCESSOR_FEATURES
         UINT64 UmipSupport : 1;
         UINT64 MdsNoSupport : 1;
         UINT64 MdClearSupport : 1;
-        UINT64 Reserved6 : 3;
+        UINT64 TaaNoSupport : 1;
+        UINT64 TsxCtrlSupport : 1;
+        UINT64 Reserved6 : 1;
     };
 
     UINT64 AsUINT64;
@@ -200,12 +205,15 @@ typedef union WHV_PROCESSOR_FEATURES1
 {
     struct
     {
-        UINT64 Reserved1 : 2;
+        UINT64 ACountMCountSupport : 1;
+        UINT64 TscInvariantSupport : 1;
         UINT64 ClZeroSupport : 1;
-        UINT64 Reserved2 : 3;
+        UINT64 RdpruSupport : 1;
+        UINT64 Reserved2 : 2;
         UINT64 NestedVirtSupport : 1;
         UINT64 PsfdSupport: 1;
-        UINT64 Reserved3 : 2;
+        UINT64 CetSsSupport : 1;
+        UINT64 CetIbtSupport : 1;
         UINT64 VmxExceptionInjectSupport : 1;
         UINT64 Reserved4 : 1;
         UINT64 UmwaitTpauseSupport : 1;
@@ -218,7 +226,8 @@ typedef union WHV_PROCESSOR_FEATURES1
         UINT64 FZLRepMovsb : 1;
         UINT64 FSRepStosb : 1;
         UINT64 FSRepCmpsb : 1;
-        UINT64 Reserved5 : 42;
+        UINT64 TsxLdTrkSupport : 1;
+        UINT64 Reserved5 : 41;
     };
 
     UINT64 AsUINT64;
@@ -419,6 +428,8 @@ typedef enum WHV_PARTITION_PROPERTY_CODE
     WHvPartitionPropertyCodeCpuWeight               = 0x00000009,
     WHvPartitionPropertyCodeCpuGroupId              = 0x0000000a,
     WHvPartitionPropertyCodeProcessorFrequencyCap   = 0x0000000b,
+    WHvPartitionPropertyCodeAllowDeviceAssignment   = 0x0000000c,
+    WHvPartitionPropertyCodeDisableSmt              = 0x0000000d,
 
     WHvPartitionPropertyCodeProcessorFeatures               = 0x00001001,
     WHvPartitionPropertyCodeProcessorClFlushSize            = 0x00001002,
@@ -432,6 +443,10 @@ typedef enum WHV_PARTITION_PROPERTY_CODE
     WHvPartitionPropertyCodeProcessorFeaturesBanks          = 0x0000100A,
     WHvPartitionPropertyCodeReferenceTime                   = 0x0000100B,
     WHvPartitionPropertyCodeSyntheticProcessorFeaturesBanks = 0x0000100C,
+    WHvPartitionPropertyCodeCpuidResultList2                = 0x0000100D,
+    WHvPartitionPropertyCodeProcessorPerfmonFeatures        = 0x0000100E,
+    WHvPartitionPropertyCodeMsrActionList                   = 0x0000100F,
+    WHvPartitionPropertyCodeUnimplementedMsrAction          = 0x00001010,
 
     WHvPartitionPropertyCodeProcessorCount          = 0x00001fff
 } WHV_PARTITION_PROPERTY_CODE;
@@ -484,6 +499,24 @@ typedef union WHV_PROCESSOR_XSAVE_FEATURES
 C_ASSERT(sizeof(WHV_PROCESSOR_XSAVE_FEATURES) == 8);
 
 //
+// Return values for WHvCapabilityCodeProcessorPerfmonFeatures and input buffer
+// for WHvPartitionPropertyCodeProcessorPerfmonFeatures
+//
+typedef union WHV_PROCESSOR_PERFMON_FEATURES
+{
+    struct
+    {
+        UINT64 PmuSupport : 1;
+        UINT64 LbrSupport : 1;
+        UINT64 Reserved : 62;
+    };
+
+    UINT64 AsUINT64;
+} WHV_PROCESSOR_PERFMON_FEATURES, *PWHV_PROCESSOR_PERFMON_FEATURES;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_PERFMON_FEATURES) == 8);
+
+//
 // Return value for WHvCapabilityCodeX64MsrExits and input buffer for
 // WHvPartitionPropertyCodeX64MsrcExits
 //
@@ -509,27 +542,42 @@ C_ASSERT(sizeof(WHV_X64_MSR_EXIT_BITMAP) == 8);
 // Structure describing a memory range entry
 //
 typedef struct WHV_MEMORY_RANGE_ENTRY {
-    UINT64 Address;
+    UINT64 GuestAddress;
     UINT64 SizeInBytes;
 } WHV_MEMORY_RANGE_ENTRY;
 
 C_ASSERT(sizeof(WHV_MEMORY_RANGE_ENTRY) == 16);
 
-//
-// Flags used by WHvAdviseGpaRangeCodePrefetch
-//
-typedef union WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS
+typedef union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS
 {
     UINT32 AsUINT32;
     struct
     {
-        UINT32 PrefetchAvoidWriteFaults:1;
-        UINT32 PrefetchAvoidHardFaults:1;
+        UINT32 Prefetch:1;
+        UINT32 AvoidHardFaults:1;
         UINT32 Reserved:30;
     };
-} WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS;
+} WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS;
 
-C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS) == 4);
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS) == 4);
+
+typedef enum WHV_MEMORY_ACCESS_TYPE
+{
+    WHvMemoryAccessRead    = 0,
+    WHvMemoryAccessWrite   = 1,
+    WHvMemoryAccessExecute = 2
+} WHV_MEMORY_ACCESS_TYPE;
+
+//
+// Parameters used by WHvAdviseGpaRangeCodePopulate
+//
+typedef struct WHV_ADVISE_GPA_RANGE_POPULATE
+{
+    WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS Flags;
+    WHV_MEMORY_ACCESS_TYPE AccessType;
+} WHV_ADVISE_GPA_RANGE_POPULATE;
+
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_POPULATE) == 8);
 
 typedef struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP
 {
@@ -542,6 +590,23 @@ typedef struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP
 } WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP;
 
 C_ASSERT(sizeof(WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP) == 20);
+
+typedef union WHV_SCHEDULER_FEATURES
+{
+    struct
+    {
+        UINT64 CpuReserve: 1;
+        UINT64 CpuCap: 1;
+        UINT64 CpuWeight: 1;
+        UINT64 CpuGroupId: 1;
+        UINT64 DisableSmt: 1;
+        UINT64 Reserved: 59;
+    };
+
+    UINT64 AsUINT64;
+} WHV_SCHEDULER_FEATURES;
+
+C_ASSERT(sizeof(WHV_SCHEDULER_FEATURES) == 8);
 
 //
 // WHvGetCapability output buffer
@@ -561,8 +626,10 @@ typedef union WHV_CAPABILITY
     UINT64 ProcessorClockFrequency;
     UINT64 InterruptClockFrequency;
     WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
-    WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS GpaRangePrefetchFlags;
+    WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS GpaRangePopulateFlags;
     WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP ProcessorFrequencyCap;
+    WHV_PROCESSOR_PERFMON_FEATURES ProcessorPerfmonFeatures;
+    WHV_SCHEDULER_FEATURES SchedulerFeatures;
 } WHV_CAPABILITY;
 
 //
@@ -579,6 +646,62 @@ typedef struct WHV_X64_CPUID_RESULT
 } WHV_X64_CPUID_RESULT;
 
 C_ASSERT(sizeof(WHV_X64_CPUID_RESULT) == 32);
+
+typedef enum WHV_X64_CPUID_RESULT2_FLAGS
+{
+    WHvX64CpuidResult2FlagSubleafSpecific   = 0x00000001,
+    WHvX64CpuidResult2FlagVpSpecific        = 0x00000002,
+} WHV_X64_CPUID_RESULT2_FLAGS;
+
+DEFINE_ENUM_FLAG_OPERATORS(WHV_X64_CPUID_RESULT2_FLAGS);
+
+typedef struct WHV_CPUID_OUTPUT
+{
+    UINT32 Eax;
+    UINT32 Ebx;
+    UINT32 Ecx;
+    UINT32 Edx;
+} WHV_CPUID_OUTPUT;
+
+C_ASSERT(sizeof(WHV_CPUID_OUTPUT) == 16);
+
+//
+// WHvPartitionPropertyCodeCpuidResultList2 input buffer list element.
+//
+typedef struct WHV_X64_CPUID_RESULT2
+{
+    UINT32 Function;
+    UINT32 Index;
+    UINT32 VpIndex;
+    WHV_X64_CPUID_RESULT2_FLAGS Flags;
+    WHV_CPUID_OUTPUT Output;
+    WHV_CPUID_OUTPUT Mask;
+} WHV_X64_CPUID_RESULT2;
+
+C_ASSERT(sizeof(WHV_X64_CPUID_RESULT2) == 48);
+
+//
+// WHvPartitionPropertyCodeMsrActionList input buffer list element.
+//
+typedef struct WHV_MSR_ACTION_ENTRY
+{
+    UINT32 Index;
+    UINT8 ReadAction; // WHV_MSR_ACTION
+    UINT8 WriteAction; // WHV_MSR_ACTION
+    UINT16 Reserved;
+} WHV_MSR_ACTION_ENTRY;
+
+C_ASSERT(sizeof(WHV_MSR_ACTION_ENTRY) == 8);
+
+//
+// WHvPartitionPropertyCodeUnimplementedMsrAction input.
+//
+typedef enum WHV_MSR_ACTION
+{
+    WHvMsrActionArchitectureDefault = 0,
+    WHvMsrActionIgnoreWriteReadZero = 1,
+    WHvMsrActionExit = 2,
+} WHV_MSR_ACTION;
 
 //
 // WHvPartitionPropertyCodeExceptionBitmap enumeration values.
@@ -624,6 +747,9 @@ typedef union WHV_PARTITION_PROPERTY
     UINT32 ProcessorCount;
     UINT32 CpuidExitList[1];
     WHV_X64_CPUID_RESULT CpuidResultList[1];
+    WHV_X64_CPUID_RESULT2 CpuidResultList2[1];
+    WHV_MSR_ACTION_ENTRY MsrActionList[1];
+    WHV_MSR_ACTION UnimplementedMsrAction;
     UINT64 ExceptionExitBitmap;
     WHV_X64_LOCAL_APIC_EMULATION_MODE LocalApicEmulationMode;
     BOOL SeparateSecurityDomain;
@@ -641,6 +767,9 @@ typedef union WHV_PARTITION_PROPERTY
     UINT32 CpuWeight;
     UINT64 CpuGroupId;
     UINT32 ProcessorFrequencyCap;
+    BOOL AllowDeviceAssignment;
+    WHV_PROCESSOR_PERFMON_FEATURES ProcessorPerfmonFeatures;
+    BOOL DisableSmt;
 } WHV_PARTITION_PROPERTY;
 
 //
@@ -654,7 +783,7 @@ typedef UINT64 WHV_GUEST_PHYSICAL_ADDRESS;
 typedef UINT64 WHV_GUEST_VIRTUAL_ADDRESS;
 
 //
-// Flags used by WHvMapGpaRange
+// Flags used by WHvMapGpaRange/WHvMapGpaRange2
 //
 typedef enum WHV_MAP_GPA_RANGE_FLAGS
 {
@@ -721,10 +850,10 @@ C_ASSERT(sizeof(WHV_TRANSLATE_GVA_RESULT) == 8);
 //
 typedef union WHV_ADVISE_GPA_RANGE
 {
-    WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS PrefetchFlags;
+    WHV_ADVISE_GPA_RANGE_POPULATE Populate;
 } WHV_ADVISE_GPA_RANGE;
 
-C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE) == 4);
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE) == 8);
 
 typedef enum WHV_CACHE_TYPE {
     WHvCacheTypeUncached         = 0,
@@ -918,9 +1047,21 @@ typedef enum WHV_REGISTER_NAME
 
     WHvX64RegisterTscAux           = 0x0000207B,
     WHvX64RegisterBndcfgs          = 0x0000207C,
+    WHvX64RegisterMCount           = 0x0000207E,
+    WHvX64RegisterACount           = 0x0000207F,
     WHvX64RegisterSpecCtrl         = 0x00002084,
     WHvX64RegisterPredCmd          = 0x00002085,
     WHvX64RegisterTscVirtualOffset = 0x00002087,
+    WHvX64RegisterTsxCtrl          = 0x00002088,
+    WHvX64RegisterXss              = 0x0000208B,
+    WHvX64RegisterUCet             = 0x0000208C,
+    WHvX64RegisterSCet             = 0x0000208D,
+    WHvX64RegisterSsp              = 0x0000208E,
+    WHvX64RegisterPl0Ssp           = 0x0000208F,
+    WHvX64RegisterPl1Ssp           = 0x00002090,
+    WHvX64RegisterPl2Ssp           = 0x00002091,
+    WHvX64RegisterPl3Ssp           = 0x00002092,
+    WHvX64RegisterInterruptSspTableAddr = 0x00002093,
     WHvX64RegisterTscDeadline      = 0x00002095,
     WHvX64RegisterTscAdjust        = 0x00002096,
     WHvX64RegisterUmwaitControl    = 0x00002098,
@@ -930,6 +1071,48 @@ typedef enum WHV_REGISTER_NAME
     // APIC state (also accessible via WHv(Get/Set)VirtualProcessorInterruptControllerState)
     WHvX64RegisterApicId           = 0x00003002,
     WHvX64RegisterApicVersion      = 0x00003003,
+    // X2APIC state (also accessible via WHv(Get/Set)VirtualProcessorInterruptControllerState)
+    WHvX64RegisterApicTpr          = 0x00003008,
+    WHvX64RegisterApicPpr          = 0x0000300A,
+    WHvX64RegisterApicEoi          = 0x0000300B,
+    WHvX64RegisterApicLdr          = 0x0000300D,
+    WHvX64RegisterApicSpurious     = 0x0000300F,
+    WHvX64RegisterApicIsr0         = 0x00003010,
+    WHvX64RegisterApicIsr1         = 0x00003011,
+    WHvX64RegisterApicIsr2         = 0x00003012,
+    WHvX64RegisterApicIsr3         = 0x00003013,
+    WHvX64RegisterApicIsr4         = 0x00003014,
+    WHvX64RegisterApicIsr5         = 0x00003015,
+    WHvX64RegisterApicIsr6         = 0x00003016,
+    WHvX64RegisterApicIsr7         = 0x00003017,
+    WHvX64RegisterApicTmr0         = 0x00003018,
+    WHvX64RegisterApicTmr1         = 0x00003019,
+    WHvX64RegisterApicTmr2         = 0x0000301A,
+    WHvX64RegisterApicTmr3         = 0x0000301B,
+    WHvX64RegisterApicTmr4         = 0x0000301C,
+    WHvX64RegisterApicTmr5         = 0x0000301D,
+    WHvX64RegisterApicTmr6         = 0x0000301E,
+    WHvX64RegisterApicTmr7         = 0x0000301F,
+    WHvX64RegisterApicIrr0         = 0x00003020,
+    WHvX64RegisterApicIrr1         = 0x00003021,
+    WHvX64RegisterApicIrr2         = 0x00003022,
+    WHvX64RegisterApicIrr3         = 0x00003023,
+    WHvX64RegisterApicIrr4         = 0x00003024,
+    WHvX64RegisterApicIrr5         = 0x00003025,
+    WHvX64RegisterApicIrr6         = 0x00003026,
+    WHvX64RegisterApicIrr7         = 0x00003027,
+    WHvX64RegisterApicEse          = 0x00003028,
+    WHvX64RegisterApicIcr          = 0x00003030,
+    WHvX64RegisterApicLvtTimer     = 0x00003032,
+    WHvX64RegisterApicLvtThermal   = 0x00003033,
+    WHvX64RegisterApicLvtPerfmon   = 0x00003034,
+    WHvX64RegisterApicLvtLint0     = 0x00003035,
+    WHvX64RegisterApicLvtLint1     = 0x00003036,
+    WHvX64RegisterApicLvtError     = 0x00003037,
+    WHvX64RegisterApicInitCount    = 0x00003038,
+    WHvX64RegisterApicCurrentCount = 0x00003039,
+    WHvX64RegisterApicDivide       = 0x0000303E,
+    WHvX64RegisterApicSelfIpi      = 0x0000303F,
 
     // Synic registers
     WHvRegisterSint0               = 0x00004000,
@@ -960,6 +1143,7 @@ typedef enum WHV_REGISTER_NAME
     WHvRegisterGuestOsId           = 0x00005002,
     WHvRegisterVpAssistPage        = 0x00005013,
     WHvRegisterReferenceTsc        = 0x00005017,
+    WHvRegisterReferenceTscSequence = 0x0000501A,
 
     // Interrupt / Event Registers
     WHvRegisterPendingInterruption = 0x80000000,
@@ -1330,12 +1514,6 @@ C_ASSERT(sizeof(WHV_VP_EXIT_CONTEXT) == 40);
 //
 // Context data for a VM exit caused by a memory access (WHvRunVpExitReasonMemoryAccess)
 //
-typedef enum WHV_MEMORY_ACCESS_TYPE
-{
-    WHvMemoryAccessRead    = 0,
-    WHvMemoryAccessWrite   = 1,
-    WHvMemoryAccessExecute = 2
-} WHV_MEMORY_ACCESS_TYPE;
 
 typedef union WHV_MEMORY_ACCESS_INFO
 {
@@ -1743,6 +1921,7 @@ typedef enum WHV_PROCESSOR_COUNTER_SET
     WHvProcessorCounterSetIntercepts,
     WHvProcessorCounterSetEvents,
     WHvProcessorCounterSetApic,
+    WHvProcessorCounterSetSyntheticFeatures,
 } WHV_PROCESSOR_COUNTER_SET;
 
 typedef struct WHV_PROCESSOR_RUNTIME_COUNTERS
@@ -1774,9 +1953,12 @@ typedef struct WHV_PROCESSOR_INTERCEPT_COUNTERS
     WHV_PROCESSOR_INTERCEPT_COUNTER EmulatedInstructions;
     WHV_PROCESSOR_INTERCEPT_COUNTER DebugRegisterAccesses;
     WHV_PROCESSOR_INTERCEPT_COUNTER PageFaultIntercepts;
+    WHV_PROCESSOR_INTERCEPT_COUNTER NestedPageFaultIntercepts;
+    WHV_PROCESSOR_INTERCEPT_COUNTER Hypercalls;
+    WHV_PROCESSOR_INTERCEPT_COUNTER RdpmcInstructions;
 } WHV_PROCESSOR_ACTIVITY_COUNTERS;
 
-C_ASSERT(sizeof(WHV_PROCESSOR_ACTIVITY_COUNTERS) == 176);
+C_ASSERT(sizeof(WHV_PROCESSOR_ACTIVITY_COUNTERS) == 224);
 
 typedef struct WHV_PROCESSOR_EVENT_COUNTERS
 {
@@ -1798,17 +1980,35 @@ typedef struct WHV_PROCESSOR_APIC_COUNTERS
 
 C_ASSERT(sizeof(WHV_PROCESSOR_APIC_COUNTERS) == 40);
 
+typedef struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS
+{
+    UINT64 SyntheticInterruptsCount;
+    UINT64 LongSpinWaitHypercallsCount;
+    UINT64 OtherHypercallsCount;
+    UINT64 SyntheticInterruptHypercallsCount;
+    UINT64 VirtualInterruptHypercallsCount;
+    UINT64 VirtualMmuHypercallsCount;
+} WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS) == 48);
+
 // WHvAdviseGpaRange types
 typedef enum WHV_ADVISE_GPA_RANGE_CODE
 {
-    WHvAdviseGpaRangeCodePrefetch         = 0x00000001
+    WHvAdviseGpaRangeCodePopulate         = 0x00000000,
+    WHvAdviseGpaRangeCodePin              = 0x00000001,
+    WHvAdviseGpaRangeCodeUnpin            = 0x00000002,
 } WHV_ADVISE_GPA_RANGE_CODE;
 
+// WHvGetVirtualProcessorState and WHvSetVirtualProcessorState types.
 typedef enum WHV_VIRTUAL_PROCESSOR_STATE_TYPE
 {
-    WHvVirtualProcessorStateTypeSynicMessagePage    = 0x00000001,
-    WHvVirtualProcessorStateTypeSynicEventFlagPage  = 0x00000002,
-    WHvVirtualProcessorStateTypeSynicTimerState     = 0x00000003,
+    WHvVirtualProcessorStateTypeSynicMessagePage          = 0x00000000,
+    WHvVirtualProcessorStateTypeSynicEventFlagPage        = 0x00000001,
+    WHvVirtualProcessorStateTypeSynicTimerState           = 0x00000002,
+
+    WHvVirtualProcessorStateTypeInterruptControllerState2 = 0x00001000,
+    WHvVirtualProcessorStateTypeXsaveState                = 0x00001001,
 } WHV_VIRTUAL_PROCESSOR_STATE_TYPE;
 
 //
@@ -1855,25 +2055,22 @@ typedef enum WHV_VPCI_DEVICE_NOTIFICATION_TYPE
 {
     WHvVpciDeviceNotificationUndefined = 0,
     WHvVpciDeviceNotificationMmioRemapping = 1,
-    WHvVpciDeviceNotificationSurpriseRemoval = 2,
-
-    // Reserved for internal use.
-    WHvVpciDeviceNotificationBackChannelInvalidation = 0x80000001
+    WHvVpciDeviceNotificationSurpriseRemoval = 2
 
 } WHV_VPCI_DEVICE_NOTIFICATION_TYPE;
 
-typedef
-_Function_class_(WHV_PCI_DEVICE_NOTIFICATION_CALLBACK)
-VOID
-CALLBACK
-WHV_PCI_DEVICE_NOTIFICATION_CALLBACK(
-    _In_opt_ VOID* Context,
-    _In_ WHV_VPCI_DEVICE_NOTIFICATION_TYPE NotificationType,
-    _In_ UINT32 NotificationDataSizeInBytes,
-    _In_reads_opt_(NotificationDataSizeInBytes) const VOID* NotificationData
-    );
+typedef struct WHV_VPCI_DEVICE_NOTIFICATION
+{
+    WHV_VPCI_DEVICE_NOTIFICATION_TYPE NotificationType;
+    UINT32 Reserved1;
+    union
+    {
+        UINT64 Reserved2;
+    };
 
-typedef WHV_PCI_DEVICE_NOTIFICATION_CALLBACK *PWHV_PCI_DEVICE_NOTIFICATION_CALLBACK;
+} WHV_VPCI_DEVICE_NOTIFICATION;
+
+C_ASSERT(sizeof(WHV_VPCI_DEVICE_NOTIFICATION) == 16);
 
 typedef enum WHV_CREATE_VPCI_DEVICE_FLAGS
 {
@@ -1961,18 +2158,25 @@ typedef struct WHV_VPCI_DEVICE_REGISTER
 
 C_ASSERT(sizeof(WHV_VPCI_DEVICE_REGISTER) == 16);
 
-#define WHV_VPCI_SINGLE_MESSAGE_INTERRUPT 0xFFFFFFFF
+typedef enum WHV_VPCI_INTERRUPT_TARGET_FLAGS
+{
+    WHvVpciInterruptTargetFlagNone      = 0x00000000,
+    WHvVpciInterruptTargetFlagMulticast = 0x00000001,
+
+} WHV_VPCI_INTERRUPT_TARGET_FLAGS;
+
+DEFINE_ENUM_FLAG_OPERATORS(WHV_VPCI_INTERRUPT_TARGET_FLAGS);
 
 typedef struct WHV_VPCI_INTERRUPT_TARGET
 {
     UINT32 Vector;
-    WHV_INTERRUPT_TYPE InterruptType;
-    UINT16 ProcessorCount;
-    UINT16 Processors[ANYSIZE_ARRAY];
+    WHV_VPCI_INTERRUPT_TARGET_FLAGS Flags;
+    UINT32 ProcessorCount;
+    UINT32 Processors[ANYSIZE_ARRAY];
 
 } WHV_VPCI_INTERRUPT_TARGET;
 
-C_ASSERT(sizeof(WHV_VPCI_INTERRUPT_TARGET) == 12);
+C_ASSERT(sizeof(WHV_VPCI_INTERRUPT_TARGET) == 16);
 
 //
 // Triggers
@@ -2009,7 +2213,7 @@ typedef PVOID WHV_TRIGGER_HANDLE;
 
 typedef enum WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE
 {
-    WHvVirtualProcessorPropertyCodeNumaNode = 0x00000001,
+    WHvVirtualProcessorPropertyCodeNumaNode = 0x00000000,
 } WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE;
 
 typedef struct WHV_VIRTUAL_PROCESSOR_PROPERTY

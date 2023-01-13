@@ -136,6 +136,7 @@ Notes:
 #define FACILITY_SECUREBOOT              0x43
 #define FACILITY_AUDIO_KERNEL            0x44
 #define FACILITY_VSM                     0x45
+#define FACILITY_NT_IORING               0x46
 #define FACILITY_VOLSNAP                 0x50
 #define FACILITY_SDBUS                   0x51
 #define FACILITY_SHARED_VHDX             0x5C
@@ -728,6 +729,15 @@ Notes:
 #define STATUS_REPARSE_GLOBAL            ((NTSTATUS)0x00000368L)
 
 //
+// MessageId: STATUS_PAGE_FAULT_RETRY
+//
+// MessageText:
+//
+// Page fault should be retried.
+//
+#define STATUS_PAGE_FAULT_RETRY          ((NTSTATUS)0x00000369L)
+
+//
 // MessageId: DBG_EXCEPTION_HANDLED
 //
 // MessageText:
@@ -1293,6 +1303,24 @@ Notes:
 // A system patch was successfully loaded but is not applicable to any currently loaded images.
 //
 #define STATUS_PATCH_DEFERRED            ((NTSTATUS)0x40000037L)
+
+//
+// MessageId: STATUS_EMULATION_BREAKPOINT
+//
+// MessageText:
+//
+// Exception status code used by ARM64EC emulation subsystem.
+//
+#define STATUS_EMULATION_BREAKPOINT      ((NTSTATUS)0x40000038L)
+
+//
+// MessageId: STATUS_EMULATION_SYSCALL
+//
+// MessageText:
+//
+// Exception status code used by ARM64EC emulation subsystem.
+//
+#define STATUS_EMULATION_SYSCALL         ((NTSTATUS)0x40000039L)
 
 //
 // MessageId: DBG_REPLY_LATER
@@ -1948,6 +1976,27 @@ Notes:
 // The buffer is too small to contain the entry. No information has been written to the buffer.
 //
 #define STATUS_FLT_BUFFER_TOO_SMALL      ((NTSTATUS)0x801C0001L)
+
+/*++
+
+ Graphics Facility Warning messages (dxgkrnl.sys)
+
+--*/
+//
+// MessageId: STATUS_GRAPHICS_LINK_CONFIGURATION_IN_PROGRESS
+//
+// MessageText:
+//
+// Link configuration for the display timing is still in progress.
+// 
+// ;/*++
+// ;
+// ; End of Graphics Facility Warning messages.
+// ;
+// ;--*/
+// 
+//
+#define STATUS_GRAPHICS_LINK_CONFIGURATION_IN_PROGRESS ((NTSTATUS)0x801E0000L)
 
 //
 // MessageId: STATUS_FVE_PARTIAL_METADATA
@@ -4769,7 +4818,7 @@ Notes:
 //
 // MessageText:
 //
-// Page file quota was exceeded.
+// Pagefile quota was exceeded.
 //
 #define STATUS_PAGEFILE_QUOTA_EXCEEDED   ((NTSTATUS)0xC000012CL)
 
@@ -6005,6 +6054,15 @@ Notes:
 // Multiple mappings to shared resource(s) on a server, using different certificate validation preferences, are not allowed. Use the same preference for all mappings to a server and try again.
 //
 #define STATUS_CERTIFICATE_VALIDATION_PREFERENCE_CONFLICT ((NTSTATUS)0xC00001B5L)
+
+//
+// MessageId: STATUS_DEVICE_RESET_REQUIRED
+//
+// MessageText:
+//
+// The device needs to be reset.
+//
+#define STATUS_DEVICE_RESET_REQUIRED     ((NTSTATUS)0x800001B6L)
 
 //
 //  Available range of NTSTATUS codes
@@ -9669,7 +9727,7 @@ Notes:
 //
 // MessageText:
 //
-// An operation is not supported on a resident file.
+// The specified operation is not supported on a resident file.
 //
 #define STATUS_RESIDENT_FILE_NOT_SUPPORTED ((NTSTATUS)0xC000047AL)
 
@@ -9678,7 +9736,7 @@ Notes:
 //
 // MessageText:
 //
-// An operation is not supported on a compressed file.
+// The specified operation is not supported on a compressed file.
 //
 #define STATUS_COMPRESSED_FILE_NOT_SUPPORTED ((NTSTATUS)0xC000047BL)
 
@@ -9687,7 +9745,7 @@ Notes:
 //
 // MessageText:
 //
-// An operation is not supported on a directory.
+// The specified operation is not supported on a directory.
 //
 #define STATUS_DIRECTORY_NOT_SUPPORTED   ((NTSTATUS)0xC000047CL)
 
@@ -9949,7 +10007,7 @@ Notes:
 //
 // MessageText:
 //
-// This operation is not supported on a DAX volume.
+// The specified operation is not supported on a DAX volume.
 //
 #define STATUS_NOT_SUPPORTED_ON_DAX      ((NTSTATUS)0xC000049AL)
 
@@ -10278,13 +10336,22 @@ Notes:
 #define STATUS_FT_READ_FROM_COPY_FAILURE ((NTSTATUS)0xC00004BFL)
 
 //
+// MessageId: STATUS_IMAGE_LOADED_AS_PATCH_IMAGE
+//
+// MessageText:
+//
+// This image cannot be loaded because it has already been loaded as a hot patch image.
+//
+#define STATUS_IMAGE_LOADED_AS_PATCH_IMAGE ((NTSTATUS)0xC00004C0L)
+
+//
 // MessageId: STATUS_STORAGE_STACK_ACCESS_DENIED
 //
 // MessageText:
 //
 // The storage stack returned STATUS_ACCESS_DENEID for the current operation.
 //
-#define STATUS_STORAGE_STACK_ACCESS_DENIED ((NTSTATUS)0xC00004C0L)
+#define STATUS_STORAGE_STACK_ACCESS_DENIED ((NTSTATUS)0xC00004C1L)
 
 //
 // MessageId: STATUS_INSUFFICIENT_VIRTUAL_ADDR_RESOURCES
@@ -10293,7 +10360,178 @@ Notes:
 //
 // Insufficient Virtual Address resources to complete the operation.
 //
-#define STATUS_INSUFFICIENT_VIRTUAL_ADDR_RESOURCES ((NTSTATUS)0xC00004C1L)
+#define STATUS_INSUFFICIENT_VIRTUAL_ADDR_RESOURCES ((NTSTATUS)0xC00004C2L)
+
+//
+// MessageId: STATUS_ENCRYPTED_FILE_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The specified operation is not supported on an encrypted file.
+//
+#define STATUS_ENCRYPTED_FILE_NOT_SUPPORTED ((NTSTATUS)0xC00004C3L)
+
+//
+// MessageId: STATUS_SPARSE_FILE_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The specified operation is not supported on a sparse file.
+//
+#define STATUS_SPARSE_FILE_NOT_SUPPORTED ((NTSTATUS)0xC00004C4L)
+
+//
+// MessageId: STATUS_PAGEFILE_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The specified operation is not supported on a pagefile.
+//
+#define STATUS_PAGEFILE_NOT_SUPPORTED    ((NTSTATUS)0xC00004C5L)
+
+//
+// MessageId: STATUS_VOLUME_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The specified operation is not supported on a volume.
+//
+#define STATUS_VOLUME_NOT_SUPPORTED      ((NTSTATUS)0xC00004C6L)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_BYPASSIO
+//
+// MessageText:
+//
+// The specified operation is not supported on a BypassIO enabled file.
+//
+#define STATUS_NOT_SUPPORTED_WITH_BYPASSIO ((NTSTATUS)0xC00004C7L)
+
+//
+// MessageId: STATUS_NO_BYPASSIO_DRIVER_SUPPORT
+//
+// MessageText:
+//
+// The specified driver does not support BypassIO operations.
+//
+#define STATUS_NO_BYPASSIO_DRIVER_SUPPORT ((NTSTATUS)0xC00004C8L)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_ENCRYPTION
+//
+// MessageText:
+//
+// The specified operation is not supported while encryption is enabled on the target object.
+//
+#define STATUS_NOT_SUPPORTED_WITH_ENCRYPTION ((NTSTATUS)0xC00004C9L)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_COMPRESSION
+//
+// MessageText:
+//
+// The specified operation is not supported while compression is enabled on the target object.
+//
+#define STATUS_NOT_SUPPORTED_WITH_COMPRESSION ((NTSTATUS)0xC00004CAL)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_REPLICATION
+//
+// MessageText:
+//
+// The specified operation is not supported while replication is enabled on the target object.
+//
+#define STATUS_NOT_SUPPORTED_WITH_REPLICATION ((NTSTATUS)0xC00004CBL)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_DEDUPLICATION
+//
+// MessageText:
+//
+// The specified operation is not supported while deduplication is enabled on the target object.
+//
+#define STATUS_NOT_SUPPORTED_WITH_DEDUPLICATION ((NTSTATUS)0xC00004CCL)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_AUDITING
+//
+// MessageText:
+//
+// The specified operation is not supported while auditing is enabled on the target object.
+//
+#define STATUS_NOT_SUPPORTED_WITH_AUDITING ((NTSTATUS)0xC00004CDL)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_MONITORING
+//
+// MessageText:
+//
+// The specified operation is not supported while monitoring is enabled on the target object.
+//
+#define STATUS_NOT_SUPPORTED_WITH_MONITORING ((NTSTATUS)0xC00004CEL)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_SNAPSHOT
+//
+// MessageText:
+//
+// The specified operation is not supported while snapshot is enabled on the target object.
+//
+#define STATUS_NOT_SUPPORTED_WITH_SNAPSHOT ((NTSTATUS)0xC00004CFL)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_VIRTUALIZATION
+//
+// MessageText:
+//
+// The specified operation is not supported while virtualization is enabled on the target object.
+//
+#define STATUS_NOT_SUPPORTED_WITH_VIRTUALIZATION ((NTSTATUS)0xC00004D0L)
+
+//
+// MessageId: STATUS_INDEX_OUT_OF_BOUNDS
+//
+// MessageText:
+//
+// The specified index is beyond the bounds of valid range.
+//
+#define STATUS_INDEX_OUT_OF_BOUNDS       ((NTSTATUS)0xC00004D1L)
+
+//
+// MessageId: STATUS_BYPASSIO_FLT_NOT_SUPPORTED
+//
+// MessageText:
+//
+// At least one minifilter does not support bypass IO.
+//
+#define STATUS_BYPASSIO_FLT_NOT_SUPPORTED ((NTSTATUS)0xC00004D2L)
+
+//
+// MessageId: STATUS_VOLUME_WRITE_ACCESS_DENIED
+//
+// MessageText:
+//
+// The volume is opened for exclusive write access, preventing files from being opened for write access.
+//
+#define STATUS_VOLUME_WRITE_ACCESS_DENIED ((NTSTATUS)0xC00004D3L)
+
+//
+// MessageId: STATUS_PATCH_NOT_REGISTERED
+//
+// MessageText:
+//
+// The patch is not currently registered for the corresponding base image.
+//
+#define STATUS_PATCH_NOT_REGISTERED      ((NTSTATUS)0xC00004D4L)
+
+//
+// MessageId: STATUS_NOT_SUPPORTED_WITH_CACHED_HANDLE
+//
+// MessageText:
+//
+// The specified operation is not supported on a file opened for cached IO.
+//
+#define STATUS_NOT_SUPPORTED_WITH_CACHED_HANDLE ((NTSTATUS)0xC00004D5L)
 
 
 //     **** New SYSTEM error codes can be inserted here ****
@@ -10514,6 +10752,15 @@ Notes:
 // The negotiated session key does not meet the minimum length requirement.
 //
 #define STATUS_SESSION_KEY_TOO_SHORT     ((NTSTATUS)0xC0000517L)
+
+//
+// MessageId: STATUS_FS_METADATA_INCONSISTENT
+//
+// MessageText:
+//
+// The file system encountered a metadata file with inconsistent data.
+//
+#define STATUS_FS_METADATA_INCONSISTENT  ((NTSTATUS)0xC0000518L)
 
 
 //     **** New SYSTEM error codes can be inserted here ****
@@ -11310,6 +11557,15 @@ Notes:
 // Volatile verification settings cannot be changed when verification is enabled from boot or DIF volatile verification is enabled.
 //
 #define STATUS_VRF_VOLATILE_SETTINGS_CONFLICT ((NTSTATUS)0xC0000C0FL)
+
+//
+// MessageId: STATUS_DIF_IOCALLBACK_NOT_REPLACED
+//
+// MessageText:
+//
+// The specified driver is not associated with driver object or driver extension.
+//
+#define STATUS_DIF_IOCALLBACK_NOT_REPLACED ((NTSTATUS)0xC0000C76L)
 
 //
 // MessageId: STATUS_DIF_LIVEDUMP_LIMIT_EXCEEDED
@@ -12325,6 +12581,15 @@ Notes:
 // Dehydration of the cloud file is disallowed by the cloud sync provider.
 //
 #define STATUS_CLOUD_FILE_DEHYDRATION_DISALLOWED ((NTSTATUS)0xC000CF20L)
+
+//
+// MessageId: STATUS_CLOUD_FILE_US_MESSAGE_TIMEOUT
+//
+// MessageText:
+//
+// The cloud provider failed to acknowledge a message before the time-out expired.
+//
+#define STATUS_CLOUD_FILE_US_MESSAGE_TIMEOUT ((NTSTATUS)0xC000CF21L)
 
 /*++
 
@@ -18805,6 +19070,15 @@ Notes:
 //
 #define STATUS_FVE_EDRIVE_BAND_ENUMERATION_FAILED ((NTSTATUS)0xC0210041L)
 
+//
+// MessageId: STATUS_FVE_POLICY_ON_RDV_EXCLUSION_LIST
+//
+// MessageText:
+//
+// This removable data drive has been excluded from device encryption by BitLocker Drive Encryption policy.
+//
+#define STATUS_FVE_POLICY_ON_RDV_EXCLUSION_LIST ((NTSTATUS)0xC0210042L)
+
 
 //
 // FWP error codes (fwpkclnt.sys)
@@ -22453,6 +22727,51 @@ Notes:
 #define STATUS_HV_MSR_ACCESS_FAILED      ((NTSTATUS)0xC0350080L)
 
 //
+// MessageId: STATUS_HV_INSUFFICIENT_MEMORY_MIRRORING
+//
+// MessageText:
+//
+// There is not enough memory in the partition's pool to complete the mirroring operation.
+//
+#define STATUS_HV_INSUFFICIENT_MEMORY_MIRRORING ((NTSTATUS)0xC0350081L)
+
+//
+// MessageId: STATUS_HV_INSUFFICIENT_CONTIGUOUS_MEMORY_MIRRORING
+//
+// MessageText:
+//
+// There is not enough contiguous memory in the partition's pool to complete the mirroring operation.
+//
+#define STATUS_HV_INSUFFICIENT_CONTIGUOUS_MEMORY_MIRRORING ((NTSTATUS)0xC0350082L)
+
+//
+// MessageId: STATUS_HV_INSUFFICIENT_CONTIGUOUS_ROOT_MEMORY
+//
+// MessageText:
+//
+// There is not enough contiguous memory in the root partition's pool to complete the operation.
+//
+#define STATUS_HV_INSUFFICIENT_CONTIGUOUS_ROOT_MEMORY ((NTSTATUS)0xC0350083L)
+
+//
+// MessageId: STATUS_HV_INSUFFICIENT_ROOT_MEMORY_MIRRORING
+//
+// MessageText:
+//
+// There is not enough memory in the root partition's pool to complete the mirroring operation.
+//
+#define STATUS_HV_INSUFFICIENT_ROOT_MEMORY_MIRRORING ((NTSTATUS)0xC0350084L)
+
+//
+// MessageId: STATUS_HV_INSUFFICIENT_CONTIGUOUS_ROOT_MEMORY_MIRRORING
+//
+// MessageText:
+//
+// There is not enough contiguous memory in the root partition's pool to complete the mirroring operation.
+//
+#define STATUS_HV_INSUFFICIENT_CONTIGUOUS_ROOT_MEMORY_MIRRORING ((NTSTATUS)0xC0350085L)
+
+//
 // MessageId: STATUS_HV_NOT_PRESENT
 //
 // MessageText:
@@ -22848,6 +23167,60 @@ Notes:
 // The specified VTL does not have the permission to access the resource.
 //
 #define STATUS_VID_VTL_ACCESS_DENIED     ((NTSTATUS)0xC037002AL)
+
+//
+// MessageId: STATUS_VID_INSUFFICIENT_RESOURCES_RESERVE
+//
+// MessageText:
+//
+// Failed to allocate backing memory due to insufficient memory resources.
+//
+#define STATUS_VID_INSUFFICIENT_RESOURCES_RESERVE ((NTSTATUS)0xC037002BL)
+
+//
+// MessageId: STATUS_VID_INSUFFICIENT_RESOURCES_PHYSICAL_BUFFER
+//
+// MessageText:
+//
+// Failed to allocate memory for the physical buffer used to back certain internal structures.
+//
+#define STATUS_VID_INSUFFICIENT_RESOURCES_PHYSICAL_BUFFER ((NTSTATUS)0xC037002CL)
+
+//
+// MessageId: STATUS_VID_INSUFFICIENT_RESOURCES_HV_DEPOSIT
+//
+// MessageText:
+//
+// Failed to allocate memory to be deposited in the hypervisor.
+//
+#define STATUS_VID_INSUFFICIENT_RESOURCES_HV_DEPOSIT ((NTSTATUS)0xC037002DL)
+
+//
+// MessageId: STATUS_VID_MEMORY_TYPE_NOT_SUPPORTED
+//
+// MessageText:
+//
+// Memory type not supported for requested operation.
+//
+#define STATUS_VID_MEMORY_TYPE_NOT_SUPPORTED ((NTSTATUS)0xC037002EL)
+
+//
+// MessageId: STATUS_VID_INSUFFICIENT_RESOURCES_WITHDRAW
+//
+// MessageText:
+//
+// Failed to withdraw memory.
+//
+#define STATUS_VID_INSUFFICIENT_RESOURCES_WITHDRAW ((NTSTATUS)0xC037002FL)
+
+//
+// MessageId: STATUS_VID_PROCESS_ALREADY_SET
+//
+// MessageText:
+//
+// The process has already been set.
+//
+#define STATUS_VID_PROCESS_ALREADY_SET   ((NTSTATUS)0xC0370030L)
 
 //
 // Warnings:
@@ -25408,6 +25781,15 @@ Notes:
 #define STATUS_VOLSNAP_ACTIVATION_TIMEOUT ((NTSTATUS)0xC0500004L)
 
 //
+// MessageId: STATUS_VOLSNAP_NO_BYPASSIO_WITH_SNAPSHOT
+//
+// MessageText:
+//
+// BypassIO cannot be enabled while a volume snapshot exists.
+//
+#define STATUS_VOLSNAP_NO_BYPASSIO_WITH_SNAPSHOT ((NTSTATUS)0xC0500005L)
+
+//
 // Sdbus status codes (sdbus.sys)
 //
 //
@@ -25819,6 +26201,83 @@ Notes:
 // The QUIC connection failed to negotiate a compatible ALPN.
 //
 #define STATUS_QUIC_ALPN_NEG_FAILURE     ((NTSTATUS)0xC0240007L)
+
+
+//
+// IORING NTSTATUS codes
+//
+
+//
+// MessageId: STATUS_IORING_REQUIRED_FLAG_NOT_SUPPORTED
+//
+// MessageText:
+//
+// One or more of the required flags provided is unknown by the implementation.
+//
+#define STATUS_IORING_REQUIRED_FLAG_NOT_SUPPORTED ((NTSTATUS)0xC0460001L)
+
+//
+// MessageId: STATUS_IORING_SUBMISSION_QUEUE_FULL
+//
+// MessageText:
+//
+// The submission queue is full.
+//
+#define STATUS_IORING_SUBMISSION_QUEUE_FULL ((NTSTATUS)0xC0460002L)
+
+//
+// MessageId: STATUS_IORING_VERSION_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The version specified is not known or supported.
+//
+#define STATUS_IORING_VERSION_NOT_SUPPORTED ((NTSTATUS)0xC0460003L)
+
+//
+// MessageId: STATUS_IORING_SUBMISSION_QUEUE_TOO_BIG
+//
+// MessageText:
+//
+// The submission queue size specified for the IoRing is too big.
+//
+#define STATUS_IORING_SUBMISSION_QUEUE_TOO_BIG ((NTSTATUS)0xC0460004L)
+
+//
+// MessageId: STATUS_IORING_COMPLETION_QUEUE_TOO_BIG
+//
+// MessageText:
+//
+// The completion queue size specified for the IoRing is too big.
+//
+#define STATUS_IORING_COMPLETION_QUEUE_TOO_BIG ((NTSTATUS)0xC0460005L)
+
+//
+// MessageId: STATUS_IORING_SUBMIT_IN_PROGRESS
+//
+// MessageText:
+//
+// A submit operation is already in progress for this IoRing on another thread.
+//
+#define STATUS_IORING_SUBMIT_IN_PROGRESS ((NTSTATUS)0xC0460006L)
+
+//
+// MessageId: STATUS_IORING_CORRUPT
+//
+// MessageText:
+//
+// The shared ring buffers of the IoRing are corrupt.
+//
+#define STATUS_IORING_CORRUPT            ((NTSTATUS)0xC0460007L)
+
+//
+// MessageId: STATUS_IORING_COMPLETION_QUEUE_TOO_FULL
+//
+// MessageText:
+//
+// The completion queue does not have enough free space, to post completions, for all entries being submitted.
+//
+#define STATUS_IORING_COMPLETION_QUEUE_TOO_FULL ((NTSTATUS)0xC0460008L)
 
 //
 // Map a WIN32 error value into an NTSTATUS

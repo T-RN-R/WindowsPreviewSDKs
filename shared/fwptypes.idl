@@ -300,6 +300,19 @@ typedef struct FWP_CONDITION_VALUE0_
    };
 } FWP_CONDITION_VALUE0;
 
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for Network Connection Policy options.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+typedef [v1_enum] enum FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE_
+{
+    FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS,
+    FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE,
+    FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP,
+    FWP_NETWORK_CONNECTION_POLICY_MAX,
+} FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -530,6 +543,9 @@ cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
 cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_USO                   (0x00000100)")
 cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_VB)")
 cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_URO                   (0x00000200)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_CO)")
+cpp_quote("#define FWP_CALLOUT_FLAG_RESERVED2                   (0x00000400)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO)")
 cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_VB)")
 cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
 cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")

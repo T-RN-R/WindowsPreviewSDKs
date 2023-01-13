@@ -122,6 +122,7 @@
 #define FACILITY_INPUT                   64
 #define FACILITY_QUIC                    65
 #define FACILITY_EAP                     66
+#define FACILITY_IORING                  70
 #define FACILITY_WINDOWS_DEFENDER        80
 #define FACILITY_OPC                     81
 #define FACILITY_XPS                     82
@@ -171,6 +172,8 @@
 #define FACILITY_DEPLOYMENT_SERVICES_MULTICAST_SERVER 289
 #define FACILITY_DEPLOYMENT_SERVICES_MULTICAST_CLIENT 290
 #define FACILITY_DEPLOYMENT_SERVICES_CONTENT_PROVIDER 293
+#define FACILITY_HSP_SERVICES            296
+#define FACILITY_HSP_SOFTWARE            297
 #define FACILITY_LINGUISTIC_SERVICES     305
 #define FACILITY_AUDIOSTREAMING          1094
 #define FACILITY_TTD                     1490
@@ -185,6 +188,7 @@
 #define FACILITY_DIRECT3D12              2174
 #define FACILITY_DIRECT3D12_DEBUG        2175
 #define FACILITY_DXCORE                  2176
+#define FACILITY_PRESENTATION            2177
 #define FACILITY_LEAP                    2184
 #define FACILITY_AUDCLNT                 2185
 #define FACILITY_WINCODEC_DWRITE_DWM     2200
@@ -199,6 +203,7 @@
 #define FACILITY_WEB_SOCKET              886
 #define FACILITY_MOBILE                  1793
 #define FACILITY_SQLITE                  1967
+#define FACILITY_SERVICE_FABRIC          1968
 #define FACILITY_UTC                     1989
 #define FACILITY_WEP                     2049
 #define FACILITY_SYNCENGINE              2050
@@ -2310,7 +2315,7 @@
 //
 // MessageText:
 //
-// An operation is not supported on a resident file.
+// The specified operation is not supported on a resident file.
 //
 #define ERROR_RESIDENT_FILE_NOT_SUPPORTED 334L
 
@@ -2319,7 +2324,7 @@
 //
 // MessageText:
 //
-// An operation is not supported on a compressed file.
+// The specified operation is not supported on a compressed file.
 //
 #define ERROR_COMPRESSED_FILE_NOT_SUPPORTED 335L
 
@@ -2328,7 +2333,7 @@
 //
 // MessageText:
 //
-// An operation is not supported on a directory.
+// The specified operation is not supported on a directory.
 //
 #define ERROR_DIRECTORY_NOT_SUPPORTED    336L
 
@@ -2544,7 +2549,7 @@
 //
 // MessageText:
 //
-// This operation is not supported on a DAX volume.
+// The specified operation is not supported on a DAX volume.
 //
 #define ERROR_NOT_SUPPORTED_ON_DAX       360L
 
@@ -3495,6 +3500,24 @@
 #define ERROR_INSUFFICIENT_VIRTUAL_ADDR_RESOURCES 473L
 
 //
+// MessageId: ERROR_INDEX_OUT_OF_BOUNDS
+//
+// MessageText:
+//
+// The specified index is beyond the bounds of valid range.
+//
+#define ERROR_INDEX_OUT_OF_BOUNDS        474L
+
+//
+// MessageId: ERROR_CLOUD_FILE_US_MESSAGE_TIMEOUT
+//
+// MessageText:
+//
+// The cloud provider failed to acknowledge a message before the time-out expired.
+//
+#define ERROR_CLOUD_FILE_US_MESSAGE_TIMEOUT 475L
+
+//
 // **** Available SYSTEM error codes ****
 //
 //
@@ -3552,17 +3575,104 @@
 #define ERROR_HAS_SYSTEM_CRITICAL_FILES  488L
 
 //
-// MessageId: ERROR_PARTITION_TERMINATING
+// MessageId: ERROR_ENCRYPTED_FILE_NOT_SUPPORTED
 //
 // MessageText:
 //
-// An attempt was made to access a partition that has begun termination.
+// The specified operation is not supported on an encrypted file.
 //
-#define ERROR_PARTITION_TERMINATING      1184L
+#define ERROR_ENCRYPTED_FILE_NOT_SUPPORTED 489L
 
 //
-// **** Available SYSTEM error codes ****
+// MessageId: ERROR_SPARSE_FILE_NOT_SUPPORTED
 //
+// MessageText:
+//
+// The specified operation is not supported on a sparse file.
+//
+#define ERROR_SPARSE_FILE_NOT_SUPPORTED  490L
+
+//
+// MessageId: ERROR_PAGEFILE_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The specified operation is not supported on a pagefile.
+//
+#define ERROR_PAGEFILE_NOT_SUPPORTED     491L
+
+//
+// MessageId: ERROR_VOLUME_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The specified operation is not supported on a volume.
+//
+#define ERROR_VOLUME_NOT_SUPPORTED       492L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_BYPASSIO
+//
+// MessageText:
+//
+// The specified operation is not supported on a BypassIO enabled file.
+//
+#define ERROR_NOT_SUPPORTED_WITH_BYPASSIO 493L
+
+//
+// MessageId: ERROR_NO_BYPASSIO_DRIVER_SUPPORT
+//
+// MessageText:
+//
+// The specified driver does not support BypassIO operations.
+//
+#define ERROR_NO_BYPASSIO_DRIVER_SUPPORT 494L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_ENCRYPTION
+//
+// MessageText:
+//
+// The specified operation is not supported while encryption is enabled on the target object.
+//
+#define ERROR_NOT_SUPPORTED_WITH_ENCRYPTION 495L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_COMPRESSION
+//
+// MessageText:
+//
+// The specified operation is not supported while compression is enabled on the target object.
+//
+#define ERROR_NOT_SUPPORTED_WITH_COMPRESSION 496L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_REPLICATION
+//
+// MessageText:
+//
+// The specified operation is not supported while replication is enabled on the target object.
+//
+#define ERROR_NOT_SUPPORTED_WITH_REPLICATION 497L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_DEDUPLICATION
+//
+// MessageText:
+//
+// The specified operation is not supported while deduplication is enabled on the target object.
+//
+#define ERROR_NOT_SUPPORTED_WITH_DEDUPLICATION 498L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_AUDITING
+//
+// MessageText:
+//
+// The specified operation is not supported while auditing is enabled on the target object.
+//
+#define ERROR_NOT_SUPPORTED_WITH_AUDITING 499L
+
 //
 // MessageId: ERROR_USER_PROFILE_LOAD
 //
@@ -3580,6 +3690,87 @@
 // The negotiated session key does not meet the minimum length requirement.
 //
 #define ERROR_SESSION_KEY_TOO_SHORT      501L
+
+//
+// MessageId: ERROR_ACCESS_DENIED_APPDATA
+//
+// MessageText:
+//
+// Access denied when accessing the user profile.
+//
+#define ERROR_ACCESS_DENIED_APPDATA      502L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_MONITORING
+//
+// MessageText:
+//
+// The specified operation is not supported while monitoring is enabled on the target object.
+//
+#define ERROR_NOT_SUPPORTED_WITH_MONITORING 503L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_SNAPSHOT
+//
+// MessageText:
+//
+// The specified operation is not supported while snapshot is enabled on the target object.
+//
+#define ERROR_NOT_SUPPORTED_WITH_SNAPSHOT 504L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_VIRTUALIZATION
+//
+// MessageText:
+//
+// The specified operation is not supported while virtualization is enabled on the target object.
+//
+#define ERROR_NOT_SUPPORTED_WITH_VIRTUALIZATION 505L
+
+//
+// MessageId: ERROR_BYPASSIO_FLT_NOT_SUPPORTED
+//
+// MessageText:
+//
+// At least one minifilter does not support bypass IO.
+//
+#define ERROR_BYPASSIO_FLT_NOT_SUPPORTED 506L
+
+//
+// MessageId: ERROR_DEVICE_RESET_REQUIRED
+//
+// MessageText:
+//
+// The device needs to be reset.
+//
+#define ERROR_DEVICE_RESET_REQUIRED      507L
+
+//
+// MessageId: ERROR_VOLUME_WRITE_ACCESS_DENIED
+//
+// MessageText:
+//
+// The volume is opened for exclusive write access, preventing files from being opened for write access.
+//
+#define ERROR_VOLUME_WRITE_ACCESS_DENIED 508L
+
+//
+// MessageId: ERROR_NOT_SUPPORTED_WITH_CACHED_HANDLE
+//
+// MessageText:
+//
+// The specified operation is not supported on a file opened for cached IO.
+//
+#define ERROR_NOT_SUPPORTED_WITH_CACHED_HANDLE 509L
+
+//
+// MessageId: ERROR_FS_METADATA_INCONSISTENT
+//
+// MessageText:
+//
+// The file system encountered a metadata file with inconsistent data.
+//
+#define ERROR_FS_METADATA_INCONSISTENT   510L
 
 //
 // **** Available SYSTEM error codes ****
@@ -3881,7 +4072,7 @@
 //
 // MessageText:
 //
-// Page file quota was exceeded.
+// Pagefile quota was exceeded.
 //
 #define ERROR_PAGEFILE_QUOTA_EXCEEDED    567L
 
@@ -7321,6 +7512,15 @@
 #define ERROR_JOURNAL_ENTRY_DELETED      1181L
 
 //
+// MessageId: ERROR_PARTITION_TERMINATING
+//
+// MessageText:
+//
+// An attempt was made to access a partition that has begun termination.
+//
+#define ERROR_PARTITION_TERMINATING      1184L
+
+//
 // MessageId: ERROR_SHUTDOWN_IS_SCHEDULED
 //
 // MessageText:
@@ -7343,7 +7543,7 @@
 //
 // MessageText:
 //
-// The system shutdown cannot safely proceed without enabling storage maintenance mode for physical disks connected to this cluster node.
+// The system shutdown cannot safely proceed without enabling node maintenance mode for cluster node and waiting for the drain to complete.
 //
 #define ERROR_SHUTDOWN_DISKS_NOT_IN_MAINTENANCE_MODE 1192L
 
@@ -12485,6 +12685,15 @@
 //
 #define ERROR_PRINTER_NOT_SHAREABLE      3022L
 
+//
+// MessageId: ERROR_SERVER_SERVICE_CALL_REQUIRES_SMB1
+//
+// MessageText:
+//
+// The requested function requires SMB1 to be present and enabled.
+//
+#define ERROR_SERVER_SERVICE_CALL_REQUIRES_SMB1 3023L
+
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -12705,6 +12914,15 @@
 // Volatile verification settings cannot be changed when verification is enabled from boot or DIF volatile verification is enabled.
 //
 #define ERROR_VRF_VOLATILE_SETTINGS_CONFLICT 3087L
+
+//
+// MessageId: ERROR_DIF_IOCALLBACK_NOT_REPLACED
+//
+// MessageText:
+//
+// The specified driver is not associated with driver object or driver extension.
+//
+#define ERROR_DIF_IOCALLBACK_NOT_REPLACED 3190L
 
 //
 // MessageId: ERROR_DIF_LIVEDUMP_LIMIT_EXCEEDED
@@ -13071,7 +13289,10 @@
 
 ///////////////////////////////////////////////////
 //                                               //
-//                  Available                    //
+//    SMB error codes, in the Win32 code space   //
+//                                               //
+// Not to be confused with Facility=SMB codes in //
+// the HRESULT code space.                       //
 //                                               //
 //                 4150 to 4199                  //
 ///////////////////////////////////////////////////
@@ -22032,6 +22253,15 @@
 //
 #define ERROR_WEAK_WHFBKEY_BLOCKED       8651L
 
+//
+// MessageId: ERROR_DS_PER_ATTRIBUTE_AUTHZ_FAILED_DURING_ADD
+//
+// MessageText:
+//
+// The add object operation failed because the caller was not authorized to add one or more attributes included in the request.
+//
+#define ERROR_DS_PER_ATTRIBUTE_AUTHZ_FAILED_DURING_ADD 8652L
+
 
 ///////////////////////////////////////////////////
 //                                                /
@@ -28118,6 +28348,15 @@
 //
 #define ERROR_MRM_MISSING_DEFAULT_LANGUAGE 15160L
 
+//
+// MessageId: ERROR_MRM_SCOPE_ITEM_CONFLICT
+//
+// MessageText:
+//
+// An entity was defined as both resource and scope, which is not allowed.
+//
+#define ERROR_MRM_SCOPE_ITEM_CONFLICT    15161L
+
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -29040,6 +29279,15 @@
 // The application cannot be started for the target user.  Please have the user explicitly install this package.
 //
 #define ERROR_PACKAGE_NOT_REGISTERED_FOR_USER 15669L
+
+//
+// MessageId: ERROR_PACKAGE_NAME_MISMATCH
+//
+// MessageText:
+//
+// The provided package name does not match the expected package name. Check the AppXDeployment-Server event log for details.
+//
+#define ERROR_PACKAGE_NAME_MISMATCH      15670L
 
 //////////////////////////
 //                      //
@@ -33656,6 +33904,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The package folder ACLs are invalid.
 //
 #define APPX_E_INVALID_PACKAGE_FOLDER_ACLS _HRESULT_TYPEDEF_(0x80080217L)
+
+//
+// MessageId: APPX_E_INVALID_PUBLISHER_BRIDGING
+//
+// MessageText:
+//
+// The publisher bridging artifact is invalid.
+//
+#define APPX_E_INVALID_PUBLISHER_BRIDGING _HRESULT_TYPEDEF_(0x80080218L)
 
 //
 // Codes 0x0300-0x030f are reserved for background task error codes.
@@ -38991,9 +39248,28 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // Since these error codes aren't in the standard Win32 range (i.e., 0-64K), define a
 // macro to map either Win32 or SetupAPI error codes into an HRESULT.
 //
-#define HRESULT_FROM_SETUPAPI(x) ((((x) & (APPLICATION_ERROR_MASK|ERROR_SEVERITY_ERROR)) == (APPLICATION_ERROR_MASK|ERROR_SEVERITY_ERROR)) \
-                                 ? ((HRESULT) (((x) & 0x0000FFFF) | (FACILITY_SETUPAPI << 16) | 0x80000000))                               \
-                                 : HRESULT_FROM_WIN32(x))
+// HRESULT_FROM_SETUPAPI(x) used to be a macro, however we now run it as an inline function
+// to prevent double evaluation of 'x'. If you still need the macro, you can use __HRESULT_FROM_SETUPAPI(x)
+//
+#define __HRESULT_FROM_SETUPAPI(x) ((((x) & (APPLICATION_ERROR_MASK|ERROR_SEVERITY_ERROR)) == (APPLICATION_ERROR_MASK|ERROR_SEVERITY_ERROR)) \
+                                   ? ((HRESULT) (((x) & 0x0000FFFF) | (FACILITY_SETUPAPI << 16) | 0x80000000))                               \
+                                   : HRESULT_FROM_WIN32(x))
+
+#if !defined(_HRESULT_DEFINED) && !defined(__midl)
+#define _HRESULT_DEFINED
+typedef _Return_type_success_(return >= 0) long HRESULT;
+#endif
+
+#ifndef __midl
+#if defined(__cplusplus) && _MSC_VER >= 1900 && !defined(SORTPP_PASS)
+constexpr
+#endif
+FORCEINLINE HRESULT HRESULT_FROM_SETUPAPI(unsigned long x) { return (((x) & (0x20000000|0xC0000000)) == (0x20000000|0xC0000000))                \
+                                                                    ? ((HRESULT) (((x) & 0x0000FFFF) | (FACILITY_SETUPAPI << 16) | 0x80000000)) \
+                                                                    : HRESULT_FROM_WIN32(x);}
+#else
+#define HRESULT_FROM_SETUPAPI(x) __HRESULT_FROM_SETUPAPI(x)
+#endif
 //
 // MessageId: SPAPI_E_EXPECTED_SECTION_NAME
 //
@@ -41435,7 +41711,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// Invalid Schema, Message Format Error from server.
+// Invalid message from the Mobile Device Management (MDM) server.
 //
 #define MENROLL_E_DEVICE_MESSAGE_FORMAT_ERROR _HRESULT_TYPEDEF_(0x80180001L)
 
@@ -41444,7 +41720,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// Server failed to authenticate the user.
+// The Mobile Device Management (MDM) server failed to authenticate the user. Try again or contact your system administrator.
 //
 #define MENROLL_E_DEVICE_AUTHENTICATION_ERROR _HRESULT_TYPEDEF_(0x80180002L)
 
@@ -41453,7 +41729,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The user is not authorized to enroll.
+// The user is not authorized to enroll to Mobile Device Management (MDM). Try again or contact your system administrator.
 //
 #define MENROLL_E_DEVICE_AUTHORIZATION_ERROR _HRESULT_TYPEDEF_(0x80180003L)
 
@@ -41462,7 +41738,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The user has no permission for the certificate template or the certificate authority is unreachable.
+// The user has no permission for the certificate template or the certificate authority is unreachable. Try again or contact your system administrator.
 //
 #define MENROLL_E_DEVICE_CERTIFICATEREQUEST_ERROR _HRESULT_TYPEDEF_(0x80180004L)
 
@@ -41471,7 +41747,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The MDM server encountered an error.
+// The Mobile Device Management (MDM) server encountered an error. Try again or contact your system administrator.
 //
 #define MENROLL_E_DEVICE_CONFIGMGRSERVER_ERROR _HRESULT_TYPEDEF_(0x80180005L)
 
@@ -41480,7 +41756,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// There was an unhandled exception on the server.
+// There was an unhandled exception on the Mobile Device Management (MDM) server. Try again or contact your system administrator.
 //
 #define MENROLL_E_DEVICE_INTERNALSERVICE_ERROR _HRESULT_TYPEDEF_(0x80180006L)
 
@@ -41489,7 +41765,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The server was not able to validate the user credentials.
+// The Mobile Device Management (MDM) server was not able to validate your account. Try again or contact your system administrator.
 //
 #define MENROLL_E_DEVICE_INVALIDSECURITY_ERROR _HRESULT_TYPEDEF_(0x80180007L)
 
@@ -41498,7 +41774,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// Unknown server error.
+// Unknown Mobile Device Management (MDM) server error. Try again or contact your system administrator.
 //
 #define MENROLL_E_DEVICE_UNKNOWN_ERROR   _HRESULT_TYPEDEF_(0x80180008L)
 
@@ -41507,7 +41783,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// Another enrollment operation is currently underway.
+// Another enrollment operation is currently in progress.
 //
 #define MENROLL_E_ENROLLMENT_IN_PROGRESS _HRESULT_TYPEDEF_(0x80180009L)
 
@@ -41525,7 +41801,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// During discovery the security certificate date was invalid.
+// There was a Mobile Device Management (MDM) certificate error. The security certificate date is invalid. Try again or contact your system administrator.
 //
 #define MENROLL_E_DISCOVERY_SEC_CERT_DATE_INVALID _HRESULT_TYPEDEF_(0x8018000DL)
 
@@ -41534,7 +41810,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// A password is needed, but was not supplied.
+// A password is required to authenticate your account or device, but was not supplied. Please try again.
 //
 #define MENROLL_E_PASSWORD_NEEDED        _HRESULT_TYPEDEF_(0x8018000EL)
 
@@ -41543,7 +41819,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// An error occurred during WAB enrollment.
+// There was a problem authenticating your account or device. Try again or contact your system administrator.
 //
 #define MENROLL_E_WAB_ERROR              _HRESULT_TYPEDEF_(0x8018000FL)
 
@@ -41552,7 +41828,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// A network error occurred, such as DNS or a network timeout.
+// There was a network error communicating with the Mobile Device Management (MDM) server. Please try again.
 //
 #define MENROLL_E_CONNECTIVITY           _HRESULT_TYPEDEF_(0x80180010L)
 
@@ -41570,25 +41846,25 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The SSL cert was not valid.
+// There was a Mobile Device Management (MDM) certificate error. Try again or contact your system administrator.
 //
 #define MENROLL_E_INVALIDSSLCERT         _HRESULT_TYPEDEF_(0x80180012L)
 
 //
-// MessageId: MENROLL_E_DEVICEAPREACHED
+// MessageId: MENROLL_E_DEVICECAPREACHED
 //
 // MessageText:
 //
-// The account has too many devices enrolled. Delete or unenroll old ones to fix this error.
+// The account has too many devices enrolled to Mobile Device Management (MDM). Delete or unenroll old devices to fix this error.
 //
-#define MENROLL_E_DEVICEAPREACHED        _HRESULT_TYPEDEF_(0x80180013L)
+#define MENROLL_E_DEVICECAPREACHED       _HRESULT_TYPEDEF_(0x80180013L)
 
 //
 // MessageId: MENROLL_E_DEVICENOTSUPPORTED
 //
 // MessageText:
 //
-// A specific platform or version is not supported.
+// The Mobile Device Management (MDM) server doesn't support this platform or version, consider upgrading your device.
 //
 #define MENROLL_E_DEVICENOTSUPPORTED     _HRESULT_TYPEDEF_(0x80180014L)
 
@@ -41597,7 +41873,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// Mobile device management is generally not supported for this device.
+// Mobile Device Management (MDM) is generally not supported for this device.
 //
 #define MENROLL_E_NOT_SUPPORTED          _HRESULT_TYPEDEF_(0x80180015L)
 
@@ -41606,7 +41882,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The device is attempting to renew, but the server rejected the request. Check renew schedule on the device.
+// The device is attempting to renew the Mobile Device Management (MDM) certificate, but the server rejected the request. Check renew schedule on the device.
 //
 #define MENROLL_E_NOTELIGIBLETORENEW     _HRESULT_TYPEDEF_(0x80180016L)
 
@@ -41615,7 +41891,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// Account is in maintenance; retry later.
+// The Mobile Device Management (MDM) server states your account is in maintenance, try again later.
 //
 #define MENROLL_E_INMAINTENANCE          _HRESULT_TYPEDEF_(0x80180017L)
 
@@ -41624,7 +41900,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The license of the user is in bad state blocking enrollment.
+// There was an error with your Mobile Device Management (MDM) user license. Contact your system administrator.
 //
 #define MENROLL_E_USER_LICENSE           _HRESULT_TYPEDEF_(0x80180018L)
 
@@ -41633,7 +41909,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The server rejected the Enrollment Data.
+// The Mobile Device Management (MDM) server rejected the enrollment data. The server may not be configured correctly.
 //
 #define MENROLL_E_ENROLLMENTDATAINVALID  _HRESULT_TYPEDEF_(0x80180019L)
 
@@ -41750,7 +42026,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// Mobile Device Management (MDM) was blocked, possibly by Group Policy or the SetManagedExternally function.
+// Mobile Device Management (MDM) was blocked, possibly by Group Policy or the local management agent.
 //
 #define MENROLL_E_DEVICE_MANAGEMENT_BLOCKED _HRESULT_TYPEDEF_(0x80180026L)
 
@@ -42706,6 +42982,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // Failed to send Window Dpi message.
 //
 #define ERROR_GRAPHICS_VAIL_FAILED_TO_SEND_COMPOSITION_WINDOW_DPI_MESSAGE _HRESULT_TYPEDEF_(0xC0262016L)
+
+//
+// MessageId: ERROR_GRAPHICS_LINK_CONFIGURATION_IN_PROGRESS
+//
+// MessageText:
+//
+// Link configuration for the display timing is still in progress.
+//
+#define ERROR_GRAPHICS_LINK_CONFIGURATION_IN_PROGRESS _HRESULT_TYPEDEF_(0xC0262017L)
 
 //
 // Video Memory Manager (VidMM) subsystem errors {0x2100..0x21ff}
@@ -49886,6 +50171,51 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define FVE_E_EDRIVE_BAND_ENUMERATION_FAILED _HRESULT_TYPEDEF_(0x803100E3L)
 
 //
+// MessageId: FVE_E_POLICY_ON_RDV_EXCLUSION_LIST
+//
+// MessageText:
+//
+// This removable data drive has been excluded from device encryption by BitLocker Drive Encryption policy.
+//
+#define FVE_E_POLICY_ON_RDV_EXCLUSION_LIST _HRESULT_TYPEDEF_(0x803100E4L)
+
+//
+// MessageId: FVE_E_PREDICTED_TPM_PROTECTOR_NOT_SUPPORTED
+//
+// MessageText:
+//
+// Adding BitLocker predicted TPM based protector is not supported.
+//
+#define FVE_E_PREDICTED_TPM_PROTECTOR_NOT_SUPPORTED _HRESULT_TYPEDEF_(0x803100E5L)
+
+//
+// MessageId: FVE_E_SETUP_TPM_CALLBACK_NOT_SUPPORTED
+//
+// MessageText:
+//
+// Registeration for TPM callback is not supported.
+//
+#define FVE_E_SETUP_TPM_CALLBACK_NOT_SUPPORTED _HRESULT_TYPEDEF_(0x803100E6L)
+
+//
+// MessageId: FVE_E_TPM_CONTEXT_SETUP_NOT_SUPPORTED
+//
+// MessageText:
+//
+// Creating new TPM context is not supported.
+//
+#define FVE_E_TPM_CONTEXT_SETUP_NOT_SUPPORTED _HRESULT_TYPEDEF_(0x803100E7L)
+
+//
+// MessageId: FVE_E_UPDATE_INVALID_CONFIG
+//
+// MessageText:
+//
+// The Secure Boot update was not applied due to a known incompatibility with the current BitLocker configuration.
+//
+#define FVE_E_UPDATE_INVALID_CONFIG      _HRESULT_TYPEDEF_(0x803100E8L)
+
+//
 // =======================================================
 // Windows Filtering Platform Error Messages
 // =======================================================
@@ -51790,6 +52120,51 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define ERROR_HV_MSR_ACCESS_FAILED       _NDIS_ERROR_TYPEDEF_(0xC0350080L)
 
 //
+// MessageId: ERROR_HV_INSUFFICIENT_MEMORY_MIRRORING
+//
+// MessageText:
+//
+// There is not enough memory in the hypervisor pool to complete the mirroring operation.
+//
+#define ERROR_HV_INSUFFICIENT_MEMORY_MIRRORING _NDIS_ERROR_TYPEDEF_(0xC0350081L)
+
+//
+// MessageId: ERROR_HV_INSUFFICIENT_CONTIGUOUS_MEMORY_MIRRORING
+//
+// MessageText:
+//
+// There is not enough contiguous memory in the hypervisor pool to complete the mirroring operation.
+//
+#define ERROR_HV_INSUFFICIENT_CONTIGUOUS_MEMORY_MIRRORING _NDIS_ERROR_TYPEDEF_(0xC0350082L)
+
+//
+// MessageId: ERROR_HV_INSUFFICIENT_CONTIGUOUS_ROOT_MEMORY
+//
+// MessageText:
+//
+// There is not enough contiguous memory in the root partition's pool to complete the operation.
+//
+#define ERROR_HV_INSUFFICIENT_CONTIGUOUS_ROOT_MEMORY _NDIS_ERROR_TYPEDEF_(0xC0350083L)
+
+//
+// MessageId: ERROR_HV_INSUFFICIENT_ROOT_MEMORY_MIRRORING
+//
+// MessageText:
+//
+// There is not enough memory in the root partition's pool to complete the mirroring operation.
+//
+#define ERROR_HV_INSUFFICIENT_ROOT_MEMORY_MIRRORING _NDIS_ERROR_TYPEDEF_(0xC0350084L)
+
+//
+// MessageId: ERROR_HV_INSUFFICIENT_CONTIGUOUS_ROOT_MEMORY_MIRRORING
+//
+// MessageText:
+//
+// There is not enough contiguous memory in the root partition's pool to complete the mirroring operation.
+//
+#define ERROR_HV_INSUFFICIENT_CONTIGUOUS_ROOT_MEMORY_MIRRORING _NDIS_ERROR_TYPEDEF_(0xC0350085L)
+
+//
 // MessageId: ERROR_HV_NOT_PRESENT
 //
 // MessageText:
@@ -52182,6 +52557,60 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The specified VTL does not have the permission to access the resource.
 //
 #define ERROR_VID_VTL_ACCESS_DENIED      _NDIS_ERROR_TYPEDEF_(0xC037002AL)
+
+//
+// MessageId: ERROR_VID_INSUFFICIENT_RESOURCES_RESERVE
+//
+// MessageText:
+//
+// Failed to allocate backing memory due to insufficient memory resources.
+//
+#define ERROR_VID_INSUFFICIENT_RESOURCES_RESERVE _NDIS_ERROR_TYPEDEF_(0xC037002BL)
+
+//
+// MessageId: ERROR_VID_INSUFFICIENT_RESOURCES_PHYSICAL_BUFFER
+//
+// MessageText:
+//
+// Failed to allocate memory for the physical buffer used to back certain internal structures.
+//
+#define ERROR_VID_INSUFFICIENT_RESOURCES_PHYSICAL_BUFFER _NDIS_ERROR_TYPEDEF_(0xC037002CL)
+
+//
+// MessageId: ERROR_VID_INSUFFICIENT_RESOURCES_HV_DEPOSIT
+//
+// MessageText:
+//
+// Failed to allocate memory to be deposited in the hypervisor.
+//
+#define ERROR_VID_INSUFFICIENT_RESOURCES_HV_DEPOSIT _NDIS_ERROR_TYPEDEF_(0xC037002DL)
+
+//
+// MessageId: ERROR_VID_MEMORY_TYPE_NOT_SUPPORTED
+//
+// MessageText:
+//
+// Memory type not supported for requested operation.
+//
+#define ERROR_VID_MEMORY_TYPE_NOT_SUPPORTED _NDIS_ERROR_TYPEDEF_(0xC037002EL)
+
+//
+// MessageId: ERROR_VID_INSUFFICIENT_RESOURCES_WITHDRAW
+//
+// MessageText:
+//
+// Failed to withdraw memory.
+//
+#define ERROR_VID_INSUFFICIENT_RESOURCES_WITHDRAW _NDIS_ERROR_TYPEDEF_(0xC037002FL)
+
+//
+// MessageId: ERROR_VID_PROCESS_ALREADY_SET
+//
+// MessageText:
+//
+// The process has already been set.
+//
+#define ERROR_VID_PROCESS_ALREADY_SET    _NDIS_ERROR_TYPEDEF_(0xC0370030L)
 
 //
 // Host compute service errors (0x0100-0x01ff)
@@ -52649,6 +53078,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define HCS_E_SYSTEM_NOT_CONFIGURED_FOR_OPERATION _HRESULT_TYPEDEF_(0x80370120L)
 
 //
+// MessageId: HCS_E_OPERATION_ALREADY_CANCELLED
+//
+// MessageText:
+//
+// The operation has already been cancelled.
+//
+#define HCS_E_OPERATION_ALREADY_CANCELLED _HRESULT_TYPEDEF_(0x80370121L)
+
+//
 // Virtual networking errors (0x0200-0x02ff)
 //
 //
@@ -52846,40 +53284,22 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define VM_SAVED_STATE_DUMP_E_WINDOWS_KERNEL_IMAGE_NOT_FOUND _HRESULT_TYPEDEF_(0xC0370504L)
 
 //
-// MessageId: VM_SAVED_STATE_DUMP_E_PXE_NOT_PRESENT
+// MessageId: VM_SAVED_STATE_DUMP_E_VA_NOT_MAPPED
 //
 // MessageText:
 //
-// Failed to read Page Map Level 4 entry (pxe) for a virtual address.
+// The given virtual address is not mapped to a physical address.
 //
-#define VM_SAVED_STATE_DUMP_E_PXE_NOT_PRESENT _HRESULT_TYPEDEF_(0xC0370505L)
+#define VM_SAVED_STATE_DUMP_E_VA_NOT_MAPPED _HRESULT_TYPEDEF_(0xC0370505L)
 
 //
-// MessageId: VM_SAVED_STATE_DUMP_E_PDPTE_NOT_PRESENT
+// MessageId: VM_SAVED_STATE_DUMP_E_INVALID_VP_STATE
 //
 // MessageText:
 //
-// Failed to read Page Directory Page Table entry (pdpte) for a virtual address.
+// The virtual processor is not in the correct state for the operation.
 //
-#define VM_SAVED_STATE_DUMP_E_PDPTE_NOT_PRESENT _HRESULT_TYPEDEF_(0xC0370506L)
-
-//
-// MessageId: VM_SAVED_STATE_DUMP_E_PDE_NOT_PRESENT
-//
-// MessageText:
-//
-// Failed to read Page Directory entry (pde) for a virtual address.
-//
-#define VM_SAVED_STATE_DUMP_E_PDE_NOT_PRESENT _HRESULT_TYPEDEF_(0xC0370507L)
-
-//
-// MessageId: VM_SAVED_STATE_DUMP_E_PTE_NOT_PRESENT
-//
-// MessageText:
-//
-// Failed to read Page Table entry (pte) for a virtual address.
-//
-#define VM_SAVED_STATE_DUMP_E_PTE_NOT_PRESENT _HRESULT_TYPEDEF_(0xC0370508L)
+#define VM_SAVED_STATE_DUMP_E_INVALID_VP_STATE _HRESULT_TYPEDEF_(0xC0370506L)
 
 //
 // MessageId: VM_SAVED_STATE_DUMP_E_VP_VTL_NOT_ENABLED
@@ -57176,6 +57596,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define ERROR_VOLSNAP_ACTIVATION_TIMEOUT _HRESULT_TYPEDEF_(0x80820002L)
 
 //
+// MessageId: ERROR_VOLSNAP_NO_BYPASSIO_WITH_SNAPSHOT
+//
+// MessageText:
+//
+// BypassIO cannot be enabled while a volume snapshot exists.
+//
+#define ERROR_VOLSNAP_NO_BYPASSIO_WITH_SNAPSHOT _HRESULT_TYPEDEF_(0x80820003L)
+
+//
 // Tiering errors
 //
 // Errors
@@ -57720,6 +58149,20 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The application failed to unregister from an event it registered for.
 //
 #define DXCORE_ERROR_EVENT_NOT_UNREGISTERED _HRESULT_TYPEDEF_(0x88800001L)
+
+
+//
+// Presentation error codes
+//
+
+//
+// MessageId: PRESENTATION_ERROR_LOST
+//
+// MessageText:
+//
+// The presentation manager has been lost and can no longer be used. The application should destroy this presentation manager and create a new presentation manager to use.
+//
+#define PRESENTATION_ERROR_LOST          _HRESULT_TYPEDEF_(0x88810001L)
 
 
 //
@@ -61272,6 +61715,288 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define ERROR_DBG_START_SERVER_FAILURE_LOCKDOWN _HRESULT_TYPEDEF_(0x80B00004L)
 
 //
+// HSP Services Error Messages
+//
+// The following are subranges within the HSP Services facility.
+//
+// 0x0000 - 0x0fff     HSP Hardware errors
+// 0x1000 - 0x10ff     HSP Base Services errors
+//
+// HSP Hardware errors {0x0000..0x0fff}
+//
+//
+// MessageId: HSP_E_ERROR_MASK
+//
+// MessageText:
+//
+// This is an error mask to convert HSP hardware errors to Win errors.
+//
+#define HSP_E_ERROR_MASK                 _HRESULT_TYPEDEF_(0x81280000L)
+
+//
+// MessageId: HSP_E_INTERNAL_ERROR
+//
+// MessageText:
+//
+// Catastrophic internal failure in the HSP hardware.
+//
+#define HSP_E_INTERNAL_ERROR             _HRESULT_TYPEDEF_(0x81280FFFL)
+
+//
+// HSP Base Services errors {0x1000..0x10ff}
+//
+//
+// MessageId: HSP_BS_ERROR_MASK
+//
+// MessageText:
+//
+// This is an error mask to convert HSP base services errors to Win errors.
+//
+#define HSP_BS_ERROR_MASK                _HRESULT_TYPEDEF_(0x81281000L)
+
+//
+// MessageId: HSP_BS_INTERNAL_ERROR
+//
+// MessageText:
+//
+// Catastrophic internal failure in the HSP base services.
+//
+#define HSP_BS_INTERNAL_ERROR            _HRESULT_TYPEDEF_(0x812810FFL)
+
+//
+// HSP Software Error Messages
+//
+// The following are subranges within the HSP Software facility.
+//
+// 0x0000 - 0x00ff     HSP driver errors (hsp.sys)
+// 0x0100 - 0x01ff     HSP base class errors (hspbase.dll)
+// 0x0200 - 0x02ff     HSP Key Storage Provider errors (hspksp.dll)
+//
+// HSP driver errors {0x0000..0x000ff}
+//
+//
+// MessageId: HSP_DRV_ERROR_MASK
+//
+// MessageText:
+//
+// This is an error mask to convert HSP driver errors to Win errors.
+//
+#define HSP_DRV_ERROR_MASK               _HRESULT_TYPEDEF_(0x81290000L)
+
+//
+// MessageId: HSP_DRV_INTERNAL_ERROR
+//
+// MessageText:
+//
+// Catastrophic internal failure in the HSP driver.
+//
+#define HSP_DRV_INTERNAL_ERROR           _HRESULT_TYPEDEF_(0x812900FFL)
+
+//
+// HSP base class errors {0x0100..0x001ff}
+//
+//
+// MessageId: HSP_BASE_ERROR_MASK
+//
+// MessageText:
+//
+// This is an error mask to convert HSP base class errors to Win errors.
+//
+#define HSP_BASE_ERROR_MASK              _HRESULT_TYPEDEF_(0x81290100L)
+
+//
+// MessageId: HSP_BASE_INTERNAL_ERROR
+//
+// MessageText:
+//
+// Catastrophic internal failure in the HSP base class.
+//
+#define HSP_BASE_INTERNAL_ERROR          _HRESULT_TYPEDEF_(0x812901FFL)
+
+//
+// HSP Key Storage Provider errors {0x0200..0x002ff}
+//
+//
+// MessageId: HSP_KSP_ERROR_MASK
+//
+// MessageText:
+//
+// This is an error mask to convert HSP KSP errors to Win errors.
+//
+#define HSP_KSP_ERROR_MASK               _HRESULT_TYPEDEF_(0x81290200L)
+
+//
+// MessageId: HSP_KSP_DEVICE_NOT_READY
+//
+// MessageText:
+//
+// The Pluton processor is currently not ready for use.
+//
+#define HSP_KSP_DEVICE_NOT_READY         _HRESULT_TYPEDEF_(0x81290201L)
+
+//
+// MessageId: HSP_KSP_INVALID_PROVIDER_HANDLE
+//
+// MessageText:
+//
+// The handle to the HSP KSP is invalid.
+//
+#define HSP_KSP_INVALID_PROVIDER_HANDLE  _HRESULT_TYPEDEF_(0x81290202L)
+
+//
+// MessageId: HSP_KSP_INVALID_KEY_HANDLE
+//
+// MessageText:
+//
+// The handle to a key stored by the HSP KSP is invalid.
+//
+#define HSP_KSP_INVALID_KEY_HANDLE       _HRESULT_TYPEDEF_(0x81290203L)
+
+//
+// MessageId: HSP_KSP_INVALID_PARAMETER
+//
+// MessageText:
+//
+// A parameter to the HSP KSP was invalid.
+//
+#define HSP_KSP_INVALID_PARAMETER        _HRESULT_TYPEDEF_(0x81290204L)
+
+//
+// MessageId: HSP_KSP_BUFFER_TOO_SMALL
+//
+// MessageText:
+//
+// The supplied buffer is too small.
+//
+#define HSP_KSP_BUFFER_TOO_SMALL         _HRESULT_TYPEDEF_(0x81290205L)
+
+//
+// MessageId: HSP_KSP_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The requested operation is not supported.
+//
+#define HSP_KSP_NOT_SUPPORTED            _HRESULT_TYPEDEF_(0x81290206L)
+
+//
+// MessageId: HSP_KSP_INVALID_DATA
+//
+// MessageText:
+//
+// The provided data is invalid.
+//
+#define HSP_KSP_INVALID_DATA             _HRESULT_TYPEDEF_(0x81290207L)
+
+//
+// MessageId: HSP_KSP_INVALID_FLAGS
+//
+// MessageText:
+//
+// The provided flags are invalid.
+//
+#define HSP_KSP_INVALID_FLAGS            _HRESULT_TYPEDEF_(0x81290208L)
+
+//
+// MessageId: HSP_KSP_ALGORITHM_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The algorithm identifier is not supported.
+//
+#define HSP_KSP_ALGORITHM_NOT_SUPPORTED  _HRESULT_TYPEDEF_(0x81290209L)
+
+//
+// MessageId: HSP_KSP_KEY_ALREADY_FINALIZED
+//
+// MessageText:
+//
+// The key has already been finalized.
+//
+#define HSP_KSP_KEY_ALREADY_FINALIZED    _HRESULT_TYPEDEF_(0x8129020AL)
+
+//
+// MessageId: HSP_KSP_KEY_NOT_FINALIZED
+//
+// MessageText:
+//
+// The key has not been finalized.
+//
+#define HSP_KSP_KEY_NOT_FINALIZED        _HRESULT_TYPEDEF_(0x8129020BL)
+
+//
+// MessageId: HSP_KSP_INVALID_KEY_TYPE
+//
+// MessageText:
+//
+// The key does not support the requested operation.
+//
+#define HSP_KSP_INVALID_KEY_TYPE         _HRESULT_TYPEDEF_(0x8129020CL)
+
+//
+// MessageId: HSP_KSP_NO_MEMORY
+//
+// MessageText:
+//
+// There is not enough memory for the operation.
+//
+#define HSP_KSP_NO_MEMORY                _HRESULT_TYPEDEF_(0x81290210L)
+
+//
+// MessageId: HSP_KSP_PARAMETER_NOT_SET
+//
+// MessageText:
+//
+// The parameter has not been set and has no default value.
+//
+#define HSP_KSP_PARAMETER_NOT_SET        _HRESULT_TYPEDEF_(0x81290211L)
+
+//
+// MessageId: HSP_KSP_KEY_EXISTS
+//
+// MessageText:
+//
+// Key object already exists.
+//
+#define HSP_KSP_KEY_EXISTS               _HRESULT_TYPEDEF_(0x81290215L)
+
+//
+// MessageId: HSP_KSP_KEY_MISSING
+//
+// MessageText:
+//
+// The requsted key object does not exist.
+//
+#define HSP_KSP_KEY_MISSING              _HRESULT_TYPEDEF_(0x81290216L)
+
+//
+// MessageId: HSP_KSP_KEY_LOAD_FAIL
+//
+// MessageText:
+//
+// Failed to load the requested key.
+//
+#define HSP_KSP_KEY_LOAD_FAIL            _HRESULT_TYPEDEF_(0x81290217L)
+
+//
+// MessageId: HSP_KSP_NO_MORE_ITEMS
+//
+// MessageText:
+//
+// No more data is available.
+//
+#define HSP_KSP_NO_MORE_ITEMS            _HRESULT_TYPEDEF_(0x81290218L)
+
+//
+// MessageId: HSP_KSP_INTERNAL_ERROR
+//
+// MessageText:
+//
+// Catastrophic internal failure in the HSP KSP.
+//
+#define HSP_KSP_INTERNAL_ERROR           _HRESULT_TYPEDEF_(0x812902FFL)
+
+//
 //Sdbus
 //
 //
@@ -63899,5 +64624,82 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The QUIC connection failed to negotiate a compatible ALPN.
 //
 #define ERROR_QUIC_ALPN_NEG_FAILURE      _HRESULT_TYPEDEF_(0x80410007L)
+
+
+//
+// IORING Error codes
+//
+
+//
+// MessageId: IORING_E_REQUIRED_FLAG_NOT_SUPPORTED
+//
+// MessageText:
+//
+// One or more of the required flags provided is unknown by the implementation.
+//
+#define IORING_E_REQUIRED_FLAG_NOT_SUPPORTED _HRESULT_TYPEDEF_(0x80460001L)
+
+//
+// MessageId: IORING_E_SUBMISSION_QUEUE_FULL
+//
+// MessageText:
+//
+// The submission queue is full.
+//
+#define IORING_E_SUBMISSION_QUEUE_FULL   _HRESULT_TYPEDEF_(0x80460002L)
+
+//
+// MessageId: IORING_E_VERSION_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The version specified is not known or supported.
+//
+#define IORING_E_VERSION_NOT_SUPPORTED   _HRESULT_TYPEDEF_(0x80460003L)
+
+//
+// MessageId: IORING_E_SUBMISSION_QUEUE_TOO_BIG
+//
+// MessageText:
+//
+// The submission queue size specified for the IoRing is too big.
+//
+#define IORING_E_SUBMISSION_QUEUE_TOO_BIG _HRESULT_TYPEDEF_(0x80460004L)
+
+//
+// MessageId: IORING_E_COMPLETION_QUEUE_TOO_BIG
+//
+// MessageText:
+//
+// The completion queue size specified for the IoRing is too big.
+//
+#define IORING_E_COMPLETION_QUEUE_TOO_BIG _HRESULT_TYPEDEF_(0x80460005L)
+
+//
+// MessageId: IORING_E_SUBMIT_IN_PROGRESS
+//
+// MessageText:
+//
+// A submit operation is already in progress for this IoRing on another thread.
+//
+#define IORING_E_SUBMIT_IN_PROGRESS      _HRESULT_TYPEDEF_(0x80460006L)
+
+//
+// MessageId: IORING_E_CORRUPT
+//
+// MessageText:
+//
+// The shared ring buffers of the IoRing are corrupt.
+//
+#define IORING_E_CORRUPT                 _HRESULT_TYPEDEF_(0x80460007L)
+
+//
+// MessageId: IORING_E_COMPLETION_QUEUE_TOO_FULL
+//
+// MessageText:
+//
+// The completion queue does not have enough free space, to post completions, for all entries being submitted.
+//
+#define IORING_E_COMPLETION_QUEUE_TOO_FULL _HRESULT_TYPEDEF_(0x80460008L)
 
 #endif//_WINERROR_

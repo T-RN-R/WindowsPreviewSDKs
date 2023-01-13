@@ -1,8 +1,9 @@
-// C++/WinRT v2.0.200609.3
+// C++/WinRT v2.0.210707.1
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+#pragma once
 #ifndef WINRT_Windows_Graphics_DirectX_1_H
 #define WINRT_Windows_Graphics_DirectX_1_H
 #include "winrt/impl/Windows.Graphics.DirectX.0.h"
