@@ -13,13 +13,6 @@ typedef enum _NET_PACKET_TX_IEEE8021Q_ACTION_FLAGS
     NetPacketTxIeee8021qActionFlagVlanRequired = 2,
 } NET_PACKET_TX_IEEE8021Q_ACTION_FLAGS;
 
-typedef enum _NET_PACKET_RX_IEEE8021Q_EVALUATION_FLAGS
-{
-    NetPacketRxIeeee8021qEvaluationFlagPriorityUnTagged = 1,
-    NetPacketRxIeee8021qEvaluationFlagVlanUntagged = 2,
-} NET_PACKET_RX_IEEE8021Q_EVALUATION_FLAGS;
-
-
 
 typedef struct _NET_PACKET_IEEE8021Q
 {
@@ -30,7 +23,7 @@ typedef struct _NET_PACKET_IEEE8021Q
         VlanIdentifier : 12;
 
     UINT8
-        Tagging : 2;
+        TxTagging : 2;
 
 } NET_PACKET_IEEE8021Q;
 

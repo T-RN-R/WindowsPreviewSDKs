@@ -4050,7 +4050,7 @@ typedef BOOL (WINAPI *PSYMBOLSERVERSETHTTPAUTHHEADER)(_In_ PCWSTR pszAuthHeader)
 #define SSRVACTION_XMLOUTPUT        7
 #define SSRVACTION_CHECKSUMSTATUS   8
 
-#endif WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
+#endif // WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
 #pragma endregion
 
 #pragma region Application Family or OneCore Family or Games Family
@@ -4169,7 +4169,7 @@ typedef BOOL (WINAPI *PSYMBOLSERVERSETHTTPAUTHHEADER)(_In_ PCWSTR pszAuthHeader)
  #define PSYMBOLSERVERPINGPROC             PSYMBOLSERVERPINGPROCW
 
 #pragma endregion
-#endif WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
+#endif // WINAPI_FAMILY_PARTITION(NONGAMESPARTITIONS)
 
 
 // -----------------------------------------------------------------

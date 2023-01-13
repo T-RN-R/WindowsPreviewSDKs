@@ -3340,7 +3340,7 @@ typedef /* [public][public][public][public][public][public][public][public][publ
     LPOLESTR sMachineName;
     } 	COMSVCSEVENTINFO;
 
-#endif _COMSVCSEVENTINFO_
+#endif // _COMSVCSEVENTINFO_
 
 
 extern RPC_IF_HANDLE __MIDL_itf_autosvcs_0000_0013_v0_0_c_ifspec;
@@ -12677,7 +12677,7 @@ typedef struct tagCrmLogRecordRead
     BLOB blobUserData;
     } 	CrmLogRecordRead;
 
-#endif _tagCrmLogRecordRead_
+#endif // _tagCrmLogRecordRead_
 
 
 extern RPC_IF_HANDLE __MIDL_itf_autosvcs_0000_0079_v0_0_c_ifspec;
@@ -12880,7 +12880,7 @@ enum tagCrmTransactionState
         TxState_Indoubt	= ( TxState_Aborted + 1 ) 
     } 	CrmTransactionState;
 
-#endif _tagCrmTransactionState_
+#endif // _tagCrmTransactionState_
 
 
 extern RPC_IF_HANDLE __MIDL_itf_autosvcs_0000_0080_v0_0_c_ifspec;
@@ -17849,7 +17849,7 @@ enum tagCRMFLAGS
         CRMFLAG_REPLAYINPROGRESS	= 0x40
     } 	CRMFLAGS;
 
-#endif _tagCrmFlags_
+#endif // _tagCrmFlags_
 #ifndef _tagCrmRegFlags_
 #define _tagCrmRegFlags_
 typedef 
@@ -17862,7 +17862,7 @@ enum tagCRMREGFLAGS
         CRMREGFLAG_FAILIFINDOUBTSREMAIN	= 0x10
     } 	CRMREGFLAGS;
 
-#endif _tagCrmRegFlags_
+#endif // _tagCrmRegFlags_
 
 EXTERN_C const IID LIBID_COMSVCSLib;
 

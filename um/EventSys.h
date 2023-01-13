@@ -2359,7 +2359,7 @@ typedef /* [public][public][public][hidden] */ struct __MIDL___MIDL_itf_eventsys
     GUID reserved[ 10 ];
     } 	COMEVENTSYSCHANGEINFO;
 
-#endif _COMEVENTSYSCHANGEINFO_
+#endif // _COMEVENTSYSCHANGEINFO_
 
 
 extern RPC_IF_HANDLE __MIDL_itf_eventsys_0000_0009_v0_0_c_ifspec;

@@ -1208,8 +1208,17 @@ typedef struct  _OBJECTID {     // size is 20
 // Calculate the byte offset of a field in a structure of type type.
 //
 
+#ifdef __has_builtin
+#if __has_builtin(__builtin_offsetof)
+#define FIELD_OFFSET(type, field)    ((LONG)__builtin_offsetof(type, field))
+#define UFIELD_OFFSET(type, field)    ((DWORD)__builtin_offsetof(type, field))
+#endif
+#endif
+
+#ifndef FIELD_OFFSET
 #define FIELD_OFFSET(type, field)    ((LONG)(LONG_PTR)&(((type *)0)->field))
 #define UFIELD_OFFSET(type, field)    ((DWORD)(LONG_PTR)&(((type *)0)->field))
+#endif
 
 //
 // Calculate the size of a field in a structure of type type, without
@@ -20310,7 +20319,8 @@ typedef struct _RTL_BARRIER {
 #define FAST_FAIL_RIO_ABORT                         62
 #define FAST_FAIL_INVALID_PFN                       63
 #define FAST_FAIL_GUARD_ICALL_CHECK_FAILURE_XFG     64
-#define FAST_FAIL_CAST_GUARD                        65
+#define FAST_FAIL_CAST_GUARD                        65         // Known to compiler, must retain value 65
+#define FAST_FAIL_HOST_VISIBILITY_CHANGE            66
 #define FAST_FAIL_INVALID_FAST_FAIL_CODE            0xFFFFFFFF
 
 #if _MSC_VER >= 1610

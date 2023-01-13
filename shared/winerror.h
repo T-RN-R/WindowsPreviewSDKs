@@ -6107,13 +6107,22 @@
 #define ERROR_SERVER_TRANSPORT_CONFLICT  816L
 
 //
+// MessageId: ERROR_CERTIFICATE_VALIDATION_PREFERENCE_CONFLICT
+//
+// MessageText:
+//
+// Multiple mappings to shared resource(s) on a server, using different certificate validation preferences, are not allowed. Use the same preference for all mappings to a server and try again.
+//
+#define ERROR_CERTIFICATE_VALIDATION_PREFERENCE_CONFLICT 817L
+
+//
 // MessageId: ERROR_SECTION_DIRECT_MAP_ONLY
 //
 // MessageText:
 //
 // The section creation request was failed because it would have been satisfied with a direct map and the caller explicitly signified this was not wanted.
 //
-#define ERROR_SECTION_DIRECT_MAP_ONLY    817L
+#define ERROR_SECTION_DIRECT_MAP_ONLY    818L
 
 //
 // **** Available SYSTEM error codes ****

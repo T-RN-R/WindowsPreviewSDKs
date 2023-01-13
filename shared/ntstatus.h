@@ -5998,6 +5998,15 @@ Notes:
 #define STATUS_SERVER_TRANSPORT_CONFLICT ((NTSTATUS)0xC00001B4L)
 
 //
+// MessageId: STATUS_CERTIFICATE_VALIDATION_PREFERENCE_CONFLICT
+//
+// MessageText:
+//
+// Multiple mappings to shared resource(s) on a server, using different certificate validation preferences, are not allowed. Use the same preference for all mappings to a server and try again.
+//
+#define STATUS_CERTIFICATE_VALIDATION_PREFERENCE_CONFLICT ((NTSTATUS)0xC00001B5L)
+
+//
 //  Available range of NTSTATUS codes
 //
 //
