@@ -71,7 +71,7 @@ typedef union WHV_CAPABILITY_FEATURES
     UINT64 AsUINT64;
 } WHV_CAPABILITY_FEATURES;
 
-C_ASSERT(sizeof(WHV_CAPABILITY_FEATURES) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_CAPABILITY_FEATURES) == 8);
 
 //
 // Return values for WhvCapabilityCodeExtendedVmExits and input buffer for
@@ -93,13 +93,15 @@ typedef union WHV_EXTENDED_VM_EXITS
         UINT64 X64ApicWriteSvrExitTrap    : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
         UINT64 UnknownSynicConnection     : 1; // WHvRunVpExitReasonHypercall supported for unknown synic connection to HvSignalEvent
         UINT64 RetargetUnknownVpciDevice  : 1; // WHvRUnVpExitReasonHypercall supported for unknown device to HvRetargetDeviceInterrupt
-        UINT64 Reserved                   : 52;
+        UINT64 X64ApicWriteLdrExitTrap    : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
+        UINT64 X64ApicWriteDfrExitTrap    : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
+        UINT64 Reserved                   : 50;
     };
 
     UINT64 AsUINT64;
 } WHV_EXTENDED_VM_EXITS;
 
-C_ASSERT(sizeof(WHV_EXTENDED_VM_EXITS) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_EXTENDED_VM_EXITS) == 8);
 
 //
 // Return values for WhvCapabilityCodeProcessorVendor
@@ -187,7 +189,7 @@ typedef union WHV_PROCESSOR_FEATURES
     UINT64 AsUINT64;
 } WHV_PROCESSOR_FEATURES;
 
-C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES) == 8);
 
 //
 // Return values for WhvCapabilityCodeProcessorFeaturesBanks and input buffer
@@ -205,7 +207,10 @@ typedef union WHV_PROCESSOR_FEATURES1
         UINT64 PsfdSupport: 1;
         UINT64 Reserved3 : 2;
         UINT64 VmxExceptionInjectSupport : 1;
-        UINT64 Reserved4 : 4;
+        UINT64 Reserved4 : 1;
+        UINT64 UmwaitTpauseSupport : 1;
+        UINT64 MovdiriSupport : 1;
+        UINT64 Movdir64bSupport : 1;
         UINT64 CldemoteSupport : 1;
         UINT64 SerializeSupport : 1;
         UINT64 TscDeadlineTmrSupport : 1;
@@ -219,7 +224,7 @@ typedef union WHV_PROCESSOR_FEATURES1
     UINT64 AsUINT64;
 } WHV_PROCESSOR_FEATURES1;
 
-C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES1) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES1) == 8);
 
 #define WHV_PROCESSOR_FEATURES_BANKS_COUNT 2
 
@@ -239,7 +244,7 @@ typedef struct WHV_PROCESSOR_FEATURES_BANKS
     };
 } WHV_PROCESSOR_FEATURES_BANKS;
 
-C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES_BANKS) == sizeof(UINT64) * (WHV_PROCESSOR_FEATURES_BANKS_COUNT + 1));
+C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES_BANKS) == 8 * (WHV_PROCESSOR_FEATURES_BANKS_COUNT + 1));
 
 //
 // Synthetic processor features for exo partitions.
@@ -373,7 +378,7 @@ typedef union _WHV_SYNTHETIC_PROCESSOR_FEATURES
     UINT64 AsUINT64;
 } WHV_SYNTHETIC_PROCESSOR_FEATURES;
 
-C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES) == 8);
 
 #define WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT 1
 
@@ -392,7 +397,7 @@ typedef struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS
     };
 } WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS;
 
-C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS) == sizeof(UINT64) * (WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT + 1));
+C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS) == 16);
 
 //
 // Partitions
@@ -426,7 +431,6 @@ typedef enum WHV_PARTITION_PROPERTY_CODE
     WHvPartitionPropertyCodeApicRemoteReadSupport           = 0x00001009,
     WHvPartitionPropertyCodeProcessorFeaturesBanks          = 0x0000100A,
     WHvPartitionPropertyCodeReferenceTime                   = 0x0000100B,
-    // Synthetic processor features are experimental and not supported.
     WHvPartitionPropertyCodeSyntheticProcessorFeaturesBanks = 0x0000100C,
 
     WHvPartitionPropertyCodeProcessorCount          = 0x00001fff
@@ -477,7 +481,7 @@ typedef union WHV_PROCESSOR_XSAVE_FEATURES
     UINT64 AsUINT64;
 } WHV_PROCESSOR_XSAVE_FEATURES, *PWHV_PROCESSOR_XSAVE_FEATURES;
 
-C_ASSERT(sizeof(WHV_PROCESSOR_XSAVE_FEATURES) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_PROCESSOR_XSAVE_FEATURES) == 8);
 
 //
 // Return value for WHvCapabilityCodeX64MsrExits and input buffer for
@@ -499,7 +503,7 @@ typedef union WHV_X64_MSR_EXIT_BITMAP
 
 } WHV_X64_MSR_EXIT_BITMAP;
 
-C_ASSERT(sizeof(WHV_X64_MSR_EXIT_BITMAP) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_X64_MSR_EXIT_BITMAP) == 8);
 
 //
 // Structure describing a memory range entry
@@ -508,6 +512,8 @@ typedef struct WHV_MEMORY_RANGE_ENTRY {
     UINT64 Address;
     UINT64 SizeInBytes;
 } WHV_MEMORY_RANGE_ENTRY;
+
+C_ASSERT(sizeof(WHV_MEMORY_RANGE_ENTRY) == 16);
 
 //
 // Flags used by WHvAdviseGpaRangeCodePrefetch
@@ -523,7 +529,7 @@ typedef union WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS
     };
 } WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS;
 
-C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS) == sizeof(UINT32));
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS) == 4);
 
 typedef struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP
 {
@@ -571,6 +577,8 @@ typedef struct WHV_X64_CPUID_RESULT
     UINT32 Ecx;
     UINT32 Edx;
 } WHV_X64_CPUID_RESULT;
+
+C_ASSERT(sizeof(WHV_X64_CPUID_RESULT) == 32);
 
 //
 // WHvPartitionPropertyCodeExceptionBitmap enumeration values.
@@ -706,6 +714,8 @@ typedef struct WHV_TRANSLATE_GVA_RESULT
     UINT32 Reserved;
 } WHV_TRANSLATE_GVA_RESULT;
 
+C_ASSERT(sizeof(WHV_TRANSLATE_GVA_RESULT) == 8);
+
 //
 // WHvAdviseGpaRange buffer
 //
@@ -713,6 +723,8 @@ typedef union WHV_ADVISE_GPA_RANGE
 {
     WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS PrefetchFlags;
 } WHV_ADVISE_GPA_RANGE;
+
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE) == 4);
 
 typedef enum _WHV_CACHE_TYPE {
     WHvCacheTypeUncached         = 0,
@@ -741,6 +753,8 @@ typedef union _WHV_ACCESS_GPA_CONTROLS
         UINT32 Reserved;
     };
 } WHV_ACCESS_GPA_CONTROLS;
+
+C_ASSERT(sizeof(WHV_ACCESS_GPA_CONTROLS) == 8);
 
 //
 // Maxmium data size used by WHvReadGpaRange and WHvWriteGpaRange
@@ -907,6 +921,9 @@ typedef enum WHV_REGISTER_NAME
     WHvX64RegisterSpecCtrl         = 0x00002084,
     WHvX64RegisterPredCmd          = 0x00002085,
     WHvX64RegisterTscVirtualOffset = 0x00002087,
+    WHvX64RegisterTscDeadline      = 0x00002095,
+    WHvX64RegisterTscAdjust        = 0x00002096,
+    WHvX64RegisterUmwaitControl    = 0x00002098,
     WHvX64RegisterXfd              = 0x00002099,
     WHvX64RegisterXfdErr           = 0x0000209A,
 
@@ -965,6 +982,8 @@ typedef union DECLSPEC_ALIGN(16) WHV_UINT128
     UINT32  Dword[4];
 } WHV_UINT128;
 
+C_ASSERT(sizeof(WHV_UINT128) == 16);
+
 typedef union WHV_X64_FP_REGISTER
 {
     struct
@@ -977,6 +996,8 @@ typedef union WHV_X64_FP_REGISTER
 
     WHV_UINT128 AsUINT128;
 } WHV_X64_FP_REGISTER;
+
+C_ASSERT(sizeof(WHV_X64_FP_REGISTER) == 16);
 
 typedef union WHV_X64_FP_CONTROL_STATUS_REGISTER
 {
@@ -1005,6 +1026,8 @@ typedef union WHV_X64_FP_CONTROL_STATUS_REGISTER
     WHV_UINT128 AsUINT128;
 } WHV_X64_FP_CONTROL_STATUS_REGISTER;
 
+C_ASSERT(sizeof(WHV_X64_FP_CONTROL_STATUS_REGISTER) == 16);
+
 typedef union WHV_X64_XMM_CONTROL_STATUS_REGISTER
 {
     struct
@@ -1028,6 +1051,8 @@ typedef union WHV_X64_XMM_CONTROL_STATUS_REGISTER
 
     WHV_UINT128 AsUINT128;
 } WHV_X64_XMM_CONTROL_STATUS_REGISTER;
+
+C_ASSERT(sizeof(WHV_X64_FP_CONTROL_STATUS_REGISTER) == 16);
 
 typedef struct WHV_X64_SEGMENT_REGISTER
 {
@@ -1054,12 +1079,16 @@ typedef struct WHV_X64_SEGMENT_REGISTER
     };
 } WHV_X64_SEGMENT_REGISTER;
 
+C_ASSERT(sizeof(WHV_X64_SEGMENT_REGISTER) == 16);
+
 typedef struct WHV_X64_TABLE_REGISTER
 {
     UINT16     Pad[3];
     UINT16     Limit;
     UINT64     Base;
 } WHV_X64_TABLE_REGISTER;
+
+C_ASSERT(sizeof(WHV_X64_TABLE_REGISTER) == 16);
 
 typedef union WHV_X64_INTERRUPT_STATE_REGISTER
 {
@@ -1072,6 +1101,8 @@ typedef union WHV_X64_INTERRUPT_STATE_REGISTER
 
     UINT64 AsUINT64;
 } WHV_X64_INTERRUPT_STATE_REGISTER;
+
+C_ASSERT(sizeof(WHV_X64_INTERRUPT_STATE_REGISTER) == 8);
 
 typedef union WHV_X64_PENDING_INTERRUPTION_REGISTER
 {
@@ -1090,7 +1121,7 @@ typedef union WHV_X64_PENDING_INTERRUPTION_REGISTER
     UINT64 AsUINT64;
 } WHV_X64_PENDING_INTERRUPTION_REGISTER;
 
-C_ASSERT(sizeof(WHV_X64_PENDING_INTERRUPTION_REGISTER) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_X64_PENDING_INTERRUPTION_REGISTER) == 8);
 
 typedef union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER
 {
@@ -1105,8 +1136,7 @@ typedef union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER
     UINT64 AsUINT64;
 } WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER;
 
-C_ASSERT(sizeof(WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER) == sizeof(UINT64));
-
+C_ASSERT(sizeof(WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER) == 8);
 
 typedef enum WHV_X64_PENDING_EVENT_TYPE
 {
@@ -1132,7 +1162,7 @@ typedef union WHV_X64_PENDING_EXCEPTION_EVENT
     WHV_UINT128 AsUINT128;
 } WHV_X64_PENDING_EXCEPTION_EVENT;
 
-C_ASSERT(sizeof(WHV_X64_PENDING_EXCEPTION_EVENT) == sizeof(WHV_UINT128));
+C_ASSERT(sizeof(WHV_X64_PENDING_EXCEPTION_EVENT) == 16);
 
 typedef union WHV_X64_PENDING_EXT_INT_EVENT
 {
@@ -1150,7 +1180,7 @@ typedef union WHV_X64_PENDING_EXT_INT_EVENT
     WHV_UINT128 AsUINT128;
 } WHV_X64_PENDING_EXT_INT_EVENT;
 
-C_ASSERT(sizeof(WHV_X64_PENDING_EXT_INT_EVENT) == sizeof(WHV_UINT128));
+C_ASSERT(sizeof(WHV_X64_PENDING_EXT_INT_EVENT) == 16);
 
 typedef union WHV_INTERNAL_ACTIVITY_REGISTER
 {
@@ -1165,7 +1195,7 @@ typedef union WHV_INTERNAL_ACTIVITY_REGISTER
     UINT64 AsUINT64;
 } WHV_INTERNAL_ACTIVITY_REGISTER;
 
-C_ASSERT(sizeof(WHV_INTERNAL_ACTIVITY_REGISTER) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_INTERNAL_ACTIVITY_REGISTER) == 8);
 
 typedef union WHV_X64_PENDING_DEBUG_EXCEPTION
 {
@@ -1183,7 +1213,7 @@ typedef union WHV_X64_PENDING_DEBUG_EXCEPTION
 
 } WHV_X64_PENDING_DEBUG_EXCEPTION;
 
-C_ASSERT(sizeof(WHV_X64_PENDING_DEBUG_EXCEPTION) == sizeof(UINT64));
+C_ASSERT(sizeof(WHV_X64_PENDING_DEBUG_EXCEPTION) == 8);
 
 //
 // Register values
@@ -1208,6 +1238,8 @@ typedef union WHV_REGISTER_VALUE
     WHV_INTERNAL_ACTIVITY_REGISTER InternalActivity;
     WHV_X64_PENDING_DEBUG_EXCEPTION PendingDebugException;
 } WHV_REGISTER_VALUE;
+
+C_ASSERT(sizeof(WHV_REGISTER_VALUE) == 16);
 
 //
 // Virtual Processor Execution
@@ -1265,7 +1297,7 @@ typedef union WHV_X64_VP_EXECUTION_STATE
     UINT16 AsUINT16;
 } WHV_X64_VP_EXECUTION_STATE;
 
-C_ASSERT(sizeof(WHV_X64_VP_EXECUTION_STATE) == sizeof(UINT16));
+C_ASSERT(sizeof(WHV_X64_VP_EXECUTION_STATE) == 2);
 
 //
 // Execution context of a virtual processor at the time of an exit
@@ -1281,6 +1313,8 @@ typedef struct WHV_VP_EXIT_CONTEXT
     UINT64 Rip;
     UINT64 Rflags;
 } WHV_VP_EXIT_CONTEXT;
+
+C_ASSERT(sizeof(WHV_VP_EXIT_CONTEXT) == 40);
 
 //
 // Context data for a VM exit caused by a memory access (WHvRunVpExitReasonMemoryAccess)
@@ -1304,6 +1338,8 @@ typedef union WHV_MEMORY_ACCESS_INFO
     UINT32 AsUINT32;
 } WHV_MEMORY_ACCESS_INFO;
 
+C_ASSERT(sizeof(WHV_MEMORY_ACCESS_INFO) == 4);
+
 typedef struct WHV_MEMORY_ACCESS_CONTEXT
 {
     // Context of the virtual processor
@@ -1316,6 +1352,8 @@ typedef struct WHV_MEMORY_ACCESS_CONTEXT
     WHV_GUEST_PHYSICAL_ADDRESS Gpa;
     WHV_GUEST_VIRTUAL_ADDRESS Gva;
 } WHV_MEMORY_ACCESS_CONTEXT;
+
+C_ASSERT(sizeof(WHV_MEMORY_ACCESS_CONTEXT) == 40);
 
 //
 // Context data for an exit caused by an I/O port access (WHvRunVpExitReasonX64IOPortAccess)
@@ -1334,7 +1372,7 @@ typedef union WHV_X64_IO_PORT_ACCESS_INFO
     UINT32 AsUINT32;
 } WHV_X64_IO_PORT_ACCESS_INFO;
 
-C_ASSERT(sizeof(WHV_X64_IO_PORT_ACCESS_INFO) == sizeof(UINT32));
+C_ASSERT(sizeof(WHV_X64_IO_PORT_ACCESS_INFO) == 4);
 
 typedef struct WHV_X64_IO_PORT_ACCESS_CONTEXT
 {
@@ -1355,6 +1393,8 @@ typedef struct WHV_X64_IO_PORT_ACCESS_CONTEXT
     WHV_X64_SEGMENT_REGISTER Es;
 } WHV_X64_IO_PORT_ACCESS_CONTEXT;
 
+C_ASSERT(sizeof(WHV_X64_IO_PORT_ACCESS_CONTEXT) == 96);
+
 //
 // Context data for an exit caused by an MSR access (WHvRunVpExitReasonX64MSRAccess)
 //
@@ -1369,7 +1409,7 @@ typedef union WHV_X64_MSR_ACCESS_INFO
     UINT32 AsUINT32;
 } WHV_X64_MSR_ACCESS_INFO;
 
-C_ASSERT(sizeof(WHV_X64_MSR_ACCESS_INFO) == sizeof(UINT32));
+C_ASSERT(sizeof(WHV_X64_MSR_ACCESS_INFO) == 4);
 
 typedef struct WHV_X64_MSR_ACCESS_CONTEXT
 {
@@ -1379,6 +1419,8 @@ typedef struct WHV_X64_MSR_ACCESS_CONTEXT
     UINT64 Rax;
     UINT64 Rdx;
 } WHV_X64_MSR_ACCESS_CONTEXT;
+
+C_ASSERT(sizeof(WHV_X64_MSR_ACCESS_CONTEXT) == 24);
 
 //
 // Context data for an exit caused by a CPUID call (WHvRunVpExitReasonX64CPUID)
@@ -1396,6 +1438,8 @@ typedef struct WHV_X64_CPUID_ACCESS_CONTEXT
     UINT64 DefaultResultRbx;
 } WHV_X64_CPUID_ACCESS_CONTEXT;
 
+C_ASSERT(sizeof(WHV_X64_CPUID_ACCESS_CONTEXT) == 64);
+
 //
 // Context data for an exit caused by an exception generated by the virtual processor
 // (WHvRunVpExitReasonException)
@@ -1412,7 +1456,7 @@ typedef union WHV_VP_EXCEPTION_INFO
     UINT32 AsUINT32;
 } WHV_VP_EXCEPTION_INFO;
 
-C_ASSERT(sizeof(WHV_VP_EXCEPTION_INFO) == sizeof(UINT32));
+C_ASSERT(sizeof(WHV_VP_EXCEPTION_INFO) == 4);
 
 typedef struct WHV_VP_EXCEPTION_CONTEXT
 {
@@ -1427,6 +1471,8 @@ typedef struct WHV_VP_EXCEPTION_CONTEXT
     UINT32 ErrorCode;
     UINT64 ExceptionParameter;
 } WHV_VP_EXCEPTION_CONTEXT;
+
+C_ASSERT(sizeof(WHV_VP_EXCEPTION_CONTEXT) == 40);
 
 //
 // Context data for an exit caused by the use of an unsupported processor feature
@@ -1444,6 +1490,8 @@ typedef struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT
     UINT32 Reserved;
     UINT64 FeatureParameter;
 } WHV_X64_UNSUPPORTED_FEATURE_CONTEXT;
+
+C_ASSERT(sizeof(WHV_X64_UNSUPPORTED_FEATURE_CONTEXT) == 16);
 
 //
 // Context data for an exit caused by a cancellation from the host (WHvRunVpExitReasonCanceled)
@@ -1463,6 +1511,8 @@ typedef struct WHV_RUN_VP_CANCELED_CONTEXT
     WHV_RUN_VP_CANCEL_REASON CancelReason;
 } WHV_RUN_VP_CANCELED_CONTEXT;
 
+C_ASSERT(sizeof(WHV_RUN_VP_CANCELED_CONTEXT) == 4);
+
 //
 // Context data for an exit caused by an interrupt delivery window cancellation from the host
 // (WHvRunVpExitReasonX64InterruptWindow)
@@ -1479,6 +1529,8 @@ typedef struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT
     WHV_X64_PENDING_INTERRUPTION_TYPE DeliverableType;
 } WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT, *PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT;
 
+C_ASSERT(sizeof(WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT) == 4);
+
 //
 // Context data for an exit caused by an APIC EOI of a level-triggered
 // interrupt (WHvRunVpExitReasonX64ApicEoi)
@@ -1487,6 +1539,8 @@ typedef struct WHV_X64_APIC_EOI_CONTEXT
 {
     UINT32 InterruptVector;
 } WHV_X64_APIC_EOI_CONTEXT;
+
+C_ASSERT(sizeof(WHV_X64_APIC_EOI_CONTEXT) == 4);
 
 //
 // Context data for an exit caused by a rdtsc(p) instruction (WHvRunVpExitReasonX64Rdtsc)
@@ -1502,6 +1556,8 @@ typedef union WHV_X64_RDTSC_INFO
     UINT64 AsUINT64;
 } WHV_X64_RDTSC_INFO;
 
+C_ASSERT(sizeof(WHV_X64_RDTSC_INFO) == 8);
+
 typedef struct WHV_X64_RDTSC_CONTEXT
 {
     UINT64 TscAux;
@@ -1511,6 +1567,8 @@ typedef struct WHV_X64_RDTSC_CONTEXT
     WHV_X64_RDTSC_INFO RdtscInfo;
 } WHV_X64_RDTSC_CONTEXT;
 
+C_ASSERT(sizeof(WHV_X64_RDTSC_CONTEXT) == 40);
+
 //
 // Context data for an exit caused by an APIC SMI (WHvRunVpExitReasonX64ApicSmiTrap)
 //
@@ -1518,6 +1576,8 @@ typedef struct WHV_X64_APIC_SMI_CONTEXT
 {
     UINT64 ApicIcr;
 } WHV_X64_APIC_SMI_CONTEXT;
+
+C_ASSERT(sizeof(WHV_X64_APIC_SMI_CONTEXT) == 8);
 
 //
 // Context data for an exit caused by a hypercall (WHvRunVpExitReasonHypercall)
@@ -1539,6 +1599,8 @@ typedef struct WHV_HYPERCALL_CONTEXT
     UINT64 Reserved1[2];
 } WHV_HYPERCALL_CONTEXT, *PWHV_HYPERCALL_CONTEXT;
 
+C_ASSERT(sizeof(WHV_HYPERCALL_CONTEXT) == 176);
+
 //
 // Context data for an exit caused by an APIC INIT SIPI (WHvRunVpExitReasonX64ApicInitSipiTrap)
 //
@@ -1547,12 +1609,15 @@ typedef struct WHV_X64_APIC_INIT_SIPI_CONTEXT
     UINT64 ApicIcr;
 } WHV_X64_APIC_INIT_SIPI_CONTEXT;
 
+C_ASSERT(sizeof(WHV_X64_APIC_INIT_SIPI_CONTEXT) == 8);
 
 //
 // Types of APIC write exits (WHvRunVpExitReasonX64ApicWriteTrap)
 //
 typedef enum WHV_X64_APIC_WRITE_TYPE
 {
+    WHvX64ApicWriteTypeLdr   = 0xD0,
+    WHvX64ApicWriteTypeDfr   = 0xE0,
     WHvX64ApicWriteTypeSvr   = 0xF0,
     WHvX64ApicWriteTypeLint0 = 0x350,
     WHvX64ApicWriteTypeLint1 = 0x360
@@ -1567,6 +1632,8 @@ typedef struct WHV_X64_APIC_WRITE_CONTEXT
     UINT32 Reserved;
     UINT64 WriteValue;
 } WHV_X64_APIC_WRITE_CONTEXT;
+
+C_ASSERT(sizeof(WHV_X64_APIC_WRITE_CONTEXT) == 16);
 
 // WHvRunVirtualProcessor output buffer
 typedef struct WHV_RUN_VP_EXIT_CONTEXT
@@ -1593,6 +1660,8 @@ typedef struct WHV_RUN_VP_EXIT_CONTEXT
         WHV_X64_APIC_WRITE_CONTEXT ApicWrite;
     };
 } WHV_RUN_VP_EXIT_CONTEXT;
+
+C_ASSERT(sizeof(WHV_RUN_VP_EXIT_CONTEXT) == 224);
 
 typedef enum WHV_INTERRUPT_TYPE
 {
@@ -1626,6 +1695,8 @@ typedef struct WHV_INTERRUPT_CONTROL
     UINT32 Vector;
 } WHV_INTERRUPT_CONTROL;
 
+C_ASSERT(sizeof(WHV_INTERRUPT_CONTROL) == 16);
+
 typedef struct WHV_DOORBELL_MATCH_DATA
 {
     WHV_GUEST_PHYSICAL_ADDRESS GuestAddress;
@@ -1635,6 +1706,8 @@ typedef struct WHV_DOORBELL_MATCH_DATA
     UINT32 MatchOnLength:1;
     UINT32 Reserved:30;
 } WHV_DOORBELL_MATCH_DATA;
+
+C_ASSERT(sizeof(WHV_DOORBELL_MATCH_DATA) == 24);
 
 // WHvGetPartitionCounters types
 typedef enum WHV_PARTITION_COUNTER_SET
@@ -1648,6 +1721,8 @@ typedef struct WHV_PARTITION_MEMORY_COUNTERS
     UINT64 Mapped2MPageCount;
     UINT64 Mapped1GPageCount;
 } WHV_PARTITION_MEMORY_COUNTERS;
+
+C_ASSERT(sizeof(WHV_PARTITION_MEMORY_COUNTERS) == 24);
 
 // WHvGetVirtualProcessorCounters types
 typedef enum WHV_PROCESSOR_COUNTER_SET
@@ -1664,11 +1739,15 @@ typedef struct WHV_PROCESSOR_RUNTIME_COUNTERS
     UINT64 HypervisorRuntime100ns;
 } WHV_PROCESSOR_RUNTIME_COUNTERS;
 
+C_ASSERT(sizeof(WHV_PROCESSOR_RUNTIME_COUNTERS) == 16);
+
 typedef struct WHV_PROCESSOR_INTERCEPT_COUNTER
 {
     UINT64 Count;
     UINT64 Time100ns;
 } WHV_PROCESSOR_INTERCEPT_COUNTER;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_INTERCEPT_COUNTER) == 16);
 
 typedef struct WHV_PROCESSOR_INTERCEPT_COUNTERS
 {
@@ -1685,12 +1764,16 @@ typedef struct WHV_PROCESSOR_INTERCEPT_COUNTERS
     WHV_PROCESSOR_INTERCEPT_COUNTER PageFaultIntercepts;
 } WHV_PROCESSOR_ACTIVITY_COUNTERS;
 
+C_ASSERT(sizeof(WHV_PROCESSOR_ACTIVITY_COUNTERS) == 176);
+
 typedef struct WHV_PROCESSOR_EVENT_COUNTERS
 {
     UINT64 PageFaultCount;
     UINT64 ExceptionCount;
     UINT64 InterruptCount;
 } WHV_PROCESSOR_GUEST_EVENT_COUNTERS;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_GUEST_EVENT_COUNTERS) == 24);
 
 typedef struct WHV_PROCESSOR_APIC_COUNTERS
 {
@@ -1700,6 +1783,8 @@ typedef struct WHV_PROCESSOR_APIC_COUNTERS
     UINT64 SentIpiCount;
     UINT64 SelfIpiCount;
 } WHV_PROCESSOR_APIC_COUNTERS;
+
+C_ASSERT(sizeof(WHV_PROCESSOR_APIC_COUNTERS) == 40);
 
 // WHvAdviseGpaRange types
 typedef enum WHV_ADVISE_GPA_RANGE_CODE
@@ -1909,6 +1994,79 @@ typedef struct _WHV_TRIGGER_PARAMETERS
 C_ASSERT(sizeof(WHV_TRIGGER_PARAMETERS) == 32);
 
 typedef PVOID WHV_TRIGGER_HANDLE;
+
+typedef enum WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE
+{
+    WHvVirtualProcessorPropertyCodeNumaNode = 0x00000001,
+} WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE;
+
+typedef struct WHV_VIRTUAL_PROCESSOR_PROPERTY
+{
+    WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE PropertyCode;
+    UINT32 Reserved;
+    union
+    {
+        USHORT NumaNode;
+        UINT64 Padding;
+    };
+} WHV_VIRTUAL_PROCESSOR_PROPERTY;
+
+C_ASSERT(sizeof(WHV_VIRTUAL_PROCESSOR_PROPERTY) == 16);
+
+//
+// Notification ports
+//
+
+typedef enum _WHV_NOTIFICATION_PORT_TYPE
+{
+    WHvNotificationPortTypeEvent = 2,
+    WHvNotificationPortTypeDoorbell = 4,
+} WHV_NOTIFICATION_PORT_TYPE;
+
+typedef struct _WHV_NOTIFICATION_PORT_PARAMETERS
+{
+    WHV_NOTIFICATION_PORT_TYPE NotificationPortType;
+    UINT32 Reserved;
+    union
+    {
+        WHV_DOORBELL_MATCH_DATA Doorbell;
+        struct
+        {
+            UINT32 ConnectionId;
+        } Event;
+    };
+
+} WHV_NOTIFICATION_PORT_PARAMETERS;
+
+C_ASSERT(sizeof(WHV_NOTIFICATION_PORT_PARAMETERS) == 32);
+
+typedef enum _WHV_NOTIFICATION_PORT_PROPERTY_CODE
+{
+    WHvNotificationPortPropertyPreferredTargetVp = 1,
+    WHvNotificationPortPropertyPreferredTargetDuration = 5,
+} WHV_NOTIFICATION_PORT_PROPERTY_CODE;
+
+typedef UINT64 WHV_NOTIFICATION_PORT_PROPERTY;
+
+//
+// The preferred target VP defaults to any VP.
+//
+
+#define WHV_ANY_VP (0xFFFFFFFF)
+
+//
+// Define the maximum possible value for the preferred target duration.
+//
+
+#define WHV_NOTIFICATION_PORT_PREFERRED_DURATION_MAX (0xFFFFFFFFFFFFFFFFUI64)
+
+typedef PVOID WHV_NOTIFICATION_PORT_HANDLE;
+
+//
+// Post message
+//
+
+#define WHV_SYNIC_MESSAGE_SIZE  256
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1200)
 #pragma warning(pop)

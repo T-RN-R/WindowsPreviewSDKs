@@ -142,6 +142,15 @@ WHvCreateVirtualProcessor(
 
 HRESULT
 WINAPI
+WHvCreateVirtualProcessor2(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT32 VpIndex,
+    _In_reads_(PropertyCount) const WHV_VIRTUAL_PROCESSOR_PROPERTY* Properties,
+    _In_ UINT32 PropertyCount
+    );
+
+HRESULT
+WINAPI
 WHvDeleteVirtualProcessor(
     _In_ WHV_PARTITION_HANDLE Partition,
     _In_ UINT32 VpIndex
@@ -288,6 +297,10 @@ WHvSetVirtualProcessorInterruptControllerState2(
     _In_ UINT32 StateSize
     );
 
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#pragma deprecated("WHvRegisterPartitionDoorbellEvent is deprecated; use WHvCreateNotificationPort")
+#endif
+
 HRESULT
 WINAPI
 WHvRegisterPartitionDoorbellEvent(
@@ -295,6 +308,10 @@ WHvRegisterPartitionDoorbellEvent(
     _In_ const WHV_DOORBELL_MATCH_DATA* MatchData,
     _In_ HANDLE EventHandle
     );
+
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#pragma deprecated("WHvRegisterPartitionDoorbellEvent is deprecated; use WHvDeleteNotificationPort")
+#endif
 
 HRESULT
 WINAPI
@@ -321,8 +338,8 @@ WHvReadGpaRange(
     _In_ UINT32 VpIndex,
     _In_ WHV_GUEST_PHYSICAL_ADDRESS GuestAddress,
     _In_ WHV_ACCESS_GPA_CONTROLS Controls,
-    _In_ UINT32 DataSizeInBytes,
-    _Out_writes_bytes_(SizeInBytes) PVOID Data
+    _Out_writes_bytes_(DataSizeInBytes) PVOID Data,
+    _In_ UINT32 DataSizeInBytes
     );
 
 HRESULT
@@ -332,13 +349,13 @@ WHvWriteGpaRange(
     _In_ UINT32 VpIndex,
     _In_ WHV_GUEST_PHYSICAL_ADDRESS GuestAddress,
     _In_ WHV_ACCESS_GPA_CONTROLS Controls,
-    _In_ UINT32 DataSizeInBytes,
-    _In_reads_bytes_(SizeInBytes) const VOID* Data
+    _In_reads_bytes_(DataSizeInBytes) const VOID* Data,
+    _In_ UINT32 DataSizeInBytes
     );
 
 HRESULT
 WINAPI
-WHvSignalSynicEvent(
+WHvSignalVirtualProcessorSynicEvent(
     _In_ WHV_PARTITION_HANDLE Partition,
     _In_ WHV_SYNIC_EVENT_PARAMETERS SynicEvent,
     _Out_opt_ BOOL* NewlySignaled
@@ -374,8 +391,8 @@ WINAPI
 WHvAllocateVpciResource(
     _In_opt_ const GUID* ProviderId,
     _In_ WHV_ALLOCATE_VPCI_RESOURCE_FLAGS Flags,
-    _In_ UINT32 ResourceDescriptorSizeInBytes,
     _In_reads_opt_(ResourceDescriptorSizeInBytes) const VOID* ResourceDescriptor,
+    _In_ UINT32 ResourceDescriptorSizeInBytes,
     _Out_ HANDLE* VpciResource,
     _Outptr_opt_result_maybenull_ LPCWSTR* ResourcePath
     );
@@ -497,8 +514,8 @@ WHvGetVpciDeviceInterruptTarget(
     _In_ UINT64 LogicalDeviceId,
     _In_ UINT32 Index,
     _In_ UINT32 MultiMessageNumber,
-    _In_ UINT32 TargetSizeInBytes,
     _Out_writes_bytes_to_(TargetSizeInBytes, *BytesWritten) WHV_VPCI_INTERRUPT_TARGET* Target,
+    _In_ UINT32 TargetSizeInBytes,
     _Out_opt_ UINT32* BytesWritten
     );
 
@@ -528,6 +545,45 @@ WINAPI
 WHvDeleteTrigger(
     _In_ WHV_PARTITION_HANDLE Partition,
     _In_ WHV_TRIGGER_HANDLE TriggerHandle
+    );
+
+//
+// Notification ports
+//
+
+HRESULT
+WINAPI
+WHvCreateNotificationPort(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ const WHV_NOTIFICATION_PORT_PARAMETERS* Parameters,
+    _In_ HANDLE EventHandle,
+    _Out_ WHV_NOTIFICATION_PORT_HANDLE* PortHandle
+    );
+
+HRESULT
+WINAPI
+WHvSetNotificationPortProperty(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ WHV_NOTIFICATION_PORT_HANDLE PortHandle,
+    _In_ WHV_NOTIFICATION_PORT_PROPERTY_CODE PropertyCode,
+    _In_ WHV_NOTIFICATION_PORT_PROPERTY PropertyValue
+    );
+
+HRESULT
+WINAPI
+WHvDeleteNotificationPort(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ WHV_NOTIFICATION_PORT_HANDLE PortHandle
+    );
+
+HRESULT
+WINAPI
+WHvPostVirtualProcessorSynicMessage(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT32 VpIndex,
+    _In_ UINT32 SintIndex,
+    _In_reads_(MessageSize) const VOID* Message,
+    _In_ UINT32 MessageSize
     );
 
 #ifdef __cplusplus
@@ -619,6 +675,12 @@ IsWHvTranslateGvaPresent(
 BOOLEAN
 __stdcall
 IsWHvCreateVirtualProcessorPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvCreateVirtualProcessor2Present(
     VOID
     );
 
@@ -720,11 +782,19 @@ IsWHvSetVirtualProcessorInterruptControllerState2Present(
     VOID
     );
 
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+#endif
+
 BOOLEAN
 __stdcall
 IsWHvRegisterPartitionDoorbellEventPresent(
     VOID
     );
+
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+#endif
 
 BOOLEAN
 __stdcall
@@ -752,7 +822,7 @@ IsWHvWriteGpaRangePresent(
 
 BOOLEAN
 __stdcall
-IsWHvSignalSynicEventPresent(
+IsWHvSignalVirtualProcessorSynicEventPresent(
     VOID
     );
 
@@ -867,6 +937,30 @@ IsWHvUpdateTriggerParametersPresent(
 BOOLEAN
 __stdcall
 IsWHvDeleteTriggerPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvCreateNotificationPortPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvSetNotificationPortPropertyPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvDeleteNotificationPortPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvPostVirtualProcessorSynicMessagePresent(
     VOID
     );
 

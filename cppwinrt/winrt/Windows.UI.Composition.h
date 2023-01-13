@@ -2426,6 +2426,38 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICubicBezierEasingFunction)->get_ControlPoint2(put_abi(value)));
         return value;
     }
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Composition_IDelegatedInkTrailVisual<D>::AddTrailPoints(array_view<Windows::UI::Composition::InkTrailPoint const> inkPoints) const
+    {
+        uint32_t result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDelegatedInkTrailVisual)->AddTrailPoints(inkPoints.size(), get_abi(inkPoints), &result));
+        return result;
+    }
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Composition_IDelegatedInkTrailVisual<D>::AddTrailPointsWithPrediction(array_view<Windows::UI::Composition::InkTrailPoint const> inkPoints, array_view<Windows::UI::Composition::InkTrailPoint const> predictedInkPoints) const
+    {
+        uint32_t result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDelegatedInkTrailVisual)->AddTrailPointsWithPrediction(inkPoints.size(), get_abi(inkPoints), predictedInkPoints.size(), get_abi(predictedInkPoints), &result));
+        return result;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDelegatedInkTrailVisual<D>::RemoveTrailPoints(uint32_t generationId) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDelegatedInkTrailVisual)->RemoveTrailPoints(generationId));
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IDelegatedInkTrailVisual<D>::StartNewTrail(Windows::UI::Color const& color) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDelegatedInkTrailVisual)->StartNewTrail(impl::bind_in(color)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::DelegatedInkTrailVisual) consume_Windows_UI_Composition_IDelegatedInkTrailVisualStatics<D>::Create(Windows::UI::Composition::Compositor const& compositor) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDelegatedInkTrailVisualStatics)->Create(*(void**)(&compositor), &result));
+        return Windows::UI::Composition::DelegatedInkTrailVisual{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::DelegatedInkTrailVisual) consume_Windows_UI_Composition_IDelegatedInkTrailVisualStatics<D>::CreateForSwapChain(Windows::UI::Composition::Compositor const& compositor, Windows::UI::Composition::ICompositionSurface const& swapChain) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IDelegatedInkTrailVisualStatics)->CreateForSwapChain(*(void**)(&compositor), *(void**)(&swapChain), &result));
+        return Windows::UI::Composition::DelegatedInkTrailVisual{ result, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_UI_Composition_IDistantLight<D>::Color() const
     {
         Windows::UI::Color value{};
@@ -7767,6 +7799,62 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::UI::Composition::IDelegatedInkTrailVisual> : produce_base<D, Windows::UI::Composition::IDelegatedInkTrailVisual>
+    {
+        int32_t __stdcall AddTrailPoints(uint32_t __inkPointsSize, struct struct_Windows_UI_Composition_InkTrailPoint* inkPoints, uint32_t* result) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<uint32_t>(this->shim().AddTrailPoints(array_view<Windows::UI::Composition::InkTrailPoint const>(reinterpret_cast<Windows::UI::Composition::InkTrailPoint const *>(inkPoints), reinterpret_cast<Windows::UI::Composition::InkTrailPoint const *>(inkPoints) + __inkPointsSize)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall AddTrailPointsWithPrediction(uint32_t __inkPointsSize, struct struct_Windows_UI_Composition_InkTrailPoint* inkPoints, uint32_t __predictedInkPointsSize, struct struct_Windows_UI_Composition_InkTrailPoint* predictedInkPoints, uint32_t* result) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<uint32_t>(this->shim().AddTrailPointsWithPrediction(array_view<Windows::UI::Composition::InkTrailPoint const>(reinterpret_cast<Windows::UI::Composition::InkTrailPoint const *>(inkPoints), reinterpret_cast<Windows::UI::Composition::InkTrailPoint const *>(inkPoints) + __inkPointsSize), array_view<Windows::UI::Composition::InkTrailPoint const>(reinterpret_cast<Windows::UI::Composition::InkTrailPoint const *>(predictedInkPoints), reinterpret_cast<Windows::UI::Composition::InkTrailPoint const *>(predictedInkPoints) + __predictedInkPointsSize)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall RemoveTrailPoints(uint32_t generationId) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().RemoveTrailPoints(generationId);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall StartNewTrail(struct struct_Windows_UI_Color color) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().StartNewTrail(*reinterpret_cast<Windows::UI::Color const*>(&color));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::IDelegatedInkTrailVisualStatics> : produce_base<D, Windows::UI::Composition::IDelegatedInkTrailVisualStatics>
+    {
+        int32_t __stdcall Create(void* compositor, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::DelegatedInkTrailVisual>(this->shim().Create(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&compositor)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateForSwapChain(void* compositor, void* swapChain, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::DelegatedInkTrailVisual>(this->shim().CreateForSwapChain(*reinterpret_cast<Windows::UI::Composition::Compositor const*>(&compositor), *reinterpret_cast<Windows::UI::Composition::ICompositionSurface const*>(&swapChain)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::UI::Composition::IDistantLight> : produce_base<D, Windows::UI::Composition::IDistantLight>
     {
         int32_t __stdcall get_Color(struct struct_Windows_UI_Color* value) noexcept final try
@@ -10016,6 +10104,14 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     {
         return impl::call_factory_cast<float(*)(ICompositorStatics const&), Compositor, ICompositorStatics>([](ICompositorStatics const& f) { return f.MinGlobalPlaybackRate(); });
     }
+    inline auto DelegatedInkTrailVisual::Create(Windows::UI::Composition::Compositor const& compositor)
+    {
+        return impl::call_factory<DelegatedInkTrailVisual, IDelegatedInkTrailVisualStatics>([&](IDelegatedInkTrailVisualStatics const& f) { return f.Create(compositor); });
+    }
+    inline auto DelegatedInkTrailVisual::CreateForSwapChain(Windows::UI::Composition::Compositor const& compositor, Windows::UI::Composition::ICompositionSurface const& swapChain)
+    {
+        return impl::call_factory<DelegatedInkTrailVisual, IDelegatedInkTrailVisualStatics>([&](IDelegatedInkTrailVisualStatics const& f) { return f.CreateForSwapChain(compositor, swapChain); });
+    }
 }
 namespace std
 {
@@ -10139,6 +10235,8 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IContainerVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IContainerVisualFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICubicBezierEasingFunction> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IDelegatedInkTrailVisual> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IDelegatedInkTrailVisualStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IDistantLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IDistantLight2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IDropShadow> : winrt::impl::hash_base {};
@@ -10262,6 +10360,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::Compositor> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ContainerVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::CubicBezierEasingFunction> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::DelegatedInkTrailVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::DistantLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::DropShadow> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ElasticEasingFunction> : winrt::impl::hash_base {};

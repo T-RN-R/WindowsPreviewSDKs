@@ -841,6 +841,20 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
         ICubicBezierEasingFunction(std::nullptr_t = nullptr) noexcept {}
         ICubicBezierEasingFunction(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IDelegatedInkTrailVisual :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IDelegatedInkTrailVisual>
+    {
+        IDelegatedInkTrailVisual(std::nullptr_t = nullptr) noexcept {}
+        IDelegatedInkTrailVisual(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDelegatedInkTrailVisualStatics :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IDelegatedInkTrailVisualStatics>
+    {
+        IDelegatedInkTrailVisualStatics(std::nullptr_t = nullptr) noexcept {}
+        IDelegatedInkTrailVisualStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IDistantLight :
         Windows::Foundation::IInspectable,
         impl::consume_t<IDistantLight>

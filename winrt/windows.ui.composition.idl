@@ -52,6 +52,8 @@ namespace Windows
 {
     namespace Foundation
     {
+        typedef struct Point Point;
+
         typedef struct Size Size;
 
         typedef struct TimeSpan TimeSpan;
@@ -167,6 +169,8 @@ namespace Windows
             typedef enum CompositionStrokeCap CompositionStrokeCap;
 
             typedef enum CompositionStrokeLineJoin CompositionStrokeLineJoin;
+
+            typedef struct InkTrailPoint InkTrailPoint;
 
             interface IAmbientLight;
 
@@ -405,6 +409,10 @@ namespace Windows
             interface IContainerVisualFactory;
 
             interface ICubicBezierEasingFunction;
+
+            interface IDelegatedInkTrailVisual;
+
+            interface IDelegatedInkTrailVisualStatics;
 
             interface IDistantLight;
 
@@ -651,6 +659,8 @@ namespace Windows
             runtimeclass ContainerVisual;
 
             runtimeclass CubicBezierEasingFunction;
+
+            runtimeclass DelegatedInkTrailVisual;
 
             runtimeclass DistantLight;
 
@@ -1000,6 +1010,13 @@ namespace Windows
                 Bevel        = 1,
                 Round        = 2,
                 MiterOrBevel = 3
+            };
+
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            struct InkTrailPoint
+            {
+                Windows.Foundation.Point Point;
+                FLOAT Radius;
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 3.0)]
@@ -2290,6 +2307,26 @@ namespace Windows
                 [propget] HRESULT ControlPoint2([out] [retval] Windows.Foundation.Numerics.Vector2* value);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [exclusiveto(Windows.UI.Composition.DelegatedInkTrailVisual)]
+            [uuid(856E60B1-E1AB-5B23-8E3D-D513F221C998)]
+            interface IDelegatedInkTrailVisual : IInspectable
+            {
+                HRESULT AddTrailPoints([in] UINT32 __inkPointsSize, [in] [size_is(__inkPointsSize)] Windows.UI.Composition.InkTrailPoint* inkPoints, [out] [retval] UINT32* result);
+                HRESULT AddTrailPointsWithPrediction([in] UINT32 __inkPointsSize, [in] [size_is(__inkPointsSize)] Windows.UI.Composition.InkTrailPoint* inkPoints, [in] UINT32 __predictedInkPointsSize, [in] [size_is(__predictedInkPointsSize)] Windows.UI.Composition.InkTrailPoint* predictedInkPoints, [out] [retval] UINT32* result);
+                HRESULT RemoveTrailPoints([in] UINT32 generationId);
+                HRESULT StartNewTrail([in] Windows.UI.Color color);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [exclusiveto(Windows.UI.Composition.DelegatedInkTrailVisual)]
+            [uuid(0DAF6BD5-42C6-555C-9267-E0AC663AF836)]
+            interface IDelegatedInkTrailVisualStatics : IInspectable
+            {
+                HRESULT Create([in] Windows.UI.Composition.Compositor* compositor, [out] [retval] Windows.UI.Composition.DelegatedInkTrailVisual** result);
+                HRESULT CreateForSwapChain([in] Windows.UI.Composition.Compositor* compositor, [in] Windows.UI.Composition.ICompositionSurface* swapChain, [out] [retval] Windows.UI.Composition.DelegatedInkTrailVisual** result);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 3.0)]
             [exclusiveto(Windows.UI.Composition.DistantLight)]
             [uuid(318CFAFC-5CE3-4B55-AB5D-07A00353AC99)]
@@ -3529,6 +3566,15 @@ namespace Windows
             runtimeclass CubicBezierEasingFunction : Windows.UI.Composition.CompositionEasingFunction
             {
                 [default] interface Windows.UI.Composition.ICubicBezierEasingFunction;
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [marshaling_behavior(agile)]
+            [static(Windows.UI.Composition.IDelegatedInkTrailVisualStatics, Windows.Foundation.UniversalApiContract, 12.0)]
+            [threading(both)]
+            runtimeclass DelegatedInkTrailVisual : Windows.UI.Composition.Visual
+            {
+                [default] interface Windows.UI.Composition.IDelegatedInkTrailVisual;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 3.0)]
