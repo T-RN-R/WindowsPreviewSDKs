@@ -475,7 +475,7 @@ PrUserTime equ 00380H
 PrInstrumentationCallback equ 003D8H
 PrMitigationFlags2 equ 009D4H
 KernelProcessObjectLength equ 00438H
-ExecutiveProcessObjectLength equ 00C00H
+ExecutiveProcessObjectLength equ 00BC0H
 Win32BatchFlushCallout equ 00007H
 
 ;
@@ -512,7 +512,7 @@ QueueObjectLength equ 00040H
 ;
 
 EtCid equ 004C8H
-EtPicoContext equ 00640H
+EtPicoContext equ 00630H
 
 ThType equ 00000H
 ThSize equ 00002H
@@ -1920,9 +1920,9 @@ ThExtendedFeatureDisableMask equ 00428H
 ;  ETHREAD
 ;
 
-ThSetContextState equ 00678H
-ThUserFsBase equ 00648H
-ThUserGsBase equ 00650H
+ThSetContextState equ 00668H
+ThUserFsBase equ 00638H
+ThUserGsBase equ 00640H
 PICO_SYSTEM_CALL equ 00008H
 
 ;

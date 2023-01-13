@@ -3811,6 +3811,42 @@
 #define ERROR_BLOCK_SHARED               514L
 
 //
+// MessageId: ERROR_VOLUME_UPGRADE_NOT_NEEDED
+//
+// MessageText:
+//
+// Volume format is up to date already.
+//
+#define ERROR_VOLUME_UPGRADE_NOT_NEEDED  515L
+
+//
+// MessageId: ERROR_VOLUME_UPGRADE_PENDING
+//
+// MessageText:
+//
+// Volume upgrade is pending.  A reboot or re-mount of the volume is required.
+//
+#define ERROR_VOLUME_UPGRADE_PENDING     516L
+
+//
+// MessageId: ERROR_VOLUME_UPGRADE_DISABLED
+//
+// MessageText:
+//
+// Volume upgrade is disabled.
+//
+#define ERROR_VOLUME_UPGRADE_DISABLED    517L
+
+//
+// MessageId: ERROR_VOLUME_UPGRADE_DISABLED_TILL_OS_DOWNGRADE_EXPIRED
+//
+// MessageText:
+//
+// Volume upgrade is disabled until Windows OS downgrade period has expired.
+//
+#define ERROR_VOLUME_UPGRADE_DISABLED_TILL_OS_DOWNGRADE_EXPIRED 518L
+
+//
 // **** Available SYSTEM error codes ****
 //
 //
@@ -12737,7 +12773,7 @@
 //
 // MessageText:
 //
-// The user canceled the authentication prompt to a remote server. 
+// The user canceled the authentication prompt to a remote server.
 //
 #define ERROR_NETWORK_AUTHENTICATION_PROMPT_CANCELED 3024L
 
