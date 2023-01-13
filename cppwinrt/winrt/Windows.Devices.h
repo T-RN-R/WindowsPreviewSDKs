@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Devices_H
 #define WINRT_Windows_Devices_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200514.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Devices.Adc.Provider.2.h"
 #include "winrt/impl/Windows.Devices.Gpio.Provider.2.h"
 #include "winrt/impl/Windows.Devices.I2c.Provider.2.h"

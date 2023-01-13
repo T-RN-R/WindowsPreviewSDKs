@@ -8030,13 +8030,13 @@
 #define CI_E_PROTECTED_CATALOG_NOT_AVAILABLE ((HRESULT)0xC0041833L)
 
 //
-// MessageId: CI_E_NO_PROTECTED_CATALOG_FOUND
+// MessageId: CI_E_NO_PROTECTED_USER
 //
 // MessageText:
 //
-// The system only stores index entries in a protected catalog, but no protected catalog is currently loaded.
+// The system only stores index entries in a protected catalog, but no protected user currently exists.
 //
-#define CI_E_NO_PROTECTED_CATALOG_FOUND  ((HRESULT)0xC0041834L)
+#define CI_E_NO_PROTECTED_USER           ((HRESULT)0xC0041834L)
 
 //
 // MessageId: CI_E_MULTIPLE_PROTECTED_USERS_UNSUPPORTED
@@ -8055,6 +8055,15 @@
 // The system detected a SID owner for a protected item that did not match the SID owner of the protected catalog for the item.
 //
 #define CI_E_PROTECTED_CATALOG_SID_MISMATCH ((HRESULT)0xC0041836L)
+
+//
+// MessageId: CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER
+//
+// MessageText:
+//
+// On a system with a protected catalog, indexer only supports queries from the interactive user account.
+//
+#define CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER ((HRESULT)0xC0041837L)
 
 #endif // _CIERROR_H_
 #ifndef _FILTERR_H_

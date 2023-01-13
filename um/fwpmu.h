@@ -1022,8 +1022,43 @@ DEFINE_GUID(
 
 #endif // (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
 
-#endif // (NTDDI_VERSION >= NTDDI_WIN8)
+// B3CDD441-AF90-41BA-A745-7C6008FF2300
+DEFINE_GUID(
+   FWPM_SUBLAYER_MPSSVC_WSH,
+   0xb3cdd441,
+   0xaf90,
+   0x41ba,
+   0xa7, 0x45, 0x7c, 0x60, 0x08, 0xff, 0x23, 0x00
+);
 
+// B3CDD441-AF90-41BA-A745-7C6008FF2301
+DEFINE_GUID(
+   FWPM_SUBLAYER_MPSSVC_WF,
+   0xb3cdd441,
+   0xaf90,
+   0x41ba,
+   0xa7, 0x45, 0x7c, 0x60, 0x08, 0xff, 0x23, 0x01
+);
+
+// B3CDD441-AF90-41BA-A745-7C6008FF2302
+DEFINE_GUID(
+   FWPM_SUBLAYER_MPSSVC_QUARANTINE,
+   0xb3cdd441,
+   0xaf90,
+   0x41ba,
+   0xa7, 0x45, 0x7c, 0x60, 0x08, 0xff, 0x23, 0x02
+);
+
+// 09A47E38-FA97-471B-B12318BCD7E65071
+DEFINE_GUID(
+   FWPM_SUBLAYER_MPSSVC_EDP,
+   0x09a47e38,
+   0xfa97,
+   0x471b,
+   0xb1, 0x23, 0x18, 0xbc, 0xd7, 0xe6, 0x50, 0x71
+);
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN8)
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -2385,8 +2420,34 @@ DEFINE_GUID(
    0x432d,
    0xbe, 0xd3, 0x44, 0x1a, 0xe5, 0x0e, 0x63, 0xc3
 );
-#endif // (NTDDI_VERSION >= NTDDI_WIN8)
 
+// 4b153735-1049-4480-aab4-d1b9bdc03710
+DEFINE_GUID(
+   FWPM_PROVIDER_MPSSVC_WSH,
+   0x4b153735,
+   0x1049,
+   0x4480,
+   0xaa, 0xb4, 0xd1, 0xb9, 0xbd, 0xc0, 0x37, 0x10
+);
+
+// decc16ca-3f33-4346-be1e-8fb4ae0f3d62
+DEFINE_GUID(
+   FWPM_PROVIDER_MPSSVC_WF,
+   0xdecc16ca,
+   0x3f33,
+   0x4346,
+   0xbe, 0x1e, 0x8f, 0xb4, 0xae, 0x0f, 0x3d, 0x62
+);
+
+// a90296f7-46b8-4457-8f84-b05e05d3c622
+DEFINE_GUID(
+   FWPM_PROVIDER_MPSSVC_EDP,
+   0xa90296f7,
+   0x46b8,
+   0x4457,
+   0x8f, 0x84, 0xb0, 0x5e, 0x05, 0xd3, 0xc6, 0x22
+);
+#endif // (NTDDI_VERSION >= NTDDI_WIN8)
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -2824,6 +2885,45 @@ DEFINE_GUID(
     );
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// GUIDs for private built-in callouts.
+//
+///////////////////////////////////////////////////////////////////////////////
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+// {779719a4-e695-47b6-a199-7999fec9163b}
+DEFINE_GUID(FWPM_CALLOUT_BUILT_IN_RESERVED_1,
+   0x779719a4,
+   0xe695,
+   0x47b6,
+   0xa1, 0x99, 0x79, 0x99, 0xfe, 0xc9, 0x16, 0x3b
+);
+
+// {ef9661b6-7c5e-48fd-a130-96678ceacc41}
+DEFINE_GUID(FWPM_CALLOUT_BUILT_IN_RESERVED_2,
+   0xef9661b6,
+   0x7c5e,
+   0x48fd,
+   0xa1, 0x30, 0x96, 0x67, 0x8c, 0xea, 0xcc, 0x41
+);
+
+// {18729c7a-2f62-4be0-966f-974b21b86df1}
+DEFINE_GUID(FWPM_CALLOUT_BUILT_IN_RESERVED_3,
+   0x18729c7a,
+   0x2f62,
+   0x4be0,
+   0x96, 0x6f, 0x97, 0x4b, 0x21, 0xb8, 0x6d, 0xf1
+);
+
+// {6c3fb801-daff-40e9-91e6-f7ff7e52f7d9}
+DEFINE_GUID(FWPM_CALLOUT_BUILT_IN_RESERVED_4,
+   0x6c3fb801,
+   0xdaff,
+   0x40e9,
+   0x91, 0xe6, 0xf7, 0xff, 0x7e, 0x52, 0xf7, 0xd9
+);
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
 
 ///////////////////////////////////////////////////////////////////////////////
 //

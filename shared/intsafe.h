@@ -8559,10 +8559,10 @@ SSIZETMult(
 // depend on being defined here.
 //
 #ifndef LOWORD
-#define LOWORD(_dw)     ((WORD)(((DWORD_PTR)(_dw)) & 0xffff))
+#define LOWORD(l)     ((WORD)(((DWORD_PTR)(l)) & 0xffff))
 #endif
 #ifndef HIWORD
-#define HIWORD(_dw)     ((WORD)((((DWORD_PTR)(_dw)) >> 16) & 0xffff))
+#define HIWORD(l)     ((WORD)((((DWORD_PTR)(l)) >> 16) & 0xffff))
 #endif
 #ifndef LODWORD
 #define LODWORD(_qw)    ((DWORD)(_qw))

@@ -365,13 +365,13 @@ typedef HRESULT(WINAPI *PWLDP_QUERYWINDOWSLOCKDOWNMODE_API)(
 
 STDAPI
 WldpQueryDeviceSecurityInformation(
-    _Outptr_opt_result_buffer_to_(informationLength, *returnLength) PWLDP_DEVICE_SECURITY_INFORMATION information,
+    _Out_writes_to_opt_(informationLength, *returnLength) PWLDP_DEVICE_SECURITY_INFORMATION information,
     _In_ DWORD informationLength,
     _Out_ DWORD* returnLength
     );
 
 typedef HRESULT(WINAPI* PWLDP_QUERYDEVICESECURITYINFORMATION_API)(
-    _Outptr_opt_result_buffer_to_(informationLength, *returnLength) PWLDP_DEVICE_SECURITY_INFORMATION information,
+    _Out_writes_to_opt_(informationLength, *returnLength) PWLDP_DEVICE_SECURITY_INFORMATION information,
     _In_ DWORD informationLength,
     _Out_ DWORD* returnLength);
 

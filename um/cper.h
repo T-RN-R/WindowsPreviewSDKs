@@ -316,7 +316,8 @@ typedef union _WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
         ULONG ResourceNotAvailable:1;
         ULONG LatentError:1;
         ULONG Propagated:1;
-        ULONG Reserved:25;
+        ULONG FruTextByPlugin:1;
+        ULONG Reserved:24;
     } DUMMYSTRUCTNAME;
     ULONG AsULONG;
 } WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS,
@@ -329,6 +330,7 @@ typedef union _WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
 #define WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA         0x00000010
 #define WHEA_SECTION_DESCRIPTOR_FLAGS_LATENTERROR        0x00000020
 #define WHEA_SECTION_DESCRIPTOR_FLAGS_PROPAGATED         0x00000040
+#define WHEA_SECTION_DESCRIPTOR_FLAGS_FRU_TEXT_BY_PLUGIN 0x00000080
 
 typedef union _WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
     struct {
@@ -1528,20 +1530,24 @@ typedef struct _XPF_RECOVERY_INFO {
         UINT32 NoRecoveryContext : 1;
         UINT32 MiscOrAddrNotValid : 1;
         UINT32 InvalidAddressMode : 1;
-        UINT32 Reserved : 25;
+        UINT32 HighIrql : 1;
+        UINT32 InterruptsDisabled : 1;
+        UINT32 SwapBusy : 1;
+        UINT32 StackOverflow : 1;
+        UINT32 Reserved : 21;
     } FailureReason;
 
     struct {
         UINT32 RecoveryAttempted : 1;
         UINT32 HvHandled : 1;
-        UINT32 TerminateProcess : 1;
-        UINT32 OfflinePage : 1;
-        UINT32 Reserved : 28;
+        UINT32 Reserved : 30;
     } Action;
 
     BOOLEAN ActionRequired;
     BOOLEAN RecoverySucceeded;
     BOOLEAN RecoveryKernel;
+    UINT8 Reserved;
+    UINT16 Reserved2;
     UINT16 Reserved3;
     UINT32 Reserved4;
 } XPF_RECOVERY_INFO, *PXPF_RECOVERY_INFO;
@@ -1676,8 +1682,12 @@ typedef enum _WHEA_RECOVERY_FAILURE_REASON {
     WheaRecoveryFailureReasonNotSupported,
     WheaRecoveryFailureReasonMiscOrAddrNotValid,
     WheaRecoveryFailureReasonInvalidAddressMode,
-    WheaRecoveryFailureReasonHighIrqlOrInterruptsDisabled,
+    WheaRecoveryFailureReasonHighIrql,
     WheaRecoveryFailureReasonInsufficientAltContextWrappers,
+    WheaRecoveryFailureReasonInterruptsDisabled,
+    WheaRecoveryFailureReasonSwapBusy,
+    WheaRecoveryFailureReasonStackOverflow,
+    WheaRecoveryFailureReasonUnexpectedFailure,
     WheaRecoveryFailureReasonMax
 } WHEA_RECOVERY_FAILURE_REASON, *PWHEA_RECOVERY_FAILURE_REASON;
 
@@ -1685,6 +1695,7 @@ typedef struct _WHEA_ERROR_RECOVERY_INFO_SECTION {
     BOOLEAN RecoveryKernel;
     WHEA_RECOVERY_ACTION RecoveryAction;
     WHEA_RECOVERY_TYPE RecoveryType;
+    KIRQL Irql;
     BOOLEAN RecoverySucceeded;
     WHEA_RECOVERY_FAILURE_REASON FailureReason;
     CCHAR ProcessName[20];

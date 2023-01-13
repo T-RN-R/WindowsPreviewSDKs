@@ -3062,7 +3062,7 @@ NdrOleFree (
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if (_MSC_VER >= 1923)
+#if _CONTROL_FLOW_GUARD_XFG
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)

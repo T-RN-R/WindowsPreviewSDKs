@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -156,6 +156,8 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Activation
         StartupTask = 1020,
         CommandLineLaunch = 1021,
         BarcodeScannerProvider = 1022,
+        PrintSupportJobUI = 1023,
+        PrintSupportSettingsUI = 1024,
     };
     enum class ApplicationExecutionState : int32_t
     {

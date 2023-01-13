@@ -456,6 +456,7 @@
 #define PrKernelTime 0x98
 #define PrUserTime 0x9c
 #define PrInstrumentationCallback 0xa4
+#define PrMitigationFlags2 0x55c
 #define KernelProcessObjectLength 0xe0
 #define ExecutiveProcessObjectLength 0x600
 #define Win32BatchFlushCallout 0x7
@@ -543,6 +544,7 @@
 #define KTHREAD_QUEUE_DEFER_PREEMPTION_BIT 0xb
 #define KTHREAD_BAM_QOS_LEVEL_MASK 0xff
 #define KTHREAD_CET_USER_SHADOW_STACK_BIT 0x14
+#define KTHREAD_CET_KERNEL_SHADOW_STACK_BIT 0x16
 
 #define DEBUG_ACTIVE_ALT_SYSCALL_HANDLER 0x24
 #define PsSystemCallMapToSystem 0x1
@@ -963,7 +965,7 @@
 #define PbCopyReadNoWait 0x644
 #define PbCopyReadWait 0x648
 #define PbCopyReadNoWaitMiss 0x64c
-#define PbAlignmentFixupCount 0xd00
+#define PbAlignmentFixupCount 0xd08
 #define PbExceptionDispatchCount 0x934
 #define PbProcessorVendorString 0x508
 #define PbFeatureBits 0x50c

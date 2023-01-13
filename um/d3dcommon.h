@@ -3,7 +3,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0622 */
+ /* File created by MIDL compiler version 8.01.0623 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
@@ -35,6 +35,14 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
+#endif
+
+#ifndef DECLSPEC_XFGVIRT
+#if _CONTROL_FLOW_GUARD_XFG
+#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
+#else
+#define DECLSPEC_XFGVIRT(base, func)
+#endif
 #endif
 
 /* Forward Declarations */ 
@@ -406,21 +414,26 @@ EXTERN_C const IID IID_ID3D10Blob;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ID3D10Blob * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ID3D10Blob * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ID3D10Blob * This);
         
+        DECLSPEC_XFGVIRT(ID3D10Blob, GetBufferPointer)
         LPVOID ( STDMETHODCALLTYPE *GetBufferPointer )( 
             ID3D10Blob * This);
         
+        DECLSPEC_XFGVIRT(ID3D10Blob, GetBufferSize)
         SIZE_T ( STDMETHODCALLTYPE *GetBufferSize )( 
             ID3D10Blob * This);
         
@@ -516,18 +529,22 @@ EXTERN_C const IID IID_ID3DDestructionNotifier;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ID3DDestructionNotifier * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ID3DDestructionNotifier * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ID3DDestructionNotifier * This);
         
+        DECLSPEC_XFGVIRT(ID3DDestructionNotifier, RegisterDestructionCallback)
         HRESULT ( STDMETHODCALLTYPE *RegisterDestructionCallback )( 
             ID3DDestructionNotifier * This,
             /* [annotation] */ 
@@ -537,6 +554,7 @@ EXTERN_C const IID IID_ID3DDestructionNotifier;
             /* [annotation] */ 
             _Out_  UINT *pCallbackID);
         
+        DECLSPEC_XFGVIRT(ID3DDestructionNotifier, UnregisterDestructionCallback)
         HRESULT ( STDMETHODCALLTYPE *UnregisterDestructionCallback )( 
             ID3DDestructionNotifier * This,
             /* [annotation] */ 

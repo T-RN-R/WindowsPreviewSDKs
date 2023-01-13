@@ -2396,6 +2396,19 @@ DEFINE_DEVPROPKEY(
     );
 
 //
+// Property: DEVPKEY_InfraCast_ConnectionParametersSupported
+// Description: A value indicating if the remote Miracast over Infrastructure Sink supports handling Connection Parameters
+// Type: DEVPROP_TYPE_BOOLEAN
+// Availability: If remote device is a Miracast sink and supports Infrastructure and handling Connection Parameters, then this
+//               is set to DEVPROP_TRUE, otherwise set to DEVPROP_FALSE, or empty.
+//
+DEFINE_DEVPROPKEY(
+    DEVPKEY_InfraCast_ConnectionParametersSupported,
+    0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6E,
+    0x1E
+    );
+
+//
 // Wi-Fi Direct Services Property Key Definitions
 // These properties are exposed through Wi-Fi Direct Aep service objects when
 // enumerated through a DevQuery.

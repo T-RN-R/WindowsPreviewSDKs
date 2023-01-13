@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -54,7 +54,8 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Geolocation
         Geocoordinate(std::nullptr_t) noexcept {}
         Geocoordinate(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Geolocation::IGeocoordinate(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) GeocoordinateSatelliteData : Windows::Devices::Geolocation::IGeocoordinateSatelliteData
+    struct __declspec(empty_bases) GeocoordinateSatelliteData : Windows::Devices::Geolocation::IGeocoordinateSatelliteData,
+        impl::require<GeocoordinateSatelliteData, Windows::Devices::Geolocation::IGeocoordinateSatelliteData2>
     {
         GeocoordinateSatelliteData(std::nullptr_t) noexcept {}
         GeocoordinateSatelliteData(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Geolocation::IGeocoordinateSatelliteData(ptr, take_ownership_from_abi) {}

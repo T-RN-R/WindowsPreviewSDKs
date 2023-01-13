@@ -1377,7 +1377,6 @@ typedef enum _HTTP_DELEGATE_REQUEST_PROPERTY_ID
 {
     DelegateRequestReservedProperty,
     DelegateRequestDelegateUrlProperty,
-
 } HTTP_DELEGATE_REQUEST_PROPERTY_ID, *PHTTP_DELEGATE_REQUEST_PROPERTY_ID;
 
 typedef struct _HTTP_DELEGATE_REQUEST_PROPERTY_INFO
@@ -1386,6 +1385,23 @@ typedef struct _HTTP_DELEGATE_REQUEST_PROPERTY_INFO
     ULONG PropertyInfoLength;
     PVOID PropertyInfo;
 } HTTP_DELEGATE_REQUEST_PROPERTY_INFO, *PHTTP_DELEGATE_REQUEST_PROPERTY_INFO;
+
+//
+// Properties that can be passed down with IOCTL_HTTP_CREATE_REQUEST_QUEUE_EX
+//
+
+typedef enum _HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID
+{
+    CreateRequestQueueExternalIdProperty = 1,
+    CreateRequestQueueMax
+} HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID, *PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID;
+
+typedef struct _HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO
+{
+    HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID PropertyId;
+    ULONG PropertyInfoLength;
+    PVOID PropertyInfo;
+} HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO, *PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO;
 
 //
 // Structure defining format of transport address. Use pLocalAddress->sa_family
@@ -2777,12 +2793,12 @@ typedef struct _HTTP_QUIC_API_TIMINGS
 
 typedef enum _HTTP_FEATURE_ID
 {
-    HttpFeatureUnknown = 0,
+    HttpFeatureUnknown          = 0,
     HttpFeatureResponseTrailers = 1,
-    HttpFeatureApiTimings = 2,
+    HttpFeatureApiTimings       = 2,
 
 
-    HttpFeaturemax = 0xFFFFFFFF,
+    HttpFeaturemax              = 0xFFFFFFFF,
 
 } HTTP_FEATURE_ID, *PHTTP_FEATURE_ID;
 

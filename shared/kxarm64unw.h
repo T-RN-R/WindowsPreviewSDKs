@@ -23,6 +23,7 @@
 ;   PROLOG_SAVE_REG
 ;   PROLOG_SAVE_REG_PAIR
 ;   PROLOG_NOP <operation>
+;   PROLOG_SAVE_NEXT_PAIR <operation>
 ;   PROLOG_PUSH_TRAP_FRAME
 ;   PROLOG_PUSH_MACHINE_FRAME
 ;   PROLOG_PUSH_CONTEXT
@@ -32,6 +33,7 @@
 ;   EPILOG_RESTORE_REG
 ;   EPILOG_RESTORE_REG_PAIR
 ;   EPILOG_NOP <operation>
+;   EPILOG_RESTORE_NEXT_PAIR <operation>
 ;   EPILOG_RETURN
 ;
 
@@ -571,6 +573,22 @@ __ComputedCodes SETS "0xE3"
 
 
         ;
+        ; Macro for saving the next pair of registers
+        ;
+
+        MACRO
+        PROLOG_SAVE_NEXT_PAIR $O1,$O2,$O3,$O4
+
+__ComputedCodes SETS "0xE6"
+
+        __EmitRunningLabelAndOpcode $O1,$O2,$O3,$O4
+        __DeclarePrologEnd
+        __AppendPrologCodes
+
+        MEND
+
+
+        ;
         ; Macro for indicating a trap frame lives above us
         ;
 
@@ -713,6 +731,22 @@ __ComputedCodes SETS "0xE1"
         EPILOG_NOP $O1,$O2,$O3,$O4
 
 __ComputedCodes SETS "0xE3"
+
+        __DeclareEpilogStart
+        __EmitRunningLabelAndOpcode $O1,$O2,$O3,$O4
+        __AppendEpilogCodes
+
+        MEND
+
+
+        ;
+        ; Macro for restoring the next pair of registers
+        ;
+
+        MACRO
+        EPILOG_RESTORE_NEXT_PAIR $O1,$O2,$O3,$O4
+
+__ComputedCodes SETS "0xE6"
 
         __DeclareEpilogStart
         __EmitRunningLabelAndOpcode $O1,$O2,$O3,$O4

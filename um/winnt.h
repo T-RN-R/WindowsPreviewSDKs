@@ -1629,6 +1629,7 @@ typedef EXCEPTION_ROUTINE *PEXCEPTION_ROUTINE;
 #define PRODUCT_XBOX_DURANGOHOSTOS                  0x000000C4
 #define PRODUCT_XBOX_SCARLETTHOSTOS                 0x000000C5
 #define PRODUCT_AZURESTACKHCI_SERVER_CORE           0x00000196
+#define PRODUCT_TURBINE_SERVER                      0x00000197
 
 #define PRODUCT_UNLICENSED                          0xABCDABCD
 
@@ -6579,10 +6580,15 @@ DbgRaiseAssertionFailure (
 
 #if defined(_M_IA64)
 
+#pragma prefast( push )
+#pragma prefast( disable: 28301 )
+
 void
 __break(
     _In_ int StIIM
     );
+
+#pragma prefast( pop )
 
 #pragma intrinsic (__break)
 
@@ -6601,10 +6607,15 @@ __break(
 
 #if defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64)
 
+#pragma prefast( push )
+#pragma prefast( disable: 28301 )
+
 void
 __break(
     _In_ int Code
     );
+
+#pragma prefast( pop )
 
 #pragma intrinsic (__break)
 
@@ -12013,7 +12024,8 @@ typedef struct _PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
             DWORD BlockNonCetBinaries : 1;
             DWORD BlockNonCetBinariesNonEhcont : 1;
             DWORD AuditBlockNonCetBinaries : 1;
-            DWORD ReservedFlags : 24;
+            DWORD CetDynamicApisOutOfProcOnly : 1;
+            DWORD ReservedFlags : 23;
 
         } DUMMYSTRUCTNAME;
     } DUMMYUNIONNAME;
@@ -12673,7 +12685,7 @@ typedef struct _GROUP_RELATIONSHIP {
     WORD   MaximumGroupCount;
     WORD   ActiveGroupCount;
     BYTE  Reserved[20];
-    PROCESSOR_GROUP_INFO GroupInfo[ANYSIZE_ARRAY];
+    _Field_size_(ActiveGroupCount) PROCESSOR_GROUP_INFO GroupInfo[ANYSIZE_ARRAY];
 } GROUP_RELATIONSHIP, *PGROUP_RELATIONSHIP;
 
 _Struct_size_bytes_(Size) struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
@@ -16138,6 +16150,7 @@ typedef enum {
     MonitorRequestReasonBatteryCountChangeSuppressed,
     MonitorRequestReasonResumeModernStandby,
     MonitorRequestReasonTerminalInit,
+    MonitorRequestReasonPdcSignalSensorsHumanPresence,          // PDC_SIGNAL_PROVIDER_SENSORS_HUMAN_PRESENCE_MONITOR
     MonitorRequestReasonMax
 } POWER_MONITOR_REQUEST_REASON;
 
@@ -18851,8 +18864,9 @@ typedef struct _IMAGE_HOT_PATCH_HASHES {
 #define IMAGE_GUARD_RF_ENABLE                          0x00040000 // Module requests that the OS enable return flow protection
 #define IMAGE_GUARD_RF_STRICT                          0x00080000 // Module requests that the OS enable return flow protection in strict mode
 #define IMAGE_GUARD_RETPOLINE_PRESENT                  0x00100000 // Module was built with retpoline support
-#define IMAGE_GUARD_XFG_ENABLED                        0x00200000 // Module was built with XFG support
+// DO_NOT_USE                                          0x00200000 // Was EHCont flag on VB (20H1)
 #define IMAGE_GUARD_EH_CONTINUATION_TABLE_PRESENT      0x00400000 // Module contains EH continuation target information
+#define IMAGE_GUARD_XFG_ENABLED                        0x00800000 // Module was built with xfg
 
 #define IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK        0xF0000000 // Stride of Guard CF function table encoded in these bits (additional count of bytes per element)
 #define IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_SHIFT       28         // Shift to right-justify Guard CF function table stride
@@ -19599,6 +19613,7 @@ RtlVirtualUnwind(
     );
 
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -19740,6 +19755,7 @@ RtlVirtualUnwind(
     );
 
 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -19879,6 +19895,7 @@ RtlVirtualUnwind(
     _Out_ PULONG_PTR EstablisherFrame,
     _Inout_opt_ PKNONVOLATILE_CONTEXT_POINTERS ContextPointers
     );
+
 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -21234,6 +21251,16 @@ RtlNormalizeSecurityDescriptor (
     );
 #endif // NTDDI_VERSION >= NTDDI_WIN10_VB
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+//
+// Flags for RtlVirtualUnwind2.
+//
+
+#define RTL_VIRTUAL_UNWIND2_VALIDATE_PAC        0x00000001UL
+
+#endif // NTDDI_VERSION >= NTDDI_WIN10_FE
+
 
 typedef struct _RTL_CRITICAL_SECTION_DEBUG {
     WORD   Type;
@@ -21827,27 +21854,27 @@ struct _PACKEDEVENTINFO
 // Open/Create Options
 //
 
-#define REG_OPTION_RESERVED         (0x00000000L)   // Parameter is reserved
+#define REG_OPTION_RESERVED             (0x00000000L)   // Parameter is reserved
 
-#define REG_OPTION_NON_VOLATILE     (0x00000000L)   // Key is preserved
-                                                    // when system is rebooted
+#define REG_OPTION_NON_VOLATILE         (0x00000000L)   // Key is preserved
+                                                        // when system is rebooted
 
-#define REG_OPTION_VOLATILE         (0x00000001L)   // Key is not preserved
-                                                    // when system is rebooted
+#define REG_OPTION_VOLATILE             (0x00000001L)   // Key is not preserved
+                                                        // when system is rebooted
 
-#define REG_OPTION_CREATE_LINK      (0x00000002L)   // Created key is a
-                                                    // symbolic link
+#define REG_OPTION_CREATE_LINK          (0x00000002L)   // Created key is a
+                                                        // symbolic link
 
-#define REG_OPTION_BACKUP_RESTORE   (0x00000004L)   // open for backup or restore
-                                                    // special access rules
-                                                    // privilege required
+#define REG_OPTION_BACKUP_RESTORE       (0x00000004L)   // open for backup or restore
+                                                        // special access rules
+                                                        // privilege required
 
-#define REG_OPTION_OPEN_LINK        (0x00000008L)   // Open symbolic link
+#define REG_OPTION_OPEN_LINK            (0x00000008L)   // Open symbolic link
 
-#define REG_OPTION_DONT_VIRTUALIZE  (0x00000010L)   // Disable Open/Read/Write
-                                                    // virtualization for this
-                                                    // open and the resulting
-                                                    // handle.
+#define REG_OPTION_DONT_VIRTUALIZE      (0x00000010L)   // Disable Open/Read/Write
+                                                        // virtualization for this
+                                                        // open and the resulting
+                                                        // handle.
 
 #define REG_LEGAL_OPTION            \
                 (REG_OPTION_RESERVED            |\

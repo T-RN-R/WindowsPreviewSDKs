@@ -930,6 +930,7 @@ typedef enum D3D12_FEATURE
     D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPE_COUNT = 33, 
     D3D12_FEATURE_PROTECTED_RESOURCE_SESSION_TYPES      = 34,
     D3D12_FEATURE_D3D12_OPTIONS8                        = 36,
+    D3D12_FEATURE_D3D12_OPTIONS9                        = 37,
 } D3D12_FEATURE;
 
 typedef enum D3D12_SHADER_MIN_PRECISION_SUPPORT
@@ -1350,6 +1351,12 @@ typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS8
 {
     [annotation("_Out_")] BOOL UnalignedBlockTexturesSupported;
 } D3D12_FEATURE_DATA_D3D12_OPTIONS8;
+
+// D3D12_FEATURE_D3D12_OPTIONS9
+typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS9
+{
+    [annotation("_Out_")] BOOL MeshShaderPipelineStatsSupported;
+} D3D12_FEATURE_DATA_D3D12_OPTIONS9;
 
 typedef struct D3D12_RESOURCE_ALLOCATION_INFO
 {
@@ -2625,6 +2632,8 @@ typedef enum D3D12_QUERY_HEAP_TYPE
     D3D12_QUERY_HEAP_TYPE_SO_STATISTICS                        = 3,
     D3D12_QUERY_HEAP_TYPE_VIDEO_DECODE_STATISTICS              = 4, 
     D3D12_QUERY_HEAP_TYPE_COPY_QUEUE_TIMESTAMP                 = 5,
+    D3D12_QUERY_HEAP_TYPE_PIPELINE_STATISTICS1                 = 7,
+
 } D3D12_QUERY_HEAP_TYPE;
 
 typedef struct D3D12_QUERY_HEAP_DESC
@@ -2645,6 +2654,7 @@ typedef enum D3D12_QUERY_TYPE
     D3D12_QUERY_TYPE_SO_STATISTICS_STREAM2          = 6,
     D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3          = 7,
     D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS        = 8,
+
 } D3D12_QUERY_TYPE;
 
 typedef enum D3D12_PREDICATION_OP
@@ -2667,6 +2677,24 @@ typedef struct D3D12_QUERY_DATA_PIPELINE_STATISTICS
     UINT64 DSInvocations;
     UINT64 CSInvocations;
 } D3D12_QUERY_DATA_PIPELINE_STATISTICS;
+
+typedef struct D3D12_QUERY_DATA_PIPELINE_STATISTICS1
+{
+    UINT64 IAVertices;
+    UINT64 IAPrimitives;
+    UINT64 VSInvocations;
+    UINT64 GSInvocations;
+    UINT64 GSPrimitives;
+    UINT64 CInvocations;
+    UINT64 CPrimitives;
+    UINT64 PSInvocations;
+    UINT64 HSInvocations;
+    UINT64 DSInvocations;
+    UINT64 CSInvocations;
+    UINT64 ASInvocations;
+    UINT64 MSInvocations;
+    UINT64 MSPrimitives;
+} D3D12_QUERY_DATA_PIPELINE_STATISTICS1;
 
 typedef struct D3D12_QUERY_DATA_SO_STATISTICS
 {

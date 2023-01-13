@@ -881,6 +881,8 @@ typedef WSACMSGHDR CMSGHDR, *PCMSGHDR;
 #define AI_NUMERICHOST              0x00000004  // Nodename must be a numeric address string
 #define AI_NUMERICSERV              0x00000008  // Servicename must be a numeric port number
 #define AI_DNS_ONLY                 0x00000010  // Restrict queries to unicast DNS only (no LLMNR, netbios, etc.)
+#define AI_FORCE_CLEAR_TEXT         0x00000020  // Force clear text DNS query
+#define AI_BYPASS_DNS_CACHE         0x00000040  // Bypass DNS cache
 
 #define AI_ALL                      0x00000100  // Query both IP6 and IP4 with AI_V4MAPPED
 #define AI_ADDRCONFIG               0x00000400  // Resolution only if global address configured
@@ -893,9 +895,8 @@ typedef WSACMSGHDR CMSGHDR, *PCMSGHDR;
 #define AI_FQDN                     0x00020000  // Return the FQDN in ai_canonname
 #define AI_FILESERVER               0x00040000  // Resolving fileserver name resolution
 #define AI_DISABLE_IDN_ENCODING     0x00080000  // Disable Internationalized Domain Names handling
-#define AI_EXTENDED                 0x80000000      // Indicates this is extended ADDRINFOEX(2/..) struct
+#define AI_EXTENDED                 0x80000000  // Indicates this is extended ADDRINFOEX(2/..) struct
 #define AI_RESOLUTION_HANDLE        0x40000000  // Request resolution handle
-
 
 //
 //  Structure used in getaddrinfo() call

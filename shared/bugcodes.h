@@ -4456,6 +4456,15 @@ Notes:
 #define XBOX_CORRUPTED_IMAGE_BASE        ((ULONG)0x00000359L)
 
 //
+// MessageId: XBOX_XDS_WATCHDOG_TIMEOUT
+//
+// MessageText:
+//
+//  XBOX_XDS_WATCHDOG_TIMEOUT
+//
+#define XBOX_XDS_WATCHDOG_TIMEOUT        ((ULONG)0x0000035AL)
+
+//
 // MessageId: XBOX_360_SYSTEM_CRASH
 //
 // MessageText:

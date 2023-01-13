@@ -634,6 +634,11 @@ typedef enum {
     NVME_FEATURE_NVM_RESERVATION_PERSISTANCE            = 0x83,
 
     NVME_FEATURE_ERROR_INJECTION                        = 0xC0, // This is from OCP NVMe Cloud SSD spec.
+    NVME_FEATURE_CLEAR_FW_UPDATE_HISTORY                = 0xC1, // This is from OCP NVMe Cloud SSD spec.
+    NVME_FEATURE_READONLY_WRITETHROUGH_MODE             = 0xC2, // This is from OCP NVMe Cloud SSD spec.
+    NVME_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS  = 0xC3, // This is from OCP NVMe Cloud SSD spec.
+    NVME_FEATURE_ENABLE_IEEE1667_SILO                   = 0xC4, // This is from OCP NVMe Cloud SSD spec.
+    NVME_FEATURE_PLP_HEALTH_MONITOR                     = 0Xc5, // This is from OCP NVMe Cloud SSD spec.
 
 } NVME_FEATURES;
 
@@ -1441,7 +1446,7 @@ typedef union {
 } NVME_CDW11_CREATE_IO_SQ, *PNVME_CDW11_CREATE_IO_SQ;
 
 //
-// Parameters for NVME_ADMIN_COMMAND_GET_FEATURES or NVME_ADMIN_COMMAND_SET_FEATURES
+// Output and Parameters for NVME_ADMIN_COMMAND_GET_FEATURES or NVME_ADMIN_COMMAND_SET_FEATURES
 //
 typedef enum {
 
@@ -1700,6 +1705,96 @@ typedef enum {
     NVME_ERROR_INJECTION_TYPE_MAX = 0xFFFF
 
 } NVME_ERROR_INJECTION_TYPES;
+
+//
+// Parameter for set feature NVME_FEATURE_CLEAR_FW_UPDATE_HISTORY
+// This is from OCP NVMe Cloud SSD spec.
+//
+typedef union {
+
+    struct {
+        ULONG Reserved0 : 31;
+        ULONG Clear     : 1;    // Clear Firmware Update History Log.
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY, *PNVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY;
+
+//
+// Parameter for set feature NVME_FEATURE_READONLY_WRITETHROUGH_MODE
+// This is from OCP NVMe Cloud SSD spec.
+//
+typedef union {
+
+    struct {
+        ULONG Reserved0   : 30;
+        ULONG EOLBehavior : 2;    // End of Life Behavior.
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE, *PNVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE;
+
+//
+// Output for get feature NVME_FEATURE_READONLY_WRITETHROUGH_MODE
+// This is from OCP NVMe Cloud SSD spec.
+//
+typedef union {
+
+    struct {
+        ULONG EOLBehavior : 3;    // End of Life Behavior.
+        ULONG Reserved0   : 29;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE, *PNVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE;
+
+//
+// Parameter for set feature NVME_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS
+// This is from OCP NVMe Cloud SSD spec.
+//
+typedef union {
+
+    struct {
+        ULONG Reserved0 : 31;
+        ULONG Clear     : 1;    // Clear PCIe Error Counters.
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS, *PNVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS;
+
+//
+// Parameter for set feature NVME_FEATURE_ENABLE_IEEE1667_SILO
+// This is from OCP NVMe Cloud SSD spec.
+//
+typedef union {
+
+    struct {
+        ULONG Reserved0 : 31;
+        ULONG Enable    : 1;    // Enable IEEE1667 Silo.
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO, *PNVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO;
+
+//
+// Output for get feature NVME_FEATURE_ENABLE_IEEE1667_SILO
+// This is from OCP NVMe Cloud SSD spec.
+//
+typedef union {
+
+    struct {
+        ULONG Enabled   : 3;    // IEEE1667 Silo Enabled.
+        ULONG Reserved0 : 29;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO, *PNVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO;
 
 //
 // Parameter for NVME_FEATURE_TEMPERATURE_THRESHOLD
@@ -2915,6 +3010,8 @@ typedef struct {
 
 } NVME_COMMAND, *PNVME_COMMAND;
 
+C_ASSERT(sizeof(NVME_COMMAND) == 64); // NVMe commands are always 64 bytes
+                                      // (defined by constant STORAGE_PROTOCOL_COMMAND_LENGTH_NVME)
 
 
 //

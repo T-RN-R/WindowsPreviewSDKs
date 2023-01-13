@@ -1791,7 +1791,7 @@ typedef enum
 #define JET_configDynamicMediumMemory           0x0020  //  Set appropriate parameters to optimize the engine to use a modest amount of memory/working set at the cost of CPU efficiency, dynamically adjusting for bursts in activity.
 #define JET_configLowPower                      0x0040  //  Set appropriate parameters to optimize the engine to attempt to conserve power over keeping everything the most up to date, or memory usage.
 #define JET_configSSDProfileIO                  0x0080  //  Set appropriate parameters to optimize the engine to be using the SSD profile IO parameters.
-#define JET_configRunSilent                     0x0100  //  Turns off all externally visible signs of the library running (event logs, perfmon, tracing, etc).
+#define JET_configRunSilent                     0x0100  //  Turns off all externally visible signs of the library running (event logs, perfmon, tracing, etc).  NOTE: This makes debugging issues difficult, best if app policy has way to configure this off or on.
 #if ( JET_VERSION >= 0x0A00 )
 #define JET_configUnthrottledMemory             0x0200  //  Allows ESE to grow to most of memory because this is likely a single purpose server for this machine, or wants to allow our variable memory caches to grow to use most of memory if in use.
 #define JET_configHighConcurrencyScaling        0x0400  //  Ensures ESE uses all its high concurrency scaling methods to achieve high levels of performance on multi-CPU systems (SMP, Multi-Core, Hyper-Threading, etc) for server scale applications, at a higher fixed memory overhead.
@@ -2083,7 +2083,7 @@ typedef enum
 
 // Parameters added in Windows 8.1.
 #if ( JET_VERSION >= 0x0603 )
-#define JET_paramEnableSqm                      188 //  Enable SQM logging (Software Quality Metrics)
+#define JET_paramEnableSqm                      188 //  Deprecated / ignored param.
 #endif // JET_VERSION >= 0x0603
 
 // Parameters added in Windows 10.
@@ -2095,7 +2095,7 @@ typedef enum
 #endif // JET_VERSION >= 0x0A00
 
 
-#define JET_paramMaxValueInvalid                212 //  This is not a valid parameter. It can change from release to release!
+#define JET_paramMaxValueInvalid                213 //  This is not a valid parameter. It can change from release to release!
 
 
 
