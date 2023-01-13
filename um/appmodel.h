@@ -665,6 +665,16 @@ GetPackageInfo2(
 
 #endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
 
+WINBASEAPI
+_Check_return_
+HRESULT
+WINAPI
+CheckIsMSIXPackage(
+    _In_ PCWSTR packageFullName,
+    _Out_ BOOL* isMSIXPackage
+    );
+
+
 /* ---------------------------------------------------------------- */
 
 // Appmodel Policy

@@ -633,6 +633,8 @@ typedef enum {
     NVME_FEATURE_NVM_RESERVATION_NOTIFICATION_MASK      = 0x82,
     NVME_FEATURE_NVM_RESERVATION_PERSISTANCE            = 0x83,
 
+    NVME_FEATURE_ERROR_INJECTION                        = 0xC0, // This is from OCP NVMe Cloud SSD spec.
+
 } NVME_FEATURES;
 
 
@@ -1167,6 +1169,222 @@ typedef struct {
     UCHAR       Reserved1[16];
 } NVME_LBA_RANGET_TYPE_ENTRY, *PNVME_LBA_RANGET_TYPE_ENTRY;
 
+//
+// Vendor defined log pages
+//
+typedef enum {
+    NVME_LOG_PAGE_WCS_DEVICE_SMART_ATTRIBUTES = 0xC0,          // WCS device SMART Attributes log page
+    NVME_LOG_PAGE_WCS_DEVICE_ERROR_RECOVERY   = 0xC1           // WCS device Error Recovery log page
+} NVME_VENDOR_LOG_PAGES;
+
+//
+// SMART Attributes Log Page GUID is defined in spec as byte stream: 0xAFD514C97C6F4F9CA4F2BFEA2810AFC5
+// which is converted to GUID format as: {2810AFC5-BFEA-A4F2-4F9C-6F7CC914D5AF}
+//
+#define GUID_WCS_DEVICE_SMART_ATTRIBUTESGuid { 0x2810AFC5, 0xBFEA, 0xA4F2, { 0x4F, 0x9C, 0x6F, 0x7C, 0xC9, 0x14, 0xD5, 0xAF} }
+DEFINE_GUID(GUID_WCS_DEVICE_SMART_ATTRIBUTES, 0x2810AFC5, 0xBFEA, 0xA4F2, 0x4F, 0x9C, 0x6F, 0x7C, 0xC9, 0x14, 0xD5, 0xAF);
+
+//
+// Error Recovery Log Page GUID is defined in spec as byte stream: 0x5A1983BA3DFD4DABAE3430FE2131D944
+// which is converted to GUID format as: {2131D944-30FE-AE34-AB4D-FD3DBA83195A}
+//
+#define GUID_WCS_DEVICE_ERROR_RECOVERYGuid { 0x2131D944, 0x30FE, 0xAE34, {0xAB, 0x4D, 0xFD, 0x3D, 0xBA, 0x83, 0x19, 0x5A} }
+DEFINE_GUID(GUID_WCS_DEVICE_ERROR_RECOVERY, 0x2131D944, 0x30FE, 0xAE34, 0xAB, 0x4D, 0xFD, 0x3D, 0xBA, 0x83, 0x19, 0x5A);
+
+//
+// Notice Status: NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC
+//
+typedef enum {
+
+    NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_RESERVED = 0,
+    NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_DEVICE_PANIC = 1,
+
+} NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES;
+
+//
+// Device recommended reset action on firmware assert for Windows Cloud Server Devices
+//
+typedef struct _NVME_WCS_DEVICE_RESET_ACTION {
+    union {
+        struct {
+            UCHAR ControllerReset : 1;
+            UCHAR NVMeSubsystemReset : 1;
+            UCHAR PCIeFLR : 1;
+            UCHAR PERST : 1;
+            UCHAR PowerCycle : 1;
+            UCHAR PCIeConventionalHotReset : 1;
+            UCHAR Reserved : 2;
+        };
+
+        UCHAR AsUCHAR;
+    };
+
+} NVME_WCS_DEVICE_RESET_ACTION, * PNVME_WCS_DEVICE_RESET_ACTION;
+
+//
+// Windows Cloud Server device capabilities
+//
+typedef struct _NVME_WCS_DEVICE_CAPABILITIES {
+    union {
+        struct {
+            ULONG PanicAEN : 1;
+            ULONG PanicCFS : 1;
+            ULONG Reserved : 30;
+        };
+
+        ULONG AsULONG;
+    };
+
+} NVME_WCS_DEVICE_CAPABILITIES, * PNVME_WCS_DEVICE_CAPABILITIES;
+
+//
+// Device recovery action on device panic
+//
+typedef enum _NVME_WCS_DEVICE_RECOVERY_ACTION
+{
+    NVMeDeviceRecoveryNoAction = 0,          // Requires no action
+    NVMeDeviceRecoveryFormatNVM,             // Requires Format NVM
+    NVMeDeviceRecoveryVendorSpecificCommand, // Requires Vendor Specific Command 
+    NVMeDeviceRecoveryVendorAnalysis,        // Requires Vendor Analysis
+    NVMeDeviceRecoveryDeviceReplacement,     // Requires Device Replacement
+    NVMeDeviceRecoverySanitize,              // Requires Sanitize
+    NVMeDeviceRecoveryMax = 15               // Not an actual action, denotes max action.
+} NVME_WCS_DEVICE_RECOVERY_ACTION, * PNVME_WCS_DEVICE_RECOVERY_ACTION;
+
+#pragma pack(push, 1)
+//
+// Log page defintion of NVME_LOG_PAGE_WCS_DEVICE_SMART_ATTRIBUTES. Size 512 bytes
+//
+
+// Version independent structure to perform basic validation
+
+typedef struct _NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
+
+    UCHAR VersionSpecificData[494];
+
+    USHORT LogPageVersionNumber;
+
+    GUID LogPageGUID;           // Shall be set to GUID_WCS_DEVICE_SMART_ATTRIBUTES
+
+} NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG, *PNVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG;
+
+C_ASSERT(sizeof(NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG) == 512);
+
+// Version 2
+
+#define NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2        0x0002
+
+typedef struct _NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
+
+    UCHAR MediaUnitsWritten[16];
+    UCHAR MediaUnitsRead[16];
+
+    struct {
+        UCHAR RawCount[6];
+        UCHAR Normalized[2];
+    } BadUserNANDBlockCount;
+
+    struct {
+        UCHAR RawCount[6];
+        UCHAR Normalized[2];
+    } BadSystemNANDBlockCount;
+
+    ULONGLONG XORRecoveryCount;
+    ULONGLONG UnrecoverableReadErrorCount;
+    ULONGLONG SoftECCErrorCount;
+
+    struct {
+        ULONG DetectedCounts;
+        ULONG CorrectedCounts;
+    } EndToEndCorrectionCounts;
+
+    UCHAR PercentageSystemDataUsed;
+    UCHAR RefreshCount[7];
+
+    struct {
+        ULONG MaximumCount;
+        ULONG MinimumCount;
+    } UserDataEraseCounts;
+
+    struct {
+        UCHAR EventCount;
+        UCHAR Status;
+    } ThermalThrottling;
+
+    UCHAR Reserved0[6];
+
+    ULONGLONG PCIeCorrectableErrorCount;
+    ULONG IncompleteShutdownCount;
+
+    ULONG Reserved1;
+
+    UCHAR PercentageFreeBlocks;
+
+    UCHAR Reserved2[7];
+
+    USHORT CapacitorHealth;
+
+    UCHAR Reserved3[6];
+
+    ULONGLONG UnalignedIOCount;
+    ULONGLONG SecurityVersionNumber;
+    ULONGLONG NUSE;
+
+    UCHAR PLPStartCount[16];
+    UCHAR EnduranceEstimate[16];
+
+    UCHAR Reserved4[302];
+
+    USHORT LogPageVersionNumber;
+
+    GUID LogPageGUID;           // Shall be set to GUID_WCS_DEVICE_SMART_ATTRIBUTES
+
+} NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2, *PNVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2;
+
+C_ASSERT(sizeof(NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2) == sizeof(NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG));
+
+//
+// Log page definition of NVME_LOG_PAGE_WCS_DEVICE_ERROR_RECOVERY (Version 1)
+//
+typedef struct _NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
+
+    // Amount of time to wait for device panic workflow to complete in msec. Delay the reset accordingly
+    USHORT PanicResetWaitTime;
+
+    // Reset actions on firmware assert, multiple options could be set
+    NVME_WCS_DEVICE_RESET_ACTION PanicResetAction;
+
+    //Recovery action for device panic condition
+    UCHAR DriveRecoveryAction;
+
+    // Id to identify the panic condition
+    ULONGLONG  PanicId;
+
+    // Device capabilities
+    NVME_WCS_DEVICE_CAPABILITIES DeviceCapabilities;
+
+    // Vendor specific command opcode to recover device from panic condition
+    UCHAR VendorSpecificRecoveryCode;
+
+    UCHAR Reserved0[3];
+
+    // CDW12 value for the Vendor Specific command to recover device from panic condition
+    ULONG VendorSpecificCommandCDW12;
+
+    // CDW13 value for the Vendor Specific command to recover device from panic condition
+    ULONG VendorSpecificCommandCDW13;
+
+    UCHAR Reserved1[466];
+
+    USHORT LogPageVersionNumber;
+
+    GUID LogPageGUID;           // Shall be set to GUID_WCS_DEVICE_ERROR_RECOVERY
+
+} NVME_WCS_DEVICE_ERROR_RECOVERY_LOG, *PNVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
+
+C_ASSERT(sizeof(NVME_WCS_DEVICE_ERROR_RECOVERY_LOG) == 512);
+
+#pragma pack(pop)
 
 //
 // Parameters for NVME_ADMIN_COMMAND_CREATE_IO_CQ
@@ -1417,6 +1635,21 @@ typedef struct {
 } NVME_AUTO_POWER_STATE_TRANSITION_ENTRY, *PNVME_AUTO_POWER_STATE_TRANSITION_ENTRY;
 
 //
+// Parameter for NVME_FEATURE_ERROR_INJECTION
+// This is from OCP NVMe Cloud SSD spec.
+//
+typedef union {
+
+    struct {
+        ULONG NUM       : 7;    // Number of Error Injections.
+        ULONG Reserved0 : 25;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW11_FEATURE_ERROR_INJECTION, *PNVME_CDW11_FEATURE_ERROR_INJECTION;
+
+//
 // Parameter for NVME_FEATURE_TEMPERATURE_THRESHOLD
 //
 
@@ -1529,19 +1762,20 @@ typedef struct {
 
 
 typedef union {
-    NVME_CDW11_FEATURE_NUMBER_OF_QUEUES     NumberOfQueues;
-    NVME_CDW11_FEATURE_INTERRUPT_COALESCING InterruptCoalescing;
-    NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG InterruptVectorConfig;
-    NVME_CDW11_FEATURE_LBA_RANGE_TYPE       LbaRangeType;
-    NVME_CDW11_FEATURE_ARBITRATION          Arbitration;
-    NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE VolatileWriteCache;
-    NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG   AsyncEventConfig;
-    NVME_CDW11_FEATURE_POWER_MANAGEMENT     PowerManagement;
+    NVME_CDW11_FEATURE_NUMBER_OF_QUEUES             NumberOfQueues;
+    NVME_CDW11_FEATURE_INTERRUPT_COALESCING         InterruptCoalescing;
+    NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG      InterruptVectorConfig;
+    NVME_CDW11_FEATURE_LBA_RANGE_TYPE               LbaRangeType;
+    NVME_CDW11_FEATURE_ARBITRATION                  Arbitration;
+    NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE         VolatileWriteCache;
+    NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG           AsyncEventConfig;
+    NVME_CDW11_FEATURE_POWER_MANAGEMENT             PowerManagement;
     NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION  AutoPowerStateTransition;
-    NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD TemperatureThreshold;
-    NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER   HostMemoryBuffer;
-    NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL WriteAtomicityNormal;
-    NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE NonOperationalPowerState;
+    NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD        TemperatureThreshold;
+    NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER           HostMemoryBuffer;
+    NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL       WriteAtomicityNormal;
+    NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE  NonOperationalPowerState;
+    NVME_CDW11_FEATURE_ERROR_INJECTION              ErrorInjection;
 
     ULONG   AsUlong;
 } NVME_CDW11_FEATURES, *PNVME_CDW11_FEATURES;
@@ -2651,6 +2885,7 @@ typedef struct {
 #pragma warning(default:4201)
 #pragma warning(default:4200)
 #endif
+
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_STORAGE) */
 #pragma endregion

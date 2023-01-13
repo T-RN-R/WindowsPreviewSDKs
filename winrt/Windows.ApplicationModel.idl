@@ -114,6 +114,8 @@ namespace Windows
 
         interface IAppInfo3;
 
+        interface IAppInfo4;
+
         interface IAppInfoStatics;
 
         interface IAppInstallerInfo;
@@ -494,7 +496,16 @@ namespace Windows
             [propget] HRESULT ExecutionContext([out] [retval] Windows.ApplicationModel.AppExecutionContext* value);
         }
 
+        [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+        [exclusiveto(Windows.ApplicationModel.AppInfo)]
+        [uuid(2F34BDEB-1609-4554-9F33-12E1E803E0D4)]
+        interface IAppInfo4 : IInspectable
+        {
+            [propget] HRESULT SupportedFileExtensions([out] UINT32* __valueSize, [out] [retval] [size_is(, *__valueSize)] HSTRING** value);
+        }
+
         [contract(Windows.Foundation.UniversalApiContract, 10.0)]
+        [exclusiveto(Windows.ApplicationModel.AppInfo)]
         [uuid(CF1F782A-E48B-4F0C-9B0B-79C3F8957DD7)]
         interface IAppInfoStatics : IInspectable
         {
@@ -1014,6 +1025,7 @@ namespace Windows
             [default] interface Windows.ApplicationModel.IAppInfo;
             [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.ApplicationModel.IAppInfo2;
             [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.ApplicationModel.IAppInfo3;
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.ApplicationModel.IAppInfo4;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]

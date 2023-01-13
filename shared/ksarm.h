@@ -474,9 +474,9 @@
 #define PfBuffer 0x1c
 #define PfSegment 0x20
 #define PfAffinity 0x24
-#define PfSource 0x30
-#define PfStarted 0x32
-#define ProfileObjectLength 0x34
+#define PfSource 0x34
+#define PfStarted 0x36
+#define ProfileObjectLength 0x38
 
 //
 // Queue Object Structure Offset Definitions
@@ -561,7 +561,7 @@
 #define ThStackBase 0x28
 #define ThLegoData 0x1b8
 #define KernelThreadObjectLength 0x278
-#define ExecutiveThreadObjectLength 0x4d8
+#define ExecutiveThreadObjectLength 0x508
 
 #define KF_VFP_32REG 0x10
 

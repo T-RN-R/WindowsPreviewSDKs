@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -101,6 +101,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel
     struct IAppInfo;
     struct IAppInfo2;
     struct IAppInfo3;
+    struct IAppInfo4;
     struct IAppInfoStatics;
     struct IAppInstallerInfo;
     struct IAppInstance;
@@ -189,6 +190,7 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::IAppInfo>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IAppInfo2>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IAppInfo3>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::IAppInfo4>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IAppInfoStatics>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IAppInstallerInfo>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IAppInstance>{ using type = interface_category; };
@@ -320,6 +322,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo> = L"Windows.ApplicationModel.IAppInfo";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo2> = L"Windows.ApplicationModel.IAppInfo2";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo3> = L"Windows.ApplicationModel.IAppInfo3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfo4> = L"Windows.ApplicationModel.IAppInfo4";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInfoStatics> = L"Windows.ApplicationModel.IAppInfoStatics";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInstallerInfo> = L"Windows.ApplicationModel.IAppInstallerInfo";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IAppInstance> = L"Windows.ApplicationModel.IAppInstance";
@@ -373,6 +376,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInfo>{ 0xCF7F59B3,0x6A09,0x4DE8,{ 0xA6,0xC0,0x57,0x92,0xD5,0x68,0x80,0xD1 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInfo2>{ 0xBE4B1F5A,0x2098,0x431B,{ 0xBD,0x25,0xB3,0x08,0x78,0x74,0x8D,0x47 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInfo3>{ 0x09A78E46,0x93A4,0x46DE,{ 0x93,0x97,0x08,0x43,0xB5,0x71,0x15,0xEA } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInfo4>{ 0x2F34BDEB,0x1609,0x4554,{ 0x9F,0x33,0x12,0xE1,0xE8,0x03,0xE0,0xD4 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInfoStatics>{ 0xCF1F782A,0xE48B,0x4F0C,{ 0x9B,0x0B,0x79,0xC3,0xF8,0x95,0x7D,0xD7 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInstallerInfo>{ 0x29AB2AC0,0xD4F6,0x42A3,{ 0xAD,0xCD,0xD6,0x58,0x3C,0x65,0x95,0x08 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IAppInstance>{ 0x675F2B47,0xF25F,0x4532,{ 0x9F,0xD6,0x36,0x33,0xE0,0x63,0x4D,0x01 } };
@@ -480,6 +484,13 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_ExecutionContext(int32_t*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::ApplicationModel::IAppInfo4>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_SupportedFileExtensions(uint32_t* __valueSize, void***) noexcept = 0;
         };
     };
     template <> struct abi<Windows::ApplicationModel::IAppInfoStatics>
@@ -982,6 +993,15 @@ namespace winrt::impl
     template <> struct consume<Windows::ApplicationModel::IAppInfo3>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_IAppInfo3<D>;
+    };
+    template <typename D>
+    struct consume_Windows_ApplicationModel_IAppInfo4
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<hstring>) SupportedFileExtensions() const;
+    };
+    template <> struct consume<Windows::ApplicationModel::IAppInfo4>
+    {
+        template <typename D> using type = consume_Windows_ApplicationModel_IAppInfo4<D>;
     };
     template <typename D>
     struct consume_Windows_ApplicationModel_IAppInfoStatics

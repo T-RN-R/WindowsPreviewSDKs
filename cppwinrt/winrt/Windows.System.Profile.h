@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_System_Profile_H
 #define WINRT_Windows_System_Profile_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200316.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.System.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -43,6 +43,12 @@ namespace winrt::impl
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Profile::IAnalyticsVersionInfo)->get_DeviceFamilyVersion(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_System_Profile_IAnalyticsVersionInfo2<D>::ProductName() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::System::Profile::IAnalyticsVersionInfo2)->get_ProductName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::Profile::UnsupportedAppRequirement>) consume_Windows_System_Profile_IAppApplicabilityStatics<D>::GetUnsupportedAppRequirements(param::iterable<hstring> const& capabilities) const
@@ -410,6 +416,20 @@ namespace winrt::impl
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
             *value = detach_from<hstring>(this->shim().DeviceFamilyVersion());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::System::Profile::IAnalyticsVersionInfo2> : produce_base<D, Windows::System::Profile::IAnalyticsVersionInfo2>
+    {
+        int32_t __stdcall get_ProductName(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().ProductName());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1132,6 +1152,7 @@ namespace std
     template<> struct hash<winrt::Windows::System::Profile::IAnalyticsInfoStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Profile::IAnalyticsInfoStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Profile::IAnalyticsVersionInfo> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::System::Profile::IAnalyticsVersionInfo2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Profile::IAppApplicabilityStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Profile::IEducationSettingsStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Profile::IHardwareIdentificationStatics> : winrt::impl::hash_base {};

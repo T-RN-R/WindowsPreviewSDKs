@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_WindowManagement_H
 #define WINRT_Windows_UI_WindowManagement_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200316.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -579,6 +579,12 @@ namespace winrt::impl
         Windows::UI::WindowManagement::WindowVisibilityState value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowInformation)->get_Visibility(reinterpret_cast<int32_t*>(&value)));
         return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_WindowManagement_IWindowInformation<D>::AppUserModelId() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowInformation)->get_AppUserModelId(&value));
+        return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowInformation) consume_Windows_UI_WindowManagement_IWindowInformationStatics<D>::FromWindowReference(Windows::UI::WindowReference const& value) const
     {
@@ -1526,6 +1532,14 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             *value = detach_from<Windows::UI::WindowManagement::WindowVisibilityState>(this->shim().Visibility());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_AppUserModelId(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().AppUserModelId());
             return 0;
         }
         catch (...) { return to_hresult(); }

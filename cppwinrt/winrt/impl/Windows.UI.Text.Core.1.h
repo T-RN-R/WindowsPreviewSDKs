@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -112,13 +112,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::Text::Core
     {
         ICoreTextServicesManagerStatics(std::nullptr_t = nullptr) noexcept {}
         ICoreTextServicesManagerStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
-    struct __declspec(empty_bases) ICoreTextServicesManagerStatics2 :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<ICoreTextServicesManagerStatics2>
-    {
-        ICoreTextServicesManagerStatics2(std::nullptr_t = nullptr) noexcept {}
-        ICoreTextServicesManagerStatics2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) ICoreTextServicesStatics :
         Windows::Foundation::IInspectable,

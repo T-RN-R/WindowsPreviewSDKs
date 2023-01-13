@@ -105,6 +105,7 @@
 #include "windowscontracts.h"
 #include "Windows.Foundation.h"
 #include "Windows.Storage.Streams.h"
+#include "Windows.UI.WindowManagement.h"
 // Importing Collections header
 #include <windows.foundation.collections.h>
 
@@ -395,6 +396,36 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Display {
+                interface ILogicalDisplayReference;
+            } /* Display */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference ABI::Windows::Graphics::Display::ILogicalDisplayReference
+
+#endif // ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Display {
+                interface ILogicalDisplayReferenceStatics;
+            } /* Display */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics ABI::Windows::Graphics::Display::ILogicalDisplayReferenceStatics
+
+#endif // ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_FWD_DEFINED__
+
 // Parameterized interface forward declarations (C++)
 
 // Collection interface definitions
@@ -521,6 +552,74 @@ namespace ABI {
     namespace Windows {
         namespace Graphics {
             namespace Display {
+                class LogicalDisplayReference;
+            } /* Display */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE
+#define DEF___FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("332c220c-d95f-5488-9565-6c8d4fc2fc96"))
+IIterator<ABI::Windows::Graphics::Display::LogicalDisplayReference*> : IIterator_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Display::LogicalDisplayReference*, ABI::Windows::Graphics::Display::ILogicalDisplayReference*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Display.LogicalDisplayReference>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterator<ABI::Windows::Graphics::Display::LogicalDisplayReference*> __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_t;
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference ABI::Windows::Foundation::Collections::__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE
+#define DEF___FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("55e6e0f0-9d81-5605-860d-527a5f7a1688"))
+IIterable<ABI::Windows::Graphics::Display::LogicalDisplayReference*> : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Display::LogicalDisplayReference*, ABI::Windows::Graphics::Display::ILogicalDisplayReference*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Display.LogicalDisplayReference>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterable<ABI::Windows::Graphics::Display::LogicalDisplayReference*> __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_t;
+#define __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference ABI::Windows::Foundation::Collections::__FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Display {
                 typedef struct NitRange NitRange;
             } /* Display */
         } /* Graphics */
@@ -580,6 +679,35 @@ typedef IIterable<struct ABI::Windows::Graphics::Display::NitRange> __FIIterable
 #endif /* DEF___FIIterable_1_Windows__CGraphics__CDisplay__CNitRange_USE */
 
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE
+#define DEF___FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("f59a4bcc-a988-55c8-b327-f2a924ae63df"))
+IVectorView<ABI::Windows::Graphics::Display::LogicalDisplayReference*> : IVectorView_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Graphics::Display::LogicalDisplayReference*, ABI::Windows::Graphics::Display::ILogicalDisplayReference*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Display.LogicalDisplayReference>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IVectorView<ABI::Windows::Graphics::Display::LogicalDisplayReference*> __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_t;
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference ABI::Windows::Foundation::Collections::__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
 
@@ -803,6 +931,31 @@ namespace ABI {
         } /* Foundation */
     } /* Windows */
 } /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace WindowManagement {
+                class WindowingEnvironment;
+            } /* WindowManagement */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+#ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace WindowManagement {
+                interface IWindowingEnvironment;
+            } /* WindowManagement */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment ABI::Windows::UI::WindowManagement::IWindowingEnvironment
+
+#endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
 
 namespace ABI {
     namespace Windows {
@@ -2200,6 +2353,87 @@ EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesSt
 
 /*
  *
+ * Interface Windows.Graphics.Display.ILogicalDisplayReference
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ * Interface is a part of the implementation of type Windows.Graphics.Display.LogicalDisplayReference
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Display_ILogicalDisplayReference[] = L"Windows.Graphics.Display.ILogicalDisplayReference";
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Display {
+                MIDL_INTERFACE("13781321-3d09-5b5b-ae81-12589bc8b474")
+                ILogicalDisplayReference : public IInspectable
+                {
+                public:
+                };
+
+                extern MIDL_CONST_ID IID& IID_ILogicalDisplayReference = _uuidof(ILogicalDisplayReference);
+            } /* Display */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference;
+#endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+/*
+ *
+ * Interface Windows.Graphics.Display.ILogicalDisplayReferenceStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ * Interface is a part of the implementation of type Windows.Graphics.Display.LogicalDisplayReference
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Display_ILogicalDisplayReferenceStatics[] = L"Windows.Graphics.Display.ILogicalDisplayReferenceStatics";
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Display {
+                MIDL_INTERFACE("f7d2ac2f-2103-5d61-8144-2a69128a00f1")
+                ILogicalDisplayReferenceStatics : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE FindAll(
+                        __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE FindAllForWindowingEnvironment(
+                        ABI::Windows::UI::WindowManagement::IWindowingEnvironment* environment,
+                        __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference** result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_ILogicalDisplayReferenceStatics = _uuidof(ILogicalDisplayReferenceStatics);
+            } /* Display */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics;
+#endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+/*
+ *
  * Class Windows.Graphics.Display.AdvancedColorInfo
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -2405,6 +2639,34 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
+/*
+ *
+ * Class Windows.Graphics.Display.LogicalDisplayReference
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.Graphics.Display.ILogicalDisplayReferenceStatics interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.Graphics.Display.ILogicalDisplayReference ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_Graphics_Display_LogicalDisplayReference_DEFINED
+#define RUNTIMECLASS_Windows_Graphics_Display_LogicalDisplayReference_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Graphics_Display_LogicalDisplayReference[] = L"Windows.Graphics.Display.LogicalDisplayReference";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
 #else // !defined(__cplusplus)
 /* Forward Declarations */
 #ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesEventHandler_FWD_DEFINED__
@@ -2520,6 +2782,18 @@ typedef interface __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayInformationStatic
 typedef interface __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics __x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics;
 
 #endif // ____x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference;
+
+#endif // ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics;
+
+#endif // ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_FWD_DEFINED__
 
 // Parameterized interface forward declarations (C)
 
@@ -2777,6 +3051,155 @@ interface __FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRa
 #endif // ____FIAsyncOperationCompletedHandler_1_Windows__CStorage__CStreams__CIRandomAccessStream_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__)
+#define ____FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__
+
+typedef interface __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference;
+
+typedef struct __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Current)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference** result);
+    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* MoveNext)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        UINT32 itemsLength,
+        __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference** items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl;
+
+interface __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference
+{
+    CONST_VTBL struct __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_get_Current(This, result) \
+    ((This)->lpVtbl->get_Current(This, result))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_get_HasCurrent(This, result) \
+    ((This)->lpVtbl->get_HasCurrent(This, result))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_MoveNext(This, result) \
+    ((This)->lpVtbl->MoveNext(This, result))
+
+#define __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetMany(This, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__)
+#define ____FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__
+
+typedef interface __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference;
+
+typedef struct __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* First)(__FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        __FIIterator_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference** result);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl;
+
+interface __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference
+{
+    CONST_VTBL struct __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_First(This, result) \
+    ((This)->lpVtbl->First(This, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterable_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
 typedef struct __x_ABI_CWindows_CGraphics_CDisplay_CNitRange __x_ABI_CWindows_CGraphics_CDisplay_CNitRange;
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
@@ -2923,6 +3346,93 @@ interface __FIIterable_1_Windows__CGraphics__CDisplay__CNitRange
 
 #endif // ____FIIterable_1_Windows__CGraphics__CDisplay__CNitRange_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__)
+#define ____FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__
+
+typedef interface __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference;
+
+typedef struct __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetAt)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        UINT32 index,
+        __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference** result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* IndexOf)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference* value,
+        UINT32* index,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference* This,
+        UINT32 startIndex,
+        UINT32 itemsLength,
+        __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference** items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl;
+
+interface __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference
+{
+    CONST_VTBL struct __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetAt(This, index, result) \
+    ((This)->lpVtbl->GetAt(This, index, result))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_get_Size(This, result) \
+    ((This)->lpVtbl->get_Size(This, result))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_IndexOf(This, value, index, result) \
+    ((This)->lpVtbl->IndexOf(This, value, index, result))
+
+#define __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_GetMany(This, startIndex, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, startIndex, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
 #if !defined(____FIVectorView_1_Windows__CGraphics__CDisplay__CNitRange_INTERFACE_DEFINED__)
@@ -3276,6 +3786,12 @@ typedef interface __x_ABI_CWindows_CFoundation_CIPropertyValue __x_ABI_CWindows_
 #endif // ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
 
 typedef struct __x_ABI_CWindows_CFoundation_CPoint __x_ABI_CWindows_CFoundation_CPoint;
+
+#ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment __x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment;
+
+#endif // ____x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment_FWD_DEFINED__
 
 typedef enum __x_ABI_CWindows_CGraphics_CDisplay_CAdvancedColorKind __x_ABI_CWindows_CGraphics_CDisplay_CAdvancedColorKind;
 
@@ -5333,6 +5849,153 @@ EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CIDisplayPropertiesSt
 
 /*
  *
+ * Interface Windows.Graphics.Display.ILogicalDisplayReference
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ * Interface is a part of the implementation of type Windows.Graphics.Display.LogicalDisplayReference
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Display_ILogicalDisplayReference[] = L"Windows.Graphics.Display.ILogicalDisplayReference";
+typedef struct __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference* This,
+        TrustLevel* trustLevel);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceVtbl;
+
+interface __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference
+{
+    CONST_VTBL struct __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference;
+#endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReference_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+/*
+ *
+ * Interface Windows.Graphics.Display.ILogicalDisplayReferenceStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ * Interface is a part of the implementation of type Windows.Graphics.Display.LogicalDisplayReference
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Display_ILogicalDisplayReferenceStatics[] = L"Windows.Graphics.Display.ILogicalDisplayReferenceStatics";
+typedef struct __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStaticsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* FindAll)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics* This,
+        __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference** result);
+    HRESULT (STDMETHODCALLTYPE* FindAllForWindowingEnvironment)(__x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics* This,
+        __x_ABI_CWindows_CUI_CWindowManagement_CIWindowingEnvironment* environment,
+        __FIVectorView_1_Windows__CGraphics__CDisplay__CLogicalDisplayReference** result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStaticsVtbl;
+
+interface __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics
+{
+    CONST_VTBL struct __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_FindAll(This, result) \
+    ((This)->lpVtbl->FindAll(This, result))
+
+#define __x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_FindAllForWindowingEnvironment(This, environment, result) \
+    ((This)->lpVtbl->FindAllForWindowingEnvironment(This, environment, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics;
+#endif /* !defined(____x_ABI_CWindows_CGraphics_CDisplay_CILogicalDisplayReferenceStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+
+/*
+ *
  * Class Windows.Graphics.Display.AdvancedColorInfo
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -5537,6 +6200,34 @@ DEPRECATED("DisplayProperties may be altered or unavailable for releases after W
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Graphics_Display_DisplayProperties[] = L"Windows.Graphics.Display.DisplayProperties";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+/*
+ *
+ * Class Windows.Graphics.Display.LogicalDisplayReference
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Type is for evaluation purposes and is subject to change or removal in future updates.
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.Graphics.Display.ILogicalDisplayReferenceStatics interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.Graphics.Display.ILogicalDisplayReference ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_Graphics_Display_LogicalDisplayReference_DEFINED
+#define RUNTIMECLASS_Windows_Graphics_Display_LogicalDisplayReference_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Graphics_Display_LogicalDisplayReference[] = L"Windows.Graphics.Display.LogicalDisplayReference";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // defined(ENABLE_WINRT_EXPERIMENTAL_TYPES)
 
 #endif // defined(__cplusplus)
 #pragma pop_macro("MIDL_CONST_ID")

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,6 +6,7 @@
 #ifndef WINRT_Windows_Graphics_Display_2_H
 #define WINRT_Windows_Graphics_Display_2_H
 #include "winrt/impl/Windows.Foundation.1.h"
+#include "winrt/impl/Windows.UI.WindowManagement.1.h"
 #include "winrt/impl/Windows.Graphics.Display.1.h"
 WINRT_EXPORT namespace winrt::Windows::Graphics::Display
 {
@@ -121,6 +122,13 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Display
         using DisplayContentsInvalidated_revoker = impl::factory_event_revoker<Windows::Graphics::Display::IDisplayPropertiesStatics, &impl::abi_t<Windows::Graphics::Display::IDisplayPropertiesStatics>::remove_DisplayContentsInvalidated>;
         [[nodiscard]] static DisplayContentsInvalidated_revoker DisplayContentsInvalidated(auto_revoke_t, Windows::Graphics::Display::DisplayPropertiesEventHandler const& handler);
         static auto DisplayContentsInvalidated(winrt::event_token const& token);
+    };
+    struct __declspec(empty_bases) LogicalDisplayReference : Windows::Graphics::Display::ILogicalDisplayReference
+    {
+        LogicalDisplayReference(std::nullptr_t) noexcept {}
+        LogicalDisplayReference(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Graphics::Display::ILogicalDisplayReference(ptr, take_ownership_from_abi) {}
+        static auto FindAll();
+        static auto FindAll(Windows::UI::WindowManagement::WindowingEnvironment const& environment);
     };
 }
 #endif

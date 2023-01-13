@@ -159,6 +159,11 @@ DEFINE_GUID(MU_TELEMETRY_SECTION_GUID,
             0x85183a8b, 0x9c41, 0x429c, 0x93, 0x9c,
             0x5c, 0x3c, 0x08, 0x7c, 0xa2, 0x80);
 
+/* c34832a1-02c3-4c52-a9f1-9f1d5d7723fc */
+DEFINE_GUID(RECOVERY_INFO_SECTION_GUID,
+            0xc34832a1, 0x02c3, 0x4c52, 0xa9, 0xf1,
+            0x9f, 0x1d, 0x5d, 0x77, 0x23, 0xfc);
+
 //-------------------------------------- Processor check information type GUIDs
 
 /* a55701f5-e3ef-43de-ac72-249b573fad2c */

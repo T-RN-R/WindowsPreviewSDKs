@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -129,11 +129,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::Text::Core
         Succeeded = 0,
         Failed = 1,
     };
-    enum class TextCompositionKind : int32_t
-    {
-        Default = 0,
-        Suggestion = 1,
-    };
     struct ICoreTextCompositionCompletedEventArgs;
     struct ICoreTextCompositionSegment;
     struct ICoreTextCompositionStartedEventArgs;
@@ -149,7 +144,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::Text::Core
     struct ICoreTextSelectionUpdatingEventArgs;
     struct ICoreTextServicesManager;
     struct ICoreTextServicesManagerStatics;
-    struct ICoreTextServicesManagerStatics2;
     struct ICoreTextServicesStatics;
     struct ICoreTextTextRequest;
     struct ICoreTextTextRequestedEventArgs;
@@ -189,7 +183,6 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Text::Core::ICoreTextSelectionUpdatingEventArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::Text::Core::ICoreTextServicesManager>{ using type = interface_category; };
     template <> struct category<Windows::UI::Text::Core::ICoreTextServicesManagerStatics>{ using type = interface_category; };
-    template <> struct category<Windows::UI::Text::Core::ICoreTextServicesManagerStatics2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Text::Core::ICoreTextServicesStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Text::Core::ICoreTextTextRequest>{ using type = interface_category; };
     template <> struct category<Windows::UI::Text::Core::ICoreTextTextRequestedEventArgs>{ using type = interface_category; };
@@ -216,7 +209,6 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Text::Core::CoreTextInputScope>{ using type = enum_category; };
     template <> struct category<Windows::UI::Text::Core::CoreTextSelectionUpdatingResult>{ using type = enum_category; };
     template <> struct category<Windows::UI::Text::Core::CoreTextTextUpdatingResult>{ using type = enum_category; };
-    template <> struct category<Windows::UI::Text::Core::TextCompositionKind>{ using type = enum_category; };
     template <> struct category<Windows::UI::Text::Core::CoreTextRange>{ using type = struct_category<int32_t, int32_t>; };
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::CoreTextCompositionCompletedEventArgs> = L"Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::CoreTextCompositionSegment> = L"Windows.UI.Text.Core.CoreTextCompositionSegment";
@@ -240,7 +232,6 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::CoreTextInputScope> = L"Windows.UI.Text.Core.CoreTextInputScope";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::CoreTextSelectionUpdatingResult> = L"Windows.UI.Text.Core.CoreTextSelectionUpdatingResult";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::CoreTextTextUpdatingResult> = L"Windows.UI.Text.Core.CoreTextTextUpdatingResult";
-    template <> inline constexpr auto& name_v<Windows::UI::Text::Core::TextCompositionKind> = L"Windows.UI.Text.Core.TextCompositionKind";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::CoreTextRange> = L"Windows.UI.Text.Core.CoreTextRange";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextCompositionCompletedEventArgs> = L"Windows.UI.Text.Core.ICoreTextCompositionCompletedEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextCompositionSegment> = L"Windows.UI.Text.Core.ICoreTextCompositionSegment";
@@ -257,7 +248,6 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextSelectionUpdatingEventArgs> = L"Windows.UI.Text.Core.ICoreTextSelectionUpdatingEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextServicesManager> = L"Windows.UI.Text.Core.ICoreTextServicesManager";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextServicesManagerStatics> = L"Windows.UI.Text.Core.ICoreTextServicesManagerStatics";
-    template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextServicesManagerStatics2> = L"Windows.UI.Text.Core.ICoreTextServicesManagerStatics2";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextServicesStatics> = L"Windows.UI.Text.Core.ICoreTextServicesStatics";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextTextRequest> = L"Windows.UI.Text.Core.ICoreTextTextRequest";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextTextRequestedEventArgs> = L"Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs";
@@ -277,7 +267,6 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextSelectionUpdatingEventArgs>{ 0xD445839F,0xFE7F,0x4BD5,{ 0x8A,0x26,0x09,0x22,0xC1,0xB3,0xE6,0x39 } };
     template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesManager>{ 0xC2507D83,0x6E0A,0x4A8A,{ 0xBD,0xF8,0x19,0x48,0x87,0x48,0x54,0xBA } };
     template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesManagerStatics>{ 0x1520A388,0xE2CF,0x4D65,{ 0xAE,0xB9,0xB3,0x2D,0x86,0xFE,0x39,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesManagerStatics2>{ 0xCC0F5D2D,0xEB7D,0x50C7,{ 0x85,0x32,0x02,0x49,0x20,0x81,0xFA,0x31 } };
     template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesStatics>{ 0x91859A46,0xECCF,0x47A4,{ 0x8A,0xE7,0x09,0x8A,0x9C,0x6F,0xBB,0x15 } };
     template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextTextRequest>{ 0x50D950A9,0xF51E,0x4CC1,{ 0x8C,0xA1,0xE6,0x34,0x6D,0x1A,0x61,0xBE } };
     template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextTextRequestedEventArgs>{ 0xF096A2D0,0x41C6,0x4C02,{ 0x8B,0x1A,0xD9,0x53,0xB0,0x0C,0xAB,0xB3 } };
@@ -460,13 +449,6 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall GetForCurrentView(void**) noexcept = 0;
-        };
-    };
-    template <> struct abi<Windows::UI::Text::Core::ICoreTextServicesManagerStatics2>
-    {
-        struct __declspec(novtable) type : inspectable_abi
-        {
-            virtual int32_t __stdcall get_TextCompositionKind(int32_t*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Text::Core::ICoreTextServicesStatics>
@@ -724,15 +706,6 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Text::Core::ICoreTextServicesManagerStatics>
     {
         template <typename D> using type = consume_Windows_UI_Text_Core_ICoreTextServicesManagerStatics<D>;
-    };
-    template <typename D>
-    struct consume_Windows_UI_Text_Core_ICoreTextServicesManagerStatics2
-    {
-        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Text::Core::TextCompositionKind) TextCompositionKind() const;
-    };
-    template <> struct consume<Windows::UI::Text::Core::ICoreTextServicesManagerStatics2>
-    {
-        template <typename D> using type = consume_Windows_UI_Text_Core_ICoreTextServicesManagerStatics2<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Text_Core_ICoreTextServicesStatics

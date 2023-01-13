@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Security_Isolation_H
 #define WINRT_Windows_Security_Isolation_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200316.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.Security.Isolation.2.h"
@@ -408,9 +408,9 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2)->RegisterHostMessageReceiver(impl::bind_in(receiverId), *(void**)(&hostMessageReceivedCallback)));
     }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2<D>::UnregisteHostMessageReceiver(winrt::guid const& receiverId) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2<D>::UnregisterHostMessageReceiver(winrt::guid const& receiverId) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2)->UnregisteHostMessageReceiver(impl::bind_in(receiverId)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2)->UnregisterHostMessageReceiver(impl::bind_in(receiverId)));
     }
     template <typename H> struct delegate<Windows::Security::Isolation::HostMessageReceivedCallback, H> final : implements_delegate<Windows::Security::Isolation::HostMessageReceivedCallback, H>
     {
@@ -1085,10 +1085,10 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall UnregisteHostMessageReceiver(winrt::guid receiverId) noexcept final try
+        int32_t __stdcall UnregisterHostMessageReceiver(winrt::guid receiverId) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().UnregisteHostMessageReceiver(*reinterpret_cast<winrt::guid const*>(&receiverId));
+            this->shim().UnregisterHostMessageReceiver(*reinterpret_cast<winrt::guid const*>(&receiverId));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1250,9 +1250,9 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     {
         impl::call_factory<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics2>([&](IIsolatedWindowsHostMessengerStatics2 const& f) { return f.RegisterHostMessageReceiver(receiverId, hostMessageReceivedCallback); });
     }
-    inline auto IsolatedWindowsHostMessenger::UnregisteHostMessageReceiver(winrt::guid const& receiverId)
+    inline auto IsolatedWindowsHostMessenger::UnregisterHostMessageReceiver(winrt::guid const& receiverId)
     {
-        impl::call_factory<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics2>([&](IIsolatedWindowsHostMessengerStatics2 const& f) { return f.UnregisteHostMessageReceiver(receiverId); });
+        impl::call_factory<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics2>([&](IIsolatedWindowsHostMessengerStatics2 const& f) { return f.UnregisterHostMessageReceiver(receiverId); });
     }
     template <typename L> HostMessageReceivedCallback::HostMessageReceivedCallback(L handler) :
         HostMessageReceivedCallback(impl::make_delegate<HostMessageReceivedCallback>(std::forward<L>(handler)))

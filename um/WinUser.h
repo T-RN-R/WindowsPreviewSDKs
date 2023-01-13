@@ -15925,13 +15925,20 @@ SetProcessRestrictionExemption(
  */
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+
+WINUSERAPI 
+BOOL 
+WINAPI 
+EnlightenWindowForContentRects( 
+    HWND hwnd); 
+
 WINUSERAPI
 BOOL
 WINAPI
 GetContentRects(
     HWND hwnd,
     _Inout_ UINT* count,
-    _Out_writes_opt_(count) RECT* pContentRects);
+    _Out_writes_opt_(*count) RECT* pContentRects);
 
 #endif // NTDDI_VERSION >= NTDDI_WIN10_MN
 

@@ -4231,6 +4231,7 @@ extern "C" {
 
 #pragma intrinsic(__yield)
 #pragma intrinsic(__prefetch)
+#pragma intrinsic(__prefetchw)
 
 #if (_MSC_FULL_VER >= 170040825)
 #pragma intrinsic(__dmb)
@@ -4257,8 +4258,8 @@ YieldProcessor (
 
 #define MemoryBarrier()             __dmb(_ARM_BARRIER_SY)
 #define PreFetchCacheLine(l,a)      __prefetch((const void *) (a))
-#define PrefetchForWrite(p)         __prefetch((const void *) (p))
-#define ReadForWriteAccess(p)       (*(p))
+#define PrefetchForWrite(p)         __prefetchw((const void *) (p))
+#define ReadForWriteAccess(p)       (__prefetchw((const void *) (p)), *(p))
 
 #define _DataSynchronizationBarrier()        __dsb(_ARM_BARRIER_SY)
 #define _InstructionSynchronizationBarrier() __isb(_ARM_BARRIER_SY)
@@ -5602,6 +5603,20 @@ typedef struct _SCOPE_TABLE_ARM64 {
 
 #pragma intrinsic(__yield)
 #pragma intrinsic(__prefetch)
+#pragma intrinsic(__prefetch2)
+
+#define ARM64_PREFETCH_PLD  (0 << 3)
+#define ARM64_PREFETCH_PLI  (1 << 3)
+#define ARM64_PREFETCH_PST  (2 << 3)
+
+#define ARM64_PREFETCH_L1   (0 << 1)
+#define ARM64_PREFETCH_L2   (1 << 1)
+#define ARM64_PREFETCH_L3   (2 << 1)
+
+#define ARM64_PREFETCH_KEEP (0 << 0)
+#define ARM64_PREFETCH_STRM (1 << 0)
+
+#define ARM64_PREFETCH(a,b,c) (ARM64_PREFETCH_##a | ARM64_PREFETCH_##b | ARM64_PREFETCH_##c)
 
 #pragma intrinsic(__dmb)
 #pragma intrinsic(__dsb)
@@ -5611,9 +5626,9 @@ typedef struct _SCOPE_TABLE_ARM64 {
 #pragma intrinsic(_WriteBarrier)
 
 #define MemoryBarrier()             __dmb(_ARM64_BARRIER_SY)
-#define PreFetchCacheLine(l,a)      __prefetch((const void *) (a))
-#define PrefetchForWrite(p)         __prefetch((const void *) (p))
-#define ReadForWriteAccess(p)       (*(p))
+#define PreFetchCacheLine(l,a)      __prefetch2((const void *) (a), ARM64_PREFETCH(PLD, L1, KEEP))
+#define PrefetchForWrite(p)         __prefetch2((const void *) (p), ARM64_PREFETCH(PST, L1, KEEP))
+#define ReadForWriteAccess(p)       (__prefetch2((const void *) (p), ARM64_PREFETCH(PST, L1, KEEP)), *(p))
 
 #define _DataSynchronizationBarrier()        __dsb(_ARM64_BARRIER_SY)
 #define _InstructionSynchronizationBarrier() __isb(_ARM64_BARRIER_SY)
@@ -11761,6 +11776,7 @@ typedef enum _PROCESS_MITIGATION_POLICY {
     ProcessChildProcessPolicy,
     ProcessSideChannelIsolationPolicy,
     ProcessUserShadowStackPolicy,
+    ProcessRedirectionTrustPolicy,
     MaxProcessMitigationPolicy
 } PROCESS_MITIGATION_POLICY, *PPROCESS_MITIGATION_POLICY;
 
@@ -11993,11 +12009,26 @@ typedef struct _PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
             DWORD AuditUserShadowStack : 1;
             DWORD SetContextIpValidation : 1;
             DWORD AuditSetContextIpValidation : 1;
-            DWORD ReservedFlags : 28;
+            DWORD EnableUserShadowStackStrictMode : 1;
+            DWORD BlockNonCetBinaries : 1;
+            DWORD BlockNonCetBinariesNonEhcont : 1;
+            DWORD AuditBlockNonCetBinaries : 1;
+            DWORD ReservedFlags : 24;
 
         } DUMMYSTRUCTNAME;
     } DUMMYUNIONNAME;
 } PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY, *PPROCESS_MITIGATION_USER_SHADOW_STACK_POLICY;
+
+typedef struct _PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
+    union {
+        DWORD Flags;
+        struct {
+            DWORD EnforceRedirectionTrust : 1;
+            DWORD AuditRedirectionTrust : 1;
+            DWORD ReservedFlags : 30;
+        } DUMMYSTRUCTNAME;
+    } DUMMYUNIONNAME;
+} PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY, *PPROCESS_MITIGATION_REDIRECTION_TRUST_POLICY;
 
 
 typedef struct _JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
@@ -12994,6 +13025,19 @@ typedef struct DECLSPEC_ALIGN(16) _MEMORY_BASIC_INFORMATION64 {
 //
 
 #define CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID  (0x00000004)
+
+//
+// Call target should be made into an XFG call target.
+//
+
+#define CFG_CALL_TARGET_VALID_XFG                           (0x00000008)
+
+//
+// Call target should be made valid only if it is already an XFG target
+// in a process which has XFG audit mode enabled.
+//
+
+#define CFG_CALL_TARGET_CONVERT_XFG_TO_CFG                  (0x00000010)
 
 typedef struct _CFG_CALL_TARGET_INFO {
     ULONG_PTR Offset;
@@ -18679,6 +18723,9 @@ typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY32 {
     DWORD   VolatileMetadataPointer;        // VA
     DWORD   GuardEHContinuationTable;       // VA
     DWORD   GuardEHContinuationCount;
+    DWORD   GuardXFGCheckFunctionPointer;    // VA
+    DWORD   GuardXFGDispatchFunctionPointer; // VA
+    DWORD   GuardXFGTableDispatchFunctionPointer; // VA
 } IMAGE_LOAD_CONFIG_DIRECTORY32, *PIMAGE_LOAD_CONFIG_DIRECTORY32;
 
 typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY64 {
@@ -18726,6 +18773,9 @@ typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY64 {
     ULONGLONG  VolatileMetadataPointer;         // VA
     ULONGLONG  GuardEHContinuationTable;        // VA
     ULONGLONG  GuardEHContinuationCount;
+    ULONGLONG  GuardXFGCheckFunctionPointer;    // VA
+    ULONGLONG  GuardXFGDispatchFunctionPointer; // VA
+    ULONGLONG  GuardXFGTableDispatchFunctionPointer; // VA
 } IMAGE_LOAD_CONFIG_DIRECTORY64, *PIMAGE_LOAD_CONFIG_DIRECTORY64;
 
 // end_ntoshvp
@@ -18801,7 +18851,8 @@ typedef struct _IMAGE_HOT_PATCH_HASHES {
 #define IMAGE_GUARD_RF_ENABLE                          0x00040000 // Module requests that the OS enable return flow protection
 #define IMAGE_GUARD_RF_STRICT                          0x00080000 // Module requests that the OS enable return flow protection in strict mode
 #define IMAGE_GUARD_RETPOLINE_PRESENT                  0x00100000 // Module was built with retpoline support
-#define IMAGE_GUARD_EH_CONTINUATION_TABLE_PRESENT      0x00200000 // Module contains EH continuation target information
+#define IMAGE_GUARD_XFG_ENABLED                        0x00200000 // Module was built with XFG support
+#define IMAGE_GUARD_EH_CONTINUATION_TABLE_PRESENT      0x00400000 // Module contains EH continuation target information
 
 #define IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK        0xF0000000 // Stride of Guard CF function table encoded in these bits (additional count of bytes per element)
 #define IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_SHIFT       28         // Shift to right-justify Guard CF function table stride
@@ -18812,6 +18863,8 @@ typedef struct _IMAGE_HOT_PATCH_HASHES {
 
 #define IMAGE_GUARD_FLAG_FID_SUPPRESSED               0x01       // The containing GFID entry is suppressed
 #define IMAGE_GUARD_FLAG_EXPORT_SUPPRESSED            0x02       // The containing GFID entry is export suppressed
+#define IMAGE_GUARD_FLAG_FID_LANGEXCPTHANDLER         0x04
+#define IMAGE_GUARD_FLAG_FID_XFG                      0x08
 
 //
 // WIN CE Exception table format
@@ -18857,6 +18910,7 @@ typedef enum ARM64_FNPDATA_FLAGS {
 typedef enum ARM64_FNPDATA_CR {
     PdataCrUnchained = 0,
     PdataCrUnchainedSavedLr = 1,
+    PdataCrChainedWithPac = 2,
     PdataCrChained = 3,
 } ARM64_FNPDATA_CR;
 
@@ -20202,6 +20256,7 @@ typedef struct _RTL_BARRIER {
 #define FAST_FAIL_ETW_CORRUPTION                    61
 #define FAST_FAIL_RIO_ABORT                         62
 #define FAST_FAIL_INVALID_PFN                       63
+#define FAST_FAIL_GUARD_ICALL_CHECK_FAILURE_XFG     64
 #define FAST_FAIL_INVALID_FAST_FAIL_CODE            0xFFFFFFFF
 
 #if _MSC_VER >= 1610

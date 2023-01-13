@@ -519,7 +519,7 @@ namespace Windows
             interface IIsolatedWindowsHostMessengerStatics2 : IInspectable
             {
                 HRESULT RegisterHostMessageReceiver([in] GUID receiverId, [in] Windows.Security.Isolation.HostMessageReceivedCallback* hostMessageReceivedCallback);
-                HRESULT UnregisteHostMessageReceiver([in] GUID receiverId);
+                HRESULT UnregisterHostMessageReceiver([in] GUID receiverId);
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]

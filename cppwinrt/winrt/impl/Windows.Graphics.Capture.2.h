@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -34,6 +34,7 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
         GraphicsCaptureItem(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Graphics::Capture::IGraphicsCaptureItem(ptr, take_ownership_from_abi) {}
         static auto CreateFromVisual(Windows::UI::Composition::Visual const& visual);
         static auto CreateFromWindowReference(Windows::UI::WindowReference const& windowReference);
+        static auto RequestProgrammaticCaptureAccessAsync();
     };
     struct __declspec(empty_bases) GraphicsCapturePicker : Windows::Graphics::Capture::IGraphicsCapturePicker
     {

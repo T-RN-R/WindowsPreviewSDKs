@@ -281,12 +281,11 @@ namespace Windows
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             enum VisibilityDetails
             {
-                Unknown           = 0,
-                Visible           = 1,
-                HiddenBySystem    = 2,
-                HiddenByApp       = 3,
-                MinimizedBySystem = 4,
-                MinimizedByApp    = 5
+                Visible           = 0,
+                HiddenBySystem    = 1,
+                HiddenByApp       = 2,
+                MinimizedBySystem = 3,
+                MinimizedByApp    = 4
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
@@ -554,11 +553,12 @@ namespace Windows
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             [exclusiveto(Windows.UI.WindowManagement.WindowInformation)]
-            [uuid(91439554-FFEE-5DEE-B10E-F665242DD5A2)]
+            [uuid(4592A8E5-E729-5263-B4A4-22A0E18188EA)]
             interface IWindowInformation : IInspectable
             {
                 [propget] HRESULT DisplayName([out] [retval] HSTRING* value);
                 [propget] HRESULT Visibility([out] [retval] Windows.UI.WindowManagement.WindowVisibilityState* value);
+                [propget] HRESULT AppUserModelId([out] [retval] HSTRING* value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]

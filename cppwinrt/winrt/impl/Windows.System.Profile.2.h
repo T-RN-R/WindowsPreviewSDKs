@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -19,7 +19,8 @@ WINRT_EXPORT namespace winrt::Windows::System::Profile
         [[nodiscard]] static auto DeviceForm();
         static auto GetSystemPropertiesAsync(param::async_iterable<hstring> const& attributeNames);
     };
-    struct __declspec(empty_bases) AnalyticsVersionInfo : Windows::System::Profile::IAnalyticsVersionInfo
+    struct __declspec(empty_bases) AnalyticsVersionInfo : Windows::System::Profile::IAnalyticsVersionInfo,
+        impl::require<AnalyticsVersionInfo, Windows::System::Profile::IAnalyticsVersionInfo2>
     {
         AnalyticsVersionInfo(std::nullptr_t) noexcept {}
         AnalyticsVersionInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::System::Profile::IAnalyticsVersionInfo(ptr, take_ownership_from_abi) {}

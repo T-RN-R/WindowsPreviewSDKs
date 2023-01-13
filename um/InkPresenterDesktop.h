@@ -100,6 +100,7 @@ extern "C"{
 /* interface __MIDL_itf_inkpresenterdesktop_0000_0000 */
 /* [local] */ 
 
+#pragma once
 #include <winapifamily.h>
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
@@ -514,9 +515,10 @@ EXTERN_C const IID IID_IDelegatedInkTrailDesktopReferenceSurface;
     IDelegatedInkTrailDesktopReferenceSurface : public IInspectable
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE SetReferenceSurface( 
-            /* [in] */ __RPC__in_opt IUnknown *surface,
-            /* [in] */ __RPC__in_opt IUnknown *dcompDevice) = 0;
+        virtual HRESULT STDMETHODCALLTYPE QueueStateForSwapChainPresentCount( 
+            /* [in] */ unsigned int presentCount,
+            /* [in] */ __RPC__in_opt IUnknown *swapChainSurface,
+            /* [in] */ unsigned int lastAppRenderedFrameId) = 0;
         
     };
     
@@ -552,10 +554,11 @@ EXTERN_C const IID IID_IDelegatedInkTrailDesktopReferenceSurface;
             __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This,
             /* [out] */ __RPC__out TrustLevel *trustLevel);
         
-        HRESULT ( STDMETHODCALLTYPE *SetReferenceSurface )( 
+        HRESULT ( STDMETHODCALLTYPE *QueueStateForSwapChainPresentCount )( 
             __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This,
-            /* [in] */ __RPC__in_opt IUnknown *surface,
-            /* [in] */ __RPC__in_opt IUnknown *dcompDevice);
+            /* [in] */ unsigned int presentCount,
+            /* [in] */ __RPC__in_opt IUnknown *swapChainSurface,
+            /* [in] */ unsigned int lastAppRenderedFrameId);
         
         END_INTERFACE
     } IDelegatedInkTrailDesktopReferenceSurfaceVtbl;
@@ -590,8 +593,8 @@ EXTERN_C const IID IID_IDelegatedInkTrailDesktopReferenceSurface;
     ( (This)->lpVtbl -> GetTrustLevel(This,trustLevel) ) 
 
 
-#define IDelegatedInkTrailDesktopReferenceSurface_SetReferenceSurface(This,surface,dcompDevice)	\
-    ( (This)->lpVtbl -> SetReferenceSurface(This,surface,dcompDevice) ) 
+#define IDelegatedInkTrailDesktopReferenceSurface_QueueStateForSwapChainPresentCount(This,presentCount,swapChainSurface,lastAppRenderedFrameId)	\
+    ( (This)->lpVtbl -> QueueStateForSwapChainPresentCount(This,presentCount,swapChainSurface,lastAppRenderedFrameId) ) 
 
 #endif /* COBJMACROS */
 

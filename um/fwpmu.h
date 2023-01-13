@@ -4072,9 +4072,8 @@ FwpmGetAppIdFromFileName0(
 #endif // (NTDDI_VERSION >= NTDDI_WIN7)
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
-// Enable S2S IPsec tunnel mode.
-#define FWPM_TUNNEL_FLAG_SITE_TO_SITE (0x00000004)
-
+// Reserved flags.
+#define FWPM_TUNNEL_FLAG_RESERVED0 (0x00000004)
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 
 DWORD

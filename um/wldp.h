@@ -36,6 +36,8 @@ Abstract:
 #define WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN "WldpQueryWindowsLockdownRestriction"
 #define WLDP_ISAPPAPPROVEDBYPOLICY_FN       "WldpIsAppApprovedByPolicy"
 #define WLDP_QUERYPOLICYSETTINGENABLED_FN   "WldpQueryPolicySettingEnabled"
+#define WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN     "WldpIsWcosProductionConfiguration"
+#define WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN     "WldpResetWcosProductionConfiguration"
 
 //
 //  Policy state bits.
@@ -227,6 +229,7 @@ typedef enum WLDP_POLICY_SETTING
     WLDP_POLICY_SETTING_DEFENDER_HYBRID,
     WLDP_POLICY_SETTING_SMARTSCREEN_SUPPRESSED,
     WLDP_POLICY_WCOS_OOBE_LOG_COLLECTION,
+    WLDP_POLICY_SETTING_LEGACY_WHQL_FLIGHTING,
     WLDP_POLICY_SETTING_MAX,
 } WLDP_POLICY_SETTING, *PWLDP_POLICY_SETTING;
 
@@ -438,6 +441,21 @@ typedef HRESULT(WINAPI *PWLDP_QUERYPOLICYSETTINGENABLED_API)(
     _In_ WLDP_POLICY_SETTING Setting,
     _Out_ PBOOL Enabled
     );
+
+//
+//    This function checks the security watermark state of the system
+//
+STDAPI
+WldpIsWcosProductionConfiguration(
+    _Out_ PBOOL IsProductionConfiguration
+);
+
+typedef HRESULT(WINAPI *PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API)(_Out_ PBOOL IsProductionConfiguration);
+
+STDAPI
+WldpResetWcosProductionConfiguration();
+
+typedef HRESULT(WINAPI *PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API)();
 
 #endif /* NTDDI_VERSION >= NTDDI_WIN10_MN */
 

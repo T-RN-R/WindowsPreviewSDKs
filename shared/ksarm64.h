@@ -473,9 +473,9 @@
 #define PfBuffer 0x38
 #define PfSegment 0x40
 #define PfAffinity 0x48
-#define PfSource 0xf0
-#define PfStarted 0xf2
-#define ProfileObjectLength 0xf8
+#define PfSource 0xf8
+#define PfStarted 0xfa
+#define ProfileObjectLength 0x100
 
 //
 // Queue Object Structure Offset Definitions
@@ -610,7 +610,7 @@
 #define PeBeingDebugged 0x2
 #define PeProcessParameters 0x20
 #define PeKernelCallbackTable 0x58
-#define ProcessEnvironmentBlockLength 0x7c8
+#define ProcessEnvironmentBlockLength 0x7d0
 
 //
 // Process Parameters Block Structure Offset Definitions

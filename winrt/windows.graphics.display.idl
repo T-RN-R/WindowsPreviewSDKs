@@ -11,6 +11,7 @@ import "EventToken.idl";
 import "windowscontracts.idl";
 import "Windows.Foundation.idl";
 import "Windows.Storage.Streams.idl";
+import "Windows.UI.WindowManagement.idl";
 
 // Forward Declare
 namespace Windows
@@ -29,6 +30,16 @@ namespace Windows
         namespace Streams
         {
             interface IRandomAccessStream;
+        }
+    }
+}
+namespace Windows
+{
+    namespace UI
+    {
+        namespace WindowManagement
+        {
+            runtimeclass WindowingEnvironment;
         }
     }
 }
@@ -94,6 +105,10 @@ namespace Windows
 
             interface IDisplayPropertiesStatics;
 
+            interface ILogicalDisplayReference;
+
+            interface ILogicalDisplayReferenceStatics;
+
             runtimeclass AdvancedColorInfo;
 
             runtimeclass BrightnessOverride;
@@ -111,6 +126,8 @@ namespace Windows
             runtimeclass DisplayInformation;
 
             runtimeclass DisplayProperties;
+
+            runtimeclass LogicalDisplayReference;
         }
     }
 }
@@ -124,9 +141,15 @@ namespace Windows
         {
             declare
             {
+                interface Windows.Foundation.Collections.IIterable<Windows.Graphics.Display.LogicalDisplayReference*>;
+
                 interface Windows.Foundation.Collections.IIterable<Windows.Graphics.Display.NitRange>;
 
+                interface Windows.Foundation.Collections.IIterator<Windows.Graphics.Display.LogicalDisplayReference*>;
+
                 interface Windows.Foundation.Collections.IIterator<Windows.Graphics.Display.NitRange>;
+
+                interface Windows.Foundation.Collections.IVectorView<Windows.Graphics.Display.LogicalDisplayReference*>;
 
                 interface Windows.Foundation.Collections.IVectorView<Windows.Graphics.Display.NitRange>;
 
@@ -485,6 +508,24 @@ namespace Windows
                 [deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", deprecate, Windows.Foundation.UniversalApiContract, 1.0)] [eventremove] HRESULT DisplayContentsInvalidated([in] EventRegistrationToken token);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.Graphics.Display.LogicalDisplayReference)]
+            [experimental]
+            [uuid(13781321-3D09-5B5B-AE81-12589BC8B474)]
+            interface ILogicalDisplayReference : IInspectable
+            {
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.Graphics.Display.LogicalDisplayReference)]
+            [experimental]
+            [uuid(F7D2AC2F-2103-5D61-8144-2A69128A00F1)]
+            interface ILogicalDisplayReferenceStatics : IInspectable
+            {
+                [overload("FindAll")] HRESULT FindAll([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.Graphics.Display.LogicalDisplayReference*>** result);
+                [overload("FindAll")] HRESULT FindAllForWindowingEnvironment([in] Windows.UI.WindowManagement.WindowingEnvironment* environment, [out] [retval] Windows.Foundation.Collections.IVectorView<Windows.Graphics.Display.LogicalDisplayReference*>** result);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
             [marshaling_behavior(agile)]
             [threading(both)]
@@ -563,6 +604,16 @@ namespace Windows
             [static(Windows.Graphics.Display.IDisplayPropertiesStatics, Windows.Foundation.UniversalApiContract, 1.0)]
             runtimeclass DisplayProperties
             {
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [experimental]
+            [marshaling_behavior(agile)]
+            [static(Windows.Graphics.Display.ILogicalDisplayReferenceStatics, Windows.Foundation.UniversalApiContract, 11.0)]
+            [threading(both)]
+            runtimeclass LogicalDisplayReference
+            {
+                [default] [experimental] interface Windows.Graphics.Display.ILogicalDisplayReference;
             }
         }
     }

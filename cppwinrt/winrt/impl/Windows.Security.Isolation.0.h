@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -470,7 +470,7 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall RegisterHostMessageReceiver(winrt::guid, void*) noexcept = 0;
-            virtual int32_t __stdcall UnregisteHostMessageReceiver(winrt::guid) noexcept = 0;
+            virtual int32_t __stdcall UnregisterHostMessageReceiver(winrt::guid) noexcept = 0;
         };
     };
     template <> struct abi<Windows::Security::Isolation::HostMessageReceivedCallback>
@@ -706,7 +706,7 @@ namespace winrt::impl
     struct consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2
     {
         WINRT_IMPL_AUTO(void) RegisterHostMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::HostMessageReceivedCallback const& hostMessageReceivedCallback) const;
-        WINRT_IMPL_AUTO(void) UnregisteHostMessageReceiver(winrt::guid const& receiverId) const;
+        WINRT_IMPL_AUTO(void) UnregisterHostMessageReceiver(winrt::guid const& receiverId) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2>
     {

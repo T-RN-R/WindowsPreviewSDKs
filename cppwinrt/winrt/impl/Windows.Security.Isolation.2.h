@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -136,7 +136,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
         static auto PostMessageToReceiver(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message);
         static auto GetFileId(param::hstring const& filePath);
         static auto RegisterHostMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::HostMessageReceivedCallback const& hostMessageReceivedCallback);
-        static auto UnregisteHostMessageReceiver(winrt::guid const& receiverId);
+        static auto UnregisterHostMessageReceiver(winrt::guid const& receiverId);
     };
 }
 #endif

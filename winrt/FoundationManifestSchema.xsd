@@ -347,6 +347,7 @@
           <xs:attribute ref="iot2:SupportsMultipleInstances" use="optional"/>
           <xs:attribute ref="uap10:SupportsMultipleInstances" use="optional"/>
           <xs:attribute ref="uap11:CurrentDirectoryPath" use="optional"/>
+          <xs:attribute ref="uap11:Parameters" use="optional"/>
           <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
         </xs:complexType>
         <xs:unique name="ApplicationContentUrisRule_Match">

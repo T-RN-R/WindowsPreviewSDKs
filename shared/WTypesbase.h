@@ -428,7 +428,7 @@ enum tagMSHCTX
         MSHCTX_DIFFERENTMACHINE	= 2,
         MSHCTX_INPROC	= 3,
         MSHCTX_CROSSCTX	= 4,
-        MSHCTX_RESERVED1	= 5
+        MSHCTX_CONTAINER	= 5
     } 	MSHCTX;
 
 typedef struct _BYTE_BLOB

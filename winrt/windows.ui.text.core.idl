@@ -73,8 +73,6 @@ namespace Windows
 
                 typedef enum CoreTextTextUpdatingResult CoreTextTextUpdatingResult;
 
-                typedef enum TextCompositionKind TextCompositionKind;
-
                 typedef struct CoreTextRange CoreTextRange;
 
                 interface ICoreTextCompositionCompletedEventArgs;
@@ -106,8 +104,6 @@ namespace Windows
                 interface ICoreTextServicesManager;
 
                 interface ICoreTextServicesManagerStatics;
-
-                interface ICoreTextServicesManagerStatics2;
 
                 interface ICoreTextServicesStatics;
 
@@ -318,14 +314,6 @@ namespace Windows
                     Failed    = 1
                 };
 
-                [contract(Windows.Foundation.UniversalApiContract, 10.0)]
-                [experimental]
-                enum TextCompositionKind
-                {
-                    Default    = 0,
-                    Suggestion = 1
-                };
-
                 [contract(Windows.Foundation.UniversalApiContract, 1.0)]
                 struct CoreTextRange
                 {
@@ -513,15 +501,6 @@ namespace Windows
                     HRESULT GetForCurrentView([out] [retval] Windows.UI.Text.Core.CoreTextServicesManager** value);
                 }
 
-                [contract(Windows.Foundation.UniversalApiContract, 10.0)]
-                [exclusiveto(Windows.UI.Text.Core.CoreTextServicesManager)]
-                [experimental]
-                [uuid(CC0F5D2D-EB7D-50C7-8532-02492081FA31)]
-                interface ICoreTextServicesManagerStatics2 : IInspectable
-                {
-                    [propget] HRESULT TextCompositionKind([out] [retval] Windows.UI.Text.Core.TextCompositionKind* value);
-                }
-
                 [contract(Windows.Foundation.UniversalApiContract, 1.0)]
                 [exclusiveto(Windows.UI.Text.Core.CoreTextServicesConstants)]
                 [uuid(91859A46-ECCF-47A4-8AE7-098A9C6FBB15)]
@@ -654,7 +633,6 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 1.0)]
                 [marshaling_behavior(agile)]
                 [static(Windows.UI.Text.Core.ICoreTextServicesManagerStatics, Windows.Foundation.UniversalApiContract, 1.0)]
-                [static(Windows.UI.Text.Core.ICoreTextServicesManagerStatics2, Windows.Foundation.UniversalApiContract, 10.0)]
                 runtimeclass CoreTextServicesManager
                 {
                     [default] interface Windows.UI.Text.Core.ICoreTextServicesManager;

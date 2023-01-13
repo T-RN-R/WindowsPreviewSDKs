@@ -36,5 +36,4 @@ namespace Windows
         [contractversion(3)]
         apicontract ControlChannelTriggerContract{};
     }
-
 }

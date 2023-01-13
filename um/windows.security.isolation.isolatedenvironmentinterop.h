@@ -30,8 +30,8 @@
 #include "ole2.h"
 #endif /*COM_NO_WINDOWS_H*/
 
-#ifndef __windowtabmanagerinterop_h__
-#define __windowtabmanagerinterop_h__
+#ifndef __windows2Esecurity2Eisolation2Eisolatedenvironmentinterop_h__
+#define __windows2Esecurity2Eisolation2Eisolatedenvironmentinterop_h__
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
@@ -39,86 +39,89 @@
 
 /* Forward Declarations */ 
 
-#ifndef __IWindowTabManagerInterop_FWD_DEFINED__
-#define __IWindowTabManagerInterop_FWD_DEFINED__
-typedef interface IWindowTabManagerInterop IWindowTabManagerInterop;
+#ifndef __IIsolatedEnvironmentInterop_FWD_DEFINED__
+#define __IIsolatedEnvironmentInterop_FWD_DEFINED__
+typedef interface IIsolatedEnvironmentInterop IIsolatedEnvironmentInterop;
 
-#endif 	/* __IWindowTabManagerInterop_FWD_DEFINED__ */
+#endif 	/* __IIsolatedEnvironmentInterop_FWD_DEFINED__ */
 
 
 /* header files for imported files */
-#include "inspectable.h"
+#include "oaidl.h"
+#include "ocidl.h"
 
 #ifdef __cplusplus
 extern "C"{
 #endif 
 
 
-/* interface __MIDL_itf_windowtabmanagerinterop_0000_0000 */
+/* interface __MIDL_itf_windows2Esecurity2Eisolation2Eisolatedenvironmentinterop_0000_0000 */
 /* [local] */ 
 
+#pragma warning(push)
+#pragma warning(disable:4668) 
+#pragma warning(disable:4001) 
+#pragma once
+#pragma warning(pop)
 #include <winapifamily.h>
-#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_windowtabmanagerinterop_0000_0000_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_windowtabmanagerinterop_0000_0000_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_windows2Esecurity2Eisolation2Eisolatedenvironmentinterop_0000_0000_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_windows2Esecurity2Eisolation2Eisolatedenvironmentinterop_0000_0000_v0_0_s_ifspec;
 
-#ifndef __IWindowTabManagerInterop_INTERFACE_DEFINED__
-#define __IWindowTabManagerInterop_INTERFACE_DEFINED__
+#ifndef __IIsolatedEnvironmentInterop_INTERFACE_DEFINED__
+#define __IIsolatedEnvironmentInterop_INTERFACE_DEFINED__
 
-/* interface IWindowTabManagerInterop */
-/* [object][uuid] */ 
+/* interface IIsolatedEnvironmentInterop */
+/* [uuid][object] */ 
 
 
-EXTERN_C const IID IID_IWindowTabManagerInterop;
+EXTERN_C const IID IID_IIsolatedEnvironmentInterop;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("A1247E54-9B5C-49F5-BD51-EA35C12ED655")
-    IWindowTabManagerInterop : public IUnknown
+    MIDL_INTERFACE("85713C2E-8E62-46C5-8DE2-C647E1D54636")
+    IIsolatedEnvironmentInterop : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE GetForWindow( 
-            /* [in] */ __RPC__in HWND appWindow,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [iid_is][retval][out] */ __RPC__deref_out_opt void **WindowTabManager) = 0;
+        virtual HRESULT STDMETHODCALLTYPE GetHostHwndInterop( 
+            /* [in] */ __RPC__in HWND containerHwnd,
+            /* [retval][out] */ __RPC__deref_out_opt HWND *hostHwnd) = 0;
         
     };
     
     
 #else 	/* C style interface */
 
-    typedef struct IWindowTabManagerInteropVtbl
+    typedef struct IIsolatedEnvironmentInteropVtbl
     {
         BEGIN_INTERFACE
         
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IWindowTabManagerInterop * This,
+            __RPC__in IIsolatedEnvironmentInterop * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IWindowTabManagerInterop * This);
+            __RPC__in IIsolatedEnvironmentInterop * This);
         
         ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IWindowTabManagerInterop * This);
+            __RPC__in IIsolatedEnvironmentInterop * This);
         
-        HRESULT ( STDMETHODCALLTYPE *GetForWindow )( 
-            __RPC__in IWindowTabManagerInterop * This,
-            /* [in] */ __RPC__in HWND appWindow,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [iid_is][retval][out] */ __RPC__deref_out_opt void **WindowTabManager);
+        HRESULT ( STDMETHODCALLTYPE *GetHostHwndInterop )( 
+            __RPC__in IIsolatedEnvironmentInterop * This,
+            /* [in] */ __RPC__in HWND containerHwnd,
+            /* [retval][out] */ __RPC__deref_out_opt HWND *hostHwnd);
         
         END_INTERFACE
-    } IWindowTabManagerInteropVtbl;
+    } IIsolatedEnvironmentInteropVtbl;
 
-    interface IWindowTabManagerInterop
+    interface IIsolatedEnvironmentInterop
     {
-        CONST_VTBL struct IWindowTabManagerInteropVtbl *lpVtbl;
+        CONST_VTBL struct IIsolatedEnvironmentInteropVtbl *lpVtbl;
     };
 
     
@@ -126,18 +129,18 @@ EXTERN_C const IID IID_IWindowTabManagerInterop;
 #ifdef COBJMACROS
 
 
-#define IWindowTabManagerInterop_QueryInterface(This,riid,ppvObject)	\
+#define IIsolatedEnvironmentInterop_QueryInterface(This,riid,ppvObject)	\
     ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
 
-#define IWindowTabManagerInterop_AddRef(This)	\
+#define IIsolatedEnvironmentInterop_AddRef(This)	\
     ( (This)->lpVtbl -> AddRef(This) ) 
 
-#define IWindowTabManagerInterop_Release(This)	\
+#define IIsolatedEnvironmentInterop_Release(This)	\
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define IWindowTabManagerInterop_GetForWindow(This,appWindow,riid,WindowTabManager)	\
-    ( (This)->lpVtbl -> GetForWindow(This,appWindow,riid,WindowTabManager) ) 
+#define IIsolatedEnvironmentInterop_GetHostHwndInterop(This,containerHwnd,hostHwnd)	\
+    ( (This)->lpVtbl -> GetHostHwndInterop(This,containerHwnd,hostHwnd) ) 
 
 #endif /* COBJMACROS */
 
@@ -147,19 +150,18 @@ EXTERN_C const IID IID_IWindowTabManagerInterop;
 
 
 
-#endif 	/* __IWindowTabManagerInterop_INTERFACE_DEFINED__ */
+#endif 	/* __IIsolatedEnvironmentInterop_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_windowtabmanagerinterop_0000_0001 */
+/* interface __MIDL_itf_windows2Esecurity2Eisolation2Eisolatedenvironmentinterop_0000_0001 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
-#endif //(NTDDI_VERSION >= NTDDI_WIN10_MN)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_windowtabmanagerinterop_0000_0001_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_windowtabmanagerinterop_0000_0001_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_windows2Esecurity2Eisolation2Eisolatedenvironmentinterop_0000_0001_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_windows2Esecurity2Eisolation2Eisolatedenvironmentinterop_0000_0001_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

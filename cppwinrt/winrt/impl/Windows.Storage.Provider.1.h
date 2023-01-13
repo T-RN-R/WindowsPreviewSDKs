@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -86,13 +86,6 @@ WINRT_EXPORT namespace winrt::Windows::Storage::Provider
     {
         IStorageProviderErrorFactory(std::nullptr_t = nullptr) noexcept {}
         IStorageProviderErrorFactory(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
-    struct __declspec(empty_bases) IStorageProviderErrorLegacy :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<IStorageProviderErrorLegacy>
-    {
-        IStorageProviderErrorLegacy(std::nullptr_t = nullptr) noexcept {}
-        IStorageProviderErrorLegacy(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IStorageProviderFileTypeInfo :
         Windows::Foundation::IInspectable,

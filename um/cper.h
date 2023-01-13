@@ -234,7 +234,8 @@ typedef union _WHEA_ERROR_RECORD_HEADER_FLAGS {
         ULONG CriticalEvent:1;
         ULONG PersistPfn:1;
         ULONG SectionsTruncated:1;
-        ULONG Reserved:25;
+        ULONG RecoveryInProgress:1;
+        ULONG Reserved:24;
     } DUMMYSTRUCTNAME;
     ULONG AsULONG;
 } WHEA_ERROR_RECORD_HEADER_FLAGS, *PWHEA_ERROR_RECORD_HEADER_FLAGS;
@@ -263,7 +264,14 @@ typedef struct _WHEA_ERROR_RECORD_HEADER {
     ULONGLONG RecordId;
     WHEA_ERROR_RECORD_HEADER_FLAGS Flags;
     WHEA_PERSISTENCE_INFO PersistenceInfo;
-    UCHAR Reserved[12];
+    union {
+        struct {
+            ULONG OsBuildNumber; // Pupulated by AzPshedPi, not in vanilla windows
+            UCHAR Reserved2[8];
+        };
+
+        UCHAR Reserved[12];
+    };
 } WHEA_ERROR_RECORD_HEADER, *PWHEA_ERROR_RECORD_HEADER;
 
 //
@@ -1488,7 +1496,8 @@ typedef enum _WHEA_CPU_VENDOR {
 
 #define WHEA_XPF_MCA_EXTREG_MAX_COUNT            24
 #define WHEA_XPF_MCA_SECTION_VERSION_2           2
-#define WHEA_XPF_MCA_SECTION_VERSION             WHEA_XPF_MCA_SECTION_VERSION_2
+#define WHEA_XPF_MCA_SECTION_VERSION_3           3
+#define WHEA_XPF_MCA_SECTION_VERSION             WHEA_XPF_MCA_SECTION_VERSION_3
 #define WHEA_AMD_EXT_REG_NUM                     10
 
 //
@@ -1510,6 +1519,33 @@ typedef struct _WHEA_AMD_EXTENDED_REGISTERS {
     ULONGLONG Reserved[WHEA_XPF_MCA_EXTREG_MAX_COUNT - WHEA_AMD_EXT_REG_NUM];
 } WHEA_AMD_EXTENDED_REGISTERS, *PWHEA_AMD_EXTENDED_REGISTERS;
 
+typedef struct _XPF_RECOVERY_INFO {
+    struct {
+        UINT32 NotSupported : 1;
+        UINT32 Overflow : 1;
+        UINT32 ContextCorrupt : 1;
+        UINT32 RestartIpErrorIpNotValid : 1;
+        UINT32 NoRecoveryContext : 1;
+        UINT32 MiscOrAddrNotValid : 1;
+        UINT32 InvalidAddressMode : 1;
+        UINT32 Reserved : 25;
+    } FailureReason;
+
+    struct {
+        UINT32 RecoveryAttempted : 1;
+        UINT32 HvHandled : 1;
+        UINT32 TerminateProcess : 1;
+        UINT32 OfflinePage : 1;
+        UINT32 Reserved : 28;
+    } Action;
+
+    BOOLEAN ActionRequired;
+    BOOLEAN RecoverySucceeded;
+    BOOLEAN RecoveryKernel;
+    UINT16 Reserved3;
+    UINT32 Reserved4;
+} XPF_RECOVERY_INFO, *PXPF_RECOVERY_INFO;
+
 typedef struct _WHEA_XPF_MCA_SECTION {
     ULONG VersionNumber;
     WHEA_CPU_VENDOR CpuVendor;
@@ -1527,7 +1563,13 @@ typedef struct _WHEA_XPF_MCA_SECTION {
         ULONGLONG ExtendedRegisters[WHEA_XPF_MCA_EXTREG_MAX_COUNT];
         WHEA_AMD_EXTENDED_REGISTERS AMDExtendedRegisters;
     };
-    MCG_CAP             GlobalCapability;
+    MCG_CAP GlobalCapability;
+
+    //
+    // Version 3 Fields follow.
+    //
+
+    XPF_RECOVERY_INFO RecoveryInfo;
 } WHEA_XPF_MCA_SECTION, *PWHEA_XPF_MCA_SECTION;
 
 //------------------------------------------------------ WHEA_NMI_ERROR_SECTION
@@ -1603,6 +1645,50 @@ CPER_FIELD_CHECK(WHEA_ARM_PROCESSOR_ERROR_SECTION, MIDR_EL1,                    
 CPER_FIELD_CHECK(WHEA_ARM_PROCESSOR_ERROR_SECTION, RunningState,                 32,   4);
 CPER_FIELD_CHECK(WHEA_ARM_PROCESSOR_ERROR_SECTION, PSCIState,                    36,   4);
 CPER_FIELD_CHECK(WHEA_ARM_PROCESSOR_ERROR_SECTION, Data,                         40,   1);
+
+//--------------------------------------------------------------- ERROR RECOVERY_INFO_SECTION
+
+typedef enum _WHEA_RECOVERY_TYPE {
+    WheaRecoveryTypeSrar = 1,
+    WheaRecoveryTypeSrao,
+    WheaRecoveryTypeMax
+} WHEA_RECOVERY_TYPE, *PWHEA_RECOVERY_TYPE;
+
+typedef union _WHEA_RECOVERY_ACTION {
+    struct {
+        ULONG NoneAttempted : 1;
+        ULONG TerminateProcess : 1;
+        ULONG ForwardedToVm : 1;
+        ULONG MarkPageBad : 1;
+        ULONG Reserved : 29;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsULONG;
+} WHEA_RECOVERY_ACTION, *PWHEA_RECOVERY_ACTION;
+
+typedef enum _WHEA_RECOVERY_FAILURE_REASON {
+    WheaRecoveryFailureReasonKernelCouldNotMarkMemoryBad = 1,
+    WheaRecoveryFailureReasonKernelMarkMemoryBadTimedOut,
+    WheaRecoveryFailureReasonNoRecoveryContext,
+    WheaRecoveryFailureReasonNotContinuable,
+    WheaRecoveryFailureReasonPcc,
+    WheaRecoveryFailureReasonOverflow,
+    WheaRecoveryFailureReasonNotSupported,
+    WheaRecoveryFailureReasonMiscOrAddrNotValid,
+    WheaRecoveryFailureReasonInvalidAddressMode,
+    WheaRecoveryFailureReasonHighIrqlOrInterruptsDisabled,
+    WheaRecoveryFailureReasonInsufficientAltContextWrappers,
+    WheaRecoveryFailureReasonMax
+} WHEA_RECOVERY_FAILURE_REASON, *PWHEA_RECOVERY_FAILURE_REASON;
+
+typedef struct _WHEA_ERROR_RECOVERY_INFO_SECTION {
+    BOOLEAN RecoveryKernel;
+    WHEA_RECOVERY_ACTION RecoveryAction;
+    WHEA_RECOVERY_TYPE RecoveryType;
+    BOOLEAN RecoverySucceeded;
+    WHEA_RECOVERY_FAILURE_REASON FailureReason;
+    CCHAR ProcessName[20];
+} WHEA_ERROR_RECOVERY_INFO_SECTION, *PWHEA_ERROR_RECOVERY_INFO_SECTION;
 
 //------------------------------------------------------ WHEA_ARM_PROCESSOR_ERROR_INFORMATION
 
@@ -1931,4 +2017,3 @@ CPER_FIELD_CHECK(WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER, RegisterAr
 #pragma endregion
 
 #endif // #ifndef _CPER_H_
-

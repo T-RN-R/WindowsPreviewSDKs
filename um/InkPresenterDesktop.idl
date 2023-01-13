@@ -1,5 +1,5 @@
 //  Copyright (c) Microsoft Corporation. All rights reserved.
-
+#pragma once
 cpp_quote("#include <winapifamily.h>")
 
 #pragma region Desktop Family
@@ -84,14 +84,29 @@ cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)") //TODO_NTDDI_WIN10_TH2
     }
 
     [object, uuid(6F2CCD0D-6475-4753-B75A-CC2864E3535E)]
+    // [feature(Feature_SuperWetApi)]
     interface IDelegatedInkTrailDesktopReferenceSurface : IInspectable
     {
-        // This interface is implemented by the DelegatedInkTrail Runtime class for use on desktop.
+        // This interface is implemented by the DelegatedInkTrail Runtime class for use in win32 apps.
 
-        // Sets the dcomp surface that will be used for the coordinate space of the super wet ink,
-        // and will trigger the dirtying of the super wet ink.
-        HRESULT SetReferenceSurface([in] IUnknown* surface, [in] IUnknown* dcompDevice);
+        // Once the application has rendered the ink on their swapchain, call this method to let
+        // the system know which delegated ink can be removed from the screen. The present count
+        // lets the system know how to synchronize the removal of the system ink with the
+        // display of the application's swapchain so that there is no flicker or overdraw of the
+        // ink. (Overdraw isn't important for this pen brush, but it will be important for other
+        // brushes.) Typically the developer will set the presentCount as the current present count
+        // plus one. The swapChainSurface is the dcomp surface that was created with the swapchain,
+        // and the device is the corresponding dcomp device that was used to create the surface. The
+        // surface must implement IDCompositionSurface, and the device must be IDCompositionDevice.
+        // lastAppRenderedFrameId is the frameId of the last ink input that was rendered by the app,
+        // renderedInkParams are the ink parameters that the system will use for all delegated ink
+        // rendered for presentCount.
+        HRESULT QueueStateForSwapChainPresentCount(
+            [in] unsigned int presentCount,
+            [in] IUnknown* swapChainSurface,
+            [in] unsigned int lastAppRenderedFrameId);
     }
+
 
     [uuid(2aef0967-c833-4f38-91f3-16e67d55d717)]
     library InkDesktopHostLib

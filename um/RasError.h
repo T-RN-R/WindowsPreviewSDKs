@@ -1749,7 +1749,7 @@ Abstract:
 
 #define ERROR_PLUGIN_NOT_INSTALLED                 (RASBASE+276)
 /*
-* %1!ws! app is required for this VPN connection. Please download it in the Microsoft Store.
+* The app %1!ws! is required for this VPN connection. Please download it in the Microsoft Store or contact your IT administrators.
 */
 
 #define RASBASEEND                                 (RASBASE+276)
