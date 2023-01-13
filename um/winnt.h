@@ -5705,7 +5705,15 @@ _BitTestAndSet64(__int64 *Base, __int64 Index)
 #pragma intrinsic(_ReadWriteBarrier)
 #pragma intrinsic(_WriteBarrier)
 
-#define MemoryBarrier()             __dmb(_ARM64_BARRIER_SY)
+FORCEINLINE
+VOID
+MemoryBarrier (
+    VOID
+    ) 
+{
+    __dmb(_ARM64_BARRIER_SY);
+}
+
 #define PreFetchCacheLine(l,a)      __prefetch2((const void *) (a), ARM64_PREFETCH(PLD, L1, KEEP))
 #define PrefetchForWrite(p)         __prefetch2((const void *) (p), ARM64_PREFETCH(PST, L1, KEEP))
 #define ReadForWriteAccess(p)       (__prefetch2((const void *) (p), ARM64_PREFETCH(PST, L1, KEEP)), *(p))
@@ -10133,6 +10141,7 @@ typedef struct _SID_AND_ATTRIBUTES_HASH {
 
 #define SECURITY_CCG_ID_BASE_RID        (0x0000005FL)
 #define SECURITY_UMFD_BASE_RID          (0x00000060L)
+#define SECURITY_UNIQUIFIED_SERVICE_BASE_RID (0x00000061L)
 
 #define SECURITY_VIRTUALACCOUNT_ID_RID_COUNT   (6L)
 
@@ -13363,9 +13372,11 @@ typedef struct _SERVERSILO_BASIC_INFORMATION {
     DWORD ServiceSessionId;
     SERVERSILO_STATE State;
     DWORD    ExitStatus;
-    BOOLEAN IsDownlevelContainer;
+    BOOLEAN Reserved;
     PVOID ApiSetSchema;
     PVOID HostApiSetSchema;
+    DWORD ContainerBuildNumber;
+    DWORD HostBuildNumber;
 } SERVERSILO_BASIC_INFORMATION, *PSERVERSILO_BASIC_INFORMATION;
 
 //
@@ -21689,6 +21700,13 @@ RtlConstantTimeEqualMemory(
     for (; i < len; i += 1) {
 
 #if !defined(_M_CEE) && (defined(_M_ARM) || defined(_M_ARM64) || defined(_M_ARM64EC))
+
+        // Faster is better even when constant time is required.  Optimize performance
+        // by avoiding memory barrier generation for ARM.  The parameters to this
+        // function are NOT volatile, so the caller must not expect the generation
+        // of non-ISO volatile memory barriers regardless of the compiler flags used.
+        // Instead, if the caller shares this memory with other threads, it is
+        // responsible for synchronizing access with the associated acquire barrier.
 
         x |= __iso_volatile_load8(&p1[i]) ^ __iso_volatile_load8(&p2[i]);
 

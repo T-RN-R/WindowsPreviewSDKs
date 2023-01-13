@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.220110.5
+// C++/WinRT v2.0.220418.1
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -11,16 +11,9 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     template <typename T> struct __declspec(empty_bases) EventHandler;
     struct EventRegistrationToken;
     struct IAsyncAction;
-    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     struct IClosable;
     template <typename T> struct __declspec(empty_bases) IReference;
     template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
-}
-WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
-{
-    template <typename K, typename V> struct __declspec(empty_bases) IMapView;
-    template <typename T> struct __declspec(empty_bases) IVectorView;
-    template <typename T> struct __declspec(empty_bases) IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::Display
 {
@@ -2152,18 +2145,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometer
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::AccelerometerReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Accelerometer, winrt::Windows::Devices::Sensors::AccelerometerReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Accelerometer, winrt::Windows::Devices::Sensors::AccelerometerReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IAccelerometer, &impl::abi_t<winrt::Windows::Devices::Sensors::IAccelerometer>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Accelerometer, winrt::Windows::Devices::Sensors::AccelerometerReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
-        WINRT_IMPL_AUTO(winrt::event_token) Shaken(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Accelerometer, winrt::Windows::Devices::Sensors::AccelerometerShakenEventArgs> const& handler) const;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto Shaken(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Accelerometer, winrt::Windows::Devices::Sensors::AccelerometerShakenEventArgs> const& handler) const;
         using Shaken_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IAccelerometer, &impl::abi_t<winrt::Windows::Devices::Sensors::IAccelerometer>::remove_Shaken>;
         [[nodiscard]] Shaken_revoker Shaken(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Accelerometer, winrt::Windows::Devices::Sensors::AccelerometerShakenEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) Shaken(winrt::event_token const& token) const noexcept;
+        auto Shaken(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometer>
     {
@@ -2172,8 +2165,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometer2
     {
-        WINRT_IMPL_AUTO(void) ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Graphics::Display::DisplayOrientations) ReadingTransform() const;
+        auto ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
+        [[nodiscard]] auto ReadingTransform() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometer2>
     {
@@ -2182,9 +2175,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometer3
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometer3>
     {
@@ -2193,7 +2186,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometer4
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::AccelerometerReadingType) ReadingType() const;
+        [[nodiscard]] auto ReadingType() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometer4>
     {
@@ -2202,7 +2195,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometer5
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::AccelerometerDataThreshold) ReportThreshold() const;
+        [[nodiscard]] auto ReportThreshold() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometer5>
     {
@@ -2211,12 +2204,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerDataThreshold
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(double) XAxisInGForce() const;
-        WINRT_IMPL_AUTO(void) XAxisInGForce(double value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) YAxisInGForce() const;
-        WINRT_IMPL_AUTO(void) YAxisInGForce(double value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) ZAxisInGForce() const;
-        WINRT_IMPL_AUTO(void) ZAxisInGForce(double value) const;
+        [[nodiscard]] auto XAxisInGForce() const;
+        auto XAxisInGForce(double value) const;
+        [[nodiscard]] auto YAxisInGForce() const;
+        auto YAxisInGForce(double value) const;
+        [[nodiscard]] auto ZAxisInGForce() const;
+        auto ZAxisInGForce(double value) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerDataThreshold>
     {
@@ -2225,7 +2218,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerDeviceId
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] auto DeviceId() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerDeviceId>
     {
@@ -2234,10 +2227,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) AccelerationX() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) AccelerationY() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) AccelerationZ() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto AccelerationX() const;
+        [[nodiscard]] auto AccelerationY() const;
+        [[nodiscard]] auto AccelerationZ() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerReading>
     {
@@ -2246,8 +2239,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerReading2>
     {
@@ -2256,7 +2249,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::AccelerometerReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerReadingChangedEventArgs>
     {
@@ -2265,7 +2258,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerShakenEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] auto Timestamp() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerShakenEventArgs>
     {
@@ -2274,7 +2267,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Accelerometer) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerStatics>
     {
@@ -2283,7 +2276,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerStatics2
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Accelerometer) GetDefault(winrt::Windows::Devices::Sensors::AccelerometerReadingType const& readingType) const;
+        auto GetDefault(winrt::Windows::Devices::Sensors::AccelerometerReadingType const& readingType) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerStatics2>
     {
@@ -2292,8 +2285,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAccelerometerStatics3
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Accelerometer>) FromIdAsync(param::hstring const& deviceId) const;
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(winrt::Windows::Devices::Sensors::AccelerometerReadingType const& readingType) const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector(winrt::Windows::Devices::Sensors::AccelerometerReadingType const& readingType) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAccelerometerStatics3>
     {
@@ -2302,16 +2295,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IActivitySensor
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::ActivitySensorReading>) GetCurrentReadingAsync() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IVector<winrt::Windows::Devices::Sensors::ActivityType>) SubscribedActivities() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) PowerInMilliwatts() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Sensors::ActivityType>) SupportedActivities() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::ActivitySensor, winrt::Windows::Devices::Sensors::ActivitySensorReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReadingAsync() const;
+        [[nodiscard]] auto SubscribedActivities() const;
+        [[nodiscard]] auto PowerInMilliwatts() const;
+        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] auto SupportedActivities() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::ActivitySensor, winrt::Windows::Devices::Sensors::ActivitySensorReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IActivitySensor, &impl::abi_t<winrt::Windows::Devices::Sensors::IActivitySensor>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::ActivitySensor, winrt::Windows::Devices::Sensors::ActivitySensorReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IActivitySensor>
     {
@@ -2320,9 +2313,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IActivitySensorReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ActivityType) Activity() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ActivitySensorReadingConfidence) Confidence() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto Activity() const;
+        [[nodiscard]] auto Confidence() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IActivitySensorReading>
     {
@@ -2331,7 +2324,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IActivitySensorReadingChangeReport
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ActivitySensorReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IActivitySensorReadingChangeReport>
     {
@@ -2340,7 +2333,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IActivitySensorReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ActivitySensorReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IActivitySensorReadingChangedEventArgs>
     {
@@ -2349,11 +2342,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IActivitySensorStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::ActivitySensor>) GetDefaultAsync() const;
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::ActivitySensor>) FromIdAsync(param::hstring const& deviceId) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Sensors::ActivitySensorReading>>) GetSystemHistoryAsync(winrt::Windows::Foundation::DateTime const& fromTime) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Sensors::ActivitySensorReading>>) GetSystemHistoryAsync(winrt::Windows::Foundation::DateTime const& fromTime, winrt::Windows::Foundation::TimeSpan const& duration) const;
+        auto GetDefaultAsync() const;
+        auto GetDeviceSelector() const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
+        auto GetSystemHistoryAsync(winrt::Windows::Foundation::DateTime const& fromTime) const;
+        auto GetSystemHistoryAsync(winrt::Windows::Foundation::DateTime const& fromTime, winrt::Windows::Foundation::TimeSpan const& duration) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IActivitySensorStatics>
     {
@@ -2362,7 +2355,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IActivitySensorTriggerDetails
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Sensors::ActivitySensorReadingChangeReport>) ReadReports() const;
+        auto ReadReports() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IActivitySensorTriggerDetails>
     {
@@ -2371,15 +2364,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAltimeter
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::AltimeterReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Altimeter, winrt::Windows::Devices::Sensors::AltimeterReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Altimeter, winrt::Windows::Devices::Sensors::AltimeterReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IAltimeter, &impl::abi_t<winrt::Windows::Devices::Sensors::IAltimeter>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Altimeter, winrt::Windows::Devices::Sensors::AltimeterReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAltimeter>
     {
@@ -2388,9 +2381,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAltimeter2
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAltimeter2>
     {
@@ -2399,8 +2392,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAltimeterReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) AltitudeChangeInMeters() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto AltitudeChangeInMeters() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAltimeterReading>
     {
@@ -2409,8 +2402,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAltimeterReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAltimeterReading2>
     {
@@ -2419,7 +2412,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAltimeterReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::AltimeterReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAltimeterReadingChangedEventArgs>
     {
@@ -2428,7 +2421,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IAltimeterStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Altimeter) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IAltimeterStatics>
     {
@@ -2437,15 +2430,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometer
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::BarometerReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Barometer, winrt::Windows::Devices::Sensors::BarometerReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Barometer, winrt::Windows::Devices::Sensors::BarometerReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IBarometer, &impl::abi_t<winrt::Windows::Devices::Sensors::IBarometer>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Barometer, winrt::Windows::Devices::Sensors::BarometerReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometer>
     {
@@ -2454,9 +2447,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometer2
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometer2>
     {
@@ -2465,7 +2458,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometer3
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::BarometerDataThreshold) ReportThreshold() const;
+        [[nodiscard]] auto ReportThreshold() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometer3>
     {
@@ -2474,8 +2467,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometerDataThreshold
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(double) Hectopascals() const;
-        WINRT_IMPL_AUTO(void) Hectopascals(double value) const;
+        [[nodiscard]] auto Hectopascals() const;
+        auto Hectopascals(double value) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometerDataThreshold>
     {
@@ -2484,8 +2477,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometerReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) StationPressureInHectopascals() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto StationPressureInHectopascals() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometerReading>
     {
@@ -2494,8 +2487,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometerReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometerReading2>
     {
@@ -2504,7 +2497,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometerReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::BarometerReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometerReadingChangedEventArgs>
     {
@@ -2513,7 +2506,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometerStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Barometer) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometerStatics>
     {
@@ -2522,8 +2515,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IBarometerStatics2
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Barometer>) FromIdAsync(param::hstring const& deviceId) const;
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IBarometerStatics2>
     {
@@ -2532,14 +2525,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompass
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::CompassReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Compass, winrt::Windows::Devices::Sensors::CompassReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Compass, winrt::Windows::Devices::Sensors::CompassReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::ICompass, &impl::abi_t<winrt::Windows::Devices::Sensors::ICompass>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Compass, winrt::Windows::Devices::Sensors::CompassReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompass>
     {
@@ -2548,8 +2541,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompass2
     {
-        WINRT_IMPL_AUTO(void) ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Graphics::Display::DisplayOrientations) ReadingTransform() const;
+        auto ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
+        [[nodiscard]] auto ReadingTransform() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompass2>
     {
@@ -2558,9 +2551,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompass3
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompass3>
     {
@@ -2569,7 +2562,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompass4
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::CompassDataThreshold) ReportThreshold() const;
+        [[nodiscard]] auto ReportThreshold() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompass4>
     {
@@ -2578,8 +2571,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompassDataThreshold
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(double) Degrees() const;
-        WINRT_IMPL_AUTO(void) Degrees(double value) const;
+        [[nodiscard]] auto Degrees() const;
+        auto Degrees(double value) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompassDataThreshold>
     {
@@ -2588,7 +2581,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompassDeviceId
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] auto DeviceId() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompassDeviceId>
     {
@@ -2597,9 +2590,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompassReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) HeadingMagneticNorth() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<double>) HeadingTrueNorth() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto HeadingMagneticNorth() const;
+        [[nodiscard]] auto HeadingTrueNorth() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompassReading>
     {
@@ -2608,8 +2601,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompassReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompassReading2>
     {
@@ -2618,7 +2611,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompassReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::CompassReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompassReadingChangedEventArgs>
     {
@@ -2627,7 +2620,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompassReadingHeadingAccuracy
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::MagnetometerAccuracy) HeadingAccuracy() const;
+        [[nodiscard]] auto HeadingAccuracy() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompassReadingHeadingAccuracy>
     {
@@ -2636,7 +2629,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompassStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Compass) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompassStatics>
     {
@@ -2645,8 +2638,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ICompassStatics2
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Compass>) FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector() const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ICompassStatics2>
     {
@@ -2655,14 +2648,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometer
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::GyrometerReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Gyrometer, winrt::Windows::Devices::Sensors::GyrometerReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Gyrometer, winrt::Windows::Devices::Sensors::GyrometerReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IGyrometer, &impl::abi_t<winrt::Windows::Devices::Sensors::IGyrometer>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Gyrometer, winrt::Windows::Devices::Sensors::GyrometerReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometer>
     {
@@ -2671,8 +2664,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometer2
     {
-        WINRT_IMPL_AUTO(void) ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Graphics::Display::DisplayOrientations) ReadingTransform() const;
+        auto ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
+        [[nodiscard]] auto ReadingTransform() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometer2>
     {
@@ -2681,9 +2674,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometer3
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometer3>
     {
@@ -2692,7 +2685,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometer4
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::GyrometerDataThreshold) ReportThreshold() const;
+        [[nodiscard]] auto ReportThreshold() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometer4>
     {
@@ -2701,12 +2694,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometerDataThreshold
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(double) XAxisInDegreesPerSecond() const;
-        WINRT_IMPL_AUTO(void) XAxisInDegreesPerSecond(double value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) YAxisInDegreesPerSecond() const;
-        WINRT_IMPL_AUTO(void) YAxisInDegreesPerSecond(double value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) ZAxisInDegreesPerSecond() const;
-        WINRT_IMPL_AUTO(void) ZAxisInDegreesPerSecond(double value) const;
+        [[nodiscard]] auto XAxisInDegreesPerSecond() const;
+        auto XAxisInDegreesPerSecond(double value) const;
+        [[nodiscard]] auto YAxisInDegreesPerSecond() const;
+        auto YAxisInDegreesPerSecond(double value) const;
+        [[nodiscard]] auto ZAxisInDegreesPerSecond() const;
+        auto ZAxisInDegreesPerSecond(double value) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometerDataThreshold>
     {
@@ -2715,7 +2708,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometerDeviceId
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] auto DeviceId() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometerDeviceId>
     {
@@ -2724,10 +2717,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometerReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) AngularVelocityX() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) AngularVelocityY() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) AngularVelocityZ() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto AngularVelocityX() const;
+        [[nodiscard]] auto AngularVelocityY() const;
+        [[nodiscard]] auto AngularVelocityZ() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometerReading>
     {
@@ -2736,8 +2729,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometerReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometerReading2>
     {
@@ -2746,7 +2739,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometerReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::GyrometerReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometerReadingChangedEventArgs>
     {
@@ -2755,7 +2748,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometerStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Gyrometer) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometerStatics>
     {
@@ -2764,8 +2757,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IGyrometerStatics2
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Gyrometer>) FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector() const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IGyrometerStatics2>
     {
@@ -2774,9 +2767,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHingeAngleReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) AngleInDegrees() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto AngleInDegrees() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHingeAngleReading>
     {
@@ -2785,15 +2778,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHingeAngleSensor
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::HingeAngleReading>) GetCurrentReadingAsync() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) MinReportThresholdInDegrees() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) ReportThresholdInDegrees() const;
-        WINRT_IMPL_AUTO(void) ReportThresholdInDegrees(double value) const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::HingeAngleSensor, winrt::Windows::Devices::Sensors::HingeAngleSensorReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReadingAsync() const;
+        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] auto MinReportThresholdInDegrees() const;
+        [[nodiscard]] auto ReportThresholdInDegrees() const;
+        auto ReportThresholdInDegrees(double value) const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::HingeAngleSensor, winrt::Windows::Devices::Sensors::HingeAngleSensorReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IHingeAngleSensor, &impl::abi_t<winrt::Windows::Devices::Sensors::IHingeAngleSensor>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::HingeAngleSensor, winrt::Windows::Devices::Sensors::HingeAngleSensorReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHingeAngleSensor>
     {
@@ -2802,7 +2795,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHingeAngleSensorReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::HingeAngleReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHingeAngleSensorReadingChangedEventArgs>
     {
@@ -2811,10 +2804,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHingeAngleSensorStatics
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::HingeAngleSensor>) GetDefaultAsync() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::HingeAngleSensor>) GetRelatedToAdjacentPanelsAsync(param::hstring const& firstPanelId, param::hstring const& secondPanelId) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::HingeAngleSensor>) FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector() const;
+        auto GetDefaultAsync() const;
+        auto GetRelatedToAdjacentPanelsAsync(param::hstring const& firstPanelId, param::hstring const& secondPanelId) const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHingeAngleSensorStatics>
     {
@@ -2823,11 +2816,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHumanPresenceFeatures
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SensorId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IVectorView<uint32_t>) SupportedWakeOrLockDistancesInMillimeters() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsWakeOnApproachSupported() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLockOnLeaveSupported() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAttentionAwareDimmingSupported() const;
+        [[nodiscard]] auto SensorId() const;
+        [[nodiscard]] auto SupportedWakeOrLockDistancesInMillimeters() const;
+        [[nodiscard]] auto IsWakeOnApproachSupported() const;
+        [[nodiscard]] auto IsLockOnLeaveSupported() const;
+        [[nodiscard]] auto IsAttentionAwareDimmingSupported() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHumanPresenceFeatures>
     {
@@ -2836,14 +2829,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHumanPresenceSensor
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<uint32_t>) MaxDetectableDistanceInMillimeters() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<uint32_t>) MinDetectableDistanceInMillimeters() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::HumanPresenceSensorReading) GetCurrentReading() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::HumanPresenceSensor, winrt::Windows::Devices::Sensors::HumanPresenceSensorReadingChangedEventArgs> const& handler) const;
+        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] auto MaxDetectableDistanceInMillimeters() const;
+        [[nodiscard]] auto MinDetectableDistanceInMillimeters() const;
+        auto GetCurrentReading() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::HumanPresenceSensor, winrt::Windows::Devices::Sensors::HumanPresenceSensorReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IHumanPresenceSensor, &impl::abi_t<winrt::Windows::Devices::Sensors::IHumanPresenceSensor>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::HumanPresenceSensor, winrt::Windows::Devices::Sensors::HumanPresenceSensorReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHumanPresenceSensor>
     {
@@ -2852,10 +2845,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHumanPresenceSensorReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::HumanPresence) Presence() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::HumanEngagement) Engagement() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<uint32_t>) DistanceInMillimeters() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto Presence() const;
+        [[nodiscard]] auto Engagement() const;
+        [[nodiscard]] auto DistanceInMillimeters() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHumanPresenceSensorReading>
     {
@@ -2864,7 +2857,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHumanPresenceSensorReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::HumanPresenceSensorReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHumanPresenceSensorReadingChangedEventArgs>
     {
@@ -2873,9 +2866,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHumanPresenceSensorStatics
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::HumanPresenceSensor>) FromIdAsync(param::hstring const& sensorId) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::HumanPresenceSensor>) GetDefaultAsync() const;
+        auto GetDeviceSelector() const;
+        auto FromIdAsync(param::hstring const& sensorId) const;
+        auto GetDefaultAsync() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHumanPresenceSensorStatics>
     {
@@ -2884,20 +2877,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHumanPresenceSettings
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SensorId() const;
-        WINRT_IMPL_AUTO(void) SensorId(param::hstring const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsWakeOnApproachEnabled() const;
-        WINRT_IMPL_AUTO(void) IsWakeOnApproachEnabled(bool value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<uint32_t>) WakeOnApproachDistanceInMillimeters() const;
-        WINRT_IMPL_AUTO(void) WakeOnApproachDistanceInMillimeters(winrt::Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLockOnLeaveEnabled() const;
-        WINRT_IMPL_AUTO(void) IsLockOnLeaveEnabled(bool value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<uint32_t>) LockOnLeaveDistanceInMillimeters() const;
-        WINRT_IMPL_AUTO(void) LockOnLeaveDistanceInMillimeters(winrt::Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::TimeSpan) LockOnLeaveTimeout() const;
-        WINRT_IMPL_AUTO(void) LockOnLeaveTimeout(winrt::Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAttentionAwareDimmingEnabled() const;
-        WINRT_IMPL_AUTO(void) IsAttentionAwareDimmingEnabled(bool value) const;
+        [[nodiscard]] auto SensorId() const;
+        auto SensorId(param::hstring const& value) const;
+        [[nodiscard]] auto IsWakeOnApproachEnabled() const;
+        auto IsWakeOnApproachEnabled(bool value) const;
+        [[nodiscard]] auto WakeOnApproachDistanceInMillimeters() const;
+        auto WakeOnApproachDistanceInMillimeters(winrt::Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] auto IsLockOnLeaveEnabled() const;
+        auto IsLockOnLeaveEnabled(bool value) const;
+        [[nodiscard]] auto LockOnLeaveDistanceInMillimeters() const;
+        auto LockOnLeaveDistanceInMillimeters(winrt::Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] auto LockOnLeaveTimeout() const;
+        auto LockOnLeaveTimeout(winrt::Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] auto IsAttentionAwareDimmingEnabled() const;
+        auto IsAttentionAwareDimmingEnabled(bool value) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHumanPresenceSettings>
     {
@@ -2906,17 +2899,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IHumanPresenceSettingsStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::HumanPresenceSettings>) GetCurrentSettingsAsync() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::HumanPresenceSettings) GetCurrentSettings() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncAction) UpdateSettingsAsync(winrt::Windows::Devices::Sensors::HumanPresenceSettings const& settings) const;
-        WINRT_IMPL_AUTO(void) UpdateSettings(winrt::Windows::Devices::Sensors::HumanPresenceSettings const& settings) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::HumanPresenceFeatures>) GetSupportedFeaturesForSensorIdAsync(param::hstring const& sensorId) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::HumanPresenceFeatures) GetSupportedFeaturesForSensorId(param::hstring const& sensorId) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Foundation::TimeSpan>) GetSupportedLockOnLeaveTimeouts() const;
-        WINRT_IMPL_AUTO(winrt::event_token) SettingsChanged(winrt::Windows::Foundation::EventHandler<winrt::Windows::Foundation::IInspectable> const& handler) const;
+        auto GetCurrentSettingsAsync() const;
+        auto GetCurrentSettings() const;
+        auto UpdateSettingsAsync(winrt::Windows::Devices::Sensors::HumanPresenceSettings const& settings) const;
+        auto UpdateSettings(winrt::Windows::Devices::Sensors::HumanPresenceSettings const& settings) const;
+        auto GetSupportedFeaturesForSensorIdAsync(param::hstring const& sensorId) const;
+        auto GetSupportedFeaturesForSensorId(param::hstring const& sensorId) const;
+        auto GetSupportedLockOnLeaveTimeouts() const;
+        auto SettingsChanged(winrt::Windows::Foundation::EventHandler<winrt::Windows::Foundation::IInspectable> const& handler) const;
         using SettingsChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IHumanPresenceSettingsStatics, &impl::abi_t<winrt::Windows::Devices::Sensors::IHumanPresenceSettingsStatics>::remove_SettingsChanged>;
         [[nodiscard]] SettingsChanged_revoker SettingsChanged(auto_revoke_t, winrt::Windows::Foundation::EventHandler<winrt::Windows::Foundation::IInspectable> const& handler) const;
-        WINRT_IMPL_AUTO(void) SettingsChanged(winrt::event_token const& token) const noexcept;
+        auto SettingsChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IHumanPresenceSettingsStatics>
     {
@@ -2925,14 +2918,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometer
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::InclinometerReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Inclinometer, winrt::Windows::Devices::Sensors::InclinometerReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Inclinometer, winrt::Windows::Devices::Sensors::InclinometerReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IInclinometer, &impl::abi_t<winrt::Windows::Devices::Sensors::IInclinometer>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Inclinometer, winrt::Windows::Devices::Sensors::InclinometerReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometer>
     {
@@ -2941,9 +2934,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometer2
     {
-        WINRT_IMPL_AUTO(void) ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Graphics::Display::DisplayOrientations) ReadingTransform() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::SensorReadingType) ReadingType() const;
+        auto ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
+        [[nodiscard]] auto ReadingTransform() const;
+        [[nodiscard]] auto ReadingType() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometer2>
     {
@@ -2952,9 +2945,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometer3
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometer3>
     {
@@ -2963,7 +2956,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometer4
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::InclinometerDataThreshold) ReportThreshold() const;
+        [[nodiscard]] auto ReportThreshold() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometer4>
     {
@@ -2972,12 +2965,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerDataThreshold
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(float) PitchInDegrees() const;
-        WINRT_IMPL_AUTO(void) PitchInDegrees(float value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) RollInDegrees() const;
-        WINRT_IMPL_AUTO(void) RollInDegrees(float value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) YawInDegrees() const;
-        WINRT_IMPL_AUTO(void) YawInDegrees(float value) const;
+        [[nodiscard]] auto PitchInDegrees() const;
+        auto PitchInDegrees(float value) const;
+        [[nodiscard]] auto RollInDegrees() const;
+        auto RollInDegrees(float value) const;
+        [[nodiscard]] auto YawInDegrees() const;
+        auto YawInDegrees(float value) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerDataThreshold>
     {
@@ -2986,7 +2979,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerDeviceId
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] auto DeviceId() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerDeviceId>
     {
@@ -2995,10 +2988,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) PitchDegrees() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) RollDegrees() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) YawDegrees() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto PitchDegrees() const;
+        [[nodiscard]] auto RollDegrees() const;
+        [[nodiscard]] auto YawDegrees() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerReading>
     {
@@ -3007,8 +3000,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerReading2>
     {
@@ -3017,7 +3010,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::InclinometerReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerReadingChangedEventArgs>
     {
@@ -3026,7 +3019,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerReadingYawAccuracy
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::MagnetometerAccuracy) YawAccuracy() const;
+        [[nodiscard]] auto YawAccuracy() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerReadingYawAccuracy>
     {
@@ -3035,7 +3028,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Inclinometer) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerStatics>
     {
@@ -3044,7 +3037,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerStatics2
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Inclinometer) GetDefaultForRelativeReadings() const;
+        auto GetDefaultForRelativeReadings() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerStatics2>
     {
@@ -3053,7 +3046,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerStatics3
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Inclinometer) GetDefault(winrt::Windows::Devices::Sensors::SensorReadingType const& sensorReadingtype) const;
+        auto GetDefault(winrt::Windows::Devices::Sensors::SensorReadingType const& sensorReadingtype) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerStatics3>
     {
@@ -3062,8 +3055,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IInclinometerStatics4
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(winrt::Windows::Devices::Sensors::SensorReadingType const& readingType) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Inclinometer>) FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector(winrt::Windows::Devices::Sensors::SensorReadingType const& readingType) const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IInclinometerStatics4>
     {
@@ -3072,14 +3065,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensor
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::LightSensorReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::LightSensor, winrt::Windows::Devices::Sensors::LightSensorReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::LightSensor, winrt::Windows::Devices::Sensors::LightSensorReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::ILightSensor, &impl::abi_t<winrt::Windows::Devices::Sensors::ILightSensor>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::LightSensor, winrt::Windows::Devices::Sensors::LightSensorReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensor>
     {
@@ -3088,9 +3081,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensor2
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensor2>
     {
@@ -3099,7 +3092,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensor3
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::LightSensorDataThreshold) ReportThreshold() const;
+        [[nodiscard]] auto ReportThreshold() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensor3>
     {
@@ -3108,10 +3101,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensorDataThreshold
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(float) LuxPercentage() const;
-        WINRT_IMPL_AUTO(void) LuxPercentage(float value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) AbsoluteLux() const;
-        WINRT_IMPL_AUTO(void) AbsoluteLux(float value) const;
+        [[nodiscard]] auto LuxPercentage() const;
+        auto LuxPercentage(float value) const;
+        [[nodiscard]] auto AbsoluteLux() const;
+        auto AbsoluteLux(float value) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensorDataThreshold>
     {
@@ -3120,7 +3113,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensorDeviceId
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] auto DeviceId() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensorDeviceId>
     {
@@ -3129,8 +3122,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensorReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) IlluminanceInLux() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto IlluminanceInLux() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensorReading>
     {
@@ -3139,8 +3132,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensorReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensorReading2>
     {
@@ -3149,7 +3142,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensorReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::LightSensorReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensorReadingChangedEventArgs>
     {
@@ -3158,7 +3151,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensorStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::LightSensor) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensorStatics>
     {
@@ -3167,8 +3160,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ILightSensorStatics2
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::LightSensor>) FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector() const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ILightSensorStatics2>
     {
@@ -3177,14 +3170,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometer
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::MagnetometerReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Magnetometer, winrt::Windows::Devices::Sensors::MagnetometerReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Magnetometer, winrt::Windows::Devices::Sensors::MagnetometerReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IMagnetometer, &impl::abi_t<winrt::Windows::Devices::Sensors::IMagnetometer>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Magnetometer, winrt::Windows::Devices::Sensors::MagnetometerReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometer>
     {
@@ -3193,8 +3186,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometer2
     {
-        WINRT_IMPL_AUTO(void) ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Graphics::Display::DisplayOrientations) ReadingTransform() const;
+        auto ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
+        [[nodiscard]] auto ReadingTransform() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometer2>
     {
@@ -3203,9 +3196,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometer3
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometer3>
     {
@@ -3214,7 +3207,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometer4
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::MagnetometerDataThreshold) ReportThreshold() const;
+        [[nodiscard]] auto ReportThreshold() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometer4>
     {
@@ -3223,12 +3216,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometerDataThreshold
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(float) XAxisMicroteslas() const;
-        WINRT_IMPL_AUTO(void) XAxisMicroteslas(float value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) YAxisMicroteslas() const;
-        WINRT_IMPL_AUTO(void) YAxisMicroteslas(float value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) ZAxisMicroteslas() const;
-        WINRT_IMPL_AUTO(void) ZAxisMicroteslas(float value) const;
+        [[nodiscard]] auto XAxisMicroteslas() const;
+        auto XAxisMicroteslas(float value) const;
+        [[nodiscard]] auto YAxisMicroteslas() const;
+        auto YAxisMicroteslas(float value) const;
+        [[nodiscard]] auto ZAxisMicroteslas() const;
+        auto ZAxisMicroteslas(float value) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometerDataThreshold>
     {
@@ -3237,7 +3230,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometerDeviceId
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] auto DeviceId() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometerDeviceId>
     {
@@ -3246,11 +3239,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometerReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) MagneticFieldX() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) MagneticFieldY() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) MagneticFieldZ() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::MagnetometerAccuracy) DirectionalAccuracy() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto MagneticFieldX() const;
+        [[nodiscard]] auto MagneticFieldY() const;
+        [[nodiscard]] auto MagneticFieldZ() const;
+        [[nodiscard]] auto DirectionalAccuracy() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometerReading>
     {
@@ -3259,8 +3252,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometerReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometerReading2>
     {
@@ -3269,7 +3262,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometerReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::MagnetometerReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometerReadingChangedEventArgs>
     {
@@ -3278,7 +3271,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometerStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::Magnetometer) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometerStatics>
     {
@@ -3287,8 +3280,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IMagnetometerStatics2
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Magnetometer>) FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector() const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IMagnetometerStatics2>
     {
@@ -3297,14 +3290,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensor
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::OrientationSensorReading) GetCurrentReading() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::OrientationSensor, winrt::Windows::Devices::Sensors::OrientationSensorReadingChangedEventArgs> const& handler) const;
+        auto GetCurrentReading() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::OrientationSensor, winrt::Windows::Devices::Sensors::OrientationSensorReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IOrientationSensor, &impl::abi_t<winrt::Windows::Devices::Sensors::IOrientationSensor>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::OrientationSensor, winrt::Windows::Devices::Sensors::OrientationSensorReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensor>
     {
@@ -3313,9 +3306,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensor2
     {
-        WINRT_IMPL_AUTO(void) ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Graphics::Display::DisplayOrientations) ReadingTransform() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::SensorReadingType) ReadingType() const;
+        auto ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
+        [[nodiscard]] auto ReadingTransform() const;
+        [[nodiscard]] auto ReadingType() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensor2>
     {
@@ -3324,9 +3317,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensor3
     {
-        WINRT_IMPL_AUTO(void) ReportLatency(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportLatency() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxBatchSize() const;
+        auto ReportLatency(uint32_t value) const;
+        [[nodiscard]] auto ReportLatency() const;
+        [[nodiscard]] auto MaxBatchSize() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensor3>
     {
@@ -3335,7 +3328,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorDeviceId
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] auto DeviceId() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorDeviceId>
     {
@@ -3344,9 +3337,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::SensorRotationMatrix) RotationMatrix() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::SensorQuaternion) Quaternion() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto RotationMatrix() const;
+        [[nodiscard]] auto Quaternion() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorReading>
     {
@@ -3355,8 +3348,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorReading2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<winrt::Windows::Foundation::TimeSpan>) PerformanceCount() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<hstring, winrt::Windows::Foundation::IInspectable>) Properties() const;
+        [[nodiscard]] auto PerformanceCount() const;
+        [[nodiscard]] auto Properties() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorReading2>
     {
@@ -3365,7 +3358,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::OrientationSensorReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorReadingChangedEventArgs>
     {
@@ -3374,7 +3367,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorReadingYawAccuracy
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::MagnetometerAccuracy) YawAccuracy() const;
+        [[nodiscard]] auto YawAccuracy() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorReadingYawAccuracy>
     {
@@ -3383,7 +3376,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::OrientationSensor) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorStatics>
     {
@@ -3392,7 +3385,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorStatics2
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::OrientationSensor) GetDefaultForRelativeReadings() const;
+        auto GetDefaultForRelativeReadings() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorStatics2>
     {
@@ -3401,8 +3394,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorStatics3
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::OrientationSensor) GetDefault(winrt::Windows::Devices::Sensors::SensorReadingType const& sensorReadingtype) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::OrientationSensor) GetDefault(winrt::Windows::Devices::Sensors::SensorReadingType const& sensorReadingType, winrt::Windows::Devices::Sensors::SensorOptimizationGoal const& optimizationGoal) const;
+        auto GetDefault(winrt::Windows::Devices::Sensors::SensorReadingType const& sensorReadingtype) const;
+        auto GetDefault(winrt::Windows::Devices::Sensors::SensorReadingType const& sensorReadingType, winrt::Windows::Devices::Sensors::SensorOptimizationGoal const& optimizationGoal) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorStatics3>
     {
@@ -3411,9 +3404,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IOrientationSensorStatics4
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(winrt::Windows::Devices::Sensors::SensorReadingType const& readingType) const;
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(winrt::Windows::Devices::Sensors::SensorReadingType const& readingType, winrt::Windows::Devices::Sensors::SensorOptimizationGoal const& optimizationGoal) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::OrientationSensor>) FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector(winrt::Windows::Devices::Sensors::SensorReadingType const& readingType) const;
+        auto GetDeviceSelector(winrt::Windows::Devices::Sensors::SensorReadingType const& readingType, winrt::Windows::Devices::Sensors::SensorOptimizationGoal const& optimizationGoal) const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IOrientationSensorStatics4>
     {
@@ -3422,15 +3415,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IPedometer
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(double) PowerInMilliwatts() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinimumReportInterval() const;
-        WINRT_IMPL_AUTO(void) ReportInterval(uint32_t value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReportInterval() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Pedometer, winrt::Windows::Devices::Sensors::PedometerReadingChangedEventArgs> const& handler) const;
+        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] auto PowerInMilliwatts() const;
+        [[nodiscard]] auto MinimumReportInterval() const;
+        auto ReportInterval(uint32_t value) const;
+        [[nodiscard]] auto ReportInterval() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Pedometer, winrt::Windows::Devices::Sensors::PedometerReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IPedometer, &impl::abi_t<winrt::Windows::Devices::Sensors::IPedometer>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::Pedometer, winrt::Windows::Devices::Sensors::PedometerReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IPedometer>
     {
@@ -3439,7 +3432,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IPedometer2
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IMapView<winrt::Windows::Devices::Sensors::PedometerStepKind, winrt::Windows::Devices::Sensors::PedometerReading>) GetCurrentReadings() const;
+        auto GetCurrentReadings() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IPedometer2>
     {
@@ -3448,7 +3441,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IPedometerDataThresholdFactory
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::PedometerDataThreshold) Create(winrt::Windows::Devices::Sensors::Pedometer const& sensor, int32_t stepGoal) const;
+        auto Create(winrt::Windows::Devices::Sensors::Pedometer const& sensor, int32_t stepGoal) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IPedometerDataThresholdFactory>
     {
@@ -3457,10 +3450,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IPedometerReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::PedometerStepKind) StepKind() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) CumulativeSteps() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::TimeSpan) CumulativeStepsDuration() const;
+        [[nodiscard]] auto StepKind() const;
+        [[nodiscard]] auto CumulativeSteps() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto CumulativeStepsDuration() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IPedometerReading>
     {
@@ -3469,7 +3462,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IPedometerReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::PedometerReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IPedometerReadingChangedEventArgs>
     {
@@ -3478,11 +3471,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IPedometerStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Pedometer>) FromIdAsync(param::hstring const& deviceId) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::Pedometer>) GetDefaultAsync() const;
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Sensors::PedometerReading>>) GetSystemHistoryAsync(winrt::Windows::Foundation::DateTime const& fromTime) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Sensors::PedometerReading>>) GetSystemHistoryAsync(winrt::Windows::Foundation::DateTime const& fromTime, winrt::Windows::Foundation::TimeSpan const& duration) const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDefaultAsync() const;
+        auto GetDeviceSelector() const;
+        auto GetSystemHistoryAsync(winrt::Windows::Foundation::DateTime const& fromTime) const;
+        auto GetSystemHistoryAsync(winrt::Windows::Foundation::DateTime const& fromTime, winrt::Windows::Foundation::TimeSpan const& duration) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IPedometerStatics>
     {
@@ -3491,7 +3484,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IPedometerStatics2
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Sensors::PedometerReading>) GetReadingsFromTriggerDetails(winrt::Windows::Devices::Sensors::SensorDataThresholdTriggerDetails const& triggerDetails) const;
+        auto GetReadingsFromTriggerDetails(winrt::Windows::Devices::Sensors::SensorDataThresholdTriggerDetails const& triggerDetails) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IPedometerStatics2>
     {
@@ -3500,15 +3493,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IProximitySensor
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<uint32_t>) MaxDistanceInMillimeters() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<uint32_t>) MinDistanceInMillimeters() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ProximitySensorReading) GetCurrentReading() const;
-        WINRT_IMPL_AUTO(winrt::event_token) ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::ProximitySensor, winrt::Windows::Devices::Sensors::ProximitySensorReadingChangedEventArgs> const& handler) const;
+        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] auto MaxDistanceInMillimeters() const;
+        [[nodiscard]] auto MinDistanceInMillimeters() const;
+        auto GetCurrentReading() const;
+        auto ReadingChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::ProximitySensor, winrt::Windows::Devices::Sensors::ProximitySensorReadingChangedEventArgs> const& handler) const;
         using ReadingChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::IProximitySensor, &impl::abi_t<winrt::Windows::Devices::Sensors::IProximitySensor>::remove_ReadingChanged>;
         [[nodiscard]] ReadingChanged_revoker ReadingChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::ProximitySensor, winrt::Windows::Devices::Sensors::ProximitySensorReadingChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) ReadingChanged(winrt::event_token const& token) const noexcept;
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ProximitySensorDisplayOnOffController) CreateDisplayOnOffController() const;
+        auto ReadingChanged(winrt::event_token const& token) const noexcept;
+        auto CreateDisplayOnOffController() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IProximitySensor>
     {
@@ -3517,7 +3510,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IProximitySensorDataThresholdFactory
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ProximitySensorDataThreshold) Create(winrt::Windows::Devices::Sensors::ProximitySensor const& sensor) const;
+        auto Create(winrt::Windows::Devices::Sensors::ProximitySensor const& sensor) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IProximitySensorDataThresholdFactory>
     {
@@ -3526,9 +3519,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IProximitySensorReading
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDetected() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::IReference<uint32_t>) DistanceInMillimeters() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto IsDetected() const;
+        [[nodiscard]] auto DistanceInMillimeters() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IProximitySensorReading>
     {
@@ -3537,7 +3530,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IProximitySensorReadingChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ProximitySensorReading) Reading() const;
+        [[nodiscard]] auto Reading() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IProximitySensorReadingChangedEventArgs>
     {
@@ -3546,8 +3539,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IProximitySensorStatics
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::ProximitySensor) FromId(param::hstring const& sensorId) const;
+        auto GetDeviceSelector() const;
+        auto FromId(param::hstring const& sensorId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IProximitySensorStatics>
     {
@@ -3556,7 +3549,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_IProximitySensorStatics2
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Sensors::ProximitySensorReading>) GetReadingsFromTriggerDetails(winrt::Windows::Devices::Sensors::SensorDataThresholdTriggerDetails const& triggerDetails) const;
+        auto GetReadingsFromTriggerDetails(winrt::Windows::Devices::Sensors::SensorDataThresholdTriggerDetails const& triggerDetails) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::IProximitySensorStatics2>
     {
@@ -3573,8 +3566,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISensorDataThresholdTriggerDetails
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::SensorType) SensorType() const;
+        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] auto SensorType() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISensorDataThresholdTriggerDetails>
     {
@@ -3583,10 +3576,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISensorQuaternion
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(float) W() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) X() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) Y() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) Z() const;
+        [[nodiscard]] auto W() const;
+        [[nodiscard]] auto X() const;
+        [[nodiscard]] auto Y() const;
+        [[nodiscard]] auto Z() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISensorQuaternion>
     {
@@ -3595,15 +3588,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISensorRotationMatrix
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M11() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M12() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M13() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M21() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M22() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M23() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M31() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M32() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(float) M33() const;
+        [[nodiscard]] auto M11() const;
+        [[nodiscard]] auto M12() const;
+        [[nodiscard]] auto M13() const;
+        [[nodiscard]] auto M21() const;
+        [[nodiscard]] auto M22() const;
+        [[nodiscard]] auto M23() const;
+        [[nodiscard]] auto M31() const;
+        [[nodiscard]] auto M32() const;
+        [[nodiscard]] auto M33() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISensorRotationMatrix>
     {
@@ -3612,11 +3605,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISimpleOrientationSensor
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::SimpleOrientation) GetCurrentOrientation() const;
-        WINRT_IMPL_AUTO(winrt::event_token) OrientationChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::SimpleOrientationSensor, winrt::Windows::Devices::Sensors::SimpleOrientationSensorOrientationChangedEventArgs> const& handler) const;
+        auto GetCurrentOrientation() const;
+        auto OrientationChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::SimpleOrientationSensor, winrt::Windows::Devices::Sensors::SimpleOrientationSensorOrientationChangedEventArgs> const& handler) const;
         using OrientationChanged_revoker = impl::event_revoker<winrt::Windows::Devices::Sensors::ISimpleOrientationSensor, &impl::abi_t<winrt::Windows::Devices::Sensors::ISimpleOrientationSensor>::remove_OrientationChanged>;
         [[nodiscard]] OrientationChanged_revoker OrientationChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Sensors::SimpleOrientationSensor, winrt::Windows::Devices::Sensors::SimpleOrientationSensorOrientationChangedEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) OrientationChanged(winrt::event_token const& token) const noexcept;
+        auto OrientationChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISimpleOrientationSensor>
     {
@@ -3625,8 +3618,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISimpleOrientationSensor2
     {
-        WINRT_IMPL_AUTO(void) ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Graphics::Display::DisplayOrientations) ReadingTransform() const;
+        auto ReadingTransform(winrt::Windows::Graphics::Display::DisplayOrientations const& value) const;
+        [[nodiscard]] auto ReadingTransform() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISimpleOrientationSensor2>
     {
@@ -3635,7 +3628,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISimpleOrientationSensorDeviceId
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] auto DeviceId() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISimpleOrientationSensorDeviceId>
     {
@@ -3644,8 +3637,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISimpleOrientationSensorOrientationChangedEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Foundation::DateTime) Timestamp() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::SimpleOrientation) Orientation() const;
+        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] auto Orientation() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISimpleOrientationSensorOrientationChangedEventArgs>
     {
@@ -3654,7 +3647,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISimpleOrientationSensorStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Devices::Sensors::SimpleOrientationSensor) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISimpleOrientationSensorStatics>
     {
@@ -3663,8 +3656,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sensors_ISimpleOrientationSensorStatics2
     {
-        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Sensors::SimpleOrientationSensor>) FromIdAsync(param::hstring const& deviceId) const;
+        auto GetDeviceSelector() const;
+        auto FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<winrt::Windows::Devices::Sensors::ISimpleOrientationSensorStatics2>
     {

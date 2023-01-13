@@ -3049,6 +3049,7 @@ BackupWrite(
     _Inout_ LPVOID *lpContext
     );
 
+
 //
 //  Stream id structure
 //
@@ -8071,21 +8072,21 @@ SetSystemPowerState(
 // Power Management APIs
 //
 
-#define AC_LINE_OFFLINE                 0x00
-#define AC_LINE_ONLINE                  0x01
-#define AC_LINE_BACKUP_POWER            0x02
-#define AC_LINE_UNKNOWN                 0xFF
+#define AC_LINE_OFFLINE             0x00
+#define AC_LINE_ONLINE              0x01
+#define AC_LINE_BACKUP_POWER        0x02    // Deprecated value; Not used on any NT based version of Windows
+#define AC_LINE_UNKNOWN             0xFF
 
-#define BATTERY_FLAG_HIGH               0x01
-#define BATTERY_FLAG_LOW                0x02
-#define BATTERY_FLAG_CRITICAL           0x04
-#define BATTERY_FLAG_CHARGING           0x08
-#define BATTERY_FLAG_NO_BATTERY         0x80
-#define BATTERY_FLAG_UNKNOWN            0xFF
+#define BATTERY_FLAG_HIGH           0x01
+#define BATTERY_FLAG_LOW            0x02
+#define BATTERY_FLAG_CRITICAL       0x04
+#define BATTERY_FLAG_CHARGING       0x08
+#define BATTERY_FLAG_NO_BATTERY     0x80
+#define BATTERY_FLAG_UNKNOWN        0xFF
 
-#define BATTERY_PERCENTAGE_UNKNOWN      0xFF
+#define BATTERY_PERCENTAGE_UNKNOWN  0xFF
 
-#define SYSTEM_STATUS_FLAG_POWER_SAVING_ON      0x01
+#define SYSTEM_STATUS_FLAG_POWER_SAVING_ON  0x01
 
 #define BATTERY_LIFE_UNKNOWN        0xFFFFFFFF
 
@@ -9243,6 +9244,19 @@ GetFileInformationByHandleEx(
     _Out_writes_bytes_(dwBufferSize) LPVOID lpFileInformation,
     _In_  DWORD dwBufferSize
 );
+
+#if defined(NTDDI_WIN10_NI) && (NTDDI_VERSION >= NTDDI_WIN10_NI)
+
+BOOL
+WINAPI
+GetFileInformationByName(
+    _In_ PCWSTR FileName,
+    _In_ FILE_INFO_BY_NAME_CLASS FileInformationClass,
+    _Out_writes_bytes_(FileInfoBufferSize) PVOID FileInfoBuffer,
+    _In_ ULONG FileInfoBufferSize
+    );
+
+#endif // defined(NTDDI_WIN10_NI) && (NTDDI_VERSION >= NTDDI_WIN10_NI)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion

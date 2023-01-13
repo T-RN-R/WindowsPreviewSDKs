@@ -381,7 +381,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IClosedCaptionPropertiesStatics = _uuidof(IClosedCaptionPropertiesStatics);
+                MIDL_CONST_ID IID& IID_IClosedCaptionPropertiesStatics = __uuidof(IClosedCaptionPropertiesStatics);
             } /* ClosedCaptioning */
         } /* Media */
     } /* Windows */

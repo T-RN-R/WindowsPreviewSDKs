@@ -698,7 +698,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAdaptiveCard = _uuidof(IAdaptiveCard);
+                MIDL_CONST_ID IID& IID_IAdaptiveCard = __uuidof(IAdaptiveCard);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -733,7 +733,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAdaptiveCardBuilderStatics = _uuidof(IAdaptiveCardBuilderStatics);
+                MIDL_CONST_ID IID& IID_IAdaptiveCardBuilderStatics = __uuidof(IAdaptiveCardBuilderStatics);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -770,7 +770,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE End(void) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IFocusSession = _uuidof(IFocusSession);
+                MIDL_CONST_ID IID& IID_IFocusSession = __uuidof(IFocusSession);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -825,7 +825,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IFocusSessionManager = _uuidof(IFocusSessionManager);
+                MIDL_CONST_ID IID& IID_IFocusSessionManager = __uuidof(IFocusSessionManager);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -864,7 +864,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IFocusSessionManagerStatics = _uuidof(IFocusSessionManagerStatics);
+                MIDL_CONST_ID IID& IID_IFocusSessionManagerStatics = __uuidof(IFocusSessionManagerStatics);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -915,7 +915,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ISecurityAppManager = _uuidof(ISecurityAppManager);
+                MIDL_CONST_ID IID& IID_ISecurityAppManager = __uuidof(ISecurityAppManager);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -957,7 +957,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IShareWindowCommandEventArgs = _uuidof(IShareWindowCommandEventArgs);
+                MIDL_CONST_ID IID& IID_IShareWindowCommandEventArgs = __uuidof(IShareWindowCommandEventArgs);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -1007,7 +1007,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IShareWindowCommandSource = _uuidof(IShareWindowCommandSource);
+                MIDL_CONST_ID IID& IID_IShareWindowCommandSource = __uuidof(IShareWindowCommandSource);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -1043,7 +1043,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IShareWindowCommandSourceStatics = _uuidof(IShareWindowCommandSourceStatics);
+                MIDL_CONST_ID IID& IID_IShareWindowCommandSourceStatics = __uuidof(IShareWindowCommandSourceStatics);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -1096,7 +1096,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ITaskbarManager = _uuidof(ITaskbarManager);
+                MIDL_CONST_ID IID& IID_ITaskbarManager = __uuidof(ITaskbarManager);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -1144,7 +1144,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ITaskbarManager2 = _uuidof(ITaskbarManager2);
+                MIDL_CONST_ID IID& IID_ITaskbarManager2 = __uuidof(ITaskbarManager2);
             } /* Shell */
         } /* UI */
     } /* Windows */
@@ -1180,7 +1180,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ITaskbarManagerStatics = _uuidof(ITaskbarManagerStatics);
+                MIDL_CONST_ID IID& IID_ITaskbarManagerStatics = __uuidof(ITaskbarManagerStatics);
             } /* Shell */
         } /* UI */
     } /* Windows */

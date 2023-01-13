@@ -8155,6 +8155,14 @@ DEFINE_PROPERTYKEY(PKEY_StatusBarSelectedItemCount, 0x26DC287C, 0x6E3D, 0x4BD3, 
 DEFINE_PROPERTYKEY(PKEY_StatusBarViewItemCount, 0x26DC287C, 0x6E3D, 0x4BD3, 0xB2, 0xB0, 0x6A, 0x26, 0xBA, 0x2E, 0x34, 0x6D, 2);
 #define INIT_PKEY_StatusBarViewItemCount { { 0x26DC287C, 0x6E3D, 0x4BD3, 0xB2, 0xB0, 0x6A, 0x26, 0xBA, 0x2E, 0x34, 0x6D }, 2 }
 
+//  Name:     System.StorageProviderTransferProgress -- PKEY_StorageProviderTransferProgress
+//  Type:     Multivalue UInt32 -- VT_VECTOR | VT_UI4  (For variants: VT_ARRAY | VT_UI4)
+//  FormatID: {E77E90DF-6271-4F5B-834F-2DD1F245DDA4}, 4
+//
+//  An array of two UInt32 values (max value, current value).
+DEFINE_PROPERTYKEY(PKEY_StorageProviderTransferProgress, 0xE77E90DF, 0x6271, 0x4F5B, 0x83, 0x4F, 0x2D, 0xD1, 0xF2, 0x45, 0xDD, 0xA4, 4);
+#define INIT_PKEY_StorageProviderTransferProgress { { 0xE77E90DF, 0x6271, 0x4F5B, 0x83, 0x4F, 0x2D, 0xD1, 0xF2, 0x45, 0xDD, 0xA4 }, 4 }
+
 //-----------------------------------------------------------------------------
 // Software properties
 

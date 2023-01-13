@@ -12961,6 +12961,24 @@
 #define ERROR_VRF_VOLATILE_SETTINGS_CONFLICT 3087L
 
 //
+// MessageId: ERROR_DIF_DRIVER_PLUGIN_MISMATCH
+//
+// MessageText:
+//
+// The given rule class ID is not registered by the caller.
+//
+#define ERROR_DIF_DRIVER_PLUGIN_MISMATCH 3188L
+
+//
+// MessageId: ERROR_DIF_DRIVER_THUNKS_NOT_ALLOWED
+//
+// MessageText:
+//
+// Driver thunks are not added when kernel verification is in effect.
+//
+#define ERROR_DIF_DRIVER_THUNKS_NOT_ALLOWED 3189L
+
+//
 // MessageId: ERROR_DIF_IOCALLBACK_NOT_REPLACED
 //
 // MessageText:
@@ -22340,6 +22358,15 @@
 // The local account policy modification request was rejected because the policy is controlled by a regional authority.
 //
 #define ERROR_LOCAL_POLICY_MODIFICATION_NOT_SUPPORTED 8653L
+
+//
+// MessageId: ERROR_POLICY_CONTROLLED_ACCOUNT
+//
+// MessageText:
+//
+// The account is controlled by external policy and cannot be modified.
+//
+#define ERROR_POLICY_CONTROLLED_ACCOUNT  8654L
 
 
 ///////////////////////////////////////////////////
@@ -34010,6 +34037,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The publisher bridging artifact is invalid.
 //
 #define APPX_E_INVALID_PUBLISHER_BRIDGING _HRESULT_TYPEDEF_(0x80080218L)
+
+//
+// MessageId: APPX_E_DIGEST_MISMATCH
+//
+// MessageText:
+//
+// The expected digest value did not match the actual digest value of the content.
+//
+#define APPX_E_DIGEST_MISMATCH           _HRESULT_TYPEDEF_(0x80080219L)
 
 //
 // Codes 0x0300-0x030f are reserved for background task error codes.
