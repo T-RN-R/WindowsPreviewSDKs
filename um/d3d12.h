@@ -15,7 +15,7 @@
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 501
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -1039,7 +1039,7 @@ extern "C"{
 
 #define	D3D12_PIXEL_ADDRESS_RANGE_BIT_COUNT	( 15 )
 
-#define	D3D12_PREVIEW_SDK_VERSION	( 706 )
+#define	D3D12_PREVIEW_SDK_VERSION	( 707 )
 
 #define	D3D12_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT	( 16 )
 
@@ -1172,7 +1172,7 @@ extern "C"{
 
 #define	D3D12_RS_SET_SHADING_RATE_COMBINER_COUNT	( 2 )
 
-#define	D3D12_SDK_VERSION	( 606 )
+#define	D3D12_SDK_VERSION	( 607 )
 
 #define	D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES	( 32 )
 
@@ -4585,10 +4585,6 @@ EXTERN_C const IID IID_ID3D12Heap;
 
 
 
-
-
-
-
 #endif 	/* __ID3D12Heap_INTERFACE_DEFINED__ */
 
 
@@ -4821,10 +4817,6 @@ EXTERN_C const IID IID_ID3D12Resource;
 
 
 #endif 	/* C style interface */
-
-
-
-
 
 
 
@@ -5598,18 +5590,6 @@ EXTERN_C const IID IID_ID3D12DescriptorHeap;
 
 
 #endif 	/* C style interface */
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -8649,10 +8629,6 @@ EXTERN_C const IID IID_ID3D12CommandQueue;
 
 
 
-
-
-
-
 #endif 	/* __ID3D12CommandQueue_INTERFACE_DEFINED__ */
 
 
@@ -9433,18 +9409,6 @@ EXTERN_C const IID IID_ID3D12Device;
 
 
 #endif 	/* C style interface */
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -12063,10 +12027,6 @@ EXTERN_C const IID IID_ID3D12ProtectedResourceSession;
 
 
 
-
-
-
-
 #endif 	/* __ID3D12ProtectedResourceSession_INTERFACE_DEFINED__ */
 
 
@@ -12827,10 +12787,6 @@ EXTERN_C const IID IID_ID3D12Device4;
 
 
 
-
-
-
-
 #endif 	/* __ID3D12Device4_INTERFACE_DEFINED__ */
 
 
@@ -13064,10 +13020,6 @@ EXTERN_C const IID IID_ID3D12SwapChainAssistant;
 
 
 #endif 	/* C style interface */
-
-
-
-
 
 
 
@@ -16730,10 +16682,6 @@ EXTERN_C const IID IID_ID3D12ProtectedResourceSession1;
 
 
 
-
-
-
-
 #endif 	/* __ID3D12ProtectedResourceSession1_INTERFACE_DEFINED__ */
 
 
@@ -18523,10 +18471,6 @@ EXTERN_C const IID IID_ID3D12Device8;
 
 
 
-
-
-
-
 #endif 	/* __ID3D12Device8_INTERFACE_DEFINED__ */
 
 
@@ -18975,10 +18919,6 @@ EXTERN_C const IID IID_ID3D12Resource2;
 
 
 #endif 	/* C style interface */
-
-
-
-
 
 
 
@@ -21358,10 +21298,6 @@ EXTERN_C const IID IID_ID3D12ShaderCacheSession;
 
 
 #endif 	/* C style interface */
-
-
-
-
 
 
 
@@ -25238,10 +25174,6 @@ EXTERN_C const IID IID_ID3D12DeviceConfiguration;
 
 
 #endif 	/* C style interface */
-
-
-
-
 
 
 
