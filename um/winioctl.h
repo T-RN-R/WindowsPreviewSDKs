@@ -10992,6 +10992,9 @@ typedef enum _CHANGER_DEVICE_PROBLEM_TYPE {
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
 #define FSCTL_SMB_SHARE_FLUSH_AND_PURGE         CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 271, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #endif
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#define FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT   CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 272, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#endif
 //
 // AVIO IOCTLS.
 //
@@ -16581,6 +16584,7 @@ typedef struct _GET_FILTER_FILE_IDENTIFIER_OUTPUT {
 //
 //=============== END FileSystem FSCTL Structure Definitions ==================
 //
+    
 
 //
 // Some applications include both ntioapi_x.h and winioctl.h

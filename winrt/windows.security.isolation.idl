@@ -81,6 +81,8 @@ namespace Windows
 
             interface IIsolatedWindowsEnvironmentOptions;
 
+            interface IIsolatedWindowsEnvironmentOptions2;
+
             interface IIsolatedWindowsEnvironmentOwnerRegistrationData;
 
             interface IIsolatedWindowsEnvironmentOwnerRegistrationResult;
@@ -467,6 +469,15 @@ namespace Windows
                 [propput] HRESULT AllowCameraAndMicrophoneAccess([in] boolean value);
             }
 
+            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
+            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions)]
+            [uuid(10D7CC31-8B8F-4B9D-B22C-617103B55B08)]
+            interface IIsolatedWindowsEnvironmentOptions2 : IInspectable
+            {
+                [propget] HRESULT WindowAnnotationOverride([out] [retval] HSTRING* value);
+                [propput] HRESULT WindowAnnotationOverride([in] HSTRING value);
+            }
+
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData)]
             [uuid(F888EC22-E8CF-56C0-B1DF-90AF4AD80E84)]
@@ -580,7 +591,7 @@ namespace Windows
             {
                 [propget] HRESULT EnvironmentUserSid([out] [retval] HSTRING* value);
                 [propget] HRESULT EnvironmentUserName([out] [retval] HSTRING* value);
-                HRESULT TryWaitForLogonAsync([out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
+                HRESULT TryWaitForSignInAsync([out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -649,6 +660,7 @@ namespace Windows
             runtimeclass IsolatedWindowsEnvironmentOptions
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions;
+                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]

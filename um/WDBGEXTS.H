@@ -1494,6 +1494,10 @@ typedef struct _KDDEBUGGER_DATA64 {
     ULONG     RetpolineStubOffset;
     ULONG     RetpolineStubSize;
 
+    // Windows 10 Iron Addition
+
+    USHORT OffsetEProcessMmHotPatchContext;
+
 } KDDEBUGGER_DATA64, *PKDDEBUGGER_DATA64;
 
 

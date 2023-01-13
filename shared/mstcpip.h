@@ -202,6 +202,9 @@ typedef struct _ASSOCIATE_NAMERES_CONTEXT_INPUT
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 #define SIO_SET_PRIORITY_HINT               _WSAIOW(IOC_VENDOR,24)
 #endif // NTDDI_VERSION >= NTDDI_WIN10_RS3
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#define SIO_PRIORITY_HINT SIO_SET_PRIORITY_HINT
+#endif // NTDDI_VERSION >= NTDDI_WIN10_FE
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS2)
 #define SIO_TCP_INFO                        _WSAIORW(IOC_VENDOR,39)
 #endif // NTDDI_VERSION >= NTDDI_WIN10_RS2
@@ -264,6 +267,21 @@ typedef struct _TIMESTAMPING_CONFIG {
 //    WSAEWOULDBLOCK.
 //
 #define SIO_GET_TX_TIMESTAMP _WSAIOW(IOC_VENDOR, 234)
+
+//
+// This enum maps to the PRIORITY_HINT enum defined in WinBase.h.
+//
+typedef enum {
+    SocketPriorityHintVeryLow = 0,
+    SocketPriorityHintLow,
+    SocketPriorityHintNormal,
+    SocketMaximumPriorityHintType
+} SOCKET_PRIORITY_HINT, *PSOCKET_PRIORITY_HINT;
+
+typedef struct _PRIORITY_STATUS {
+    SOCKET_PRIORITY_HINT Sender;
+    SOCKET_PRIORITY_HINT Receiver;
+} PRIORITY_STATUS, *PPRIORITY_STATUS;
 #endif // NTDDI_VERSION >= NTDDI_WIN10_FE
 
 

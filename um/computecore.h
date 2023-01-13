@@ -125,6 +125,15 @@ HcsGetOperationResultAndProcessInfo(
     _Outptr_opt_ PWSTR* resultDocument
     );
 
+// Returns processor compatibility fields in JSON string format
+
+HRESULT
+WINAPI
+HcsGetProcessorCompatibilityFromSavedState(
+    PCWSTR RuntimeFileName,
+    _Outptr_opt_ PCWSTR* ProcessorFeaturesString
+    );
+
 // Waits for the completion of an operation and returns the result.
 
 HRESULT
@@ -497,8 +506,8 @@ HcsRevokeVmGroupAccess(
 
 #endif // _HYPERV_COMPUTECORE_H_
 
-#ifndef ext_ms_win_hyperv_compute_l1_2_1_query_routines
-#define ext_ms_win_hyperv_compute_l1_2_1_query_routines
+#ifndef ext_ms_win_hyperv_compute_l1_2_2_query_routines
+#define ext_ms_win_hyperv_compute_l1_2_2_query_routines
 
 //
 //Private Extension API Query Routines
@@ -577,6 +586,12 @@ IsHcsGetOperationResultPresent(
 BOOLEAN
 __stdcall
 IsHcsGetOperationResultAndProcessInfoPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsHcsGetProcessorCompatibilityFromSavedStatePresent(
     VOID
     );
 

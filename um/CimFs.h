@@ -76,6 +76,15 @@ CimCreateFile(_In_ CIMFS_IMAGE_HANDLE cimImageHandle,
               _Out_ CIMFS_STREAM_HANDLE* cimStreamHandle);
 
 //
+//  Adds the specified filesystem to the image represented by
+//  the image handle.
+//
+
+STDAPI
+CimAddFsToMergedImage(_In_ CIMFS_IMAGE_HANDLE cimImageHandle,
+                      _In_ PCWSTR existingImageName);
+
+//
 //  Adds a file with the metadata and data pointing to the
 //  specified backing file from the specified backing file
 //  system at a path relative to the image represented by

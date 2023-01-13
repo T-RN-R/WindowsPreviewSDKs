@@ -1499,7 +1499,8 @@ typedef enum _WAIT_TYPE {
     WaitAll,
     WaitAny,
     WaitNotification,
-    WaitDequeue
+    WaitDequeue,
+    WaitDpc
 } WAIT_TYPE;
 
 // begin_ntoshvp

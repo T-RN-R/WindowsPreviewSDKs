@@ -1656,6 +1656,19 @@ typedef JET_ERR (JET_API *JET_PFNDURABLECOMMITCALLBACK)(
 
 #endif // JET_VERSION >= 0x0602
 
+typedef struct
+{
+    long                    lRBSGeneration;             //  Revert snapshot generation.
+
+    JET_LOGTIME             logtimeCreate;              //  date time file creation
+    JET_LOGTIME             logtimeCreatePrevRBS;       //  date time prev file creation
+
+    unsigned long           ulMajor;                    //  major version number
+    unsigned long           ulMinor;                    //  minor version number
+
+    unsigned long long      cbLogicalFileSize;          //  Logical file size
+} JET_RBSINFOMISC;
+
 /************************************************************************/
 /*************************     JET CONSTANTS     ************************/
 /************************************************************************/
@@ -2098,7 +2111,9 @@ typedef enum
 #define JET_paramUseFlushForWriteDurability     214 //  This controls whether ESE uses Flush or FUA to make sure a write to disk is durable.
 #endif // JET_VERSION >= 0x0A01
 
-#define JET_paramMaxValueInvalid                215 //  This is not a valid parameter. It can change from release to release!
+#define JET_paramEnableRBS                      215 // Turns on revert snapshot. Not an ESE flight as we will let the variant be controlled outside ESE (like HA can enable this when lag is disabled)
+#define JET_paramRBSFilePath                    216 //  path to the revert snapshot directory
+#define JET_paramMaxValueInvalid                217 //  This is not a valid parameter. It can change from release to release!
 
 
 
@@ -2957,6 +2972,12 @@ typedef struct
 
 #endif // JET_VERSION >= 0x0600
 
+#if ( JET_VERSION >= 0x0A01 )
+
+#define JET_InstanceMiscInfoRBS             2U // Retrieve revert snapshot info for the instance.
+
+#endif // JET_VERSION >= 0x0A01
+
 
 
     /* Engine Object Types */
@@ -3534,6 +3555,13 @@ typedef struct
 #define JET_errFlushMapDatabaseMismatch     -1919 /* The persisted flush map and the database do not match. */
 #define JET_errFlushMapUnrecoverable        -1920 /* The persisted flush map cannot be reconstructed. */
 
+#define JET_errRBSFileCorrupt               -1921  /* RBS file is corrupt */ // TODO vakishan: Why are there gaps between the used ids? Is it a range for each module? 
+#define JET_errRBSHeaderCorrupt             -1922  /* RBS header is corrupt */
+#define JET_errRBSDbMismatch                -1923  /* RBS is out of sync with the database file */
+#define errRBSAttachInfoNotFound            -1924  /* Couldn't find the RBS attach info we wanted */
+#define JET_errBadRBSVersion                -1925  /* Version of revert snapshot file is not compatible with Jet version */
+#define JET_errOutOfRBSSpace                -1926  /* Revert snapshot file has reached its maximum size */
+#define JET_errRBSInvalidSign               -1927  /* RBS signature is not set in the RBS header */
 
 #define JET_wrnDefragAlreadyRunning          2000 /* Online defrag already running on specified database */
 #define JET_wrnDefragNotRunning              2001 /* Online defrag not running on specified database */
