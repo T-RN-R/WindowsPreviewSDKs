@@ -645,6 +645,13 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
         ITimedMetadataTrackProvider(std::nullptr_t = nullptr) noexcept {}
         ITimedMetadataTrackProvider(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) ITimedTextBouten :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<ITimedTextBouten>
+    {
+        ITimedTextBouten(std::nullptr_t = nullptr) noexcept {}
+        ITimedTextBouten(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) ITimedTextCue :
         Windows::Foundation::IInspectable,
         impl::consume_t<ITimedTextCue>,
@@ -666,6 +673,13 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
     {
         ITimedTextRegion(std::nullptr_t = nullptr) noexcept {}
         ITimedTextRegion(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) ITimedTextRuby :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<ITimedTextRuby>
+    {
+        ITimedTextRuby(std::nullptr_t = nullptr) noexcept {}
+        ITimedTextRuby(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) ITimedTextSource :
         Windows::Foundation::IInspectable,
@@ -708,6 +722,13 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
     {
         ITimedTextStyle2(std::nullptr_t = nullptr) noexcept {}
         ITimedTextStyle2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) ITimedTextStyle3 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<ITimedTextStyle3>
+    {
+        ITimedTextStyle3(std::nullptr_t = nullptr) noexcept {}
+        ITimedTextStyle3(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) ITimedTextSubformat :
         Windows::Foundation::IInspectable,

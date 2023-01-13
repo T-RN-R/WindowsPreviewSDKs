@@ -192,6 +192,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IAnimationControllerStatics;
     struct IAnimationObject;
     struct IAnimationPropertyInfo;
+    struct IAnimationPropertyInfo2;
     struct IBooleanKeyFrameAnimation;
     struct IBounceScalarNaturalMotionAnimation;
     struct IBounceVector2NaturalMotionAnimation;
@@ -345,6 +346,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IVisual3;
     struct IVisualCollection;
     struct IVisualElement;
+    struct IVisualElement2;
     struct IVisualFactory;
     struct IVisualUnorderedCollection;
     struct AmbientLight;
@@ -451,6 +453,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IAnimationControllerStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IAnimationObject>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IAnimationPropertyInfo>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IAnimationPropertyInfo2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IBooleanKeyFrameAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IBounceScalarNaturalMotionAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IBounceVector2NaturalMotionAnimation>{ using type = interface_category; };
@@ -604,6 +607,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IVisual3>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisualCollection>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisualElement>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IVisualElement2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisualFactory>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IVisualUnorderedCollection>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::AmbientLight>{ using type = class_category; };
@@ -842,6 +846,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAnimationControllerStatics> = L"Windows.UI.Composition.IAnimationControllerStatics";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAnimationObject> = L"Windows.UI.Composition.IAnimationObject";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAnimationPropertyInfo> = L"Windows.UI.Composition.IAnimationPropertyInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IAnimationPropertyInfo2> = L"Windows.UI.Composition.IAnimationPropertyInfo2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IBooleanKeyFrameAnimation> = L"Windows.UI.Composition.IBooleanKeyFrameAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IBounceScalarNaturalMotionAnimation> = L"Windows.UI.Composition.IBounceScalarNaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IBounceVector2NaturalMotionAnimation> = L"Windows.UI.Composition.IBounceVector2NaturalMotionAnimation";
@@ -995,6 +1000,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisual3> = L"Windows.UI.Composition.IVisual3";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisualCollection> = L"Windows.UI.Composition.IVisualCollection";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisualElement> = L"Windows.UI.Composition.IVisualElement";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisualElement2> = L"Windows.UI.Composition.IVisualElement2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisualFactory> = L"Windows.UI.Composition.IVisualFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IVisualUnorderedCollection> = L"Windows.UI.Composition.IVisualUnorderedCollection";
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IAmbientLight>{ 0xA48130A1,0xB7C4,0x46F7,{ 0xB9,0xBF,0xDA,0xF4,0x3A,0x44,0xE6,0xEE } }; // A48130A1-B7C4-46F7-B9BF-DAF43A44E6EE
@@ -1003,6 +1009,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IAnimationControllerStatics>{ 0xE71164DF,0x651B,0x4800,{ 0xB9,0xE5,0x6A,0x3B,0xCF,0xED,0x33,0x65 } }; // E71164DF-651B-4800-B9E5-6A3BCFED3365
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IAnimationObject>{ 0xE7141E0A,0x04B8,0x4FC5,{ 0xA4,0xDC,0x19,0x53,0x92,0xE5,0x78,0x07 } }; // E7141E0A-04B8-4FC5-A4DC-195392E57807
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IAnimationPropertyInfo>{ 0xF4716F05,0xED77,0x4E3C,{ 0xB3,0x28,0x5C,0x39,0x85,0xB3,0x73,0x8F } }; // F4716F05-ED77-4E3C-B328-5C3985B3738F
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IAnimationPropertyInfo2>{ 0x591720B4,0x7472,0x5218,{ 0x8B,0x39,0xDF,0xFE,0x61,0x5A,0xE6,0xDA } }; // 591720B4-7472-5218-8B39-DFFE615AE6DA
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IBooleanKeyFrameAnimation>{ 0x95E23A08,0xD1F4,0x4972,{ 0x97,0x70,0x3E,0xFE,0x68,0xD8,0x2E,0x14 } }; // 95E23A08-D1F4-4972-9770-3EFE68D82E14
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IBounceScalarNaturalMotionAnimation>{ 0xBAA30DCC,0xA633,0x4618,{ 0x9B,0x06,0x7F,0x7C,0x72,0xC8,0x7C,0xFF } }; // BAA30DCC-A633-4618-9B06-7F7C72C87CFF
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IBounceVector2NaturalMotionAnimation>{ 0xDA344196,0x2154,0x4B3C,{ 0x88,0xAA,0x47,0x36,0x12,0x04,0xEC,0xCD } }; // DA344196-2154-4B3C-88AA-47361204ECCD
@@ -1156,6 +1163,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisual3>{ 0x30BE580D,0xF4B6,0x4AB7,{ 0x80,0xDD,0x37,0x38,0xCB,0xAC,0x9F,0x2C } }; // 30BE580D-F4B6-4AB7-80DD-3738CBAC9F2C
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisualCollection>{ 0x8B745505,0xFD3E,0x4A98,{ 0x84,0xA8,0xE9,0x49,0x46,0x8C,0x6B,0xCB } }; // 8B745505-FD3E-4A98-84A8-E949468C6BCB
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisualElement>{ 0x01E64612,0x1D82,0x42F4,{ 0x8E,0x3F,0xA7,0x22,0xDE,0xD3,0x3F,0xC7 } }; // 01E64612-1D82-42F4-8E3F-A722DED33FC7
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisualElement2>{ 0x993AE8A0,0x6057,0x5E40,{ 0x91,0x8C,0xE0,0x6E,0x0B,0x7E,0x7C,0x64 } }; // 993AE8A0-6057-5E40-918C-E06E0B7E7C64
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisualFactory>{ 0xAD0FF93E,0xB502,0x4EB5,{ 0x87,0xB4,0x9A,0x38,0xA7,0x1D,0x01,0x37 } }; // AD0FF93E-B502-4EB5-87B4-9A38A71D0137
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IVisualUnorderedCollection>{ 0x338FAA70,0x54C8,0x40A7,{ 0x80,0x29,0xC9,0xCE,0xEB,0x0A,0xA2,0x50 } }; // 338FAA70-54C8-40A7-8029-C9CEEB0AA250
     template <> struct default_interface<Windows::UI::Composition::AmbientLight>{ using type = Windows::UI::Composition::IAmbientLight; };
@@ -1304,6 +1312,14 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_AccessMode(int32_t*) noexcept = 0;
             virtual int32_t __stdcall put_AccessMode(int32_t) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::IAnimationPropertyInfo2>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall GetResolvedCompositionObject(void**) noexcept = 0;
+            virtual int32_t __stdcall GetResolvedCompositionObjectProperty(void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::IBooleanKeyFrameAnimation>
@@ -2857,6 +2873,13 @@ namespace winrt::impl
         {
         };
     };
+    template <> struct abi<Windows::UI::Composition::IVisualElement2>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall GetVisualInternal(void**) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::UI::Composition::IVisualFactory>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -2937,6 +2960,16 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::IAnimationPropertyInfo>
     {
         template <typename D> using type = consume_Windows_UI_Composition_IAnimationPropertyInfo<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_IAnimationPropertyInfo2
+    {
+        WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionObject) GetResolvedCompositionObject() const;
+        WINRT_IMPL_AUTO(hstring) GetResolvedCompositionObjectProperty() const;
+    };
+    template <> struct consume<Windows::UI::Composition::IAnimationPropertyInfo2>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IAnimationPropertyInfo2<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_IBooleanKeyFrameAnimation
@@ -4802,6 +4835,15 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::IVisualElement>
     {
         template <typename D> using type = consume_Windows_UI_Composition_IVisualElement<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_IVisualElement2
+    {
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) GetVisualInternal() const;
+    };
+    template <> struct consume<Windows::UI::Composition::IVisualElement2>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IVisualElement2<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_IVisualFactory

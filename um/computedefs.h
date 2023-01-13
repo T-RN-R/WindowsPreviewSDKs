@@ -143,6 +143,7 @@ typedef enum HCS_NOTIFICATIONS
     HcsNotificationSystemModifyCompleted = 0x0000000C,
     HcsNotificationSystemCrashInitiated =  0x0000000D,
     HcsNotificationSystemGuestConnectionClosed = 0x0000000E,
+    HcsNotificationSystemOperationCompletion = 0x0000000F,
 
     // Notifications for HCS_PROCESS handles
     HcsNotificationProcessExited = 0x00010000,

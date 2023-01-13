@@ -313,6 +313,26 @@ RegisterDeviceWithManagementUsingAADDeviceCredentials();
 
 Routine Description:
 
+This function is used to register a device with the MDM service synchronously.
+It will automatically discover the MDM information, including MDM device enrollment URL and authentication device token from AAD
+
+Arguments:
+
+    pszCloudAssignedMDMId   Unique ID that identifies the MDM enrollment only required when multiple enrollments are configured on the AAD tenant.
+
+Return Value:
+
+HRESULT indicating success or failure.
+
+--*/
+HRESULT WINAPI
+RegisterDeviceWithManagementUsingAADDeviceCredentialsEx(_In_opt_z_ LPCWSTR pszCloudAssignedMDMId);
+
+
+/*++
+
+Routine Description:
+
     This function is used to register a device with the MDM service synchronously.
 
 Arguments:

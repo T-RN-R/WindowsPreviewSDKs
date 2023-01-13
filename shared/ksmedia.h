@@ -5929,6 +5929,11 @@ typedef enum {
     KSPROPERTY_CAMERACONTROL_EXTENDED_BACKGROUNDSEGMENTATION,               // 41
 #endif //  (NTDDI_VERSION >= NTDDI_WIN10_MN)
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+    KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW_CONFIGCAPS,             // 42
+    KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW,                        // 43
+#endif //  (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
     KSPROPERTY_CAMERACONTROL_EXTENDED_END,                                  // All new controls must be before this!
     KSPROPERTY_CAMERACONTROL_EXTENDED_END2 = KSPROPERTY_CAMERACONTROL_EXTENDED_END
 } KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY;
@@ -6256,7 +6261,8 @@ typedef enum {
     MetadataId_CameraExtrinsics,
     MetadataId_CameraIntrinsics,
     MetadataId_FrameIllumination,
-    MetadataId_Standard_End = MetadataId_FrameIllumination,
+    MetadataId_DigitalWindow,
+    MetadataId_Standard_End = MetadataId_DigitalWindow,
     MetadataId_Custom_Start = 0x80000000,
 } KSCAMERA_MetadataId;
 
@@ -6524,6 +6530,44 @@ typedef struct {
 
 #define KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF                    0x0000000000000000
 #define KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_BLUR                   0x0000000000000001
+
+// Digital Window Framing Flags
+#define KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL                         0x0000000000000000
+#define KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING                0x0000000000000001
+#define KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MASK                           (KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL | \
+                                                                            KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING)
+
+// Digital Window Region
+typedef struct tagKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
+    LONG        OriginX;                // in Q24
+    LONG        OriginY;                // in Q24
+    LONG        WindowSize;             // in Q24
+    ULONG       Reserved;
+} KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING, *PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING;
+
+typedef struct tagKSCAMERA_METADATA_DIGITALWINDOW {
+    KSCAMERA_METADATA_ITEMHEADER   Header;
+    KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING  Window;
+}KSCAMERA_METADATA_DIGITALWINDOW, *PKSCAMERA_METADATA_DIGITALWINDOW;
+
+// Digital Window Capabilities
+typedef struct tagKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
+    ULONG       Size;                   // Size of this header + all _CONFIGCAPS structures followed 
+    ULONG       Count;                  // Number of _CONFIGCAPS structures followed
+} KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER, *PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER;
+
+typedef struct tagKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
+    LONG        ResolutionX;            // Output width in pixels
+    LONG        ResolutionY;            // Output height in pixels
+    LONG        PorchTop;               // Upper porch region in Q24
+    LONG        PorchLeft;              // Left-most porch region in Q24
+    LONG        PorchBottom;            // Lower porch region in Q24
+    LONG        PorchRight;             // Right-most porch region in Q24
+    LONG        NonUpscalingWindowSize; // Q24 value to get no scaling
+    LONG        MinWindowSize;          // Smallest legal WindowSize
+    LONG        MaxWindowSize;          // Largest legal WindowSize
+    LONG        Reserved;               // Reserved
+} KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS, *PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS;
 
 typedef struct _KSCAMERA_EXTENDEDPROP_PROFILE
 {

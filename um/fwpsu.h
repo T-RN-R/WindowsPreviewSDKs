@@ -130,20 +130,7 @@ typedef enum FWPS_BUILTIN_LAYERS_
    FWPS_LAYER_INBOUND_MAC_FRAME_NATIVE_FAST,                    // 80
    FWPS_LAYER_OUTBOUND_MAC_FRAME_NATIVE_FAST,
 #if (NTDDI_VERSION >= NTDDI_WIN10_RS3)
-#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
-   //
-   // This eight layers MUST be in this order. DO NOT change their order
-   //
-   FWPS_LAYER_RESERVED_LAYER_1,
-   FWPS_LAYER_RESERVED_LAYER_2,
-   FWPS_LAYER_RESERVED_LAYER_3,
-   FWPS_LAYER_RESERVED_LAYER_4,                                  // 85
-   FWPS_LAYER_RESERVED_LAYER_5,
-   FWPS_LAYER_RESERVED_LAYER_6,
-   FWPS_LAYER_RESERVED_LAYER_7,
-   FWPS_LAYER_RESERVED_LAYER_8,
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
-   FWPS_LAYER_INBOUND_RESERVED2,                                 // 90
+   FWPS_LAYER_INBOUND_RESERVED2,
 #if (NTDDI_VERSION >= NTDDI_WIN10_FE)
    FWPS_LAYER_RESERVED_LAYER_9,
    FWPS_LAYER_RESERVED_LAYER_10,
@@ -153,21 +140,21 @@ typedef enum FWPS_BUILTIN_LAYERS_
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)
 #endif // (NTDDI_VERSION >= NTDDI_WIN7)
    // User-mode layers
-   FWPS_LAYER_IPSEC_KM_DEMUX_V4,
+   FWPS_LAYER_IPSEC_KM_DEMUX_V4,                                // 85
    FWPS_LAYER_IPSEC_KM_DEMUX_V6,
-   FWPS_LAYER_IPSEC_V4,                                          // 95
+   FWPS_LAYER_IPSEC_V4,
    FWPS_LAYER_IPSEC_V6,
    FWPS_LAYER_IKEEXT_V4,
-   FWPS_LAYER_IKEEXT_V6,
+   FWPS_LAYER_IKEEXT_V6,                                        // 90
    FWPS_LAYER_RPC_UM,
-   FWPS_LAYER_RPC_EPMAP,                                         // 100
+   FWPS_LAYER_RPC_EPMAP,
    FWPS_LAYER_RPC_EP_ADD,
    FWPS_LAYER_RPC_PROXY_CONN,
-   FWPS_LAYER_RPC_PROXY_IF,
+   FWPS_LAYER_RPC_PROXY_IF,                                     // 95
 #if (NTDDI_VERSION >= NTDDI_WIN7)
    FWPS_LAYER_KM_AUTHORIZATION,
 #endif // (NTDDI_VERSION >= NTDDI_WIN7)
-   FWPS_BUILTIN_LAYER_MAX,                                       // 105
+   FWPS_BUILTIN_LAYER_MAX,                                      // 97
 } FWPS_BUILTIN_LAYERS;
 
 #define FWPS_BUILTIN_KM_LAYER_MAX FWPS_LAYER_IPSEC_KM_DEMUX_V4

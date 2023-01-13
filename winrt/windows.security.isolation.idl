@@ -174,7 +174,7 @@ namespace Windows
     {
         namespace Isolation
         {
-            [contractversion(2.0)]
+            [contractversion(3.0)]
             apicontract IsolatedWindowsEnvironmentContract
             {
             }

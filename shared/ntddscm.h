@@ -883,7 +883,8 @@ typedef enum _SCM_PD_OPERATIONAL_STATUS_REASON {
     ScmPhysicalDeviceOpReason_MediaRemainingSpareBlock,
     ScmPhysicalDeviceOpReason_PerformanceDegradation,
     ScmPhysicalDeviceOpReason_ExcessiveTemperature,
-    
+    ScmPhysicalDeviceOpReason_InternalFailure,
+
     ScmPhysicalDeviceOpReason_Max
 } SCM_PD_OPERATIONAL_STATUS_REASON, *PSCM_PD_OPERATIONAL_STATUS_REASON;
 

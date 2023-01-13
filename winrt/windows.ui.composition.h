@@ -214,6 +214,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IAnimationPropertyInfo2;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2 ABI::Windows::UI::Composition::IAnimationPropertyInfo2
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 namespace ABI {
@@ -2508,6 +2523,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIVisualElement ABI::Windows::UI::Composition::IVisualElement
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIVisualElement_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IVisualElement2;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2 ABI::Windows::UI::Composition::IVisualElement2
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIVisualFactory_FWD_DEFINED__
@@ -5646,6 +5676,45 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IAnimationPropertyInfo2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.AnimationPropertyInfo
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IAnimationPropertyInfo2[] = L"Windows.UI.Composition.IAnimationPropertyInfo2";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("591720b4-7472-5218-8b39-dffe615ae6da")
+                IAnimationPropertyInfo2 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE GetResolvedCompositionObject(
+                        ABI::Windows::UI::Composition::ICompositionObject** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE GetResolvedCompositionObjectProperty(
+                        HSTRING* result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IAnimationPropertyInfo2 = _uuidof(IAnimationPropertyInfo2);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -12698,6 +12767,40 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisualElement;
 
 /*
  *
+ * Interface Windows.UI.Composition.IVisualElement2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisualElement2[] = L"Windows.UI.Composition.IVisualElement2";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("993ae8a0-6057-5e40-918c-e06e0b7e7c64")
+                IVisualElement2 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE GetVisualInternal(
+                        ABI::Windows::UI::Composition::IVisual** result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IVisualElement2 = _uuidof(IVisualElement2);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisualElement2;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IVisualFactory
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -12826,6 +12929,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.IAnimationPropertyInfo ** Default Interface **
+ *    Windows.UI.Composition.IAnimationPropertyInfo2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -14886,6 +14990,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo __x_
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2 __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation;
@@ -15803,6 +15913,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualCollection __x_ABI_C
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualElement __x_ABI_CWindows_CUI_CComposition_CIVisualElement;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIVisualElement_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualElement2 __x_ABI_CWindows_CUI_CComposition_CIVisualElement2;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualFactory_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIVisualFactory_FWD_DEFINED__
@@ -19660,6 +19776,80 @@ interface __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IAnimationPropertyInfo2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.AnimationPropertyInfo
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IAnimationPropertyInfo2[] = L"Windows.UI.Composition.IAnimationPropertyInfo2";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetResolvedCompositionObject)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositionObject** result);
+    HRESULT (STDMETHODCALLTYPE* GetResolvedCompositionObjectProperty)(__x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2* This,
+        HSTRING* result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2Vtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetResolvedCompositionObject(This, result) \
+    ((This)->lpVtbl->GetResolvedCompositionObject(This, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_GetResolvedCompositionObjectProperty(This, result) \
+    ((This)->lpVtbl->GetResolvedCompositionObjectProperty(This, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -32730,6 +32920,73 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisualElement;
 
 /*
  *
+ * Interface Windows.UI.Composition.IVisualElement2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisualElement2[] = L"Windows.UI.Composition.IVisualElement2";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIVisualElement2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetVisualInternal)(__x_ABI_CWindows_CUI_CComposition_CIVisualElement2* This,
+        __x_ABI_CWindows_CUI_CComposition_CIVisual** result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIVisualElement2Vtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIVisualElement2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIVisualElement2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisualElement2_GetVisualInternal(This, result) \
+    ((This)->lpVtbl->GetVisualInternal(This, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisualElement2;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisualElement2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IVisualFactory
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -32929,6 +33186,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.IAnimationPropertyInfo ** Default Interface **
+ *    Windows.UI.Composition.IAnimationPropertyInfo2
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *

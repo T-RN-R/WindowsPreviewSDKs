@@ -47,7 +47,6 @@ typedef struct FWPS_ACTION0_
    FWP_ACTION_TYPE type;
    // LUID of the callout if FWP_ACTION_FLAG_CALLOUT is set in the action type.
    // Otherwise, it's ignored.
-   // This calloutId field can be used for bitmapIndex, in which case, type is set to FWP_ACTION_BITMAP_INDEX_SET
    UINT32 calloutId;
 } FWPS_ACTION0;
 

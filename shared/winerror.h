@@ -52754,6 +52754,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 #define VM_SAVED_STATE_DUMP_E_PTE_NOT_PRESENT _HRESULT_TYPEDEF_(0xC0370508L)
 
+//
+// MessageId: VM_SAVED_STATE_DUMP_E_VP_VTL_NOT_ENABLED
+//
+// MessageText:
+//
+// The active virtual trust level is not enabled on the specified virtual processor.
+//
+#define VM_SAVED_STATE_DUMP_E_VP_VTL_NOT_ENABLED _HRESULT_TYPEDEF_(0xC0370509L)
+
 
 //
 // Volume manager error codes mapped from status codes
@@ -63611,6 +63620,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The registry value type for SetRegKey action must be REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, REG_BINARY, REG_DWORD, or REG_QWORD.
 //
 #define UTC_E_SETREGKEYACTION_TYPE_NOT_APPROVED _HRESULT_TYPEDEF_(0x87C5105CL)
+
+//
+// MessageId: UTC_E_TRACE_THROTTLED
+//
+// MessageText:
+//
+// An operation which requires a running un-throttled trace failed due to the trace being throttled.
+//
+#define UTC_E_TRACE_THROTTLED            _HRESULT_TYPEDEF_(0x87C5105DL)
 
 
 //

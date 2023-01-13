@@ -30,7 +30,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     };
     struct __declspec(empty_bases) AnimationPropertyInfo : Windows::UI::Composition::IAnimationPropertyInfo,
         impl::base<AnimationPropertyInfo, Windows::UI::Composition::CompositionObject>,
-        impl::require<AnimationPropertyInfo, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+        impl::require<AnimationPropertyInfo, Windows::UI::Composition::IAnimationPropertyInfo2, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
     {
         AnimationPropertyInfo(std::nullptr_t) noexcept {}
         AnimationPropertyInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::IAnimationPropertyInfo(ptr, take_ownership_from_abi) {}

@@ -169,7 +169,7 @@ GetArchitecture(
 /// This is useful to force architecture specific virtual to physical address translation techniques.
 ///
 /// \param  VmSavedStateDumpHandle  Supplies a handle to a dump provider instance.
-/// \param  VpId                    Supplies the VP to force the architecure on.
+/// \param  VpId                    Supplies the VP to force the architecture on.
 /// \retval Architecture            Supplies the architecture to force on the vp.
 ///
 /// \return HRESULT.
@@ -180,6 +180,86 @@ ForceArchitecture(
     _In_    VM_SAVED_STATE_DUMP_HANDLE      VmSavedStateDumpHandle,
     _In_    UINT32                          VpId,
     _In_    VIRTUAL_PROCESSOR_ARCH          Architecture
+    );
+
+
+/// Queries for the current Virtual Trust Level the virtual processor was running at the time the
+/// saved state file was generated.
+///
+/// \param  VmSavedStateDumpHandle  Supplies a handle to a dump provider instance.
+/// \param  VpId                    Supplies the VP to query.
+/// \retval VirtualTrustLevel       Returns the Virtual Trust Level of the supplied vp.
+///
+/// \return HRESULT.
+///
+HRESULT
+WINAPI
+GetActiveVirtualTrustLevel(
+    _In_    VM_SAVED_STATE_DUMP_HANDLE      VmSavedStateDumpHandle,
+    _In_    UINT32                          VpId,
+    _Out_   UINT32*                         VirtualTrustLevel
+    );
+
+
+/// Queries for the virtual trust levels enabled on the virtual processor was running at the time the
+/// saved state file was generated.
+///
+/// \param  VmSavedStateDumpHandle  Supplies a handle to a dump provider instance.
+/// \param  VpId                    Supplies the VP to query.
+/// \retval VirtualTrustLevels      Supplies a buffer with the virtual trust levels enabled on the VP.
+/// \retval VirtualTrustLevelCount  Supplies the size of the VirtualTrustLevelss buffer. If this count is lower than
+///                                 what the vp really has, then it returns the expected count. If it was
+///                                 higher than what the guest has, then it returns the exact count.
+///
+/// \return HRESULT.
+///
+HRESULT
+WINAPI
+GetEnabledVirtualTrustLevels(
+    _In_    VM_SAVED_STATE_DUMP_HANDLE      VmSavedStateDumpHandle,
+    _In_    UINT32                          VpId,
+    _Out_   UINT32*                         VirtualTrustLevels,
+    _Inout_ UINT64*                         VirtualTrustLevelCount
+    );
+
+
+/// Forces the current Virtual Trust Level of a given virtual processor.
+/// This is useful to force register state to and virtual address translation
+/// to come from a different VTL. Some registers are shared across VTLs, so it is
+/// possible that some registers will contain invalid values.
+///
+/// \param  VmSavedStateDumpHandle  Supplies a handle to a dump provider instance.
+/// \param  VpId                    Supplies the VP to force the virtual trust level on.
+/// \retval VirtualTrustLevel       Supplies the virtual trust level to force on the vp.
+///
+/// \return HRESULT.
+///
+HRESULT
+WINAPI
+ForceActiveVirtualTrustLevel(
+    _In_    VM_SAVED_STATE_DUMP_HANDLE      VmSavedStateDumpHandle,
+    _In_    UINT32                          VpId,
+    _In_    UINT32                          VirtualTrustLevel
+    );
+
+
+/// Queries whether the Virtual Trust Level active on the specific virtual processor is
+/// enabled.
+/// It should only be possible for this to return false if the VTL was forced on the processor.
+/// If the VTL is not enabled, the register state is nonexistent and therefore invalid.
+///
+/// \param  VmSavedStateDumpHandle          Supplies a handle to a dump provider instance.
+/// \param  VpId                            Supplies the VP to query.
+/// \retval ActiveVirtualTrustLevelEnabled  Returns whether the active VTL is enabled.
+///
+/// \return HRESULT.
+///
+HRESULT
+WINAPI
+IsActiveVirtualTrustLevelEnabled(
+    _In_    VM_SAVED_STATE_DUMP_HANDLE      VmSavedStateDumpHandle,
+    _In_    UINT32                          VpId,
+    _Out_   BOOL*                           ActiveVirtualTrustLevelEnabled
     );
 
 

@@ -178,6 +178,8 @@ namespace Windows
 
             interface IAnimationPropertyInfo;
 
+            interface IAnimationPropertyInfo2;
+
             interface IBooleanKeyFrameAnimation;
 
             interface IBounceScalarNaturalMotionAnimation;
@@ -483,6 +485,8 @@ namespace Windows
             interface IVisualCollection;
 
             interface IVisualElement;
+
+            interface IVisualElement2;
 
             interface IVisualFactory;
 
@@ -1000,6 +1004,15 @@ namespace Windows
             {
                 [propget] HRESULT AccessMode([out] [retval] Windows.UI.Composition.AnimationPropertyAccessMode* value);
                 [propput] HRESULT AccessMode([in] Windows.UI.Composition.AnimationPropertyAccessMode value);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [exclusiveto(Windows.UI.Composition.AnimationPropertyInfo)]
+            [uuid(591720B4-7472-5218-8B39-DFFE615AE6DA)]
+            interface IAnimationPropertyInfo2 : IInspectable
+            {
+                HRESULT GetResolvedCompositionObject([out] [retval] Windows.UI.Composition.CompositionObject** result);
+                HRESULT GetResolvedCompositionObjectProperty([out] [retval] HSTRING* result);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 7.0)]
@@ -2703,6 +2716,13 @@ namespace Windows
             {
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [uuid(993AE8A0-6057-5E40-918C-E06E0B7E7C64)]
+            interface IVisualElement2 : IInspectable
+            {
+                HRESULT GetVisualInternal([out] [retval] Windows.UI.Composition.Visual** result);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 2.0)]
             [exclusiveto(Windows.UI.Composition.Visual)]
             [uuid(AD0FF93E-B502-4EB5-87B4-9A38A71D0137)]
@@ -2745,6 +2765,7 @@ namespace Windows
             runtimeclass AnimationPropertyInfo : Windows.UI.Composition.CompositionObject
             {
                 [default] interface Windows.UI.Composition.IAnimationPropertyInfo;
+                [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.UI.Composition.IAnimationPropertyInfo2;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 7.0)]

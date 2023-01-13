@@ -1061,7 +1061,7 @@ typedef struct addrinfoex5
     _Field_size_(ai_bloblen) void               *ai_blob;
     size_t               ai_bloblen;
     GUID                 *ai_provider;
-    struct addrinfoex4   *ai_next;        // Next structure in linked list
+    struct addrinfoex5   *ai_next;        // Next structure in linked list
     int                  ai_version;
     PWSTR                ai_fqdn;
     int                  ai_interfaceindex;

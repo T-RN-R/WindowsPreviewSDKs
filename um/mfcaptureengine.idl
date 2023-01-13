@@ -149,6 +149,20 @@ typedef enum MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE
     /// Speech capture category
     /// </summary>
     MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_SPEECH = 4,
+#if NTDDI_VERSION >= NTDDI_WIN10_FE
+    /// <summary>
+    /// Capture Audio located in the 'far field' for the purpose of speech recognition
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_FARFIELDSPEECH = 5,
+    /// <summary>
+    /// Consistent speech processing for the captured Audio. Used for Machine Learning
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_UNIFORMSPEECH = 6,
+    /// <summary>
+    /// Capture Audio with the intent of enabling dictation or typing by voice
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_VOICETYPING = 7,
+#endif 
 }MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE;
 
 

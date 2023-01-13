@@ -2329,37 +2329,23 @@ typedef struct _HTTP2_SETTINGS_LIMITS_PARAM
     DWORD Http2MaxSettingsPerMinute;
 } HTTP2_SETTINGS_LIMITS_PARAM, *PHTTP2_SETTINGS_LIMITS_PARAM;
 
+typedef enum _HTTP_PERFORMANCE_PARAM_TYPE
+{
+    PerformanceParamSendBufferingFlags,
+    PerformanceParamAggressiveICW,
+    PerformanceParamMaxSendBufferSize,
+    PerformanceParamMaxConcurrentClientStreams,
+    PerformanceParamMaxReceiveBufferSize,
+    PerformanceParamMax,
+} HTTP_PERFORMANCE_PARAM_TYPE, *PHTTP_PERFORMANCE_PARAM_TYPE;
+
 typedef struct _HTTP_PERFORMANCE_PARAM
 {
-    //
-    // The knob to enable/disable buffering synchronous sends.
-    //
+    HTTP_PERFORMANCE_PARAM_TYPE Type;
 
-    ULONGLONG SendBufferingFlags;
+    ULONG BufferSize;
 
-    //
-    // The knob to enable aggressive ICW.
-    //
-
-    BOOLEAN EnableAggressiveICW;
-
-    //
-    // The maximum send buffer size for connections on this binding.
-    //
-
-    ULONG MaxBufferedSendBytes;
-
-    //
-    // The maximum number of concurrent streams on an http/2 connection.
-    //
-
-    ULONG MaxConcurrentClientStreams;
-
-    //
-    // The maximum receive buffer size for connections on this binding.
-    //
-
-    ULONG MaxReceiveBufferSize;
+    PVOID Buffer;
 
 } HTTP_PERFORMANCE_PARAM, *PHTTP_PERFORMANCE_PARAM;
 
