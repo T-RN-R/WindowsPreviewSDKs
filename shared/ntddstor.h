@@ -66,6 +66,7 @@ DEFINE_GUID(GUID_DEVINTERFACE_CDCHANGER,              0x53f56312L, 0xb6bf, 0x11d
 DEFINE_GUID(GUID_DEVINTERFACE_STORAGEPORT,            0x2accfe60L, 0xc130, 0x11d2, 0xb0, 0x82, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
 DEFINE_GUID(GUID_DEVINTERFACE_VMLUN,                  0x6f416619L, 0x9f29, 0x42a5, 0xb2, 0x0b, 0x37, 0xe2, 0x19, 0xca, 0x02, 0xb0);
 DEFINE_GUID(GUID_DEVINTERFACE_SES,                    0x1790c9ecL, 0x47d5, 0x4df3, 0xb5, 0xaf, 0x9a, 0xdf, 0x3c, 0xf2, 0x3e, 0x48);
+DEFINE_GUID(GUID_DEVINTERFACE_ZNSDISK,                0xb87941c5L, 0xffdb, 0x43c7, 0xb6, 0xb1, 0x20, 0xb6, 0x32, 0xf0, 0xb1, 0x09);
 
 #define  WDI_STORAGE_PREDICT_FAILURE_DPS_GUID        {0xe9f2d03aL, 0x747c, 0x41c2, {0xbb, 0x9a, 0x02, 0xc6, 0x2b, 0x6d, 0x5f, 0xcb}};
 
@@ -254,6 +255,7 @@ extern "C" {
 #define IOCTL_STORAGE_SET_TEMPERATURE_THRESHOLD     CTL_CODE(IOCTL_STORAGE_BASE, 0x0480, METHOD_BUFFERED, FILE_READ_ACCESS | FILE_WRITE_ACCESS)
 
 #define IOCTL_STORAGE_PROTOCOL_COMMAND              CTL_CODE(IOCTL_STORAGE_BASE, 0x04F0, METHOD_BUFFERED, FILE_READ_ACCESS | FILE_WRITE_ACCESS)
+
 
 #define IOCTL_STORAGE_SET_PROPERTY                  CTL_CODE(IOCTL_STORAGE_BASE, 0x04FF, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 #define IOCTL_STORAGE_QUERY_PROPERTY                CTL_CODE(IOCTL_STORAGE_BASE, 0x0500, METHOD_BUFFERED, FILE_ANY_ACCESS)
@@ -940,7 +942,7 @@ typedef enum __WRAPPED__ _STORAGE_PROPERTY_ID {
     StorageDeviceProperty = 0,
     StorageAdapterProperty,
     StorageDeviceIdProperty,
-    StorageDeviceUniqueIdProperty,              // See storduid.h for details
+    StorageDeviceUniqueIdProperty,                  // See storduid.h for details
     StorageDeviceWriteCacheProperty,
     StorageMiniportProperty,
     StorageAccessAlignmentProperty,
@@ -978,8 +980,9 @@ typedef enum __WRAPPED__ _STORAGE_PROPERTY_ID {
     StorageDeviceEnduranceProperty,
     StorageDeviceLedStateProperty,
     StorageDeviceSelfEncryptionProperty = 64,
-    StorageFruIdProperty
+    StorageFruIdProperty,
 } STORAGE_PROPERTY_ID, *PSTORAGE_PROPERTY_ID;
+
 
 //
 // Query structure - additional parameters for specific queries can follow
@@ -5378,6 +5381,55 @@ typedef struct _DEVICE_INTERNAL_STATUS_DATA {
     UCHAR StatusData[ANYSIZE_ARRAY];
 
 } DEVICE_INTERNAL_STATUS_DATA, *PDEVICE_INTERNAL_STATUS_DATA;
+
+//
+// IOCTL_STORAGE_REINITIALIZE_MEDIA
+//
+// Input Buffer :
+//      STORAGE_REINITIALIZE_MEDIA - Optional
+// Output Buffer :
+//      None
+//
+
+typedef enum _STORAGE_SANITIZE_METHOD {
+    StorageSanitizeMethodDefault = 0,
+    StorageSanitizeMethodBlockErase,
+    StorageSanitizeMethodCryptoErase
+} STORAGE_SANITIZE_METHOD, *PSTORAGE_SANITIZE_METHOD;
+
+#pragma warning(push)
+#pragma warning(disable:4214) // bit fields other than int to disable this around the struct
+
+typedef struct _STORAGE_REINITIALIZE_MEDIA {
+
+    ULONG Version;
+
+    ULONG Size;
+
+    ULONG TimeoutInSeconds;
+
+    //
+    // The SanitizeOption field is only applicable to NVMe devices.
+    //
+    struct {
+
+        //
+        // This field specifies the sanitize method defined in STORAGE_SANITIZE_METHOD enum.
+        //
+        ULONG SanitizeMethod : 4;
+
+        //
+        // This field specifies if unrestricted sanitize exit is allowed or not.
+        // By default unrestricted sanitize exit is allowed.
+        //
+        ULONG DisallowUnrestrictedSanitizeExit : 1;
+
+        ULONG Reserved : 27;
+    } SanitizeOption;
+
+} STORAGE_REINITIALIZE_MEDIA, *PSTORAGE_REINITIALIZE_MEDIA;
+
+#pragma warning(pop)
 
 
 #pragma warning(push)

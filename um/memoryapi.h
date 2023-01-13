@@ -1087,6 +1087,28 @@ CreateFileMapping2(
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+#pragma region Desktop Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
+
+WINBASEAPI
+_Success_(return != FALSE)
+BOOL
+WINAPI
+AllocateUserPhysicalPages2(
+    _In_ HANDLE ObjectHandle,
+    _Inout_ PULONG_PTR NumberOfPages,
+    _Out_writes_(*NumberOfPages) PULONG_PTR PageArray,
+    _Inout_updates_opt_(ExtendedParameterCount) PMEM_EXTENDED_PARAMETER ExtendedParameters,
+    _In_ ULONG ExtendedParameterCount
+    );
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
+#pragma endregion
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
 #if _MSC_VER >= 1200
 #pragma warning(pop)
 #endif

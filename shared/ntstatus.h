@@ -25315,6 +25315,42 @@ Notes:
 #define STATUS_SPACES_MARK_DIRTY         ((NTSTATUS)0xC0E70020L)
 
 //
+// MessageId: STATUS_SPACES_PD_NOT_FOUND
+//
+// MessageText:
+//
+// A persisted memory buffer was not found.
+//
+#define STATUS_SPACES_PD_NOT_FOUND       ((NTSTATUS)0xC0E70021L)
+
+//
+// MessageId: STATUS_SPACES_PD_LENGTH_MISMATCH
+//
+// MessageText:
+//
+// A persisted memory buffer is too small.
+//
+#define STATUS_SPACES_PD_LENGTH_MISMATCH ((NTSTATUS)0xC0E70022L)
+
+//
+// MessageId: STATUS_SPACES_PD_UNSUPPORTED_VERSION
+//
+// MessageText:
+//
+// A persisted memory buffer has an unsupported version.
+//
+#define STATUS_SPACES_PD_UNSUPPORTED_VERSION ((NTSTATUS)0xC0E70023L)
+
+//
+// MessageId: STATUS_SPACES_PD_INVALID_DATA
+//
+// MessageText:
+//
+// A persisted memory buffer contains invalid data.
+//
+#define STATUS_SPACES_PD_INVALID_DATA    ((NTSTATUS)0xC0E70024L)
+
+//
 // Volsnap status codes (volsnap.sys)
 //
 //

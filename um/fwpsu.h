@@ -2063,6 +2063,8 @@ typedef enum {
     IpDiscardInterfaceDisabled,
     IpDiscardNlClientDiscard,
 
+    IpDiscardIpsnpiUroSegmentSizeExceedsMtu,
+
     IpDiscardMax
 } IP_DISCARD_REASON, *PIP_DISCARD_REASON;
 

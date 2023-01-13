@@ -503,8 +503,8 @@ QueueObjectLength equ 00040H
 ;  Thread Object Structure Offset Definitions
 ;
 
-EtCid equ 00478H
-EtPicoContext equ 005E0H
+EtCid equ 004C8H
+EtPicoContext equ 00630H
 
 ThType equ 00000H
 ThSize equ 00002H
@@ -571,8 +571,8 @@ ThSystemCallNumber equ 00080H
 ThWin32Thread equ 001C8H
 ThStackBase equ 00038H
 ThLegoData equ 002D0H
-KernelThreadObjectLength equ 00430H
-ExecutiveThreadObjectLength equ 008A0H
+KernelThreadObjectLength equ 00480H
+ExecutiveThreadObjectLength equ 008F0H
 
 
 ;
@@ -1874,9 +1874,9 @@ ThKernelShadowStackLimit equ 00420H
 ;  ETHREAD
 ;
 
-ThSetContextState equ 00618H
-ThUserFsBase equ 005E8H
-ThUserGsBase equ 005F0H
+ThSetContextState equ 00668H
+ThUserFsBase equ 00638H
+ThUserGsBase equ 00640H
 PICO_SYSTEM_CALL equ 00008H
 
 ;

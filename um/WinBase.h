@@ -9410,6 +9410,25 @@ SetXStateFeaturesMask(
     _In_ DWORD64 FeatureMask
     );
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+WINBASEAPI
+DWORD64
+WINAPI
+GetThreadEnabledXStateFeatures(
+    VOID
+    );
+
+_Must_inspect_result_
+WINBASEAPI
+BOOL
+WINAPI
+EnableProcessOptionalXStateFeatures(
+    _In_ DWORD64 Features
+    );
+
+#endif /* NTDDI_VERSION >= NTDDI_WIN10_FE */
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 

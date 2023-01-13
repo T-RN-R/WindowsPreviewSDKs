@@ -1315,6 +1315,54 @@ GetProcessShutdownParameters(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
+#pragma region Application Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
+
+#if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_FE)
+
+_Success_(return != FALSE)
+BOOL
+WINAPI
+GetProcessDefaultCpuSetMasks(
+    _In_ HANDLE Process,
+    _Out_writes_to_opt_(CpuSetMaskCount, *RequiredMaskCount) PGROUP_AFFINITY CpuSetMasks,
+    _In_ USHORT CpuSetMaskCount,
+    _Out_ PUSHORT RequiredMaskCount
+    );
+
+_Success_(return != FALSE)
+BOOL
+WINAPI
+SetProcessDefaultCpuSetMasks(
+    _In_ HANDLE Process,
+    _In_reads_opt_(CpuSetMaskCount) PGROUP_AFFINITY CpuSetMasks,
+    _In_ USHORT CpuSetMaskCount
+    );
+
+_Success_(return != FALSE)
+BOOL
+WINAPI
+GetThreadSelectedCpuSetMasks(
+    _In_ HANDLE Thread,
+    _Out_writes_to_opt_(CpuSetMaskCount, *RequiredMaskCount) PGROUP_AFFINITY CpuSetMasks,
+    _In_ USHORT CpuSetMaskCount,
+    _Out_ PUSHORT RequiredMaskCount
+    );
+
+_Success_(return != FALSE)
+BOOL
+WINAPI
+SetThreadSelectedCpuSetMasks(
+    _In_ HANDLE Thread,
+    _In_reads_opt_(CpuSetMaskCount) PGROUP_AFFINITY CpuSetMasks,
+    _In_ USHORT CpuSetMaskCount
+    );
+
+#endif // (_WIN32_WINNT >= WIN32_WINNT_WIN10_FE)
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
+#pragma endregion
+
 WINBASEAPI
 HRESULT
 WINAPI
