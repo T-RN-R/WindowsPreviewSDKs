@@ -323,6 +323,8 @@ extern "C" {
 #endif
 
 
+// begin_ntoshvp
+
 #ifndef DECLSPEC_GUARDNOCF
 #if (_MSC_FULL_VER >= 170065501) || defined(_D1VERSIONLKG171_)
 #define DECLSPEC_GUARDNOCF  __declspec(guard(nocf))
@@ -355,7 +357,6 @@ extern "C" {
 #endif
 #endif
 
-// begin_ntoshvp
 
 #ifndef FORCEINLINE
 #if (_MSC_VER >= 1200)
@@ -1659,6 +1660,7 @@ typedef EXCEPTION_ROUTINE *PEXCEPTION_ROUTINE;
 #define PRODUCT_AZURE_SERVER_CLOUDMOS               0x000000C8
 #define PRODUCT_CLOUDEDITIONN                       0x000000CA
 #define PRODUCT_CLOUDEDITION                        0x000000CB
+#define PRODUCT_IOTENTERPRISESK                     0x000000CD
 #define PRODUCT_AZURESTACKHCI_SERVER_CORE           0x00000196
 #define PRODUCT_DATACENTER_SERVER_AZURE_EDITION     0x00000197
 #define PRODUCT_DATACENTER_SERVER_CORE_AZURE_EDITION 0x00000198
@@ -4763,9 +4765,9 @@ _InlineBitScanReverse64 (
 #pragma intrinsic(__iso_volatile_store32)
 #pragma intrinsic(__iso_volatile_store64)
 
-// end_wdm end_ntndis end_ntosp end_ntminiport
+// end_wdm end_ntndis end_ntosp end_ntminiport end_ntoshvp
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-// begin_wdm begin_ntndis begin_ntosp begin_ntminiport
+// begin_wdm begin_ntndis begin_ntosp begin_ntminiport begin_ntoshvp
 
 FORCEINLINE
 CHAR
@@ -5002,9 +5004,9 @@ BarrierAfterRead (
     return;
 }
 
-// end_wdm end_ntndis end_ntosp end_ntminiport
+// end_wdm end_ntndis end_ntosp end_ntminiport end_ntoshvp
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-// begin_wdm begin_ntndis begin_ntosp begin_ntminiport
+// begin_wdm begin_ntndis begin_ntosp begin_ntminiport begin_ntoshvp
 
 //
 // Define coprocessor access intrinsics.  Coprocessor 15 contains
@@ -9970,6 +9972,11 @@ typedef struct _SID_AND_ATTRIBUTES_HASH {
     SID_HASH_ENTRY Hash[SID_HASH_SIZE];
 } SID_AND_ATTRIBUTES_HASH, *PSID_AND_ATTRIBUTES_HASH;
 
+typedef struct _ATTRIBUTES_AND_SID {
+    UINT32 Attributes;
+    DWORD SidStart;
+} ATTRIBUTES_AND_SID, *PATTRIBUTES_AND_SID;
+
 
 /////////////////////////////////////////////////////////////////////////////
 //                                                                         //
@@ -11634,6 +11641,7 @@ typedef enum _TOKEN_INFORMATION_CLASS {
     TokenIsLessPrivilegedAppContainer,
     TokenIsSandboxed,
     TokenIsAppSilo,
+    TokenLoggingInformation,
     MaxTokenInfoClass  // MaxTokenInfoClass should always be the last enum
 } TOKEN_INFORMATION_CLASS, *PTOKEN_INFORMATION_CLASS;
 
@@ -11762,6 +11770,22 @@ typedef struct _TOKEN_ACCESS_INFORMATION {
     PSID TrustLevelSid;
     PSECURITY_ATTRIBUTES_OPAQUE SecurityAttributes;
 } TOKEN_ACCESS_INFORMATION, *PTOKEN_ACCESS_INFORMATION;
+
+typedef struct _TOKEN_LOGGING_INFORMATION {
+    TOKEN_TYPE TokenType;
+    TOKEN_ELEVATION TokenElevation;
+    TOKEN_ELEVATION_TYPE TokenElevationType;
+    SECURITY_IMPERSONATION_LEVEL ImpersonationLevel;
+    DWORD IntegrityLevel;
+    SID_AND_ATTRIBUTES User;
+    PSID TrustLevelSid;
+    DWORD SessionId;
+    DWORD AppContainerNumber;
+    LUID AuthenticationId;
+    DWORD GroupCount;
+    DWORD GroupsLength;
+    PSID_AND_ATTRIBUTES Groups;
+} TOKEN_LOGGING_INFORMATION, *PTOKEN_LOGGING_INFORMATION;
 
 //
 // Valid bits for each TOKEN_AUDIT_POLICY policy mask field.

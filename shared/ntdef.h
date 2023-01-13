@@ -369,6 +369,8 @@ Abstract:
 
 // begin_winnt begin_ntminiport begin_ntndis begin_ntminitape
 
+// begin_ntoshvp
+
 #ifndef DECLSPEC_GUARDNOCF
 #if (_MSC_FULL_VER >= 170065501) || defined(_D1VERSIONLKG171_)
 #define DECLSPEC_GUARDNOCF  __declspec(guard(nocf))
@@ -401,7 +403,6 @@ Abstract:
 #endif
 #endif
 
-// begin_ntoshvp
 
 #ifndef FORCEINLINE
 #if (_MSC_VER >= 1200)
@@ -2491,6 +2492,7 @@ typedef _Enum_is_bitflag_ enum _SUITE_TYPE {
 #define PRODUCT_AZURE_SERVER_CLOUDMOS               0x000000C8
 #define PRODUCT_CLOUDEDITIONN                       0x000000CA
 #define PRODUCT_CLOUDEDITION                        0x000000CB
+#define PRODUCT_IOTENTERPRISESK                     0x000000CD
 #define PRODUCT_AZURESTACKHCI_SERVER_CORE           0x00000196
 #define PRODUCT_DATACENTER_SERVER_AZURE_EDITION     0x00000197
 #define PRODUCT_DATACENTER_SERVER_CORE_AZURE_EDITION 0x00000198

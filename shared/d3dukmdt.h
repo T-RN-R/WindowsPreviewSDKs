@@ -51,6 +51,7 @@
 #define DXGKDDI_INTERFACE_VERSION_WDDM2_9    0xE003
 #define DXGKDDI_INTERFACE_VERSION_WDDM3_0    0xF003
 #define DXGKDDI_INTERFACE_VERSION_WDDM3_1   0x10004
+#define DXGKDDI_INTERFACE_VERSION_WDDM3_2   0x11000
 
 
 #define IS_OFFICIAL_DDI_INTERFACE_VERSION(version)                 \
@@ -73,11 +74,12 @@
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_8) ||   \
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_9) ||   \
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM3_0) ||   \
-             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM3_1)      \
+             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM3_1) ||   \
+             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM3_2)      \
             )
 
 #if !defined(DXGKDDI_INTERFACE_VERSION)
-#define DXGKDDI_INTERFACE_VERSION           DXGKDDI_INTERFACE_VERSION_WDDM3_1
+#define DXGKDDI_INTERFACE_VERSION           DXGKDDI_INTERFACE_VERSION_WDDM3_2
 #endif // !defined(DXGKDDI_INTERFACE_VERSION)
 
 #define D3D_UMD_INTERFACE_VERSION_VISTA      0x000C
@@ -138,11 +140,14 @@
 #define D3D_UMD_INTERFACE_VERSION_WDDM3_1_1     0x10000
 #define D3D_UMD_INTERFACE_VERSION_WDDM3_1       D3D_UMD_INTERFACE_VERSION_WDDM3_1_1
 
+#define D3D_UMD_INTERFACE_VERSION_WDDM3_2_1     0x11000
+#define D3D_UMD_INTERFACE_VERSION_WDDM3_2       D3D_UMD_INTERFACE_VERSION_WDDM3_2_1
+
 // Components which depend on D3D_UMD_INTERFACE_VERSION need to be updated, static assert validation present.
 // Search for D3D_UMD_INTERFACE_VERSION across all depots to ensure all dependencies are updated.
 
 #if !defined(D3D_UMD_INTERFACE_VERSION)
-#define D3D_UMD_INTERFACE_VERSION           D3D_UMD_INTERFACE_VERSION_WDDM3_1
+#define D3D_UMD_INTERFACE_VERSION           D3D_UMD_INTERFACE_VERSION_WDDM3_2
 #endif // !defined(D3D_UMD_INTERFACE_VERSION)
 
 //
@@ -2021,6 +2026,34 @@ typedef struct _D3DDDI_QUERYREGISTRY_INFO
 #define D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT 4
 
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM1_3)
+
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_6)
+
+//
+// For each feature in this enumeration, if the driver supports it,
+// it must invoke the OS QueryFeatureSupport callback
+// to report the level of support (experimental, stable, always on),
+// and only enable the feature if the OS returned Enabled=TRUE.
+// Drivers that don't support the feature don't have to call the OS to query its status.
+//
+typedef enum _DXGK_FEATURE_ID
+{
+    DXGK_FEATURE_HWSCH                          = 0, // Hardware accelerated GPU scheduling
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_0)
+    DXGK_FEATURE_HWFLIPQUEUE                    = 1, // Hardware flip queue
+    DXGK_FEATURE_LDA_GPUPV                      = 2, // Support for LDA in GPU-PV
+    DXGK_FEATURE_KMD_SIGNAL_CPU_EVENT           = 3, // Support for signaling CPU event by KMD
+#endif
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_1)
+    DXGK_FEATURE_USER_MODE_SUBMISSION           = 4,
+    DXGK_FEATURE_SHARE_BACKING_STORE_WITH_KMD   = 5,
+#endif
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM3_2)
+    DXGK_FEATURE_MAX
+#endif
+} DXGK_FEATURE_ID;
+
+#endif // DXGKDDI_INTERFACE_VERSION_WDDM2_6
 
 #endif // (NTDDI_VERSION >= NTDDI_LONGHORN) || defined(D3DKMDT_SPECIAL_MULTIPLATFORM_TOOL)
 
