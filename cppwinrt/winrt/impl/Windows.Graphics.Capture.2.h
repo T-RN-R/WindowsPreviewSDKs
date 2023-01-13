@@ -9,6 +9,7 @@
 #include "winrt/impl/Windows.Graphics.1.h"
 #include "winrt/impl/Windows.Graphics.DirectX.1.h"
 #include "winrt/impl/Windows.Graphics.DirectX.Direct3D11.1.h"
+#include "winrt/impl/Windows.UI.1.h"
 #include "winrt/impl/Windows.UI.Composition.1.h"
 #include "winrt/impl/Windows.Graphics.Capture.1.h"
 WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
@@ -32,6 +33,7 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
         GraphicsCaptureItem(std::nullptr_t) noexcept {}
         GraphicsCaptureItem(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Graphics::Capture::IGraphicsCaptureItem(ptr, take_ownership_from_abi) {}
         static auto CreateFromVisual(Windows::UI::Composition::Visual const& visual);
+        static auto CreateFromWindowReference(Windows::UI::WindowReference const& windowReference);
     };
     struct __declspec(empty_bases) GraphicsCapturePicker : Windows::Graphics::Capture::IGraphicsCapturePicker
     {

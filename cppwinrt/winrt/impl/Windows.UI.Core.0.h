@@ -28,6 +28,7 @@ WINRT_EXPORT namespace winrt::Windows::System
 WINRT_EXPORT namespace winrt::Windows::UI
 {
     struct UIContext;
+    struct WindowReference;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Input
 {
@@ -163,6 +164,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Core
     struct ICoreWindowResizeManagerStatics;
     struct ICoreWindowStatic;
     struct ICoreWindowWithContext;
+    struct ICoreWindowWithWindowReference;
     struct IIdleDispatchedHandlerArgs;
     struct IInitializeWithCoreWindow;
     struct IInputEnabledEventArgs;
@@ -245,6 +247,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Core::ICoreWindowResizeManagerStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Core::ICoreWindowStatic>{ using type = interface_category; };
     template <> struct category<Windows::UI::Core::ICoreWindowWithContext>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Core::ICoreWindowWithWindowReference>{ using type = interface_category; };
     template <> struct category<Windows::UI::Core::IIdleDispatchedHandlerArgs>{ using type = interface_category; };
     template <> struct category<Windows::UI::Core::IInitializeWithCoreWindow>{ using type = interface_category; };
     template <> struct category<Windows::UI::Core::IInputEnabledEventArgs>{ using type = interface_category; };
@@ -374,6 +377,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Core::ICoreWindowResizeManagerStatics>{ L"Windows.UI.Core.ICoreWindowResizeManagerStatics" };
     template <> inline constexpr auto& name_v<Windows::UI::Core::ICoreWindowStatic>{ L"Windows.UI.Core.ICoreWindowStatic" };
     template <> inline constexpr auto& name_v<Windows::UI::Core::ICoreWindowWithContext>{ L"Windows.UI.Core.ICoreWindowWithContext" };
+    template <> inline constexpr auto& name_v<Windows::UI::Core::ICoreWindowWithWindowReference>{ L"Windows.UI.Core.ICoreWindowWithWindowReference" };
     template <> inline constexpr auto& name_v<Windows::UI::Core::IIdleDispatchedHandlerArgs>{ L"Windows.UI.Core.IIdleDispatchedHandlerArgs" };
     template <> inline constexpr auto& name_v<Windows::UI::Core::IInitializeWithCoreWindow>{ L"Windows.UI.Core.IInitializeWithCoreWindow" };
     template <> inline constexpr auto& name_v<Windows::UI::Core::IInputEnabledEventArgs>{ L"Windows.UI.Core.IInputEnabledEventArgs" };
@@ -427,6 +431,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Core::ICoreWindowResizeManagerStatics>{ 0xAE4A9045,0x6D70,0x49DB,{ 0x8E,0x68,0x46,0xFF,0xBD,0x17,0xD3,0x8D } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::ICoreWindowStatic>{ 0x4D239005,0x3C2A,0x41B1,{ 0x90,0x22,0x53,0x6B,0xB9,0xCF,0x93,0xB1 } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::ICoreWindowWithContext>{ 0x9AC40241,0x3575,0x4C3B,{ 0xAF,0x66,0xE8,0xC5,0x29,0xD4,0xD0,0x6C } };
+    template <> inline constexpr guid guid_v<Windows::UI::Core::ICoreWindowWithWindowReference>{ 0x66422EBA,0xC088,0x4C94,{ 0xBD,0x8B,0x5E,0xDA,0x8F,0xDE,0xB2,0x73 } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::IIdleDispatchedHandlerArgs>{ 0x98BB6A24,0xDC1C,0x43CB,{ 0xB4,0xED,0xD1,0xC0,0xEB,0x23,0x91,0xF3 } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::IInitializeWithCoreWindow>{ 0x188F20D6,0x9873,0x464A,{ 0xAC,0xE5,0x57,0xE0,0x10,0xF4,0x65,0xE6 } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::IInputEnabledEventArgs>{ 0x80371D4F,0x2FD8,0x4C24,{ 0xAA,0x86,0x31,0x63,0xA8,0x7B,0x4E,0x5A } };
@@ -870,6 +875,13 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_UIContext(void**) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Core::ICoreWindowWithWindowReference>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_WindowReference(void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Core::IIdleDispatchedHandlerArgs>
@@ -1547,6 +1559,15 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Core::ICoreWindowWithContext>
     {
         template <typename D> using type = consume_Windows_UI_Core_ICoreWindowWithContext<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Core_ICoreWindowWithWindowReference
+    {
+        [[nodiscard]] auto WindowReference() const;
+    };
+    template <> struct consume<Windows::UI::Core::ICoreWindowWithWindowReference>
+    {
+        template <typename D> using type = consume_Windows_UI_Core_ICoreWindowWithWindowReference<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Core_IIdleDispatchedHandlerArgs

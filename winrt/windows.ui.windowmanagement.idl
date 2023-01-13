@@ -63,6 +63,8 @@ namespace Windows
         runtimeclass UIContentRoot;
 
         runtimeclass UIContext;
+
+        runtimeclass WindowReference;
     }
 }
 namespace Windows
@@ -77,13 +79,21 @@ namespace Windows
 
             typedef enum AppWindowPresentationKind AppWindowPresentationKind;
 
+            typedef enum AppWindowShowOptions AppWindowShowOptions;
+
             typedef enum AppWindowTitleBarVisibility AppWindowTitleBarVisibility;
+
+            typedef enum WindowVisibilityState WindowVisibilityState;
 
             typedef enum WindowingEnvironmentKind WindowingEnvironmentKind;
 
             interface IAppWindow;
 
+            interface IAppWindow2;
+
             interface IAppWindowChangedEventArgs;
+
+            interface IAppWindowChangedEventArgs2;
 
             interface IAppWindowCloseRequestedEventArgs;
 
@@ -116,6 +126,12 @@ namespace Windows
             interface IDisplayRegion;
 
             interface IFullScreenPresentationConfiguration;
+
+            interface ISpanningPresentationConfiguration;
+
+            interface IWindowInformation;
+
+            interface IWindowInformationStatics;
 
             interface IWindowingEnvironment;
 
@@ -154,6 +170,10 @@ namespace Windows
             runtimeclass DisplayRegion;
 
             runtimeclass FullScreenPresentationConfiguration;
+
+            runtimeclass SpanningPresentationConfiguration;
+
+            runtimeclass WindowInformation;
 
             runtimeclass WindowingEnvironment;
 
@@ -236,7 +256,17 @@ namespace Windows
             {
                 Default        = 0,
                 CompactOverlay = 1,
-                FullScreen     = 2
+                FullScreen     = 2,
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+                Spanning       = 3
+            };
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [flags]
+            enum AppWindowShowOptions
+            {
+                Default        = 0x0,
+                ShowNoActivate = 0x1
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
@@ -244,6 +274,14 @@ namespace Windows
             {
                 Default      = 0,
                 AlwaysHidden = 1
+            };
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            enum WindowVisibilityState
+            {
+                Unknown = 0,
+                Visible = 1,
+                Hidden  = 2
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
@@ -290,6 +328,17 @@ namespace Windows
                 [eventremove] HRESULT CloseRequested([in] EventRegistrationToken token);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.UI.WindowManagement.AppWindow)]
+            [uuid(06B045F1-FB8D-5587-9D5F-C4927522B14B)]
+            interface IAppWindow2 : IInspectable
+            {
+                [propget] HRESULT WindowReference([out] [retval] Windows.UI.WindowReference** value);
+                HRESULT TryHide([in] boolean shownInSwitchers);
+                [overload("TryShowAsync")] HRESULT TryShowAsync([in] Windows.UI.WindowManagement.AppWindowShowOptions options, [out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
+                [overload("TryShowAsync")] HRESULT TryShowAsync2([in] Windows.UI.WindowManagement.AppWindowShowOptions options, [in] Windows.UI.WindowReference* anchorWindow, [out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
             [exclusiveto(Windows.UI.WindowManagement.AppWindowChangedEventArgs)]
             [uuid(1DE1F3BE-A655-55AD-B2B6-EB240F880356)]
@@ -303,6 +352,14 @@ namespace Windows
                 [propget] HRESULT DidVisibilityChange([out] [retval] boolean* value);
                 [propget] HRESULT DidWindowingEnvironmentChange([out] [retval] boolean* value);
                 [propget] HRESULT DidWindowPresentationChange([out] [retval] boolean* value);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.UI.WindowManagement.AppWindowChangedEventArgs)]
+            [uuid(77071B54-3E18-520B-A95D-55D7B5CB9740)]
+            interface IAppWindowChangedEventArgs2 : IInspectable
+            {
+                [propget] HRESULT DidOffsetChange([out] [retval] boolean* value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
@@ -475,6 +532,31 @@ namespace Windows
                 [propput] HRESULT IsExclusive([in] boolean value);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.UI.WindowManagement.SpanningPresentationConfiguration)]
+            [uuid(7751D2BC-B99B-58D0-B154-EFFBE17F54C3)]
+            interface ISpanningPresentationConfiguration : IInspectable
+            {
+                HRESULT GetSpanningRects([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.Foundation.Rect>** result);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.UI.WindowManagement.WindowInformation)]
+            [uuid(91439554-FFEE-5DEE-B10E-F665242DD5A2)]
+            interface IWindowInformation : IInspectable
+            {
+                [propget] HRESULT DisplayName([out] [retval] HSTRING* value);
+                [propget] HRESULT Visibility([out] [retval] Windows.UI.WindowManagement.WindowVisibilityState* value);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.UI.WindowManagement.WindowInformation)]
+            [uuid(458D3935-7563-5313-98BC-E4123298F175)]
+            interface IWindowInformationStatics : IInspectable
+            {
+                HRESULT FromWindowReference([in] Windows.UI.WindowReference* value, [out] [retval] Windows.UI.WindowManagement.WindowInformation** result);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
             [exclusiveto(Windows.UI.WindowManagement.WindowingEnvironment)]
             [uuid(264363C0-2A49-5417-B3AE-48A71C63A3BD)]
@@ -526,6 +608,7 @@ namespace Windows
             runtimeclass AppWindow
             {
                 [default] interface Windows.UI.WindowManagement.IAppWindow;
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.WindowManagement.IAppWindow2;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
@@ -533,6 +616,7 @@ namespace Windows
             runtimeclass AppWindowChangedEventArgs
             {
                 [default] interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs;
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs2;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
@@ -627,6 +711,24 @@ namespace Windows
             runtimeclass FullScreenPresentationConfiguration : Windows.UI.WindowManagement.AppWindowPresentationConfiguration
             {
                 [default] interface Windows.UI.WindowManagement.IFullScreenPresentationConfiguration;
+            }
+
+            [activatable(Windows.Foundation.UniversalApiContract, 11.0)]
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [marshaling_behavior(agile)]
+            [threading(both)]
+            runtimeclass SpanningPresentationConfiguration : Windows.UI.WindowManagement.AppWindowPresentationConfiguration
+            {
+                [default] interface Windows.UI.WindowManagement.ISpanningPresentationConfiguration;
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [marshaling_behavior(agile)]
+            [static(Windows.UI.WindowManagement.IWindowInformationStatics, Windows.Foundation.UniversalApiContract, 11.0)]
+            [threading(both)]
+            runtimeclass WindowInformation
+            {
+                [default] interface Windows.UI.WindowManagement.IWindowInformation;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]

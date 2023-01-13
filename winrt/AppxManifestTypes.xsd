@@ -827,11 +827,18 @@
     </xs:restriction>
   </xs:simpleType>
 
-    <xs:simpleType name="ST_ExtensionCategory_Desktop7">
+  <xs:simpleType name="ST_ExtensionCategory_Desktop7">
     <xs:restriction base="xs:string">
       <!-- Application Extensions -->
       <xs:enumeration value="windows.shortcut"/>
       <xs:enumeration value="windows.applicationRegistration"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_CloudFiles">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.cloudFiles"/>
     </xs:restriction>
   </xs:simpleType>
 

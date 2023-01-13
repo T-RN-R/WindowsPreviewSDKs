@@ -7,6 +7,7 @@
 #define WINRT_Windows_UI_H
 #include "winrt/base.h"
 static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+#include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.UI.2.h"
 namespace winrt::impl
 {
@@ -873,6 +874,30 @@ namespace winrt::impl
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::IUIContentRoot)->get_UIContext(&value));
         return Windows::UI::UIContext{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_IWindowReference<D>::Id() const
+    {
+        Windows::UI::WindowReferenceId value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::IWindowReference)->get_Id(put_abi(value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_IWindowReferenceStatics<D>::FindAllTopLevelWindows() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::IWindowReferenceStatics)->FindAllTopLevelWindows(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::UI::WindowReference>{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_IWindowReferenceStatics<D>::GetForWindow(uint64_t hwnd) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::IWindowReferenceStatics)->GetForWindow(hwnd, &result));
+        return Windows::UI::WindowReference{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_IWindowReferenceStatics<D>::GetWindowReference(Windows::UI::WindowReferenceId const& id) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::IWindowReferenceStatics)->GetWindowReference(impl::bind_in(id), &result));
+        return Windows::UI::WindowReference{ result, take_ownership_from_abi };
     }
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
@@ -2068,6 +2093,50 @@ namespace winrt::impl
     {
     };
 #endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::IWindowReference> : produce_base<D, Windows::UI::IWindowReference>
+    {
+        int32_t __stdcall get_Id(struct struct_Windows_UI_WindowReferenceId* value) noexcept final try
+        {
+            zero_abi<Windows::UI::WindowReferenceId>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::WindowReferenceId>(this->shim().Id());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::IWindowReferenceStatics> : produce_base<D, Windows::UI::IWindowReferenceStatics>
+    {
+        int32_t __stdcall FindAllTopLevelWindows(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowReference>>(this->shim().FindAllTopLevelWindows());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall GetForWindow(uint64_t hwnd, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::WindowReference>(this->shim().GetForWindow(hwnd));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall GetWindowReference(struct struct_Windows_UI_WindowReferenceId id, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::WindowReference>(this->shim().GetWindowReference(*reinterpret_cast<Windows::UI::WindowReferenceId const*>(&id)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
 }
 WINRT_EXPORT namespace winrt::Windows::UI
 {
@@ -2643,6 +2712,18 @@ WINRT_EXPORT namespace winrt::Windows::UI
     {
         return impl::call_factory_cast<Windows::UI::Color(*)(IColorsStatics const&), Colors, IColorsStatics>([](IColorsStatics const& f) { return f.YellowGreen(); });
     }
+    inline auto WindowReference::FindAllTopLevelWindows()
+    {
+        return impl::call_factory_cast<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowReference>(*)(IWindowReferenceStatics const&), WindowReference, IWindowReferenceStatics>([](IWindowReferenceStatics const& f) { return f.FindAllTopLevelWindows(); });
+    }
+    inline auto WindowReference::GetForWindow(uint64_t hwnd)
+    {
+        return impl::call_factory<WindowReference, IWindowReferenceStatics>([&](IWindowReferenceStatics const& f) { return f.GetForWindow(hwnd); });
+    }
+    inline auto WindowReference::GetWindowReference(Windows::UI::WindowReferenceId const& id)
+    {
+        return impl::call_factory<WindowReference, IWindowReferenceStatics>([&](IWindowReferenceStatics const& f) { return f.GetWindowReference(id); });
+    }
 }
 namespace std
 {
@@ -2654,10 +2735,13 @@ namespace std
     template<> struct hash<winrt::Windows::UI::IColorsStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::IUIContentRoot> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::IUIContext> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::IWindowReference> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::IWindowReferenceStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::ColorHelper> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Colors> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::UIContentRoot> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::UIContext> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowReference> : winrt::impl::hash_base {};
 #endif
 }
 #endif

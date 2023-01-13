@@ -51,20 +51,12 @@
     <xs:sequence minOccurs="0">
       <xs:element name="Verb" maxOccurs="10000">
         <xs:complexType>
-          <xs:attribute name="Id" type="ST_CloudFilesContextMenusVerbId" use="required" />
+          <xs:attribute name="Id" type="t:ST_FileTypeAssociationSupportedVerbId" use="required" />
           <xs:attribute name="Clsid" type="t:ST_GUID"/>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:simpleType name="ST_CloudFilesContextMenusVerbId">
-    <xs:restriction base="t:ST_NonEmptyString">
-      <xs:minLength value="3"/>
-      <xs:maxLength value="64"/>
-      <xs:pattern value="([A-Za-z0-9]*)"/>
-    </xs:restriction>
-  </xs:simpleType>
 
   <xs:complexType name="CT_AutoPlayHandler">
     <xs:sequence minOccurs="0" maxOccurs="1000">

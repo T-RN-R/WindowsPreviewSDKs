@@ -11079,7 +11079,7 @@ typedef struct {
 #endif
 #pragma warning(disable:4201)       // unnamed struct
 
-typedef struct {
+typedef struct _MARK_HANDLE_INFO {
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
     union {
@@ -11091,7 +11091,7 @@ typedef struct {
 #endif /*NTDDI_VERSION >= NTDDI_WIN8 */
 
     HANDLE VolumeHandle;
-    DWORD HandleInfo;
+    DWORD HandleInfo;           //Flags
 
 } MARK_HANDLE_INFO, *PMARK_HANDLE_INFO;
 
@@ -11100,7 +11100,7 @@ typedef struct {
 //  32/64 Bit thunking support structure
 //
 
-typedef struct {
+typedef struct _MARK_HANDLE_INFO32 {
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
     union {
@@ -11111,7 +11111,7 @@ typedef struct {
     DWORD UsnSourceInfo;
 #endif /*NTDDI_VERSION >= NTDDI_WIN8 */
     UINT32 VolumeHandle;
-    DWORD HandleInfo;
+    DWORD HandleInfo;           //Flags
 
 } MARK_HANDLE_INFO32, *PMARK_HANDLE_INFO32;
 #endif
@@ -11155,29 +11155,29 @@ typedef struct {
 //
 //  Flags for the HandleInfo field above
 //
-//  Introduced in W2K
+//  Introduced in W2K:
 //  MARK_HANDLE_PROTECT_CLUSTERS - disallow any defragmenting (FSCTL_MOVE_FILE) until the
 //      the handle is closed
 //
-//  Introduced in Vista
+//  Introduced in Vista:
 //  MARK_HANDLE_TXF_SYSTEM_LOG - indicates that this stream is being used as the Txf
-//      log for an RM on the volume.  Must be called in the kernel using
-//      IRP_MN_KERNEL_CALL.
+//      log for an RM on the volume.  Must be called in the kernel using IRP_MN_KERNEL_CALL.
 //
-//  MARK_HANDLE_NOT_TXF_SYSTEM_LOG - indicates that this user is no longer using this
-//      object as a log file.
+//  MARK_HANDLE_NOT_TXF_SYSTEM_LOG - indicates that this component is no longer using this
+//      object as a TxF log file.
 //
-//  Introduced in Win7
+//  Introduced in Win7:
 //  MARK_HANDLE_REALTIME - only supported by the UDFS file system.  Marks the device
 //      to do realtime streaming of video
 //
 //  MARK_HANDLE_NOT_REALTIME - only supported by the UDFS file system.  Marks the device
-//      to do realtime streaming of video
+//      to no longer do realtime streaming of video
 //
 //  MARK_HANDLE_CLOUD_SYNC - this flag is deprecated and is no longer used
 //
 //  Introduced in Win8
-//  MARK_HANDLE_READ_COPY - indicates the data must be read from the specified copy.
+//  MARK_HANDLE_READ_COPY - indicates the data must be read from the specified copy
+//      of data.  Only supported for spaces redundent volumes.
 //
 //  MARK_HANDLE_NOT_READ_COPY - indicates the data is no longer to be read from a specific copy.
 //
@@ -11208,13 +11208,14 @@ typedef struct {
 //      If a write is seen the operation is failed with STATUS_MARKED_TO_DISALLOW_WRITES
 //
 //  Introduced in RS4 (win10)
-//  MARK_HANDLE_ENABLE_CPU_CACHE - Flag reserved for internal Microsoft use, it is
-//      only used on the
+//  MARK_HANDLE_ENABLE_CPU_CACHE - Flag reserved for internal Microsoft use
 //
 
 #define MARK_HANDLE_PROTECT_CLUSTERS                    (0x00000001)
+//#define ReservedForFutureUse                          (0x00000002)
 #define MARK_HANDLE_TXF_SYSTEM_LOG                      (0x00000004)
 #define MARK_HANDLE_NOT_TXF_SYSTEM_LOG                  (0x00000008)
+//#define ReservedForFutureUse                          (0x00000010)
 
 #endif /* NTDDI_VERSION >= NTDDI_WIN2K */
 
@@ -11222,8 +11223,7 @@ typedef struct {
 
 #define MARK_HANDLE_REALTIME                            (0x00000020)
 #define MARK_HANDLE_NOT_REALTIME                        (0x00000040)
-#define MARK_HANDLE_FILTER_METADATA                     (0x00000200)        // 8.1 and newer
-#define MARK_HANDLE_CLOUD_SYNC                          (0x00000800)
+#define MARK_HANDLE_CLOUD_SYNC                          (0x00000800)    //deprecated flag - do not use
 
 #endif /* NTDDI_VERSION >= NTDDI_WIN7 */
 
@@ -11231,9 +11231,15 @@ typedef struct {
 
 #define MARK_HANDLE_READ_COPY                           (0x00000080)
 #define MARK_HANDLE_NOT_READ_COPY                       (0x00000100)
-#define MARK_HANDLE_RETURN_PURGE_FAILURE                (0x00000400)        // 8.1 and newer
 
 #endif /*NTDDI_VERSION >= NTDDI_WIN8 */
+
+#if (NTDDI_VERSION >= NTDDI_WINBLUE) || (NTDDI_VERSION >= NTDDI_WIN7)       //Win7 check is for backward compatibility
+
+#define MARK_HANDLE_FILTER_METADATA                     (0x00000200)        // 8.1 and newer
+#define MARK_HANDLE_RETURN_PURGE_FAILURE                (0x00000400)        // 8.1 and newer
+
+#endif /*NTDDI_VERSION >= NTDDI_WINBLUE */
 
 #if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
 
@@ -11248,6 +11254,12 @@ typedef struct {
 #define MARK_HANDLE_ENABLE_CPU_CACHE                    (0x10000000)
 
 #endif /*NTDDI_VERSION >= NTDDI_WIN10_RS4 */
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+
+#endif /*NTDDI_VERSION >= NTDDI_WIN10_MN */
+
+
 
 //
 //==================== FSCTL_SECURITY_ID_CHECK ======================

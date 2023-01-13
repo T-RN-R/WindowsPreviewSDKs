@@ -23,6 +23,18 @@ WINRT_EXPORT namespace winrt::Windows::UI
     {
         return !(left == right);
     }
+    struct WindowReferenceId
+    {
+        uint64_t Value;
+    };
+    inline bool operator==(WindowReferenceId const& left, WindowReferenceId const& right) noexcept
+    {
+        return left.Value == right.Value;
+    }
+    inline bool operator!=(WindowReferenceId const& left, WindowReferenceId const& right) noexcept
+    {
+        return !(left == right);
+    }
     struct __declspec(empty_bases) ColorHelper : Windows::UI::IColorHelper
     {
         ColorHelper(std::nullptr_t) noexcept {}
@@ -185,6 +197,14 @@ WINRT_EXPORT namespace winrt::Windows::UI
     {
         UIContext(std::nullptr_t) noexcept {}
         UIContext(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::IUIContext(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) WindowReference : Windows::UI::IWindowReference
+    {
+        WindowReference(std::nullptr_t) noexcept {}
+        WindowReference(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::IWindowReference(ptr, take_ownership_from_abi) {}
+        static auto FindAllTopLevelWindows();
+        static auto GetForWindow(uint64_t hwnd);
+        static auto GetWindowReference(Windows::UI::WindowReferenceId const& id);
     };
 }
 #endif

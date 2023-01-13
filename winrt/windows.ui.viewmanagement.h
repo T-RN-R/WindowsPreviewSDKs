@@ -341,6 +341,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                interface IApplicationViewSpanningRects;
+            } /* ViewManagement */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects ABI::Windows::UI::ViewManagement::IApplicationViewSpanningRects
+
+#endif // ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewStatics_FWD_DEFINED__
 namespace ABI {
@@ -921,6 +936,68 @@ typedef IAsyncOperationCompletedHandler<bool> __FIAsyncOperationCompletedHandler
 
 namespace ABI {
     namespace Windows {
+        namespace Foundation {
+            typedef struct Rect Rect;
+        } /* Foundation */
+    } /* Windows */
+} /* ABI */
+
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+
+#ifndef DEF___FIIterator_1_Windows__CFoundation__CRect_USE
+#define DEF___FIIterator_1_Windows__CFoundation__CRect_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("3487aa9d-505f-550e-874e-5b6194c618eb"))
+IIterator<struct ABI::Windows::Foundation::Rect> : IIterator_impl<struct ABI::Windows::Foundation::Rect>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Rect>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterator<struct ABI::Windows::Foundation::Rect> __FIIterator_1_Windows__CFoundation__CRect_t;
+#define __FIIterator_1_Windows__CFoundation__CRect ABI::Windows::Foundation::Collections::__FIIterator_1_Windows__CFoundation__CRect_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterator_1_Windows__CFoundation__CRect_USE */
+
+#endif // WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+
+#ifndef DEF___FIIterable_1_Windows__CFoundation__CRect_USE
+#define DEF___FIIterable_1_Windows__CFoundation__CRect_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("f7a49934-2bcd-50b0-a10a-750045d95578"))
+IIterable<struct ABI::Windows::Foundation::Rect> : IIterable_impl<struct ABI::Windows::Foundation::Rect>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Rect>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterable<struct ABI::Windows::Foundation::Rect> __FIIterable_1_Windows__CFoundation__CRect_t;
+#define __FIIterable_1_Windows__CFoundation__CRect ABI::Windows::Foundation::Collections::__FIIterable_1_Windows__CFoundation__CRect_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterable_1_Windows__CFoundation__CRect_USE */
+
+#endif // WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+
+namespace ABI {
+    namespace Windows {
         namespace UI {
             namespace WindowManagement {
                 class DisplayRegion;
@@ -997,6 +1074,33 @@ typedef IIterable<ABI::Windows::UI::WindowManagement::DisplayRegion*> __FIIterab
 #endif /* DEF___FIIterable_1_Windows__CUI__CWindowManagement__CDisplayRegion_USE */
 
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+
+#ifndef DEF___FIVectorView_1_Windows__CFoundation__CRect_USE
+#define DEF___FIVectorView_1_Windows__CFoundation__CRect_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("0b651ad6-9755-5be5-8918-6bd61eed3795"))
+IVectorView<struct ABI::Windows::Foundation::Rect> : IVectorView_impl<struct ABI::Windows::Foundation::Rect>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.Rect>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IVectorView<struct ABI::Windows::Foundation::Rect> __FIVectorView_1_Windows__CFoundation__CRect_t;
+#define __FIVectorView_1_Windows__CFoundation__CRect ABI::Windows::Foundation::Collections::__FIVectorView_1_Windows__CFoundation__CRect_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIVectorView_1_Windows__CFoundation__CRect_USE */
+
+#endif // WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
 
@@ -1517,14 +1621,6 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Foundation {
-            typedef struct Rect Rect;
-        } /* Foundation */
-    } /* Windows */
-} /* ABI */
-
-namespace ABI {
-    namespace Windows {
-        namespace Foundation {
             typedef struct Size Size;
         } /* Foundation */
     } /* Windows */
@@ -1800,6 +1896,9 @@ namespace ABI {
                 {
                     ApplicationViewMode_Default = 0,
                     ApplicationViewMode_CompactOverlay = 1,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+                    ApplicationViewMode_Spanning = 2,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
                 };
             } /* ViewManagement */
         } /* UI */
@@ -2755,6 +2854,42 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics;
 #endif /* !defined(____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_UI_VIEWMANAGEMENT_VIEWMANAGEMENTVIEWSCALINGCONTRACT_VERSION >= 0x10000
+
+/*
+ *
+ * Interface Windows.UI.ViewManagement.IApplicationViewSpanningRects
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.ViewManagement.ApplicationView
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_ViewManagement_IApplicationViewSpanningRects[] = L"Windows.UI.ViewManagement.IApplicationViewSpanningRects";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace ViewManagement {
+                MIDL_INTERFACE("645737e4-a882-4e16-b289-fd860560106a")
+                IApplicationViewSpanningRects : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE GetSpanningRects(
+                        __FIVectorView_1_Windows__CFoundation__CRect** result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IApplicationViewSpanningRects = _uuidof(IApplicationViewSpanningRects);
+            } /* ViewManagement */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects;
+#endif /* !defined(____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -4407,12 +4542,12 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewInteropStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics4 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics3 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewFullscreenStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics4 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewInteropStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.ViewManagement.IApplicationView ** Default Interface **
@@ -4422,6 +4557,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.ViewManagement.IApplicationView7
  *    Windows.UI.ViewManagement.IApplicationView9
  *    Windows.UI.ViewManagement.IApplicationViewWithContext
+ *    Windows.UI.ViewManagement.IApplicationViewSpanningRects
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -4482,8 +4618,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -4547,8 +4683,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics2 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.ViewManagement.IInputPane ** Default Interface **
@@ -4858,6 +4994,12 @@ typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScaling 
 typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics;
 
 #endif // ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects;
+
+#endif // ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewStatics_FWD_DEFINED__
@@ -5194,6 +5336,153 @@ interface __FIAsyncOperationCompletedHandler_1_boolean
 
 #endif // ____FIAsyncOperationCompletedHandler_1_boolean_INTERFACE_DEFINED__
 
+typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_CRect;
+
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#if !defined(____FIIterator_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__)
+#define ____FIIterator_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__
+
+typedef interface __FIIterator_1_Windows__CFoundation__CRect __FIIterator_1_Windows__CFoundation__CRect;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterator_1_Windows__CFoundation__CRect;
+
+typedef struct __FIIterator_1_Windows__CFoundation__CRectVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterator_1_Windows__CFoundation__CRect* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterator_1_Windows__CFoundation__CRect* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterator_1_Windows__CFoundation__CRect* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterator_1_Windows__CFoundation__CRect* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterator_1_Windows__CFoundation__CRect* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterator_1_Windows__CFoundation__CRect* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Current)(__FIIterator_1_Windows__CFoundation__CRect* This,
+        struct __x_ABI_CWindows_CFoundation_CRect* result);
+    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__FIIterator_1_Windows__CFoundation__CRect* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* MoveNext)(__FIIterator_1_Windows__CFoundation__CRect* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIIterator_1_Windows__CFoundation__CRect* This,
+        UINT32 itemsLength,
+        struct __x_ABI_CWindows_CFoundation_CRect* items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CFoundation__CRectVtbl;
+
+interface __FIIterator_1_Windows__CFoundation__CRect
+{
+    CONST_VTBL struct __FIIterator_1_Windows__CFoundation__CRectVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterator_1_Windows__CFoundation__CRect_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_get_Current(This, result) \
+    ((This)->lpVtbl->get_Current(This, result))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_get_HasCurrent(This, result) \
+    ((This)->lpVtbl->get_HasCurrent(This, result))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_MoveNext(This, result) \
+    ((This)->lpVtbl->MoveNext(This, result))
+
+#define __FIIterator_1_Windows__CFoundation__CRect_GetMany(This, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterator_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#if !defined(____FIIterable_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__)
+#define ____FIIterable_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__
+
+typedef interface __FIIterable_1_Windows__CFoundation__CRect __FIIterable_1_Windows__CFoundation__CRect;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterable_1_Windows__CFoundation__CRect;
+
+typedef struct __FIIterable_1_Windows__CFoundation__CRectVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterable_1_Windows__CFoundation__CRect* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterable_1_Windows__CFoundation__CRect* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterable_1_Windows__CFoundation__CRect* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterable_1_Windows__CFoundation__CRect* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterable_1_Windows__CFoundation__CRect* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterable_1_Windows__CFoundation__CRect* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* First)(__FIIterable_1_Windows__CFoundation__CRect* This,
+        __FIIterator_1_Windows__CFoundation__CRect** result);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CFoundation__CRectVtbl;
+
+interface __FIIterable_1_Windows__CFoundation__CRect
+{
+    CONST_VTBL struct __FIIterable_1_Windows__CFoundation__CRectVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterable_1_Windows__CFoundation__CRect_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterable_1_Windows__CFoundation__CRect_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterable_1_Windows__CFoundation__CRect_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterable_1_Windows__CFoundation__CRect_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterable_1_Windows__CFoundation__CRect_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterable_1_Windows__CFoundation__CRect_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterable_1_Windows__CFoundation__CRect_First(This, result) \
+    ((This)->lpVtbl->First(This, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterable_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+
 #ifndef ____x_ABI_CWindows_CUI_CWindowManagement_CIDisplayRegion_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CWindowManagement_CIDisplayRegion_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CWindowManagement_CIDisplayRegion __x_ABI_CWindows_CUI_CWindowManagement_CIDisplayRegion;
@@ -5344,6 +5633,91 @@ interface __FIIterable_1_Windows__CUI__CWindowManagement__CDisplayRegion
 
 #endif // ____FIIterable_1_Windows__CUI__CWindowManagement__CDisplayRegion_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
+
+#if WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
+#if !defined(____FIVectorView_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__)
+#define ____FIVectorView_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__
+
+typedef interface __FIVectorView_1_Windows__CFoundation__CRect __FIVectorView_1_Windows__CFoundation__CRect;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIVectorView_1_Windows__CFoundation__CRect;
+
+typedef struct __FIVectorView_1_Windows__CFoundation__CRectVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIVectorView_1_Windows__CFoundation__CRect* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIVectorView_1_Windows__CFoundation__CRect* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIVectorView_1_Windows__CFoundation__CRect* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIVectorView_1_Windows__CFoundation__CRect* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIVectorView_1_Windows__CFoundation__CRect* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIVectorView_1_Windows__CFoundation__CRect* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetAt)(__FIVectorView_1_Windows__CFoundation__CRect* This,
+        UINT32 index,
+        struct __x_ABI_CWindows_CFoundation_CRect* result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__FIVectorView_1_Windows__CFoundation__CRect* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* IndexOf)(__FIVectorView_1_Windows__CFoundation__CRect* This,
+        struct __x_ABI_CWindows_CFoundation_CRect value,
+        UINT32* index,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIVectorView_1_Windows__CFoundation__CRect* This,
+        UINT32 startIndex,
+        UINT32 itemsLength,
+        struct __x_ABI_CWindows_CFoundation_CRect* items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CFoundation__CRectVtbl;
+
+interface __FIVectorView_1_Windows__CFoundation__CRect
+{
+    CONST_VTBL struct __FIVectorView_1_Windows__CFoundation__CRectVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_GetAt(This, index, result) \
+    ((This)->lpVtbl->GetAt(This, index, result))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_get_Size(This, result) \
+    ((This)->lpVtbl->get_Size(This, result))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_IndexOf(This, value, index, result) \
+    ((This)->lpVtbl->IndexOf(This, value, index, result))
+
+#define __FIVectorView_1_Windows__CFoundation__CRect_GetMany(This, startIndex, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, startIndex, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIVectorView_1_Windows__CFoundation__CRect_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION >= 0x10000
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
 #if !defined(____FIVectorView_1_Windows__CUI__CWindowManagement__CDisplayRegion_INTERFACE_DEFINED__)
@@ -6074,8 +6448,6 @@ typedef interface __x_ABI_CWindows_CFoundation_CIPropertyValue __x_ABI_CWindows_
 
 #endif // ____x_ABI_CWindows_CFoundation_CIPropertyValue_FWD_DEFINED__
 
-typedef struct __x_ABI_CWindows_CFoundation_CRect __x_ABI_CWindows_CFoundation_CRect;
-
 typedef struct __x_ABI_CWindows_CFoundation_CSize __x_ABI_CWindows_CFoundation_CSize;
 
 #ifndef ____x_ABI_CWindows_CUI_CCore_CICoreWindow_FWD_DEFINED__
@@ -6149,6 +6521,9 @@ enum __x_ABI_CWindows_CUI_CViewManagement_CApplicationViewMode
 {
     ApplicationViewMode_Default = 0,
     ApplicationViewMode_CompactOverlay = 1,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+    ApplicationViewMode_Spanning = 2,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
 
@@ -7567,6 +7942,75 @@ interface __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics;
 #endif /* !defined(____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewScalingStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_UI_VIEWMANAGEMENT_VIEWMANAGEMENTVIEWSCALINGCONTRACT_VERSION >= 0x10000
+
+/*
+ *
+ * Interface Windows.UI.ViewManagement.IApplicationViewSpanningRects
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.ViewManagement.ApplicationView
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_ViewManagement_IApplicationViewSpanningRects[] = L"Windows.UI.ViewManagement.IApplicationViewSpanningRects";
+typedef struct __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRectsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetSpanningRects)(__x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects* This,
+        __FIVectorView_1_Windows__CFoundation__CRect** result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRectsVtbl;
+
+interface __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRectsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_GetSpanningRects(This, result) \
+    ((This)->lpVtbl->GetSpanningRects(This, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects;
+#endif /* !defined(____x_ABI_CWindows_CUI_CViewManagement_CIApplicationViewSpanningRects_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -10576,12 +11020,12 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewInteropStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics4 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics3 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewFullscreenStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics4 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewInteropStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.ViewManagement.IApplicationView ** Default Interface **
@@ -10591,6 +11035,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.ViewManagement.IApplicationView7
  *    Windows.UI.ViewManagement.IApplicationView9
  *    Windows.UI.ViewManagement.IApplicationViewWithContext
+ *    Windows.UI.ViewManagement.IApplicationViewSpanningRects
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -10651,8 +11096,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -10716,8 +11161,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics2 interface starting with version 8.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.UI.ViewManagement.IInputPaneStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.ViewManagement.IInputPane ** Default Interface **

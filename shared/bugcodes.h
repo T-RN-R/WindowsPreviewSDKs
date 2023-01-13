@@ -4474,15 +4474,6 @@ Notes:
 #define XBOX_SECURITY_FAILUE             ((ULONG)0x00000421L)
 
 //
-// MessageId: XBOX_BAD_DISPLAYSOURCE_HANDLE
-//
-// MessageText:
-//
-//  XBOX_BAD_DISPLAYSOURCE_HANDLE
-//
-#define XBOX_BAD_DISPLAYSOURCE_HANDLE    ((ULONG)0x00000422L)
-
-//
 // MessageId: HYPERVISOR_ERROR
 //
 // MessageText:

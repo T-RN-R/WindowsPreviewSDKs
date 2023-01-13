@@ -178,6 +178,28 @@ namespace winrt::impl
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow)->remove_CloseRequested(impl::bind_in(token)));
     }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow2<D>::WindowReference() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow2)->get_WindowReference(&value));
+        return Windows::UI::WindowReference{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow2<D>::TryHide(bool shownInSwitchers) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow2)->TryHide(shownInSwitchers));
+    }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow2<D>::TryShowAsync(Windows::UI::WindowManagement::AppWindowShowOptions const& options) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow2)->TryShowAsync(static_cast<uint32_t>(options), &operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindow2<D>::TryShowAsync(Windows::UI::WindowManagement::AppWindowShowOptions const& options, Windows::UI::WindowReference const& anchorWindow) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindow2)->TryShowAsync2(static_cast<uint32_t>(options), *(void**)(&anchorWindow), &operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
+    }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs<D>::DidAvailableWindowPresentationsChange() const
     {
         bool value;
@@ -224,6 +246,12 @@ namespace winrt::impl
     {
         bool value;
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs)->get_DidWindowPresentationChange(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs2<D>::DidOffsetChange() const
+    {
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs2)->get_DidOffsetChange(&value));
         return value;
     }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowCloseRequestedEventArgs<D>::Cancel() const
@@ -538,6 +566,30 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IFullScreenPresentationConfiguration)->put_IsExclusive(value));
     }
+    template <typename D> auto consume_Windows_UI_WindowManagement_ISpanningPresentationConfiguration<D>::GetSpanningRects() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::ISpanningPresentationConfiguration)->GetSpanningRects(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::Foundation::Rect>{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IWindowInformation<D>::DisplayName() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowInformation)->get_DisplayName(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IWindowInformation<D>::Visibility() const
+    {
+        Windows::UI::WindowManagement::WindowVisibilityState value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowInformation)->get_Visibility(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IWindowInformationStatics<D>::FromWindowReference(Windows::UI::WindowReference const& value) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IWindowInformationStatics)->FromWindowReference(*(void**)(&value), &result));
+        return Windows::UI::WindowManagement::WindowInformation{ result, take_ownership_from_abi };
+    }
     template <typename D> auto consume_Windows_UI_WindowManagement_IWindowingEnvironment<D>::IsEnabled() const
     {
         bool value;
@@ -818,6 +870,43 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindow2> : produce_base<D, Windows::UI::WindowManagement::IAppWindow2>
+    {
+        int32_t __stdcall get_WindowReference(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::WindowReference>(this->shim().WindowReference());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall TryHide(bool shownInSwitchers) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TryHide(shownInSwitchers);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall TryShowAsync(uint32_t options, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().TryShowAsync(*reinterpret_cast<Windows::UI::WindowManagement::AppWindowShowOptions const*>(&options)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall TryShowAsync2(uint32_t options, void* anchorWindow, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().TryShowAsync(*reinterpret_cast<Windows::UI::WindowManagement::AppWindowShowOptions const*>(&options), *reinterpret_cast<Windows::UI::WindowReference const*>(&anchorWindow)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::UI::WindowManagement::IAppWindowChangedEventArgs> : produce_base<D, Windows::UI::WindowManagement::IAppWindowChangedEventArgs>
     {
         int32_t __stdcall get_DidAvailableWindowPresentationsChange(bool* value) noexcept final try
@@ -873,6 +962,19 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             *value = detach_from<bool>(this->shim().DidWindowPresentationChange());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowChangedEventArgs2> : produce_base<D, Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>
+    {
+        int32_t __stdcall get_DidOffsetChange(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().DidOffsetChange());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1407,6 +1509,55 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::UI::WindowManagement::ISpanningPresentationConfiguration> : produce_base<D, Windows::UI::WindowManagement::ISpanningPresentationConfiguration>
+    {
+        int32_t __stdcall GetSpanningRects(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Foundation::Rect>>(this->shim().GetSpanningRects());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::WindowManagement::IWindowInformation> : produce_base<D, Windows::UI::WindowManagement::IWindowInformation>
+    {
+        int32_t __stdcall get_DisplayName(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().DisplayName());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Visibility(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::WindowManagement::WindowVisibilityState>(this->shim().Visibility());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::WindowManagement::IWindowInformationStatics> : produce_base<D, Windows::UI::WindowManagement::IWindowInformationStatics>
+    {
+        int32_t __stdcall FromWindowReference(void* value, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::WindowManagement::WindowInformation>(this->shim().FromWindowReference(*reinterpret_cast<Windows::UI::WindowReference const*>(&value)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::UI::WindowManagement::IWindowingEnvironment> : produce_base<D, Windows::UI::WindowManagement::IWindowingEnvironment>
     {
         int32_t __stdcall get_IsEnabled(bool* value) noexcept final try
@@ -1506,6 +1657,37 @@ namespace winrt::impl
 }
 WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
 {
+    constexpr auto operator|(AppWindowShowOptions const left, AppWindowShowOptions const right) noexcept
+    {
+        return static_cast<AppWindowShowOptions>(impl::to_underlying_type(left) | impl::to_underlying_type(right));
+    }
+    constexpr auto operator|=(AppWindowShowOptions& left, AppWindowShowOptions const right) noexcept
+    {
+        left = left | right;
+        return left;
+    }
+    constexpr auto operator&(AppWindowShowOptions const left, AppWindowShowOptions const right) noexcept
+    {
+        return static_cast<AppWindowShowOptions>(impl::to_underlying_type(left) & impl::to_underlying_type(right));
+    }
+    constexpr auto operator&=(AppWindowShowOptions& left, AppWindowShowOptions const right) noexcept
+    {
+        left = left & right;
+        return left;
+    }
+    constexpr auto operator~(AppWindowShowOptions const value) noexcept
+    {
+        return static_cast<AppWindowShowOptions>(~impl::to_underlying_type(value));
+    }
+    constexpr auto operator^(AppWindowShowOptions const left, AppWindowShowOptions const right) noexcept
+    {
+        return static_cast<AppWindowShowOptions>(impl::to_underlying_type(left) ^ impl::to_underlying_type(right));
+    }
+    constexpr auto operator^=(AppWindowShowOptions& left, AppWindowShowOptions const right) noexcept
+    {
+        left = left ^ right;
+        return left;
+    }
     inline auto AppWindow::TryCreateAsync()
     {
         return impl::call_factory_cast<Windows::Foundation::IAsyncOperation<Windows::UI::WindowManagement::AppWindow>(*)(IAppWindowStatics const&), AppWindow, IAppWindowStatics>([](IAppWindowStatics const& f) { return f.TryCreateAsync(); });
@@ -1530,6 +1712,14 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         FullScreenPresentationConfiguration(impl::call_factory_cast<FullScreenPresentationConfiguration(*)(Windows::Foundation::IActivationFactory const&), FullScreenPresentationConfiguration>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<FullScreenPresentationConfiguration>(); }))
     {
     }
+    inline SpanningPresentationConfiguration::SpanningPresentationConfiguration() :
+        SpanningPresentationConfiguration(impl::call_factory_cast<SpanningPresentationConfiguration(*)(Windows::Foundation::IActivationFactory const&), SpanningPresentationConfiguration>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<SpanningPresentationConfiguration>(); }))
+    {
+    }
+    inline auto WindowInformation::FromWindowReference(Windows::UI::WindowReference const& value)
+    {
+        return impl::call_factory<WindowInformation, IWindowInformationStatics>([&](IWindowInformationStatics const& f) { return f.FromWindowReference(value); });
+    }
     inline auto WindowingEnvironment::FindAll()
     {
         return impl::call_factory_cast<Windows::Foundation::Collections::IVectorView<Windows::UI::WindowManagement::WindowingEnvironment>(*)(IWindowingEnvironmentStatics const&), WindowingEnvironment, IWindowingEnvironmentStatics>([](IWindowingEnvironmentStatics const& f) { return f.FindAll(); });
@@ -1543,7 +1733,9 @@ namespace std
 {
 #ifndef WINRT_LEAN_AND_MEAN
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindow> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindow2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowClosedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowFrame> : winrt::impl::hash_base {};
@@ -1560,6 +1752,9 @@ namespace std
     template<> struct hash<winrt::Windows::UI::WindowManagement::IDefaultPresentationConfiguration> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IDisplayRegion> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IFullScreenPresentationConfiguration> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowManagement::ISpanningPresentationConfiguration> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowInformation> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowInformationStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowingEnvironment> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs> : winrt::impl::hash_base {};
@@ -1579,6 +1774,8 @@ namespace std
     template<> struct hash<winrt::Windows::UI::WindowManagement::DefaultPresentationConfiguration> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::DisplayRegion> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::FullScreenPresentationConfiguration> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowManagement::SpanningPresentationConfiguration> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowManagement::WindowInformation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::WindowingEnvironment> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::WindowingEnvironmentAddedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::WindowingEnvironmentChangedEventArgs> : winrt::impl::hash_base {};

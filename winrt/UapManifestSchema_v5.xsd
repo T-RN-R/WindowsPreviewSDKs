@@ -164,6 +164,7 @@
     <xs:attribute name="TaskId" type="t:ST_NonEmptyString" use="required"/>
     <xs:attribute name="Enabled" type="xs:boolean" use="optional"/>
     <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="optional"/>
+    <xs:attribute ref="uap11:UserConfigurable" use="optional"/>
   </xs:complexType>
 
   <xs:complexType name="CT_AppExecutionAlias">

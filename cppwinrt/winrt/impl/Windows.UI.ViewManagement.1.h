@@ -106,6 +106,13 @@ WINRT_EXPORT namespace winrt::Windows::UI::ViewManagement
         IApplicationViewScalingStatics(std::nullptr_t = nullptr) noexcept {}
         IApplicationViewScalingStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IApplicationViewSpanningRects :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IApplicationViewSpanningRects>
+    {
+        IApplicationViewSpanningRects(std::nullptr_t = nullptr) noexcept {}
+        IApplicationViewSpanningRects(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IApplicationViewStatics :
         Windows::Foundation::IInspectable,
         impl::consume_t<IApplicationViewStatics>

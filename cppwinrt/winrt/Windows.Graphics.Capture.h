@@ -13,6 +13,7 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Graphics.DirectX.2.h"
 #include "winrt/impl/Windows.Graphics.DirectX.Direct3D11.2.h"
 #include "winrt/impl/Windows.System.2.h"
+#include "winrt/impl/Windows.UI.2.h"
 #include "winrt/impl/Windows.UI.Composition.2.h"
 #include "winrt/impl/Windows.Graphics.Capture.2.h"
 namespace winrt::impl
@@ -113,6 +114,12 @@ namespace winrt::impl
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics)->CreateFromVisual(*(void**)(&visual), &result));
+        return Windows::Graphics::Capture::GraphicsCaptureItem{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Graphics_Capture_IGraphicsCaptureItemStatics2<D>::CreateFromWindowReference(Windows::UI::WindowReference const& windowReference) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics2)->CreateFromWindowReference(*(void**)(&windowReference), &result));
         return Windows::Graphics::Capture::GraphicsCaptureItem{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Graphics_Capture_IGraphicsCapturePicker<D>::PickSingleItemAsync() const
@@ -302,6 +309,20 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::Graphics::Capture::IGraphicsCaptureItemStatics2> : produce_base<D, Windows::Graphics::Capture::IGraphicsCaptureItemStatics2>
+    {
+        int32_t __stdcall CreateFromWindowReference(void* windowReference, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::Graphics::Capture::GraphicsCaptureItem>(this->shim().CreateFromWindowReference(*reinterpret_cast<Windows::UI::WindowReference const*>(&windowReference)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::Graphics::Capture::IGraphicsCapturePicker> : produce_base<D, Windows::Graphics::Capture::IGraphicsCapturePicker>
     {
         int32_t __stdcall PickSingleItemAsync(void** operation) noexcept final try
@@ -375,6 +396,10 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
     {
         return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics>([&](IGraphicsCaptureItemStatics const& f) { return f.CreateFromVisual(visual); });
     }
+    inline auto GraphicsCaptureItem::CreateFromWindowReference(Windows::UI::WindowReference const& windowReference)
+    {
+        return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics2>([&](IGraphicsCaptureItemStatics2 const& f) { return f.CreateFromWindowReference(windowReference); });
+    }
     inline GraphicsCapturePicker::GraphicsCapturePicker() :
         GraphicsCapturePicker(impl::call_factory_cast<GraphicsCapturePicker(*)(Windows::Foundation::IActivationFactory const&), GraphicsCapturePicker>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<GraphicsCapturePicker>(); }))
     {
@@ -393,6 +418,7 @@ namespace std
     template<> struct hash<winrt::Windows::Graphics::Capture::IDirect3D11CaptureFramePoolStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureItem> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureItemStatics> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureItemStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCapturePicker> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureSession> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureSession2> : winrt::impl::hash_base {};

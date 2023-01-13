@@ -12525,7 +12525,16 @@
 //
 // Enabling driver verification is not supported for a driver with  NMI callback(s) registered.
 //
-#define ERROR_VRF_VOLATILE_NMI_REGISTERED 3199L
+#define ERROR_VRF_VOLATILE_NMI_REGISTERED 3086L
+
+//
+// MessageId: ERROR_DIF_BINDING_API_NOT_FOUND
+//
+// MessageText:
+//
+// One or more DDI is not yet supported by DIF.
+//
+#define ERROR_DIF_BINDING_API_NOT_FOUND  3199L
 
 
 //

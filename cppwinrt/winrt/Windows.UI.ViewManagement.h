@@ -308,6 +308,12 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::ViewManagement::IApplicationViewScalingStatics)->TrySetDisableLayoutScaling(disableLayoutScaling, &success));
         return success;
     }
+    template <typename D> auto consume_Windows_UI_ViewManagement_IApplicationViewSpanningRects<D>::GetSpanningRects() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::ViewManagement::IApplicationViewSpanningRects)->GetSpanningRects(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::Foundation::Rect>{ result, take_ownership_from_abi };
+    }
     template <typename D> auto consume_Windows_UI_ViewManagement_IApplicationViewStatics<D>::Value() const
     {
         Windows::UI::ViewManagement::ApplicationViewState value;
@@ -1499,6 +1505,20 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             *success = detach_from<bool>(this->shim().TrySetDisableLayoutScaling(disableLayoutScaling));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::ViewManagement::IApplicationViewSpanningRects> : produce_base<D, Windows::UI::ViewManagement::IApplicationViewSpanningRects>
+    {
+        int32_t __stdcall GetSpanningRects(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::Foundation::Rect>>(this->shim().GetSpanningRects());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2924,6 +2944,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::ViewManagement::IApplicationViewInteropStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::ViewManagement::IApplicationViewScaling> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::ViewManagement::IApplicationViewScalingStatics> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::ViewManagement::IApplicationViewSpanningRects> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::ViewManagement::IApplicationViewStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::ViewManagement::IApplicationViewStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::ViewManagement::IApplicationViewStatics3> : winrt::impl::hash_base {};
