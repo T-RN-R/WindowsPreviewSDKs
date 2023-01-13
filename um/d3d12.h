@@ -2488,6 +2488,7 @@ typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS8
 typedef struct D3D12_FEATURE_DATA_D3D12_OPTIONS9
     {
     _Out_  BOOL MeshShaderPipelineStatsSupported;
+    _Out_  BOOL MeshShaderSupportsFullRangeRenderTargetArrayIndex;
     } 	D3D12_FEATURE_DATA_D3D12_OPTIONS9;
 
 typedef struct D3D12_RESOURCE_ALLOCATION_INFO

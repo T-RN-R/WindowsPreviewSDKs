@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -76,11 +76,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfo> = L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfo";
     template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoFactory> = L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoFactory";
     template <> inline constexpr auto& name_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoStatics> = L"Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoStatics";
-    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatter>{ 0x1556B49E,0xBAD4,0x4B4A,{ 0x90,0x0D,0x44,0x07,0xAD,0xB7,0xC9,0x81 } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatterStatics>{ 0x5CA6F931,0x84D9,0x414B,{ 0xAB,0x4E,0xA0,0x55,0x2C,0x87,0x86,0x02 } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfo>{ 0x1C7CE4DD,0xC8B4,0x4EA3,{ 0x9A,0xEF,0xB3,0x42,0xE2,0xC5,0xB4,0x17 } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoFactory>{ 0x8202B964,0xADAA,0x4CFF,{ 0x8F,0xCF,0x17,0xE7,0x51,0x6A,0x28,0xFF } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoStatics>{ 0x5B3F4F6A,0x86A9,0x40E9,{ 0x86,0x49,0x6D,0x61,0x16,0x19,0x28,0xD4 } };
+    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatter>{ 0x1556B49E,0xBAD4,0x4B4A,{ 0x90,0x0D,0x44,0x07,0xAD,0xB7,0xC9,0x81 } }; // 1556B49E-BAD4-4B4A-900D-4407ADB7C981
+    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatterStatics>{ 0x5CA6F931,0x84D9,0x414B,{ 0xAB,0x4E,0xA0,0x55,0x2C,0x87,0x86,0x02 } }; // 5CA6F931-84D9-414B-AB4E-A0552C878602
+    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfo>{ 0x1C7CE4DD,0xC8B4,0x4EA3,{ 0x9A,0xEF,0xB3,0x42,0xE2,0xC5,0xB4,0x17 } }; // 1C7CE4DD-C8B4-4EA3-9AEF-B342E2C5B417
+    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoFactory>{ 0x8202B964,0xADAA,0x4CFF,{ 0x8F,0xCF,0x17,0xE7,0x51,0x6A,0x28,0xFF } }; // 8202B964-ADAA-4CFF-8FCF-17E7516A28FF
+    template <> inline constexpr guid guid_v<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfoStatics>{ 0x5B3F4F6A,0x86A9,0x40E9,{ 0x86,0x49,0x6D,0x61,0x16,0x19,0x28,0xD4 } }; // 5B3F4F6A-86A9-40E9-8649-6D61161928D4
     template <> struct default_interface<Windows::Globalization::PhoneNumberFormatting::PhoneNumberFormatter>{ using type = Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatter; };
     template <> struct default_interface<Windows::Globalization::PhoneNumberFormatting::PhoneNumberInfo>{ using type = Windows::Globalization::PhoneNumberFormatting::IPhoneNumberInfo; };
     template <> struct abi<Windows::Globalization::PhoneNumberFormatting::IPhoneNumberFormatter>

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -68,16 +68,16 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Interop::INotifyCollectionChangedEventArgsFactory> = L"Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgsFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Interop::BindableVectorChangedEventHandler> = L"Windows.UI.Xaml.Interop.BindableVectorChangedEventHandler";
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Interop::NotifyCollectionChangedEventHandler> = L"Windows.UI.Xaml.Interop.NotifyCollectionChangedEventHandler";
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableIterable>{ 0x036D2C08,0xDF29,0x41AF,{ 0x8A,0xA2,0xD7,0x74,0xBE,0x62,0xBA,0x6F } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableIterator>{ 0x6A1D6C07,0x076D,0x49F2,{ 0x83,0x14,0xF5,0x2C,0x9C,0x9A,0x83,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableObservableVector>{ 0xFE1EB536,0x7E7F,0x4F90,{ 0xAC,0x9A,0x47,0x49,0x84,0xAA,0xE5,0x12 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableVector>{ 0x393DE7DE,0x6FD0,0x4C0D,{ 0xBB,0x71,0x47,0x24,0x4A,0x11,0x3E,0x93 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableVectorView>{ 0x346DD6E7,0x976E,0x4BC3,{ 0x81,0x5D,0xEC,0xE2,0x43,0xBC,0x0F,0x33 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::INotifyCollectionChanged>{ 0x28B167D5,0x1A31,0x465B,{ 0x9B,0x25,0xD5,0xC3,0xAE,0x68,0x6C,0x40 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::INotifyCollectionChangedEventArgs>{ 0x4CF68D33,0xE3F2,0x4964,{ 0xB8,0x5E,0x94,0x5B,0x4F,0x7E,0x2F,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::INotifyCollectionChangedEventArgsFactory>{ 0xB30C3E3A,0xDF8D,0x44A5,{ 0x9A,0x38,0x7A,0xC0,0xD0,0x8C,0xE6,0x3D } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::BindableVectorChangedEventHandler>{ 0x624CD4E1,0xD007,0x43B1,{ 0x9C,0x03,0xAF,0x4D,0x3E,0x62,0x58,0xC4 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::NotifyCollectionChangedEventHandler>{ 0xCA10B37C,0xF382,0x4591,{ 0x85,0x57,0x5E,0x24,0x96,0x52,0x79,0xB0 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableIterable>{ 0x036D2C08,0xDF29,0x41AF,{ 0x8A,0xA2,0xD7,0x74,0xBE,0x62,0xBA,0x6F } }; // 036D2C08-DF29-41AF-8AA2-D774BE62BA6F
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableIterator>{ 0x6A1D6C07,0x076D,0x49F2,{ 0x83,0x14,0xF5,0x2C,0x9C,0x9A,0x83,0x31 } }; // 6A1D6C07-076D-49F2-8314-F52C9C9A8331
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableObservableVector>{ 0xFE1EB536,0x7E7F,0x4F90,{ 0xAC,0x9A,0x47,0x49,0x84,0xAA,0xE5,0x12 } }; // FE1EB536-7E7F-4F90-AC9A-474984AAE512
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableVector>{ 0x393DE7DE,0x6FD0,0x4C0D,{ 0xBB,0x71,0x47,0x24,0x4A,0x11,0x3E,0x93 } }; // 393DE7DE-6FD0-4C0D-BB71-47244A113E93
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::IBindableVectorView>{ 0x346DD6E7,0x976E,0x4BC3,{ 0x81,0x5D,0xEC,0xE2,0x43,0xBC,0x0F,0x33 } }; // 346DD6E7-976E-4BC3-815D-ECE243BC0F33
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::INotifyCollectionChanged>{ 0x28B167D5,0x1A31,0x465B,{ 0x9B,0x25,0xD5,0xC3,0xAE,0x68,0x6C,0x40 } }; // 28B167D5-1A31-465B-9B25-D5C3AE686C40
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::INotifyCollectionChangedEventArgs>{ 0x4CF68D33,0xE3F2,0x4964,{ 0xB8,0x5E,0x94,0x5B,0x4F,0x7E,0x2F,0x21 } }; // 4CF68D33-E3F2-4964-B85E-945B4F7E2F21
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::INotifyCollectionChangedEventArgsFactory>{ 0xB30C3E3A,0xDF8D,0x44A5,{ 0x9A,0x38,0x7A,0xC0,0xD0,0x8C,0xE6,0x3D } }; // B30C3E3A-DF8D-44A5-9A38-7AC0D08CE63D
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::BindableVectorChangedEventHandler>{ 0x624CD4E1,0xD007,0x43B1,{ 0x9C,0x03,0xAF,0x4D,0x3E,0x62,0x58,0xC4 } }; // 624CD4E1-D007-43B1-9C03-AF4D3E6258C4
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Interop::NotifyCollectionChangedEventHandler>{ 0xCA10B37C,0xF382,0x4591,{ 0x85,0x57,0x5E,0x24,0x96,0x52,0x79,0xB0 } }; // CA10B37C-F382-4591-8557-5E24965279B0
     template <> struct default_interface<Windows::UI::Xaml::Interop::NotifyCollectionChangedEventArgs>{ using type = Windows::UI::Xaml::Interop::INotifyCollectionChangedEventArgs; };
     template <> struct abi<Windows::UI::Xaml::Interop::IBindableIterable>
     {

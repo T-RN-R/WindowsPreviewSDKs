@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -25,7 +25,7 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Core::Preview::SoundLevelBroker>{ using type = class_category; };
     template <> inline constexpr auto& name_v<Windows::Media::Core::Preview::SoundLevelBroker> = L"Windows.Media.Core.Preview.SoundLevelBroker";
     template <> inline constexpr auto& name_v<Windows::Media::Core::Preview::ISoundLevelBrokerStatics> = L"Windows.Media.Core.Preview.ISoundLevelBrokerStatics";
-    template <> inline constexpr guid guid_v<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>{ 0x6A633961,0xDBED,0x464C,{ 0xA0,0x9A,0x33,0x41,0x2F,0x5C,0xAA,0x3F } };
+    template <> inline constexpr guid guid_v<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>{ 0x6A633961,0xDBED,0x464C,{ 0xA0,0x9A,0x33,0x41,0x2F,0x5C,0xAA,0x3F } }; // 6A633961-DBED-464C-A09A-33412F5CAA3F
     template <> struct abi<Windows::Media::Core::Preview::ISoundLevelBrokerStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

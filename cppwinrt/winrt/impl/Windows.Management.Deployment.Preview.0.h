@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -22,8 +22,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Management::Deployment::Preview::InstalledClassicAppInfo> = L"Windows.Management.Deployment.Preview.InstalledClassicAppInfo";
     template <> inline constexpr auto& name_v<Windows::Management::Deployment::Preview::IClassicAppManagerStatics> = L"Windows.Management.Deployment.Preview.IClassicAppManagerStatics";
     template <> inline constexpr auto& name_v<Windows::Management::Deployment::Preview::IInstalledClassicAppInfo> = L"Windows.Management.Deployment.Preview.IInstalledClassicAppInfo";
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::Preview::IClassicAppManagerStatics>{ 0xE2FAD668,0x882C,0x4F33,{ 0xB0,0x35,0x0D,0xF7,0xB9,0x0D,0x67,0xE6 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::Preview::IInstalledClassicAppInfo>{ 0x0A7D3DA3,0x65D0,0x4086,{ 0x80,0xD6,0x06,0x10,0xD7,0x60,0x20,0x7D } };
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::Preview::IClassicAppManagerStatics>{ 0xE2FAD668,0x882C,0x4F33,{ 0xB0,0x35,0x0D,0xF7,0xB9,0x0D,0x67,0xE6 } }; // E2FAD668-882C-4F33-B035-0DF7B90D67E6
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::Preview::IInstalledClassicAppInfo>{ 0x0A7D3DA3,0x65D0,0x4086,{ 0x80,0xD6,0x06,0x10,0xD7,0x60,0x20,0x7D } }; // 0A7D3DA3-65D0-4086-80D6-0610D760207D
     template <> struct default_interface<Windows::Management::Deployment::Preview::InstalledClassicAppInfo>{ using type = Windows::Management::Deployment::Preview::IInstalledClassicAppInfo; };
     template <> struct abi<Windows::Management::Deployment::Preview::IClassicAppManagerStatics>
     {

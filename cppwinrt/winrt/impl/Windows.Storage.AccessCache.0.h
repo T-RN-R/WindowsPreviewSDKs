@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -83,12 +83,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemAccessList> = L"Windows.Storage.AccessCache.IStorageItemAccessList";
     template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList> = L"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList";
     template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList2> = L"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList2";
-    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IItemRemovedEventArgs>{ 0x59677E5C,0x55BE,0x4C66,{ 0xBA,0x66,0x5E,0xAE,0xA7,0x9D,0x26,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics>{ 0x4391DFAA,0xD033,0x48F9,{ 0x80,0x60,0x3E,0xC8,0x47,0xD2,0xE3,0xF1 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics2>{ 0x072716EC,0xAA05,0x4294,{ 0x9A,0x11,0x1A,0x3D,0x04,0x51,0x9A,0xD0 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageItemAccessList>{ 0x2CAFF6AD,0xDE90,0x47F5,{ 0xB2,0xC3,0xDD,0x36,0xC9,0xFD,0xD4,0x53 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList>{ 0x016239D5,0x510D,0x411E,{ 0x8C,0xF1,0xC3,0xD1,0xEF,0xFA,0x4C,0x33 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList2>{ 0xDA481EA0,0xED8D,0x4731,{ 0xA1,0xDB,0xE4,0x4E,0xE2,0x20,0x40,0x93 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IItemRemovedEventArgs>{ 0x59677E5C,0x55BE,0x4C66,{ 0xBA,0x66,0x5E,0xAE,0xA7,0x9D,0x26,0x31 } }; // 59677E5C-55BE-4C66-BA66-5EAEA79D2631
+    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics>{ 0x4391DFAA,0xD033,0x48F9,{ 0x80,0x60,0x3E,0xC8,0x47,0xD2,0xE3,0xF1 } }; // 4391DFAA-D033-48F9-8060-3EC847D2E3F1
+    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics2>{ 0x072716EC,0xAA05,0x4294,{ 0x9A,0x11,0x1A,0x3D,0x04,0x51,0x9A,0xD0 } }; // 072716EC-AA05-4294-9A11-1A3D04519AD0
+    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageItemAccessList>{ 0x2CAFF6AD,0xDE90,0x47F5,{ 0xB2,0xC3,0xDD,0x36,0xC9,0xFD,0xD4,0x53 } }; // 2CAFF6AD-DE90-47F5-B2C3-DD36C9FDD453
+    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList>{ 0x016239D5,0x510D,0x411E,{ 0x8C,0xF1,0xC3,0xD1,0xEF,0xFA,0x4C,0x33 } }; // 016239D5-510D-411E-8CF1-C3D1EFFA4C33
+    template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList2>{ 0xDA481EA0,0xED8D,0x4731,{ 0xA1,0xDB,0xE4,0x4E,0xE2,0x20,0x40,0x93 } }; // DA481EA0-ED8D-4731-A1DB-E44EE2204093
     template <> struct default_interface<Windows::Storage::AccessCache::AccessListEntryView>{ using type = Windows::Foundation::Collections::IVectorView<Windows::Storage::AccessCache::AccessListEntry>; };
     template <> struct default_interface<Windows::Storage::AccessCache::ItemRemovedEventArgs>{ using type = Windows::Storage::AccessCache::IItemRemovedEventArgs; };
     template <> struct default_interface<Windows::Storage::AccessCache::StorageItemAccessList>{ using type = Windows::Storage::AccessCache::IStorageItemAccessList; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -184,16 +184,16 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Input::Preview::Injection::IInputInjector2> = L"Windows.UI.Input.Preview.Injection.IInputInjector2";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Preview::Injection::IInputInjectorStatics> = L"Windows.UI.Input.Preview.Injection.IInputInjectorStatics";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Preview::Injection::IInputInjectorStatics2> = L"Windows.UI.Input.Preview.Injection.IInputInjectorStatics2";
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputGamepadInfo>{ 0x20AE9A3F,0xDF11,0x4572,{ 0xA9,0xAB,0xD7,0x5B,0x8A,0x5E,0x48,0xAD } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputGamepadInfoFactory>{ 0x59596876,0x6C39,0x4EC4,{ 0x8B,0x2A,0x29,0xEF,0x7D,0xE1,0x8A,0xCA } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputKeyboardInfo>{ 0x4B46D140,0x2B6A,0x5FFA,{ 0x7E,0xAE,0xBD,0x07,0x7B,0x05,0x2A,0xCD } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputMouseInfo>{ 0x96F56E6B,0xE47A,0x5CF4,{ 0x41,0x8D,0x8A,0x5F,0xB9,0x67,0x0C,0x7D } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputPenInfo>{ 0x6B40AD03,0xCA1E,0x5527,{ 0x7E,0x02,0x28,0x28,0x54,0x0B,0xB1,0xD4 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputTouchInfo>{ 0x224FD1DF,0x43E8,0x5EF5,{ 0x51,0x0A,0x69,0xCA,0x8C,0x9B,0x4C,0x28 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInputInjector>{ 0x8EC26F84,0x0B02,0x4BD2,{ 0xAD,0x7A,0x3D,0x46,0x58,0xBE,0x3E,0x18 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInputInjector2>{ 0x8E7A905D,0x1453,0x43A7,{ 0x9B,0xCB,0x06,0xD6,0xD7,0xB3,0x05,0xF7 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInputInjectorStatics>{ 0xDEAE6943,0x7402,0x4141,{ 0xA5,0xC6,0x0C,0x01,0xAA,0x57,0xB1,0x6A } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInputInjectorStatics2>{ 0xA4DB38FB,0xDD8C,0x414F,{ 0x95,0xEA,0xF8,0x7E,0xF4,0xC0,0xAE,0x6C } };
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputGamepadInfo>{ 0x20AE9A3F,0xDF11,0x4572,{ 0xA9,0xAB,0xD7,0x5B,0x8A,0x5E,0x48,0xAD } }; // 20AE9A3F-DF11-4572-A9AB-D75B8A5E48AD
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputGamepadInfoFactory>{ 0x59596876,0x6C39,0x4EC4,{ 0x8B,0x2A,0x29,0xEF,0x7D,0xE1,0x8A,0xCA } }; // 59596876-6C39-4EC4-8B2A-29EF7DE18ACA
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputKeyboardInfo>{ 0x4B46D140,0x2B6A,0x5FFA,{ 0x7E,0xAE,0xBD,0x07,0x7B,0x05,0x2A,0xCD } }; // 4B46D140-2B6A-5FFA-7EAE-BD077B052ACD
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputMouseInfo>{ 0x96F56E6B,0xE47A,0x5CF4,{ 0x41,0x8D,0x8A,0x5F,0xB9,0x67,0x0C,0x7D } }; // 96F56E6B-E47A-5CF4-418D-8A5FB9670C7D
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputPenInfo>{ 0x6B40AD03,0xCA1E,0x5527,{ 0x7E,0x02,0x28,0x28,0x54,0x0B,0xB1,0xD4 } }; // 6B40AD03-CA1E-5527-7E02-2828540BB1D4
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInjectedInputTouchInfo>{ 0x224FD1DF,0x43E8,0x5EF5,{ 0x51,0x0A,0x69,0xCA,0x8C,0x9B,0x4C,0x28 } }; // 224FD1DF-43E8-5EF5-510A-69CA8C9B4C28
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInputInjector>{ 0x8EC26F84,0x0B02,0x4BD2,{ 0xAD,0x7A,0x3D,0x46,0x58,0xBE,0x3E,0x18 } }; // 8EC26F84-0B02-4BD2-AD7A-3D4658BE3E18
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInputInjector2>{ 0x8E7A905D,0x1453,0x43A7,{ 0x9B,0xCB,0x06,0xD6,0xD7,0xB3,0x05,0xF7 } }; // 8E7A905D-1453-43A7-9BCB-06D6D7B305F7
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInputInjectorStatics>{ 0xDEAE6943,0x7402,0x4141,{ 0xA5,0xC6,0x0C,0x01,0xAA,0x57,0xB1,0x6A } }; // DEAE6943-7402-4141-A5C6-0C01AA57B16A
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Preview::Injection::IInputInjectorStatics2>{ 0xA4DB38FB,0xDD8C,0x414F,{ 0x95,0xEA,0xF8,0x7E,0xF4,0xC0,0xAE,0x6C } }; // A4DB38FB-DD8C-414F-95EA-F87EF4C0AE6C
     template <> struct default_interface<Windows::UI::Input::Preview::Injection::InjectedInputGamepadInfo>{ using type = Windows::UI::Input::Preview::Injection::IInjectedInputGamepadInfo; };
     template <> struct default_interface<Windows::UI::Input::Preview::Injection::InjectedInputKeyboardInfo>{ using type = Windows::UI::Input::Preview::Injection::IInjectedInputKeyboardInfo; };
     template <> struct default_interface<Windows::UI::Input::Preview::Injection::InjectedInputMouseInfo>{ using type = Windows::UI::Input::Preview::Injection::IInjectedInputMouseInfo; };

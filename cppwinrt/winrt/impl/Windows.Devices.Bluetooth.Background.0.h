@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -114,17 +114,17 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Background::IRfcommConnectionTriggerDetails> = L"Windows.Devices.Bluetooth.Background.IRfcommConnectionTriggerDetails";
     template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Background::IRfcommInboundConnectionInformation> = L"Windows.Devices.Bluetooth.Background.IRfcommInboundConnectionInformation";
     template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Background::IRfcommOutboundConnectionInformation> = L"Windows.Devices.Bluetooth.Background.IRfcommOutboundConnectionInformation";
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IBluetoothLEAdvertisementPublisherTriggerDetails>{ 0x610ECA86,0x3480,0x41C9,{ 0xA9,0x18,0x7D,0xDA,0xDF,0x20,0x7E,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IBluetoothLEAdvertisementPublisherTriggerDetails2>{ 0xD4A3D025,0xC601,0x42D6,{ 0x98,0x29,0x4C,0xCB,0x3F,0x5C,0xD7,0x7F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IBluetoothLEAdvertisementWatcherTriggerDetails>{ 0xA7DB5AD7,0x2257,0x4E69,{ 0x97,0x84,0xFE,0xE6,0x45,0xC1,0xDC,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattCharacteristicNotificationTriggerDetails>{ 0x9BA03B18,0x0FEC,0x436A,{ 0x93,0xB1,0xF4,0x6C,0x69,0x75,0x32,0xA2 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattCharacteristicNotificationTriggerDetails2>{ 0x727A50DC,0x949D,0x454A,{ 0xB1,0x92,0x98,0x34,0x67,0xE3,0xD5,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattServiceProviderConnection>{ 0x7FA1B9B9,0x2F13,0x40B5,{ 0x95,0x82,0x8E,0xB7,0x8E,0x98,0xEF,0x13 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattServiceProviderConnectionStatics>{ 0x3D509F4B,0x0B0E,0x4466,{ 0xB8,0xCD,0x6E,0xBD,0xDA,0x1F,0xA1,0x7D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattServiceProviderTriggerDetails>{ 0xAE8C0625,0x05FF,0x4AFB,{ 0xB1,0x6A,0xDE,0x95,0xF3,0xCF,0x01,0x58 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IRfcommConnectionTriggerDetails>{ 0xF922734D,0x2E3C,0x4EFC,{ 0xAB,0x59,0xFC,0x5C,0xF9,0x6F,0x97,0xE3 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IRfcommInboundConnectionInformation>{ 0x6D3E75A8,0x5429,0x4059,{ 0x92,0xE3,0x1E,0x8B,0x65,0x52,0x87,0x07 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IRfcommOutboundConnectionInformation>{ 0xB091227B,0xF434,0x4CB0,{ 0x99,0xB1,0x4A,0xB8,0xCE,0xDA,0xED,0xD7 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IBluetoothLEAdvertisementPublisherTriggerDetails>{ 0x610ECA86,0x3480,0x41C9,{ 0xA9,0x18,0x7D,0xDA,0xDF,0x20,0x7E,0x00 } }; // 610ECA86-3480-41C9-A918-7DDADF207E00
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IBluetoothLEAdvertisementPublisherTriggerDetails2>{ 0xD4A3D025,0xC601,0x42D6,{ 0x98,0x29,0x4C,0xCB,0x3F,0x5C,0xD7,0x7F } }; // D4A3D025-C601-42D6-9829-4CCB3F5CD77F
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IBluetoothLEAdvertisementWatcherTriggerDetails>{ 0xA7DB5AD7,0x2257,0x4E69,{ 0x97,0x84,0xFE,0xE6,0x45,0xC1,0xDC,0xE0 } }; // A7DB5AD7-2257-4E69-9784-FEE645C1DCE0
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattCharacteristicNotificationTriggerDetails>{ 0x9BA03B18,0x0FEC,0x436A,{ 0x93,0xB1,0xF4,0x6C,0x69,0x75,0x32,0xA2 } }; // 9BA03B18-0FEC-436A-93B1-F46C697532A2
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattCharacteristicNotificationTriggerDetails2>{ 0x727A50DC,0x949D,0x454A,{ 0xB1,0x92,0x98,0x34,0x67,0xE3,0xD5,0x0F } }; // 727A50DC-949D-454A-B192-983467E3D50F
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattServiceProviderConnection>{ 0x7FA1B9B9,0x2F13,0x40B5,{ 0x95,0x82,0x8E,0xB7,0x8E,0x98,0xEF,0x13 } }; // 7FA1B9B9-2F13-40B5-9582-8EB78E98EF13
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattServiceProviderConnectionStatics>{ 0x3D509F4B,0x0B0E,0x4466,{ 0xB8,0xCD,0x6E,0xBD,0xDA,0x1F,0xA1,0x7D } }; // 3D509F4B-0B0E-4466-B8CD-6EBDDA1FA17D
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IGattServiceProviderTriggerDetails>{ 0xAE8C0625,0x05FF,0x4AFB,{ 0xB1,0x6A,0xDE,0x95,0xF3,0xCF,0x01,0x58 } }; // AE8C0625-05FF-4AFB-B16A-DE95F3CF0158
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IRfcommConnectionTriggerDetails>{ 0xF922734D,0x2E3C,0x4EFC,{ 0xAB,0x59,0xFC,0x5C,0xF9,0x6F,0x97,0xE3 } }; // F922734D-2E3C-4EFC-AB59-FC5CF96F97E3
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IRfcommInboundConnectionInformation>{ 0x6D3E75A8,0x5429,0x4059,{ 0x92,0xE3,0x1E,0x8B,0x65,0x52,0x87,0x07 } }; // 6D3E75A8-5429-4059-92E3-1E8B65528707
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Background::IRfcommOutboundConnectionInformation>{ 0xB091227B,0xF434,0x4CB0,{ 0x99,0xB1,0x4A,0xB8,0xCE,0xDA,0xED,0xD7 } }; // B091227B-F434-4CB0-99B1-4AB8CEDAEDD7
     template <> struct default_interface<Windows::Devices::Bluetooth::Background::BluetoothLEAdvertisementPublisherTriggerDetails>{ using type = Windows::Devices::Bluetooth::Background::IBluetoothLEAdvertisementPublisherTriggerDetails; };
     template <> struct default_interface<Windows::Devices::Bluetooth::Background::BluetoothLEAdvertisementWatcherTriggerDetails>{ using type = Windows::Devices::Bluetooth::Background::IBluetoothLEAdvertisementWatcherTriggerDetails; };
     template <> struct default_interface<Windows::Devices::Bluetooth::Background::GattCharacteristicNotificationTriggerDetails>{ using type = Windows::Devices::Bluetooth::Background::IGattCharacteristicNotificationTriggerDetails; };

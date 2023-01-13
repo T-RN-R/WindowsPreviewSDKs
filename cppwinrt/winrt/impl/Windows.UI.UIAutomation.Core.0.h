@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -44,8 +44,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::UIAutomation::Core::AutomationRemoteOperationOperandId> = L"Windows.UI.UIAutomation.Core.AutomationRemoteOperationOperandId";
     template <> inline constexpr auto& name_v<Windows::UI::UIAutomation::Core::IAutomationRemoteOperationResult> = L"Windows.UI.UIAutomation.Core.IAutomationRemoteOperationResult";
     template <> inline constexpr auto& name_v<Windows::UI::UIAutomation::Core::ICoreAutomationRemoteOperation> = L"Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperation";
-    template <> inline constexpr guid guid_v<Windows::UI::UIAutomation::Core::IAutomationRemoteOperationResult>{ 0xE0F80C42,0x4A67,0x5534,{ 0xBF,0x5A,0x09,0xE8,0xA9,0x9B,0x36,0xB1 } };
-    template <> inline constexpr guid guid_v<Windows::UI::UIAutomation::Core::ICoreAutomationRemoteOperation>{ 0x3AC656F4,0xE2BC,0x5C6E,{ 0xB8,0xE7,0xB2,0x24,0xFB,0x74,0xB0,0x60 } };
+    template <> inline constexpr guid guid_v<Windows::UI::UIAutomation::Core::IAutomationRemoteOperationResult>{ 0xE0F80C42,0x4A67,0x5534,{ 0xBF,0x5A,0x09,0xE8,0xA9,0x9B,0x36,0xB1 } }; // E0F80C42-4A67-5534-BF5A-09E8A99B36B1
+    template <> inline constexpr guid guid_v<Windows::UI::UIAutomation::Core::ICoreAutomationRemoteOperation>{ 0x3AC656F4,0xE2BC,0x5C6E,{ 0xB8,0xE7,0xB2,0x24,0xFB,0x74,0xB0,0x60 } }; // 3AC656F4-E2BC-5C6E-B8E7-B224FB74B060
     template <> struct default_interface<Windows::UI::UIAutomation::Core::AutomationRemoteOperationResult>{ using type = Windows::UI::UIAutomation::Core::IAutomationRemoteOperationResult; };
     template <> struct default_interface<Windows::UI::UIAutomation::Core::CoreAutomationRemoteOperation>{ using type = Windows::UI::UIAutomation::Core::ICoreAutomationRemoteOperation; };
     template <> struct abi<Windows::UI::UIAutomation::Core::IAutomationRemoteOperationResult>

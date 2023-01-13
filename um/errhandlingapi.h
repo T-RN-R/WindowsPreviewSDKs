@@ -41,7 +41,6 @@ typedef PTOP_LEVEL_EXCEPTION_FILTER LPTOP_LEVEL_EXCEPTION_FILTER;
 //
 
 WINBASEAPI
-__analysis_noreturn
 VOID
 WINAPI
 RaiseException(

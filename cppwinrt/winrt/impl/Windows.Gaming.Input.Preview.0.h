@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -20,7 +20,7 @@ namespace winrt::impl
     template <> struct category<Windows::Gaming::Input::Preview::GameControllerProviderInfo>{ using type = class_category; };
     template <> inline constexpr auto& name_v<Windows::Gaming::Input::Preview::GameControllerProviderInfo> = L"Windows.Gaming.Input.Preview.GameControllerProviderInfo";
     template <> inline constexpr auto& name_v<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics> = L"Windows.Gaming.Input.Preview.IGameControllerProviderInfoStatics";
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics>{ 0x0BE1E6C5,0xD9BD,0x44EE,{ 0x83,0x62,0x48,0x8B,0x2E,0x46,0x4B,0xFB } };
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics>{ 0x0BE1E6C5,0xD9BD,0x44EE,{ 0x83,0x62,0x48,0x8B,0x2E,0x46,0x4B,0xFB } }; // 0BE1E6C5-D9BD-44EE-8362-488B2E464BFB
     template <> struct abi<Windows::Gaming::Input::Preview::IGameControllerProviderInfoStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

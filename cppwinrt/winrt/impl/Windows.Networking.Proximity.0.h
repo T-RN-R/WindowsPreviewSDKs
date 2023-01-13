@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -138,21 +138,21 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Networking::Proximity::DeviceDepartedEventHandler> = L"Windows.Networking.Proximity.DeviceDepartedEventHandler";
     template <> inline constexpr auto& name_v<Windows::Networking::Proximity::MessageReceivedHandler> = L"Windows.Networking.Proximity.MessageReceivedHandler";
     template <> inline constexpr auto& name_v<Windows::Networking::Proximity::MessageTransmittedHandler> = L"Windows.Networking.Proximity.MessageTransmittedHandler";
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IConnectionRequestedEventArgs>{ 0xEB6891AE,0x4F1E,0x4C66,{ 0xBD,0x0D,0x46,0x92,0x4A,0x94,0x2E,0x08 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerFinderStatics>{ 0x914B3B61,0xF6E1,0x47C4,{ 0xA1,0x4C,0x14,0x8A,0x19,0x03,0xD0,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerFinderStatics2>{ 0xD6E73C65,0xFDD0,0x4B0B,{ 0x93,0x12,0x86,0x64,0x08,0x93,0x5D,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerInformation>{ 0x20024F08,0x9FFF,0x45F4,{ 0xB6,0xE9,0x40,0x8B,0x2E,0xBE,0xF3,0x73 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerInformation3>{ 0xB20F612A,0xDBD0,0x40F8,{ 0x95,0xBD,0x2D,0x42,0x09,0xC7,0x83,0x6F } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerInformationWithHostAndService>{ 0xECC7CCAD,0x1B70,0x4E8B,{ 0x92,0xDB,0xBB,0xE7,0x81,0x41,0x93,0x08 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerWatcher>{ 0x3CEE21F8,0x2FA6,0x4679,{ 0x96,0x91,0x03,0xC9,0x4A,0x42,0x0F,0x34 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IProximityDevice>{ 0xEFA8A552,0xF6E1,0x4329,{ 0xA0,0xFC,0xAB,0x6B,0x0F,0xD2,0x82,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IProximityDeviceStatics>{ 0x914BA01D,0xF6E1,0x47C4,{ 0xA1,0x4C,0x14,0x8A,0x19,0x03,0xD0,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IProximityMessage>{ 0xEFAB0782,0xF6E1,0x4675,{ 0xA0,0x45,0xD8,0xE3,0x20,0xC2,0x48,0x08 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::ITriggeredConnectionStateChangedEventArgs>{ 0xC6A780AD,0xF6E1,0x4D54,{ 0x96,0xE2,0x33,0xF6,0x20,0xBC,0xA8,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::DeviceArrivedEventHandler>{ 0xEFA9DA69,0xF6E1,0x49C9,{ 0xA4,0x9E,0x8E,0x0F,0xC5,0x8F,0xB9,0x11 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::DeviceDepartedEventHandler>{ 0xEFA9DA69,0xF6E2,0x49C9,{ 0xA4,0x9E,0x8E,0x0F,0xC5,0x8F,0xB9,0x11 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::MessageReceivedHandler>{ 0xEFAB0782,0xF6E2,0x4675,{ 0xA0,0x45,0xD8,0xE3,0x20,0xC2,0x48,0x08 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::MessageTransmittedHandler>{ 0xEFAA0B4A,0xF6E2,0x4D7D,{ 0x85,0x6C,0x78,0xFC,0x8E,0xFC,0x02,0x1E } };
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IConnectionRequestedEventArgs>{ 0xEB6891AE,0x4F1E,0x4C66,{ 0xBD,0x0D,0x46,0x92,0x4A,0x94,0x2E,0x08 } }; // EB6891AE-4F1E-4C66-BD0D-46924A942E08
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerFinderStatics>{ 0x914B3B61,0xF6E1,0x47C4,{ 0xA1,0x4C,0x14,0x8A,0x19,0x03,0xD0,0xC6 } }; // 914B3B61-F6E1-47C4-A14C-148A1903D0C6
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerFinderStatics2>{ 0xD6E73C65,0xFDD0,0x4B0B,{ 0x93,0x12,0x86,0x64,0x08,0x93,0x5D,0x82 } }; // D6E73C65-FDD0-4B0B-9312-866408935D82
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerInformation>{ 0x20024F08,0x9FFF,0x45F4,{ 0xB6,0xE9,0x40,0x8B,0x2E,0xBE,0xF3,0x73 } }; // 20024F08-9FFF-45F4-B6E9-408B2EBEF373
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerInformation3>{ 0xB20F612A,0xDBD0,0x40F8,{ 0x95,0xBD,0x2D,0x42,0x09,0xC7,0x83,0x6F } }; // B20F612A-DBD0-40F8-95BD-2D4209C7836F
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerInformationWithHostAndService>{ 0xECC7CCAD,0x1B70,0x4E8B,{ 0x92,0xDB,0xBB,0xE7,0x81,0x41,0x93,0x08 } }; // ECC7CCAD-1B70-4E8B-92DB-BBE781419308
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerWatcher>{ 0x3CEE21F8,0x2FA6,0x4679,{ 0x96,0x91,0x03,0xC9,0x4A,0x42,0x0F,0x34 } }; // 3CEE21F8-2FA6-4679-9691-03C94A420F34
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IProximityDevice>{ 0xEFA8A552,0xF6E1,0x4329,{ 0xA0,0xFC,0xAB,0x6B,0x0F,0xD2,0x82,0x62 } }; // EFA8A552-F6E1-4329-A0FC-AB6B0FD28262
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IProximityDeviceStatics>{ 0x914BA01D,0xF6E1,0x47C4,{ 0xA1,0x4C,0x14,0x8A,0x19,0x03,0xD0,0xC6 } }; // 914BA01D-F6E1-47C4-A14C-148A1903D0C6
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IProximityMessage>{ 0xEFAB0782,0xF6E1,0x4675,{ 0xA0,0x45,0xD8,0xE3,0x20,0xC2,0x48,0x08 } }; // EFAB0782-F6E1-4675-A045-D8E320C24808
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::ITriggeredConnectionStateChangedEventArgs>{ 0xC6A780AD,0xF6E1,0x4D54,{ 0x96,0xE2,0x33,0xF6,0x20,0xBC,0xA8,0x8A } }; // C6A780AD-F6E1-4D54-96E2-33F620BCA88A
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::DeviceArrivedEventHandler>{ 0xEFA9DA69,0xF6E1,0x49C9,{ 0xA4,0x9E,0x8E,0x0F,0xC5,0x8F,0xB9,0x11 } }; // EFA9DA69-F6E1-49C9-A49E-8E0FC58FB911
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::DeviceDepartedEventHandler>{ 0xEFA9DA69,0xF6E2,0x49C9,{ 0xA4,0x9E,0x8E,0x0F,0xC5,0x8F,0xB9,0x11 } }; // EFA9DA69-F6E2-49C9-A49E-8E0FC58FB911
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::MessageReceivedHandler>{ 0xEFAB0782,0xF6E2,0x4675,{ 0xA0,0x45,0xD8,0xE3,0x20,0xC2,0x48,0x08 } }; // EFAB0782-F6E2-4675-A045-D8E320C24808
+    template <> inline constexpr guid guid_v<Windows::Networking::Proximity::MessageTransmittedHandler>{ 0xEFAA0B4A,0xF6E2,0x4D7D,{ 0x85,0x6C,0x78,0xFC,0x8E,0xFC,0x02,0x1E } }; // EFAA0B4A-F6E2-4D7D-856C-78FC8EFC021E
     template <> struct default_interface<Windows::Networking::Proximity::ConnectionRequestedEventArgs>{ using type = Windows::Networking::Proximity::IConnectionRequestedEventArgs; };
     template <> struct default_interface<Windows::Networking::Proximity::PeerInformation>{ using type = Windows::Networking::Proximity::IPeerInformation; };
     template <> struct default_interface<Windows::Networking::Proximity::PeerWatcher>{ using type = Windows::Networking::Proximity::IPeerWatcher; };

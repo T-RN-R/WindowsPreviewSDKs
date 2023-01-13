@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -80,14 +80,14 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserver> = L"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver";
     template <> inline constexpr auto& name_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserverStatics> = L"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics";
     template <> inline constexpr auto& name_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserverStatics2> = L"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics2";
-    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceInfo>{ 0xF8E9EBE7,0x39B7,0x3962,{ 0xBB,0x03,0x57,0xF5,0x6E,0x1F,0xB0,0xA1 } };
-    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMesh>{ 0x108F57D9,0xDF0D,0x3950,{ 0xA0,0xFD,0xF9,0x72,0xC7,0x7C,0x27,0xB4 } };
-    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMeshBuffer>{ 0x93CF59E0,0x871F,0x33F8,{ 0x98,0xB2,0x03,0xD1,0x01,0x45,0x8F,0x6F } };
-    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMeshOptions>{ 0xD2759F89,0x3572,0x3D2D,{ 0xA1,0x0D,0x5F,0xEE,0x93,0x94,0xAA,0x37 } };
-    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMeshOptionsStatics>{ 0x9B340ABF,0x9781,0x4505,{ 0x89,0x35,0x01,0x35,0x75,0xCA,0xAE,0x5E } };
-    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserver>{ 0x10B69819,0xDDCA,0x3483,{ 0xAC,0x3A,0x74,0x8F,0xE8,0xC8,0x6D,0xF5 } };
-    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserverStatics>{ 0x165951ED,0x2108,0x4168,{ 0x91,0x75,0x87,0xE0,0x27,0xBC,0x92,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserverStatics2>{ 0x0F534261,0xC55D,0x4E6B,{ 0xA8,0x95,0xA1,0x9D,0xE6,0x9A,0x42,0xE3 } };
+    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceInfo>{ 0xF8E9EBE7,0x39B7,0x3962,{ 0xBB,0x03,0x57,0xF5,0x6E,0x1F,0xB0,0xA1 } }; // F8E9EBE7-39B7-3962-BB03-57F56E1FB0A1
+    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMesh>{ 0x108F57D9,0xDF0D,0x3950,{ 0xA0,0xFD,0xF9,0x72,0xC7,0x7C,0x27,0xB4 } }; // 108F57D9-DF0D-3950-A0FD-F972C77C27B4
+    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMeshBuffer>{ 0x93CF59E0,0x871F,0x33F8,{ 0x98,0xB2,0x03,0xD1,0x01,0x45,0x8F,0x6F } }; // 93CF59E0-871F-33F8-98B2-03D101458F6F
+    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMeshOptions>{ 0xD2759F89,0x3572,0x3D2D,{ 0xA1,0x0D,0x5F,0xEE,0x93,0x94,0xAA,0x37 } }; // D2759F89-3572-3D2D-A10D-5FEE9394AA37
+    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMeshOptionsStatics>{ 0x9B340ABF,0x9781,0x4505,{ 0x89,0x35,0x01,0x35,0x75,0xCA,0xAE,0x5E } }; // 9B340ABF-9781-4505-8935-013575CAAE5E
+    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserver>{ 0x10B69819,0xDDCA,0x3483,{ 0xAC,0x3A,0x74,0x8F,0xE8,0xC8,0x6D,0xF5 } }; // 10B69819-DDCA-3483-AC3A-748FE8C86DF5
+    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserverStatics>{ 0x165951ED,0x2108,0x4168,{ 0x91,0x75,0x87,0xE0,0x27,0xBC,0x92,0x85 } }; // 165951ED-2108-4168-9175-87E027BC9285
+    template <> inline constexpr guid guid_v<Windows::Perception::Spatial::Surfaces::ISpatialSurfaceObserverStatics2>{ 0x0F534261,0xC55D,0x4E6B,{ 0xA8,0x95,0xA1,0x9D,0xE6,0x9A,0x42,0xE3 } }; // 0F534261-C55D-4E6B-A895-A19DE69A42E3
     template <> struct default_interface<Windows::Perception::Spatial::Surfaces::SpatialSurfaceInfo>{ using type = Windows::Perception::Spatial::Surfaces::ISpatialSurfaceInfo; };
     template <> struct default_interface<Windows::Perception::Spatial::Surfaces::SpatialSurfaceMesh>{ using type = Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMesh; };
     template <> struct default_interface<Windows::Perception::Spatial::Surfaces::SpatialSurfaceMeshBuffer>{ using type = Windows::Perception::Spatial::Surfaces::ISpatialSurfaceMeshBuffer; };

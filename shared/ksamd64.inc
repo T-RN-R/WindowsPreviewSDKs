@@ -588,7 +588,7 @@ ThWin32Thread equ 001C8H
 ThStackBase equ 00038H
 ThLegoData equ 002D0H
 KernelThreadObjectLength equ 00430H
-ExecutiveThreadObjectLength equ 00898H
+ExecutiveThreadObjectLength equ 008A0H
 
 
 ;
@@ -1965,6 +1965,7 @@ MACHINE_TYPE_MCA equ 00002H
 ;
 
 KF_RDTSC equ 00002H
+KF_RDTSCP equ 00000000400000000H
 KF_CR4 equ 00004H
 KF_GLOBAL_PAGE equ 00010H
 KF_LARGE_PAGE equ 00020H

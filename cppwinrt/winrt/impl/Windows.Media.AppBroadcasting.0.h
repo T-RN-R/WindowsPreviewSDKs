@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -46,11 +46,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::AppBroadcasting::IAppBroadcastingStatusDetails> = L"Windows.Media.AppBroadcasting.IAppBroadcastingStatusDetails";
     template <> inline constexpr auto& name_v<Windows::Media::AppBroadcasting::IAppBroadcastingUI> = L"Windows.Media.AppBroadcasting.IAppBroadcastingUI";
     template <> inline constexpr auto& name_v<Windows::Media::AppBroadcasting::IAppBroadcastingUIStatics> = L"Windows.Media.AppBroadcasting.IAppBroadcastingUIStatics";
-    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingMonitor>{ 0x00F95A68,0x8907,0x48A0,{ 0xB8,0xEF,0x24,0xD2,0x08,0x13,0x75,0x42 } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingStatus>{ 0x1225E4DF,0x03A1,0x42F8,{ 0x8B,0x80,0xC9,0x22,0x8C,0xD9,0xCF,0x2E } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingStatusDetails>{ 0x069DADA4,0xB573,0x4E3C,{ 0x8E,0x19,0x1B,0xAF,0xAC,0xD0,0x97,0x13 } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingUI>{ 0xE56F9F8F,0xEE99,0x4DCA,{ 0xA3,0xC3,0x70,0xAF,0x3D,0xB4,0x4F,0x5F } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingUIStatics>{ 0x55A8A79D,0x23CB,0x4579,{ 0x9C,0x34,0x88,0x6F,0xE0,0x2C,0x04,0x5A } };
+    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingMonitor>{ 0x00F95A68,0x8907,0x48A0,{ 0xB8,0xEF,0x24,0xD2,0x08,0x13,0x75,0x42 } }; // 00F95A68-8907-48A0-B8EF-24D208137542
+    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingStatus>{ 0x1225E4DF,0x03A1,0x42F8,{ 0x8B,0x80,0xC9,0x22,0x8C,0xD9,0xCF,0x2E } }; // 1225E4DF-03A1-42F8-8B80-C9228CD9CF2E
+    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingStatusDetails>{ 0x069DADA4,0xB573,0x4E3C,{ 0x8E,0x19,0x1B,0xAF,0xAC,0xD0,0x97,0x13 } }; // 069DADA4-B573-4E3C-8E19-1BAFACD09713
+    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingUI>{ 0xE56F9F8F,0xEE99,0x4DCA,{ 0xA3,0xC3,0x70,0xAF,0x3D,0xB4,0x4F,0x5F } }; // E56F9F8F-EE99-4DCA-A3C3-70AF3DB44F5F
+    template <> inline constexpr guid guid_v<Windows::Media::AppBroadcasting::IAppBroadcastingUIStatics>{ 0x55A8A79D,0x23CB,0x4579,{ 0x9C,0x34,0x88,0x6F,0xE0,0x2C,0x04,0x5A } }; // 55A8A79D-23CB-4579-9C34-886FE02C045A
     template <> struct default_interface<Windows::Media::AppBroadcasting::AppBroadcastingMonitor>{ using type = Windows::Media::AppBroadcasting::IAppBroadcastingMonitor; };
     template <> struct default_interface<Windows::Media::AppBroadcasting::AppBroadcastingStatus>{ using type = Windows::Media::AppBroadcasting::IAppBroadcastingStatus; };
     template <> struct default_interface<Windows::Media::AppBroadcasting::AppBroadcastingStatusDetails>{ using type = Windows::Media::AppBroadcasting::IAppBroadcastingStatusDetails; };

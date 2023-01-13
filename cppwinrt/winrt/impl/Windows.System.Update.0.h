@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -87,9 +87,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Update::ISystemUpdateItem> = L"Windows.System.Update.ISystemUpdateItem";
     template <> inline constexpr auto& name_v<Windows::System::Update::ISystemUpdateLastErrorInfo> = L"Windows.System.Update.ISystemUpdateLastErrorInfo";
     template <> inline constexpr auto& name_v<Windows::System::Update::ISystemUpdateManagerStatics> = L"Windows.System.Update.ISystemUpdateManagerStatics";
-    template <> inline constexpr guid guid_v<Windows::System::Update::ISystemUpdateItem>{ 0x779740EB,0x5624,0x519E,{ 0xA8,0xE2,0x09,0xE9,0x17,0x3B,0x3F,0xB7 } };
-    template <> inline constexpr guid guid_v<Windows::System::Update::ISystemUpdateLastErrorInfo>{ 0x7EE887F7,0x8A44,0x5B6E,{ 0xBD,0x07,0x7A,0xEC,0xE4,0x11,0x6E,0xA9 } };
-    template <> inline constexpr guid guid_v<Windows::System::Update::ISystemUpdateManagerStatics>{ 0xB2D3FCEF,0x2971,0x51BE,{ 0xB4,0x1A,0x8B,0xD7,0x03,0xBB,0x70,0x1A } };
+    template <> inline constexpr guid guid_v<Windows::System::Update::ISystemUpdateItem>{ 0x779740EB,0x5624,0x519E,{ 0xA8,0xE2,0x09,0xE9,0x17,0x3B,0x3F,0xB7 } }; // 779740EB-5624-519E-A8E2-09E9173B3FB7
+    template <> inline constexpr guid guid_v<Windows::System::Update::ISystemUpdateLastErrorInfo>{ 0x7EE887F7,0x8A44,0x5B6E,{ 0xBD,0x07,0x7A,0xEC,0xE4,0x11,0x6E,0xA9 } }; // 7EE887F7-8A44-5B6E-BD07-7AECE4116EA9
+    template <> inline constexpr guid guid_v<Windows::System::Update::ISystemUpdateManagerStatics>{ 0xB2D3FCEF,0x2971,0x51BE,{ 0xB4,0x1A,0x8B,0xD7,0x03,0xBB,0x70,0x1A } }; // B2D3FCEF-2971-51BE-B41A-8BD703BB701A
     template <> struct default_interface<Windows::System::Update::SystemUpdateItem>{ using type = Windows::System::Update::ISystemUpdateItem; };
     template <> struct default_interface<Windows::System::Update::SystemUpdateLastErrorInfo>{ using type = Windows::System::Update::ISystemUpdateLastErrorInfo; };
     template <> struct abi<Windows::System::Update::ISystemUpdateItem>

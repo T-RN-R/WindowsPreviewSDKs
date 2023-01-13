@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -253,44 +253,44 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Networking::BackgroundTransfer::IUploadOperation2> = L"Windows.Networking.BackgroundTransfer.IUploadOperation2";
     template <> inline constexpr auto& name_v<Windows::Networking::BackgroundTransfer::IUploadOperation3> = L"Windows.Networking.BackgroundTransfer.IUploadOperation3";
     template <> inline constexpr auto& name_v<Windows::Networking::BackgroundTransfer::IUploadOperation4> = L"Windows.Networking.BackgroundTransfer.IUploadOperation4";
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloader>{ 0xC1C79333,0x6649,0x4B1D,{ 0xA8,0x26,0xA4,0xB3,0xDD,0x23,0x4D,0x0B } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloader2>{ 0xA94A5847,0x348D,0x4A35,{ 0x89,0x0E,0x8A,0x1E,0xF3,0x79,0x84,0x79 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloader3>{ 0xD11A8C48,0x86E8,0x48E2,{ 0xB6,0x15,0x69,0x76,0xAA,0xBF,0x86,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloaderFactory>{ 0x26836C24,0xD89E,0x46F4,{ 0xA2,0x9A,0x4F,0x4D,0x4F,0x14,0x41,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloaderStaticMethods>{ 0x52A65A35,0xC64E,0x426C,{ 0x99,0x19,0x54,0x0D,0x0D,0x21,0xA6,0x50 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloaderStaticMethods2>{ 0x2FAA1327,0x1AD4,0x4CA5,{ 0xB2,0xCD,0x08,0xDB,0xF0,0x74,0x6A,0xFE } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloaderUserConsent>{ 0x5D14E906,0x9266,0x4808,{ 0xBD,0x71,0x59,0x25,0xF2,0xA3,0x13,0x0A } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferBase>{ 0x2A9DA250,0xC769,0x458C,{ 0xAF,0xE8,0xFE,0xB8,0xD4,0xD3,0xB2,0xEF } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferCompletionGroup>{ 0x2D930225,0x986B,0x574D,{ 0x79,0x50,0x0A,0xDD,0x47,0xF5,0xD7,0x06 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferCompletionGroupTriggerDetails>{ 0x7B6BE286,0x6E47,0x5136,{ 0x7F,0xCB,0xFA,0x43,0x89,0xF4,0x6F,0x5B } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferContentPart>{ 0xE8E15657,0xD7D1,0x4ED8,{ 0x83,0x8E,0x67,0x4A,0xC2,0x17,0xAC,0xE6 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferContentPartFactory>{ 0x90EF98A9,0x7A01,0x4A0B,{ 0x9F,0x80,0xA0,0xB0,0xBB,0x37,0x0F,0x8D } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferErrorStaticMethods>{ 0xAAD33B04,0x1192,0x4BF4,{ 0x8B,0x68,0x39,0xC5,0xAD,0xD2,0x44,0xE2 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferGroup>{ 0xD8C3E3E4,0x6459,0x4540,{ 0x85,0xEB,0xAA,0xA1,0xC8,0x90,0x36,0x77 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferGroupStatics>{ 0x02EC50B2,0x7D18,0x495B,{ 0xAA,0x22,0x32,0xA9,0x7D,0x45,0xD3,0xE2 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferOperation>{ 0xDED06846,0x90CA,0x44FB,{ 0x8F,0xB1,0x12,0x41,0x54,0xC0,0xD5,0x39 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferOperationPriority>{ 0x04854327,0x5254,0x4B3A,{ 0x91,0x5E,0x0A,0xA4,0x92,0x75,0xC0,0xF9 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferRangesDownloadedEventArgs>{ 0x3EBC7453,0xBF48,0x4A88,{ 0x92,0x48,0xB0,0xC1,0x65,0x18,0x4F,0x5C } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploader>{ 0xC595C9AE,0xCEAD,0x465B,{ 0x88,0x01,0xC5,0x5A,0xC9,0x0A,0x01,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploader2>{ 0x8E0612CE,0x0C34,0x4463,{ 0x80,0x7F,0x19,0x8A,0x1B,0x8B,0xD4,0xAD } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploader3>{ 0xB95E9439,0x5BF0,0x4B3A,{ 0x8C,0x47,0x2C,0x61,0x99,0xA8,0x54,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploaderFactory>{ 0x736203C7,0x10E7,0x48A0,{ 0xAC,0x3C,0x1A,0xC7,0x10,0x95,0xEC,0x57 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploaderStaticMethods>{ 0xF2875CFB,0x9B05,0x4741,{ 0x91,0x21,0x74,0x0A,0x83,0xE2,0x47,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploaderStaticMethods2>{ 0xE919AC62,0xEA08,0x42F0,{ 0xA2,0xAC,0x07,0xE4,0x67,0x54,0x90,0x80 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploaderUserConsent>{ 0x3BB384CB,0x0760,0x461D,{ 0x90,0x7F,0x51,0x38,0xF8,0x4D,0x44,0xC1 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IContentPrefetcher>{ 0xA8D6F754,0x7DC1,0x4CD9,{ 0x88,0x10,0x2A,0x6A,0xA9,0x41,0x7E,0x11 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IContentPrefetcherTime>{ 0xE361FD08,0x132A,0x4FDE,{ 0xA7,0xCC,0xFC,0xB0,0xE6,0x65,0x23,0xAF } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation>{ 0xBD87EBB0,0x5714,0x4E09,{ 0xBA,0x68,0xBE,0xF7,0x39,0x03,0xB0,0xD7 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation2>{ 0xA3CCED40,0x8F9C,0x4353,{ 0x9C,0xD4,0x29,0x0D,0xEE,0x38,0x7C,0x38 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation3>{ 0x5027351C,0x7D5E,0x4ADC,{ 0xB8,0xD3,0xDF,0x5C,0x60,0x31,0xB9,0xCC } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation4>{ 0x0CDAAEF4,0x8CEF,0x404A,{ 0x96,0x6D,0xF0,0x58,0x40,0x0B,0xED,0x80 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation5>{ 0xA699A86F,0x5590,0x463A,{ 0xB8,0xD6,0x1E,0x49,0x1A,0x27,0x60,0xA5 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IResponseInformation>{ 0xF8BB9A12,0xF713,0x4792,{ 0x8B,0x68,0xD9,0xD2,0x97,0xF9,0x1D,0x2E } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUnconstrainedTransferRequestResult>{ 0x4C24B81F,0xD944,0x4112,{ 0xA9,0x8E,0x6A,0x69,0x52,0x2B,0x7E,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUploadOperation>{ 0x3E5624E0,0x7389,0x434C,{ 0x8B,0x35,0x42,0x7F,0xD3,0x6B,0xBD,0xAE } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUploadOperation2>{ 0x556189F2,0x2774,0x4DF6,{ 0x9F,0xA5,0x20,0x9F,0x2B,0xFB,0x12,0xF7 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUploadOperation3>{ 0x42C92CA3,0xDE39,0x4546,{ 0xBC,0x62,0x37,0x74,0xB4,0x29,0x4D,0xE3 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUploadOperation4>{ 0x50EDEF31,0xFAC5,0x41EE,{ 0xB0,0x30,0xDC,0x77,0xCA,0xEE,0x9F,0xAA } };
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloader>{ 0xC1C79333,0x6649,0x4B1D,{ 0xA8,0x26,0xA4,0xB3,0xDD,0x23,0x4D,0x0B } }; // C1C79333-6649-4B1D-A826-A4B3DD234D0B
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloader2>{ 0xA94A5847,0x348D,0x4A35,{ 0x89,0x0E,0x8A,0x1E,0xF3,0x79,0x84,0x79 } }; // A94A5847-348D-4A35-890E-8A1EF3798479
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloader3>{ 0xD11A8C48,0x86E8,0x48E2,{ 0xB6,0x15,0x69,0x76,0xAA,0xBF,0x86,0x1D } }; // D11A8C48-86E8-48E2-B615-6976AABF861D
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloaderFactory>{ 0x26836C24,0xD89E,0x46F4,{ 0xA2,0x9A,0x4F,0x4D,0x4F,0x14,0x41,0x55 } }; // 26836C24-D89E-46F4-A29A-4F4D4F144155
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloaderStaticMethods>{ 0x52A65A35,0xC64E,0x426C,{ 0x99,0x19,0x54,0x0D,0x0D,0x21,0xA6,0x50 } }; // 52A65A35-C64E-426C-9919-540D0D21A650
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloaderStaticMethods2>{ 0x2FAA1327,0x1AD4,0x4CA5,{ 0xB2,0xCD,0x08,0xDB,0xF0,0x74,0x6A,0xFE } }; // 2FAA1327-1AD4-4CA5-B2CD-08DBF0746AFE
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundDownloaderUserConsent>{ 0x5D14E906,0x9266,0x4808,{ 0xBD,0x71,0x59,0x25,0xF2,0xA3,0x13,0x0A } }; // 5D14E906-9266-4808-BD71-5925F2A3130A
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferBase>{ 0x2A9DA250,0xC769,0x458C,{ 0xAF,0xE8,0xFE,0xB8,0xD4,0xD3,0xB2,0xEF } }; // 2A9DA250-C769-458C-AFE8-FEB8D4D3B2EF
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferCompletionGroup>{ 0x2D930225,0x986B,0x574D,{ 0x79,0x50,0x0A,0xDD,0x47,0xF5,0xD7,0x06 } }; // 2D930225-986B-574D-7950-0ADD47F5D706
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferCompletionGroupTriggerDetails>{ 0x7B6BE286,0x6E47,0x5136,{ 0x7F,0xCB,0xFA,0x43,0x89,0xF4,0x6F,0x5B } }; // 7B6BE286-6E47-5136-7FCB-FA4389F46F5B
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferContentPart>{ 0xE8E15657,0xD7D1,0x4ED8,{ 0x83,0x8E,0x67,0x4A,0xC2,0x17,0xAC,0xE6 } }; // E8E15657-D7D1-4ED8-838E-674AC217ACE6
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferContentPartFactory>{ 0x90EF98A9,0x7A01,0x4A0B,{ 0x9F,0x80,0xA0,0xB0,0xBB,0x37,0x0F,0x8D } }; // 90EF98A9-7A01-4A0B-9F80-A0B0BB370F8D
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferErrorStaticMethods>{ 0xAAD33B04,0x1192,0x4BF4,{ 0x8B,0x68,0x39,0xC5,0xAD,0xD2,0x44,0xE2 } }; // AAD33B04-1192-4BF4-8B68-39C5ADD244E2
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferGroup>{ 0xD8C3E3E4,0x6459,0x4540,{ 0x85,0xEB,0xAA,0xA1,0xC8,0x90,0x36,0x77 } }; // D8C3E3E4-6459-4540-85EB-AAA1C8903677
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferGroupStatics>{ 0x02EC50B2,0x7D18,0x495B,{ 0xAA,0x22,0x32,0xA9,0x7D,0x45,0xD3,0xE2 } }; // 02EC50B2-7D18-495B-AA22-32A97D45D3E2
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferOperation>{ 0xDED06846,0x90CA,0x44FB,{ 0x8F,0xB1,0x12,0x41,0x54,0xC0,0xD5,0x39 } }; // DED06846-90CA-44FB-8FB1-124154C0D539
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferOperationPriority>{ 0x04854327,0x5254,0x4B3A,{ 0x91,0x5E,0x0A,0xA4,0x92,0x75,0xC0,0xF9 } }; // 04854327-5254-4B3A-915E-0AA49275C0F9
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundTransferRangesDownloadedEventArgs>{ 0x3EBC7453,0xBF48,0x4A88,{ 0x92,0x48,0xB0,0xC1,0x65,0x18,0x4F,0x5C } }; // 3EBC7453-BF48-4A88-9248-B0C165184F5C
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploader>{ 0xC595C9AE,0xCEAD,0x465B,{ 0x88,0x01,0xC5,0x5A,0xC9,0x0A,0x01,0xCE } }; // C595C9AE-CEAD-465B-8801-C55AC90A01CE
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploader2>{ 0x8E0612CE,0x0C34,0x4463,{ 0x80,0x7F,0x19,0x8A,0x1B,0x8B,0xD4,0xAD } }; // 8E0612CE-0C34-4463-807F-198A1B8BD4AD
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploader3>{ 0xB95E9439,0x5BF0,0x4B3A,{ 0x8C,0x47,0x2C,0x61,0x99,0xA8,0x54,0xB9 } }; // B95E9439-5BF0-4B3A-8C47-2C6199A854B9
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploaderFactory>{ 0x736203C7,0x10E7,0x48A0,{ 0xAC,0x3C,0x1A,0xC7,0x10,0x95,0xEC,0x57 } }; // 736203C7-10E7-48A0-AC3C-1AC71095EC57
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploaderStaticMethods>{ 0xF2875CFB,0x9B05,0x4741,{ 0x91,0x21,0x74,0x0A,0x83,0xE2,0x47,0xDF } }; // F2875CFB-9B05-4741-9121-740A83E247DF
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploaderStaticMethods2>{ 0xE919AC62,0xEA08,0x42F0,{ 0xA2,0xAC,0x07,0xE4,0x67,0x54,0x90,0x80 } }; // E919AC62-EA08-42F0-A2AC-07E467549080
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IBackgroundUploaderUserConsent>{ 0x3BB384CB,0x0760,0x461D,{ 0x90,0x7F,0x51,0x38,0xF8,0x4D,0x44,0xC1 } }; // 3BB384CB-0760-461D-907F-5138F84D44C1
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IContentPrefetcher>{ 0xA8D6F754,0x7DC1,0x4CD9,{ 0x88,0x10,0x2A,0x6A,0xA9,0x41,0x7E,0x11 } }; // A8D6F754-7DC1-4CD9-8810-2A6AA9417E11
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IContentPrefetcherTime>{ 0xE361FD08,0x132A,0x4FDE,{ 0xA7,0xCC,0xFC,0xB0,0xE6,0x65,0x23,0xAF } }; // E361FD08-132A-4FDE-A7CC-FCB0E66523AF
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation>{ 0xBD87EBB0,0x5714,0x4E09,{ 0xBA,0x68,0xBE,0xF7,0x39,0x03,0xB0,0xD7 } }; // BD87EBB0-5714-4E09-BA68-BEF73903B0D7
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation2>{ 0xA3CCED40,0x8F9C,0x4353,{ 0x9C,0xD4,0x29,0x0D,0xEE,0x38,0x7C,0x38 } }; // A3CCED40-8F9C-4353-9CD4-290DEE387C38
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation3>{ 0x5027351C,0x7D5E,0x4ADC,{ 0xB8,0xD3,0xDF,0x5C,0x60,0x31,0xB9,0xCC } }; // 5027351C-7D5E-4ADC-B8D3-DF5C6031B9CC
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation4>{ 0x0CDAAEF4,0x8CEF,0x404A,{ 0x96,0x6D,0xF0,0x58,0x40,0x0B,0xED,0x80 } }; // 0CDAAEF4-8CEF-404A-966D-F058400BED80
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IDownloadOperation5>{ 0xA699A86F,0x5590,0x463A,{ 0xB8,0xD6,0x1E,0x49,0x1A,0x27,0x60,0xA5 } }; // A699A86F-5590-463A-B8D6-1E491A2760A5
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IResponseInformation>{ 0xF8BB9A12,0xF713,0x4792,{ 0x8B,0x68,0xD9,0xD2,0x97,0xF9,0x1D,0x2E } }; // F8BB9A12-F713-4792-8B68-D9D297F91D2E
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUnconstrainedTransferRequestResult>{ 0x4C24B81F,0xD944,0x4112,{ 0xA9,0x8E,0x6A,0x69,0x52,0x2B,0x7E,0xBB } }; // 4C24B81F-D944-4112-A98E-6A69522B7EBB
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUploadOperation>{ 0x3E5624E0,0x7389,0x434C,{ 0x8B,0x35,0x42,0x7F,0xD3,0x6B,0xBD,0xAE } }; // 3E5624E0-7389-434C-8B35-427FD36BBDAE
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUploadOperation2>{ 0x556189F2,0x2774,0x4DF6,{ 0x9F,0xA5,0x20,0x9F,0x2B,0xFB,0x12,0xF7 } }; // 556189F2-2774-4DF6-9FA5-209F2BFB12F7
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUploadOperation3>{ 0x42C92CA3,0xDE39,0x4546,{ 0xBC,0x62,0x37,0x74,0xB4,0x29,0x4D,0xE3 } }; // 42C92CA3-DE39-4546-BC62-3774B4294DE3
+    template <> inline constexpr guid guid_v<Windows::Networking::BackgroundTransfer::IUploadOperation4>{ 0x50EDEF31,0xFAC5,0x41EE,{ 0xB0,0x30,0xDC,0x77,0xCA,0xEE,0x9F,0xAA } }; // 50EDEF31-FAC5-41EE-B030-DC77CAEE9FAA
     template <> struct default_interface<Windows::Networking::BackgroundTransfer::BackgroundDownloader>{ using type = Windows::Networking::BackgroundTransfer::IBackgroundDownloader; };
     template <> struct default_interface<Windows::Networking::BackgroundTransfer::BackgroundTransferCompletionGroup>{ using type = Windows::Networking::BackgroundTransfer::IBackgroundTransferCompletionGroup; };
     template <> struct default_interface<Windows::Networking::BackgroundTransfer::BackgroundTransferCompletionGroupTriggerDetails>{ using type = Windows::Networking::BackgroundTransfer::IBackgroundTransferCompletionGroupTriggerDetails; };

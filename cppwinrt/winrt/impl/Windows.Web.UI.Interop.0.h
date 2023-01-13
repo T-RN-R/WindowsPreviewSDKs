@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -93,13 +93,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlProcessOptions> = L"Windows.Web.UI.Interop.IWebViewControlProcessOptions";
     template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlSite> = L"Windows.Web.UI.Interop.IWebViewControlSite";
     template <> inline constexpr auto& name_v<Windows::Web::UI::Interop::IWebViewControlSite2> = L"Windows.Web.UI.Interop.IWebViewControlSite2";
-    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlAcceleratorKeyPressedEventArgs>{ 0x77A2A53E,0x7C74,0x437D,{ 0xA2,0x90,0x3A,0xC0,0xD8,0xCD,0x56,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlMoveFocusRequestedEventArgs>{ 0x6B2A340D,0x4BD0,0x405E,{ 0xB7,0xC1,0x1E,0x72,0xA4,0x92,0xF4,0x46 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlProcess>{ 0x02C723EC,0x98D6,0x424A,{ 0xB6,0x3E,0xC6,0x13,0x6C,0x36,0xA0,0xF2 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlProcessFactory>{ 0x47B65CF9,0xA2D2,0x453C,{ 0xB0,0x97,0xF6,0x77,0x9D,0x4B,0x8E,0x02 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlProcessOptions>{ 0x1CCA72A7,0x3BD6,0x4826,{ 0x82,0x61,0x6C,0x81,0x89,0x50,0x5D,0x89 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlSite>{ 0x133F47C6,0x12DC,0x4898,{ 0xBD,0x47,0x04,0x96,0x7D,0xE6,0x48,0xBA } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlSite2>{ 0xD13B2E3F,0x48EE,0x4730,{ 0x82,0x43,0xD2,0xED,0x0C,0x05,0x60,0x6A } };
+    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlAcceleratorKeyPressedEventArgs>{ 0x77A2A53E,0x7C74,0x437D,{ 0xA2,0x90,0x3A,0xC0,0xD8,0xCD,0x56,0x55 } }; // 77A2A53E-7C74-437D-A290-3AC0D8CD5655
+    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlMoveFocusRequestedEventArgs>{ 0x6B2A340D,0x4BD0,0x405E,{ 0xB7,0xC1,0x1E,0x72,0xA4,0x92,0xF4,0x46 } }; // 6B2A340D-4BD0-405E-B7C1-1E72A492F446
+    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlProcess>{ 0x02C723EC,0x98D6,0x424A,{ 0xB6,0x3E,0xC6,0x13,0x6C,0x36,0xA0,0xF2 } }; // 02C723EC-98D6-424A-B63E-C6136C36A0F2
+    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlProcessFactory>{ 0x47B65CF9,0xA2D2,0x453C,{ 0xB0,0x97,0xF6,0x77,0x9D,0x4B,0x8E,0x02 } }; // 47B65CF9-A2D2-453C-B097-F6779D4B8E02
+    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlProcessOptions>{ 0x1CCA72A7,0x3BD6,0x4826,{ 0x82,0x61,0x6C,0x81,0x89,0x50,0x5D,0x89 } }; // 1CCA72A7-3BD6-4826-8261-6C8189505D89
+    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlSite>{ 0x133F47C6,0x12DC,0x4898,{ 0xBD,0x47,0x04,0x96,0x7D,0xE6,0x48,0xBA } }; // 133F47C6-12DC-4898-BD47-04967DE648BA
+    template <> inline constexpr guid guid_v<Windows::Web::UI::Interop::IWebViewControlSite2>{ 0xD13B2E3F,0x48EE,0x4730,{ 0x82,0x43,0xD2,0xED,0x0C,0x05,0x60,0x6A } }; // D13B2E3F-48EE-4730-8243-D2ED0C05606A
     template <> struct default_interface<Windows::Web::UI::Interop::WebViewControl>{ using type = Windows::Web::UI::IWebViewControl; };
     template <> struct default_interface<Windows::Web::UI::Interop::WebViewControlAcceleratorKeyPressedEventArgs>{ using type = Windows::Web::UI::Interop::IWebViewControlAcceleratorKeyPressedEventArgs; };
     template <> struct default_interface<Windows::Web::UI::Interop::WebViewControlMoveFocusRequestedEventArgs>{ using type = Windows::Web::UI::Interop::IWebViewControlMoveFocusRequestedEventArgs; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -37,9 +37,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs> = L"Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture> = L"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture";
     template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture2> = L"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture2";
-    template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs>{ 0xD1EB4C5C,0x1B53,0x4E4A,{ 0x8B,0x5C,0xDB,0x78,0x87,0xAC,0x94,0x9B } };
-    template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture>{ 0xD0112D1D,0x031E,0x4041,{ 0xA6,0xD6,0xBD,0x74,0x24,0x76,0xA8,0xEE } };
-    template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture2>{ 0xFE2C62BC,0x50B0,0x43E3,{ 0x91,0x7C,0xE3,0xB9,0x27,0x98,0x94,0x2F } };
+    template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs>{ 0xD1EB4C5C,0x1B53,0x4E4A,{ 0x8B,0x5C,0xDB,0x78,0x87,0xAC,0x94,0x9B } }; // D1EB4C5C-1B53-4E4A-8B5C-DB7887AC949B
+    template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture>{ 0xD0112D1D,0x031E,0x4041,{ 0xA6,0xD6,0xBD,0x74,0x24,0x76,0xA8,0xEE } }; // D0112D1D-031E-4041-A6D6-BD742476A8EE
+    template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture2>{ 0xFE2C62BC,0x50B0,0x43E3,{ 0x91,0x7C,0xE3,0xB9,0x27,0x98,0x94,0x2F } }; // FE2C62BC-50B0-43E3-917C-E3B92798942F
     template <> struct default_interface<Windows::Media::Capture::Core::VariablePhotoCapturedEventArgs>{ using type = Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs; };
     template <> struct default_interface<Windows::Media::Capture::Core::VariablePhotoSequenceCapture>{ using type = Windows::Media::Capture::Core::IVariablePhotoSequenceCapture; };
     template <> struct abi<Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs>

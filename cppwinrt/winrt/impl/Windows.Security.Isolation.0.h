@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -252,27 +252,27 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2> = L"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::HostMessageReceivedCallback> = L"Windows.Security.Isolation.HostMessageReceivedCallback";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::MessageReceivedCallback> = L"Windows.Security.Isolation.MessageReceivedCallback";
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment>{ 0x41D24597,0xC328,0x4467,{ 0xB3,0x7F,0x4D,0xFC,0x6F,0x60,0xB6,0xBC } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment2>{ 0x2D365F39,0x88BD,0x4AB4,{ 0x93,0xCF,0x7E,0x2B,0xCE,0xF3,0x37,0xC0 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult>{ 0xEF9A5E58,0xDCD7,0x45C2,{ 0x9C,0x85,0xAB,0x64,0x2A,0x71,0x5E,0x8E } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory>{ 0x1ACA93E7,0xE804,0x454D,{ 0x84,0x66,0xF9,0x89,0x7C,0x20,0xB0,0xF6 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile>{ 0x4D5AE1EF,0x029F,0x4101,{ 0x8C,0x35,0xFE,0x91,0xBF,0x9C,0xD5,0xF0 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>{ 0x2C0E22C7,0x05A0,0x517A,{ 0xB8,0x1C,0x6E,0xE8,0x79,0x0C,0x38,0x1F } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult>{ 0x685D4176,0xF6E0,0x4569,{ 0xB1,0xAA,0x21,0x5C,0x0F,0xF5,0xB2,0x57 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions>{ 0xB71D98F7,0x61F0,0x4008,{ 0xB2,0x07,0x0B,0xF9,0xEB,0x2D,0x76,0xF2 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData>{ 0xF888EC22,0xE8CF,0x56C0,{ 0xB1,0xDF,0x90,0xAF,0x4A,0xD8,0x0E,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult>{ 0x6DAB9451,0x6169,0x55DF,{ 0x8F,0x51,0x79,0x0E,0x99,0xD7,0x27,0x7D } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics>{ 0x10951754,0x204B,0x5EC9,{ 0x9D,0xE3,0xDF,0x79,0x2D,0x07,0x4A,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult>{ 0x0DFA28FA,0x2EF0,0x4D8F,{ 0xB3,0x41,0x31,0x71,0xB2,0xDF,0x93,0xB1 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess>{ 0xA858C3EF,0x8172,0x4F10,{ 0xAF,0x93,0xCB,0xE6,0x0A,0xF8,0x8D,0x09 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions>{ 0xC405EB7D,0x7053,0x4F6A,{ 0x9B,0x87,0x74,0x68,0x46,0xED,0x19,0xB2 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult>{ 0x556BA72E,0xCA9D,0x4211,{ 0xB1,0x43,0x1C,0xED,0xC8,0x6E,0xB2,0xFE } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult>{ 0x8FA1DC2F,0x57DA,0x4BB5,{ 0x9C,0x06,0xFA,0x07,0x2D,0x20,0x32,0xE2 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters>{ 0xEBDB3CAB,0x7A3A,0x4524,{ 0xA0,0xF4,0xF9,0x6E,0x28,0x4D,0x33,0xCD } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics>{ 0x06E444BB,0x53C0,0x4889,{ 0x8F,0xA3,0x53,0x59,0x2E,0x37,0xCF,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2>{ 0x55EF9EBC,0x0444,0x42AD,{ 0x83,0x2D,0x1B,0x89,0xC0,0x89,0xD1,0xCA } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::HostMessageReceivedCallback>{ 0xFAF26FFA,0x8CE1,0x4CC1,{ 0xB2,0x78,0x32,0x2D,0x31,0xA5,0xE4,0xA3 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Isolation::MessageReceivedCallback>{ 0xF5B4C8FF,0x1D9D,0x4995,{ 0x9F,0xEA,0x4D,0x15,0x25,0x7C,0x07,0x57 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment>{ 0x41D24597,0xC328,0x4467,{ 0xB3,0x7F,0x4D,0xFC,0x6F,0x60,0xB6,0xBC } }; // 41D24597-C328-4467-B37F-4DFC6F60B6BC
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment2>{ 0x2D365F39,0x88BD,0x4AB4,{ 0x93,0xCF,0x7E,0x2B,0xCE,0xF3,0x37,0xC0 } }; // 2D365F39-88BD-4AB4-93CF-7E2BCEF337C0
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult>{ 0xEF9A5E58,0xDCD7,0x45C2,{ 0x9C,0x85,0xAB,0x64,0x2A,0x71,0x5E,0x8E } }; // EF9A5E58-DCD7-45C2-9C85-AB642A715E8E
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory>{ 0x1ACA93E7,0xE804,0x454D,{ 0x84,0x66,0xF9,0x89,0x7C,0x20,0xB0,0xF6 } }; // 1ACA93E7-E804-454D-8466-F9897C20B0F6
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile>{ 0x4D5AE1EF,0x029F,0x4101,{ 0x8C,0x35,0xFE,0x91,0xBF,0x9C,0xD5,0xF0 } }; // 4D5AE1EF-029F-4101-8C35-FE91BF9CD5F0
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>{ 0x2C0E22C7,0x05A0,0x517A,{ 0xB8,0x1C,0x6E,0xE8,0x79,0x0C,0x38,0x1F } }; // 2C0E22C7-05A0-517A-B81C-6EE8790C381F
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult>{ 0x685D4176,0xF6E0,0x4569,{ 0xB1,0xAA,0x21,0x5C,0x0F,0xF5,0xB2,0x57 } }; // 685D4176-F6E0-4569-B1AA-215C0FF5B257
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions>{ 0xB71D98F7,0x61F0,0x4008,{ 0xB2,0x07,0x0B,0xF9,0xEB,0x2D,0x76,0xF2 } }; // B71D98F7-61F0-4008-B207-0BF9EB2D76F2
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData>{ 0xF888EC22,0xE8CF,0x56C0,{ 0xB1,0xDF,0x90,0xAF,0x4A,0xD8,0x0E,0x84 } }; // F888EC22-E8CF-56C0-B1DF-90AF4AD80E84
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult>{ 0x6DAB9451,0x6169,0x55DF,{ 0x8F,0x51,0x79,0x0E,0x99,0xD7,0x27,0x7D } }; // 6DAB9451-6169-55DF-8F51-790E99D7277D
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics>{ 0x10951754,0x204B,0x5EC9,{ 0x9D,0xE3,0xDF,0x79,0x2D,0x07,0x4A,0x61 } }; // 10951754-204B-5EC9-9DE3-DF792D074A61
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult>{ 0x0DFA28FA,0x2EF0,0x4D8F,{ 0xB3,0x41,0x31,0x71,0xB2,0xDF,0x93,0xB1 } }; // 0DFA28FA-2EF0-4D8F-B341-3171B2DF93B1
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess>{ 0xA858C3EF,0x8172,0x4F10,{ 0xAF,0x93,0xCB,0xE6,0x0A,0xF8,0x8D,0x09 } }; // A858C3EF-8172-4F10-AF93-CBE60AF88D09
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions>{ 0xC405EB7D,0x7053,0x4F6A,{ 0x9B,0x87,0x74,0x68,0x46,0xED,0x19,0xB2 } }; // C405EB7D-7053-4F6A-9B87-746846ED19B2
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult>{ 0x556BA72E,0xCA9D,0x4211,{ 0xB1,0x43,0x1C,0xED,0xC8,0x6E,0xB2,0xFE } }; // 556BA72E-CA9D-4211-B143-1CEDC86EB2FE
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult>{ 0x8FA1DC2F,0x57DA,0x4BB5,{ 0x9C,0x06,0xFA,0x07,0x2D,0x20,0x32,0xE2 } }; // 8FA1DC2F-57DA-4BB5-9C06-FA072D2032E2
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters>{ 0xEBDB3CAB,0x7A3A,0x4524,{ 0xA0,0xF4,0xF9,0x6E,0x28,0x4D,0x33,0xCD } }; // EBDB3CAB-7A3A-4524-A0F4-F96E284D33CD
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics>{ 0x06E444BB,0x53C0,0x4889,{ 0x8F,0xA3,0x53,0x59,0x2E,0x37,0xCF,0x21 } }; // 06E444BB-53C0-4889-8FA3-53592E37CF21
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2>{ 0x55EF9EBC,0x0444,0x42AD,{ 0x83,0x2D,0x1B,0x89,0xC0,0x89,0xD1,0xCA } }; // 55EF9EBC-0444-42AD-832D-1B89C089D1CA
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::HostMessageReceivedCallback>{ 0xFAF26FFA,0x8CE1,0x4CC1,{ 0xB2,0x78,0x32,0x2D,0x31,0xA5,0xE4,0xA3 } }; // FAF26FFA-8CE1-4CC1-B278-322D31A5E4A3
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::MessageReceivedCallback>{ 0xF5B4C8FF,0x1D9D,0x4995,{ 0x9F,0xEA,0x4D,0x15,0x25,0x7C,0x07,0x57 } }; // F5B4C8FF-1D9D-4995-9FEA-4D15257C0757
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironment>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironment; };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult; };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentFile>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile; };

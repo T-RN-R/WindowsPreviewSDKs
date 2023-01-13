@@ -648,6 +648,8 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareTa
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink ** Default Interface **
  *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
  * Class Marshaling Behavior:  Standard - Class marshals using the standard marshaler
  *
  */
@@ -1661,6 +1663,8 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CDataTransfer_CShareTa
  *
  * Class implements the following interfaces:
  *    Windows.ApplicationModel.DataTransfer.ShareTarget.IQuickLink ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
  * Class Marshaling Behavior:  Standard - Class marshals using the standard marshaler
  *

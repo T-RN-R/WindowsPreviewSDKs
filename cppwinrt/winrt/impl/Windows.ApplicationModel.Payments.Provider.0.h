@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -59,12 +59,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransaction> = L"Windows.ApplicationModel.Payments.Provider.IPaymentTransaction";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionAcceptResult> = L"Windows.ApplicationModel.Payments.Provider.IPaymentTransactionAcceptResult";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionStatics> = L"Windows.ApplicationModel.Payments.Provider.IPaymentTransactionStatics";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppCanMakePaymentTriggerDetails>{ 0x0CE201F0,0x8B93,0x4EB6,{ 0x8C,0x46,0x2E,0x4A,0x6C,0x6A,0x26,0xF6 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManager>{ 0x0E47AA53,0x8521,0x4969,{ 0xA9,0x57,0xDF,0x25,0x38,0xA3,0xA9,0x8F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManagerStatics>{ 0xA341AC28,0xFC89,0x4406,{ 0xB4,0xD9,0x34,0xE7,0xFE,0x79,0xDF,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransaction>{ 0x62581DA0,0x26A5,0x4E9B,{ 0xA6,0xEB,0x66,0x60,0x6C,0xF0,0x01,0xD3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionAcceptResult>{ 0x060E3276,0xD30C,0x4817,{ 0x95,0xA2,0xDF,0x7A,0xE9,0x27,0x3B,0x56 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionStatics>{ 0x8D639750,0xEE0A,0x4DF5,{ 0x9B,0x1E,0x1C,0x0F,0x9E,0xC5,0x98,0x81 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppCanMakePaymentTriggerDetails>{ 0x0CE201F0,0x8B93,0x4EB6,{ 0x8C,0x46,0x2E,0x4A,0x6C,0x6A,0x26,0xF6 } }; // 0CE201F0-8B93-4EB6-8C46-2E4A6C6A26F6
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManager>{ 0x0E47AA53,0x8521,0x4969,{ 0xA9,0x57,0xDF,0x25,0x38,0xA3,0xA9,0x8F } }; // 0E47AA53-8521-4969-A957-DF2538A3A98F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentAppManagerStatics>{ 0xA341AC28,0xFC89,0x4406,{ 0xB4,0xD9,0x34,0xE7,0xFE,0x79,0xDF,0xB6 } }; // A341AC28-FC89-4406-B4D9-34E7FE79DFB6
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransaction>{ 0x62581DA0,0x26A5,0x4E9B,{ 0xA6,0xEB,0x66,0x60,0x6C,0xF0,0x01,0xD3 } }; // 62581DA0-26A5-4E9B-A6EB-66606CF001D3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionAcceptResult>{ 0x060E3276,0xD30C,0x4817,{ 0x95,0xA2,0xDF,0x7A,0xE9,0x27,0x3B,0x56 } }; // 060E3276-D30C-4817-95A2-DF7AE9273B56
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Payments::Provider::IPaymentTransactionStatics>{ 0x8D639750,0xEE0A,0x4DF5,{ 0x9B,0x1E,0x1C,0x0F,0x9E,0xC5,0x98,0x81 } }; // 8D639750-EE0A-4DF5-9B1E-1C0F9EC59881
     template <> struct default_interface<Windows::ApplicationModel::Payments::Provider::PaymentAppCanMakePaymentTriggerDetails>{ using type = Windows::ApplicationModel::Payments::Provider::IPaymentAppCanMakePaymentTriggerDetails; };
     template <> struct default_interface<Windows::ApplicationModel::Payments::Provider::PaymentAppManager>{ using type = Windows::ApplicationModel::Payments::Provider::IPaymentAppManager; };
     template <> struct default_interface<Windows::ApplicationModel::Payments::Provider::PaymentTransaction>{ using type = Windows::ApplicationModel::Payments::Provider::IPaymentTransaction; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -188,52 +188,52 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Foundation::DeferralCompletedHandler> = L"Windows.Foundation.DeferralCompletedHandler";
     template <typename T> inline constexpr auto name_v<Windows::Foundation::EventHandler<T>> = zcombine(L"Windows.Foundation.EventHandler`1<", name_v<T>, L">");
     template <typename TSender, typename TResult> inline constexpr auto name_v<Windows::Foundation::TypedEventHandler<TSender, TResult>> = zcombine(L"Windows.Foundation.TypedEventHandler`2<", name_v<TSender>, L", ", name_v<TResult>, L">");
-    template <> inline constexpr guid guid_v<Windows::Foundation::IAsyncAction>{ 0x5A648006,0x843A,0x4DA9,{ 0x86,0x5B,0x9D,0x26,0xE5,0xDF,0xAD,0x7B } };
+    template <> inline constexpr guid guid_v<Windows::Foundation::IAsyncAction>{ 0x5A648006,0x843A,0x4DA9,{ 0x86,0x5B,0x9D,0x26,0xE5,0xDF,0xAD,0x7B } }; // 5A648006-843A-4DA9-865B-9D26E5DFAD7B
     template <typename TProgress> inline constexpr guid guid_v<Windows::Foundation::IAsyncActionWithProgress<TProgress>>{ pinterface_guid<Windows::Foundation::IAsyncActionWithProgress<TProgress>>::value };
-    template <typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::IAsyncActionWithProgress<TProgress>>{ 0x1F6DB258,0xE803,0x48A1,{ 0x95,0x46,0xEB,0x73,0x53,0x39,0x88,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IAsyncInfo>{ 0x00000036,0x0000,0x0000,{ 0xC0,0x00,0x00,0x00,0x00,0x00,0x00,0x46 } };
+    template <typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::IAsyncActionWithProgress<TProgress>>{ 0x1F6DB258,0xE803,0x48A1,{ 0x95,0x46,0xEB,0x73,0x53,0x39,0x88,0x84 } }; // 1F6DB258-E803-48A1-9546-EB7353398884
+    template <> inline constexpr guid guid_v<Windows::Foundation::IAsyncInfo>{ 0x00000036,0x0000,0x0000,{ 0xC0,0x00,0x00,0x00,0x00,0x00,0x00,0x46 } }; // 00000036-0000-0000-C000-000000000046
     template <typename TResult, typename TProgress> inline constexpr guid guid_v<Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>>{ pinterface_guid<Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>>::value };
-    template <typename TResult, typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>>{ 0xB5D036D7,0xE297,0x498F,{ 0xBA,0x60,0x02,0x89,0xE7,0x6E,0x23,0xDD } };
+    template <typename TResult, typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>>{ 0xB5D036D7,0xE297,0x498F,{ 0xBA,0x60,0x02,0x89,0xE7,0x6E,0x23,0xDD } }; // B5D036D7-E297-498F-BA60-0289E76E23DD
     template <typename TResult> inline constexpr guid guid_v<Windows::Foundation::IAsyncOperation<TResult>>{ pinterface_guid<Windows::Foundation::IAsyncOperation<TResult>>::value };
-    template <typename TResult> inline constexpr guid generic_guid_v<Windows::Foundation::IAsyncOperation<TResult>>{ 0x9FC2B0BB,0xE446,0x44E2,{ 0xAA,0x61,0x9C,0xAB,0x8F,0x63,0x6A,0xF2 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IClosable>{ 0x30D5A829,0x7FA4,0x4026,{ 0x83,0xBB,0xD7,0x5B,0xAE,0x4E,0xA9,0x9E } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IDeferral>{ 0xD6269732,0x3B7F,0x46A7,{ 0xB4,0x0B,0x4F,0xDC,0xA2,0xA2,0xC6,0x93 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IDeferralFactory>{ 0x65A1ECC5,0x3FB5,0x4832,{ 0x8C,0xA9,0xF0,0x61,0xB2,0x81,0xD1,0x3A } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IGetActivationFactory>{ 0x4EDB8EE2,0x96DD,0x49A7,{ 0x94,0xF7,0x46,0x07,0xDD,0xAB,0x8E,0x3C } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IGuidHelperStatics>{ 0x59C7966B,0xAE52,0x5283,{ 0xAD,0x7F,0xA1,0xB9,0xE9,0x67,0x8A,0xDD } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IMemoryBuffer>{ 0xFBC4DD2A,0x245B,0x11E4,{ 0xAF,0x98,0x68,0x94,0x23,0x26,0x0C,0xF8 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IMemoryBufferFactory>{ 0xFBC4DD2B,0x245B,0x11E4,{ 0xAF,0x98,0x68,0x94,0x23,0x26,0x0C,0xF8 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IMemoryBufferReference>{ 0xFBC4DD29,0x245B,0x11E4,{ 0xAF,0x98,0x68,0x94,0x23,0x26,0x0C,0xF8 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IPropertyValue>{ 0x4BD682DD,0x7554,0x40E9,{ 0x9A,0x9B,0x82,0x65,0x4E,0xDE,0x7E,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IPropertyValueStatics>{ 0x629BDBC8,0xD932,0x4FF4,{ 0x96,0xB9,0x8D,0x96,0xC5,0xC1,0xE8,0x58 } };
+    template <typename TResult> inline constexpr guid generic_guid_v<Windows::Foundation::IAsyncOperation<TResult>>{ 0x9FC2B0BB,0xE446,0x44E2,{ 0xAA,0x61,0x9C,0xAB,0x8F,0x63,0x6A,0xF2 } }; // 9FC2B0BB-E446-44E2-AA61-9CAB8F636AF2
+    template <> inline constexpr guid guid_v<Windows::Foundation::IClosable>{ 0x30D5A829,0x7FA4,0x4026,{ 0x83,0xBB,0xD7,0x5B,0xAE,0x4E,0xA9,0x9E } }; // 30D5A829-7FA4-4026-83BB-D75BAE4EA99E
+    template <> inline constexpr guid guid_v<Windows::Foundation::IDeferral>{ 0xD6269732,0x3B7F,0x46A7,{ 0xB4,0x0B,0x4F,0xDC,0xA2,0xA2,0xC6,0x93 } }; // D6269732-3B7F-46A7-B40B-4FDCA2A2C693
+    template <> inline constexpr guid guid_v<Windows::Foundation::IDeferralFactory>{ 0x65A1ECC5,0x3FB5,0x4832,{ 0x8C,0xA9,0xF0,0x61,0xB2,0x81,0xD1,0x3A } }; // 65A1ECC5-3FB5-4832-8CA9-F061B281D13A
+    template <> inline constexpr guid guid_v<Windows::Foundation::IGetActivationFactory>{ 0x4EDB8EE2,0x96DD,0x49A7,{ 0x94,0xF7,0x46,0x07,0xDD,0xAB,0x8E,0x3C } }; // 4EDB8EE2-96DD-49A7-94F7-4607DDAB8E3C
+    template <> inline constexpr guid guid_v<Windows::Foundation::IGuidHelperStatics>{ 0x59C7966B,0xAE52,0x5283,{ 0xAD,0x7F,0xA1,0xB9,0xE9,0x67,0x8A,0xDD } }; // 59C7966B-AE52-5283-AD7F-A1B9E9678ADD
+    template <> inline constexpr guid guid_v<Windows::Foundation::IMemoryBuffer>{ 0xFBC4DD2A,0x245B,0x11E4,{ 0xAF,0x98,0x68,0x94,0x23,0x26,0x0C,0xF8 } }; // FBC4DD2A-245B-11E4-AF98-689423260CF8
+    template <> inline constexpr guid guid_v<Windows::Foundation::IMemoryBufferFactory>{ 0xFBC4DD2B,0x245B,0x11E4,{ 0xAF,0x98,0x68,0x94,0x23,0x26,0x0C,0xF8 } }; // FBC4DD2B-245B-11E4-AF98-689423260CF8
+    template <> inline constexpr guid guid_v<Windows::Foundation::IMemoryBufferReference>{ 0xFBC4DD29,0x245B,0x11E4,{ 0xAF,0x98,0x68,0x94,0x23,0x26,0x0C,0xF8 } }; // FBC4DD29-245B-11E4-AF98-689423260CF8
+    template <> inline constexpr guid guid_v<Windows::Foundation::IPropertyValue>{ 0x4BD682DD,0x7554,0x40E9,{ 0x9A,0x9B,0x82,0x65,0x4E,0xDE,0x7E,0x62 } }; // 4BD682DD-7554-40E9-9A9B-82654EDE7E62
+    template <> inline constexpr guid guid_v<Windows::Foundation::IPropertyValueStatics>{ 0x629BDBC8,0xD932,0x4FF4,{ 0x96,0xB9,0x8D,0x96,0xC5,0xC1,0xE8,0x58 } }; // 629BDBC8-D932-4FF4-96B9-8D96C5C1E858
     template <typename T> inline constexpr guid guid_v<Windows::Foundation::IReferenceArray<T>>{ pinterface_guid<Windows::Foundation::IReferenceArray<T>>::value };
-    template <typename T> inline constexpr guid generic_guid_v<Windows::Foundation::IReferenceArray<T>>{ 0x61C17707,0x2D65,0x11E0,{ 0x9A,0xE8,0xD4,0x85,0x64,0x01,0x54,0x72 } };
+    template <typename T> inline constexpr guid generic_guid_v<Windows::Foundation::IReferenceArray<T>>{ 0x61C17707,0x2D65,0x11E0,{ 0x9A,0xE8,0xD4,0x85,0x64,0x01,0x54,0x72 } }; // 61C17707-2D65-11E0-9AE8-D48564015472
     template <typename T> inline constexpr guid guid_v<Windows::Foundation::IReference<T>>{ pinterface_guid<Windows::Foundation::IReference<T>>::value };
-    template <typename T> inline constexpr guid generic_guid_v<Windows::Foundation::IReference<T>>{ 0x61C17706,0x2D65,0x11E0,{ 0x9A,0xE8,0xD4,0x85,0x64,0x01,0x54,0x72 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IStringable>{ 0x96369F54,0x8EB6,0x48F0,{ 0xAB,0xCE,0xC1,0xB2,0x11,0xE6,0x27,0xC3 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IUriEscapeStatics>{ 0xC1D432BA,0xC824,0x4452,{ 0xA7,0xFD,0x51,0x2B,0xC3,0xBB,0xE9,0xA1 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IUriRuntimeClass>{ 0x9E365E57,0x48B2,0x4160,{ 0x95,0x6F,0xC7,0x38,0x51,0x20,0xBB,0xFC } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IUriRuntimeClassFactory>{ 0x44A9796F,0x723E,0x4FDF,{ 0xA2,0x18,0x03,0x3E,0x75,0xB0,0xC0,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri>{ 0x758D9661,0x221C,0x480F,{ 0xA3,0x39,0x50,0x65,0x66,0x73,0xF4,0x6F } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IWwwFormUrlDecoderEntry>{ 0x125E7431,0xF678,0x4E8E,{ 0xB6,0x70,0x20,0xA9,0xB0,0x6C,0x51,0x2D } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IWwwFormUrlDecoderRuntimeClass>{ 0xD45A0451,0xF225,0x4542,{ 0x92,0x96,0x0E,0x1D,0xF5,0xD2,0x54,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::IWwwFormUrlDecoderRuntimeClassFactory>{ 0x5B8C6B3D,0x24AE,0x41B5,{ 0xA1,0xBF,0xF0,0xC3,0xD5,0x44,0x84,0x5B } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::AsyncActionCompletedHandler>{ 0xA4ED5C81,0x76C9,0x40BD,{ 0x8B,0xE6,0xB1,0xD9,0x0F,0xB2,0x0A,0xE7 } };
+    template <typename T> inline constexpr guid generic_guid_v<Windows::Foundation::IReference<T>>{ 0x61C17706,0x2D65,0x11E0,{ 0x9A,0xE8,0xD4,0x85,0x64,0x01,0x54,0x72 } }; // 61C17706-2D65-11E0-9AE8-D48564015472
+    template <> inline constexpr guid guid_v<Windows::Foundation::IStringable>{ 0x96369F54,0x8EB6,0x48F0,{ 0xAB,0xCE,0xC1,0xB2,0x11,0xE6,0x27,0xC3 } }; // 96369F54-8EB6-48F0-ABCE-C1B211E627C3
+    template <> inline constexpr guid guid_v<Windows::Foundation::IUriEscapeStatics>{ 0xC1D432BA,0xC824,0x4452,{ 0xA7,0xFD,0x51,0x2B,0xC3,0xBB,0xE9,0xA1 } }; // C1D432BA-C824-4452-A7FD-512BC3BBE9A1
+    template <> inline constexpr guid guid_v<Windows::Foundation::IUriRuntimeClass>{ 0x9E365E57,0x48B2,0x4160,{ 0x95,0x6F,0xC7,0x38,0x51,0x20,0xBB,0xFC } }; // 9E365E57-48B2-4160-956F-C7385120BBFC
+    template <> inline constexpr guid guid_v<Windows::Foundation::IUriRuntimeClassFactory>{ 0x44A9796F,0x723E,0x4FDF,{ 0xA2,0x18,0x03,0x3E,0x75,0xB0,0xC0,0x84 } }; // 44A9796F-723E-4FDF-A218-033E75B0C084
+    template <> inline constexpr guid guid_v<Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri>{ 0x758D9661,0x221C,0x480F,{ 0xA3,0x39,0x50,0x65,0x66,0x73,0xF4,0x6F } }; // 758D9661-221C-480F-A339-50656673F46F
+    template <> inline constexpr guid guid_v<Windows::Foundation::IWwwFormUrlDecoderEntry>{ 0x125E7431,0xF678,0x4E8E,{ 0xB6,0x70,0x20,0xA9,0xB0,0x6C,0x51,0x2D } }; // 125E7431-F678-4E8E-B670-20A9B06C512D
+    template <> inline constexpr guid guid_v<Windows::Foundation::IWwwFormUrlDecoderRuntimeClass>{ 0xD45A0451,0xF225,0x4542,{ 0x92,0x96,0x0E,0x1D,0xF5,0xD2,0x54,0xDF } }; // D45A0451-F225-4542-9296-0E1DF5D254DF
+    template <> inline constexpr guid guid_v<Windows::Foundation::IWwwFormUrlDecoderRuntimeClassFactory>{ 0x5B8C6B3D,0x24AE,0x41B5,{ 0xA1,0xBF,0xF0,0xC3,0xD5,0x44,0x84,0x5B } }; // 5B8C6B3D-24AE-41B5-A1BF-F0C3D544845B
+    template <> inline constexpr guid guid_v<Windows::Foundation::AsyncActionCompletedHandler>{ 0xA4ED5C81,0x76C9,0x40BD,{ 0x8B,0xE6,0xB1,0xD9,0x0F,0xB2,0x0A,0xE7 } }; // A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7
     template <typename TProgress> inline constexpr guid guid_v<Windows::Foundation::AsyncActionProgressHandler<TProgress>>{ pinterface_guid<Windows::Foundation::AsyncActionProgressHandler<TProgress>>::value };
-    template <typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncActionProgressHandler<TProgress>>{ 0x6D844858,0x0CFF,0x4590,{ 0xAE,0x89,0x95,0xA5,0xA5,0xC8,0xB4,0xB8 } };
+    template <typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncActionProgressHandler<TProgress>>{ 0x6D844858,0x0CFF,0x4590,{ 0xAE,0x89,0x95,0xA5,0xA5,0xC8,0xB4,0xB8 } }; // 6D844858-0CFF-4590-AE89-95A5A5C8B4B8
     template <typename TProgress> inline constexpr guid guid_v<Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>>{ pinterface_guid<Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>>::value };
-    template <typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>>{ 0x9C029F91,0xCC84,0x44FD,{ 0xAC,0x26,0x0A,0x6C,0x4E,0x55,0x52,0x81 } };
+    template <typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>>{ 0x9C029F91,0xCC84,0x44FD,{ 0xAC,0x26,0x0A,0x6C,0x4E,0x55,0x52,0x81 } }; // 9C029F91-CC84-44FD-AC26-0A6C4E555281
     template <typename TResult> inline constexpr guid guid_v<Windows::Foundation::AsyncOperationCompletedHandler<TResult>>{ pinterface_guid<Windows::Foundation::AsyncOperationCompletedHandler<TResult>>::value };
-    template <typename TResult> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncOperationCompletedHandler<TResult>>{ 0xFCDCF02C,0xE5D8,0x4478,{ 0x91,0x5A,0x4D,0x90,0xB7,0x4B,0x83,0xA5 } };
+    template <typename TResult> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncOperationCompletedHandler<TResult>>{ 0xFCDCF02C,0xE5D8,0x4478,{ 0x91,0x5A,0x4D,0x90,0xB7,0x4B,0x83,0xA5 } }; // FCDCF02C-E5D8-4478-915A-4D90B74B83A5
     template <typename TResult, typename TProgress> inline constexpr guid guid_v<Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>>{ pinterface_guid<Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>>::value };
-    template <typename TResult, typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>>{ 0x55690902,0x0AAB,0x421A,{ 0x87,0x78,0xF8,0xCE,0x50,0x26,0xD7,0x58 } };
+    template <typename TResult, typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>>{ 0x55690902,0x0AAB,0x421A,{ 0x87,0x78,0xF8,0xCE,0x50,0x26,0xD7,0x58 } }; // 55690902-0AAB-421A-8778-F8CE5026D758
     template <typename TResult, typename TProgress> inline constexpr guid guid_v<Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>{ pinterface_guid<Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>::value };
-    template <typename TResult, typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>{ 0xE85DF41D,0x6AA7,0x46E3,{ 0xA8,0xE2,0xF0,0x09,0xD8,0x40,0xC6,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::DeferralCompletedHandler>{ 0xED32A372,0xF3C8,0x4FAA,{ 0x9C,0xFB,0x47,0x01,0x48,0xDA,0x38,0x88 } };
+    template <typename TResult, typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>{ 0xE85DF41D,0x6AA7,0x46E3,{ 0xA8,0xE2,0xF0,0x09,0xD8,0x40,0xC6,0x27 } }; // E85DF41D-6AA7-46E3-A8E2-F009D840C627
+    template <> inline constexpr guid guid_v<Windows::Foundation::DeferralCompletedHandler>{ 0xED32A372,0xF3C8,0x4FAA,{ 0x9C,0xFB,0x47,0x01,0x48,0xDA,0x38,0x88 } }; // ED32A372-F3C8-4FAA-9CFB-470148DA3888
     template <typename T> inline constexpr guid guid_v<Windows::Foundation::EventHandler<T>>{ pinterface_guid<Windows::Foundation::EventHandler<T>>::value };
-    template <typename T> inline constexpr guid generic_guid_v<Windows::Foundation::EventHandler<T>>{ 0x9DE1C535,0x6AE1,0x11E0,{ 0x84,0xE1,0x18,0xA9,0x05,0xBC,0xC5,0x3F } };
+    template <typename T> inline constexpr guid generic_guid_v<Windows::Foundation::EventHandler<T>>{ 0x9DE1C535,0x6AE1,0x11E0,{ 0x84,0xE1,0x18,0xA9,0x05,0xBC,0xC5,0x3F } }; // 9DE1C535-6AE1-11E0-84E1-18A905BCC53F
     template <typename TSender, typename TResult> inline constexpr guid guid_v<Windows::Foundation::TypedEventHandler<TSender, TResult>>{ pinterface_guid<Windows::Foundation::TypedEventHandler<TSender, TResult>>::value };
-    template <typename TSender, typename TResult> inline constexpr guid generic_guid_v<Windows::Foundation::TypedEventHandler<TSender, TResult>>{ 0x9DE1C534,0x6AE1,0x11E0,{ 0x84,0xE1,0x18,0xA9,0x05,0xBC,0xC5,0x3F } };
+    template <typename TSender, typename TResult> inline constexpr guid generic_guid_v<Windows::Foundation::TypedEventHandler<TSender, TResult>>{ 0x9DE1C534,0x6AE1,0x11E0,{ 0x84,0xE1,0x18,0xA9,0x05,0xBC,0xC5,0x3F } }; // 9DE1C534-6AE1-11E0-84E1-18A905BCC53F
     template <> struct default_interface<Windows::Foundation::Deferral>{ using type = Windows::Foundation::IDeferral; };
     template <> struct default_interface<Windows::Foundation::MemoryBuffer>{ using type = Windows::Foundation::IMemoryBuffer; };
     template <> struct default_interface<Windows::Foundation::Uri>{ using type = Windows::Foundation::IUriRuntimeClass; };

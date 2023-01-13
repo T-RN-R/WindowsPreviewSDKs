@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -63,11 +63,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IResourceCollection> = L"Windows.Web.AtomPub.IResourceCollection";
     template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IServiceDocument> = L"Windows.Web.AtomPub.IServiceDocument";
     template <> inline constexpr auto& name_v<Windows::Web::AtomPub::IWorkspace> = L"Windows.Web.AtomPub.IWorkspace";
-    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IAtomPubClient>{ 0x35392C38,0xCDED,0x4D4C,{ 0x96,0x37,0x05,0xF1,0x5C,0x1C,0x94,0x06 } };
-    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IAtomPubClientFactory>{ 0x49D55012,0x57CB,0x4BDE,{ 0xAB,0x9F,0x26,0x10,0xB1,0x72,0x77,0x7B } };
-    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IResourceCollection>{ 0x7F5FD609,0xBC88,0x41D4,{ 0x88,0xFA,0x3D,0xE6,0x70,0x4D,0x42,0x8E } };
-    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IServiceDocument>{ 0x8B7EC771,0x2AB3,0x4DBE,{ 0x8B,0xCC,0x77,0x8F,0x92,0xB7,0x5E,0x51 } };
-    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IWorkspace>{ 0xB41DA63B,0xA4B8,0x4036,{ 0x89,0xC5,0x83,0xC3,0x12,0x66,0xBA,0x49 } };
+    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IAtomPubClient>{ 0x35392C38,0xCDED,0x4D4C,{ 0x96,0x37,0x05,0xF1,0x5C,0x1C,0x94,0x06 } }; // 35392C38-CDED-4D4C-9637-05F15C1C9406
+    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IAtomPubClientFactory>{ 0x49D55012,0x57CB,0x4BDE,{ 0xAB,0x9F,0x26,0x10,0xB1,0x72,0x77,0x7B } }; // 49D55012-57CB-4BDE-AB9F-2610B172777B
+    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IResourceCollection>{ 0x7F5FD609,0xBC88,0x41D4,{ 0x88,0xFA,0x3D,0xE6,0x70,0x4D,0x42,0x8E } }; // 7F5FD609-BC88-41D4-88FA-3DE6704D428E
+    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IServiceDocument>{ 0x8B7EC771,0x2AB3,0x4DBE,{ 0x8B,0xCC,0x77,0x8F,0x92,0xB7,0x5E,0x51 } }; // 8B7EC771-2AB3-4DBE-8BCC-778F92B75E51
+    template <> inline constexpr guid guid_v<Windows::Web::AtomPub::IWorkspace>{ 0xB41DA63B,0xA4B8,0x4036,{ 0x89,0xC5,0x83,0xC3,0x12,0x66,0xBA,0x49 } }; // B41DA63B-A4B8-4036-89C5-83C31266BA49
     template <> struct default_interface<Windows::Web::AtomPub::AtomPubClient>{ using type = Windows::Web::AtomPub::IAtomPubClient; };
     template <> struct default_interface<Windows::Web::AtomPub::ResourceCollection>{ using type = Windows::Web::AtomPub::IResourceCollection; };
     template <> struct default_interface<Windows::Web::AtomPub::ServiceDocument>{ using type = Windows::Web::AtomPub::IServiceDocument; };

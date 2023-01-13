@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -141,20 +141,20 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Printers::IPrint3DDevice> = L"Windows.Devices.Printers.IPrint3DDevice";
     template <> inline constexpr auto& name_v<Windows::Devices::Printers::IPrint3DDeviceStatics> = L"Windows.Devices.Printers.IPrint3DDeviceStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::Printers::IPrintSchema> = L"Windows.Devices.Printers.IPrintSchema";
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppAttributeError>{ 0x750FEDA1,0x9EEF,0x5C39,{ 0x93,0xE4,0x46,0x14,0x9B,0xBC,0xEF,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppAttributeValue>{ 0x99407FED,0xE2BB,0x59A3,{ 0x98,0x8B,0x28,0xA9,0x74,0x05,0x2A,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppAttributeValueStatics>{ 0x10D43942,0xDD94,0x5998,{ 0xB2,0x35,0xAF,0xAF,0xB6,0xFA,0x79,0x35 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppIntegerRange>{ 0x92907346,0xC3EA,0x5ED6,{ 0xBD,0xB1,0x37,0x52,0xC6,0x2C,0x6F,0x7F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppIntegerRangeFactory>{ 0x75D4ECAE,0xF87E,0x54AD,{ 0xB5,0xD0,0x46,0x52,0x04,0xDB,0x75,0x53 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppPrintDevice>{ 0xD748AC56,0x76F3,0x5DC6,{ 0xAF,0xD4,0xC2,0xA8,0x68,0x6B,0x93,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppResolution>{ 0xCB493F86,0x6BF3,0x56F5,{ 0x86,0xCE,0x26,0x3D,0x08,0xAE,0xAD,0x63 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppResolutionFactory>{ 0xE481C2AE,0x251A,0x5326,{ 0xB1,0x73,0x95,0x54,0x3E,0xD9,0x9A,0x35 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppSetAttributesResult>{ 0x7D1C7F55,0xAA9D,0x58A3,{ 0x90,0xE9,0x17,0xBD,0xC5,0x28,0x1F,0x07 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppTextWithLanguage>{ 0x326447A6,0x5149,0x5936,{ 0x90,0xE8,0x0C,0x73,0x60,0x36,0xBF,0x77 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppTextWithLanguageFactory>{ 0xCA4A1E8D,0x2968,0x5775,{ 0x99,0x7C,0x8A,0x46,0xF1,0xA5,0x74,0xED } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IPrint3DDevice>{ 0x041C3D19,0x9713,0x42A2,{ 0x98,0x13,0x7D,0xC3,0x33,0x74,0x28,0xD3 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IPrint3DDeviceStatics>{ 0xFDE3620A,0x67CD,0x41B7,{ 0xA3,0x44,0x51,0x50,0xA1,0xFD,0x75,0xB5 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IPrintSchema>{ 0xC2B98316,0x26B8,0x4BFB,{ 0x81,0x38,0x9F,0x96,0x2C,0x22,0xA3,0x5B } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppAttributeError>{ 0x750FEDA1,0x9EEF,0x5C39,{ 0x93,0xE4,0x46,0x14,0x9B,0xBC,0xEF,0x27 } }; // 750FEDA1-9EEF-5C39-93E4-46149BBCEF27
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppAttributeValue>{ 0x99407FED,0xE2BB,0x59A3,{ 0x98,0x8B,0x28,0xA9,0x74,0x05,0x2A,0x26 } }; // 99407FED-E2BB-59A3-988B-28A974052A26
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppAttributeValueStatics>{ 0x10D43942,0xDD94,0x5998,{ 0xB2,0x35,0xAF,0xAF,0xB6,0xFA,0x79,0x35 } }; // 10D43942-DD94-5998-B235-AFAFB6FA7935
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppIntegerRange>{ 0x92907346,0xC3EA,0x5ED6,{ 0xBD,0xB1,0x37,0x52,0xC6,0x2C,0x6F,0x7F } }; // 92907346-C3EA-5ED6-BDB1-3752C62C6F7F
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppIntegerRangeFactory>{ 0x75D4ECAE,0xF87E,0x54AD,{ 0xB5,0xD0,0x46,0x52,0x04,0xDB,0x75,0x53 } }; // 75D4ECAE-F87E-54AD-B5D0-465204DB7553
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppPrintDevice>{ 0xD748AC56,0x76F3,0x5DC6,{ 0xAF,0xD4,0xC2,0xA8,0x68,0x6B,0x93,0x59 } }; // D748AC56-76F3-5DC6-AFD4-C2A8686B9359
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppResolution>{ 0xCB493F86,0x6BF3,0x56F5,{ 0x86,0xCE,0x26,0x3D,0x08,0xAE,0xAD,0x63 } }; // CB493F86-6BF3-56F5-86CE-263D08AEAD63
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppResolutionFactory>{ 0xE481C2AE,0x251A,0x5326,{ 0xB1,0x73,0x95,0x54,0x3E,0xD9,0x9A,0x35 } }; // E481C2AE-251A-5326-B173-95543ED99A35
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppSetAttributesResult>{ 0x7D1C7F55,0xAA9D,0x58A3,{ 0x90,0xE9,0x17,0xBD,0xC5,0x28,0x1F,0x07 } }; // 7D1C7F55-AA9D-58A3-90E9-17BDC5281F07
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppTextWithLanguage>{ 0x326447A6,0x5149,0x5936,{ 0x90,0xE8,0x0C,0x73,0x60,0x36,0xBF,0x77 } }; // 326447A6-5149-5936-90E8-0C736036BF77
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IIppTextWithLanguageFactory>{ 0xCA4A1E8D,0x2968,0x5775,{ 0x99,0x7C,0x8A,0x46,0xF1,0xA5,0x74,0xED } }; // CA4A1E8D-2968-5775-997C-8A46F1A574ED
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IPrint3DDevice>{ 0x041C3D19,0x9713,0x42A2,{ 0x98,0x13,0x7D,0xC3,0x33,0x74,0x28,0xD3 } }; // 041C3D19-9713-42A2-9813-7DC3337428D3
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IPrint3DDeviceStatics>{ 0xFDE3620A,0x67CD,0x41B7,{ 0xA3,0x44,0x51,0x50,0xA1,0xFD,0x75,0xB5 } }; // FDE3620A-67CD-41B7-A344-5150A1FD75B5
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::IPrintSchema>{ 0xC2B98316,0x26B8,0x4BFB,{ 0x81,0x38,0x9F,0x96,0x2C,0x22,0xA3,0x5B } }; // C2B98316-26B8-4BFB-8138-9F962C22A35B
     template <> struct default_interface<Windows::Devices::Printers::IppAttributeError>{ using type = Windows::Devices::Printers::IIppAttributeError; };
     template <> struct default_interface<Windows::Devices::Printers::IppAttributeValue>{ using type = Windows::Devices::Printers::IIppAttributeValue; };
     template <> struct default_interface<Windows::Devices::Printers::IppIntegerRange>{ using type = Windows::Devices::Printers::IIppIntegerRange; };

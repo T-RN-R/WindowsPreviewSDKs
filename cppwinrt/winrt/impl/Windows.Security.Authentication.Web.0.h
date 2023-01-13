@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -60,9 +60,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::IWebAuthenticationBrokerStatics> = L"Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics";
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::IWebAuthenticationBrokerStatics2> = L"Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics2";
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::IWebAuthenticationResult> = L"Windows.Security.Authentication.Web.IWebAuthenticationResult";
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::IWebAuthenticationBrokerStatics>{ 0x2F149F1A,0xE673,0x40B5,{ 0xBC,0x22,0x20,0x1A,0x68,0x64,0xA3,0x7B } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::IWebAuthenticationBrokerStatics2>{ 0x73CDFB9E,0x14E7,0x41DA,{ 0xA9,0x71,0xAA,0xF4,0x41,0x0B,0x62,0x1E } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::IWebAuthenticationResult>{ 0x64002B4B,0xEDE9,0x470A,{ 0xA5,0xCD,0x03,0x23,0xFA,0xF6,0xE2,0x62 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::IWebAuthenticationBrokerStatics>{ 0x2F149F1A,0xE673,0x40B5,{ 0xBC,0x22,0x20,0x1A,0x68,0x64,0xA3,0x7B } }; // 2F149F1A-E673-40B5-BC22-201A6864A37B
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::IWebAuthenticationBrokerStatics2>{ 0x73CDFB9E,0x14E7,0x41DA,{ 0xA9,0x71,0xAA,0xF4,0x41,0x0B,0x62,0x1E } }; // 73CDFB9E-14E7-41DA-A971-AAF4410B621E
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::IWebAuthenticationResult>{ 0x64002B4B,0xEDE9,0x470A,{ 0xA5,0xCD,0x03,0x23,0xFA,0xF6,0xE2,0x62 } }; // 64002B4B-EDE9-470A-A5CD-0323FAF6E262
     template <> struct default_interface<Windows::Security::Authentication::Web::WebAuthenticationResult>{ using type = Windows::Security::Authentication::Web::IWebAuthenticationResult; };
     template <> struct abi<Windows::Security::Authentication::Web::IWebAuthenticationBrokerStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -41,11 +41,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Threading::Core::ISignalNotifier> = L"Windows.System.Threading.Core.ISignalNotifier";
     template <> inline constexpr auto& name_v<Windows::System::Threading::Core::ISignalNotifierStatics> = L"Windows.System.Threading.Core.ISignalNotifierStatics";
     template <> inline constexpr auto& name_v<Windows::System::Threading::Core::SignalHandler> = L"Windows.System.Threading.Core.SignalHandler";
-    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::IPreallocatedWorkItem>{ 0xB6DAA9FC,0xBC5B,0x401A,{ 0xA8,0xB2,0x6E,0x75,0x4D,0x14,0xDA,0xA6 } };
-    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::IPreallocatedWorkItemFactory>{ 0xE3D32B45,0xDFEA,0x469B,{ 0x82,0xC5,0xF6,0xE3,0xCE,0xFD,0xEA,0xFB } };
-    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::ISignalNotifier>{ 0x14285E06,0x63A7,0x4713,{ 0xB6,0xD9,0x62,0xF6,0x4B,0x56,0xFB,0x8B } };
-    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::ISignalNotifierStatics>{ 0x1C4E4566,0x8400,0x46D3,{ 0xA1,0x15,0x7D,0x0C,0x0D,0xFC,0x9F,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::SignalHandler>{ 0x923C402E,0x4721,0x440E,{ 0x9D,0xDA,0x55,0xB6,0xF2,0xE0,0x77,0x10 } };
+    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::IPreallocatedWorkItem>{ 0xB6DAA9FC,0xBC5B,0x401A,{ 0xA8,0xB2,0x6E,0x75,0x4D,0x14,0xDA,0xA6 } }; // B6DAA9FC-BC5B-401A-A8B2-6E754D14DAA6
+    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::IPreallocatedWorkItemFactory>{ 0xE3D32B45,0xDFEA,0x469B,{ 0x82,0xC5,0xF6,0xE3,0xCE,0xFD,0xEA,0xFB } }; // E3D32B45-DFEA-469B-82C5-F6E3CEFDEAFB
+    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::ISignalNotifier>{ 0x14285E06,0x63A7,0x4713,{ 0xB6,0xD9,0x62,0xF6,0x4B,0x56,0xFB,0x8B } }; // 14285E06-63A7-4713-B6D9-62F64B56FB8B
+    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::ISignalNotifierStatics>{ 0x1C4E4566,0x8400,0x46D3,{ 0xA1,0x15,0x7D,0x0C,0x0D,0xFC,0x9F,0x62 } }; // 1C4E4566-8400-46D3-A115-7D0C0DFC9F62
+    template <> inline constexpr guid guid_v<Windows::System::Threading::Core::SignalHandler>{ 0x923C402E,0x4721,0x440E,{ 0x9D,0xDA,0x55,0xB6,0xF2,0xE0,0x77,0x10 } }; // 923C402E-4721-440E-9DDA-55B6F2E07710
     template <> struct default_interface<Windows::System::Threading::Core::PreallocatedWorkItem>{ using type = Windows::System::Threading::Core::IPreallocatedWorkItem; };
     template <> struct default_interface<Windows::System::Threading::Core::SignalNotifier>{ using type = Windows::System::Threading::Core::ISignalNotifier; };
     template <> struct abi<Windows::System::Threading::Core::IPreallocatedWorkItem>

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -55,12 +55,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreview2> = L"Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreview2";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreviewShowNoteOptions> = L"Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewShowNoteOptions";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreviewStatics> = L"Windows.ApplicationModel.Preview.Notes.INotesWindowManagerPreviewStatics";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotePlacementChangedPreviewEventArgs>{ 0x491D57B7,0xF780,0x4E7F,{ 0xA9,0x39,0x9A,0x4C,0xAF,0x96,0x52,0x14 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INoteVisibilityChangedPreviewEventArgs>{ 0x0E34649E,0x3815,0x4FF6,{ 0x83,0xB3,0xA1,0x4D,0x17,0x12,0x0E,0x24 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreview>{ 0xDC2AC23E,0x4850,0x4F13,{ 0x9C,0xC7,0xFF,0x48,0x7E,0xFD,0xFC,0xDE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreview2>{ 0xEDFE864A,0x1F54,0x4B09,{ 0x98,0x23,0xFF,0x47,0x7F,0x6F,0xA3,0xBC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreviewShowNoteOptions>{ 0x886B09D6,0xA6AE,0x4007,{ 0xA5,0x6D,0x1C,0xA7,0x0C,0x84,0xC0,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreviewStatics>{ 0x6668CC88,0x0A8E,0x4127,{ 0xA3,0x8E,0x99,0x54,0x45,0x86,0x8A,0x78 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotePlacementChangedPreviewEventArgs>{ 0x491D57B7,0xF780,0x4E7F,{ 0xA9,0x39,0x9A,0x4C,0xAF,0x96,0x52,0x14 } }; // 491D57B7-F780-4E7F-A939-9A4CAF965214
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INoteVisibilityChangedPreviewEventArgs>{ 0x0E34649E,0x3815,0x4FF6,{ 0x83,0xB3,0xA1,0x4D,0x17,0x12,0x0E,0x24 } }; // 0E34649E-3815-4FF6-83B3-A14D17120E24
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreview>{ 0xDC2AC23E,0x4850,0x4F13,{ 0x9C,0xC7,0xFF,0x48,0x7E,0xFD,0xFC,0xDE } }; // DC2AC23E-4850-4F13-9CC7-FF487EFDFCDE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreview2>{ 0xEDFE864A,0x1F54,0x4B09,{ 0x98,0x23,0xFF,0x47,0x7F,0x6F,0xA3,0xBC } }; // EDFE864A-1F54-4B09-9823-FF477F6FA3BC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreviewShowNoteOptions>{ 0x886B09D6,0xA6AE,0x4007,{ 0xA5,0x6D,0x1C,0xA7,0x0C,0x84,0xC0,0xD2 } }; // 886B09D6-A6AE-4007-A56D-1CA70C84C0D2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreviewStatics>{ 0x6668CC88,0x0A8E,0x4127,{ 0xA3,0x8E,0x99,0x54,0x45,0x86,0x8A,0x78 } }; // 6668CC88-0A8E-4127-A38E-995445868A78
     template <> struct default_interface<Windows::ApplicationModel::Preview::Notes::NotePlacementChangedPreviewEventArgs>{ using type = Windows::ApplicationModel::Preview::Notes::INotePlacementChangedPreviewEventArgs; };
     template <> struct default_interface<Windows::ApplicationModel::Preview::Notes::NoteVisibilityChangedPreviewEventArgs>{ using type = Windows::ApplicationModel::Preview::Notes::INoteVisibilityChangedPreviewEventArgs; };
     template <> struct default_interface<Windows::ApplicationModel::Preview::Notes::NotesWindowManagerPreview>{ using type = Windows::ApplicationModel::Preview::Notes::INotesWindowManagerPreview; };

@@ -11897,6 +11897,15 @@ Notes:
 //
 #define STATUS_CIMFS_IMAGE_CORRUPT       ((NTSTATUS)0xC000C001L)
 
+//
+// MessageId: STATUS_CIMFS_IMAGE_VERSION_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The system does not support this version of the CimFS image.
+//
+#define STATUS_CIMFS_IMAGE_VERSION_NOT_SUPPORTED ((NTSTATUS)0xC000C002L)
+
 /*++
 
  End of CimFS specific messages.
@@ -25612,6 +25621,51 @@ Notes:
 // The QUIC connection was canceled by the user.
 //
 #define STATUS_QUIC_USER_CANCELED        ((NTSTATUS)0xC0240002L)
+
+//
+// MessageId: STATUS_QUIC_INTERNAL_ERROR
+//
+// MessageText:
+//
+// The QUIC connection encountered an internal error.
+//
+#define STATUS_QUIC_INTERNAL_ERROR       ((NTSTATUS)0xC0240003L)
+
+//
+// MessageId: STATUS_QUIC_PROTOCOL_VIOLATION
+//
+// MessageText:
+//
+// The QUIC connection encountered a protocol violation.
+//
+#define STATUS_QUIC_PROTOCOL_VIOLATION   ((NTSTATUS)0xC0240004L)
+
+//
+// MessageId: STATUS_QUIC_CONNECTION_IDLE
+//
+// MessageText:
+//
+// The QUIC connection was idle.
+//
+#define STATUS_QUIC_CONNECTION_IDLE      ((NTSTATUS)0xC0240005L)
+
+//
+// MessageId: STATUS_QUIC_CONNECTION_TIMEOUT
+//
+// MessageText:
+//
+// The QUIC connection timed out while trying to contact the peer.
+//
+#define STATUS_QUIC_CONNECTION_TIMEOUT   ((NTSTATUS)0xC0240006L)
+
+//
+// MessageId: STATUS_QUIC_ALPN_NEG_FAILURE
+//
+// MessageText:
+//
+// The QUIC connection failed to negotiate a compatible ALPN.
+//
+#define STATUS_QUIC_ALPN_NEG_FAILURE     ((NTSTATUS)0xC0240007L)
 
 //
 // Map a WIN32 error value into an NTSTATUS

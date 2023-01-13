@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -67,12 +67,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Popups::IUICommand> = L"Windows.UI.Popups.IUICommand";
     template <> inline constexpr auto& name_v<Windows::UI::Popups::IUICommandFactory> = L"Windows.UI.Popups.IUICommandFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Popups::UICommandInvokedHandler> = L"Windows.UI.Popups.UICommandInvokedHandler";
-    template <> inline constexpr guid guid_v<Windows::UI::Popups::IMessageDialog>{ 0x33F59B01,0x5325,0x43AB,{ 0x9A,0xB3,0xBD,0xAE,0x44,0x0E,0x41,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Popups::IMessageDialogFactory>{ 0x2D161777,0xA66F,0x4EA5,{ 0xBB,0x87,0x79,0x3F,0xFA,0x49,0x41,0xF2 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Popups::IPopupMenu>{ 0x4E9BC6DC,0x880D,0x47FC,{ 0xA0,0xA1,0x72,0xB6,0x39,0xE6,0x25,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Popups::IUICommand>{ 0x4FF93A75,0x4145,0x47FF,{ 0xAC,0x7F,0xDF,0xF1,0xC1,0xFA,0x5B,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::UI::Popups::IUICommandFactory>{ 0xA21A8189,0x26B0,0x4676,{ 0xAE,0x94,0x54,0x04,0x1B,0xC1,0x25,0xE8 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Popups::UICommandInvokedHandler>{ 0xDAF77A4F,0xC27A,0x4298,{ 0x9A,0xC6,0x29,0x22,0xC4,0x5E,0x7D,0xA6 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Popups::IMessageDialog>{ 0x33F59B01,0x5325,0x43AB,{ 0x9A,0xB3,0xBD,0xAE,0x44,0x0E,0x41,0x21 } }; // 33F59B01-5325-43AB-9AB3-BDAE440E4121
+    template <> inline constexpr guid guid_v<Windows::UI::Popups::IMessageDialogFactory>{ 0x2D161777,0xA66F,0x4EA5,{ 0xBB,0x87,0x79,0x3F,0xFA,0x49,0x41,0xF2 } }; // 2D161777-A66F-4EA5-BB87-793FFA4941F2
+    template <> inline constexpr guid guid_v<Windows::UI::Popups::IPopupMenu>{ 0x4E9BC6DC,0x880D,0x47FC,{ 0xA0,0xA1,0x72,0xB6,0x39,0xE6,0x25,0x59 } }; // 4E9BC6DC-880D-47FC-A0A1-72B639E62559
+    template <> inline constexpr guid guid_v<Windows::UI::Popups::IUICommand>{ 0x4FF93A75,0x4145,0x47FF,{ 0xAC,0x7F,0xDF,0xF1,0xC1,0xFA,0x5B,0x0F } }; // 4FF93A75-4145-47FF-AC7F-DFF1C1FA5B0F
+    template <> inline constexpr guid guid_v<Windows::UI::Popups::IUICommandFactory>{ 0xA21A8189,0x26B0,0x4676,{ 0xAE,0x94,0x54,0x04,0x1B,0xC1,0x25,0xE8 } }; // A21A8189-26B0-4676-AE94-54041BC125E8
+    template <> inline constexpr guid guid_v<Windows::UI::Popups::UICommandInvokedHandler>{ 0xDAF77A4F,0xC27A,0x4298,{ 0x9A,0xC6,0x29,0x22,0xC4,0x5E,0x7D,0xA6 } }; // DAF77A4F-C27A-4298-9AC6-2922C45E7DA6
     template <> struct default_interface<Windows::UI::Popups::MessageDialog>{ using type = Windows::UI::Popups::IMessageDialog; };
     template <> struct default_interface<Windows::UI::Popups::PopupMenu>{ using type = Windows::UI::Popups::IPopupMenu; };
     template <> struct default_interface<Windows::UI::Popups::UICommand>{ using type = Windows::UI::Popups::IUICommand; };

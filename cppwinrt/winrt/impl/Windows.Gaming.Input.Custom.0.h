@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -118,18 +118,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Gaming::Input::Custom::IHidGameControllerProvider> = L"Windows.Gaming.Input.Custom.IHidGameControllerProvider";
     template <> inline constexpr auto& name_v<Windows::Gaming::Input::Custom::IXusbGameControllerInputSink> = L"Windows.Gaming.Input.Custom.IXusbGameControllerInputSink";
     template <> inline constexpr auto& name_v<Windows::Gaming::Input::Custom::IXusbGameControllerProvider> = L"Windows.Gaming.Input.Custom.IXusbGameControllerProvider";
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::ICustomGameControllerFactory>{ 0x69A0AE5E,0x758E,0x4CBE,{ 0xAC,0xE6,0x62,0x15,0x5F,0xE9,0x12,0x6F } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGameControllerFactoryManagerStatics>{ 0x36CB66E3,0xD0A1,0x4986,{ 0xA2,0x4C,0x40,0xB1,0x37,0xDE,0xBA,0x9E } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGameControllerFactoryManagerStatics2>{ 0xEACE5644,0x19DF,0x4115,{ 0xB3,0x2A,0x27,0x93,0xE2,0xAE,0xA3,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGameControllerInputSink>{ 0x1FF6F922,0xC640,0x4C78,{ 0xA8,0x20,0x9A,0x71,0x5C,0x55,0x8B,0xCB } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGameControllerProvider>{ 0xE6D73982,0x2996,0x4559,{ 0xB1,0x6C,0x3E,0x57,0xD4,0x6E,0x58,0xD6 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGipFirmwareUpdateResult>{ 0x6B794D32,0x8553,0x4292,{ 0x8E,0x03,0xE1,0x66,0x51,0xA2,0xF8,0xBC } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGipGameControllerInputSink>{ 0xA2108ABF,0x09F1,0x43BC,{ 0xA1,0x40,0x80,0xF8,0x99,0xEC,0x36,0xFB } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGipGameControllerProvider>{ 0xDBCF1E19,0x1AF5,0x45A8,{ 0xBF,0x02,0xA0,0xEE,0x50,0xC8,0x23,0xFC } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IHidGameControllerInputSink>{ 0xF754C322,0x182D,0x40E4,{ 0xA1,0x26,0xFC,0xEE,0x4F,0xFA,0x1E,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IHidGameControllerProvider>{ 0x95CE3AF4,0xABF0,0x4B68,{ 0xA0,0x81,0x3B,0x7D,0xE7,0x3F,0xF0,0xE7 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IXusbGameControllerInputSink>{ 0xB2AC1D95,0x6ECB,0x42B3,{ 0x8A,0xAB,0x02,0x54,0x01,0xCA,0x47,0x12 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IXusbGameControllerProvider>{ 0x6E2971EB,0x0EFB,0x48B4,{ 0x80,0x8B,0x83,0x76,0x43,0xB2,0xF2,0x16 } };
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::ICustomGameControllerFactory>{ 0x69A0AE5E,0x758E,0x4CBE,{ 0xAC,0xE6,0x62,0x15,0x5F,0xE9,0x12,0x6F } }; // 69A0AE5E-758E-4CBE-ACE6-62155FE9126F
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGameControllerFactoryManagerStatics>{ 0x36CB66E3,0xD0A1,0x4986,{ 0xA2,0x4C,0x40,0xB1,0x37,0xDE,0xBA,0x9E } }; // 36CB66E3-D0A1-4986-A24C-40B137DEBA9E
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGameControllerFactoryManagerStatics2>{ 0xEACE5644,0x19DF,0x4115,{ 0xB3,0x2A,0x27,0x93,0xE2,0xAE,0xA3,0xBB } }; // EACE5644-19DF-4115-B32A-2793E2AEA3BB
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGameControllerInputSink>{ 0x1FF6F922,0xC640,0x4C78,{ 0xA8,0x20,0x9A,0x71,0x5C,0x55,0x8B,0xCB } }; // 1FF6F922-C640-4C78-A820-9A715C558BCB
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGameControllerProvider>{ 0xE6D73982,0x2996,0x4559,{ 0xB1,0x6C,0x3E,0x57,0xD4,0x6E,0x58,0xD6 } }; // E6D73982-2996-4559-B16C-3E57D46E58D6
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGipFirmwareUpdateResult>{ 0x6B794D32,0x8553,0x4292,{ 0x8E,0x03,0xE1,0x66,0x51,0xA2,0xF8,0xBC } }; // 6B794D32-8553-4292-8E03-E16651A2F8BC
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGipGameControllerInputSink>{ 0xA2108ABF,0x09F1,0x43BC,{ 0xA1,0x40,0x80,0xF8,0x99,0xEC,0x36,0xFB } }; // A2108ABF-09F1-43BC-A140-80F899EC36FB
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IGipGameControllerProvider>{ 0xDBCF1E19,0x1AF5,0x45A8,{ 0xBF,0x02,0xA0,0xEE,0x50,0xC8,0x23,0xFC } }; // DBCF1E19-1AF5-45A8-BF02-A0EE50C823FC
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IHidGameControllerInputSink>{ 0xF754C322,0x182D,0x40E4,{ 0xA1,0x26,0xFC,0xEE,0x4F,0xFA,0x1E,0x31 } }; // F754C322-182D-40E4-A126-FCEE4FFA1E31
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IHidGameControllerProvider>{ 0x95CE3AF4,0xABF0,0x4B68,{ 0xA0,0x81,0x3B,0x7D,0xE7,0x3F,0xF0,0xE7 } }; // 95CE3AF4-ABF0-4B68-A081-3B7DE73FF0E7
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IXusbGameControllerInputSink>{ 0xB2AC1D95,0x6ECB,0x42B3,{ 0x8A,0xAB,0x02,0x54,0x01,0xCA,0x47,0x12 } }; // B2AC1D95-6ECB-42B3-8AAB-025401CA4712
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::Custom::IXusbGameControllerProvider>{ 0x6E2971EB,0x0EFB,0x48B4,{ 0x80,0x8B,0x83,0x76,0x43,0xB2,0xF2,0x16 } }; // 6E2971EB-0EFB-48B4-808B-837643B2F216
     template <> struct default_interface<Windows::Gaming::Input::Custom::GipFirmwareUpdateResult>{ using type = Windows::Gaming::Input::Custom::IGipFirmwareUpdateResult; };
     template <> struct default_interface<Windows::Gaming::Input::Custom::GipGameControllerProvider>{ using type = Windows::Gaming::Input::Custom::IGipGameControllerProvider; };
     template <> struct default_interface<Windows::Gaming::Input::Custom::HidGameControllerProvider>{ using type = Windows::Gaming::Input::Custom::IHidGameControllerProvider; };

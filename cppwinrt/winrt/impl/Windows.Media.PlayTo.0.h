@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -148,24 +148,24 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IPlaybackRateChangeRequestedEventArgs> = L"Windows.Media.PlayTo.IPlaybackRateChangeRequestedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Media::PlayTo::ISourceChangeRequestedEventArgs> = L"Windows.Media.PlayTo.ISourceChangeRequestedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Media::PlayTo::IVolumeChangeRequestedEventArgs> = L"Windows.Media.PlayTo.IVolumeChangeRequestedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::ICurrentTimeChangeRequestedEventArgs>{ 0x99711324,0xEDC7,0x4BF5,{ 0x91,0xF6,0x3C,0x86,0x27,0xDB,0x59,0xE5 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IMuteChangeRequestedEventArgs>{ 0xE4B4F5F6,0xAF1F,0x4F1E,{ 0xB4,0x37,0x7D,0xA3,0x24,0x00,0xE1,0xD4 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnection>{ 0x112FBFC8,0xF235,0x4FDE,{ 0x8D,0x41,0x9B,0xF2,0x7C,0x9E,0x9A,0x40 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnectionErrorEventArgs>{ 0xBF5EADA6,0x88E6,0x445F,{ 0x9D,0x40,0xD9,0xB9,0xF8,0x93,0x98,0x96 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnectionStateChangedEventArgs>{ 0x68C4B50F,0x0C20,0x4980,{ 0x86,0x02,0x58,0xC6,0x22,0x38,0xD4,0x23 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnectionTransferredEventArgs>{ 0xFAE3193A,0x0683,0x47D9,{ 0x8D,0xF0,0x18,0xCB,0xB4,0x89,0x84,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToManager>{ 0xF56A206E,0x1B77,0x42EF,{ 0x8F,0x0D,0xB9,0x49,0xF8,0xD9,0xB2,0x60 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToManagerStatics>{ 0x64E6A887,0x3982,0x4F3B,{ 0xBA,0x20,0x61,0x55,0xE4,0x35,0x32,0x5B } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToReceiver>{ 0xAC15CF47,0xA162,0x4AA6,{ 0xAF,0x1B,0x3A,0xA3,0x5F,0x3B,0x90,0x69 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSource>{ 0x7F138A08,0xFBB7,0x4B09,{ 0x83,0x56,0xAA,0x5F,0x4E,0x33,0x5C,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceDeferral>{ 0x4100891D,0x278E,0x4F29,{ 0x85,0x9B,0xA9,0xE5,0x01,0x05,0x3E,0x7D } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceRequest>{ 0xF8584665,0x64F4,0x44A0,{ 0xAC,0x0D,0x46,0x8D,0x2B,0x8F,0xDA,0x83 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceRequestedEventArgs>{ 0xC5CDC330,0x29DF,0x4EC6,{ 0x9D,0xA9,0x9F,0xBD,0xFC,0xFC,0x1B,0x3E } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceSelectedEventArgs>{ 0x0C9D8511,0x5202,0x4DCB,{ 0x8C,0x67,0xAB,0xDA,0x12,0xBB,0x3C,0x12 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceWithPreferredSourceUri>{ 0xAAB253EB,0x3301,0x4DC4,{ 0xAF,0xBA,0xB2,0xF2,0xED,0x96,0x35,0xA0 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlaybackRateChangeRequestedEventArgs>{ 0x0F5661AE,0x2C88,0x4CCA,{ 0x85,0x40,0xD5,0x86,0x09,0x5D,0x13,0xA5 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::ISourceChangeRequestedEventArgs>{ 0xFB3F3A96,0x7AA6,0x4A8B,{ 0x86,0xE7,0x54,0xF6,0xC6,0xD3,0x4F,0x64 } };
-    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IVolumeChangeRequestedEventArgs>{ 0x6F026D5C,0xCF75,0x4C2B,{ 0x91,0x3E,0x6D,0x7C,0x6C,0x32,0x91,0x79 } };
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::ICurrentTimeChangeRequestedEventArgs>{ 0x99711324,0xEDC7,0x4BF5,{ 0x91,0xF6,0x3C,0x86,0x27,0xDB,0x59,0xE5 } }; // 99711324-EDC7-4BF5-91F6-3C8627DB59E5
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IMuteChangeRequestedEventArgs>{ 0xE4B4F5F6,0xAF1F,0x4F1E,{ 0xB4,0x37,0x7D,0xA3,0x24,0x00,0xE1,0xD4 } }; // E4B4F5F6-AF1F-4F1E-B437-7DA32400E1D4
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnection>{ 0x112FBFC8,0xF235,0x4FDE,{ 0x8D,0x41,0x9B,0xF2,0x7C,0x9E,0x9A,0x40 } }; // 112FBFC8-F235-4FDE-8D41-9BF27C9E9A40
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnectionErrorEventArgs>{ 0xBF5EADA6,0x88E6,0x445F,{ 0x9D,0x40,0xD9,0xB9,0xF8,0x93,0x98,0x96 } }; // BF5EADA6-88E6-445F-9D40-D9B9F8939896
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnectionStateChangedEventArgs>{ 0x68C4B50F,0x0C20,0x4980,{ 0x86,0x02,0x58,0xC6,0x22,0x38,0xD4,0x23 } }; // 68C4B50F-0C20-4980-8602-58C62238D423
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToConnectionTransferredEventArgs>{ 0xFAE3193A,0x0683,0x47D9,{ 0x8D,0xF0,0x18,0xCB,0xB4,0x89,0x84,0xD8 } }; // FAE3193A-0683-47D9-8DF0-18CBB48984D8
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToManager>{ 0xF56A206E,0x1B77,0x42EF,{ 0x8F,0x0D,0xB9,0x49,0xF8,0xD9,0xB2,0x60 } }; // F56A206E-1B77-42EF-8F0D-B949F8D9B260
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToManagerStatics>{ 0x64E6A887,0x3982,0x4F3B,{ 0xBA,0x20,0x61,0x55,0xE4,0x35,0x32,0x5B } }; // 64E6A887-3982-4F3B-BA20-6155E435325B
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToReceiver>{ 0xAC15CF47,0xA162,0x4AA6,{ 0xAF,0x1B,0x3A,0xA3,0x5F,0x3B,0x90,0x69 } }; // AC15CF47-A162-4AA6-AF1B-3AA35F3B9069
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSource>{ 0x7F138A08,0xFBB7,0x4B09,{ 0x83,0x56,0xAA,0x5F,0x4E,0x33,0x5C,0x31 } }; // 7F138A08-FBB7-4B09-8356-AA5F4E335C31
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceDeferral>{ 0x4100891D,0x278E,0x4F29,{ 0x85,0x9B,0xA9,0xE5,0x01,0x05,0x3E,0x7D } }; // 4100891D-278E-4F29-859B-A9E501053E7D
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceRequest>{ 0xF8584665,0x64F4,0x44A0,{ 0xAC,0x0D,0x46,0x8D,0x2B,0x8F,0xDA,0x83 } }; // F8584665-64F4-44A0-AC0D-468D2B8FDA83
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceRequestedEventArgs>{ 0xC5CDC330,0x29DF,0x4EC6,{ 0x9D,0xA9,0x9F,0xBD,0xFC,0xFC,0x1B,0x3E } }; // C5CDC330-29DF-4EC6-9DA9-9FBDFCFC1B3E
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceSelectedEventArgs>{ 0x0C9D8511,0x5202,0x4DCB,{ 0x8C,0x67,0xAB,0xDA,0x12,0xBB,0x3C,0x12 } }; // 0C9D8511-5202-4DCB-8C67-ABDA12BB3C12
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlayToSourceWithPreferredSourceUri>{ 0xAAB253EB,0x3301,0x4DC4,{ 0xAF,0xBA,0xB2,0xF2,0xED,0x96,0x35,0xA0 } }; // AAB253EB-3301-4DC4-AFBA-B2F2ED9635A0
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IPlaybackRateChangeRequestedEventArgs>{ 0x0F5661AE,0x2C88,0x4CCA,{ 0x85,0x40,0xD5,0x86,0x09,0x5D,0x13,0xA5 } }; // 0F5661AE-2C88-4CCA-8540-D586095D13A5
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::ISourceChangeRequestedEventArgs>{ 0xFB3F3A96,0x7AA6,0x4A8B,{ 0x86,0xE7,0x54,0xF6,0xC6,0xD3,0x4F,0x64 } }; // FB3F3A96-7AA6-4A8B-86E7-54F6C6D34F64
+    template <> inline constexpr guid guid_v<Windows::Media::PlayTo::IVolumeChangeRequestedEventArgs>{ 0x6F026D5C,0xCF75,0x4C2B,{ 0x91,0x3E,0x6D,0x7C,0x6C,0x32,0x91,0x79 } }; // 6F026D5C-CF75-4C2B-913E-6D7C6C329179
     template <> struct default_interface<Windows::Media::PlayTo::CurrentTimeChangeRequestedEventArgs>{ using type = Windows::Media::PlayTo::ICurrentTimeChangeRequestedEventArgs; };
     template <> struct default_interface<Windows::Media::PlayTo::MuteChangeRequestedEventArgs>{ using type = Windows::Media::PlayTo::IMuteChangeRequestedEventArgs; };
     template <> struct default_interface<Windows::Media::PlayTo::PlayToConnection>{ using type = Windows::Media::PlayTo::IPlayToConnection; };

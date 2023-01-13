@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -69,10 +69,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics> = L"Windows.Graphics.Display.Core.IHdmiDisplayInformationStatics";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::Core::IHdmiDisplayMode> = L"Windows.Graphics.Display.Core.IHdmiDisplayMode";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::Core::IHdmiDisplayMode2> = L"Windows.Graphics.Display.Core.IHdmiDisplayMode2";
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::Core::IHdmiDisplayInformation>{ 0x130B3C0A,0xF565,0x476E,{ 0xAB,0xD5,0xEA,0x05,0xAE,0xE7,0x4C,0x69 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics>{ 0x6CE6B260,0xF42A,0x4A15,{ 0x91,0x4C,0x7B,0x8E,0x2A,0x5A,0x65,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::Core::IHdmiDisplayMode>{ 0x0C06D5AD,0x1B90,0x4F51,{ 0x99,0x81,0xEF,0x5A,0x1C,0x0D,0xDF,0x66 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::Core::IHdmiDisplayMode2>{ 0x07CD4E9F,0x4B3C,0x42B8,{ 0x84,0xE7,0x89,0x53,0x68,0x71,0x8A,0xF2 } };
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::Core::IHdmiDisplayInformation>{ 0x130B3C0A,0xF565,0x476E,{ 0xAB,0xD5,0xEA,0x05,0xAE,0xE7,0x4C,0x69 } }; // 130B3C0A-F565-476E-ABD5-EA05AEE74C69
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::Core::IHdmiDisplayInformationStatics>{ 0x6CE6B260,0xF42A,0x4A15,{ 0x91,0x4C,0x7B,0x8E,0x2A,0x5A,0x65,0xDF } }; // 6CE6B260-F42A-4A15-914C-7B8E2A5A65DF
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::Core::IHdmiDisplayMode>{ 0x0C06D5AD,0x1B90,0x4F51,{ 0x99,0x81,0xEF,0x5A,0x1C,0x0D,0xDF,0x66 } }; // 0C06D5AD-1B90-4F51-9981-EF5A1C0DDF66
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::Core::IHdmiDisplayMode2>{ 0x07CD4E9F,0x4B3C,0x42B8,{ 0x84,0xE7,0x89,0x53,0x68,0x71,0x8A,0xF2 } }; // 07CD4E9F-4B3C-42B8-84E7-895368718AF2
     template <> struct default_interface<Windows::Graphics::Display::Core::HdmiDisplayInformation>{ using type = Windows::Graphics::Display::Core::IHdmiDisplayInformation; };
     template <> struct default_interface<Windows::Graphics::Display::Core::HdmiDisplayMode>{ using type = Windows::Graphics::Display::Core::IHdmiDisplayMode; };
     template <> struct abi<Windows::Graphics::Display::Core::IHdmiDisplayInformation>

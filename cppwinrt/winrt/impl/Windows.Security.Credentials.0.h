@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -158,22 +158,22 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Credentials::IWebAccountProvider3> = L"Windows.Security.Credentials.IWebAccountProvider3";
     template <> inline constexpr auto& name_v<Windows::Security::Credentials::IWebAccountProvider4> = L"Windows.Security.Credentials.IWebAccountProvider4";
     template <> inline constexpr auto& name_v<Windows::Security::Credentials::IWebAccountProviderFactory> = L"Windows.Security.Credentials.IWebAccountProviderFactory";
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::ICredentialFactory>{ 0x54EF13A1,0xBF26,0x47B5,{ 0x97,0xDD,0xDE,0x77,0x9B,0x7C,0xAD,0x58 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredential>{ 0x9585EF8D,0x457B,0x4847,{ 0xB1,0x1A,0xFA,0x96,0x0B,0xBD,0xB1,0x38 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredentialAttestationResult>{ 0x78AAB3A1,0xA3C1,0x4103,{ 0xB6,0xCC,0x47,0x2C,0x44,0x17,0x1C,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredentialManagerStatics>{ 0x6AAC468B,0x0EF1,0x4CE0,{ 0x82,0x90,0x41,0x06,0xDA,0x6A,0x63,0xB5 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredentialOperationResult>{ 0xF53786C1,0x5261,0x4CDD,{ 0x97,0x6D,0xCC,0x90,0x9A,0xC7,0x16,0x20 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredentialRetrievalResult>{ 0x58CD7703,0x8D87,0x4249,{ 0x9B,0x58,0xF6,0x59,0x8C,0xC9,0x64,0x4E } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IPasswordCredential>{ 0x6AB18989,0xC720,0x41A7,{ 0xA6,0xC1,0xFE,0xAD,0xB3,0x63,0x29,0xA0 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IPasswordVault>{ 0x61FD2C0B,0xC8D4,0x48C1,{ 0xA5,0x4F,0xBC,0x5A,0x64,0x20,0x5A,0xF2 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccount>{ 0x69473EB2,0x8031,0x49BE,{ 0x80,0xBB,0x96,0xCB,0x46,0xD9,0x9A,0xBA } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccount2>{ 0x7B56D6F8,0x990B,0x4EB5,{ 0x94,0xA7,0x56,0x21,0xF3,0xA8,0xB8,0x24 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountFactory>{ 0xAC9AFB39,0x1DE9,0x4E92,{ 0xB7,0x8F,0x05,0x81,0xA8,0x7F,0x6E,0x5C } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProvider>{ 0x29DCC8C3,0x7AB9,0x4A7C,{ 0xA3,0x36,0xB9,0x42,0xF9,0xDB,0xF7,0xC7 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProvider2>{ 0x4A01EB05,0x4E42,0x41D4,{ 0xB5,0x18,0xE0,0x08,0xA5,0x16,0x36,0x14 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProvider3>{ 0xDA1C518B,0x970D,0x4D49,{ 0x82,0x5C,0xF2,0x70,0x6F,0x8C,0xA7,0xFE } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProvider4>{ 0x718FD8DB,0xE796,0x4210,{ 0xB7,0x4E,0x84,0xD2,0x98,0x94,0xB0,0x80 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProviderFactory>{ 0x1D767DF1,0xE1E1,0x4B9A,{ 0xA7,0x74,0x5C,0x7C,0x7E,0x3B,0xF3,0x71 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::ICredentialFactory>{ 0x54EF13A1,0xBF26,0x47B5,{ 0x97,0xDD,0xDE,0x77,0x9B,0x7C,0xAD,0x58 } }; // 54EF13A1-BF26-47B5-97DD-DE779B7CAD58
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredential>{ 0x9585EF8D,0x457B,0x4847,{ 0xB1,0x1A,0xFA,0x96,0x0B,0xBD,0xB1,0x38 } }; // 9585EF8D-457B-4847-B11A-FA960BBDB138
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredentialAttestationResult>{ 0x78AAB3A1,0xA3C1,0x4103,{ 0xB6,0xCC,0x47,0x2C,0x44,0x17,0x1C,0xBB } }; // 78AAB3A1-A3C1-4103-B6CC-472C44171CBB
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredentialManagerStatics>{ 0x6AAC468B,0x0EF1,0x4CE0,{ 0x82,0x90,0x41,0x06,0xDA,0x6A,0x63,0xB5 } }; // 6AAC468B-0EF1-4CE0-8290-4106DA6A63B5
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredentialOperationResult>{ 0xF53786C1,0x5261,0x4CDD,{ 0x97,0x6D,0xCC,0x90,0x9A,0xC7,0x16,0x20 } }; // F53786C1-5261-4CDD-976D-CC909AC71620
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IKeyCredentialRetrievalResult>{ 0x58CD7703,0x8D87,0x4249,{ 0x9B,0x58,0xF6,0x59,0x8C,0xC9,0x64,0x4E } }; // 58CD7703-8D87-4249-9B58-F6598CC9644E
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IPasswordCredential>{ 0x6AB18989,0xC720,0x41A7,{ 0xA6,0xC1,0xFE,0xAD,0xB3,0x63,0x29,0xA0 } }; // 6AB18989-C720-41A7-A6C1-FEADB36329A0
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IPasswordVault>{ 0x61FD2C0B,0xC8D4,0x48C1,{ 0xA5,0x4F,0xBC,0x5A,0x64,0x20,0x5A,0xF2 } }; // 61FD2C0B-C8D4-48C1-A54F-BC5A64205AF2
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccount>{ 0x69473EB2,0x8031,0x49BE,{ 0x80,0xBB,0x96,0xCB,0x46,0xD9,0x9A,0xBA } }; // 69473EB2-8031-49BE-80BB-96CB46D99ABA
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccount2>{ 0x7B56D6F8,0x990B,0x4EB5,{ 0x94,0xA7,0x56,0x21,0xF3,0xA8,0xB8,0x24 } }; // 7B56D6F8-990B-4EB5-94A7-5621F3A8B824
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountFactory>{ 0xAC9AFB39,0x1DE9,0x4E92,{ 0xB7,0x8F,0x05,0x81,0xA8,0x7F,0x6E,0x5C } }; // AC9AFB39-1DE9-4E92-B78F-0581A87F6E5C
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProvider>{ 0x29DCC8C3,0x7AB9,0x4A7C,{ 0xA3,0x36,0xB9,0x42,0xF9,0xDB,0xF7,0xC7 } }; // 29DCC8C3-7AB9-4A7C-A336-B942F9DBF7C7
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProvider2>{ 0x4A01EB05,0x4E42,0x41D4,{ 0xB5,0x18,0xE0,0x08,0xA5,0x16,0x36,0x14 } }; // 4A01EB05-4E42-41D4-B518-E008A5163614
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProvider3>{ 0xDA1C518B,0x970D,0x4D49,{ 0x82,0x5C,0xF2,0x70,0x6F,0x8C,0xA7,0xFE } }; // DA1C518B-970D-4D49-825C-F2706F8CA7FE
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProvider4>{ 0x718FD8DB,0xE796,0x4210,{ 0xB7,0x4E,0x84,0xD2,0x98,0x94,0xB0,0x80 } }; // 718FD8DB-E796-4210-B74E-84D29894B080
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::IWebAccountProviderFactory>{ 0x1D767DF1,0xE1E1,0x4B9A,{ 0xA7,0x74,0x5C,0x7C,0x7E,0x3B,0xF3,0x71 } }; // 1D767DF1-E1E1-4B9A-A774-5C7C7E3BF371
     template <> struct default_interface<Windows::Security::Credentials::KeyCredential>{ using type = Windows::Security::Credentials::IKeyCredential; };
     template <> struct default_interface<Windows::Security::Credentials::KeyCredentialAttestationResult>{ using type = Windows::Security::Credentials::IKeyCredentialAttestationResult; };
     template <> struct default_interface<Windows::Security::Credentials::KeyCredentialOperationResult>{ using type = Windows::Security::Credentials::IKeyCredentialOperationResult; };

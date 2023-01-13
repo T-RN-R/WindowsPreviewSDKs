@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -151,24 +151,24 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::UserProfile::IUserInformationStatics> = L"Windows.System.UserProfile.IUserInformationStatics";
     template <> inline constexpr auto& name_v<Windows::System::UserProfile::IUserProfilePersonalizationSettings> = L"Windows.System.UserProfile.IUserProfilePersonalizationSettings";
     template <> inline constexpr auto& name_v<Windows::System::UserProfile::IUserProfilePersonalizationSettingsStatics> = L"Windows.System.UserProfile.IUserProfilePersonalizationSettingsStatics";
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAdvertisingManagerForUser>{ 0x928BF3D0,0xCF7C,0x4AB0,{ 0xA7,0xDC,0x6D,0xC5,0xBC,0xD4,0x42,0x52 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAdvertisingManagerStatics>{ 0xADD3468C,0xA273,0x48CB,{ 0xB3,0x46,0x35,0x44,0x52,0x2D,0x55,0x81 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAdvertisingManagerStatics2>{ 0xDD0947AF,0x1A6D,0x46B0,{ 0x95,0xBC,0xF3,0xF9,0xD6,0xBE,0xB9,0xFB } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAssignedAccessSettings>{ 0x1BC57F1C,0xE971,0x5757,{ 0xB8,0xE0,0x51,0x2F,0x8B,0x8C,0x46,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAssignedAccessSettingsStatics>{ 0x34A81D0D,0x8A29,0x5EF3,{ 0xA7,0xBE,0x61,0x8E,0x6A,0xC3,0xBD,0x01 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IDiagnosticsSettings>{ 0xE5E9ECCD,0x2711,0x44E0,{ 0x97,0x3C,0x49,0x1D,0x78,0x04,0x8D,0x24 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IDiagnosticsSettingsStatics>{ 0x72D2E80F,0x5390,0x4793,{ 0x99,0x0B,0x3C,0xCC,0x7D,0x6A,0xC9,0xC8 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IFirstSignInSettings>{ 0x3E945153,0x3A5E,0x452E,{ 0xA6,0x01,0xF5,0xBA,0xAD,0x2A,0x48,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IFirstSignInSettingsStatics>{ 0x1CE18F0F,0x1C41,0x4EA0,{ 0xB7,0xA2,0x6F,0x0C,0x1C,0x7E,0x84,0x38 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IGlobalizationPreferencesForUser>{ 0x150F0795,0x4F6E,0x40BA,{ 0xA0,0x10,0xE2,0x7D,0x81,0xBD,0xA7,0xF5 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IGlobalizationPreferencesStatics>{ 0x01BF4326,0xED37,0x4E96,{ 0xB0,0xE9,0xC1,0x34,0x0D,0x1E,0xA1,0x58 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IGlobalizationPreferencesStatics2>{ 0xFCCE85F1,0x4300,0x4CD0,{ 0x9C,0xAC,0x1A,0x8E,0x7B,0x7E,0x18,0xF4 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IGlobalizationPreferencesStatics3>{ 0x1E059733,0x35F5,0x40D8,{ 0xB9,0xE8,0xAE,0xF3,0xEF,0x85,0x6F,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::ILockScreenImageFeedStatics>{ 0x2C0D73F6,0x03A9,0x41A6,{ 0x9B,0x01,0x49,0x52,0x51,0xFF,0x51,0xD5 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::ILockScreenStatics>{ 0x3EE9D3AD,0xB607,0x40AE,{ 0xB4,0x26,0x76,0x31,0xD9,0x82,0x12,0x69 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IUserInformationStatics>{ 0x77F3A910,0x48FA,0x489C,{ 0x93,0x4E,0x2A,0xE8,0x5B,0xA8,0xF7,0x72 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IUserProfilePersonalizationSettings>{ 0x8CEDDAB4,0x7998,0x46D5,{ 0x8D,0xD3,0x18,0x4F,0x1C,0x5F,0x9A,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IUserProfilePersonalizationSettingsStatics>{ 0x91ACB841,0x5037,0x454B,{ 0x98,0x83,0xBB,0x77,0x2D,0x08,0xDD,0x16 } };
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAdvertisingManagerForUser>{ 0x928BF3D0,0xCF7C,0x4AB0,{ 0xA7,0xDC,0x6D,0xC5,0xBC,0xD4,0x42,0x52 } }; // 928BF3D0-CF7C-4AB0-A7DC-6DC5BCD44252
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAdvertisingManagerStatics>{ 0xADD3468C,0xA273,0x48CB,{ 0xB3,0x46,0x35,0x44,0x52,0x2D,0x55,0x81 } }; // ADD3468C-A273-48CB-B346-3544522D5581
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAdvertisingManagerStatics2>{ 0xDD0947AF,0x1A6D,0x46B0,{ 0x95,0xBC,0xF3,0xF9,0xD6,0xBE,0xB9,0xFB } }; // DD0947AF-1A6D-46B0-95BC-F3F9D6BEB9FB
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAssignedAccessSettings>{ 0x1BC57F1C,0xE971,0x5757,{ 0xB8,0xE0,0x51,0x2F,0x8B,0x8C,0x46,0xD2 } }; // 1BC57F1C-E971-5757-B8E0-512F8B8C46D2
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IAssignedAccessSettingsStatics>{ 0x34A81D0D,0x8A29,0x5EF3,{ 0xA7,0xBE,0x61,0x8E,0x6A,0xC3,0xBD,0x01 } }; // 34A81D0D-8A29-5EF3-A7BE-618E6AC3BD01
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IDiagnosticsSettings>{ 0xE5E9ECCD,0x2711,0x44E0,{ 0x97,0x3C,0x49,0x1D,0x78,0x04,0x8D,0x24 } }; // E5E9ECCD-2711-44E0-973C-491D78048D24
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IDiagnosticsSettingsStatics>{ 0x72D2E80F,0x5390,0x4793,{ 0x99,0x0B,0x3C,0xCC,0x7D,0x6A,0xC9,0xC8 } }; // 72D2E80F-5390-4793-990B-3CCC7D6AC9C8
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IFirstSignInSettings>{ 0x3E945153,0x3A5E,0x452E,{ 0xA6,0x01,0xF5,0xBA,0xAD,0x2A,0x48,0x70 } }; // 3E945153-3A5E-452E-A601-F5BAAD2A4870
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IFirstSignInSettingsStatics>{ 0x1CE18F0F,0x1C41,0x4EA0,{ 0xB7,0xA2,0x6F,0x0C,0x1C,0x7E,0x84,0x38 } }; // 1CE18F0F-1C41-4EA0-B7A2-6F0C1C7E8438
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IGlobalizationPreferencesForUser>{ 0x150F0795,0x4F6E,0x40BA,{ 0xA0,0x10,0xE2,0x7D,0x81,0xBD,0xA7,0xF5 } }; // 150F0795-4F6E-40BA-A010-E27D81BDA7F5
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IGlobalizationPreferencesStatics>{ 0x01BF4326,0xED37,0x4E96,{ 0xB0,0xE9,0xC1,0x34,0x0D,0x1E,0xA1,0x58 } }; // 01BF4326-ED37-4E96-B0E9-C1340D1EA158
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IGlobalizationPreferencesStatics2>{ 0xFCCE85F1,0x4300,0x4CD0,{ 0x9C,0xAC,0x1A,0x8E,0x7B,0x7E,0x18,0xF4 } }; // FCCE85F1-4300-4CD0-9CAC-1A8E7B7E18F4
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IGlobalizationPreferencesStatics3>{ 0x1E059733,0x35F5,0x40D8,{ 0xB9,0xE8,0xAE,0xF3,0xEF,0x85,0x6F,0xCE } }; // 1E059733-35F5-40D8-B9E8-AEF3EF856FCE
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::ILockScreenImageFeedStatics>{ 0x2C0D73F6,0x03A9,0x41A6,{ 0x9B,0x01,0x49,0x52,0x51,0xFF,0x51,0xD5 } }; // 2C0D73F6-03A9-41A6-9B01-495251FF51D5
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::ILockScreenStatics>{ 0x3EE9D3AD,0xB607,0x40AE,{ 0xB4,0x26,0x76,0x31,0xD9,0x82,0x12,0x69 } }; // 3EE9D3AD-B607-40AE-B426-7631D9821269
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IUserInformationStatics>{ 0x77F3A910,0x48FA,0x489C,{ 0x93,0x4E,0x2A,0xE8,0x5B,0xA8,0xF7,0x72 } }; // 77F3A910-48FA-489C-934E-2AE85BA8F772
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IUserProfilePersonalizationSettings>{ 0x8CEDDAB4,0x7998,0x46D5,{ 0x8D,0xD3,0x18,0x4F,0x1C,0x5F,0x9A,0xB9 } }; // 8CEDDAB4-7998-46D5-8DD3-184F1C5F9AB9
+    template <> inline constexpr guid guid_v<Windows::System::UserProfile::IUserProfilePersonalizationSettingsStatics>{ 0x91ACB841,0x5037,0x454B,{ 0x98,0x83,0xBB,0x77,0x2D,0x08,0xDD,0x16 } }; // 91ACB841-5037-454B-9883-BB772D08DD16
     template <> struct default_interface<Windows::System::UserProfile::AdvertisingManagerForUser>{ using type = Windows::System::UserProfile::IAdvertisingManagerForUser; };
     template <> struct default_interface<Windows::System::UserProfile::AssignedAccessSettings>{ using type = Windows::System::UserProfile::IAssignedAccessSettings; };
     template <> struct default_interface<Windows::System::UserProfile::DiagnosticsSettings>{ using type = Windows::System::UserProfile::IDiagnosticsSettings; };

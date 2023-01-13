@@ -2743,10 +2743,19 @@ typedef struct _DNS_CONNECTION_POLICY_ENTRY
 {
     PCWSTR pwszHost;
     PCWSTR pwszAppId;
+
     DWORD cbAppSid;
+#ifdef MIDL_PASS
+    [size_is(cbAppSid)]
+#endif
     PBYTE pbAppSid;
+
     DWORD nConnections;
+#ifdef MIDL_PASS
+    [size_is(nConnections)]
+#endif
     PCWSTR *ppwszConnections;
+
     DWORD dwPolicyEntryFlags;
 } DNS_CONNECTION_POLICY_ENTRY, *PDNS_CONNECTION_POLICY_ENTRY;
 

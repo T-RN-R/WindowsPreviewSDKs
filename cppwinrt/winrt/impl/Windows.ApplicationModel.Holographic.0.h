@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -26,8 +26,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Holographic::HolographicKeyboard> = L"Windows.ApplicationModel.Holographic.HolographicKeyboard";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Holographic::IHolographicKeyboard> = L"Windows.ApplicationModel.Holographic.IHolographicKeyboard";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Holographic::IHolographicKeyboardStatics> = L"Windows.ApplicationModel.Holographic.IHolographicKeyboardStatics";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Holographic::IHolographicKeyboard>{ 0x07DD0893,0xAA21,0x5E6F,{ 0xA9,0x1B,0x11,0xB2,0xB3,0xFD,0x7B,0xE3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Holographic::IHolographicKeyboardStatics>{ 0xB676C624,0x63D7,0x58CF,{ 0xB0,0x6B,0x08,0xBA,0xA0,0x32,0xA2,0x3F } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Holographic::IHolographicKeyboard>{ 0x07DD0893,0xAA21,0x5E6F,{ 0xA9,0x1B,0x11,0xB2,0xB3,0xFD,0x7B,0xE3 } }; // 07DD0893-AA21-5E6F-A91B-11B2B3FD7BE3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Holographic::IHolographicKeyboardStatics>{ 0xB676C624,0x63D7,0x58CF,{ 0xB0,0x6B,0x08,0xBA,0xA0,0x32,0xA2,0x3F } }; // B676C624-63D7-58CF-B06B-08BAA032A23F
     template <> struct default_interface<Windows::ApplicationModel::Holographic::HolographicKeyboard>{ using type = Windows::ApplicationModel::Holographic::IHolographicKeyboard; };
     template <> struct abi<Windows::ApplicationModel::Holographic::IHolographicKeyboard>
     {

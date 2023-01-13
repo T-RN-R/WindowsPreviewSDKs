@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -74,10 +74,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult> = L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageQueryResult";
     template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult> = L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStartDownloadResult";
     template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics> = L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStatics";
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackage>{ 0xA797673B,0xA5B5,0x4144,{ 0xB5,0x25,0xE6,0x8C,0x88,0x62,0x66,0x4B } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult>{ 0x55585411,0x39E1,0x4E41,{ 0xA4,0xE1,0x5F,0x48,0x72,0xBE,0xE1,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult>{ 0xD965B918,0xD4D6,0x4AFE,{ 0x93,0x78,0x3E,0xC7,0x1E,0xF1,0x1C,0x3D } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics>{ 0x185E7922,0xA831,0x4AB0,{ 0x94,0x1F,0x69,0x98,0xFA,0x92,0x92,0x85 } };
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackage>{ 0xA797673B,0xA5B5,0x4144,{ 0xB5,0x25,0xE6,0x8C,0x88,0x62,0x66,0x4B } }; // A797673B-A5B5-4144-B525-E68C8862664B
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult>{ 0x55585411,0x39E1,0x4E41,{ 0xA4,0xE1,0x5F,0x48,0x72,0xBE,0xE1,0x99 } }; // 55585411-39E1-4E41-A4E1-5F4872BEE199
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult>{ 0xD965B918,0xD4D6,0x4AFE,{ 0x93,0x78,0x3E,0xC7,0x1E,0xF1,0x1C,0x3D } }; // D965B918-D4D6-4AFE-9378-3EC71EF11C3D
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics>{ 0x185E7922,0xA831,0x4AB0,{ 0x94,0x1F,0x69,0x98,0xFA,0x92,0x92,0x85 } }; // 185E7922-A831-4AB0-941F-6998FA929285
     template <> struct default_interface<Windows::Services::Maps::OfflineMaps::OfflineMapPackage>{ using type = Windows::Services::Maps::OfflineMaps::IOfflineMapPackage; };
     template <> struct default_interface<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>{ using type = Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult; };
     template <> struct default_interface<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadResult>{ using type = Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult; };

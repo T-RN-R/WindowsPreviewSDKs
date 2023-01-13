@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -1771,8 +1771,8 @@ namespace winrt::impl
         virtual int32_t __stdcall unused2() noexcept = 0;
         virtual int32_t __stdcall unused3() noexcept = 0;
         virtual int32_t __stdcall Insert(void*, void*, bool*) noexcept = 0;
+        virtual int32_t __stdcall Remove(void*) noexcept = 0;
         virtual int32_t __stdcall unused4() noexcept = 0;
-        virtual int32_t __stdcall unused5() noexcept = 0;
     };
 
     struct __declspec(novtable) IWeakReference : unknown_abi
@@ -2759,6 +2759,7 @@ WINRT_EXPORT namespace winrt
         hstring(hstring&&) noexcept = default;
         hstring& operator=(hstring&&) = default;
         hstring(std::nullptr_t) = delete;
+        hstring& operator=(std::nullptr_t) = delete;
 
         hstring(std::initializer_list<wchar_t> value) :
             hstring(value.begin(), static_cast<uint32_t>(value.size()))
@@ -3694,27 +3695,34 @@ WINRT_EXPORT namespace winrt
             std::uninitialized_fill_n(this->m_data, count, value);
         }
 
-        template <typename InIt> com_array(InIt first, InIt last)
+        template <typename InIt, typename = std::void_t<typename std::iterator_traits<InIt>::difference_type>>
+        com_array(InIt first, InIt last)
         {
             alloc(static_cast<size_type>(std::distance(first, last)));
             std::uninitialized_copy(first, last, this->begin());
         }
 
-        explicit com_array(std::vector<value_type> const& value) :
+        template <typename U>
+        explicit com_array(std::vector<U> const& value) :
             com_array(value.begin(), value.end())
         {}
 
-        template <size_t N>
-        explicit com_array(std::array<value_type, N> const& value) :
+        template <typename U, size_t N>
+        explicit com_array(std::array<U, N> const& value) :
             com_array(value.begin(), value.end())
         {}
 
-        template <size_type N>
-        explicit com_array(value_type const(&value)[N]) :
+        template <typename U, size_t N>
+        explicit com_array(U const(&value)[N]) :
             com_array(value, value + N)
         {}
 
         com_array(std::initializer_list<value_type> value) :
+            com_array(value.begin(), value.end())
+        {}
+
+        template <typename U, typename = std::enable_if_t<std::is_convertible_v<U, T>>>
+        com_array(std::initializer_list<U> value) :
             com_array(value.begin(), value.end())
         {}
 
@@ -3776,6 +3784,14 @@ WINRT_EXPORT namespace winrt
             }
         }
     };
+
+    template <typename C> com_array(uint32_t, C const&) -> com_array<std::decay_t<C>>;
+    template <typename InIt, typename = std::void_t<typename std::iterator_traits<InIt>::difference_type>>
+    com_array(InIt, InIt) -> com_array<std::decay_t<typename std::iterator_traits<InIt>::value_type>>;
+    template <typename C> com_array(std::vector<C> const&) -> com_array<std::decay_t<C>>;
+    template <size_t N, typename C> com_array(std::array<C, N> const&) -> com_array<std::decay_t<C>>;
+    template <size_t N, typename C> com_array(C const(&)[N]) -> com_array<std::decay_t<C>>;
+    template <typename C> com_array(std::initializer_list<C>) -> com_array<std::decay_t<C>>;
 
     namespace impl
     {
@@ -4860,6 +4876,17 @@ WINRT_EXPORT namespace winrt
     }
 }
 
+namespace winrt::impl
+{
+    inline hresult check_hresult_allow_bounds(hresult const result)
+    {
+        if (result != impl::error_out_of_bounds)
+        {
+            check_hresult(result);
+        }
+        return result;
+    }
+}
 namespace winrt::impl
 {
     inline int32_t make_marshaler(unknown_abi* outer, void** result) noexcept
@@ -7411,6 +7438,14 @@ namespace winrt::impl
     };
 #endif
 
+    inline com_ptr<IStaticLifetimeCollection> get_static_lifetime_map()
+    {
+        auto const lifetime_factory = get_activation_factory<impl::IStaticLifetime>(L"Windows.ApplicationModel.Core.CoreApplication");
+        Windows::Foundation::IUnknown collection;
+        check_hresult(lifetime_factory->GetCollection(put_abi(collection)));
+        return collection.as<IStaticLifetimeCollection>();
+    }
+
     template <typename D>
     auto make_factory() -> typename impl::implements_default_interface<D>::type
     {
@@ -7422,10 +7457,7 @@ namespace winrt::impl
         }
         else
         {
-            auto const lifetime_factory = get_activation_factory<impl::IStaticLifetime>(L"Windows.ApplicationModel.Core.CoreApplication");
-            Windows::Foundation::IUnknown collection;
-            check_hresult(lifetime_factory->GetCollection(put_abi(collection)));
-            auto const map = collection.as<IStaticLifetimeCollection>();
+            auto const map = get_static_lifetime_map();
             param::hstring const name{ name_of<typename D::instance_type>() };
             void* result{};
             map->Lookup(get_abi(name), &result);
@@ -7515,6 +7547,16 @@ WINRT_EXPORT namespace winrt
         {
             return { new impl::heap_implements<D>(std::forward<Args>(args)...), take_ownership_from_abi };
         }
+    }
+
+    template <typename... FactoryClasses>
+    inline void clear_factory_static_lifetime()
+    {
+        auto unregister = [map = impl::get_static_lifetime_map()](param::hstring name)
+        {
+            map->Remove(get_abi(name));
+        };
+        ((unregister(name_of<typename FactoryClasses::instance_type>())), ...);
     }
 
     template <typename D, typename... I>
@@ -8649,6 +8691,11 @@ namespace std::experimental
 
             suspend_never final_suspend() const noexcept
             {
+                if (winrt_suspend_handler)
+                {
+                    winrt_suspend_handler(this);
+                }
+
                 return{};
             }
 
@@ -8769,7 +8816,7 @@ decltype(winrt::impl::natvis::get_val) & WINRT_get_val = winrt::impl::natvis::ge
 
 #endif
 
-#define CPPWINRT_VERSION "2.0.200514.2"
+#define CPPWINRT_VERSION "2.0.200609.3"
 
 // WINRT_version is used by Microsoft to analyze C++/WinRT library adoption and inform future product decisions.
 extern "C"

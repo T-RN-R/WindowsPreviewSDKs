@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -110,18 +110,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Control::IPlaybackInfoChangedEventArgs> = L"Windows.Media.Control.IPlaybackInfoChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Media::Control::ISessionsChangedEventArgs> = L"Windows.Media.Control.ISessionsChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Media::Control::ITimelinePropertiesChangedEventArgs> = L"Windows.Media.Control.ITimelinePropertiesChangedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Media::Control::ICurrentSessionChangedEventArgs>{ 0x6969CB39,0x0BFA,0x5FE0,{ 0x8D,0x73,0x09,0xCC,0x5E,0x54,0x08,0xE1 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession>{ 0x7148C835,0x9B14,0x5AE2,{ 0xAB,0x85,0xDC,0x9B,0x1C,0x14,0xE1,0xA8 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager>{ 0xCACE8EAC,0xE86E,0x504A,{ 0xAB,0x31,0x5F,0xF8,0xFF,0x1B,0xCE,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManagerStatics>{ 0x2050C4EE,0x11A0,0x57DE,{ 0xAE,0xD7,0xC9,0x7C,0x70,0x33,0x82,0x45 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties>{ 0x68856CF6,0xADB4,0x54B2,{ 0xAC,0x16,0x05,0x83,0x79,0x07,0xAC,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls>{ 0x6501A3E6,0xBC7A,0x503A,{ 0xBB,0x1B,0x68,0xF1,0x58,0xF3,0xFB,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo>{ 0x94B4B6CF,0xE8BA,0x51AD,{ 0x87,0xA7,0xC1,0x0A,0xDE,0x10,0x61,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties>{ 0xEDE34136,0x6F25,0x588D,{ 0x8E,0xCF,0xEA,0x5B,0x67,0x35,0xAA,0xA5 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IMediaPropertiesChangedEventArgs>{ 0x7D3741CB,0xADF0,0x5CEF,{ 0x91,0xBA,0xCF,0xAB,0xCD,0xD7,0x76,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::IPlaybackInfoChangedEventArgs>{ 0x786756C2,0xBC0D,0x50A5,{ 0x88,0x07,0x05,0x42,0x91,0xFE,0xF1,0x39 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::ISessionsChangedEventArgs>{ 0xBBF0CD32,0x42C4,0x5A58,{ 0xB3,0x17,0xF3,0x4B,0xBF,0xBD,0x26,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Control::ITimelinePropertiesChangedEventArgs>{ 0x29033A2F,0xC923,0x5A77,{ 0xBC,0xAF,0x05,0x5F,0xF4,0x15,0xAD,0x32 } };
+    template <> inline constexpr guid guid_v<Windows::Media::Control::ICurrentSessionChangedEventArgs>{ 0x6969CB39,0x0BFA,0x5FE0,{ 0x8D,0x73,0x09,0xCC,0x5E,0x54,0x08,0xE1 } }; // 6969CB39-0BFA-5FE0-8D73-09CC5E5408E1
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSession>{ 0x7148C835,0x9B14,0x5AE2,{ 0xAB,0x85,0xDC,0x9B,0x1C,0x14,0xE1,0xA8 } }; // 7148C835-9B14-5AE2-AB85-DC9B1C14E1A8
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager>{ 0xCACE8EAC,0xE86E,0x504A,{ 0xAB,0x31,0x5F,0xF8,0xFF,0x1B,0xCE,0x49 } }; // CACE8EAC-E86E-504A-AB31-5FF8FF1BCE49
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManagerStatics>{ 0x2050C4EE,0x11A0,0x57DE,{ 0xAE,0xD7,0xC9,0x7C,0x70,0x33,0x82,0x45 } }; // 2050C4EE-11A0-57DE-AED7-C97C70338245
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties>{ 0x68856CF6,0xADB4,0x54B2,{ 0xAC,0x16,0x05,0x83,0x79,0x07,0xAC,0xB6 } }; // 68856CF6-ADB4-54B2-AC16-05837907ACB6
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls>{ 0x6501A3E6,0xBC7A,0x503A,{ 0xBB,0x1B,0x68,0xF1,0x58,0xF3,0xFB,0x03 } }; // 6501A3E6-BC7A-503A-BB1B-68F158F3FB03
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo>{ 0x94B4B6CF,0xE8BA,0x51AD,{ 0x87,0xA7,0xC1,0x0A,0xDE,0x10,0x61,0x27 } }; // 94B4B6CF-E8BA-51AD-87A7-C10ADE106127
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties>{ 0xEDE34136,0x6F25,0x588D,{ 0x8E,0xCF,0xEA,0x5B,0x67,0x35,0xAA,0xA5 } }; // EDE34136-6F25-588D-8ECF-EA5B6735AAA5
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IMediaPropertiesChangedEventArgs>{ 0x7D3741CB,0xADF0,0x5CEF,{ 0x91,0xBA,0xCF,0xAB,0xCD,0xD7,0x76,0x78 } }; // 7D3741CB-ADF0-5CEF-91BA-CFABCDD77678
+    template <> inline constexpr guid guid_v<Windows::Media::Control::IPlaybackInfoChangedEventArgs>{ 0x786756C2,0xBC0D,0x50A5,{ 0x88,0x07,0x05,0x42,0x91,0xFE,0xF1,0x39 } }; // 786756C2-BC0D-50A5-8807-054291FEF139
+    template <> inline constexpr guid guid_v<Windows::Media::Control::ISessionsChangedEventArgs>{ 0xBBF0CD32,0x42C4,0x5A58,{ 0xB3,0x17,0xF3,0x4B,0xBF,0xBD,0x26,0xE0 } }; // BBF0CD32-42C4-5A58-B317-F34BBFBD26E0
+    template <> inline constexpr guid guid_v<Windows::Media::Control::ITimelinePropertiesChangedEventArgs>{ 0x29033A2F,0xC923,0x5A77,{ 0xBC,0xAF,0x05,0x5F,0xF4,0x15,0xAD,0x32 } }; // 29033A2F-C923-5A77-BCAF-055FF415AD32
     template <> struct default_interface<Windows::Media::Control::CurrentSessionChangedEventArgs>{ using type = Windows::Media::Control::ICurrentSessionChangedEventArgs; };
     template <> struct default_interface<Windows::Media::Control::GlobalSystemMediaTransportControlsSession>{ using type = Windows::Media::Control::IGlobalSystemMediaTransportControlsSession; };
     template <> struct default_interface<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager>{ using type = Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager; };

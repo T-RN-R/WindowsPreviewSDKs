@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -47,10 +47,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Adc::IAdcController> = L"Windows.Devices.Adc.IAdcController";
     template <> inline constexpr auto& name_v<Windows::Devices::Adc::IAdcControllerStatics> = L"Windows.Devices.Adc.IAdcControllerStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::Adc::IAdcControllerStatics2> = L"Windows.Devices.Adc.IAdcControllerStatics2";
-    template <> inline constexpr guid guid_v<Windows::Devices::Adc::IAdcChannel>{ 0x040BF414,0x2588,0x4A56,{ 0xAB,0xEF,0x73,0xA2,0x60,0xAC,0xC6,0x0A } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Adc::IAdcController>{ 0x2A76E4B0,0xA896,0x4219,{ 0x86,0xB6,0xEA,0x8C,0xDC,0xE9,0x8F,0x56 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Adc::IAdcControllerStatics>{ 0xCCE98E0C,0x01F8,0x4891,{ 0xBC,0x3B,0xBE,0x53,0xEF,0x27,0x9C,0xA4 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Adc::IAdcControllerStatics2>{ 0xA2B93B1D,0x977B,0x4F5A,{ 0xA5,0xFE,0xA6,0xAB,0xAF,0xFE,0x64,0x84 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Adc::IAdcChannel>{ 0x040BF414,0x2588,0x4A56,{ 0xAB,0xEF,0x73,0xA2,0x60,0xAC,0xC6,0x0A } }; // 040BF414-2588-4A56-ABEF-73A260ACC60A
+    template <> inline constexpr guid guid_v<Windows::Devices::Adc::IAdcController>{ 0x2A76E4B0,0xA896,0x4219,{ 0x86,0xB6,0xEA,0x8C,0xDC,0xE9,0x8F,0x56 } }; // 2A76E4B0-A896-4219-86B6-EA8CDCE98F56
+    template <> inline constexpr guid guid_v<Windows::Devices::Adc::IAdcControllerStatics>{ 0xCCE98E0C,0x01F8,0x4891,{ 0xBC,0x3B,0xBE,0x53,0xEF,0x27,0x9C,0xA4 } }; // CCE98E0C-01F8-4891-BC3B-BE53EF279CA4
+    template <> inline constexpr guid guid_v<Windows::Devices::Adc::IAdcControllerStatics2>{ 0xA2B93B1D,0x977B,0x4F5A,{ 0xA5,0xFE,0xA6,0xAB,0xAF,0xFE,0x64,0x84 } }; // A2B93B1D-977B-4F5A-A5FE-A6ABAFFE6484
     template <> struct default_interface<Windows::Devices::Adc::AdcChannel>{ using type = Windows::Devices::Adc::IAdcChannel; };
     template <> struct default_interface<Windows::Devices::Adc::AdcController>{ using type = Windows::Devices::Adc::IAdcController; };
     template <> struct abi<Windows::Devices::Adc::IAdcChannel>

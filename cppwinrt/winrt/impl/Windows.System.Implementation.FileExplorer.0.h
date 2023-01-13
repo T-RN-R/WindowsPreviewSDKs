@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -39,11 +39,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource> = L"Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource";
     template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHandlerFactory> = L"Windows.System.Implementation.FileExplorer.ISysStorageProviderHandlerFactory";
     template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHttpRequestProvider> = L"Windows.System.Implementation.FileExplorer.ISysStorageProviderHttpRequestProvider";
-    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgs>{ 0xE132D1B9,0x7B9D,0x5820,{ 0x97,0x28,0x42,0x62,0xB5,0x28,0x91,0x42 } };
-    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgsFactory>{ 0xDE1A780E,0xE975,0x5F68,{ 0xBC,0xC6,0xFB,0x46,0x28,0x1C,0x6A,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource>{ 0x1F36C476,0x9546,0x536A,{ 0x83,0x81,0x2F,0x9A,0x2C,0x08,0xCE,0xDD } };
-    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHandlerFactory>{ 0xEE798431,0x8213,0x5E89,{ 0xA6,0x23,0x14,0xD8,0xC7,0x2B,0x8A,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHttpRequestProvider>{ 0xCB6FEFB6,0xE76A,0x5C25,{ 0xA3,0x3E,0x3E,0x78,0xA6,0xE0,0xE0,0xCE } };
+    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgs>{ 0xE132D1B9,0x7B9D,0x5820,{ 0x97,0x28,0x42,0x62,0xB5,0x28,0x91,0x42 } }; // E132D1B9-7B9D-5820-9728-4262B5289142
+    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgsFactory>{ 0xDE1A780E,0xE975,0x5F68,{ 0xBC,0xC6,0xFB,0x46,0x28,0x1C,0x6A,0x61 } }; // DE1A780E-E975-5F68-BCC6-FB46281C6A61
+    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource>{ 0x1F36C476,0x9546,0x536A,{ 0x83,0x81,0x2F,0x9A,0x2C,0x08,0xCE,0xDD } }; // 1F36C476-9546-536A-8381-2F9A2C08CEDD
+    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHandlerFactory>{ 0xEE798431,0x8213,0x5E89,{ 0xA6,0x23,0x14,0xD8,0xC7,0x2B,0x8A,0x61 } }; // EE798431-8213-5E89-A623-14D8C72B8A61
+    template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHttpRequestProvider>{ 0xCB6FEFB6,0xE76A,0x5C25,{ 0xA3,0x3E,0x3E,0x78,0xA6,0xE0,0xE0,0xCE } }; // CB6FEFB6-E76A-5C25-A33E-3E78A6E0E0CE
     template <> struct default_interface<Windows::System::Implementation::FileExplorer::SysStorageProviderEventReceivedEventArgs>{ using type = Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgs; };
     template <> struct abi<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgs>
     {

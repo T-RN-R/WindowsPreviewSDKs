@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -53,9 +53,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Storage::BulkAccess::IFileInformationFactory> = L"Windows.Storage.BulkAccess.IFileInformationFactory";
     template <> inline constexpr auto& name_v<Windows::Storage::BulkAccess::IFileInformationFactoryFactory> = L"Windows.Storage.BulkAccess.IFileInformationFactoryFactory";
     template <> inline constexpr auto& name_v<Windows::Storage::BulkAccess::IStorageItemInformation> = L"Windows.Storage.BulkAccess.IStorageItemInformation";
-    template <> inline constexpr guid guid_v<Windows::Storage::BulkAccess::IFileInformationFactory>{ 0x401D88BE,0x960F,0x4D6D,{ 0xA7,0xD0,0x1A,0x38,0x61,0xE7,0x6C,0x83 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::BulkAccess::IFileInformationFactoryFactory>{ 0x84EA0E7D,0xE4A2,0x4F00,{ 0x8A,0xFA,0xAF,0x5E,0x0F,0x82,0x6B,0xD5 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::BulkAccess::IStorageItemInformation>{ 0x87A5CB8B,0x8972,0x4F40,{ 0x8D,0xE0,0xD8,0x6F,0xB1,0x79,0xD8,0xFA } };
+    template <> inline constexpr guid guid_v<Windows::Storage::BulkAccess::IFileInformationFactory>{ 0x401D88BE,0x960F,0x4D6D,{ 0xA7,0xD0,0x1A,0x38,0x61,0xE7,0x6C,0x83 } }; // 401D88BE-960F-4D6D-A7D0-1A3861E76C83
+    template <> inline constexpr guid guid_v<Windows::Storage::BulkAccess::IFileInformationFactoryFactory>{ 0x84EA0E7D,0xE4A2,0x4F00,{ 0x8A,0xFA,0xAF,0x5E,0x0F,0x82,0x6B,0xD5 } }; // 84EA0E7D-E4A2-4F00-8AFA-AF5E0F826BD5
+    template <> inline constexpr guid guid_v<Windows::Storage::BulkAccess::IStorageItemInformation>{ 0x87A5CB8B,0x8972,0x4F40,{ 0x8D,0xE0,0xD8,0x6F,0xB1,0x79,0xD8,0xFA } }; // 87A5CB8B-8972-4F40-8DE0-D86FB179D8FA
     template <> struct default_interface<Windows::Storage::BulkAccess::FileInformation>{ using type = Windows::Storage::BulkAccess::IStorageItemInformation; };
     template <> struct default_interface<Windows::Storage::BulkAccess::FileInformationFactory>{ using type = Windows::Storage::BulkAccess::IFileInformationFactory; };
     template <> struct default_interface<Windows::Storage::BulkAccess::FolderInformation>{ using type = Windows::Storage::BulkAccess::IStorageItemInformation; };

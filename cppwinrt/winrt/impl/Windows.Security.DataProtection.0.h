@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -79,11 +79,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataProtectionManager> = L"Windows.Security.DataProtection.IUserDataProtectionManager";
     template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataProtectionManagerStatics> = L"Windows.Security.DataProtection.IUserDataProtectionManagerStatics";
     template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataStorageItemProtectionInfo> = L"Windows.Security.DataProtection.IUserDataStorageItemProtectionInfo";
-    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataAvailabilityStateChangedEventArgs>{ 0xA76582C9,0x06A2,0x4273,{ 0xA8,0x03,0x83,0x4C,0x9F,0x87,0xFB,0xEB } };
-    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataBufferUnprotectResult>{ 0x8EFD0E90,0xFA9A,0x46A4,{ 0xA3,0x77,0x01,0xCE,0xBF,0x1E,0x74,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataProtectionManager>{ 0x1F13237D,0xB42E,0x4A88,{ 0x94,0x80,0x0F,0x24,0x09,0x24,0xC8,0x76 } };
-    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataProtectionManagerStatics>{ 0x977780E8,0x6DCE,0x4FAE,{ 0xAF,0x85,0x78,0x2A,0xC2,0xCF,0x45,0x72 } };
-    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataStorageItemProtectionInfo>{ 0x5B6680F6,0xE87F,0x40A1,{ 0xB1,0x9D,0xA6,0x18,0x7A,0x0C,0x66,0x2F } };
+    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataAvailabilityStateChangedEventArgs>{ 0xA76582C9,0x06A2,0x4273,{ 0xA8,0x03,0x83,0x4C,0x9F,0x87,0xFB,0xEB } }; // A76582C9-06A2-4273-A803-834C9F87FBEB
+    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataBufferUnprotectResult>{ 0x8EFD0E90,0xFA9A,0x46A4,{ 0xA3,0x77,0x01,0xCE,0xBF,0x1E,0x74,0xD8 } }; // 8EFD0E90-FA9A-46A4-A377-01CEBF1E74D8
+    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataProtectionManager>{ 0x1F13237D,0xB42E,0x4A88,{ 0x94,0x80,0x0F,0x24,0x09,0x24,0xC8,0x76 } }; // 1F13237D-B42E-4A88-9480-0F240924C876
+    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataProtectionManagerStatics>{ 0x977780E8,0x6DCE,0x4FAE,{ 0xAF,0x85,0x78,0x2A,0xC2,0xCF,0x45,0x72 } }; // 977780E8-6DCE-4FAE-AF85-782AC2CF4572
+    template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataStorageItemProtectionInfo>{ 0x5B6680F6,0xE87F,0x40A1,{ 0xB1,0x9D,0xA6,0x18,0x7A,0x0C,0x66,0x2F } }; // 5B6680F6-E87F-40A1-B19D-A6187A0C662F
     template <> struct default_interface<Windows::Security::DataProtection::UserDataAvailabilityStateChangedEventArgs>{ using type = Windows::Security::DataProtection::IUserDataAvailabilityStateChangedEventArgs; };
     template <> struct default_interface<Windows::Security::DataProtection::UserDataBufferUnprotectResult>{ using type = Windows::Security::DataProtection::IUserDataBufferUnprotectResult; };
     template <> struct default_interface<Windows::Security::DataProtection::UserDataProtectionManager>{ using type = Windows::Security::DataProtection::IUserDataProtectionManager; };

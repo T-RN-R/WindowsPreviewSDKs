@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -101,15 +101,15 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequest> = L"Windows.Storage.Pickers.Provider.ITargetFileRequest";
     template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequestDeferral> = L"Windows.Storage.Pickers.Provider.ITargetFileRequestDeferral";
     template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequestedEventArgs> = L"Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileOpenPickerUI>{ 0xDDA45A10,0xF9D4,0x40C4,{ 0x8A,0xF5,0xC5,0xB6,0xB5,0xA6,0x1D,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileRemovedEventArgs>{ 0x13043DA7,0x7FCA,0x4C2B,{ 0x9E,0xCA,0x68,0x90,0xF9,0xF0,0x01,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileSavePickerUI>{ 0x9656C1E7,0x3E56,0x43CC,{ 0x8A,0x39,0x33,0xC7,0x3D,0x9D,0x54,0x2B } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IPickerClosingDeferral>{ 0x7AF7F71E,0x1A67,0x4A31,{ 0xAE,0x80,0xE9,0x07,0x70,0x8A,0x61,0x9B } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IPickerClosingEventArgs>{ 0x7E59F224,0xB332,0x4F12,{ 0x8B,0x9F,0xA8,0xC2,0xF0,0x6B,0x32,0xCD } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IPickerClosingOperation>{ 0x4CE9FB84,0xBEEE,0x4E39,{ 0xA7,0x73,0xFC,0x5F,0x0E,0xAE,0x32,0x8D } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::ITargetFileRequest>{ 0x42BD3355,0x7F88,0x478B,{ 0x8E,0x81,0x69,0x0B,0x20,0x34,0x06,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::ITargetFileRequestDeferral>{ 0x4AEE9D91,0xBF15,0x4DA9,{ 0x95,0xF6,0xF6,0xB7,0xD5,0x58,0x22,0x5B } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::ITargetFileRequestedEventArgs>{ 0xB163DBC1,0x1B51,0x4C89,{ 0xA5,0x91,0x0F,0xD4,0x0B,0x3C,0x57,0xC9 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileOpenPickerUI>{ 0xDDA45A10,0xF9D4,0x40C4,{ 0x8A,0xF5,0xC5,0xB6,0xB5,0xA6,0x1D,0x1D } }; // DDA45A10-F9D4-40C4-8AF5-C5B6B5A61D1D
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileRemovedEventArgs>{ 0x13043DA7,0x7FCA,0x4C2B,{ 0x9E,0xCA,0x68,0x90,0xF9,0xF0,0x01,0x85 } }; // 13043DA7-7FCA-4C2B-9ECA-6890F9F00185
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileSavePickerUI>{ 0x9656C1E7,0x3E56,0x43CC,{ 0x8A,0x39,0x33,0xC7,0x3D,0x9D,0x54,0x2B } }; // 9656C1E7-3E56-43CC-8A39-33C73D9D542B
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IPickerClosingDeferral>{ 0x7AF7F71E,0x1A67,0x4A31,{ 0xAE,0x80,0xE9,0x07,0x70,0x8A,0x61,0x9B } }; // 7AF7F71E-1A67-4A31-AE80-E907708A619B
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IPickerClosingEventArgs>{ 0x7E59F224,0xB332,0x4F12,{ 0x8B,0x9F,0xA8,0xC2,0xF0,0x6B,0x32,0xCD } }; // 7E59F224-B332-4F12-8B9F-A8C2F06B32CD
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IPickerClosingOperation>{ 0x4CE9FB84,0xBEEE,0x4E39,{ 0xA7,0x73,0xFC,0x5F,0x0E,0xAE,0x32,0x8D } }; // 4CE9FB84-BEEE-4E39-A773-FC5F0EAE328D
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::ITargetFileRequest>{ 0x42BD3355,0x7F88,0x478B,{ 0x8E,0x81,0x69,0x0B,0x20,0x34,0x06,0x78 } }; // 42BD3355-7F88-478B-8E81-690B20340678
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::ITargetFileRequestDeferral>{ 0x4AEE9D91,0xBF15,0x4DA9,{ 0x95,0xF6,0xF6,0xB7,0xD5,0x58,0x22,0x5B } }; // 4AEE9D91-BF15-4DA9-95F6-F6B7D558225B
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::ITargetFileRequestedEventArgs>{ 0xB163DBC1,0x1B51,0x4C89,{ 0xA5,0x91,0x0F,0xD4,0x0B,0x3C,0x57,0xC9 } }; // B163DBC1-1B51-4C89-A591-0FD40B3C57C9
     template <> struct default_interface<Windows::Storage::Pickers::Provider::FileOpenPickerUI>{ using type = Windows::Storage::Pickers::Provider::IFileOpenPickerUI; };
     template <> struct default_interface<Windows::Storage::Pickers::Provider::FileRemovedEventArgs>{ using type = Windows::Storage::Pickers::Provider::IFileRemovedEventArgs; };
     template <> struct default_interface<Windows::Storage::Pickers::Provider::FileSavePickerUI>{ using type = Windows::Storage::Pickers::Provider::IFileSavePickerUI; };

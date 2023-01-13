@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -25,10 +25,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderFactory> = L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides> = L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderOverrides";
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics> = L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderStatics";
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoader>{ 0x511A84AB,0x4A88,0x419F,{ 0x85,0x2E,0x54,0x08,0x3B,0x90,0xB0,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderFactory>{ 0x5BFD7E49,0x7886,0x44F3,{ 0x8E,0xD3,0x6F,0xEC,0x04,0x63,0xED,0x69 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>{ 0xF851E991,0xAF02,0x46E8,{ 0x9A,0xF8,0x42,0x7B,0x7E,0xBF,0xE9,0xF8 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics>{ 0x224FF617,0xE4DC,0x4C27,{ 0xAD,0x32,0xDB,0x93,0xD5,0xD0,0xE5,0xDA } };
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoader>{ 0x511A84AB,0x4A88,0x419F,{ 0x85,0x2E,0x54,0x08,0x3B,0x90,0xB0,0x78 } }; // 511A84AB-4A88-419F-852E-54083B90B078
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderFactory>{ 0x5BFD7E49,0x7886,0x44F3,{ 0x8E,0xD3,0x6F,0xEC,0x04,0x63,0xED,0x69 } }; // 5BFD7E49-7886-44F3-8ED3-6FEC0463ED69
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>{ 0xF851E991,0xAF02,0x46E8,{ 0x9A,0xF8,0x42,0x7B,0x7E,0xBF,0xE9,0xF8 } }; // F851E991-AF02-46E8-9AF8-427B7EBFE9F8
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics>{ 0x224FF617,0xE4DC,0x4C27,{ 0xAD,0x32,0xDB,0x93,0xD5,0xD0,0xE5,0xDA } }; // 224FF617-E4DC-4C27-AD32-DB93D5D0E5DA
     template <> struct default_interface<Windows::UI::Xaml::Resources::CustomXamlResourceLoader>{ using type = Windows::UI::Xaml::Resources::ICustomXamlResourceLoader; };
     template <> struct abi<Windows::UI::Xaml::Resources::ICustomXamlResourceLoader>
     {

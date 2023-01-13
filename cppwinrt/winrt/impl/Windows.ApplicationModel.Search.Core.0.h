@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -61,10 +61,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::Core::ISearchSuggestion> = L"Windows.ApplicationModel.Search.Core.ISearchSuggestion";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::Core::ISearchSuggestionManager> = L"Windows.ApplicationModel.Search.Core.ISearchSuggestionManager";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::Core::ISearchSuggestionsRequestedEventArgs> = L"Windows.ApplicationModel.Search.Core.ISearchSuggestionsRequestedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::Core::IRequestingFocusOnKeyboardInputEventArgs>{ 0xA1195F27,0xB1A7,0x41A2,{ 0x87,0x9D,0x6A,0x68,0x68,0x7E,0x59,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::Core::ISearchSuggestion>{ 0x5B5554B0,0x1527,0x437B,{ 0x95,0xC5,0x8D,0x18,0xD2,0xB8,0xAF,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::Core::ISearchSuggestionManager>{ 0x3F0C50A1,0xCB9D,0x497B,{ 0xB5,0x00,0x3C,0x04,0xAC,0x95,0x9A,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::Core::ISearchSuggestionsRequestedEventArgs>{ 0x6FD519E5,0x9E7E,0x4AB4,{ 0x8B,0xE3,0xC7,0x6B,0x1B,0xD4,0x34,0x4A } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::Core::IRequestingFocusOnKeyboardInputEventArgs>{ 0xA1195F27,0xB1A7,0x41A2,{ 0x87,0x9D,0x6A,0x68,0x68,0x7E,0x59,0x85 } }; // A1195F27-B1A7-41A2-879D-6A68687E5985
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::Core::ISearchSuggestion>{ 0x5B5554B0,0x1527,0x437B,{ 0x95,0xC5,0x8D,0x18,0xD2,0xB8,0xAF,0x55 } }; // 5B5554B0-1527-437B-95C5-8D18D2B8AF55
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::Core::ISearchSuggestionManager>{ 0x3F0C50A1,0xCB9D,0x497B,{ 0xB5,0x00,0x3C,0x04,0xAC,0x95,0x9A,0xD2 } }; // 3F0C50A1-CB9D-497B-B500-3C04AC959AD2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::Core::ISearchSuggestionsRequestedEventArgs>{ 0x6FD519E5,0x9E7E,0x4AB4,{ 0x8B,0xE3,0xC7,0x6B,0x1B,0xD4,0x34,0x4A } }; // 6FD519E5-9E7E-4AB4-8BE3-C76B1BD4344A
     template <> struct default_interface<Windows::ApplicationModel::Search::Core::RequestingFocusOnKeyboardInputEventArgs>{ using type = Windows::ApplicationModel::Search::Core::IRequestingFocusOnKeyboardInputEventArgs; };
     template <> struct default_interface<Windows::ApplicationModel::Search::Core::SearchSuggestion>{ using type = Windows::ApplicationModel::Search::Core::ISearchSuggestion; };
     template <> struct default_interface<Windows::ApplicationModel::Search::Core::SearchSuggestionManager>{ using type = Windows::ApplicationModel::Search::Core::ISearchSuggestionManager; };

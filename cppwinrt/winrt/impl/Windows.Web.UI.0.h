@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -160,23 +160,23 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs> = L"Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlUnviewableContentIdentifiedEventArgs> = L"Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlWebResourceRequestedEventArgs> = L"Windows.Web.UI.IWebViewControlWebResourceRequestedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControl>{ 0x3F921316,0xBC70,0x4BDA,{ 0x91,0x36,0xC9,0x43,0x70,0x89,0x9F,0xAB } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControl2>{ 0x4D3C06F9,0xC8DF,0x41CC,{ 0x8B,0xD5,0x2A,0x94,0x7B,0x20,0x45,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlContentLoadingEventArgs>{ 0x9A3FCCB2,0xB9BB,0x404B,{ 0xA2,0x2B,0x66,0xDC,0xCD,0x12,0x50,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlDOMContentLoadedEventArgs>{ 0xBE8BC008,0x9541,0x4545,{ 0x9F,0xF2,0x2D,0xF5,0x85,0xB2,0x9F,0x7D } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlDeferredPermissionRequest>{ 0x2CE349E0,0xD759,0x445C,{ 0x99,0x26,0x89,0x95,0x29,0x8F,0x15,0x2B } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlLongRunningScriptDetectedEventArgs>{ 0x2A6E5BBA,0x98B4,0x45BC,{ 0xBB,0xEB,0x0F,0x69,0xCE,0x49,0xC5,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlNavigationCompletedEventArgs>{ 0x20409918,0x4A15,0x4C46,{ 0xA5,0x5D,0xF7,0x9E,0xDB,0x0B,0xDE,0x8B } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlNavigationStartingEventArgs>{ 0x0C9057C5,0x0A08,0x41C7,{ 0x86,0x3B,0x71,0xE3,0xA9,0x54,0x91,0x37 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs>{ 0x3DF44BBB,0xA124,0x46D5,{ 0xA0,0x83,0xD0,0x2C,0xAC,0xDF,0xF5,0xAD } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs2>{ 0xB53C5CA6,0x2AAE,0x4BFC,{ 0x92,0xB9,0xC3,0x0E,0x92,0xB4,0x80,0x98 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlPermissionRequest>{ 0xE5BC836C,0xF22F,0x40E2,{ 0x95,0xB2,0x77,0x29,0xF8,0x40,0xEB,0x7F } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlPermissionRequestedEventArgs>{ 0x27204D51,0x2488,0x4CC5,{ 0x96,0x8E,0x0A,0x77,0x1E,0x59,0xC1,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlScriptNotifyEventArgs>{ 0x491DE57B,0x6F49,0x41BB,{ 0xB5,0x91,0x51,0xB8,0x5B,0x81,0x70,0x37 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlSettings>{ 0xC9967FBF,0x5E98,0x4CFD,{ 0x8C,0xCE,0x27,0xB0,0x91,0x1E,0x3D,0xE8 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>{ 0xE3B81944,0xE4FC,0x43DC,{ 0x94,0xCA,0xF9,0x80,0xF3,0x0B,0xC5,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlUnviewableContentIdentifiedEventArgs>{ 0x4A9680DB,0x88F2,0x4E20,{ 0xB6,0x93,0xB4,0xE2,0xDF,0x4A,0xA5,0x81 } };
-    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlWebResourceRequestedEventArgs>{ 0x44D6524D,0x55A4,0x4D8B,{ 0x89,0x1C,0x93,0x1D,0x8E,0x25,0xD4,0x2E } };
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControl>{ 0x3F921316,0xBC70,0x4BDA,{ 0x91,0x36,0xC9,0x43,0x70,0x89,0x9F,0xAB } }; // 3F921316-BC70-4BDA-9136-C94370899FAB
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControl2>{ 0x4D3C06F9,0xC8DF,0x41CC,{ 0x8B,0xD5,0x2A,0x94,0x7B,0x20,0x45,0x03 } }; // 4D3C06F9-C8DF-41CC-8BD5-2A947B204503
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlContentLoadingEventArgs>{ 0x9A3FCCB2,0xB9BB,0x404B,{ 0xA2,0x2B,0x66,0xDC,0xCD,0x12,0x50,0xC6 } }; // 9A3FCCB2-B9BB-404B-A22B-66DCCD1250C6
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlDOMContentLoadedEventArgs>{ 0xBE8BC008,0x9541,0x4545,{ 0x9F,0xF2,0x2D,0xF5,0x85,0xB2,0x9F,0x7D } }; // BE8BC008-9541-4545-9FF2-2DF585B29F7D
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlDeferredPermissionRequest>{ 0x2CE349E0,0xD759,0x445C,{ 0x99,0x26,0x89,0x95,0x29,0x8F,0x15,0x2B } }; // 2CE349E0-D759-445C-9926-8995298F152B
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlLongRunningScriptDetectedEventArgs>{ 0x2A6E5BBA,0x98B4,0x45BC,{ 0xBB,0xEB,0x0F,0x69,0xCE,0x49,0xC5,0x99 } }; // 2A6E5BBA-98B4-45BC-BBEB-0F69CE49C599
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlNavigationCompletedEventArgs>{ 0x20409918,0x4A15,0x4C46,{ 0xA5,0x5D,0xF7,0x9E,0xDB,0x0B,0xDE,0x8B } }; // 20409918-4A15-4C46-A55D-F79EDB0BDE8B
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlNavigationStartingEventArgs>{ 0x0C9057C5,0x0A08,0x41C7,{ 0x86,0x3B,0x71,0xE3,0xA9,0x54,0x91,0x37 } }; // 0C9057C5-0A08-41C7-863B-71E3A9549137
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs>{ 0x3DF44BBB,0xA124,0x46D5,{ 0xA0,0x83,0xD0,0x2C,0xAC,0xDF,0xF5,0xAD } }; // 3DF44BBB-A124-46D5-A083-D02CACDFF5AD
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs2>{ 0xB53C5CA6,0x2AAE,0x4BFC,{ 0x92,0xB9,0xC3,0x0E,0x92,0xB4,0x80,0x98 } }; // B53C5CA6-2AAE-4BFC-92B9-C30E92B48098
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlPermissionRequest>{ 0xE5BC836C,0xF22F,0x40E2,{ 0x95,0xB2,0x77,0x29,0xF8,0x40,0xEB,0x7F } }; // E5BC836C-F22F-40E2-95B2-7729F840EB7F
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlPermissionRequestedEventArgs>{ 0x27204D51,0x2488,0x4CC5,{ 0x96,0x8E,0x0A,0x77,0x1E,0x59,0xC1,0x47 } }; // 27204D51-2488-4CC5-968E-0A771E59C147
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlScriptNotifyEventArgs>{ 0x491DE57B,0x6F49,0x41BB,{ 0xB5,0x91,0x51,0xB8,0x5B,0x81,0x70,0x37 } }; // 491DE57B-6F49-41BB-B591-51B85B817037
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlSettings>{ 0xC9967FBF,0x5E98,0x4CFD,{ 0x8C,0xCE,0x27,0xB0,0x91,0x1E,0x3D,0xE8 } }; // C9967FBF-5E98-4CFD-8CCE-27B0911E3DE8
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>{ 0xE3B81944,0xE4FC,0x43DC,{ 0x94,0xCA,0xF9,0x80,0xF3,0x0B,0xC5,0x1D } }; // E3B81944-E4FC-43DC-94CA-F980F30BC51D
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlUnviewableContentIdentifiedEventArgs>{ 0x4A9680DB,0x88F2,0x4E20,{ 0xB6,0x93,0xB4,0xE2,0xDF,0x4A,0xA5,0x81 } }; // 4A9680DB-88F2-4E20-B693-B4E2DF4AA581
+    template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlWebResourceRequestedEventArgs>{ 0x44D6524D,0x55A4,0x4D8B,{ 0x89,0x1C,0x93,0x1D,0x8E,0x25,0xD4,0x2E } }; // 44D6524D-55A4-4D8B-891C-931D8E25D42E
     template <> struct default_interface<Windows::Web::UI::WebViewControlContentLoadingEventArgs>{ using type = Windows::Web::UI::IWebViewControlContentLoadingEventArgs; };
     template <> struct default_interface<Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs>{ using type = Windows::Web::UI::IWebViewControlDOMContentLoadedEventArgs; };
     template <> struct default_interface<Windows::Web::UI::WebViewControlDeferredPermissionRequest>{ using type = Windows::Web::UI::IWebViewControlDeferredPermissionRequest; };

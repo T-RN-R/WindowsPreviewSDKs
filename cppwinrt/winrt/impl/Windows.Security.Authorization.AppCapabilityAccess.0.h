@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -50,9 +50,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapability> = L"Windows.Security.Authorization.AppCapabilityAccess.IAppCapability";
     template <> inline constexpr auto& name_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapabilityAccessChangedEventArgs> = L"Windows.Security.Authorization.AppCapabilityAccess.IAppCapabilityAccessChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapabilityStatics> = L"Windows.Security.Authorization.AppCapabilityAccess.IAppCapabilityStatics";
-    template <> inline constexpr guid guid_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapability>{ 0x4C49D915,0x8A2A,0x4295,{ 0x94,0x37,0x2D,0xF7,0xC3,0x96,0xAF,0xF4 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapabilityAccessChangedEventArgs>{ 0x0A578D15,0xBDD7,0x457E,{ 0x8C,0xCA,0x6F,0x53,0xBD,0x2E,0x59,0x44 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapabilityStatics>{ 0x7C353E2A,0x46EE,0x44E5,{ 0xAF,0x3D,0x6A,0xD3,0xFC,0x49,0xBD,0x22 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapability>{ 0x4C49D915,0x8A2A,0x4295,{ 0x94,0x37,0x2D,0xF7,0xC3,0x96,0xAF,0xF4 } }; // 4C49D915-8A2A-4295-9437-2DF7C396AFF4
+    template <> inline constexpr guid guid_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapabilityAccessChangedEventArgs>{ 0x0A578D15,0xBDD7,0x457E,{ 0x8C,0xCA,0x6F,0x53,0xBD,0x2E,0x59,0x44 } }; // 0A578D15-BDD7-457E-8CCA-6F53BD2E5944
+    template <> inline constexpr guid guid_v<Windows::Security::Authorization::AppCapabilityAccess::IAppCapabilityStatics>{ 0x7C353E2A,0x46EE,0x44E5,{ 0xAF,0x3D,0x6A,0xD3,0xFC,0x49,0xBD,0x22 } }; // 7C353E2A-46EE-44E5-AF3D-6AD3FC49BD22
     template <> struct default_interface<Windows::Security::Authorization::AppCapabilityAccess::AppCapability>{ using type = Windows::Security::Authorization::AppCapabilityAccess::IAppCapability; };
     template <> struct default_interface<Windows::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessChangedEventArgs>{ using type = Windows::Security::Authorization::AppCapabilityAccess::IAppCapabilityAccessChangedEventArgs; };
     template <> struct abi<Windows::Security::Authorization::AppCapabilityAccess::IAppCapability>

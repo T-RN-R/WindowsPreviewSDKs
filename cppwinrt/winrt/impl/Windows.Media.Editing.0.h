@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -132,19 +132,19 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayFactory> = L"Windows.Media.Editing.IMediaOverlayFactory";
     template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayLayer> = L"Windows.Media.Editing.IMediaOverlayLayer";
     template <> inline constexpr auto& name_v<Windows::Media::Editing::IMediaOverlayLayerFactory> = L"Windows.Media.Editing.IMediaOverlayLayerFactory";
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IBackgroundAudioTrack>{ 0x4B91B3BD,0x9E21,0x4266,{ 0xA9,0xC2,0x67,0xDD,0x01,0x1A,0x23,0x57 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IBackgroundAudioTrackStatics>{ 0xD9B1C0D7,0xD018,0x42A8,{ 0xA5,0x59,0xCB,0x4D,0x9E,0x97,0xE6,0x64 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IEmbeddedAudioTrack>{ 0x55EE5A7A,0x2D30,0x3FBA,{ 0xA1,0x90,0x4F,0x1A,0x64,0x54,0xF8,0x8F } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaClip>{ 0x53F25366,0x5FBA,0x3EA4,{ 0x86,0x93,0x24,0x76,0x18,0x11,0x14,0x0A } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaClipStatics>{ 0xFA402B68,0x928F,0x43C4,{ 0xBC,0x6E,0x78,0x3A,0x1A,0x35,0x96,0x56 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaClipStatics2>{ 0x5B1DD7B3,0x854E,0x4D9B,{ 0x87,0x7D,0x47,0x74,0xA5,0x56,0xCD,0x12 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaComposition>{ 0x2E06E605,0xDC71,0x41D6,{ 0xB8,0x37,0x2D,0x2B,0xC1,0x4A,0x29,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaComposition2>{ 0xA59E5372,0x2366,0x492C,{ 0xBE,0xC8,0xE6,0xDF,0xBA,0x6D,0x02,0x81 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaCompositionStatics>{ 0x87A08F04,0xE32A,0x45CE,{ 0x8F,0x66,0xA3,0x0D,0xF0,0x76,0x62,0x24 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaOverlay>{ 0xA902AE5D,0x7869,0x4830,{ 0x8A,0xB1,0x94,0xDC,0x01,0xC0,0x5F,0xA4 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaOverlayFactory>{ 0xB584828A,0x6188,0x4F8F,{ 0xA2,0xE0,0xAA,0x55,0x2D,0x59,0x8E,0x18 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaOverlayLayer>{ 0xA6D9BA57,0xEEDA,0x46C6,{ 0xBB,0xE5,0xE3,0x98,0xC8,0x41,0x68,0xAC } };
-    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaOverlayLayerFactory>{ 0x947CB473,0xA39E,0x4362,{ 0xAB,0xBF,0x9F,0x8B,0x50,0x70,0xA0,0x62 } };
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IBackgroundAudioTrack>{ 0x4B91B3BD,0x9E21,0x4266,{ 0xA9,0xC2,0x67,0xDD,0x01,0x1A,0x23,0x57 } }; // 4B91B3BD-9E21-4266-A9C2-67DD011A2357
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IBackgroundAudioTrackStatics>{ 0xD9B1C0D7,0xD018,0x42A8,{ 0xA5,0x59,0xCB,0x4D,0x9E,0x97,0xE6,0x64 } }; // D9B1C0D7-D018-42A8-A559-CB4D9E97E664
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IEmbeddedAudioTrack>{ 0x55EE5A7A,0x2D30,0x3FBA,{ 0xA1,0x90,0x4F,0x1A,0x64,0x54,0xF8,0x8F } }; // 55EE5A7A-2D30-3FBA-A190-4F1A6454F88F
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaClip>{ 0x53F25366,0x5FBA,0x3EA4,{ 0x86,0x93,0x24,0x76,0x18,0x11,0x14,0x0A } }; // 53F25366-5FBA-3EA4-8693-24761811140A
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaClipStatics>{ 0xFA402B68,0x928F,0x43C4,{ 0xBC,0x6E,0x78,0x3A,0x1A,0x35,0x96,0x56 } }; // FA402B68-928F-43C4-BC6E-783A1A359656
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaClipStatics2>{ 0x5B1DD7B3,0x854E,0x4D9B,{ 0x87,0x7D,0x47,0x74,0xA5,0x56,0xCD,0x12 } }; // 5B1DD7B3-854E-4D9B-877D-4774A556CD12
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaComposition>{ 0x2E06E605,0xDC71,0x41D6,{ 0xB8,0x37,0x2D,0x2B,0xC1,0x4A,0x29,0x47 } }; // 2E06E605-DC71-41D6-B837-2D2BC14A2947
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaComposition2>{ 0xA59E5372,0x2366,0x492C,{ 0xBE,0xC8,0xE6,0xDF,0xBA,0x6D,0x02,0x81 } }; // A59E5372-2366-492C-BEC8-E6DFBA6D0281
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaCompositionStatics>{ 0x87A08F04,0xE32A,0x45CE,{ 0x8F,0x66,0xA3,0x0D,0xF0,0x76,0x62,0x24 } }; // 87A08F04-E32A-45CE-8F66-A30DF0766224
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaOverlay>{ 0xA902AE5D,0x7869,0x4830,{ 0x8A,0xB1,0x94,0xDC,0x01,0xC0,0x5F,0xA4 } }; // A902AE5D-7869-4830-8AB1-94DC01C05FA4
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaOverlayFactory>{ 0xB584828A,0x6188,0x4F8F,{ 0xA2,0xE0,0xAA,0x55,0x2D,0x59,0x8E,0x18 } }; // B584828A-6188-4F8F-A2E0-AA552D598E18
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaOverlayLayer>{ 0xA6D9BA57,0xEEDA,0x46C6,{ 0xBB,0xE5,0xE3,0x98,0xC8,0x41,0x68,0xAC } }; // A6D9BA57-EEDA-46C6-BBE5-E398C84168AC
+    template <> inline constexpr guid guid_v<Windows::Media::Editing::IMediaOverlayLayerFactory>{ 0x947CB473,0xA39E,0x4362,{ 0xAB,0xBF,0x9F,0x8B,0x50,0x70,0xA0,0x62 } }; // 947CB473-A39E-4362-ABBF-9F8B5070A062
     template <> struct default_interface<Windows::Media::Editing::BackgroundAudioTrack>{ using type = Windows::Media::Editing::IBackgroundAudioTrack; };
     template <> struct default_interface<Windows::Media::Editing::EmbeddedAudioTrack>{ using type = Windows::Media::Editing::IEmbeddedAudioTrack; };
     template <> struct default_interface<Windows::Media::Editing::MediaClip>{ using type = Windows::Media::Editing::IMediaClip; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -99,21 +99,21 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::WebUI::Core::MenuClosedEventHandler> = L"Windows.UI.WebUI.Core.MenuClosedEventHandler";
     template <> inline constexpr auto& name_v<Windows::UI::WebUI::Core::MenuOpenedEventHandler> = L"Windows.UI.WebUI.Core.MenuOpenedEventHandler";
     template <> inline constexpr auto& name_v<Windows::UI::WebUI::Core::SizeChangedEventHandler> = L"Windows.UI.WebUI.Core.SizeChangedEventHandler";
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBar>{ 0xA4FC0016,0xDBE5,0x41AD,{ 0x8D,0x7B,0x14,0x69,0x8B,0xD6,0x91,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarBitmapIcon>{ 0x858F4F45,0x08D8,0x4A46,{ 0x81,0xEC,0x00,0x01,0x5B,0x0B,0x1C,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarBitmapIconFactory>{ 0xF3F7D78A,0x7673,0x444A,{ 0xBE,0x62,0xAC,0x12,0xD3,0x1C,0x22,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarConfirmationButton>{ 0x86E7824A,0xE3D5,0x4EB6,{ 0xB2,0xFF,0x8F,0x01,0x8A,0x17,0x21,0x05 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarElement>{ 0xC9069EC2,0x284A,0x4633,{ 0x8A,0xAD,0x63,0x7A,0x27,0xE2,0x82,0xC3 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarIcon>{ 0xD587655D,0x2014,0x42BE,{ 0x96,0x9A,0x7D,0x14,0xCA,0x6C,0x8A,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarIconButton>{ 0x8F1BC93A,0x3A7C,0x4842,{ 0xA0,0xCF,0xAF,0xF6,0xEA,0x30,0x85,0x86 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarItemInvokedEventArgs>{ 0x304EDBDD,0xE741,0x41EF,{ 0xBD,0xC4,0xA4,0x5C,0xEA,0x2A,0x4F,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarSizeChangedEventArgs>{ 0xFBF1E2F6,0x3029,0x4719,{ 0x83,0x78,0x92,0xF8,0x2B,0x87,0xAF,0x1E } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarStatics>{ 0x1449CDB9,0xA506,0x45BE,{ 0x8F,0x42,0xB2,0x83,0x7E,0x2F,0xE0,0xC9 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarSymbolIcon>{ 0xD4935477,0xFD26,0x46ED,{ 0x86,0x58,0x1A,0x3F,0x44,0x00,0xE7,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarSymbolIconFactory>{ 0x51BE1A1F,0x3730,0x429E,{ 0xB6,0x22,0x14,0xE2,0xB7,0xBF,0x6A,0x07 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::MenuClosedEventHandler>{ 0x435387C8,0x4DD0,0x4C52,{ 0x94,0x89,0xD3,0x90,0xCE,0x77,0x21,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::MenuOpenedEventHandler>{ 0x18DC0AD3,0x678F,0x4C19,{ 0x89,0x63,0xCC,0x1C,0x49,0xA5,0xEF,0x9E } };
-    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::SizeChangedEventHandler>{ 0xD49CFE3C,0xDD2E,0x4C28,{ 0xB6,0x27,0x30,0x3A,0x7F,0x91,0x1A,0xF5 } };
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBar>{ 0xA4FC0016,0xDBE5,0x41AD,{ 0x8D,0x7B,0x14,0x69,0x8B,0xD6,0x91,0x1D } }; // A4FC0016-DBE5-41AD-8D7B-14698BD6911D
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarBitmapIcon>{ 0x858F4F45,0x08D8,0x4A46,{ 0x81,0xEC,0x00,0x01,0x5B,0x0B,0x1C,0x6C } }; // 858F4F45-08D8-4A46-81EC-00015B0B1C6C
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarBitmapIconFactory>{ 0xF3F7D78A,0x7673,0x444A,{ 0xBE,0x62,0xAC,0x12,0xD3,0x1C,0x22,0x31 } }; // F3F7D78A-7673-444A-BE62-AC12D31C2231
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarConfirmationButton>{ 0x86E7824A,0xE3D5,0x4EB6,{ 0xB2,0xFF,0x8F,0x01,0x8A,0x17,0x21,0x05 } }; // 86E7824A-E3D5-4EB6-B2FF-8F018A172105
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarElement>{ 0xC9069EC2,0x284A,0x4633,{ 0x8A,0xAD,0x63,0x7A,0x27,0xE2,0x82,0xC3 } }; // C9069EC2-284A-4633-8AAD-637A27E282C3
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarIcon>{ 0xD587655D,0x2014,0x42BE,{ 0x96,0x9A,0x7D,0x14,0xCA,0x6C,0x8A,0x49 } }; // D587655D-2014-42BE-969A-7D14CA6C8A49
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarIconButton>{ 0x8F1BC93A,0x3A7C,0x4842,{ 0xA0,0xCF,0xAF,0xF6,0xEA,0x30,0x85,0x86 } }; // 8F1BC93A-3A7C-4842-A0CF-AFF6EA308586
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarItemInvokedEventArgs>{ 0x304EDBDD,0xE741,0x41EF,{ 0xBD,0xC4,0xA4,0x5C,0xEA,0x2A,0x4F,0x70 } }; // 304EDBDD-E741-41EF-BDC4-A45CEA2A4F70
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarSizeChangedEventArgs>{ 0xFBF1E2F6,0x3029,0x4719,{ 0x83,0x78,0x92,0xF8,0x2B,0x87,0xAF,0x1E } }; // FBF1E2F6-3029-4719-8378-92F82B87AF1E
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarStatics>{ 0x1449CDB9,0xA506,0x45BE,{ 0x8F,0x42,0xB2,0x83,0x7E,0x2F,0xE0,0xC9 } }; // 1449CDB9-A506-45BE-8F42-B2837E2FE0C9
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarSymbolIcon>{ 0xD4935477,0xFD26,0x46ED,{ 0x86,0x58,0x1A,0x3F,0x44,0x00,0xE7,0xB3 } }; // D4935477-FD26-46ED-8658-1A3F4400E7B3
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::IWebUICommandBarSymbolIconFactory>{ 0x51BE1A1F,0x3730,0x429E,{ 0xB6,0x22,0x14,0xE2,0xB7,0xBF,0x6A,0x07 } }; // 51BE1A1F-3730-429E-B622-14E2B7BF6A07
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::MenuClosedEventHandler>{ 0x435387C8,0x4DD0,0x4C52,{ 0x94,0x89,0xD3,0x90,0xCE,0x77,0x21,0xD2 } }; // 435387C8-4DD0-4C52-9489-D390CE7721D2
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::MenuOpenedEventHandler>{ 0x18DC0AD3,0x678F,0x4C19,{ 0x89,0x63,0xCC,0x1C,0x49,0xA5,0xEF,0x9E } }; // 18DC0AD3-678F-4C19-8963-CC1C49A5EF9E
+    template <> inline constexpr guid guid_v<Windows::UI::WebUI::Core::SizeChangedEventHandler>{ 0xD49CFE3C,0xDD2E,0x4C28,{ 0xB6,0x27,0x30,0x3A,0x7F,0x91,0x1A,0xF5 } }; // D49CFE3C-DD2E-4C28-B627-303A7F911AF5
     template <> struct default_interface<Windows::UI::WebUI::Core::WebUICommandBar>{ using type = Windows::UI::WebUI::Core::IWebUICommandBar; };
     template <> struct default_interface<Windows::UI::WebUI::Core::WebUICommandBarBitmapIcon>{ using type = Windows::UI::WebUI::Core::IWebUICommandBarBitmapIcon; };
     template <> struct default_interface<Windows::UI::WebUI::Core::WebUICommandBarConfirmationButton>{ using type = Windows::UI::WebUI::Core::IWebUICommandBarConfirmationButton; };

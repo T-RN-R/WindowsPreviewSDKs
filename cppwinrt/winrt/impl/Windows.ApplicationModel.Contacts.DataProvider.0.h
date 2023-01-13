@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -86,17 +86,17 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListServerSearchReadBatchRequestEventArgs> = L"Windows.ApplicationModel.Contacts.DataProvider.IContactListServerSearchReadBatchRequestEventArgs";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListSyncManagerSyncRequest> = L"Windows.ApplicationModel.Contacts.DataProvider.IContactListSyncManagerSyncRequest";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListSyncManagerSyncRequestEventArgs> = L"Windows.ApplicationModel.Contacts.DataProvider.IContactListSyncManagerSyncRequestEventArgs";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactDataProviderConnection>{ 0x1A398A52,0x8C9D,0x4D6F,{ 0xA4,0xE0,0x11,0x1E,0x9A,0x12,0x5A,0x30 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactDataProviderConnection2>{ 0xA1D327B0,0x196C,0x4BFD,{ 0x8F,0x0F,0xC6,0x8D,0x67,0xF2,0x49,0xD3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactDataProviderTriggerDetails>{ 0x527104BE,0x3C62,0x43C8,{ 0x9A,0xE7,0xDB,0x53,0x16,0x85,0xCD,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListCreateOrUpdateContactRequest>{ 0xB4AF411F,0xC849,0x47D0,{ 0xB1,0x19,0x91,0xCF,0x60,0x5B,0x2F,0x2A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListCreateOrUpdateContactRequestEventArgs>{ 0x851C1690,0x1A51,0x4B0C,{ 0xAE,0xEF,0x12,0x40,0xAC,0x5B,0xED,0x75 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListDeleteContactRequest>{ 0x5E114687,0xCE03,0x4DE5,{ 0x85,0x57,0x9C,0xCF,0x55,0x2D,0x47,0x2A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListDeleteContactRequestEventArgs>{ 0xB22054A1,0xE8FA,0x4DB5,{ 0x93,0x89,0x2D,0x12,0xEE,0x7D,0x15,0xEE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListServerSearchReadBatchRequest>{ 0xBA776A97,0x4030,0x4925,{ 0x9F,0xB4,0x14,0x3B,0x29,0x5E,0x65,0x3B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListServerSearchReadBatchRequestEventArgs>{ 0x1A27E87B,0x69D7,0x4E4E,{ 0x80,0x42,0x86,0x1C,0xBA,0x61,0x47,0x1E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListSyncManagerSyncRequest>{ 0x3C0E57A4,0xC4E7,0x4970,{ 0x9A,0x8F,0x9A,0x66,0xA2,0xBB,0x6C,0x1A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListSyncManagerSyncRequestEventArgs>{ 0x158E4DAC,0x446D,0x4F10,{ 0xAF,0xC2,0x02,0x68,0x3E,0xC5,0x33,0xA6 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactDataProviderConnection>{ 0x1A398A52,0x8C9D,0x4D6F,{ 0xA4,0xE0,0x11,0x1E,0x9A,0x12,0x5A,0x30 } }; // 1A398A52-8C9D-4D6F-A4E0-111E9A125A30
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactDataProviderConnection2>{ 0xA1D327B0,0x196C,0x4BFD,{ 0x8F,0x0F,0xC6,0x8D,0x67,0xF2,0x49,0xD3 } }; // A1D327B0-196C-4BFD-8F0F-C68D67F249D3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactDataProviderTriggerDetails>{ 0x527104BE,0x3C62,0x43C8,{ 0x9A,0xE7,0xDB,0x53,0x16,0x85,0xCD,0x99 } }; // 527104BE-3C62-43C8-9AE7-DB531685CD99
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListCreateOrUpdateContactRequest>{ 0xB4AF411F,0xC849,0x47D0,{ 0xB1,0x19,0x91,0xCF,0x60,0x5B,0x2F,0x2A } }; // B4AF411F-C849-47D0-B119-91CF605B2F2A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListCreateOrUpdateContactRequestEventArgs>{ 0x851C1690,0x1A51,0x4B0C,{ 0xAE,0xEF,0x12,0x40,0xAC,0x5B,0xED,0x75 } }; // 851C1690-1A51-4B0C-AEEF-1240AC5BED75
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListDeleteContactRequest>{ 0x5E114687,0xCE03,0x4DE5,{ 0x85,0x57,0x9C,0xCF,0x55,0x2D,0x47,0x2A } }; // 5E114687-CE03-4DE5-8557-9CCF552D472A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListDeleteContactRequestEventArgs>{ 0xB22054A1,0xE8FA,0x4DB5,{ 0x93,0x89,0x2D,0x12,0xEE,0x7D,0x15,0xEE } }; // B22054A1-E8FA-4DB5-9389-2D12EE7D15EE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListServerSearchReadBatchRequest>{ 0xBA776A97,0x4030,0x4925,{ 0x9F,0xB4,0x14,0x3B,0x29,0x5E,0x65,0x3B } }; // BA776A97-4030-4925-9FB4-143B295E653B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListServerSearchReadBatchRequestEventArgs>{ 0x1A27E87B,0x69D7,0x4E4E,{ 0x80,0x42,0x86,0x1C,0xBA,0x61,0x47,0x1E } }; // 1A27E87B-69D7-4E4E-8042-861CBA61471E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListSyncManagerSyncRequest>{ 0x3C0E57A4,0xC4E7,0x4970,{ 0x9A,0x8F,0x9A,0x66,0xA2,0xBB,0x6C,0x1A } }; // 3C0E57A4-C4E7-4970-9A8F-9A66A2BB6C1A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::DataProvider::IContactListSyncManagerSyncRequestEventArgs>{ 0x158E4DAC,0x446D,0x4F10,{ 0xAF,0xC2,0x02,0x68,0x3E,0xC5,0x33,0xA6 } }; // 158E4DAC-446D-4F10-AFC2-02683EC533A6
     template <> struct default_interface<Windows::ApplicationModel::Contacts::DataProvider::ContactDataProviderConnection>{ using type = Windows::ApplicationModel::Contacts::DataProvider::IContactDataProviderConnection; };
     template <> struct default_interface<Windows::ApplicationModel::Contacts::DataProvider::ContactDataProviderTriggerDetails>{ using type = Windows::ApplicationModel::Contacts::DataProvider::IContactDataProviderTriggerDetails; };
     template <> struct default_interface<Windows::ApplicationModel::Contacts::DataProvider::ContactListCreateOrUpdateContactRequest>{ using type = Windows::ApplicationModel::Contacts::DataProvider::IContactListCreateOrUpdateContactRequest; };

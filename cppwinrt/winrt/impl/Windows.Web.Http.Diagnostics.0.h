@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -87,13 +87,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderResponseReceivedEventArgs> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderStatics> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderStatics";
     template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticSourceLocation> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation";
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider>{ 0xBD811501,0xA056,0x4D39,{ 0xB1,0x74,0x83,0x3B,0x7B,0x03,0xB0,0x2C } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseCompletedEventArgs>{ 0x735F98EE,0x94F6,0x4532,{ 0xB2,0x6E,0x61,0xE1,0xB1,0xE4,0xEF,0xD4 } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseTimestamps>{ 0xE0AFDE10,0x55CF,0x4C01,{ 0x91,0xD4,0xA2,0x05,0x57,0xD8,0x49,0xF0 } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestSentEventArgs>{ 0x3F5196D0,0x4C1F,0x4EBE,{ 0xA5,0x7A,0x06,0x93,0x07,0x71,0xC5,0x0D } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderResponseReceivedEventArgs>{ 0xA0A2566C,0xAB5F,0x4D66,{ 0xBB,0x2D,0x08,0x4C,0xF4,0x16,0x35,0xD0 } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderStatics>{ 0x5B824EC1,0x6A6C,0x47CC,{ 0xAF,0xEC,0x1E,0x86,0xBC,0x26,0x05,0x3B } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticSourceLocation>{ 0x54A9D260,0x8860,0x423F,{ 0xB6,0xFA,0xD7,0x77,0x16,0xF6,0x47,0xA7 } };
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider>{ 0xBD811501,0xA056,0x4D39,{ 0xB1,0x74,0x83,0x3B,0x7B,0x03,0xB0,0x2C } }; // BD811501-A056-4D39-B174-833B7B03B02C
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseCompletedEventArgs>{ 0x735F98EE,0x94F6,0x4532,{ 0xB2,0x6E,0x61,0xE1,0xB1,0xE4,0xEF,0xD4 } }; // 735F98EE-94F6-4532-B26E-61E1B1E4EFD4
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseTimestamps>{ 0xE0AFDE10,0x55CF,0x4C01,{ 0x91,0xD4,0xA2,0x05,0x57,0xD8,0x49,0xF0 } }; // E0AFDE10-55CF-4C01-91D4-A20557D849F0
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestSentEventArgs>{ 0x3F5196D0,0x4C1F,0x4EBE,{ 0xA5,0x7A,0x06,0x93,0x07,0x71,0xC5,0x0D } }; // 3F5196D0-4C1F-4EBE-A57A-06930771C50D
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderResponseReceivedEventArgs>{ 0xA0A2566C,0xAB5F,0x4D66,{ 0xBB,0x2D,0x08,0x4C,0xF4,0x16,0x35,0xD0 } }; // A0A2566C-AB5F-4D66-BB2D-084CF41635D0
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderStatics>{ 0x5B824EC1,0x6A6C,0x47CC,{ 0xAF,0xEC,0x1E,0x86,0xBC,0x26,0x05,0x3B } }; // 5B824EC1-6A6C-47CC-AFEC-1E86BC26053B
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticSourceLocation>{ 0x54A9D260,0x8860,0x423F,{ 0xB6,0xFA,0xD7,0x77,0x16,0xF6,0x47,0xA7 } }; // 54A9D260-8860-423F-B6FA-D77716F647A7
     template <> struct default_interface<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider>{ using type = Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider; };
     template <> struct default_interface<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseCompletedEventArgs>{ using type = Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseCompletedEventArgs; };
     template <> struct default_interface<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseTimestamps>{ using type = Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseTimestamps; };

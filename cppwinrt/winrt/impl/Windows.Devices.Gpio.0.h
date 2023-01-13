@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -126,15 +126,15 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Gpio::IGpioControllerStatics2> = L"Windows.Devices.Gpio.IGpioControllerStatics2";
     template <> inline constexpr auto& name_v<Windows::Devices::Gpio::IGpioPin> = L"Windows.Devices.Gpio.IGpioPin";
     template <> inline constexpr auto& name_v<Windows::Devices::Gpio::IGpioPinValueChangedEventArgs> = L"Windows.Devices.Gpio.IGpioPinValueChangedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioChangeCounter>{ 0xCB5EC0DE,0x6801,0x43FF,{ 0x80,0x3D,0x45,0x76,0x62,0x8A,0x8B,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioChangeCounterFactory>{ 0x147D94B6,0x0A9E,0x410C,{ 0xB4,0xFA,0xF8,0x9F,0x40,0x52,0x08,0x4D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioChangeReader>{ 0x0ABC885F,0xE031,0x48E8,{ 0x85,0x90,0x70,0xDE,0x78,0x36,0x3C,0x6D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioChangeReaderFactory>{ 0xA9598EF3,0x390E,0x441A,{ 0x9D,0x1C,0xE8,0xDE,0x0B,0x2D,0xF0,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioController>{ 0x284012E3,0x7461,0x469C,{ 0xA8,0xBC,0x61,0xD6,0x9D,0x08,0xA5,0x3C } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioControllerStatics>{ 0x2ED6F42E,0x7AF7,0x4116,{ 0x95,0x33,0xC4,0x3D,0x99,0xA1,0xFB,0x64 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioControllerStatics2>{ 0x912B7D20,0x6CA4,0x4106,{ 0xA3,0x73,0xFF,0xFD,0x34,0x6B,0x0E,0x5B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioPin>{ 0x11D9B087,0xAFAE,0x4790,{ 0x9E,0xE9,0xE0,0xEA,0xC9,0x42,0xD2,0x01 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioPinValueChangedEventArgs>{ 0x3137AAE1,0x703D,0x4059,{ 0xBD,0x24,0xB5,0xB2,0x5D,0xFF,0xB8,0x4E } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioChangeCounter>{ 0xCB5EC0DE,0x6801,0x43FF,{ 0x80,0x3D,0x45,0x76,0x62,0x8A,0x8B,0x26 } }; // CB5EC0DE-6801-43FF-803D-4576628A8B26
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioChangeCounterFactory>{ 0x147D94B6,0x0A9E,0x410C,{ 0xB4,0xFA,0xF8,0x9F,0x40,0x52,0x08,0x4D } }; // 147D94B6-0A9E-410C-B4FA-F89F4052084D
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioChangeReader>{ 0x0ABC885F,0xE031,0x48E8,{ 0x85,0x90,0x70,0xDE,0x78,0x36,0x3C,0x6D } }; // 0ABC885F-E031-48E8-8590-70DE78363C6D
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioChangeReaderFactory>{ 0xA9598EF3,0x390E,0x441A,{ 0x9D,0x1C,0xE8,0xDE,0x0B,0x2D,0xF0,0xDF } }; // A9598EF3-390E-441A-9D1C-E8DE0B2DF0DF
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioController>{ 0x284012E3,0x7461,0x469C,{ 0xA8,0xBC,0x61,0xD6,0x9D,0x08,0xA5,0x3C } }; // 284012E3-7461-469C-A8BC-61D69D08A53C
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioControllerStatics>{ 0x2ED6F42E,0x7AF7,0x4116,{ 0x95,0x33,0xC4,0x3D,0x99,0xA1,0xFB,0x64 } }; // 2ED6F42E-7AF7-4116-9533-C43D99A1FB64
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioControllerStatics2>{ 0x912B7D20,0x6CA4,0x4106,{ 0xA3,0x73,0xFF,0xFD,0x34,0x6B,0x0E,0x5B } }; // 912B7D20-6CA4-4106-A373-FFFD346B0E5B
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioPin>{ 0x11D9B087,0xAFAE,0x4790,{ 0x9E,0xE9,0xE0,0xEA,0xC9,0x42,0xD2,0x01 } }; // 11D9B087-AFAE-4790-9EE9-E0EAC942D201
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::IGpioPinValueChangedEventArgs>{ 0x3137AAE1,0x703D,0x4059,{ 0xBD,0x24,0xB5,0xB2,0x5D,0xFF,0xB8,0x4E } }; // 3137AAE1-703D-4059-BD24-B5B25DFFB84E
     template <> struct default_interface<Windows::Devices::Gpio::GpioChangeCounter>{ using type = Windows::Devices::Gpio::IGpioChangeCounter; };
     template <> struct default_interface<Windows::Devices::Gpio::GpioChangeReader>{ using type = Windows::Devices::Gpio::IGpioChangeReader; };
     template <> struct default_interface<Windows::Devices::Gpio::GpioController>{ using type = Windows::Devices::Gpio::IGpioController; };

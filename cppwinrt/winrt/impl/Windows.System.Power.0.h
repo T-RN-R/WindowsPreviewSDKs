@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -58,9 +58,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Power::IBackgroundEnergyManagerStatics> = L"Windows.System.Power.IBackgroundEnergyManagerStatics";
     template <> inline constexpr auto& name_v<Windows::System::Power::IForegroundEnergyManagerStatics> = L"Windows.System.Power.IForegroundEnergyManagerStatics";
     template <> inline constexpr auto& name_v<Windows::System::Power::IPowerManagerStatics> = L"Windows.System.Power.IPowerManagerStatics";
-    template <> inline constexpr guid guid_v<Windows::System::Power::IBackgroundEnergyManagerStatics>{ 0xB3161D95,0x1180,0x4376,{ 0x96,0xE1,0x40,0x95,0x56,0x81,0x47,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::System::Power::IForegroundEnergyManagerStatics>{ 0x9FF86872,0xE677,0x4814,{ 0x9A,0x20,0x53,0x37,0xCA,0x73,0x2B,0x98 } };
-    template <> inline constexpr guid guid_v<Windows::System::Power::IPowerManagerStatics>{ 0x1394825D,0x62CE,0x4364,{ 0x98,0xD5,0xAA,0x28,0xC7,0xFB,0xD1,0x5B } };
+    template <> inline constexpr guid guid_v<Windows::System::Power::IBackgroundEnergyManagerStatics>{ 0xB3161D95,0x1180,0x4376,{ 0x96,0xE1,0x40,0x95,0x56,0x81,0x47,0xCE } }; // B3161D95-1180-4376-96E1-4095568147CE
+    template <> inline constexpr guid guid_v<Windows::System::Power::IForegroundEnergyManagerStatics>{ 0x9FF86872,0xE677,0x4814,{ 0x9A,0x20,0x53,0x37,0xCA,0x73,0x2B,0x98 } }; // 9FF86872-E677-4814-9A20-5337CA732B98
+    template <> inline constexpr guid guid_v<Windows::System::Power::IPowerManagerStatics>{ 0x1394825D,0x62CE,0x4364,{ 0x98,0xD5,0xAA,0x28,0xC7,0xFB,0xD1,0x5B } }; // 1394825D-62CE-4364-98D5-AA28C7FBD15B
     template <> struct abi<Windows::System::Power::IBackgroundEnergyManagerStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -50,8 +50,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::Direct3DSurfaceDescription> = L"Windows.Graphics.DirectX.Direct3D11.Direct3DSurfaceDescription";
     template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice> = L"Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice";
     template <> inline constexpr auto& name_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface> = L"Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface";
-    template <> inline constexpr guid guid_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice>{ 0xA37624AB,0x8D5F,0x4650,{ 0x9D,0x3E,0x9E,0xAE,0x3D,0x9B,0xC6,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface>{ 0x0BF4A146,0x13C1,0x4694,{ 0xBE,0xE3,0x7A,0xBF,0x15,0xEA,0xF5,0x86 } };
+    template <> inline constexpr guid guid_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice>{ 0xA37624AB,0x8D5F,0x4650,{ 0x9D,0x3E,0x9E,0xAE,0x3D,0x9B,0xC6,0x70 } }; // A37624AB-8D5F-4650-9D3E-9EAE3D9BC670
+    template <> inline constexpr guid guid_v<Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface>{ 0x0BF4A146,0x13C1,0x4694,{ 0xBE,0xE3,0x7A,0xBF,0x15,0xEA,0xF5,0x86 } }; // 0BF4A146-13C1-4694-BEE3-7ABF15EAF586
     template <> struct abi<Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice>
     {
         struct __declspec(novtable) type : inspectable_abi

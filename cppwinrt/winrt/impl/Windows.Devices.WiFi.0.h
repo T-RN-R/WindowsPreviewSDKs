@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -145,13 +145,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::WiFi::IWiFiConnectionResult> = L"Windows.Devices.WiFi.IWiFiConnectionResult";
     template <> inline constexpr auto& name_v<Windows::Devices::WiFi::IWiFiNetworkReport> = L"Windows.Devices.WiFi.IWiFiNetworkReport";
     template <> inline constexpr auto& name_v<Windows::Devices::WiFi::IWiFiWpsConfigurationResult> = L"Windows.Devices.WiFi.IWiFiWpsConfigurationResult";
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiAdapter>{ 0xA6C4E423,0x3D75,0x43A4,{ 0xB9,0xDE,0x11,0xE2,0x6B,0x72,0xD9,0xB0 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiAdapter2>{ 0x5BC4501D,0x81E4,0x453D,{ 0x94,0x30,0x1F,0xCA,0xFB,0xAD,0xD6,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiAdapterStatics>{ 0xDA25FDDD,0xD24C,0x43E3,{ 0xAA,0xBD,0xC4,0x65,0x9F,0x73,0x0F,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiAvailableNetwork>{ 0x26E96246,0x183E,0x4704,{ 0x98,0x26,0x71,0xB4,0xA2,0xF0,0xF6,0x68 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiConnectionResult>{ 0x143BDFD9,0xC37D,0x40BE,{ 0xA5,0xC8,0x85,0x7B,0xCE,0x85,0xA9,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiNetworkReport>{ 0x9524DED2,0x5911,0x445E,{ 0x81,0x94,0xBE,0x4F,0x1A,0x70,0x48,0x95 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiWpsConfigurationResult>{ 0x67B49871,0x17EE,0x42D1,{ 0xB1,0x4F,0x5A,0x11,0xF1,0x22,0x6F,0xB5 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiAdapter>{ 0xA6C4E423,0x3D75,0x43A4,{ 0xB9,0xDE,0x11,0xE2,0x6B,0x72,0xD9,0xB0 } }; // A6C4E423-3D75-43A4-B9DE-11E26B72D9B0
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiAdapter2>{ 0x5BC4501D,0x81E4,0x453D,{ 0x94,0x30,0x1F,0xCA,0xFB,0xAD,0xD6,0xB6 } }; // 5BC4501D-81E4-453D-9430-1FCAFBADD6B6
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiAdapterStatics>{ 0xDA25FDDD,0xD24C,0x43E3,{ 0xAA,0xBD,0xC4,0x65,0x9F,0x73,0x0F,0x99 } }; // DA25FDDD-D24C-43E3-AABD-C4659F730F99
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiAvailableNetwork>{ 0x26E96246,0x183E,0x4704,{ 0x98,0x26,0x71,0xB4,0xA2,0xF0,0xF6,0x68 } }; // 26E96246-183E-4704-9826-71B4A2F0F668
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiConnectionResult>{ 0x143BDFD9,0xC37D,0x40BE,{ 0xA5,0xC8,0x85,0x7B,0xCE,0x85,0xA9,0x31 } }; // 143BDFD9-C37D-40BE-A5C8-857BCE85A931
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiNetworkReport>{ 0x9524DED2,0x5911,0x445E,{ 0x81,0x94,0xBE,0x4F,0x1A,0x70,0x48,0x95 } }; // 9524DED2-5911-445E-8194-BE4F1A704895
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFi::IWiFiWpsConfigurationResult>{ 0x67B49871,0x17EE,0x42D1,{ 0xB1,0x4F,0x5A,0x11,0xF1,0x22,0x6F,0xB5 } }; // 67B49871-17EE-42D1-B14F-5A11F1226FB5
     template <> struct default_interface<Windows::Devices::WiFi::WiFiAdapter>{ using type = Windows::Devices::WiFi::IWiFiAdapter; };
     template <> struct default_interface<Windows::Devices::WiFi::WiFiAvailableNetwork>{ using type = Windows::Devices::WiFi::IWiFiAvailableNetwork; };
     template <> struct default_interface<Windows::Devices::WiFi::WiFiConnectionResult>{ using type = Windows::Devices::WiFi::IWiFiConnectionResult; };

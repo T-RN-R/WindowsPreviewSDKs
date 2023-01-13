@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -76,12 +76,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::I2c::II2cControllerStatics> = L"Windows.Devices.I2c.II2cControllerStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::I2c::II2cDevice> = L"Windows.Devices.I2c.II2cDevice";
     template <> inline constexpr auto& name_v<Windows::Devices::I2c::II2cDeviceStatics> = L"Windows.Devices.I2c.II2cDeviceStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cConnectionSettings>{ 0xF2DB1307,0xAB6F,0x4639,{ 0xA7,0x67,0x54,0x53,0x6D,0xC3,0x46,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cConnectionSettingsFactory>{ 0x81B586B3,0x9693,0x41B1,{ 0xA2,0x43,0xDE,0xD4,0xF6,0xE6,0x69,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cController>{ 0xC48AB1B2,0x87A0,0x4166,{ 0x8E,0x3E,0xB4,0xB8,0xF9,0x7C,0xD7,0x29 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cControllerStatics>{ 0x40FC0365,0x5F05,0x4E7E,{ 0x84,0xBD,0x10,0x0D,0xB8,0xE0,0xAE,0xC5 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cDevice>{ 0x8636C136,0xB9C5,0x4F70,{ 0x94,0x49,0xCC,0x46,0xDC,0x6F,0x57,0xEB } };
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cDeviceStatics>{ 0x91A33BE3,0x7334,0x4512,{ 0x96,0xBC,0xFB,0xAE,0x94,0x59,0xF5,0xF6 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cConnectionSettings>{ 0xF2DB1307,0xAB6F,0x4639,{ 0xA7,0x67,0x54,0x53,0x6D,0xC3,0x46,0x0F } }; // F2DB1307-AB6F-4639-A767-54536DC3460F
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cConnectionSettingsFactory>{ 0x81B586B3,0x9693,0x41B1,{ 0xA2,0x43,0xDE,0xD4,0xF6,0xE6,0x69,0x26 } }; // 81B586B3-9693-41B1-A243-DED4F6E66926
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cController>{ 0xC48AB1B2,0x87A0,0x4166,{ 0x8E,0x3E,0xB4,0xB8,0xF9,0x7C,0xD7,0x29 } }; // C48AB1B2-87A0-4166-8E3E-B4B8F97CD729
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cControllerStatics>{ 0x40FC0365,0x5F05,0x4E7E,{ 0x84,0xBD,0x10,0x0D,0xB8,0xE0,0xAE,0xC5 } }; // 40FC0365-5F05-4E7E-84BD-100DB8E0AEC5
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cDevice>{ 0x8636C136,0xB9C5,0x4F70,{ 0x94,0x49,0xCC,0x46,0xDC,0x6F,0x57,0xEB } }; // 8636C136-B9C5-4F70-9449-CC46DC6F57EB
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::II2cDeviceStatics>{ 0x91A33BE3,0x7334,0x4512,{ 0x96,0xBC,0xFB,0xAE,0x94,0x59,0xF5,0xF6 } }; // 91A33BE3-7334-4512-96BC-FBAE9459F5F6
     template <> struct default_interface<Windows::Devices::I2c::I2cConnectionSettings>{ using type = Windows::Devices::I2c::II2cConnectionSettings; };
     template <> struct default_interface<Windows::Devices::I2c::I2cController>{ using type = Windows::Devices::I2c::II2cController; };
     template <> struct default_interface<Windows::Devices::I2c::I2cDevice>{ using type = Windows::Devices::I2c::II2cDevice; };

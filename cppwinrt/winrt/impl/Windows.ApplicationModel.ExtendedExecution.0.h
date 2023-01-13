@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -50,8 +50,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ExtendedExecution::ExtendedExecutionRevokedReason> = L"Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionRevokedEventArgs> = L"Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionRevokedEventArgs";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionSession> = L"Windows.ApplicationModel.ExtendedExecution.IExtendedExecutionSession";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionRevokedEventArgs>{ 0xBFBC9F16,0x63B5,0x4C0B,{ 0xAA,0xD6,0x82,0x8A,0xF5,0x37,0x3E,0xC3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionSession>{ 0xAF908A2D,0x118B,0x48F1,{ 0x93,0x08,0x0C,0x4F,0xC4,0x1E,0x20,0x0F } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionRevokedEventArgs>{ 0xBFBC9F16,0x63B5,0x4C0B,{ 0xAA,0xD6,0x82,0x8A,0xF5,0x37,0x3E,0xC3 } }; // BFBC9F16-63B5-4C0B-AAD6-828AF5373EC3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionSession>{ 0xAF908A2D,0x118B,0x48F1,{ 0x93,0x08,0x0C,0x4F,0xC4,0x1E,0x20,0x0F } }; // AF908A2D-118B-48F1-9308-0C4FC41E200F
     template <> struct default_interface<Windows::ApplicationModel::ExtendedExecution::ExtendedExecutionRevokedEventArgs>{ using type = Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionRevokedEventArgs; };
     template <> struct default_interface<Windows::ApplicationModel::ExtendedExecution::ExtendedExecutionSession>{ using type = Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionSession; };
     template <> struct abi<Windows::ApplicationModel::ExtendedExecution::IExtendedExecutionRevokedEventArgs>

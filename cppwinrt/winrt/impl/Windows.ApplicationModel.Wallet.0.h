@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -165,19 +165,19 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletTransaction> = L"Windows.ApplicationModel.Wallet.IWalletTransaction";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletVerb> = L"Windows.ApplicationModel.Wallet.IWalletVerb";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletVerbFactory> = L"Windows.ApplicationModel.Wallet.IWalletVerbFactory";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletBarcode>{ 0x4F857B29,0xDE80,0x4EA4,{ 0xA1,0xCD,0x81,0xCD,0x08,0x4D,0xAC,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletBarcodeFactory>{ 0x30117161,0xED9C,0x469E,{ 0xBB,0xFD,0x30,0x6C,0x95,0xEA,0x71,0x08 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItem>{ 0x20B54BE8,0x118D,0x4EC4,{ 0x99,0x6C,0xB9,0x63,0xE7,0xBD,0x3E,0x74 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemCustomProperty>{ 0xB94B40F3,0xFA00,0x40FD,{ 0x98,0xDC,0x9D,0xE4,0x66,0x97,0xF1,0xE7 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemCustomPropertyFactory>{ 0xD0046A44,0x61A1,0x41AA,{ 0xB2,0x59,0xA5,0x61,0x0A,0xB5,0xD5,0x75 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemFactory>{ 0x53E27470,0x4F0B,0x4A3E,{ 0x99,0xE5,0x0B,0xBB,0x1E,0xAB,0x38,0xD4 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemStore>{ 0x7160484B,0x6D49,0x48F8,{ 0x91,0xA9,0x40,0xA1,0xD0,0xF1,0x3E,0xF4 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemStore2>{ 0x65E682F0,0x7009,0x4A15,{ 0xBD,0x54,0x4F,0xFF,0x37,0x9B,0xFF,0xE2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletManagerStatics>{ 0x5111D6B8,0xC9A4,0x4C64,{ 0xB4,0xDD,0xE1,0xE5,0x48,0x00,0x1C,0x0D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletRelevantLocation>{ 0x9FD8782A,0xE3F9,0x4DE1,{ 0xBA,0xB3,0xBB,0x19,0x2E,0x46,0xB3,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletTransaction>{ 0x40E1E940,0x2606,0x4519,{ 0x81,0xCB,0xBF,0xF1,0xC6,0x0D,0x1F,0x79 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletVerb>{ 0x17B826D6,0xE3C1,0x4C74,{ 0x8A,0x94,0x21,0x7A,0xAD,0xBC,0x48,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletVerbFactory>{ 0x76012771,0xBE58,0x4D5E,{ 0x83,0xED,0x58,0xB1,0x66,0x9C,0x7A,0xD9 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletBarcode>{ 0x4F857B29,0xDE80,0x4EA4,{ 0xA1,0xCD,0x81,0xCD,0x08,0x4D,0xAC,0x27 } }; // 4F857B29-DE80-4EA4-A1CD-81CD084DAC27
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletBarcodeFactory>{ 0x30117161,0xED9C,0x469E,{ 0xBB,0xFD,0x30,0x6C,0x95,0xEA,0x71,0x08 } }; // 30117161-ED9C-469E-BBFD-306C95EA7108
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItem>{ 0x20B54BE8,0x118D,0x4EC4,{ 0x99,0x6C,0xB9,0x63,0xE7,0xBD,0x3E,0x74 } }; // 20B54BE8-118D-4EC4-996C-B963E7BD3E74
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemCustomProperty>{ 0xB94B40F3,0xFA00,0x40FD,{ 0x98,0xDC,0x9D,0xE4,0x66,0x97,0xF1,0xE7 } }; // B94B40F3-FA00-40FD-98DC-9DE46697F1E7
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemCustomPropertyFactory>{ 0xD0046A44,0x61A1,0x41AA,{ 0xB2,0x59,0xA5,0x61,0x0A,0xB5,0xD5,0x75 } }; // D0046A44-61A1-41AA-B259-A5610AB5D575
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemFactory>{ 0x53E27470,0x4F0B,0x4A3E,{ 0x99,0xE5,0x0B,0xBB,0x1E,0xAB,0x38,0xD4 } }; // 53E27470-4F0B-4A3E-99E5-0BBB1EAB38D4
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemStore>{ 0x7160484B,0x6D49,0x48F8,{ 0x91,0xA9,0x40,0xA1,0xD0,0xF1,0x3E,0xF4 } }; // 7160484B-6D49-48F8-91A9-40A1D0F13EF4
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItemStore2>{ 0x65E682F0,0x7009,0x4A15,{ 0xBD,0x54,0x4F,0xFF,0x37,0x9B,0xFF,0xE2 } }; // 65E682F0-7009-4A15-BD54-4FFF379BFFE2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletManagerStatics>{ 0x5111D6B8,0xC9A4,0x4C64,{ 0xB4,0xDD,0xE1,0xE5,0x48,0x00,0x1C,0x0D } }; // 5111D6B8-C9A4-4C64-B4DD-E1E548001C0D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletRelevantLocation>{ 0x9FD8782A,0xE3F9,0x4DE1,{ 0xBA,0xB3,0xBB,0x19,0x2E,0x46,0xB3,0xF3 } }; // 9FD8782A-E3F9-4DE1-BAB3-BB192E46B3F3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletTransaction>{ 0x40E1E940,0x2606,0x4519,{ 0x81,0xCB,0xBF,0xF1,0xC6,0x0D,0x1F,0x79 } }; // 40E1E940-2606-4519-81CB-BFF1C60D1F79
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletVerb>{ 0x17B826D6,0xE3C1,0x4C74,{ 0x8A,0x94,0x21,0x7A,0xAD,0xBC,0x48,0x84 } }; // 17B826D6-E3C1-4C74-8A94-217AADBC4884
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletVerbFactory>{ 0x76012771,0xBE58,0x4D5E,{ 0x83,0xED,0x58,0xB1,0x66,0x9C,0x7A,0xD9 } }; // 76012771-BE58-4D5E-83ED-58B1669C7AD9
     template <> struct default_interface<Windows::ApplicationModel::Wallet::WalletBarcode>{ using type = Windows::ApplicationModel::Wallet::IWalletBarcode; };
     template <> struct default_interface<Windows::ApplicationModel::Wallet::WalletItem>{ using type = Windows::ApplicationModel::Wallet::IWalletItem; };
     template <> struct default_interface<Windows::ApplicationModel::Wallet::WalletItemCustomProperty>{ using type = Windows::ApplicationModel::Wallet::IWalletItemCustomProperty; };

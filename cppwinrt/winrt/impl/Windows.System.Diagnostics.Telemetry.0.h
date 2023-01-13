@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -36,9 +36,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryClientStatics> = L"Windows.System.Diagnostics.Telemetry.IPlatformTelemetryClientStatics";
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryRegistrationResult> = L"Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationResult";
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryRegistrationSettings> = L"Windows.System.Diagnostics.Telemetry.IPlatformTelemetryRegistrationSettings";
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryClientStatics>{ 0x9BF3F25D,0xD5C3,0x4EEA,{ 0x8D,0xBE,0x9C,0x8D,0xBB,0x0D,0x9D,0x8F } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryRegistrationResult>{ 0x4D8518AB,0x2292,0x49BD,{ 0xA1,0x5A,0x3D,0x71,0xD2,0x14,0x51,0x12 } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryRegistrationSettings>{ 0x819A8582,0xCA19,0x415E,{ 0xBB,0x79,0x9C,0x22,0x4B,0xFA,0x3A,0x73 } };
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryClientStatics>{ 0x9BF3F25D,0xD5C3,0x4EEA,{ 0x8D,0xBE,0x9C,0x8D,0xBB,0x0D,0x9D,0x8F } }; // 9BF3F25D-D5C3-4EEA-8DBE-9C8DBB0D9D8F
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryRegistrationResult>{ 0x4D8518AB,0x2292,0x49BD,{ 0xA1,0x5A,0x3D,0x71,0xD2,0x14,0x51,0x12 } }; // 4D8518AB-2292-49BD-A15A-3D71D2145112
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryRegistrationSettings>{ 0x819A8582,0xCA19,0x415E,{ 0xBB,0x79,0x9C,0x22,0x4B,0xFA,0x3A,0x73 } }; // 819A8582-CA19-415E-BB79-9C224BFA3A73
     template <> struct default_interface<Windows::System::Diagnostics::Telemetry::PlatformTelemetryRegistrationResult>{ using type = Windows::System::Diagnostics::Telemetry::IPlatformTelemetryRegistrationResult; };
     template <> struct default_interface<Windows::System::Diagnostics::Telemetry::PlatformTelemetryRegistrationSettings>{ using type = Windows::System::Diagnostics::Telemetry::IPlatformTelemetryRegistrationSettings; };
     template <> struct abi<Windows::System::Diagnostics::Telemetry::IPlatformTelemetryClientStatics>

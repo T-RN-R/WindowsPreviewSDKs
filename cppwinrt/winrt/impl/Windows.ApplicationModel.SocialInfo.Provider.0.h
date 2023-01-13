@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -46,9 +46,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialDashboardItemUpdater> = L"Windows.ApplicationModel.SocialInfo.Provider.ISocialDashboardItemUpdater";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialFeedUpdater> = L"Windows.ApplicationModel.SocialInfo.Provider.ISocialFeedUpdater";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialInfoProviderManagerStatics> = L"Windows.ApplicationModel.SocialInfo.Provider.ISocialInfoProviderManagerStatics";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialDashboardItemUpdater>{ 0x3CDE9DC9,0x4800,0x46CD,{ 0x86,0x9B,0x19,0x73,0xEC,0x68,0x5B,0xDE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialFeedUpdater>{ 0x7A0C0AA7,0xED89,0x4BD5,{ 0xA8,0xD9,0x15,0xF4,0xD9,0x86,0x1C,0x10 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialInfoProviderManagerStatics>{ 0x1B88E52B,0x7787,0x48D6,{ 0xAA,0x12,0xD8,0xE8,0xF4,0x7A,0xB8,0x5A } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialDashboardItemUpdater>{ 0x3CDE9DC9,0x4800,0x46CD,{ 0x86,0x9B,0x19,0x73,0xEC,0x68,0x5B,0xDE } }; // 3CDE9DC9-4800-46CD-869B-1973EC685BDE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialFeedUpdater>{ 0x7A0C0AA7,0xED89,0x4BD5,{ 0xA8,0xD9,0x15,0xF4,0xD9,0x86,0x1C,0x10 } }; // 7A0C0AA7-ED89-4BD5-A8D9-15F4D9861C10
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::Provider::ISocialInfoProviderManagerStatics>{ 0x1B88E52B,0x7787,0x48D6,{ 0xAA,0x12,0xD8,0xE8,0xF4,0x7A,0xB8,0x5A } }; // 1B88E52B-7787-48D6-AA12-D8E8F47AB85A
     template <> struct default_interface<Windows::ApplicationModel::SocialInfo::Provider::SocialDashboardItemUpdater>{ using type = Windows::ApplicationModel::SocialInfo::Provider::ISocialDashboardItemUpdater; };
     template <> struct default_interface<Windows::ApplicationModel::SocialInfo::Provider::SocialFeedUpdater>{ using type = Windows::ApplicationModel::SocialInfo::Provider::ISocialFeedUpdater; };
     template <> struct abi<Windows::ApplicationModel::SocialInfo::Provider::ISocialDashboardItemUpdater>

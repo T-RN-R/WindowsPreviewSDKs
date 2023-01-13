@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -89,10 +89,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::IPinChangedEventArgs> = L"Windows.Devices.SerialCommunication.IPinChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::ISerialDevice> = L"Windows.Devices.SerialCommunication.ISerialDevice";
     template <> inline constexpr auto& name_v<Windows::Devices::SerialCommunication::ISerialDeviceStatics> = L"Windows.Devices.SerialCommunication.ISerialDeviceStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::IErrorReceivedEventArgs>{ 0xFCC6BF59,0x1283,0x4D8A,{ 0xBF,0xDF,0x56,0x6B,0x33,0xDD,0xB2,0x8F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::IPinChangedEventArgs>{ 0xA2BF1DB0,0xFC9C,0x4607,{ 0x93,0xD0,0xFA,0x5E,0x83,0x43,0xEE,0x22 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::ISerialDevice>{ 0xE187CCC6,0x2210,0x414F,{ 0xB6,0x5A,0xF5,0x55,0x3A,0x03,0x37,0x2A } };
-    template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::ISerialDeviceStatics>{ 0x058C4A70,0x0836,0x4993,{ 0xAE,0x1A,0xB6,0x1A,0xE3,0xBE,0x05,0x6B } };
+    template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::IErrorReceivedEventArgs>{ 0xFCC6BF59,0x1283,0x4D8A,{ 0xBF,0xDF,0x56,0x6B,0x33,0xDD,0xB2,0x8F } }; // FCC6BF59-1283-4D8A-BFDF-566B33DDB28F
+    template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::IPinChangedEventArgs>{ 0xA2BF1DB0,0xFC9C,0x4607,{ 0x93,0xD0,0xFA,0x5E,0x83,0x43,0xEE,0x22 } }; // A2BF1DB0-FC9C-4607-93D0-FA5E8343EE22
+    template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::ISerialDevice>{ 0xE187CCC6,0x2210,0x414F,{ 0xB6,0x5A,0xF5,0x55,0x3A,0x03,0x37,0x2A } }; // E187CCC6-2210-414F-B65A-F5553A03372A
+    template <> inline constexpr guid guid_v<Windows::Devices::SerialCommunication::ISerialDeviceStatics>{ 0x058C4A70,0x0836,0x4993,{ 0xAE,0x1A,0xB6,0x1A,0xE3,0xBE,0x05,0x6B } }; // 058C4A70-0836-4993-AE1A-B61AE3BE056B
     template <> struct default_interface<Windows::Devices::SerialCommunication::ErrorReceivedEventArgs>{ using type = Windows::Devices::SerialCommunication::IErrorReceivedEventArgs; };
     template <> struct default_interface<Windows::Devices::SerialCommunication::PinChangedEventArgs>{ using type = Windows::Devices::SerialCommunication::IPinChangedEventArgs; };
     template <> struct default_interface<Windows::Devices::SerialCommunication::SerialDevice>{ using type = Windows::Devices::SerialCommunication::ISerialDevice; };

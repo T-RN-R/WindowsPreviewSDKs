@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -71,11 +71,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Gpio::Provider::IGpioPinProviderValueChangedEventArgs> = L"Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Devices::Gpio::Provider::IGpioPinProviderValueChangedEventArgsFactory> = L"Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgsFactory";
     template <> inline constexpr auto& name_v<Windows::Devices::Gpio::Provider::IGpioProvider> = L"Windows.Devices.Gpio.Provider.IGpioProvider";
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioControllerProvider>{ 0xAD11CEC7,0x19EA,0x4B21,{ 0x87,0x4F,0xB9,0x1A,0xED,0x4A,0x25,0xDB } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioPinProvider>{ 0x42344CB7,0x6ABC,0x40FF,{ 0x9C,0xE7,0x73,0xB8,0x53,0x01,0xB9,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioPinProviderValueChangedEventArgs>{ 0x32A6D6F2,0x3D5B,0x44CD,{ 0x8F,0xBE,0x13,0xA6,0x9F,0x2E,0xDB,0x24 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioPinProviderValueChangedEventArgsFactory>{ 0x3ECB0B59,0x568C,0x4392,{ 0xB2,0x4A,0x8A,0x59,0xA9,0x02,0xB1,0xF1 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioProvider>{ 0x44E82707,0x08CA,0x434A,{ 0xAF,0xE0,0xD6,0x15,0x80,0x44,0x6F,0x7E } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioControllerProvider>{ 0xAD11CEC7,0x19EA,0x4B21,{ 0x87,0x4F,0xB9,0x1A,0xED,0x4A,0x25,0xDB } }; // AD11CEC7-19EA-4B21-874F-B91AED4A25DB
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioPinProvider>{ 0x42344CB7,0x6ABC,0x40FF,{ 0x9C,0xE7,0x73,0xB8,0x53,0x01,0xB9,0x00 } }; // 42344CB7-6ABC-40FF-9CE7-73B85301B900
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioPinProviderValueChangedEventArgs>{ 0x32A6D6F2,0x3D5B,0x44CD,{ 0x8F,0xBE,0x13,0xA6,0x9F,0x2E,0xDB,0x24 } }; // 32A6D6F2-3D5B-44CD-8FBE-13A69F2EDB24
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioPinProviderValueChangedEventArgsFactory>{ 0x3ECB0B59,0x568C,0x4392,{ 0xB2,0x4A,0x8A,0x59,0xA9,0x02,0xB1,0xF1 } }; // 3ECB0B59-568C-4392-B24A-8A59A902B1F1
+    template <> inline constexpr guid guid_v<Windows::Devices::Gpio::Provider::IGpioProvider>{ 0x44E82707,0x08CA,0x434A,{ 0xAF,0xE0,0xD6,0x15,0x80,0x44,0x6F,0x7E } }; // 44E82707-08CA-434A-AFE0-D61580446F7E
     template <> struct default_interface<Windows::Devices::Gpio::Provider::GpioPinProviderValueChangedEventArgs>{ using type = Windows::Devices::Gpio::Provider::IGpioPinProviderValueChangedEventArgs; };
     template <> struct abi<Windows::Devices::Gpio::Provider::IGpioControllerProvider>
     {

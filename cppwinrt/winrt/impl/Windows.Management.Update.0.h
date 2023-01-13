@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -33,9 +33,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsManager> = L"Windows.Management.Update.IPreviewBuildsManager";
     template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsManagerStatics> = L"Windows.Management.Update.IPreviewBuildsManagerStatics";
     template <> inline constexpr auto& name_v<Windows::Management::Update::IPreviewBuildsState> = L"Windows.Management.Update.IPreviewBuildsState";
-    template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsManager>{ 0xFA07DD61,0x7E4F,0x59F7,{ 0x7C,0x9F,0xDE,0xF9,0x05,0x1C,0x5F,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsManagerStatics>{ 0x3E422887,0xB112,0x5A70,{ 0x7D,0xA1,0x97,0xD7,0x8D,0x32,0xAA,0x29 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsState>{ 0xA2F2903E,0xB223,0x5F63,{ 0x75,0x46,0x3E,0x8E,0xAC,0x07,0x0A,0x2E } };
+    template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsManager>{ 0xFA07DD61,0x7E4F,0x59F7,{ 0x7C,0x9F,0xDE,0xF9,0x05,0x1C,0x5F,0x62 } }; // FA07DD61-7E4F-59F7-7C9F-DEF9051C5F62
+    template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsManagerStatics>{ 0x3E422887,0xB112,0x5A70,{ 0x7D,0xA1,0x97,0xD7,0x8D,0x32,0xAA,0x29 } }; // 3E422887-B112-5A70-7DA1-97D78D32AA29
+    template <> inline constexpr guid guid_v<Windows::Management::Update::IPreviewBuildsState>{ 0xA2F2903E,0xB223,0x5F63,{ 0x75,0x46,0x3E,0x8E,0xAC,0x07,0x0A,0x2E } }; // A2F2903E-B223-5F63-7546-3E8EAC070A2E
     template <> struct default_interface<Windows::Management::Update::PreviewBuildsManager>{ using type = Windows::Management::Update::IPreviewBuildsManager; };
     template <> struct default_interface<Windows::Management::Update::PreviewBuildsState>{ using type = Windows::Management::Update::IPreviewBuildsState; };
     template <> struct abi<Windows::Management::Update::IPreviewBuildsManager>

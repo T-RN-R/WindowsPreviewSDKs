@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -48,12 +48,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Sensors::Custom::ICustomSensorReading2> = L"Windows.Devices.Sensors.Custom.ICustomSensorReading2";
     template <> inline constexpr auto& name_v<Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs> = L"Windows.Devices.Sensors.Custom.ICustomSensorReadingChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Devices::Sensors::Custom::ICustomSensorStatics> = L"Windows.Devices.Sensors.Custom.ICustomSensorStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensor>{ 0xA136F9AD,0x4034,0x4B4D,{ 0x99,0xDD,0x53,0x1A,0xAC,0x64,0x9C,0x09 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensor2>{ 0x20DB3111,0xEC58,0x4D9F,{ 0xBF,0xBD,0xE7,0x78,0x25,0x08,0x85,0x10 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensorReading>{ 0x64004F4D,0x446A,0x4366,{ 0xA8,0x7A,0x5F,0x96,0x32,0x68,0xEC,0x53 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensorReading2>{ 0x223C98EA,0xBF73,0x4992,{ 0x9A,0x48,0xD3,0xC8,0x97,0x59,0x4C,0xCB } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs>{ 0x6B202023,0xCFFD,0x4CC1,{ 0x8F,0xF0,0xE2,0x18,0x23,0xD7,0x6F,0xCC } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensorStatics>{ 0x992052CF,0xF422,0x4C7D,{ 0x83,0x6B,0xE7,0xDC,0x74,0xA7,0x12,0x4B } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensor>{ 0xA136F9AD,0x4034,0x4B4D,{ 0x99,0xDD,0x53,0x1A,0xAC,0x64,0x9C,0x09 } }; // A136F9AD-4034-4B4D-99DD-531AAC649C09
+    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensor2>{ 0x20DB3111,0xEC58,0x4D9F,{ 0xBF,0xBD,0xE7,0x78,0x25,0x08,0x85,0x10 } }; // 20DB3111-EC58-4D9F-BFBD-E77825088510
+    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensorReading>{ 0x64004F4D,0x446A,0x4366,{ 0xA8,0x7A,0x5F,0x96,0x32,0x68,0xEC,0x53 } }; // 64004F4D-446A-4366-A87A-5F963268EC53
+    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensorReading2>{ 0x223C98EA,0xBF73,0x4992,{ 0x9A,0x48,0xD3,0xC8,0x97,0x59,0x4C,0xCB } }; // 223C98EA-BF73-4992-9A48-D3C897594CCB
+    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs>{ 0x6B202023,0xCFFD,0x4CC1,{ 0x8F,0xF0,0xE2,0x18,0x23,0xD7,0x6F,0xCC } }; // 6B202023-CFFD-4CC1-8FF0-E21823D76FCC
+    template <> inline constexpr guid guid_v<Windows::Devices::Sensors::Custom::ICustomSensorStatics>{ 0x992052CF,0xF422,0x4C7D,{ 0x83,0x6B,0xE7,0xDC,0x74,0xA7,0x12,0x4B } }; // 992052CF-F422-4C7D-836B-E7DC74A7124B
     template <> struct default_interface<Windows::Devices::Sensors::Custom::CustomSensor>{ using type = Windows::Devices::Sensors::Custom::ICustomSensor; };
     template <> struct default_interface<Windows::Devices::Sensors::Custom::CustomSensorReading>{ using type = Windows::Devices::Sensors::Custom::ICustomSensorReading; };
     template <> struct default_interface<Windows::Devices::Sensors::Custom::CustomSensorReadingChangedEventArgs>{ using type = Windows::Devices::Sensors::Custom::ICustomSensorReadingChangedEventArgs; };

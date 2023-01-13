@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -254,34 +254,34 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::SpeechRecognition::ISpeechRecognizerUIOptions> = L"Windows.Media.SpeechRecognition.ISpeechRecognizerUIOptions";
     template <> inline constexpr auto& name_v<Windows::Media::SpeechRecognition::IVoiceCommandManager> = L"Windows.Media.SpeechRecognition.IVoiceCommandManager";
     template <> inline constexpr auto& name_v<Windows::Media::SpeechRecognition::IVoiceCommandSet> = L"Windows.Media.SpeechRecognition.IVoiceCommandSet";
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionCompletedEventArgs>{ 0xE3D069BB,0xE30C,0x5E18,{ 0x42,0x4B,0x7F,0xBE,0x81,0xF8,0xFB,0xD0 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionResultGeneratedEventArgs>{ 0x19091E1E,0x6E7E,0x5A46,{ 0x40,0xFB,0x76,0x59,0x4F,0x78,0x65,0x04 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionSession>{ 0x6A213C04,0x6614,0x49F8,{ 0x99,0xA2,0xB5,0xE9,0xB3,0xA0,0x85,0xC8 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionCompilationResult>{ 0x407E6C5D,0x6AC7,0x4DA4,{ 0x9C,0xC1,0x2F,0xCE,0x32,0xCF,0x74,0x89 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionConstraint>{ 0x79AC1628,0x4D68,0x43C4,{ 0x89,0x11,0x40,0xDC,0x41,0x01,0xB5,0x5B } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionGrammarFileConstraint>{ 0xB5031A8F,0x85CA,0x4FA4,{ 0xB1,0x1A,0x47,0x4F,0xC4,0x1B,0x38,0x35 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionGrammarFileConstraintFactory>{ 0x3DA770EB,0xC479,0x4C27,{ 0x9F,0x19,0x89,0x97,0x4E,0xF3,0x92,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionHypothesis>{ 0x7A7B25B0,0x99C5,0x4F7D,{ 0xBF,0x84,0x10,0xAA,0x13,0x02,0xB6,0x34 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionHypothesisGeneratedEventArgs>{ 0x55161A7A,0x8023,0x5866,{ 0x41,0x1D,0x12,0x13,0xBB,0x27,0x14,0x76 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionListConstraint>{ 0x09C487E9,0xE4AD,0x4526,{ 0x81,0xF2,0x49,0x46,0xFB,0x48,0x1D,0x98 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionListConstraintFactory>{ 0x40F3CDC7,0x562A,0x426A,{ 0x9F,0x3B,0x3B,0x4E,0x28,0x2B,0xE1,0xD5 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionQualityDegradingEventArgs>{ 0x4FE24105,0x8C3A,0x4C7E,{ 0x8D,0x0A,0x5B,0xD4,0xF5,0xB1,0x4A,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionResult>{ 0x4E303157,0x034E,0x4652,{ 0x85,0x7E,0xD0,0x45,0x4C,0xC4,0xBE,0xEC } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionResult2>{ 0xAF7ED1BA,0x451B,0x4166,{ 0xA0,0xC1,0x1F,0xFE,0x84,0x03,0x2D,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionSemanticInterpretation>{ 0xAAE1DA9B,0x7E32,0x4C1F,{ 0x89,0xFE,0x0C,0x65,0xF4,0x86,0xF5,0x2E } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionTopicConstraint>{ 0xBF6FDF19,0x825D,0x4E69,{ 0xA6,0x81,0x36,0xE4,0x8C,0xF1,0xC9,0x3E } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionTopicConstraintFactory>{ 0x6E6863DF,0xEC05,0x47D7,{ 0xA5,0xDF,0x56,0xA3,0x43,0x1E,0x58,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionVoiceCommandDefinitionConstraint>{ 0xF2791C2B,0x1EF4,0x4AE7,{ 0x9D,0x77,0xB6,0xFF,0x10,0xB8,0xA3,0xC2 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizer>{ 0x0BC3C9CB,0xC26A,0x40F2,{ 0xAE,0xB5,0x80,0x96,0xB2,0xE4,0x80,0x73 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizer2>{ 0x63C9BAF1,0x91E3,0x4EA4,{ 0x86,0xA1,0x7C,0x38,0x67,0xD0,0x84,0xA6 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerFactory>{ 0x60C488DD,0x7FB8,0x4033,{ 0xAC,0x70,0xD0,0x46,0xF6,0x48,0x18,0xE1 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerStateChangedEventArgs>{ 0x563D4F09,0xBA03,0x4BAD,{ 0xAD,0x81,0xDD,0xC6,0xC4,0xDA,0xB0,0xC3 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerStatics>{ 0x87A35EAC,0xA7DC,0x4B0B,{ 0xBC,0xC9,0x24,0xF4,0x7C,0x0B,0x7E,0xBF } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerStatics2>{ 0x1D1B0D95,0x7565,0x4EF9,{ 0xA2,0xF3,0xBA,0x15,0x16,0x2A,0x96,0xCF } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerTimeouts>{ 0x2EF76FCA,0x6A3C,0x4DCA,{ 0xA1,0x53,0xDF,0x1B,0xC8,0x8A,0x79,0xAF } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerUIOptions>{ 0x7888D641,0xB92B,0x44BA,{ 0xA2,0x5F,0xD1,0x86,0x46,0x30,0x64,0x1F } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::IVoiceCommandManager>{ 0xAA3A8DD5,0xB6E7,0x4EE2,{ 0xBA,0xA9,0xDD,0x6B,0xAC,0xED,0x0A,0x2B } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::IVoiceCommandSet>{ 0x0BEDDA75,0x46E6,0x4B11,{ 0xA0,0x88,0x5C,0x68,0x63,0x28,0x99,0xB5 } };
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionCompletedEventArgs>{ 0xE3D069BB,0xE30C,0x5E18,{ 0x42,0x4B,0x7F,0xBE,0x81,0xF8,0xFB,0xD0 } }; // E3D069BB-E30C-5E18-424B-7FBE81F8FBD0
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionResultGeneratedEventArgs>{ 0x19091E1E,0x6E7E,0x5A46,{ 0x40,0xFB,0x76,0x59,0x4F,0x78,0x65,0x04 } }; // 19091E1E-6E7E-5A46-40FB-76594F786504
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionSession>{ 0x6A213C04,0x6614,0x49F8,{ 0x99,0xA2,0xB5,0xE9,0xB3,0xA0,0x85,0xC8 } }; // 6A213C04-6614-49F8-99A2-B5E9B3A085C8
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionCompilationResult>{ 0x407E6C5D,0x6AC7,0x4DA4,{ 0x9C,0xC1,0x2F,0xCE,0x32,0xCF,0x74,0x89 } }; // 407E6C5D-6AC7-4DA4-9CC1-2FCE32CF7489
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionConstraint>{ 0x79AC1628,0x4D68,0x43C4,{ 0x89,0x11,0x40,0xDC,0x41,0x01,0xB5,0x5B } }; // 79AC1628-4D68-43C4-8911-40DC4101B55B
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionGrammarFileConstraint>{ 0xB5031A8F,0x85CA,0x4FA4,{ 0xB1,0x1A,0x47,0x4F,0xC4,0x1B,0x38,0x35 } }; // B5031A8F-85CA-4FA4-B11A-474FC41B3835
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionGrammarFileConstraintFactory>{ 0x3DA770EB,0xC479,0x4C27,{ 0x9F,0x19,0x89,0x97,0x4E,0xF3,0x92,0xD1 } }; // 3DA770EB-C479-4C27-9F19-89974EF392D1
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionHypothesis>{ 0x7A7B25B0,0x99C5,0x4F7D,{ 0xBF,0x84,0x10,0xAA,0x13,0x02,0xB6,0x34 } }; // 7A7B25B0-99C5-4F7D-BF84-10AA1302B634
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionHypothesisGeneratedEventArgs>{ 0x55161A7A,0x8023,0x5866,{ 0x41,0x1D,0x12,0x13,0xBB,0x27,0x14,0x76 } }; // 55161A7A-8023-5866-411D-1213BB271476
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionListConstraint>{ 0x09C487E9,0xE4AD,0x4526,{ 0x81,0xF2,0x49,0x46,0xFB,0x48,0x1D,0x98 } }; // 09C487E9-E4AD-4526-81F2-4946FB481D98
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionListConstraintFactory>{ 0x40F3CDC7,0x562A,0x426A,{ 0x9F,0x3B,0x3B,0x4E,0x28,0x2B,0xE1,0xD5 } }; // 40F3CDC7-562A-426A-9F3B-3B4E282BE1D5
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionQualityDegradingEventArgs>{ 0x4FE24105,0x8C3A,0x4C7E,{ 0x8D,0x0A,0x5B,0xD4,0xF5,0xB1,0x4A,0xD8 } }; // 4FE24105-8C3A-4C7E-8D0A-5BD4F5B14AD8
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionResult>{ 0x4E303157,0x034E,0x4652,{ 0x85,0x7E,0xD0,0x45,0x4C,0xC4,0xBE,0xEC } }; // 4E303157-034E-4652-857E-D0454CC4BEEC
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionResult2>{ 0xAF7ED1BA,0x451B,0x4166,{ 0xA0,0xC1,0x1F,0xFE,0x84,0x03,0x2D,0x03 } }; // AF7ED1BA-451B-4166-A0C1-1FFE84032D03
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionSemanticInterpretation>{ 0xAAE1DA9B,0x7E32,0x4C1F,{ 0x89,0xFE,0x0C,0x65,0xF4,0x86,0xF5,0x2E } }; // AAE1DA9B-7E32-4C1F-89FE-0C65F486F52E
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionTopicConstraint>{ 0xBF6FDF19,0x825D,0x4E69,{ 0xA6,0x81,0x36,0xE4,0x8C,0xF1,0xC9,0x3E } }; // BF6FDF19-825D-4E69-A681-36E48CF1C93E
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionTopicConstraintFactory>{ 0x6E6863DF,0xEC05,0x47D7,{ 0xA5,0xDF,0x56,0xA3,0x43,0x1E,0x58,0xD2 } }; // 6E6863DF-EC05-47D7-A5DF-56A3431E58D2
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognitionVoiceCommandDefinitionConstraint>{ 0xF2791C2B,0x1EF4,0x4AE7,{ 0x9D,0x77,0xB6,0xFF,0x10,0xB8,0xA3,0xC2 } }; // F2791C2B-1EF4-4AE7-9D77-B6FF10B8A3C2
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizer>{ 0x0BC3C9CB,0xC26A,0x40F2,{ 0xAE,0xB5,0x80,0x96,0xB2,0xE4,0x80,0x73 } }; // 0BC3C9CB-C26A-40F2-AEB5-8096B2E48073
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizer2>{ 0x63C9BAF1,0x91E3,0x4EA4,{ 0x86,0xA1,0x7C,0x38,0x67,0xD0,0x84,0xA6 } }; // 63C9BAF1-91E3-4EA4-86A1-7C3867D084A6
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerFactory>{ 0x60C488DD,0x7FB8,0x4033,{ 0xAC,0x70,0xD0,0x46,0xF6,0x48,0x18,0xE1 } }; // 60C488DD-7FB8-4033-AC70-D046F64818E1
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerStateChangedEventArgs>{ 0x563D4F09,0xBA03,0x4BAD,{ 0xAD,0x81,0xDD,0xC6,0xC4,0xDA,0xB0,0xC3 } }; // 563D4F09-BA03-4BAD-AD81-DDC6C4DAB0C3
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerStatics>{ 0x87A35EAC,0xA7DC,0x4B0B,{ 0xBC,0xC9,0x24,0xF4,0x7C,0x0B,0x7E,0xBF } }; // 87A35EAC-A7DC-4B0B-BCC9-24F47C0B7EBF
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerStatics2>{ 0x1D1B0D95,0x7565,0x4EF9,{ 0xA2,0xF3,0xBA,0x15,0x16,0x2A,0x96,0xCF } }; // 1D1B0D95-7565-4EF9-A2F3-BA15162A96CF
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerTimeouts>{ 0x2EF76FCA,0x6A3C,0x4DCA,{ 0xA1,0x53,0xDF,0x1B,0xC8,0x8A,0x79,0xAF } }; // 2EF76FCA-6A3C-4DCA-A153-DF1BC88A79AF
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::ISpeechRecognizerUIOptions>{ 0x7888D641,0xB92B,0x44BA,{ 0xA2,0x5F,0xD1,0x86,0x46,0x30,0x64,0x1F } }; // 7888D641-B92B-44BA-A25F-D1864630641F
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::IVoiceCommandManager>{ 0xAA3A8DD5,0xB6E7,0x4EE2,{ 0xBA,0xA9,0xDD,0x6B,0xAC,0xED,0x0A,0x2B } }; // AA3A8DD5-B6E7-4EE2-BAA9-DD6BACED0A2B
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechRecognition::IVoiceCommandSet>{ 0x0BEDDA75,0x46E6,0x4B11,{ 0xA0,0x88,0x5C,0x68,0x63,0x28,0x99,0xB5 } }; // 0BEDDA75-46E6-4B11-A088-5C68632899B5
     template <> struct default_interface<Windows::Media::SpeechRecognition::SpeechContinuousRecognitionCompletedEventArgs>{ using type = Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionCompletedEventArgs; };
     template <> struct default_interface<Windows::Media::SpeechRecognition::SpeechContinuousRecognitionResultGeneratedEventArgs>{ using type = Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionResultGeneratedEventArgs; };
     template <> struct default_interface<Windows::Media::SpeechRecognition::SpeechContinuousRecognitionSession>{ using type = Windows::Media::SpeechRecognition::ISpeechContinuousRecognitionSession; };

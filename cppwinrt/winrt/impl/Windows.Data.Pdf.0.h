@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -65,11 +65,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPage> = L"Windows.Data.Pdf.IPdfPage";
     template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPageDimensions> = L"Windows.Data.Pdf.IPdfPageDimensions";
     template <> inline constexpr auto& name_v<Windows::Data::Pdf::IPdfPageRenderOptions> = L"Windows.Data.Pdf.IPdfPageRenderOptions";
-    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfDocument>{ 0xAC7EBEDD,0x80FA,0x4089,{ 0x84,0x6E,0x81,0xB7,0x7F,0xF5,0xA8,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfDocumentStatics>{ 0x433A0B5F,0xC007,0x4788,{ 0x90,0xF2,0x08,0x14,0x3D,0x92,0x25,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfPage>{ 0x9DB4B0C8,0x5320,0x4CFC,{ 0xAD,0x76,0x49,0x3F,0xDA,0xD0,0xE5,0x94 } };
-    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfPageDimensions>{ 0x22170471,0x313E,0x44E8,{ 0x83,0x5D,0x63,0xA3,0xE7,0x62,0x4A,0x10 } };
-    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfPageRenderOptions>{ 0x3C98056F,0xB7CF,0x4C29,{ 0x9A,0x04,0x52,0xD9,0x02,0x67,0xF4,0x25 } };
+    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfDocument>{ 0xAC7EBEDD,0x80FA,0x4089,{ 0x84,0x6E,0x81,0xB7,0x7F,0xF5,0xA8,0x6C } }; // AC7EBEDD-80FA-4089-846E-81B77FF5A86C
+    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfDocumentStatics>{ 0x433A0B5F,0xC007,0x4788,{ 0x90,0xF2,0x08,0x14,0x3D,0x92,0x25,0x99 } }; // 433A0B5F-C007-4788-90F2-08143D922599
+    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfPage>{ 0x9DB4B0C8,0x5320,0x4CFC,{ 0xAD,0x76,0x49,0x3F,0xDA,0xD0,0xE5,0x94 } }; // 9DB4B0C8-5320-4CFC-AD76-493FDAD0E594
+    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfPageDimensions>{ 0x22170471,0x313E,0x44E8,{ 0x83,0x5D,0x63,0xA3,0xE7,0x62,0x4A,0x10 } }; // 22170471-313E-44E8-835D-63A3E7624A10
+    template <> inline constexpr guid guid_v<Windows::Data::Pdf::IPdfPageRenderOptions>{ 0x3C98056F,0xB7CF,0x4C29,{ 0x9A,0x04,0x52,0xD9,0x02,0x67,0xF4,0x25 } }; // 3C98056F-B7CF-4C29-9A04-52D90267F425
     template <> struct default_interface<Windows::Data::Pdf::PdfDocument>{ using type = Windows::Data::Pdf::IPdfDocument; };
     template <> struct default_interface<Windows::Data::Pdf::PdfPage>{ using type = Windows::Data::Pdf::IPdfPage; };
     template <> struct default_interface<Windows::Data::Pdf::PdfPageDimensions>{ using type = Windows::Data::Pdf::IPdfPageDimensions; };

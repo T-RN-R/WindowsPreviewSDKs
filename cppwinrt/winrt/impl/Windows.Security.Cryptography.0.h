@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -28,7 +28,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Cryptography::CryptographicBuffer> = L"Windows.Security.Cryptography.CryptographicBuffer";
     template <> inline constexpr auto& name_v<Windows::Security::Cryptography::BinaryStringEncoding> = L"Windows.Security.Cryptography.BinaryStringEncoding";
     template <> inline constexpr auto& name_v<Windows::Security::Cryptography::ICryptographicBufferStatics> = L"Windows.Security.Cryptography.ICryptographicBufferStatics";
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::ICryptographicBufferStatics>{ 0x320B7E22,0x3CB0,0x4CDF,{ 0x86,0x63,0x1D,0x28,0x91,0x00,0x65,0xEB } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::ICryptographicBufferStatics>{ 0x320B7E22,0x3CB0,0x4CDF,{ 0x86,0x63,0x1D,0x28,0x91,0x00,0x65,0xEB } }; // 320B7E22-3CB0-4CDF-8663-1D28910065EB
     template <> struct abi<Windows::Security::Cryptography::ICryptographicBufferStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

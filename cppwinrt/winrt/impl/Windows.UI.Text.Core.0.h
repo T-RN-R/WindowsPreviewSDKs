@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -252,25 +252,25 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextTextRequest> = L"Windows.UI.Text.Core.ICoreTextTextRequest";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextTextRequestedEventArgs> = L"Windows.UI.Text.Core.ICoreTextTextRequestedEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::Text::Core::ICoreTextTextUpdatingEventArgs> = L"Windows.UI.Text.Core.ICoreTextTextUpdatingEventArgs";
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextCompositionCompletedEventArgs>{ 0x1F34EBB6,0xB79F,0x4121,{ 0xA5,0xE7,0xFD,0xA9,0xB8,0x61,0x6E,0x30 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextCompositionSegment>{ 0x776C6BD9,0x4EAD,0x4DA7,{ 0x8F,0x47,0x3A,0x88,0xB5,0x23,0xCC,0x34 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextCompositionStartedEventArgs>{ 0x276B16A9,0x64E7,0x4AB0,{ 0xBC,0x4B,0xA0,0x2D,0x73,0x83,0x5B,0xFB } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextEditContext>{ 0xBF6608AF,0x4041,0x47C3,{ 0xB2,0x63,0xA9,0x18,0xEB,0x5E,0xAE,0xF2 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextEditContext2>{ 0xB1867DBB,0x083B,0x49E1,{ 0xB2,0x81,0x2B,0x35,0xD6,0x2B,0xF4,0x66 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextFormatUpdatingEventArgs>{ 0x7310BD33,0xB4A8,0x43B1,{ 0xB3,0x7B,0x07,0x24,0xD4,0xAC,0xA7,0xAB } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextLayoutBounds>{ 0xE972C974,0x4436,0x4917,{ 0x80,0xD0,0xA5,0x25,0xE4,0xCA,0x67,0x80 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextLayoutRequest>{ 0x2555A8CC,0x51FD,0x4F03,{ 0x98,0xBF,0xAC,0x78,0x17,0x4D,0x68,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextLayoutRequest2>{ 0x676DE624,0xCD3D,0x4BCD,{ 0xBF,0x01,0x7F,0x71,0x10,0x95,0x45,0x11 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextLayoutRequestedEventArgs>{ 0xB1DC6AE0,0x9A7B,0x4E9E,{ 0xA5,0x66,0x4A,0x6B,0x5F,0x8A,0xD6,0x76 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextSelectionRequest>{ 0xF0A70403,0x208B,0x4301,{ 0x88,0x3C,0x74,0xCA,0x74,0x85,0xFD,0x8D } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextSelectionRequestedEventArgs>{ 0x13C6682B,0xF614,0x421A,{ 0x8F,0x4B,0x9E,0xC8,0xA5,0xA3,0x7F,0xCD } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextSelectionUpdatingEventArgs>{ 0xD445839F,0xFE7F,0x4BD5,{ 0x8A,0x26,0x09,0x22,0xC1,0xB3,0xE6,0x39 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesManager>{ 0xC2507D83,0x6E0A,0x4A8A,{ 0xBD,0xF8,0x19,0x48,0x87,0x48,0x54,0xBA } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesManagerStatics>{ 0x1520A388,0xE2CF,0x4D65,{ 0xAE,0xB9,0xB3,0x2D,0x86,0xFE,0x39,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesStatics>{ 0x91859A46,0xECCF,0x47A4,{ 0x8A,0xE7,0x09,0x8A,0x9C,0x6F,0xBB,0x15 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextTextRequest>{ 0x50D950A9,0xF51E,0x4CC1,{ 0x8C,0xA1,0xE6,0x34,0x6D,0x1A,0x61,0xBE } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextTextRequestedEventArgs>{ 0xF096A2D0,0x41C6,0x4C02,{ 0x8B,0x1A,0xD9,0x53,0xB0,0x0C,0xAB,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextTextUpdatingEventArgs>{ 0xEEA7918D,0xCC2B,0x4F03,{ 0x8F,0xF6,0x02,0xFD,0x21,0x7D,0xB4,0x50 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextCompositionCompletedEventArgs>{ 0x1F34EBB6,0xB79F,0x4121,{ 0xA5,0xE7,0xFD,0xA9,0xB8,0x61,0x6E,0x30 } }; // 1F34EBB6-B79F-4121-A5E7-FDA9B8616E30
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextCompositionSegment>{ 0x776C6BD9,0x4EAD,0x4DA7,{ 0x8F,0x47,0x3A,0x88,0xB5,0x23,0xCC,0x34 } }; // 776C6BD9-4EAD-4DA7-8F47-3A88B523CC34
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextCompositionStartedEventArgs>{ 0x276B16A9,0x64E7,0x4AB0,{ 0xBC,0x4B,0xA0,0x2D,0x73,0x83,0x5B,0xFB } }; // 276B16A9-64E7-4AB0-BC4B-A02D73835BFB
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextEditContext>{ 0xBF6608AF,0x4041,0x47C3,{ 0xB2,0x63,0xA9,0x18,0xEB,0x5E,0xAE,0xF2 } }; // BF6608AF-4041-47C3-B263-A918EB5EAEF2
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextEditContext2>{ 0xB1867DBB,0x083B,0x49E1,{ 0xB2,0x81,0x2B,0x35,0xD6,0x2B,0xF4,0x66 } }; // B1867DBB-083B-49E1-B281-2B35D62BF466
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextFormatUpdatingEventArgs>{ 0x7310BD33,0xB4A8,0x43B1,{ 0xB3,0x7B,0x07,0x24,0xD4,0xAC,0xA7,0xAB } }; // 7310BD33-B4A8-43B1-B37B-0724D4ACA7AB
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextLayoutBounds>{ 0xE972C974,0x4436,0x4917,{ 0x80,0xD0,0xA5,0x25,0xE4,0xCA,0x67,0x80 } }; // E972C974-4436-4917-80D0-A525E4CA6780
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextLayoutRequest>{ 0x2555A8CC,0x51FD,0x4F03,{ 0x98,0xBF,0xAC,0x78,0x17,0x4D,0x68,0xE0 } }; // 2555A8CC-51FD-4F03-98BF-AC78174D68E0
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextLayoutRequest2>{ 0x676DE624,0xCD3D,0x4BCD,{ 0xBF,0x01,0x7F,0x71,0x10,0x95,0x45,0x11 } }; // 676DE624-CD3D-4BCD-BF01-7F7110954511
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextLayoutRequestedEventArgs>{ 0xB1DC6AE0,0x9A7B,0x4E9E,{ 0xA5,0x66,0x4A,0x6B,0x5F,0x8A,0xD6,0x76 } }; // B1DC6AE0-9A7B-4E9E-A566-4A6B5F8AD676
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextSelectionRequest>{ 0xF0A70403,0x208B,0x4301,{ 0x88,0x3C,0x74,0xCA,0x74,0x85,0xFD,0x8D } }; // F0A70403-208B-4301-883C-74CA7485FD8D
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextSelectionRequestedEventArgs>{ 0x13C6682B,0xF614,0x421A,{ 0x8F,0x4B,0x9E,0xC8,0xA5,0xA3,0x7F,0xCD } }; // 13C6682B-F614-421A-8F4B-9EC8A5A37FCD
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextSelectionUpdatingEventArgs>{ 0xD445839F,0xFE7F,0x4BD5,{ 0x8A,0x26,0x09,0x22,0xC1,0xB3,0xE6,0x39 } }; // D445839F-FE7F-4BD5-8A26-0922C1B3E639
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesManager>{ 0xC2507D83,0x6E0A,0x4A8A,{ 0xBD,0xF8,0x19,0x48,0x87,0x48,0x54,0xBA } }; // C2507D83-6E0A-4A8A-BDF8-1948874854BA
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesManagerStatics>{ 0x1520A388,0xE2CF,0x4D65,{ 0xAE,0xB9,0xB3,0x2D,0x86,0xFE,0x39,0xB9 } }; // 1520A388-E2CF-4D65-AEB9-B32D86FE39B9
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextServicesStatics>{ 0x91859A46,0xECCF,0x47A4,{ 0x8A,0xE7,0x09,0x8A,0x9C,0x6F,0xBB,0x15 } }; // 91859A46-ECCF-47A4-8AE7-098A9C6FBB15
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextTextRequest>{ 0x50D950A9,0xF51E,0x4CC1,{ 0x8C,0xA1,0xE6,0x34,0x6D,0x1A,0x61,0xBE } }; // 50D950A9-F51E-4CC1-8CA1-E6346D1A61BE
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextTextRequestedEventArgs>{ 0xF096A2D0,0x41C6,0x4C02,{ 0x8B,0x1A,0xD9,0x53,0xB0,0x0C,0xAB,0xB3 } }; // F096A2D0-41C6-4C02-8B1A-D953B00CABB3
+    template <> inline constexpr guid guid_v<Windows::UI::Text::Core::ICoreTextTextUpdatingEventArgs>{ 0xEEA7918D,0xCC2B,0x4F03,{ 0x8F,0xF6,0x02,0xFD,0x21,0x7D,0xB4,0x50 } }; // EEA7918D-CC2B-4F03-8FF6-02FD217DB450
     template <> struct default_interface<Windows::UI::Text::Core::CoreTextCompositionCompletedEventArgs>{ using type = Windows::UI::Text::Core::ICoreTextCompositionCompletedEventArgs; };
     template <> struct default_interface<Windows::UI::Text::Core::CoreTextCompositionSegment>{ using type = Windows::UI::Text::Core::ICoreTextCompositionSegment; };
     template <> struct default_interface<Windows::UI::Text::Core::CoreTextCompositionStartedEventArgs>{ using type = Windows::UI::Text::Core::ICoreTextCompositionStartedEventArgs; };

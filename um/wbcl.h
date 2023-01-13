@@ -626,11 +626,25 @@ typedef struct _WBCL_Iterator
   // points to the table in the header that contains the mapping of algorithm ids to digest sizes.
   PVOID     digestSizes;
 
+  // Supported algorithm bitmap for the log
+  UINT32    supportedAlgorithms;
+
   // Hash algorithm ID used for the log. The value corresponds to one of the TPM 2.0 ALG_ID values.
   WBCL_DIGEST_ALG_ID    hashAlgorithm;
 } WBCL_Iterator, *PWBCL_Iterator;
 
 #if NTDDI_VERSION >= NTDDI_WIN10
+
+HRESULT
+WbclApiDetectSipaHashAlgID(
+    _In_bytecount_(logSize) PVOID pLogBuffer,
+    _In_                    UINT32 logSize,
+    _Out_                   UINT16* algID);
+
+HRESULT
+WbclApiSetPreferredHashAlgID(
+    _In_   UINT16 algID,
+    _Out_   WBCL_Iterator* pWbclIterator);
 
 HRESULT
 WbclApiInitIterator(

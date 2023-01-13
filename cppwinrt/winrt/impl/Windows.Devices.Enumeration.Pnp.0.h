@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -64,10 +64,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectStatics> = L"Windows.Devices.Enumeration.Pnp.IPnpObjectStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectUpdate> = L"Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate";
     template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher> = L"Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher";
-    template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObject>{ 0x95C66258,0x733B,0x4A8F,{ 0x93,0xA3,0xDB,0x07,0x8A,0xC8,0x70,0xC1 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObjectStatics>{ 0xB3C32A3D,0xD168,0x4660,{ 0xBB,0xF3,0xA7,0x33,0xB1,0x4B,0x6E,0x01 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObjectUpdate>{ 0x6F59E812,0x001E,0x4844,{ 0xBC,0xC6,0x43,0x28,0x86,0x85,0x6A,0x17 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>{ 0x83C95CA8,0x4772,0x4A7A,{ 0xAC,0xA8,0xE4,0x8C,0x42,0xA8,0x9C,0x44 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObject>{ 0x95C66258,0x733B,0x4A8F,{ 0x93,0xA3,0xDB,0x07,0x8A,0xC8,0x70,0xC1 } }; // 95C66258-733B-4A8F-93A3-DB078AC870C1
+    template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObjectStatics>{ 0xB3C32A3D,0xD168,0x4660,{ 0xBB,0xF3,0xA7,0x33,0xB1,0x4B,0x6E,0x01 } }; // B3C32A3D-D168-4660-BBF3-A733B14B6E01
+    template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObjectUpdate>{ 0x6F59E812,0x001E,0x4844,{ 0xBC,0xC6,0x43,0x28,0x86,0x85,0x6A,0x17 } }; // 6F59E812-001E-4844-BCC6-432886856A17
+    template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>{ 0x83C95CA8,0x4772,0x4A7A,{ 0xAC,0xA8,0xE4,0x8C,0x42,0xA8,0x9C,0x44 } }; // 83C95CA8-4772-4A7A-ACA8-E48C42A89C44
     template <> struct default_interface<Windows::Devices::Enumeration::Pnp::PnpObject>{ using type = Windows::Devices::Enumeration::Pnp::IPnpObject; };
     template <> struct default_interface<Windows::Devices::Enumeration::Pnp::PnpObjectCollection>{ using type = Windows::Foundation::Collections::IVectorView<Windows::Devices::Enumeration::Pnp::PnpObject>; };
     template <> struct default_interface<Windows::Devices::Enumeration::Pnp::PnpObjectUpdate>{ using type = Windows::Devices::Enumeration::Pnp::IPnpObjectUpdate; };

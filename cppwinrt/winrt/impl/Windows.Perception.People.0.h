@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -112,12 +112,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Perception::People::IHandMeshVertexState> = L"Windows.Perception.People.IHandMeshVertexState";
     template <> inline constexpr auto& name_v<Windows::Perception::People::IHandPose> = L"Windows.Perception.People.IHandPose";
     template <> inline constexpr auto& name_v<Windows::Perception::People::IHeadPose> = L"Windows.Perception.People.IHeadPose";
-    template <> inline constexpr guid guid_v<Windows::Perception::People::IEyesPose>{ 0x682A9B23,0x8A1E,0x5B86,{ 0xA0,0x60,0x90,0x6F,0xFA,0xCB,0x62,0xA4 } };
-    template <> inline constexpr guid guid_v<Windows::Perception::People::IEyesPoseStatics>{ 0x1CFF7413,0xB21F,0x54C0,{ 0x80,0xC1,0xE6,0x0D,0x99,0x4C,0xA5,0x8C } };
-    template <> inline constexpr guid guid_v<Windows::Perception::People::IHandMeshObserver>{ 0x85AE30CB,0x6FC3,0x55C4,{ 0xA7,0xB4,0x29,0xE3,0x38,0x96,0xCA,0x69 } };
-    template <> inline constexpr guid guid_v<Windows::Perception::People::IHandMeshVertexState>{ 0x046C5FEF,0x1D8B,0x55DE,{ 0xAB,0x2C,0x1C,0xD4,0x24,0x88,0x6D,0x8F } };
-    template <> inline constexpr guid guid_v<Windows::Perception::People::IHandPose>{ 0x4D98E79A,0xBB08,0x5D09,{ 0x91,0xDE,0xDF,0x0D,0xD3,0xFA,0xE4,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::Perception::People::IHeadPose>{ 0x7F5AC5A5,0x49DB,0x379F,{ 0x94,0x29,0x32,0xA2,0xFA,0xF3,0x4F,0xA6 } };
+    template <> inline constexpr guid guid_v<Windows::Perception::People::IEyesPose>{ 0x682A9B23,0x8A1E,0x5B86,{ 0xA0,0x60,0x90,0x6F,0xFA,0xCB,0x62,0xA4 } }; // 682A9B23-8A1E-5B86-A060-906FFACB62A4
+    template <> inline constexpr guid guid_v<Windows::Perception::People::IEyesPoseStatics>{ 0x1CFF7413,0xB21F,0x54C0,{ 0x80,0xC1,0xE6,0x0D,0x99,0x4C,0xA5,0x8C } }; // 1CFF7413-B21F-54C0-80C1-E60D994CA58C
+    template <> inline constexpr guid guid_v<Windows::Perception::People::IHandMeshObserver>{ 0x85AE30CB,0x6FC3,0x55C4,{ 0xA7,0xB4,0x29,0xE3,0x38,0x96,0xCA,0x69 } }; // 85AE30CB-6FC3-55C4-A7B4-29E33896CA69
+    template <> inline constexpr guid guid_v<Windows::Perception::People::IHandMeshVertexState>{ 0x046C5FEF,0x1D8B,0x55DE,{ 0xAB,0x2C,0x1C,0xD4,0x24,0x88,0x6D,0x8F } }; // 046C5FEF-1D8B-55DE-AB2C-1CD424886D8F
+    template <> inline constexpr guid guid_v<Windows::Perception::People::IHandPose>{ 0x4D98E79A,0xBB08,0x5D09,{ 0x91,0xDE,0xDF,0x0D,0xD3,0xFA,0xE4,0x6C } }; // 4D98E79A-BB08-5D09-91DE-DF0DD3FAE46C
+    template <> inline constexpr guid guid_v<Windows::Perception::People::IHeadPose>{ 0x7F5AC5A5,0x49DB,0x379F,{ 0x94,0x29,0x32,0xA2,0xFA,0xF3,0x4F,0xA6 } }; // 7F5AC5A5-49DB-379F-9429-32A2FAF34FA6
     template <> struct default_interface<Windows::Perception::People::EyesPose>{ using type = Windows::Perception::People::IEyesPose; };
     template <> struct default_interface<Windows::Perception::People::HandMeshObserver>{ using type = Windows::Perception::People::IHandMeshObserver; };
     template <> struct default_interface<Windows::Perception::People::HandMeshVertexState>{ using type = Windows::Perception::People::IHandMeshVertexState; };

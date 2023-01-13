@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -228,23 +228,23 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Services::Maps::Guidance::IGuidanceTelemetryCollector> = L"Windows.Services.Maps.Guidance.IGuidanceTelemetryCollector";
     template <> inline constexpr auto& name_v<Windows::Services::Maps::Guidance::IGuidanceTelemetryCollectorStatics> = L"Windows.Services.Maps.Guidance.IGuidanceTelemetryCollectorStatics";
     template <> inline constexpr auto& name_v<Windows::Services::Maps::Guidance::IGuidanceUpdatedEventArgs> = L"Windows.Services.Maps.Guidance.IGuidanceUpdatedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceAudioNotificationRequestedEventArgs>{ 0xCA2AA24A,0xC7C2,0x4D4C,{ 0x9D,0x7C,0x49,0x95,0x76,0xBC,0xED,0xDB } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceLaneInfo>{ 0x8404D114,0x6581,0x43B7,{ 0xAC,0x15,0xC9,0x07,0x9B,0xF9,0x0D,0xF1 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceManeuver>{ 0xFC09326C,0xECC9,0x4928,{ 0xA2,0xA1,0x72,0x32,0xB9,0x9B,0x94,0xA1 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceMapMatchedCoordinate>{ 0xB7ACB168,0x2912,0x4A99,{ 0xAF,0xF1,0x79,0x86,0x09,0xB9,0x81,0xFE } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceNavigator>{ 0x08F17EF7,0x8E3F,0x4D9A,{ 0xBE,0x8A,0x10,0x8F,0x9A,0x01,0x2C,0x67 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceNavigator2>{ 0x6CDC50D1,0x041C,0x4BF3,{ 0xB6,0x33,0xA1,0x01,0xFC,0x2F,0x6B,0x57 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceNavigatorStatics>{ 0x00FD9513,0x4456,0x4E66,{ 0xA1,0x43,0x3A,0xDD,0x6B,0xE0,0x84,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceNavigatorStatics2>{ 0x54C5C3E2,0x7784,0x4C85,{ 0x8C,0x95,0xD0,0xC6,0xEF,0xB4,0x39,0x65 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceReroutedEventArgs>{ 0x115D4008,0xD528,0x454E,{ 0xBB,0x94,0xA5,0x03,0x41,0xD2,0xC9,0xF1 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRoadSegment>{ 0xB32758A6,0xBE78,0x4C63,{ 0xAF,0xE7,0x6C,0x29,0x57,0x47,0x9B,0x3E } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRoadSegment2>{ 0x2474A61D,0x1723,0x49F1,{ 0x89,0x5B,0x47,0xA2,0xC4,0xAA,0x9C,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRoadSignpost>{ 0xF1A728B6,0xF77A,0x4742,{ 0x83,0x12,0x53,0x30,0x0F,0x98,0x45,0xF0 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRoute>{ 0x3A14545D,0x801A,0x40BD,{ 0xA2,0x86,0xAF,0xB2,0x01,0x0C,0xCE,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRouteStatics>{ 0xF56D926A,0x55ED,0x49C1,{ 0xB0,0x9C,0x4B,0x82,0x23,0xB5,0x0D,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceTelemetryCollector>{ 0xDB1F8DA5,0xB878,0x4D92,{ 0x98,0xDD,0x34,0x7D,0x23,0xD3,0x82,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceTelemetryCollectorStatics>{ 0x36532047,0xF160,0x44FB,{ 0xB5,0x78,0x94,0x57,0x7C,0xA0,0x59,0x90 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceUpdatedEventArgs>{ 0xFDAC160B,0x9E8D,0x4DE3,{ 0xA9,0xFA,0xB0,0x63,0x21,0xD1,0x8D,0xB9 } };
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceAudioNotificationRequestedEventArgs>{ 0xCA2AA24A,0xC7C2,0x4D4C,{ 0x9D,0x7C,0x49,0x95,0x76,0xBC,0xED,0xDB } }; // CA2AA24A-C7C2-4D4C-9D7C-499576BCEDDB
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceLaneInfo>{ 0x8404D114,0x6581,0x43B7,{ 0xAC,0x15,0xC9,0x07,0x9B,0xF9,0x0D,0xF1 } }; // 8404D114-6581-43B7-AC15-C9079BF90DF1
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceManeuver>{ 0xFC09326C,0xECC9,0x4928,{ 0xA2,0xA1,0x72,0x32,0xB9,0x9B,0x94,0xA1 } }; // FC09326C-ECC9-4928-A2A1-7232B99B94A1
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceMapMatchedCoordinate>{ 0xB7ACB168,0x2912,0x4A99,{ 0xAF,0xF1,0x79,0x86,0x09,0xB9,0x81,0xFE } }; // B7ACB168-2912-4A99-AFF1-798609B981FE
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceNavigator>{ 0x08F17EF7,0x8E3F,0x4D9A,{ 0xBE,0x8A,0x10,0x8F,0x9A,0x01,0x2C,0x67 } }; // 08F17EF7-8E3F-4D9A-BE8A-108F9A012C67
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceNavigator2>{ 0x6CDC50D1,0x041C,0x4BF3,{ 0xB6,0x33,0xA1,0x01,0xFC,0x2F,0x6B,0x57 } }; // 6CDC50D1-041C-4BF3-B633-A101FC2F6B57
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceNavigatorStatics>{ 0x00FD9513,0x4456,0x4E66,{ 0xA1,0x43,0x3A,0xDD,0x6B,0xE0,0x84,0x26 } }; // 00FD9513-4456-4E66-A143-3ADD6BE08426
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceNavigatorStatics2>{ 0x54C5C3E2,0x7784,0x4C85,{ 0x8C,0x95,0xD0,0xC6,0xEF,0xB4,0x39,0x65 } }; // 54C5C3E2-7784-4C85-8C95-D0C6EFB43965
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceReroutedEventArgs>{ 0x115D4008,0xD528,0x454E,{ 0xBB,0x94,0xA5,0x03,0x41,0xD2,0xC9,0xF1 } }; // 115D4008-D528-454E-BB94-A50341D2C9F1
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRoadSegment>{ 0xB32758A6,0xBE78,0x4C63,{ 0xAF,0xE7,0x6C,0x29,0x57,0x47,0x9B,0x3E } }; // B32758A6-BE78-4C63-AFE7-6C2957479B3E
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRoadSegment2>{ 0x2474A61D,0x1723,0x49F1,{ 0x89,0x5B,0x47,0xA2,0xC4,0xAA,0x9C,0x55 } }; // 2474A61D-1723-49F1-895B-47A2C4AA9C55
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRoadSignpost>{ 0xF1A728B6,0xF77A,0x4742,{ 0x83,0x12,0x53,0x30,0x0F,0x98,0x45,0xF0 } }; // F1A728B6-F77A-4742-8312-53300F9845F0
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRoute>{ 0x3A14545D,0x801A,0x40BD,{ 0xA2,0x86,0xAF,0xB2,0x01,0x0C,0xCE,0x6C } }; // 3A14545D-801A-40BD-A286-AFB2010CCE6C
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceRouteStatics>{ 0xF56D926A,0x55ED,0x49C1,{ 0xB0,0x9C,0x4B,0x82,0x23,0xB5,0x0D,0xB3 } }; // F56D926A-55ED-49C1-B09C-4B8223B50DB3
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceTelemetryCollector>{ 0xDB1F8DA5,0xB878,0x4D92,{ 0x98,0xDD,0x34,0x7D,0x23,0xD3,0x82,0x62 } }; // DB1F8DA5-B878-4D92-98DD-347D23D38262
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceTelemetryCollectorStatics>{ 0x36532047,0xF160,0x44FB,{ 0xB5,0x78,0x94,0x57,0x7C,0xA0,0x59,0x90 } }; // 36532047-F160-44FB-B578-94577CA05990
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::Guidance::IGuidanceUpdatedEventArgs>{ 0xFDAC160B,0x9E8D,0x4DE3,{ 0xA9,0xFA,0xB0,0x63,0x21,0xD1,0x8D,0xB9 } }; // FDAC160B-9E8D-4DE3-A9FA-B06321D18DB9
     template <> struct default_interface<Windows::Services::Maps::Guidance::GuidanceAudioNotificationRequestedEventArgs>{ using type = Windows::Services::Maps::Guidance::IGuidanceAudioNotificationRequestedEventArgs; };
     template <> struct default_interface<Windows::Services::Maps::Guidance::GuidanceLaneInfo>{ using type = Windows::Services::Maps::Guidance::IGuidanceLaneInfo; };
     template <> struct default_interface<Windows::Services::Maps::Guidance::GuidanceManeuver>{ using type = Windows::Services::Maps::Guidance::IGuidanceManeuver; };

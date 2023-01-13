@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -98,14 +98,14 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamView";
     template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView2> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamView2";
     template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamViewStatics> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamViewStatics";
-    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCleanupRequestedEventArgs>{ 0xF0190610,0x05AF,0x4250,{ 0xB9,0x6A,0xA7,0x4E,0xDE,0xF7,0x7A,0x0D } };
-    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCommandInvokedEventArgs>{ 0x661F4165,0xFE71,0x44AF,{ 0x95,0x68,0x6C,0xC7,0xCF,0x29,0xCD,0x4C } };
-    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamDeviceCredentials>{ 0x8959C9B9,0x02FC,0x4D1D,{ 0x89,0x21,0xD6,0x1E,0x77,0x66,0xCB,0x89 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamEndMeetingRequestedEventArgs>{ 0x10B149E1,0xB6F1,0x4CA7,{ 0xB4,0xCE,0x2C,0x66,0xA4,0xA6,0x46,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamJoinMeetingRequestedEventArgs>{ 0x421E6ADB,0x98D7,0x41AE,{ 0xBA,0x49,0x6C,0xAF,0x55,0x9B,0x8F,0x5A } };
-    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView>{ 0x6F616677,0x02AE,0x49A0,{ 0xAA,0x50,0x86,0x2D,0x07,0x8C,0xF9,0xB1 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView2>{ 0xBD44B2A2,0x0D77,0x416D,{ 0xA3,0x70,0x9E,0xA5,0xEC,0xE4,0x62,0x29 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamViewStatics>{ 0xFE241233,0xD49C,0x49EE,{ 0xB7,0x98,0xEC,0x31,0xD9,0x54,0x39,0x38 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCleanupRequestedEventArgs>{ 0xF0190610,0x05AF,0x4250,{ 0xB9,0x6A,0xA7,0x4E,0xDE,0xF7,0x7A,0x0D } }; // F0190610-05AF-4250-B96A-A74EDEF77A0D
+    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCommandInvokedEventArgs>{ 0x661F4165,0xFE71,0x44AF,{ 0x95,0x68,0x6C,0xC7,0xCF,0x29,0xCD,0x4C } }; // 661F4165-FE71-44AF-9568-6CC7CF29CD4C
+    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamDeviceCredentials>{ 0x8959C9B9,0x02FC,0x4D1D,{ 0x89,0x21,0xD6,0x1E,0x77,0x66,0xCB,0x89 } }; // 8959C9B9-02FC-4D1D-8921-D61E7766CB89
+    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamEndMeetingRequestedEventArgs>{ 0x10B149E1,0xB6F1,0x4CA7,{ 0xB4,0xCE,0x2C,0x66,0xA4,0xA6,0x46,0x99 } }; // 10B149E1-B6F1-4CA7-B4CE-2C66A4A64699
+    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamJoinMeetingRequestedEventArgs>{ 0x421E6ADB,0x98D7,0x41AE,{ 0xBA,0x49,0x6C,0xAF,0x55,0x9B,0x8F,0x5A } }; // 421E6ADB-98D7-41AE-BA49-6CAF559B8F5A
+    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView>{ 0x6F616677,0x02AE,0x49A0,{ 0xAA,0x50,0x86,0x2D,0x07,0x8C,0xF9,0xB1 } }; // 6F616677-02AE-49A0-AA50-862D078CF9B1
+    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView2>{ 0xBD44B2A2,0x0D77,0x416D,{ 0xA3,0x70,0x9E,0xA5,0xEC,0xE4,0x62,0x29 } }; // BD44B2A2-0D77-416D-A370-9EA5ECE46229
+    template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamViewStatics>{ 0xFE241233,0xD49C,0x49EE,{ 0xB7,0x98,0xEC,0x31,0xD9,0x54,0x39,0x38 } }; // FE241233-D49C-49EE-B798-EC31D9543938
     template <> struct default_interface<Windows::UI::Core::Preview::Communications::PreviewTeamCleanupRequestedEventArgs>{ using type = Windows::UI::Core::Preview::Communications::IPreviewTeamCleanupRequestedEventArgs; };
     template <> struct default_interface<Windows::UI::Core::Preview::Communications::PreviewTeamCommandInvokedEventArgs>{ using type = Windows::UI::Core::Preview::Communications::IPreviewTeamCommandInvokedEventArgs; };
     template <> struct default_interface<Windows::UI::Core::Preview::Communications::PreviewTeamDeviceCredentials>{ using type = Windows::UI::Core::Preview::Communications::IPreviewTeamDeviceCredentials; };

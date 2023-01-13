@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -48,10 +48,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Storage::Compression::ICompressorFactory> = L"Windows.Storage.Compression.ICompressorFactory";
     template <> inline constexpr auto& name_v<Windows::Storage::Compression::IDecompressor> = L"Windows.Storage.Compression.IDecompressor";
     template <> inline constexpr auto& name_v<Windows::Storage::Compression::IDecompressorFactory> = L"Windows.Storage.Compression.IDecompressorFactory";
-    template <> inline constexpr guid guid_v<Windows::Storage::Compression::ICompressor>{ 0x0AC3645A,0x57AC,0x4EE1,{ 0xB7,0x02,0x84,0xD3,0x9D,0x54,0x24,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Compression::ICompressorFactory>{ 0x5F3D96A4,0x2CFB,0x442C,{ 0xA8,0xBA,0xD7,0xD1,0x1B,0x03,0x9D,0xA0 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Compression::IDecompressor>{ 0xB883FE46,0xD68A,0x4C8B,{ 0xAD,0xA0,0x4E,0xE8,0x13,0xFC,0x52,0x83 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Compression::IDecompressorFactory>{ 0x5337E252,0x1DA2,0x42E1,{ 0x88,0x34,0x03,0x79,0xD2,0x8D,0x74,0x2F } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Compression::ICompressor>{ 0x0AC3645A,0x57AC,0x4EE1,{ 0xB7,0x02,0x84,0xD3,0x9D,0x54,0x24,0xE0 } }; // 0AC3645A-57AC-4EE1-B702-84D39D5424E0
+    template <> inline constexpr guid guid_v<Windows::Storage::Compression::ICompressorFactory>{ 0x5F3D96A4,0x2CFB,0x442C,{ 0xA8,0xBA,0xD7,0xD1,0x1B,0x03,0x9D,0xA0 } }; // 5F3D96A4-2CFB-442C-A8BA-D7D11B039DA0
+    template <> inline constexpr guid guid_v<Windows::Storage::Compression::IDecompressor>{ 0xB883FE46,0xD68A,0x4C8B,{ 0xAD,0xA0,0x4E,0xE8,0x13,0xFC,0x52,0x83 } }; // B883FE46-D68A-4C8B-ADA0-4EE813FC5283
+    template <> inline constexpr guid guid_v<Windows::Storage::Compression::IDecompressorFactory>{ 0x5337E252,0x1DA2,0x42E1,{ 0x88,0x34,0x03,0x79,0xD2,0x8D,0x74,0x2F } }; // 5337E252-1DA2-42E1-8834-0379D28D742F
     template <> struct default_interface<Windows::Storage::Compression::Compressor>{ using type = Windows::Storage::Compression::ICompressor; };
     template <> struct default_interface<Windows::Storage::Compression::Decompressor>{ using type = Windows::Storage::Compression::IDecompressor; };
     template <> struct abi<Windows::Storage::Compression::ICompressor>

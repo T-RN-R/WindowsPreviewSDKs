@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -16,7 +16,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::Desktop::DesktopWindowTarget>{ using type = class_category; };
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Desktop::DesktopWindowTarget> = L"Windows.UI.Composition.Desktop.DesktopWindowTarget";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Desktop::IDesktopWindowTarget> = L"Windows.UI.Composition.Desktop.IDesktopWindowTarget";
-    template <> inline constexpr guid guid_v<Windows::UI::Composition::Desktop::IDesktopWindowTarget>{ 0x6329D6CA,0x3366,0x490E,{ 0x9D,0xB3,0x25,0x31,0x29,0x29,0xAC,0x51 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::Desktop::IDesktopWindowTarget>{ 0x6329D6CA,0x3366,0x490E,{ 0x9D,0xB3,0x25,0x31,0x29,0x29,0xAC,0x51 } }; // 6329D6CA-3366-490E-9DB3-25312929AC51
     template <> struct default_interface<Windows::UI::Composition::Desktop::DesktopWindowTarget>{ using type = Windows::UI::Composition::Desktop::IDesktopWindowTarget; };
     template <> struct abi<Windows::UI::Composition::Desktop::IDesktopWindowTarget>
     {

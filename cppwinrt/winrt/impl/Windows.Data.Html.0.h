@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -16,7 +16,7 @@ namespace winrt::impl
     template <> struct category<Windows::Data::Html::HtmlUtilities>{ using type = class_category; };
     template <> inline constexpr auto& name_v<Windows::Data::Html::HtmlUtilities> = L"Windows.Data.Html.HtmlUtilities";
     template <> inline constexpr auto& name_v<Windows::Data::Html::IHtmlUtilities> = L"Windows.Data.Html.IHtmlUtilities";
-    template <> inline constexpr guid guid_v<Windows::Data::Html::IHtmlUtilities>{ 0xFEC00ADD,0x2399,0x4FAC,{ 0xB5,0xA7,0x05,0xE9,0xAC,0xD7,0x18,0x1D } };
+    template <> inline constexpr guid guid_v<Windows::Data::Html::IHtmlUtilities>{ 0xFEC00ADD,0x2399,0x4FAC,{ 0xB5,0xA7,0x05,0xE9,0xAC,0xD7,0x18,0x1D } }; // FEC00ADD-2399-4FAC-B5A7-05E9ACD7181D
     template <> struct abi<Windows::Data::Html::IHtmlUtilities>
     {
         struct __declspec(novtable) type : inspectable_abi

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -168,30 +168,30 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterHost3> = L"Windows.UI.Xaml.Hosting.IXamlUIPresenterHost3";
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics> = L"Windows.UI.Xaml.Hosting.IXamlUIPresenterStatics";
     template <> inline constexpr auto& name_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics2> = L"Windows.UI.Xaml.Hosting.IXamlUIPresenterStatics2";
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesignerAppExitedEventArgs>{ 0xF6AAC86A,0x0CAD,0x410C,{ 0x8F,0x62,0xDC,0x29,0x36,0x15,0x1C,0x74 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesignerAppManager>{ 0xA6272CAA,0xD5C6,0x40CB,{ 0xAB,0xD9,0x27,0xBA,0x43,0x83,0x1B,0xB7 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesignerAppManagerFactory>{ 0x8F9D633B,0x1266,0x4C0E,{ 0x84,0x99,0x0D,0xB8,0x5B,0xBD,0x4C,0x43 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesignerAppView>{ 0x5C777CEA,0xDD71,0x4A84,{ 0xA5,0x6F,0xDA,0xCB,0x4B,0x14,0x70,0x6F } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource>{ 0xD585BFE1,0x00FF,0x51BE,{ 0xBA,0x1D,0xA1,0x32,0x99,0x56,0xEA,0x0A } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceFactory>{ 0x5CD61DC0,0x2561,0x56E1,{ 0x8E,0x75,0x6E,0x44,0x17,0x38,0x05,0xE3 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceGotFocusEventArgs>{ 0x39BE4849,0xD9CC,0x5B70,{ 0x8F,0x05,0x1A,0xD9,0xA4,0xAA,0xA3,0x42 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceTakeFocusRequestedEventArgs>{ 0xFE61E4B9,0xA7AF,0x52B3,{ 0xBD,0xB9,0xC3,0x30,0x5C,0x0B,0x8D,0xF2 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IElementCompositionPreview>{ 0xB6F1A676,0xCFE6,0x46AC,{ 0xAC,0xF6,0xC4,0x68,0x7B,0xB6,0x5E,0x60 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics>{ 0x08C92B38,0xEC99,0x4C55,{ 0xBC,0x85,0xA1,0xC1,0x80,0xB2,0x76,0x46 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2>{ 0x24148FBB,0x23D6,0x4F37,{ 0xBA,0x0C,0x07,0x33,0xE7,0x99,0x72,0x2D } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics3>{ 0x843BC4C3,0xC105,0x59FE,{ 0xA3,0xD1,0x37,0x3C,0x1D,0x3E,0x6F,0xBC } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IWindowsXamlManager>{ 0x56096C31,0x1AA0,0x5288,{ 0x88,0x18,0x6E,0x74,0xA2,0xDC,0xAF,0xF5 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IWindowsXamlManagerStatics>{ 0x28258A12,0x7D82,0x505B,{ 0xB2,0x10,0x71,0x2B,0x04,0xA5,0x88,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequest>{ 0xFBB93BB5,0x1496,0x5A80,{ 0xAC,0x00,0xE7,0x57,0x35,0x97,0x55,0xE6 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequestFactory>{ 0xE746AB8F,0xB4EF,0x5390,{ 0x97,0xE5,0xCC,0x0A,0x27,0x79,0xC5,0x74 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationResult>{ 0x88D55A5F,0x9603,0x5D8F,{ 0x9C,0xC7,0xD1,0xC4,0x07,0x0D,0x98,0x01 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationResultFactory>{ 0x43BBADBF,0xF9E1,0x5527,{ 0xB8,0xC5,0x09,0x33,0x9F,0xF2,0xCA,0x76 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenter>{ 0xA714944A,0x1619,0x4FC6,{ 0xB3,0x1B,0x89,0x51,0x2E,0xF0,0x22,0xA2 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterHost>{ 0xAAFB84CD,0x9F6D,0x4F80,{ 0xAC,0x2C,0x0E,0x6C,0xB9,0xF3,0x16,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterHost2>{ 0x61595672,0x7CA4,0x4A21,{ 0xB5,0x6A,0x88,0xF4,0x81,0x23,0x88,0xCA } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterHost3>{ 0xB14292BF,0x7320,0x41BB,{ 0x9F,0x26,0x4D,0x6F,0xD3,0x4D,0xB4,0x5A } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics>{ 0x71EAEAC8,0x45E1,0x4192,{ 0x85,0xAA,0x3A,0x42,0x2E,0xDD,0x23,0xCF } };
-    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics2>{ 0x5C6B68D2,0xCF1C,0x4F53,{ 0xBF,0x09,0x6A,0x74,0x5F,0x7A,0x97,0x03 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesignerAppExitedEventArgs>{ 0xF6AAC86A,0x0CAD,0x410C,{ 0x8F,0x62,0xDC,0x29,0x36,0x15,0x1C,0x74 } }; // F6AAC86A-0CAD-410C-8F62-DC2936151C74
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesignerAppManager>{ 0xA6272CAA,0xD5C6,0x40CB,{ 0xAB,0xD9,0x27,0xBA,0x43,0x83,0x1B,0xB7 } }; // A6272CAA-D5C6-40CB-ABD9-27BA43831BB7
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesignerAppManagerFactory>{ 0x8F9D633B,0x1266,0x4C0E,{ 0x84,0x99,0x0D,0xB8,0x5B,0xBD,0x4C,0x43 } }; // 8F9D633B-1266-4C0E-8499-0DB85BBD4C43
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesignerAppView>{ 0x5C777CEA,0xDD71,0x4A84,{ 0xA5,0x6F,0xDA,0xCB,0x4B,0x14,0x70,0x6F } }; // 5C777CEA-DD71-4A84-A56F-DACB4B14706F
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesktopWindowXamlSource>{ 0xD585BFE1,0x00FF,0x51BE,{ 0xBA,0x1D,0xA1,0x32,0x99,0x56,0xEA,0x0A } }; // D585BFE1-00FF-51BE-BA1D-A1329956EA0A
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceFactory>{ 0x5CD61DC0,0x2561,0x56E1,{ 0x8E,0x75,0x6E,0x44,0x17,0x38,0x05,0xE3 } }; // 5CD61DC0-2561-56E1-8E75-6E44173805E3
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceGotFocusEventArgs>{ 0x39BE4849,0xD9CC,0x5B70,{ 0x8F,0x05,0x1A,0xD9,0xA4,0xAA,0xA3,0x42 } }; // 39BE4849-D9CC-5B70-8F05-1AD9A4AAA342
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IDesktopWindowXamlSourceTakeFocusRequestedEventArgs>{ 0xFE61E4B9,0xA7AF,0x52B3,{ 0xBD,0xB9,0xC3,0x30,0x5C,0x0B,0x8D,0xF2 } }; // FE61E4B9-A7AF-52B3-BDB9-C3305C0B8DF2
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IElementCompositionPreview>{ 0xB6F1A676,0xCFE6,0x46AC,{ 0xAC,0xF6,0xC4,0x68,0x7B,0xB6,0x5E,0x60 } }; // B6F1A676-CFE6-46AC-ACF6-C4687BB65E60
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics>{ 0x08C92B38,0xEC99,0x4C55,{ 0xBC,0x85,0xA1,0xC1,0x80,0xB2,0x76,0x46 } }; // 08C92B38-EC99-4C55-BC85-A1C180B27646
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics2>{ 0x24148FBB,0x23D6,0x4F37,{ 0xBA,0x0C,0x07,0x33,0xE7,0x99,0x72,0x2D } }; // 24148FBB-23D6-4F37-BA0C-0733E799722D
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IElementCompositionPreviewStatics3>{ 0x843BC4C3,0xC105,0x59FE,{ 0xA3,0xD1,0x37,0x3C,0x1D,0x3E,0x6F,0xBC } }; // 843BC4C3-C105-59FE-A3D1-373C1D3E6FBC
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IWindowsXamlManager>{ 0x56096C31,0x1AA0,0x5288,{ 0x88,0x18,0x6E,0x74,0xA2,0xDC,0xAF,0xF5 } }; // 56096C31-1AA0-5288-8818-6E74A2DCAFF5
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IWindowsXamlManagerStatics>{ 0x28258A12,0x7D82,0x505B,{ 0xB2,0x10,0x71,0x2B,0x04,0xA5,0x88,0x82 } }; // 28258A12-7D82-505B-B210-712B04A58882
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequest>{ 0xFBB93BB5,0x1496,0x5A80,{ 0xAC,0x00,0xE7,0x57,0x35,0x97,0x55,0xE6 } }; // FBB93BB5-1496-5A80-AC00-E757359755E6
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationRequestFactory>{ 0xE746AB8F,0xB4EF,0x5390,{ 0x97,0xE5,0xCC,0x0A,0x27,0x79,0xC5,0x74 } }; // E746AB8F-B4EF-5390-97E5-CC0A2779C574
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationResult>{ 0x88D55A5F,0x9603,0x5D8F,{ 0x9C,0xC7,0xD1,0xC4,0x07,0x0D,0x98,0x01 } }; // 88D55A5F-9603-5D8F-9CC7-D1C4070D9801
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlSourceFocusNavigationResultFactory>{ 0x43BBADBF,0xF9E1,0x5527,{ 0xB8,0xC5,0x09,0x33,0x9F,0xF2,0xCA,0x76 } }; // 43BBADBF-F9E1-5527-B8C5-09339FF2CA76
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenter>{ 0xA714944A,0x1619,0x4FC6,{ 0xB3,0x1B,0x89,0x51,0x2E,0xF0,0x22,0xA2 } }; // A714944A-1619-4FC6-B31B-89512EF022A2
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterHost>{ 0xAAFB84CD,0x9F6D,0x4F80,{ 0xAC,0x2C,0x0E,0x6C,0xB9,0xF3,0x16,0x59 } }; // AAFB84CD-9F6D-4F80-AC2C-0E6CB9F31659
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterHost2>{ 0x61595672,0x7CA4,0x4A21,{ 0xB5,0x6A,0x88,0xF4,0x81,0x23,0x88,0xCA } }; // 61595672-7CA4-4A21-B56A-88F4812388CA
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterHost3>{ 0xB14292BF,0x7320,0x41BB,{ 0x9F,0x26,0x4D,0x6F,0xD3,0x4D,0xB4,0x5A } }; // B14292BF-7320-41BB-9F26-4D6FD34DB45A
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics>{ 0x71EAEAC8,0x45E1,0x4192,{ 0x85,0xAA,0x3A,0x42,0x2E,0xDD,0x23,0xCF } }; // 71EAEAC8-45E1-4192-85AA-3A422EDD23CF
+    template <> inline constexpr guid guid_v<Windows::UI::Xaml::Hosting::IXamlUIPresenterStatics2>{ 0x5C6B68D2,0xCF1C,0x4F53,{ 0xBF,0x09,0x6A,0x74,0x5F,0x7A,0x97,0x03 } }; // 5C6B68D2-CF1C-4F53-BF09-6A745F7A9703
     template <> struct default_interface<Windows::UI::Xaml::Hosting::DesignerAppExitedEventArgs>{ using type = Windows::UI::Xaml::Hosting::IDesignerAppExitedEventArgs; };
     template <> struct default_interface<Windows::UI::Xaml::Hosting::DesignerAppManager>{ using type = Windows::UI::Xaml::Hosting::IDesignerAppManager; };
     template <> struct default_interface<Windows::UI::Xaml::Hosting::DesignerAppView>{ using type = Windows::UI::Xaml::Hosting::IDesignerAppView; };

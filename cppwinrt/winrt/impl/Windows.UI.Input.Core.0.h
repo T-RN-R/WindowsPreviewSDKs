@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -38,9 +38,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource> = L"Windows.UI.Input.Core.IRadialControllerIndependentInputSource";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource2> = L"Windows.UI.Input.Core.IRadialControllerIndependentInputSource2";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSourceStatics> = L"Windows.UI.Input.Core.IRadialControllerIndependentInputSourceStatics";
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource>{ 0x3D577EF6,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource2>{ 0x7073AAD8,0x35F3,0x4EEB,{ 0x87,0x51,0xBE,0x4D,0x0A,0x66,0xFA,0xF4 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSourceStatics>{ 0x3D577EF5,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } };
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource>{ 0x3D577EF6,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } }; // 3D577EF6-4CEE-11E6-B535-001BDC06AB3B
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource2>{ 0x7073AAD8,0x35F3,0x4EEB,{ 0x87,0x51,0xBE,0x4D,0x0A,0x66,0xFA,0xF4 } }; // 7073AAD8-35F3-4EEB-8751-BE4D0A66FAF4
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSourceStatics>{ 0x3D577EF5,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } }; // 3D577EF5-4CEE-11E6-B535-001BDC06AB3B
     template <> struct default_interface<Windows::UI::Input::Core::RadialControllerIndependentInputSource>{ using type = Windows::UI::Input::Core::IRadialControllerIndependentInputSource; };
     template <> struct abi<Windows::UI::Input::Core::IRadialControllerIndependentInputSource>
     {

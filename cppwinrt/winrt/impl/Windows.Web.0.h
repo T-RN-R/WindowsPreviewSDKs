@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -88,8 +88,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Web::WebErrorStatus> = L"Windows.Web.WebErrorStatus";
     template <> inline constexpr auto& name_v<Windows::Web::IUriToStreamResolver> = L"Windows.Web.IUriToStreamResolver";
     template <> inline constexpr auto& name_v<Windows::Web::IWebErrorStatics> = L"Windows.Web.IWebErrorStatics";
-    template <> inline constexpr guid guid_v<Windows::Web::IUriToStreamResolver>{ 0xB0ABA86A,0x9AEB,0x4D3A,{ 0x95,0x90,0x00,0x3E,0x3C,0xA7,0xE2,0x90 } };
-    template <> inline constexpr guid guid_v<Windows::Web::IWebErrorStatics>{ 0xFE616766,0xBF27,0x4064,{ 0x87,0xB7,0x65,0x63,0xBB,0x11,0xCE,0x2E } };
+    template <> inline constexpr guid guid_v<Windows::Web::IUriToStreamResolver>{ 0xB0ABA86A,0x9AEB,0x4D3A,{ 0x95,0x90,0x00,0x3E,0x3C,0xA7,0xE2,0x90 } }; // B0ABA86A-9AEB-4D3A-9590-003E3CA7E290
+    template <> inline constexpr guid guid_v<Windows::Web::IWebErrorStatics>{ 0xFE616766,0xBF27,0x4064,{ 0x87,0xB7,0x65,0x63,0xBB,0x11,0xCE,0x2E } }; // FE616766-BF27-4064-87B7-6563BB11CE2E
     template <> struct abi<Windows::Web::IUriToStreamResolver>
     {
         struct __declspec(novtable) type : inspectable_abi

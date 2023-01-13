@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -52,10 +52,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReading> = L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewReading";
     template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> = L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewStatics> = L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewStatics";
-    template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreview>{ 0x72245C31,0x4B39,0x42A6,{ 0x8E,0x73,0x72,0x35,0xAD,0xE1,0x68,0x53 } };
-    template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReading>{ 0xA0251452,0x4AD6,0x4B38,{ 0x84,0x26,0xC5,0x9A,0x15,0x49,0x3A,0x7D } };
-    template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>{ 0x2D2D1BC6,0x02CE,0x474A,{ 0xA5,0x56,0xA7,0x5B,0x1C,0xF9,0x3A,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewStatics>{ 0x0C4733D2,0x57E0,0x4180,{ 0xBD,0x5E,0xF3,0x1A,0x21,0x38,0x42,0x3E } };
+    template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreview>{ 0x72245C31,0x4B39,0x42A6,{ 0x8E,0x73,0x72,0x35,0xAD,0xE1,0x68,0x53 } }; // 72245C31-4B39-42A6-8E73-7235ADE16853
+    template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReading>{ 0xA0251452,0x4AD6,0x4B38,{ 0x84,0x26,0xC5,0x9A,0x15,0x49,0x3A,0x7D } }; // A0251452-4AD6-4B38-8426-C59A15493A7D
+    template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>{ 0x2D2D1BC6,0x02CE,0x474A,{ 0xA5,0x56,0xA7,0x5B,0x1C,0xF9,0x3A,0x03 } }; // 2D2D1BC6-02CE-474A-A556-A75B1CF93A03
+    template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewStatics>{ 0x0C4733D2,0x57E0,0x4180,{ 0xBD,0x5E,0xF3,0x1A,0x21,0x38,0x42,0x3E } }; // 0C4733D2-57E0-4180-BD5E-F31A2138423E
     template <> struct default_interface<Windows::System::Preview::TwoPanelHingedDevicePosturePreview>{ using type = Windows::System::Preview::ITwoPanelHingedDevicePosturePreview; };
     template <> struct default_interface<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReading>{ using type = Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReading; };
     template <> struct default_interface<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>{ using type = Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs; };

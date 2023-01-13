@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -84,10 +84,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Credentials::UI::ICredentialPickerResults> = L"Windows.Security.Credentials.UI.ICredentialPickerResults";
     template <> inline constexpr auto& name_v<Windows::Security::Credentials::UI::ICredentialPickerStatics> = L"Windows.Security.Credentials.UI.ICredentialPickerStatics";
     template <> inline constexpr auto& name_v<Windows::Security::Credentials::UI::IUserConsentVerifierStatics> = L"Windows.Security.Credentials.UI.IUserConsentVerifierStatics";
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::UI::ICredentialPickerOptions>{ 0x965A0B4C,0x95FA,0x467F,{ 0x99,0x2B,0x0B,0x22,0xE5,0x85,0x9B,0xF6 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::UI::ICredentialPickerResults>{ 0x1948F99A,0xCC30,0x410C,{ 0x9C,0x38,0xCC,0x08,0x84,0xC5,0xB3,0xD7 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::UI::ICredentialPickerStatics>{ 0xAA3A5C73,0xC9EA,0x4782,{ 0x99,0xFB,0xE6,0xD7,0xE9,0x38,0xE1,0x2D } };
-    template <> inline constexpr guid guid_v<Windows::Security::Credentials::UI::IUserConsentVerifierStatics>{ 0xAF4F3F91,0x564C,0x4DDC,{ 0xB8,0xB5,0x97,0x34,0x47,0x62,0x7C,0x65 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::UI::ICredentialPickerOptions>{ 0x965A0B4C,0x95FA,0x467F,{ 0x99,0x2B,0x0B,0x22,0xE5,0x85,0x9B,0xF6 } }; // 965A0B4C-95FA-467F-992B-0B22E5859BF6
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::UI::ICredentialPickerResults>{ 0x1948F99A,0xCC30,0x410C,{ 0x9C,0x38,0xCC,0x08,0x84,0xC5,0xB3,0xD7 } }; // 1948F99A-CC30-410C-9C38-CC0884C5B3D7
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::UI::ICredentialPickerStatics>{ 0xAA3A5C73,0xC9EA,0x4782,{ 0x99,0xFB,0xE6,0xD7,0xE9,0x38,0xE1,0x2D } }; // AA3A5C73-C9EA-4782-99FB-E6D7E938E12D
+    template <> inline constexpr guid guid_v<Windows::Security::Credentials::UI::IUserConsentVerifierStatics>{ 0xAF4F3F91,0x564C,0x4DDC,{ 0xB8,0xB5,0x97,0x34,0x47,0x62,0x7C,0x65 } }; // AF4F3F91-564C-4DDC-B8B5-973447627C65
     template <> struct default_interface<Windows::Security::Credentials::UI::CredentialPickerOptions>{ using type = Windows::Security::Credentials::UI::ICredentialPickerOptions; };
     template <> struct default_interface<Windows::Security::Credentials::UI::CredentialPickerResults>{ using type = Windows::Security::Credentials::UI::ICredentialPickerResults; };
     template <> struct abi<Windows::Security::Credentials::UI::ICredentialPickerOptions>

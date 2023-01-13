@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -71,13 +71,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::AppRecording::IAppRecordingSavedScreenshotInfo> = L"Windows.Media.AppRecording.IAppRecordingSavedScreenshotInfo";
     template <> inline constexpr auto& name_v<Windows::Media::AppRecording::IAppRecordingStatus> = L"Windows.Media.AppRecording.IAppRecordingStatus";
     template <> inline constexpr auto& name_v<Windows::Media::AppRecording::IAppRecordingStatusDetails> = L"Windows.Media.AppRecording.IAppRecordingStatusDetails";
-    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingManager>{ 0xE7E26076,0xA044,0x48E2,{ 0xA5,0x12,0x30,0x94,0xD5,0x74,0xC7,0xCC } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingManagerStatics>{ 0x50E709F7,0x38CE,0x4BD3,{ 0x9D,0xB2,0xE7,0x2B,0xBE,0x9D,0xE1,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingResult>{ 0x3A900864,0xC66D,0x46F9,{ 0xB2,0xD9,0x5B,0xC2,0xDA,0xD0,0x70,0xD7 } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingSaveScreenshotResult>{ 0x9C5B8D0A,0x0ABB,0x4457,{ 0xAA,0xEE,0x24,0xF9,0xC1,0x2E,0xC7,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingSavedScreenshotInfo>{ 0x9B642D0A,0x189A,0x4D00,{ 0xBF,0x25,0xE1,0xBB,0x12,0x49,0xD5,0x94 } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingStatus>{ 0x1D0CC82C,0xBC18,0x4B8A,{ 0xA6,0xEF,0x12,0x7E,0xFA,0xB3,0xB5,0xD9 } };
-    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingStatusDetails>{ 0xB538A9B0,0x14ED,0x4412,{ 0xAC,0x45,0x6D,0x67,0x2C,0x9C,0x99,0x49 } };
+    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingManager>{ 0xE7E26076,0xA044,0x48E2,{ 0xA5,0x12,0x30,0x94,0xD5,0x74,0xC7,0xCC } }; // E7E26076-A044-48E2-A512-3094D574C7CC
+    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingManagerStatics>{ 0x50E709F7,0x38CE,0x4BD3,{ 0x9D,0xB2,0xE7,0x2B,0xBE,0x9D,0xE1,0x1D } }; // 50E709F7-38CE-4BD3-9DB2-E72BBE9DE11D
+    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingResult>{ 0x3A900864,0xC66D,0x46F9,{ 0xB2,0xD9,0x5B,0xC2,0xDA,0xD0,0x70,0xD7 } }; // 3A900864-C66D-46F9-B2D9-5BC2DAD070D7
+    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingSaveScreenshotResult>{ 0x9C5B8D0A,0x0ABB,0x4457,{ 0xAA,0xEE,0x24,0xF9,0xC1,0x2E,0xC7,0x78 } }; // 9C5B8D0A-0ABB-4457-AAEE-24F9C12EC778
+    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingSavedScreenshotInfo>{ 0x9B642D0A,0x189A,0x4D00,{ 0xBF,0x25,0xE1,0xBB,0x12,0x49,0xD5,0x94 } }; // 9B642D0A-189A-4D00-BF25-E1BB1249D594
+    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingStatus>{ 0x1D0CC82C,0xBC18,0x4B8A,{ 0xA6,0xEF,0x12,0x7E,0xFA,0xB3,0xB5,0xD9 } }; // 1D0CC82C-BC18-4B8A-A6EF-127EFAB3B5D9
+    template <> inline constexpr guid guid_v<Windows::Media::AppRecording::IAppRecordingStatusDetails>{ 0xB538A9B0,0x14ED,0x4412,{ 0xAC,0x45,0x6D,0x67,0x2C,0x9C,0x99,0x49 } }; // B538A9B0-14ED-4412-AC45-6D672C9C9949
     template <> struct default_interface<Windows::Media::AppRecording::AppRecordingManager>{ using type = Windows::Media::AppRecording::IAppRecordingManager; };
     template <> struct default_interface<Windows::Media::AppRecording::AppRecordingResult>{ using type = Windows::Media::AppRecording::IAppRecordingResult; };
     template <> struct default_interface<Windows::Media::AppRecording::AppRecordingSaveScreenshotResult>{ using type = Windows::Media::AppRecording::IAppRecordingSaveScreenshotResult; };

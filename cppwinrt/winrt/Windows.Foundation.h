@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Foundation_H
 #define WINRT_Windows_Foundation_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200514.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200609.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 namespace winrt::impl
@@ -2883,7 +2883,7 @@ WINRT_EXPORT namespace winrt
         }
     }
 
-    template <typename T>
+    template <typename T = hstring, std::enable_if_t<std::is_same_v<T, hstring>, int> = 0>
     hstring unbox_value_or(Windows::Foundation::IInspectable const& value, param::hstring const& default_value)
     {
         if (value)
@@ -3062,19 +3062,32 @@ namespace winrt::impl
         WINRT_ASSERT(!is_sta());
     }
 
-    template <typename Async>
-    void wait_for_completed(Async const& async, uint32_t const timeout)
+    template <typename T, typename H>
+    std::pair<T, H*> make_delegate_with_shared_state(H&& handler)
     {
-        void* event = check_pointer(WINRT_IMPL_CreateEventW(nullptr, true, false, nullptr));
+        auto d = make_delegate<T, H>(std::forward<H>(handler));
+        return { std::move(d), reinterpret_cast<delegate<T, H>*>(get_abi(d)) };
+    }
 
-        // The delegate is a local to ensure that the event outlives the call to WaitForSingleObject.
-        async_completed_handler_t<Async> delegate = [event = handle(event)](auto && ...)
+    template <typename Async>
+    auto wait_for_completed(Async const& async, uint32_t const timeout)
+    {
+        struct shared_type
         {
-            WINRT_VERIFY(WINRT_IMPL_SetEvent(event.get()));
+            handle event{ check_pointer(WINRT_IMPL_CreateEventW(nullptr, true, false, nullptr)) };
+            Windows::Foundation::AsyncStatus status{ Windows::Foundation::AsyncStatus::Started };
+
+            void operator()(Async const&, Windows::Foundation::AsyncStatus operation_status) noexcept
+            {
+                status = operation_status;
+                WINRT_VERIFY(WINRT_IMPL_SetEvent(event.get()));
+            }
         };
 
+        auto [delegate, shared] = make_delegate_with_shared_state<async_completed_handler_t<Async>>(shared_type{});
         async.Completed(delegate);
-        WINRT_IMPL_WaitForSingleObject(event, timeout);
+        WINRT_IMPL_WaitForSingleObject(shared->event.get(), timeout);
+        return shared->status;
     }
 
     template <typename Async>
@@ -3083,8 +3096,15 @@ namespace winrt::impl
         check_sta_blocking_wait();
         auto const milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(timeout).count();
         WINRT_ASSERT((milliseconds >= 0) && (static_cast<uint64_t>(milliseconds) < 0xFFFFFFFFull)); // Within uint32_t range and not INFINITE
-        wait_for_completed(async, static_cast<uint32_t>(milliseconds));
-        return async.Status();
+        return wait_for_completed(async, static_cast<uint32_t>(milliseconds));
+    }
+
+    inline void check_status_canceled(Windows::Foundation::AsyncStatus status)
+    {
+        if (status == Windows::Foundation::AsyncStatus::Canceled)
+        {
+            throw hresult_canceled();
+        }
     }
 
     template <typename Async>
@@ -3092,10 +3112,12 @@ namespace winrt::impl
     {
         check_sta_blocking_wait();
 
-        if (async.Status() == Windows::Foundation::AsyncStatus::Started)
+        auto status = async.Status();
+        if (status == Windows::Foundation::AsyncStatus::Started)
         {
-            wait_for_completed(async, 0xFFFFFFFF); // INFINITE
+            status = wait_for_completed(async, 0xFFFFFFFF); // INFINITE
         }
+        check_status_canceled(status);
 
         return async.GetResults();
     }
@@ -3114,7 +3136,7 @@ namespace winrt::impl
             if (m_handle) Complete();
         }
 
-        void operator()(Windows::Foundation::IAsyncInfo const&, Windows::Foundation::AsyncStatus)
+        void operator()()
         {
             Complete();
         }
@@ -3133,19 +3155,25 @@ namespace winrt::impl
     struct await_adapter
     {
         Async const& async;
+        Windows::Foundation::AsyncStatus status = Windows::Foundation::AsyncStatus::Started;
 
         bool await_ready() const noexcept
         {
             return false;
         }
 
-        void await_suspend(std::experimental::coroutine_handle<> handle) const
+        void await_suspend(std::experimental::coroutine_handle<> handle)
         {
-            async.Completed(disconnect_aware_handler{ handle });
+            async.Completed([this, handler = disconnect_aware_handler{ handle }](auto&&, auto operation_status) mutable
+            {
+                status = operation_status;
+                handler();
+            });
         }
 
         auto await_resume() const
         {
+            check_status_canceled(status);
             return async.GetResults();
         }
     };
@@ -3493,6 +3521,11 @@ namespace winrt::impl
 
         auto final_suspend() noexcept
         {
+            if (winrt_suspend_handler)
+            {
+                winrt_suspend_handler(this);
+            }
+
             return final_suspend_awaiter{ this };
         }
 
@@ -3703,7 +3736,8 @@ WINRT_EXPORT namespace winrt
     template <typename... T>
     Windows::Foundation::IAsyncAction when_all(T... async)
     {
-        (co_await async, ...);
+        (void(co_await async), ...);
+        co_return;
     }
 
     template <typename T, typename... Rest>
@@ -3715,28 +3749,33 @@ WINRT_EXPORT namespace winrt
         struct shared_type
         {
             handle event{ check_pointer(WINRT_IMPL_CreateEventW(nullptr, true, false, nullptr)) };
+            Windows::Foundation::AsyncStatus status{ Windows::Foundation::AsyncStatus::Started };
             T result;
+
+            void operator()(T const& sender, Windows::Foundation::AsyncStatus operation_status) noexcept
+            {
+                auto sender_abi = *(impl::unknown_abi**)&sender;
+
+                if (nullptr == _InterlockedCompareExchangePointer(reinterpret_cast<void**>(&result), sender_abi, nullptr))
+                {
+                    sender_abi->AddRef();
+                    status = operation_status;
+                    WINRT_VERIFY(WINRT_IMPL_SetEvent(event.get()));
+                }
+            }
         };
 
-        auto shared = std::make_shared<shared_type>();
+        auto [delegate, shared] = impl::make_delegate_with_shared_state<impl::async_completed_handler_t<T>>(shared_type{});
 
         auto completed = [&](T const& async)
         {
-            async.Completed([shared](T const& sender, Windows::Foundation::AsyncStatus) noexcept
-                {
-                    auto sender_abi = *(impl::unknown_abi**)&sender;
-
-                    if (nullptr == _InterlockedCompareExchangePointer(reinterpret_cast<void**>(&shared->result), sender_abi, nullptr))
-                    {
-                        sender_abi->AddRef();
-                        WINRT_VERIFY(WINRT_IMPL_SetEvent(shared->event.get()));
-                    }
-                });
+            async.Completed(delegate);
         };
 
         completed(first);
         (completed(rest), ...);
         co_await resume_on_signal(shared->event.get());
+        impl::check_status_canceled(shared->status);
         co_return shared->result.GetResults();
     }
 }

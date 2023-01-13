@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -222,29 +222,29 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingSessionFactory> = L"Windows.Foundation.Diagnostics.ILoggingSessionFactory";
     template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingTarget> = L"Windows.Foundation.Diagnostics.ILoggingTarget";
     template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ITracingStatusChangedEventArgs> = L"Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IAsyncCausalityTracerStatics>{ 0x50850B26,0x267E,0x451B,{ 0xA8,0x90,0xAB,0x6A,0x37,0x02,0x45,0xEE } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IErrorDetails>{ 0x378CBB01,0x2CC9,0x428F,{ 0x8C,0x55,0x2C,0x99,0x0D,0x46,0x3E,0x8F } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IErrorDetailsStatics>{ 0xB7703750,0x0B1D,0x46C8,{ 0xAA,0x0E,0x4B,0x81,0x78,0xE4,0xFC,0xE9 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IErrorReportingSettings>{ 0x16369792,0xB03E,0x4BA1,{ 0x8B,0xB8,0xD2,0x8F,0x4A,0xB4,0xD2,0xC0 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IFileLoggingSession>{ 0x24C74216,0xFED2,0x404C,{ 0x89,0x5F,0x1F,0x96,0x99,0xCB,0x02,0xF7 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IFileLoggingSessionFactory>{ 0xEEA08DCE,0x8447,0x4DAA,{ 0x91,0x33,0x12,0xEB,0x46,0xF6,0x97,0xD4 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILogFileGeneratedEventArgs>{ 0x269E976F,0x0D38,0x4C1A,{ 0xB5,0x3F,0xB3,0x95,0xD8,0x81,0xDF,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingActivity>{ 0xBC032941,0xB766,0x4CB5,{ 0x98,0x48,0x97,0xAC,0x6B,0xA6,0xD6,0x0C } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingActivity2>{ 0x26C29808,0x6322,0x456A,{ 0xAF,0x82,0x80,0xC8,0x64,0x2F,0x17,0x8B } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingActivityFactory>{ 0x6B33B483,0xE10A,0x4C58,{ 0x97,0xD5,0x10,0xFB,0x45,0x10,0x74,0xFB } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannel>{ 0xE9A50343,0x11D7,0x4F01,{ 0xB5,0xCA,0xCF,0x49,0x52,0x78,0xC0,0xA8 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannel2>{ 0x9F4C3CF3,0x0BAC,0x45A5,{ 0x9E,0x33,0xBA,0xF3,0xF3,0xA2,0x46,0xA5 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannelFactory>{ 0x4EDC5B9C,0xAF80,0x4A9B,{ 0xB0,0xDC,0x39,0x8F,0x9A,0xE5,0x20,0x7B } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannelFactory2>{ 0x4C6EF5DD,0x3B27,0x4DC9,{ 0x99,0xF0,0x29,0x9C,0x6E,0x46,0x03,0xA1 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannelOptions>{ 0xC3E847FF,0x0EBB,0x4A53,{ 0x8C,0x54,0xDE,0xC2,0x49,0x26,0xCB,0x2C } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannelOptionsFactory>{ 0xA93151DA,0x7FAF,0x4191,{ 0x87,0x55,0x5E,0x86,0xDC,0x65,0xD8,0x96 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingFields>{ 0xD7F6B7AF,0x762D,0x4579,{ 0x83,0xBD,0x52,0xC2,0x3B,0xC3,0x33,0xBC } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingOptions>{ 0x90BC7850,0x0192,0x4F5D,{ 0xAC,0x26,0x00,0x6A,0xDA,0xCA,0x12,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingOptionsFactory>{ 0xD713C6CB,0x98AB,0x464B,{ 0x9F,0x22,0xA3,0x26,0x84,0x78,0x36,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingSession>{ 0x6221F306,0x9380,0x4AD7,{ 0xBA,0xF5,0x41,0xEA,0x93,0x10,0xD7,0x68 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingSessionFactory>{ 0x4E937EE5,0x58FD,0x45E0,{ 0x8C,0x2F,0xA1,0x32,0xEF,0xF9,0x5C,0x1E } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingTarget>{ 0x65F16C35,0xE388,0x4E26,{ 0xB1,0x7A,0xF5,0x1C,0xD3,0xA8,0x39,0x16 } };
-    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ITracingStatusChangedEventArgs>{ 0x410B7711,0xFF3B,0x477F,{ 0x9C,0x9A,0xD2,0xEF,0xDA,0x30,0x2D,0xC3 } };
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IAsyncCausalityTracerStatics>{ 0x50850B26,0x267E,0x451B,{ 0xA8,0x90,0xAB,0x6A,0x37,0x02,0x45,0xEE } }; // 50850B26-267E-451B-A890-AB6A370245EE
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IErrorDetails>{ 0x378CBB01,0x2CC9,0x428F,{ 0x8C,0x55,0x2C,0x99,0x0D,0x46,0x3E,0x8F } }; // 378CBB01-2CC9-428F-8C55-2C990D463E8F
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IErrorDetailsStatics>{ 0xB7703750,0x0B1D,0x46C8,{ 0xAA,0x0E,0x4B,0x81,0x78,0xE4,0xFC,0xE9 } }; // B7703750-0B1D-46C8-AA0E-4B8178E4FCE9
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IErrorReportingSettings>{ 0x16369792,0xB03E,0x4BA1,{ 0x8B,0xB8,0xD2,0x8F,0x4A,0xB4,0xD2,0xC0 } }; // 16369792-B03E-4BA1-8BB8-D28F4AB4D2C0
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IFileLoggingSession>{ 0x24C74216,0xFED2,0x404C,{ 0x89,0x5F,0x1F,0x96,0x99,0xCB,0x02,0xF7 } }; // 24C74216-FED2-404C-895F-1F9699CB02F7
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IFileLoggingSessionFactory>{ 0xEEA08DCE,0x8447,0x4DAA,{ 0x91,0x33,0x12,0xEB,0x46,0xF6,0x97,0xD4 } }; // EEA08DCE-8447-4DAA-9133-12EB46F697D4
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILogFileGeneratedEventArgs>{ 0x269E976F,0x0D38,0x4C1A,{ 0xB5,0x3F,0xB3,0x95,0xD8,0x81,0xDF,0x84 } }; // 269E976F-0D38-4C1A-B53F-B395D881DF84
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingActivity>{ 0xBC032941,0xB766,0x4CB5,{ 0x98,0x48,0x97,0xAC,0x6B,0xA6,0xD6,0x0C } }; // BC032941-B766-4CB5-9848-97AC6BA6D60C
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingActivity2>{ 0x26C29808,0x6322,0x456A,{ 0xAF,0x82,0x80,0xC8,0x64,0x2F,0x17,0x8B } }; // 26C29808-6322-456A-AF82-80C8642F178B
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingActivityFactory>{ 0x6B33B483,0xE10A,0x4C58,{ 0x97,0xD5,0x10,0xFB,0x45,0x10,0x74,0xFB } }; // 6B33B483-E10A-4C58-97D5-10FB451074FB
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannel>{ 0xE9A50343,0x11D7,0x4F01,{ 0xB5,0xCA,0xCF,0x49,0x52,0x78,0xC0,0xA8 } }; // E9A50343-11D7-4F01-B5CA-CF495278C0A8
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannel2>{ 0x9F4C3CF3,0x0BAC,0x45A5,{ 0x9E,0x33,0xBA,0xF3,0xF3,0xA2,0x46,0xA5 } }; // 9F4C3CF3-0BAC-45A5-9E33-BAF3F3A246A5
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannelFactory>{ 0x4EDC5B9C,0xAF80,0x4A9B,{ 0xB0,0xDC,0x39,0x8F,0x9A,0xE5,0x20,0x7B } }; // 4EDC5B9C-AF80-4A9B-B0DC-398F9AE5207B
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannelFactory2>{ 0x4C6EF5DD,0x3B27,0x4DC9,{ 0x99,0xF0,0x29,0x9C,0x6E,0x46,0x03,0xA1 } }; // 4C6EF5DD-3B27-4DC9-99F0-299C6E4603A1
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannelOptions>{ 0xC3E847FF,0x0EBB,0x4A53,{ 0x8C,0x54,0xDE,0xC2,0x49,0x26,0xCB,0x2C } }; // C3E847FF-0EBB-4A53-8C54-DEC24926CB2C
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingChannelOptionsFactory>{ 0xA93151DA,0x7FAF,0x4191,{ 0x87,0x55,0x5E,0x86,0xDC,0x65,0xD8,0x96 } }; // A93151DA-7FAF-4191-8755-5E86DC65D896
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingFields>{ 0xD7F6B7AF,0x762D,0x4579,{ 0x83,0xBD,0x52,0xC2,0x3B,0xC3,0x33,0xBC } }; // D7F6B7AF-762D-4579-83BD-52C23BC333BC
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingOptions>{ 0x90BC7850,0x0192,0x4F5D,{ 0xAC,0x26,0x00,0x6A,0xDA,0xCA,0x12,0xD8 } }; // 90BC7850-0192-4F5D-AC26-006ADACA12D8
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingOptionsFactory>{ 0xD713C6CB,0x98AB,0x464B,{ 0x9F,0x22,0xA3,0x26,0x84,0x78,0x36,0x8A } }; // D713C6CB-98AB-464B-9F22-A3268478368A
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingSession>{ 0x6221F306,0x9380,0x4AD7,{ 0xBA,0xF5,0x41,0xEA,0x93,0x10,0xD7,0x68 } }; // 6221F306-9380-4AD7-BAF5-41EA9310D768
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingSessionFactory>{ 0x4E937EE5,0x58FD,0x45E0,{ 0x8C,0x2F,0xA1,0x32,0xEF,0xF9,0x5C,0x1E } }; // 4E937EE5-58FD-45E0-8C2F-A132EFF95C1E
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ILoggingTarget>{ 0x65F16C35,0xE388,0x4E26,{ 0xB1,0x7A,0xF5,0x1C,0xD3,0xA8,0x39,0x16 } }; // 65F16C35-E388-4E26-B17A-F51CD3A83916
+    template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::ITracingStatusChangedEventArgs>{ 0x410B7711,0xFF3B,0x477F,{ 0x9C,0x9A,0xD2,0xEF,0xDA,0x30,0x2D,0xC3 } }; // 410B7711-FF3B-477F-9C9A-D2EFDA302DC3
     template <> struct default_interface<Windows::Foundation::Diagnostics::ErrorDetails>{ using type = Windows::Foundation::Diagnostics::IErrorDetails; };
     template <> struct default_interface<Windows::Foundation::Diagnostics::FileLoggingSession>{ using type = Windows::Foundation::Diagnostics::IFileLoggingSession; };
     template <> struct default_interface<Windows::Foundation::Diagnostics::LogFileGeneratedEventArgs>{ using type = Windows::Foundation::Diagnostics::ILogFileGeneratedEventArgs; };

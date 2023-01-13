@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -16,7 +16,7 @@ namespace winrt::impl
     template <> struct category<Windows::System::RemoteDesktop::InteractiveSession>{ using type = class_category; };
     template <> inline constexpr auto& name_v<Windows::System::RemoteDesktop::InteractiveSession> = L"Windows.System.RemoteDesktop.InteractiveSession";
     template <> inline constexpr auto& name_v<Windows::System::RemoteDesktop::IInteractiveSessionStatics> = L"Windows.System.RemoteDesktop.IInteractiveSessionStatics";
-    template <> inline constexpr guid guid_v<Windows::System::RemoteDesktop::IInteractiveSessionStatics>{ 0x60884631,0xDD3A,0x4576,{ 0x9C,0x8D,0xE8,0x02,0x76,0x18,0xBD,0xCE } };
+    template <> inline constexpr guid guid_v<Windows::System::RemoteDesktop::IInteractiveSessionStatics>{ 0x60884631,0xDD3A,0x4576,{ 0x9C,0x8D,0xE8,0x02,0x76,0x18,0xBD,0xCE } }; // 60884631-DD3A-4576-9C8D-E8027618BDCE
     template <> struct abi<Windows::System::RemoteDesktop::IInteractiveSessionStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

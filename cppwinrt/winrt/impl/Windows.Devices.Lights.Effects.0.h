@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -122,21 +122,21 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArraySolidEffect> = L"Windows.Devices.Lights.Effects.ILampArraySolidEffect";
     template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArraySolidEffectFactory> = L"Windows.Devices.Lights.Effects.ILampArraySolidEffectFactory";
     template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayUpdateRequestedEventArgs> = L"Windows.Devices.Lights.Effects.ILampArrayUpdateRequestedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffect>{ 0x3238E065,0xD877,0x4627,{ 0x89,0xE5,0x2A,0x88,0xF7,0x05,0x2F,0xA6 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffectFactory>{ 0x13608090,0xE336,0x4C8F,{ 0x90,0x53,0xA9,0x24,0x07,0xCA,0x7B,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapRequestedEventArgs>{ 0xC8B4AF9E,0xFE63,0x4D51,{ 0xBA,0xBD,0x61,0x9D,0xEF,0xB4,0x54,0xBA } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBlinkEffect>{ 0xEBBF35F6,0x2FC5,0x4BB3,{ 0xB3,0xC3,0x62,0x21,0xA7,0x68,0x0D,0x13 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBlinkEffectFactory>{ 0x879F1D97,0x9F50,0x49B2,{ 0xA5,0x6F,0x01,0x3A,0xA0,0x8D,0x55,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayColorRampEffect>{ 0x2B004437,0x40A7,0x432E,{ 0xA0,0xB9,0x0D,0x57,0x0C,0x21,0x53,0xFF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayColorRampEffectFactory>{ 0x520BD133,0x0C74,0x4DF5,{ 0xBE,0xA7,0x48,0x99,0xE0,0x26,0x6B,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayCustomEffect>{ 0xEC579170,0x3C34,0x4876,{ 0x81,0x8B,0x57,0x65,0xF7,0x8B,0x0E,0xE4 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayCustomEffectFactory>{ 0x68B4774D,0x63E5,0x4AF0,{ 0xA5,0x8B,0x3E,0x53,0x5B,0x94,0xE8,0xC9 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayEffect>{ 0x11D45590,0x57FB,0x4546,{ 0xB1,0xCE,0x86,0x31,0x07,0xF7,0x40,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylist>{ 0x7DE58BFE,0x6F61,0x4103,{ 0x98,0xC7,0xD6,0x63,0x2F,0x7B,0x91,0x69 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylistStatics>{ 0xFB15235C,0xEA35,0x4C7F,{ 0xA0,0x16,0xF3,0xBF,0xC6,0xA6,0xC4,0x7D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArraySolidEffect>{ 0x441F8213,0x43CC,0x4B33,{ 0x80,0xEB,0xC6,0xDD,0xDE,0x7D,0xC8,0xED } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArraySolidEffectFactory>{ 0xF862A32C,0x5576,0x4341,{ 0x96,0x1B,0xAE,0xE1,0xF1,0x3C,0xF9,0xDD } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayUpdateRequestedEventArgs>{ 0x73560D6A,0x576A,0x48AF,{ 0x85,0x39,0x67,0xFF,0xA0,0xAB,0x35,0x16 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffect>{ 0x3238E065,0xD877,0x4627,{ 0x89,0xE5,0x2A,0x88,0xF7,0x05,0x2F,0xA6 } }; // 3238E065-D877-4627-89E5-2A88F7052FA6
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffectFactory>{ 0x13608090,0xE336,0x4C8F,{ 0x90,0x53,0xA9,0x24,0x07,0xCA,0x7B,0x1D } }; // 13608090-E336-4C8F-9053-A92407CA7B1D
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapRequestedEventArgs>{ 0xC8B4AF9E,0xFE63,0x4D51,{ 0xBA,0xBD,0x61,0x9D,0xEF,0xB4,0x54,0xBA } }; // C8B4AF9E-FE63-4D51-BABD-619DEFB454BA
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBlinkEffect>{ 0xEBBF35F6,0x2FC5,0x4BB3,{ 0xB3,0xC3,0x62,0x21,0xA7,0x68,0x0D,0x13 } }; // EBBF35F6-2FC5-4BB3-B3C3-6221A7680D13
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBlinkEffectFactory>{ 0x879F1D97,0x9F50,0x49B2,{ 0xA5,0x6F,0x01,0x3A,0xA0,0x8D,0x55,0xE0 } }; // 879F1D97-9F50-49B2-A56F-013AA08D55E0
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayColorRampEffect>{ 0x2B004437,0x40A7,0x432E,{ 0xA0,0xB9,0x0D,0x57,0x0C,0x21,0x53,0xFF } }; // 2B004437-40A7-432E-A0B9-0D570C2153FF
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayColorRampEffectFactory>{ 0x520BD133,0x0C74,0x4DF5,{ 0xBE,0xA7,0x48,0x99,0xE0,0x26,0x6B,0x0F } }; // 520BD133-0C74-4DF5-BEA7-4899E0266B0F
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayCustomEffect>{ 0xEC579170,0x3C34,0x4876,{ 0x81,0x8B,0x57,0x65,0xF7,0x8B,0x0E,0xE4 } }; // EC579170-3C34-4876-818B-5765F78B0EE4
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayCustomEffectFactory>{ 0x68B4774D,0x63E5,0x4AF0,{ 0xA5,0x8B,0x3E,0x53,0x5B,0x94,0xE8,0xC9 } }; // 68B4774D-63E5-4AF0-A58B-3E535B94E8C9
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayEffect>{ 0x11D45590,0x57FB,0x4546,{ 0xB1,0xCE,0x86,0x31,0x07,0xF7,0x40,0xDF } }; // 11D45590-57FB-4546-B1CE-863107F740DF
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylist>{ 0x7DE58BFE,0x6F61,0x4103,{ 0x98,0xC7,0xD6,0x63,0x2F,0x7B,0x91,0x69 } }; // 7DE58BFE-6F61-4103-98C7-D6632F7B9169
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylistStatics>{ 0xFB15235C,0xEA35,0x4C7F,{ 0xA0,0x16,0xF3,0xBF,0xC6,0xA6,0xC4,0x7D } }; // FB15235C-EA35-4C7F-A016-F3BFC6A6C47D
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArraySolidEffect>{ 0x441F8213,0x43CC,0x4B33,{ 0x80,0xEB,0xC6,0xDD,0xDE,0x7D,0xC8,0xED } }; // 441F8213-43CC-4B33-80EB-C6DDDE7DC8ED
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArraySolidEffectFactory>{ 0xF862A32C,0x5576,0x4341,{ 0x96,0x1B,0xAE,0xE1,0xF1,0x3C,0xF9,0xDD } }; // F862A32C-5576-4341-961B-AEE1F13CF9DD
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayUpdateRequestedEventArgs>{ 0x73560D6A,0x576A,0x48AF,{ 0x85,0x39,0x67,0xFF,0xA0,0xAB,0x35,0x16 } }; // 73560D6A-576A-48AF-8539-67FFA0AB3516
     template <> struct default_interface<Windows::Devices::Lights::Effects::LampArrayBitmapEffect>{ using type = Windows::Devices::Lights::Effects::ILampArrayBitmapEffect; };
     template <> struct default_interface<Windows::Devices::Lights::Effects::LampArrayBitmapRequestedEventArgs>{ using type = Windows::Devices::Lights::Effects::ILampArrayBitmapRequestedEventArgs; };
     template <> struct default_interface<Windows::Devices::Lights::Effects::LampArrayBlinkEffect>{ using type = Windows::Devices::Lights::Effects::ILampArrayBlinkEffect; };

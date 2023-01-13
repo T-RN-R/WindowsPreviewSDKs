@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -115,21 +115,21 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Storage::Pickers::IFolderPicker2> = L"Windows.Storage.Pickers.IFolderPicker2";
     template <> inline constexpr auto& name_v<Windows::Storage::Pickers::IFolderPicker3> = L"Windows.Storage.Pickers.IFolderPicker3";
     template <> inline constexpr auto& name_v<Windows::Storage::Pickers::IFolderPickerStatics> = L"Windows.Storage.Pickers.IFolderPickerStatics";
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPicker>{ 0x2CA8278A,0x12C5,0x4C5F,{ 0x89,0x77,0x94,0x54,0x77,0x93,0xC2,0x41 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPicker2>{ 0x8CEB6CD2,0xB446,0x46F7,{ 0xB2,0x65,0x90,0xF8,0xE5,0x5A,0xD6,0x50 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPicker3>{ 0xD9A5C5B3,0xC5DC,0x5B98,{ 0xBD,0x80,0xA8,0xD0,0xCA,0x05,0x84,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPickerStatics>{ 0x6821573B,0x2F02,0x4833,{ 0x96,0xD4,0xAB,0xBF,0xAD,0x72,0xB6,0x7B } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPickerStatics2>{ 0xE8917415,0xEDDD,0x5C98,{ 0xB6,0xF3,0x36,0x6F,0xDF,0xCA,0xD3,0x92 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPickerWithOperationId>{ 0x3F57B569,0x2522,0x4CA5,{ 0xAA,0x73,0xA1,0x55,0x09,0xF1,0xFC,0xBF } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePicker>{ 0x3286FFCB,0x617F,0x4CC5,{ 0xAF,0x6A,0xB3,0xFD,0xF2,0x9A,0xD1,0x45 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePicker2>{ 0x0EC313A2,0xD24B,0x449A,{ 0x81,0x97,0xE8,0x91,0x04,0xFD,0x42,0xCC } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePicker3>{ 0x698AEC69,0xBA3C,0x4E51,{ 0xBD,0x90,0x4A,0xBC,0xBB,0xF4,0xCF,0xAF } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePicker4>{ 0xE7D83A5A,0xDDFA,0x5DE0,{ 0x8B,0x70,0xC8,0x42,0xC2,0x19,0x88,0xEC } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePickerStatics>{ 0x28E3CF9E,0x961C,0x5E2C,{ 0xAE,0xD7,0xE6,0x47,0x37,0xF4,0xCE,0x37 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFolderPicker>{ 0x084F7799,0xF3FB,0x400A,{ 0x99,0xB1,0x7B,0x4A,0x77,0x2F,0xD6,0x0D } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFolderPicker2>{ 0x8EB3BA97,0xDC85,0x4616,{ 0xBE,0x94,0x96,0x60,0x88,0x1F,0x2F,0x5D } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFolderPicker3>{ 0x673B1E29,0xD326,0x53C0,{ 0xBD,0x24,0xA2,0x5C,0x71,0x4C,0xEE,0x36 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFolderPickerStatics>{ 0x9BE34740,0x7CA1,0x5942,{ 0xA3,0xC8,0x46,0xF2,0x55,0x1E,0xCF,0xF3 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPicker>{ 0x2CA8278A,0x12C5,0x4C5F,{ 0x89,0x77,0x94,0x54,0x77,0x93,0xC2,0x41 } }; // 2CA8278A-12C5-4C5F-8977-94547793C241
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPicker2>{ 0x8CEB6CD2,0xB446,0x46F7,{ 0xB2,0x65,0x90,0xF8,0xE5,0x5A,0xD6,0x50 } }; // 8CEB6CD2-B446-46F7-B265-90F8E55AD650
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPicker3>{ 0xD9A5C5B3,0xC5DC,0x5B98,{ 0xBD,0x80,0xA8,0xD0,0xCA,0x05,0x84,0xD8 } }; // D9A5C5B3-C5DC-5B98-BD80-A8D0CA0584D8
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPickerStatics>{ 0x6821573B,0x2F02,0x4833,{ 0x96,0xD4,0xAB,0xBF,0xAD,0x72,0xB6,0x7B } }; // 6821573B-2F02-4833-96D4-ABBFAD72B67B
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPickerStatics2>{ 0xE8917415,0xEDDD,0x5C98,{ 0xB6,0xF3,0x36,0x6F,0xDF,0xCA,0xD3,0x92 } }; // E8917415-EDDD-5C98-B6F3-366FDFCAD392
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileOpenPickerWithOperationId>{ 0x3F57B569,0x2522,0x4CA5,{ 0xAA,0x73,0xA1,0x55,0x09,0xF1,0xFC,0xBF } }; // 3F57B569-2522-4CA5-AA73-A15509F1FCBF
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePicker>{ 0x3286FFCB,0x617F,0x4CC5,{ 0xAF,0x6A,0xB3,0xFD,0xF2,0x9A,0xD1,0x45 } }; // 3286FFCB-617F-4CC5-AF6A-B3FDF29AD145
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePicker2>{ 0x0EC313A2,0xD24B,0x449A,{ 0x81,0x97,0xE8,0x91,0x04,0xFD,0x42,0xCC } }; // 0EC313A2-D24B-449A-8197-E89104FD42CC
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePicker3>{ 0x698AEC69,0xBA3C,0x4E51,{ 0xBD,0x90,0x4A,0xBC,0xBB,0xF4,0xCF,0xAF } }; // 698AEC69-BA3C-4E51-BD90-4ABCBBF4CFAF
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePicker4>{ 0xE7D83A5A,0xDDFA,0x5DE0,{ 0x8B,0x70,0xC8,0x42,0xC2,0x19,0x88,0xEC } }; // E7D83A5A-DDFA-5DE0-8B70-C842C21988EC
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFileSavePickerStatics>{ 0x28E3CF9E,0x961C,0x5E2C,{ 0xAE,0xD7,0xE6,0x47,0x37,0xF4,0xCE,0x37 } }; // 28E3CF9E-961C-5E2C-AED7-E64737F4CE37
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFolderPicker>{ 0x084F7799,0xF3FB,0x400A,{ 0x99,0xB1,0x7B,0x4A,0x77,0x2F,0xD6,0x0D } }; // 084F7799-F3FB-400A-99B1-7B4A772FD60D
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFolderPicker2>{ 0x8EB3BA97,0xDC85,0x4616,{ 0xBE,0x94,0x96,0x60,0x88,0x1F,0x2F,0x5D } }; // 8EB3BA97-DC85-4616-BE94-9660881F2F5D
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFolderPicker3>{ 0x673B1E29,0xD326,0x53C0,{ 0xBD,0x24,0xA2,0x5C,0x71,0x4C,0xEE,0x36 } }; // 673B1E29-D326-53C0-BD24-A25C714CEE36
+    template <> inline constexpr guid guid_v<Windows::Storage::Pickers::IFolderPickerStatics>{ 0x9BE34740,0x7CA1,0x5942,{ 0xA3,0xC8,0x46,0xF2,0x55,0x1E,0xCF,0xF3 } }; // 9BE34740-7CA1-5942-A3C8-46F2551ECFF3
     template <> struct default_interface<Windows::Storage::Pickers::FileExtensionVector>{ using type = Windows::Foundation::Collections::IVector<hstring>; };
     template <> struct default_interface<Windows::Storage::Pickers::FileOpenPicker>{ using type = Windows::Storage::Pickers::IFileOpenPicker; };
     template <> struct default_interface<Windows::Storage::Pickers::FilePickerFileTypesOrderedMap>{ using type = Windows::Foundation::Collections::IMap<hstring, Windows::Foundation::Collections::IVector<hstring>>; };
