@@ -342,6 +342,28 @@ enum D3D_SRV_DIMENSION
         D3D11_SRV_DIMENSION_BUFFEREX	= D3D_SRV_DIMENSION_BUFFEREX
     } 	D3D_SRV_DIMENSION;
 
+#define D3D_SHADER_FEATURE_DOUBLES                                                        0x00001
+#define D3D_SHADER_FEATURE_COMPUTE_SHADERS_PLUS_RAW_AND_STRUCTURED_BUFFERS_VIA_SHADER_4_X 0x00002
+#define D3D_SHADER_FEATURE_UAVS_AT_EVERY_STAGE                                            0x00004
+#define D3D_SHADER_FEATURE_64_UAVS                                                        0x00008
+#define D3D_SHADER_FEATURE_MINIMUM_PRECISION                                              0x00010
+#define D3D_SHADER_FEATURE_11_1_DOUBLE_EXTENSIONS                                         0x00020
+#define D3D_SHADER_FEATURE_11_1_SHADER_EXTENSIONS                                         0x00040
+#define D3D_SHADER_FEATURE_LEVEL_9_COMPARISON_FILTERING                                   0x00080
+#define D3D_SHADER_FEATURE_TILED_RESOURCES                                                0x00100
+#define D3D_SHADER_FEATURE_STENCIL_REF                                                    0x00200
+#define D3D_SHADER_FEATURE_INNER_COVERAGE                                                 0x00400
+#define D3D_SHADER_FEATURE_TYPED_UAV_LOAD_ADDITIONAL_FORMATS                              0x00800
+#define D3D_SHADER_FEATURE_ROVS                                                           0x01000
+#define D3D_SHADER_FEATURE_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDING_RASTERIZER 0x02000
+#define D3D_SHADER_FEATURE_WAVE_OPS                                                       0x04000
+#define D3D_SHADER_FEATURE_INT64_OPS                                                      0x08000
+#define D3D_SHADER_FEATURE_VIEW_ID                                                        0x10000
+#define D3D_SHADER_FEATURE_BARYCENTRICS                                                   0x20000
+#define D3D_SHADER_FEATURE_NATIVE_16BIT_OPS                                               0x40000
+#define D3D_SHADER_FEATURE_SHADING_RATE                                                   0x80000
+#define D3D_SHADER_FEATURE_RAYTRACING_TIER_1_1                                            0x100000
+#define D3D_SHADER_FEATURE_SAMPLER_FEEDBACK                                               0x200000
 typedef struct _D3D_SHADER_MACRO
     {
     LPCSTR Name;

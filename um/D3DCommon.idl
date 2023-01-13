@@ -290,6 +290,32 @@ typedef enum D3D_SRV_DIMENSION
     D3D11_SRV_DIMENSION_BUFFEREX = D3D_SRV_DIMENSION_BUFFEREX,
 } D3D_SRV_DIMENSION;
 
+// Bits in shaders indicating features they use which the runtime checks against current device support:
+cpp_quote("#define D3D_SHADER_FEATURE_DOUBLES                                                        0x00001")
+cpp_quote("#define D3D_SHADER_FEATURE_COMPUTE_SHADERS_PLUS_RAW_AND_STRUCTURED_BUFFERS_VIA_SHADER_4_X 0x00002")
+cpp_quote("#define D3D_SHADER_FEATURE_UAVS_AT_EVERY_STAGE                                            0x00004")
+cpp_quote("#define D3D_SHADER_FEATURE_64_UAVS                                                        0x00008")
+cpp_quote("#define D3D_SHADER_FEATURE_MINIMUM_PRECISION                                              0x00010")
+cpp_quote("#define D3D_SHADER_FEATURE_11_1_DOUBLE_EXTENSIONS                                         0x00020")
+cpp_quote("#define D3D_SHADER_FEATURE_11_1_SHADER_EXTENSIONS                                         0x00040")
+cpp_quote("#define D3D_SHADER_FEATURE_LEVEL_9_COMPARISON_FILTERING                                   0x00080")
+cpp_quote("#define D3D_SHADER_FEATURE_TILED_RESOURCES                                                0x00100")
+cpp_quote("#define D3D_SHADER_FEATURE_STENCIL_REF                                                    0x00200")
+cpp_quote("#define D3D_SHADER_FEATURE_INNER_COVERAGE                                                 0x00400")
+cpp_quote("#define D3D_SHADER_FEATURE_TYPED_UAV_LOAD_ADDITIONAL_FORMATS                              0x00800")
+cpp_quote("#define D3D_SHADER_FEATURE_ROVS                                                           0x01000")
+cpp_quote("#define D3D_SHADER_FEATURE_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDING_RASTERIZER 0x02000")
+cpp_quote("#define D3D_SHADER_FEATURE_WAVE_OPS                                                       0x04000")
+cpp_quote("#define D3D_SHADER_FEATURE_INT64_OPS                                                      0x08000")
+cpp_quote("#define D3D_SHADER_FEATURE_VIEW_ID                                                        0x10000")
+cpp_quote("#define D3D_SHADER_FEATURE_BARYCENTRICS                                                   0x20000")
+cpp_quote("#define D3D_SHADER_FEATURE_NATIVE_16BIT_OPS                                               0x40000")
+cpp_quote("#define D3D_SHADER_FEATURE_SHADING_RATE                                                   0x80000")
+cpp_quote("#define D3D_SHADER_FEATURE_RAYTRACING_TIER_1_1                                            0x100000")
+cpp_quote("#define D3D_SHADER_FEATURE_SAMPLER_FEEDBACK                                               0x200000")
+// Additional internal shader feature flags are listed in dxbcutils.h (not relevant/useful for public to see)
+// When adding entries here, make sure they don't conflict with what's there.
+
 //----------------------------------------------------------------------------
 //
 // Shader compilation information.

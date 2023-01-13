@@ -601,6 +601,7 @@ typedef struct _WINHTTP_EXTENDED_HEADER
 
 #define WINHTTP_OPTION_KDC_PROXY_SETTINGS               136
 
+#define WINHTTP_OPTION_PROXY_DISABLE_SERVICE_CALLS      137
 
 #define WINHTTP_OPTION_ENCODE_EXTRA                     138
 #define WINHTTP_OPTION_DISABLE_STREAM_QUEUE             139
@@ -658,7 +659,7 @@ typedef struct _WINHTTP_EXTENDED_HEADER
 
 #define WINHTTP_OPTION_REFERER_TOKEN_BINDING_HOSTNAME   168
 
-#define WINHTTP_OPTION_HTTP2_PLUS_TRANSFER_ENCODING    169
+#define WINHTTP_OPTION_HTTP2_PLUS_TRANSFER_ENCODING     169
 
 #define WINHTTP_LAST_OPTION                             WINHTTP_OPTION_HTTP2_PLUS_TRANSFER_ENCODING
 
@@ -1948,32 +1949,6 @@ WinHttpWebSocketQueryCloseStatus
     _Out_range_(0, WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH) DWORD *pdwReasonLengthConsumed
 );
 
-
-//
-// Callback function for WINHTTP_OPTION_SET_GLOBAL_CALLBACK option
-//
-
-#define WINHTTP_GLOBAL_CALLBACK_SENDING_HTTP_HEADERS          0x00000001
-
-typedef
-DWORD
-(CALLBACK *WINHTTP_GLOBAL_NOTIFICATION_CALLBACK)(
-    _In_ HINTERNET hInternet,
-    _In_opt_ PVOID pvContext,
-    _In_ PCWSTR pcswzUrl,
-    _In_ PCWSTR pcswzHost,
-    _In_ DWORD dwNotification,
-    _In_opt_ PVOID pvEventData,
-    _In_ DWORD dwEventDataLength
-);
-
-typedef struct _WINHTTP_GLOBAL_CALLBACK
-{
-    WINHTTP_GLOBAL_NOTIFICATION_CALLBACK pfnGlobalNotificationCallback;
-    DWORD dwNotifications;
-    PVOID pvContext;
-    GUID guidRegistrationId;
-} WINHTTP_GLOBAL_CALLBACK;
 
 
 #if defined(__cplusplus)

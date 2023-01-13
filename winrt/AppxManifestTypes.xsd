@@ -111,6 +111,19 @@
     </xs:restriction>
   </xs:simpleType>
 
+    <xs:simpleType name="ST_FileNameCharSetAndColon">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^&lt;&gt;&quot;%\|\?\*\x01-\x1f]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileNameFullPath">
+    <xs:restriction base="ST_FileNameCharSetAndColon">
+      <xs:pattern value="([^/\\]*[^./\\]+)(\\[^/\\]*[^./\\]+)*(\\?)"/>
+      <xs:pattern value="([^/\\]*[^./\\]+)(/[^/\\]*[^./\\]+)*(/?)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="ST_Executable">
     <xs:restriction base="ST_FileName">
       <xs:pattern value=".+\.(exe)"/>
@@ -125,6 +138,12 @@
 
   <xs:simpleType name="ST_ExecutableAnyCase">
     <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.([Ee][Xx][Ee])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExecutableAnyCase_FullPath">
+    <xs:restriction base="ST_FileNameFullPath">
       <xs:pattern value=".+\.([Ee][Xx][Ee])"/>
     </xs:restriction>
   </xs:simpleType>
@@ -421,6 +440,13 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="globalMediaControl"/>
       <xs:enumeration value="gazeInput"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap_11">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="graphicsCaptureProgrammatic"/>
+      <xs:enumeration value="graphicsCaptureWithoutBorder"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -827,11 +853,13 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="ST_ExtensionCategory_Desktop7">
+  <xs:simpleType name="ST_ExtensionCategory_PreviewAppCompat2">
     <xs:restriction base="xs:string">
       <!-- Application Extensions -->
+      <xs:enumeration value="windows.mailProvider"/>
       <xs:enumeration value="windows.shortcut"/>
       <xs:enumeration value="windows.applicationRegistration"/>
+      <xs:enumeration value="windows.desktopAppMigration"/>
     </xs:restriction>
   </xs:simpleType>
 

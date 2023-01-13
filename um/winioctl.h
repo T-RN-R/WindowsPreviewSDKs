@@ -7139,39 +7139,45 @@ typedef enum _SCM_PD_QUERY_TYPE {
 } SCM_PD_QUERY_TYPE, *PSCM_PD_QUERY_TYPE;
 
 typedef enum _SCM_PD_PROPERTY_ID {
-    
+
     //
     // General information about the device.
     //
     ScmPhysicalDeviceProperty_DeviceInfo = 0,
-    
+
     //
     // Information about the device's health.
     //
     ScmPhysicalDeviceProperty_ManagementStatus,
-    
+
     //
     // Firmware-related information.
     //
     ScmPhysicalDeviceProperty_FirmwareInfo,
-    
+
     //
     // Returns a string that identifies where the device is located
     // on the local system.
     //
     ScmPhysicalDeviceProperty_LocationString,
-    
+
     //
     // Returns a series of device-specific information, which give more detail
     // on the device's status.
     //
     ScmPhysicalDeviceProperty_DeviceSpecificInfo,
-    
+
     //
     // Returns a identifying handle of the physical device, which comes from
     // the NFIT table.
     //
     ScmPhysicalDeviceProperty_DeviceHandle,
+
+    //
+    // Returns a string that identifies the replacement unit housing
+    // the device on the local system.
+    //
+    ScmPhysicalDeviceProperty_FruIdString,
 
     ScmPhysicalDeviceProperty_Max
 } SCM_PD_PROPERTY_ID, *PSCM_PD_PROPERTY_ID;
@@ -7598,6 +7604,32 @@ typedef struct _SCM_PD_LOCATION_STRING {
     WCHAR Location[ANYSIZE_ARRAY];
 
 } SCM_PD_LOCATION_STRING, *PSCM_PD_LOCATION_STRING;
+
+//
+// Output buffer for ScmPhysicalDeviceQuery_Descriptor & ScmPhysicalDeviceProperty_FruIdString
+//
+typedef struct _SCM_PD_FRU_ID_STRING {
+
+    //
+    // Sizeof() of this structure serves as the version.
+    //
+    DWORD Version;
+
+    //
+    // The total size of the structure, including the buffer for the fru id string.
+    // If the output buffer is too small to contain the requested information,
+    // the Size field indicates the length of the output buffer the caller should provide
+    // in order to retrieve all the data.
+    //
+    DWORD Size;
+
+    //
+    // The string that represents the fru id of this physical device.
+    //
+    DWORD IdentifierSize;
+    BYTE  Identifier[ANYSIZE_ARRAY];
+
+} SCM_PD_FRU_ID_STRING, *PSCM_PD_FRU_ID_STRING;
 
 //
 // Firmware update IOCTLs.
@@ -13288,6 +13320,36 @@ typedef struct _FILE_FS_PERSISTENT_VOLUME_INFORMATION {
 
 #endif // #if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+
+//
+//  This indicates that AutoChk modified this volume and is cleared by AutoChk
+//  after it ensured that the volume is dismounted or the system is rebooted.
+//  This can be set or queried.
+//
+
+#define PERSISTENT_VOLUME_STATE_CHKDSK_RAN_ONCE                     (0x00000400)
+
+//
+//  This again indicates that AutoChk modified this volume but is cleared by
+//  NTFS on next mount.  So if this flag is set it means that the volume was
+//  modified by AutoChk while it's still mounted and the on-disk state and
+//  the in memory state could be different.  This can only be queried.
+//
+
+#define PERSISTENT_VOLUME_STATE_MODIFIED_BY_CHKDSK                  (0x00000800)
+
+//
+//  The volume was formatted as DAX.  The volume may not be mounted as DAX
+//  if the storage is not DAX capable.  This can only be queried.
+//
+
+#define PERSISTENT_VOLUME_STATE_DAX_FORMATTED                       (0x00001000)
+
+#endif // #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+
+
+
 //
 //==================== FSCTL_QUERY_FILE_SYSTEM_RECOGNITION ====================
 //
@@ -15487,6 +15549,7 @@ typedef struct _ASYNC_DUPLICATE_EXTENTS_STATUS {
 //==================== FSCTL_QUERY_REFS_SMR_VOLUME_INFO =======================
 //
 
+#define REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0      0
 #define REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1      1
 
 typedef enum _REFS_SMR_VOLUME_GC_STATE {
@@ -15512,7 +15575,13 @@ typedef struct _REFS_SMR_VOLUME_INFO_OUTPUT {
     REFS_SMR_VOLUME_GC_STATE VolumeGcState;
     DWORD    VolumeGcLastStatus;
 
-    DWORDLONG Unused[7];
+    //
+    //  Fields added in V1
+    //
+
+    DWORD CurrentGcBandFillPercentage;  
+
+    DWORDLONG Unused[6];
 
 } REFS_SMR_VOLUME_INFO_OUTPUT, *PREFS_SMR_VOLUME_INFO_OUTPUT;
 

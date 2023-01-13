@@ -406,7 +406,8 @@ struct DelegateArgTraitsHelper<TDelegateInterface, true> : DelegateArgTraitsHelp
 {
 };
 
-#if (NTDDI_VERSION >= NTDDI_WINBLUE)
+#pragma region Application Family or OneCore Family
+#if (NTDDI_VERSION >= NTDDI_WINBLUE) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 // If the input delegate is already agile this could return it directly instead of creating a wrapper.
 template<typename TDelegateInterface>
 HRESULT CreateAgileHelper(_In_ TDelegateInterface* delegateInterface, _COM_Outptr_ TDelegateInterface** wrapper)
@@ -434,7 +435,8 @@ HRESULT CreateAgileHelper(_In_ TDelegateInterface* delegateInterface, _COM_Outpt
     return S_OK;
 }
 
-#endif //(NTDDI_VERSION >= NTDDI_WINBLUE)
+#endif //(NTDDI_VERSION >= NTDDI_WINBLUE) && WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
+#pragma endregion
 
 } // namespace Details
 
@@ -1070,6 +1072,9 @@ private:
 
 #endif // __windows2Efoundation_h__
 
+#pragma region Application Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
+
 #if (NTDDI_VERSION >= NTDDI_WINBLUE)
 #if defined(BUILD_WINDOWS)
 template<typename TDelegateInterface, typename TEventSourceOptions = Microsoft::WRL::InvokeModeOptions<Microsoft::WRL::ReportUnhandledOnFirstErrorWithWin8Quirk>>
@@ -1102,6 +1107,9 @@ public:
     }
 };
 #endif // (NTDDI_VERSION >= NTDDI_WINBLUE)
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
+#pragma endregion
 
 } } // namespace ::Microsoft::WRL
 

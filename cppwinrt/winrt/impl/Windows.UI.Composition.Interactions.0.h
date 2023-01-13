@@ -438,7 +438,7 @@ namespace winrt::impl
     {
         struct __declspec(novtable) type : inspectable_abi
         {
-            virtual int32_t __stdcall TryUpdatePositionWithOptions(Windows::Foundation::Numerics::float3, int32_t, int32_t, int32_t*) noexcept = 0;
+            virtual int32_t __stdcall TryUpdatePositionWithOption(Windows::Foundation::Numerics::float3, int32_t, int32_t, int32_t*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::Interactions::IInteractionTrackerCustomAnimationStateEnteredArgs>

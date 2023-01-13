@@ -907,7 +907,10 @@ public:
             auto modulePtr = ::Microsoft::WRL::GetModuleBase();
             __WRL_ASSERT__(modulePtr != nullptr);
 
-            modulePtr->IncrementObjectCount();
+            if (modulePtr != nullptr)
+            {
+                modulePtr->IncrementObjectCount();
+            }
         }
 
         return refcount;
@@ -928,7 +931,10 @@ public:
                 auto modulePtr = ::Microsoft::WRL::GetModuleBase();
                 __WRL_ASSERT__(modulePtr != nullptr);
 
-                modulePtr->DecrementObjectCount();
+                if (modulePtr != nullptr)
+                {
+                    modulePtr->DecrementObjectCount();
+                }
             }
         }
         // Decrement object count when InProc and caching enabled
@@ -937,7 +943,10 @@ public:
             auto modulePtr = ::Microsoft::WRL::GetModuleBase();
             __WRL_ASSERT__(modulePtr != nullptr);
 
-            modulePtr->DecrementObjectCount();
+            if (modulePtr != nullptr)
+            {
+                modulePtr->DecrementObjectCount();
+            }
         }
 
         return refcount;
@@ -1063,7 +1072,10 @@ public:
             auto modulePtr = ::Microsoft::WRL::GetModuleBase();
             __WRL_ASSERT__(modulePtr != nullptr);
 
-            modulePtr->IncrementObjectCount();
+            if (modulePtr != nullptr)
+            {
+                modulePtr->IncrementObjectCount();
+            }
         }
 
         return refcount;
@@ -1078,9 +1090,9 @@ public:
             bool isCacheDisabled = (flags_ & DisableCaching) != 0;
             delete this;
 
-            if (isCacheDisabled && Details::ModuleBase::module_ != nullptr)
+            auto modulePtr = ::Microsoft::WRL::GetModuleBase();
+            if (isCacheDisabled && modulePtr != nullptr)
             {
-                auto modulePtr = ::Microsoft::WRL::GetModuleBase();
                 __WRL_ASSERT__(modulePtr != nullptr);
 
                 modulePtr->DecrementObjectCount();
@@ -1091,8 +1103,10 @@ public:
         {
             auto modulePtr = ::Microsoft::WRL::GetModuleBase();
             __WRL_ASSERT__(modulePtr != nullptr);
-
-            modulePtr->DecrementObjectCount();
+            if (modulePtr != nullptr)
+            {
+                modulePtr->DecrementObjectCount();
+            }
         }
 
         return refcount;
@@ -1444,7 +1458,7 @@ public:
 };
 
 template <typename StorageT, StorageInstance instance, typename discriminator>
-__declspec(selectany) typename StaticStorage<StorageT, instance, discriminator> StaticStorage<StorageT, instance, discriminator>::instance_ = {};
+__declspec(selectany) StaticStorage<StorageT, instance, discriminator> StaticStorage<StorageT, instance, discriminator>::instance_ = {};
 
 } // namespace Details
 
@@ -1470,7 +1484,7 @@ private:
             }
 
             const wchar_t* name = ((*entry)->activationId.getRuntimeName)();
-            (name);
+            (void)(name);
             // Make sure that runtime class name is not nullptr and it has no empty string
             __WRL_ASSERT__(name != nullptr && ::wcslen(name) != 0);
         }

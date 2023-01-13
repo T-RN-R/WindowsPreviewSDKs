@@ -386,7 +386,7 @@ namespace Windows
             ApplyUpdateIfAvailable = 0x2
         };
 
-        [contract(Windows.Foundation.UniversalApiContract, 10.0)]
+        [contract(Windows.Foundation.UniversalApiContract, 11.0)]
         enum AppExecutionContext
         {
             Unknown = 0,
@@ -488,7 +488,7 @@ namespace Windows
             [propget] HRESULT Package([out] [retval] Windows.ApplicationModel.Package** value);
         }
 
-        [contract(Windows.Foundation.UniversalApiContract, 10.0)]
+        [contract(Windows.Foundation.UniversalApiContract, 11.0)]
         [exclusiveto(Windows.ApplicationModel.AppInfo)]
         [uuid(09A78E46-93A4-46DE-9397-0843B57115EA)]
         interface IAppInfo3 : IInspectable
@@ -1024,7 +1024,7 @@ namespace Windows
         {
             [default] interface Windows.ApplicationModel.IAppInfo;
             [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.ApplicationModel.IAppInfo2;
-            [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.ApplicationModel.IAppInfo3;
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.ApplicationModel.IAppInfo3;
             [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.ApplicationModel.IAppInfo4;
         }
 

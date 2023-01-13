@@ -242,6 +242,8 @@ typedef struct _USE_INFO_5 {
 //
 #define CREATE_COMPRESS_NETWORK_TRAFFIC 0x80
 
+#define CREATE_GLOBAL_MAPPING 0x100
+
 //
 // Use options
 //

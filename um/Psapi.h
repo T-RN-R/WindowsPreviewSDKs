@@ -64,8 +64,6 @@ extern "C" {
 #if (PSAPI_VERSION > 1)
 #define EnumProcessModules          K32EnumProcessModules
 #define EnumProcessModulesEx        K32EnumProcessModulesEx
-#define QueryWorkingSet             K32QueryWorkingSet
-#define QueryWorkingSetEx           K32QueryWorkingSetEx
 #define InitializeProcessForWsWatch K32InitializeProcessForWsWatch
 #define GetWsChanges                K32GetWsChanges
 #define GetWsChangesEx              K32GetWsChangesEx
@@ -128,6 +126,8 @@ extern "C" {
 #define GetModuleBaseNameW          K32GetModuleBaseNameW
 #define GetModuleFileNameExA        K32GetModuleFileNameExA
 #define GetModuleFileNameExW        K32GetModuleFileNameExW
+#define QueryWorkingSet             K32QueryWorkingSet
+#define QueryWorkingSetEx           K32QueryWorkingSetEx
 
 #endif
 
@@ -263,96 +263,6 @@ EmptyWorkingSet(
 #pragma region Desktop Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
-//
-// Working set information structures. All non-specified bits are reserved.
-//
-
-#if _MSC_VER >= 1200
-#pragma warning(push)
-#endif
-#pragma warning(disable:4201)   // unnamed struct
-#pragma warning(disable:4214)   // bit fields other than int
-
-typedef union _PSAPI_WORKING_SET_BLOCK {
-    ULONG_PTR Flags;
-    struct {
-        ULONG_PTR Protection : 5;
-        ULONG_PTR ShareCount : 3;
-        ULONG_PTR Shared : 1;
-        ULONG_PTR Reserved : 3;
-#if defined(_WIN64)
-        ULONG_PTR VirtualPage : 52;
-#else
-        ULONG_PTR VirtualPage : 20;
-#endif
-    };
-} PSAPI_WORKING_SET_BLOCK, *PPSAPI_WORKING_SET_BLOCK;
-
-typedef struct _PSAPI_WORKING_SET_INFORMATION {
-    ULONG_PTR NumberOfEntries;
-    PSAPI_WORKING_SET_BLOCK WorkingSetInfo[1];
-} PSAPI_WORKING_SET_INFORMATION, *PPSAPI_WORKING_SET_INFORMATION;
-
-typedef union _PSAPI_WORKING_SET_EX_BLOCK {
-    ULONG_PTR Flags;
-    union {
-        struct {
-            ULONG_PTR Valid : 1;
-            ULONG_PTR ShareCount : 3;
-            ULONG_PTR Win32Protection : 11;
-            ULONG_PTR Shared : 1;
-            ULONG_PTR Node : 6;
-            ULONG_PTR Locked : 1;
-            ULONG_PTR LargePage : 1;
-            ULONG_PTR Reserved : 7;
-            ULONG_PTR Bad : 1;
-
-#if defined(_WIN64)
-            ULONG_PTR ReservedUlong : 32;
-#endif
-        };
-        struct {
-            ULONG_PTR Valid : 1;            // Valid = 0 in this format.
-            ULONG_PTR Reserved0 : 14;
-            ULONG_PTR Shared : 1;
-            ULONG_PTR Reserved1 : 15;
-            ULONG_PTR Bad : 1;
-
-#if defined(_WIN64)
-            ULONG_PTR ReservedUlong : 32;
-#endif
-        } Invalid;
-    };
-} PSAPI_WORKING_SET_EX_BLOCK, *PPSAPI_WORKING_SET_EX_BLOCK;
-
-typedef struct _PSAPI_WORKING_SET_EX_INFORMATION {
-    PVOID VirtualAddress;
-    PSAPI_WORKING_SET_EX_BLOCK VirtualAttributes;
-} PSAPI_WORKING_SET_EX_INFORMATION, *PPSAPI_WORKING_SET_EX_INFORMATION;
-
-#if _MSC_VER >= 1200
-#pragma warning(pop)
-#else
-#pragma warning(default:4214)
-#pragma warning(default:4201)
-#endif
-
-BOOL
-WINAPI
-QueryWorkingSet(
-    _In_ HANDLE hProcess,
-    _Out_writes_bytes_(cb) PVOID pv,
-    _In_ DWORD cb
-    );
-
-BOOL
-WINAPI
-QueryWorkingSetEx(
-    _In_ HANDLE hProcess,
-    _Out_writes_bytes_(cb) PVOID pv,
-    _In_ DWORD cb
-    );
-
 BOOL
 WINAPI
 InitializeProcessForWsWatch(
@@ -469,6 +379,96 @@ GetDeviceDriverFileNameW (
 
 #pragma region Application Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+
+//
+// Working set information structures. All non-specified bits are reserved.
+//
+
+#if _MSC_VER >= 1200
+#pragma warning(push)
+#endif
+#pragma warning(disable:4201)   // unnamed struct
+#pragma warning(disable:4214)   // bit fields other than int
+
+typedef union _PSAPI_WORKING_SET_BLOCK {
+    ULONG_PTR Flags;
+    struct {
+        ULONG_PTR Protection : 5;
+        ULONG_PTR ShareCount : 3;
+        ULONG_PTR Shared : 1;
+        ULONG_PTR Reserved : 3;
+#if defined(_WIN64)
+        ULONG_PTR VirtualPage : 52;
+#else
+        ULONG_PTR VirtualPage : 20;
+#endif
+    };
+} PSAPI_WORKING_SET_BLOCK, *PPSAPI_WORKING_SET_BLOCK;
+
+typedef struct _PSAPI_WORKING_SET_INFORMATION {
+    ULONG_PTR NumberOfEntries;
+    PSAPI_WORKING_SET_BLOCK WorkingSetInfo[1];
+} PSAPI_WORKING_SET_INFORMATION, *PPSAPI_WORKING_SET_INFORMATION;
+
+typedef union _PSAPI_WORKING_SET_EX_BLOCK {
+    ULONG_PTR Flags;
+    union {
+        struct {
+            ULONG_PTR Valid : 1;
+            ULONG_PTR ShareCount : 3;
+            ULONG_PTR Win32Protection : 11;
+            ULONG_PTR Shared : 1;
+            ULONG_PTR Node : 6;
+            ULONG_PTR Locked : 1;
+            ULONG_PTR LargePage : 1;
+            ULONG_PTR Reserved : 7;
+            ULONG_PTR Bad : 1;
+
+#if defined(_WIN64)
+            ULONG_PTR ReservedUlong : 32;
+#endif
+        };
+        struct {
+            ULONG_PTR Valid : 1;            // Valid = 0 in this format.
+            ULONG_PTR Reserved0 : 14;
+            ULONG_PTR Shared : 1;
+            ULONG_PTR Reserved1 : 15;
+            ULONG_PTR Bad : 1;
+
+#if defined(_WIN64)
+            ULONG_PTR ReservedUlong : 32;
+#endif
+        } Invalid;
+    };
+} PSAPI_WORKING_SET_EX_BLOCK, *PPSAPI_WORKING_SET_EX_BLOCK;
+
+typedef struct _PSAPI_WORKING_SET_EX_INFORMATION {
+    PVOID VirtualAddress;
+    PSAPI_WORKING_SET_EX_BLOCK VirtualAttributes;
+} PSAPI_WORKING_SET_EX_INFORMATION, *PPSAPI_WORKING_SET_EX_INFORMATION;
+
+#if _MSC_VER >= 1200
+#pragma warning(pop)
+#else
+#pragma warning(default:4214)
+#pragma warning(default:4201)
+#endif
+
+BOOL
+WINAPI
+QueryWorkingSet(
+    _In_ HANDLE hProcess,
+    _Out_writes_bytes_(cb) PVOID pv,
+    _In_ DWORD cb
+    );
+
+BOOL
+WINAPI
+QueryWorkingSetEx(
+    _In_ HANDLE hProcess,
+    _Out_writes_bytes_(cb) PVOID pv,
+    _In_ DWORD cb
+    );
 
 // Structure for GetProcessMemoryInfo()
 

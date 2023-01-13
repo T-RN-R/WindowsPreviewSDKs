@@ -3088,6 +3088,8 @@ typedef struct
 #define wrnBTNotVisibleRejected              352  /* Current entry is not visible because it has been rejected by a move filter */
 #define wrnBTNotVisibleAccumulated           353  /* Current entry is not visible because it is being accumulated by a move filter */
 #define JET_errBadLineCount                 -354  /* Number of lines on the page is too few compared to the line being operated on */
+#define JET_errPageTagCorrupted             -357  // A tag / line on page is logically corrupted, offset or size is bad, or tag count on page is bad.
+#define JET_errNodeCorrupted                -358  // A node or prefix node is logically corrupted, the key suffix size is larger than the node or line's size.
 
 /*  RECORD MANAGER errors
 /**/

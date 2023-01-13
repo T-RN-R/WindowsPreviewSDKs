@@ -299,7 +299,7 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_Interactions_IInteractionTracker5<D>::TryUpdatePosition(Windows::Foundation::Numerics::float3 const& value, Windows::UI::Composition::Interactions::InteractionTrackerClampingOption const& option, Windows::UI::Composition::Interactions::InteractionTrackerPositionUpdateOption const& posUpdateOption) const
     {
         int32_t result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::Interactions::IInteractionTracker5)->TryUpdatePositionWithOptions(impl::bind_in(value), static_cast<int32_t>(option), static_cast<int32_t>(posUpdateOption), &result));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::Interactions::IInteractionTracker5)->TryUpdatePositionWithOption(impl::bind_in(value), static_cast<int32_t>(option), static_cast<int32_t>(posUpdateOption), &result));
         return result;
     }
     template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_Interactions_IInteractionTrackerCustomAnimationStateEnteredArgs<D>::RequestId() const
@@ -1186,7 +1186,7 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::UI::Composition::Interactions::IInteractionTracker5> : produce_base<D, Windows::UI::Composition::Interactions::IInteractionTracker5>
     {
-        int32_t __stdcall TryUpdatePositionWithOptions(Windows::Foundation::Numerics::float3 value, int32_t option, int32_t posUpdateOption, int32_t* result) noexcept final try
+        int32_t __stdcall TryUpdatePositionWithOption(Windows::Foundation::Numerics::float3 value, int32_t option, int32_t posUpdateOption, int32_t* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
             *result = detach_from<int32_t>(this->shim().TryUpdatePosition(*reinterpret_cast<Windows::Foundation::Numerics::float3 const*>(&value), *reinterpret_cast<Windows::UI::Composition::Interactions::InteractionTrackerClampingOption const*>(&option), *reinterpret_cast<Windows::UI::Composition::Interactions::InteractionTrackerPositionUpdateOption const*>(&posUpdateOption)));

@@ -510,6 +510,7 @@ namespace Windows
             DeniedByUser        = 2,
             UserPromptRequired  = 3,
             Allowed             = 4,
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             AllowedPerAppFolder = 5
         };
 

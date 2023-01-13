@@ -234,7 +234,7 @@ namespace Windows
                 HRESULT LaunchForUserAsync([in] Windows.System.User* user, [out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
             }
 
-            [contract(Windows.Foundation.UniversalApiContract, 10.0)]
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             [exclusiveto(Windows.ApplicationModel.Core.AppListEntry)]
             [uuid(2A131ED2-56F5-487C-8697-5166F3B33DA0)]
             interface IAppListEntry4 : IInspectable
@@ -449,7 +449,7 @@ namespace Windows
                 [default] interface Windows.ApplicationModel.Core.IAppListEntry;
                 [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.ApplicationModel.Core.IAppListEntry2;
                 [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.ApplicationModel.Core.IAppListEntry3;
-                [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.ApplicationModel.Core.IAppListEntry4;
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.ApplicationModel.Core.IAppListEntry4;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]

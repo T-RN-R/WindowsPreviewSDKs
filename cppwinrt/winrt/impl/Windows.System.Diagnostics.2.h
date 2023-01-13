@@ -23,11 +23,6 @@ WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
         static auto GetForUser(Windows::System::User const& user);
         [[nodiscard]] static auto IsSupported();
     };
-    struct __declspec(empty_bases) ExecutionEnvironment : Windows::System::Diagnostics::IExecutionEnvironment
-    {
-        ExecutionEnvironment(std::nullptr_t) noexcept {}
-        ExecutionEnvironment(void* ptr, take_ownership_from_abi_t) noexcept : Windows::System::Diagnostics::IExecutionEnvironment(ptr, take_ownership_from_abi) {}
-    };
     struct __declspec(empty_bases) ProcessCpuUsage : Windows::System::Diagnostics::IProcessCpuUsage
     {
         ProcessCpuUsage(std::nullptr_t) noexcept {}
@@ -39,7 +34,7 @@ WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
         ProcessCpuUsageReport(void* ptr, take_ownership_from_abi_t) noexcept : Windows::System::Diagnostics::IProcessCpuUsageReport(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) ProcessDiagnosticInfo : Windows::System::Diagnostics::IProcessDiagnosticInfo,
-        impl::require<ProcessDiagnosticInfo, Windows::System::Diagnostics::IProcessDiagnosticInfo2, Windows::System::Diagnostics::IProcessDiagnosticInfo3>
+        impl::require<ProcessDiagnosticInfo, Windows::System::Diagnostics::IProcessDiagnosticInfo2>
     {
         ProcessDiagnosticInfo(std::nullptr_t) noexcept {}
         ProcessDiagnosticInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::System::Diagnostics::IProcessDiagnosticInfo(ptr, take_ownership_from_abi) {}
@@ -82,8 +77,6 @@ WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
         SystemDiagnosticInfo(std::nullptr_t) noexcept {}
         SystemDiagnosticInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::System::Diagnostics::ISystemDiagnosticInfo(ptr, take_ownership_from_abi) {}
         static auto GetForCurrentSystem();
-        [[nodiscard]] static auto SupportedExecutionEnvironments();
-        static auto IsEnvironmentKindSupported(Windows::System::Diagnostics::ExecutionEnvironmentKind const& kind);
         static auto IsArchitectureSupported(Windows::System::ProcessorArchitecture const& type);
         [[nodiscard]] static auto PreferredArchitecture();
     };

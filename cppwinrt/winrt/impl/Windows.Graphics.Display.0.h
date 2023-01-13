@@ -21,10 +21,6 @@ WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
     struct IRandomAccessStream;
 }
-WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
-{
-    struct WindowingEnvironment;
-}
 WINRT_EXPORT namespace winrt::Windows::Graphics::Display
 {
     enum class AdvancedColorKind : int32_t
@@ -106,8 +102,6 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Display
     struct IDisplayInformation5;
     struct IDisplayInformationStatics;
     struct IDisplayPropertiesStatics;
-    struct ILogicalDisplayReference;
-    struct ILogicalDisplayReferenceStatics;
     struct AdvancedColorInfo;
     struct BrightnessOverride;
     struct BrightnessOverrideSettings;
@@ -117,7 +111,6 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Display
     struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs;
     struct DisplayInformation;
     struct DisplayProperties;
-    struct LogicalDisplayReference;
     struct NitRange;
     struct DisplayPropertiesEventHandler;
 }
@@ -141,8 +134,6 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::Display::IDisplayInformation5>{ using type = interface_category; };
     template <> struct category<Windows::Graphics::Display::IDisplayInformationStatics>{ using type = interface_category; };
     template <> struct category<Windows::Graphics::Display::IDisplayPropertiesStatics>{ using type = interface_category; };
-    template <> struct category<Windows::Graphics::Display::ILogicalDisplayReference>{ using type = interface_category; };
-    template <> struct category<Windows::Graphics::Display::ILogicalDisplayReferenceStatics>{ using type = interface_category; };
     template <> struct category<Windows::Graphics::Display::AdvancedColorInfo>{ using type = class_category; };
     template <> struct category<Windows::Graphics::Display::BrightnessOverride>{ using type = class_category; };
     template <> struct category<Windows::Graphics::Display::BrightnessOverrideSettings>{ using type = class_category; };
@@ -152,7 +143,6 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::Display::DisplayEnhancementOverrideCapabilitiesChangedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Graphics::Display::DisplayInformation>{ using type = class_category; };
     template <> struct category<Windows::Graphics::Display::DisplayProperties>{ using type = class_category; };
-    template <> struct category<Windows::Graphics::Display::LogicalDisplayReference>{ using type = class_category; };
     template <> struct category<Windows::Graphics::Display::AdvancedColorKind>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::Display::DisplayBrightnessOverrideOptions>{ using type = enum_category; };
     template <> struct category<Windows::Graphics::Display::DisplayBrightnessOverrideScenario>{ using type = enum_category; };
@@ -172,7 +162,6 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::DisplayEnhancementOverrideCapabilitiesChangedEventArgs> = L"Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::DisplayInformation> = L"Windows.Graphics.Display.DisplayInformation";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::DisplayProperties> = L"Windows.Graphics.Display.DisplayProperties";
-    template <> inline constexpr auto& name_v<Windows::Graphics::Display::LogicalDisplayReference> = L"Windows.Graphics.Display.LogicalDisplayReference";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::AdvancedColorKind> = L"Windows.Graphics.Display.AdvancedColorKind";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::DisplayBrightnessOverrideOptions> = L"Windows.Graphics.Display.DisplayBrightnessOverrideOptions";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::DisplayBrightnessOverrideScenario> = L"Windows.Graphics.Display.DisplayBrightnessOverrideScenario";
@@ -200,8 +189,6 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::IDisplayInformation5> = L"Windows.Graphics.Display.IDisplayInformation5";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::IDisplayInformationStatics> = L"Windows.Graphics.Display.IDisplayInformationStatics";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::IDisplayPropertiesStatics> = L"Windows.Graphics.Display.IDisplayPropertiesStatics";
-    template <> inline constexpr auto& name_v<Windows::Graphics::Display::ILogicalDisplayReference> = L"Windows.Graphics.Display.ILogicalDisplayReference";
-    template <> inline constexpr auto& name_v<Windows::Graphics::Display::ILogicalDisplayReferenceStatics> = L"Windows.Graphics.Display.ILogicalDisplayReferenceStatics";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::DisplayPropertiesEventHandler> = L"Windows.Graphics.Display.DisplayPropertiesEventHandler";
     template <> inline constexpr guid guid_v<Windows::Graphics::Display::IAdvancedColorInfo>{ 0x8797DCFB,0xB229,0x4081,{ 0xAE,0x9A,0x2C,0xC8,0x5E,0x34,0xAD,0x6A } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverride>{ 0x96C9621A,0xC143,0x4392,{ 0xBE,0xDD,0x4A,0x7E,0x95,0x74,0xC8,0xFD } };
@@ -221,8 +208,6 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation5>{ 0x3A5442DC,0x2CDE,0x4A8D,{ 0x80,0xD1,0x21,0xDC,0x5A,0xDC,0xC1,0xAA } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformationStatics>{ 0xC6A02A6C,0xD452,0x44DC,{ 0xBA,0x07,0x96,0xF3,0xC6,0xAD,0xF9,0xD1 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayPropertiesStatics>{ 0x6937ED8D,0x30EA,0x4DED,{ 0x82,0x71,0x45,0x53,0xFF,0x02,0xF6,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::ILogicalDisplayReference>{ 0x13781321,0x3D09,0x5B5B,{ 0xAE,0x81,0x12,0x58,0x9B,0xC8,0xB4,0x74 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::ILogicalDisplayReferenceStatics>{ 0xF7D2AC2F,0x2103,0x5D61,{ 0x81,0x44,0x2A,0x69,0x12,0x8A,0x00,0xF1 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Display::DisplayPropertiesEventHandler>{ 0xDBDD8B01,0xF1A1,0x46D1,{ 0x9E,0xE3,0x54,0x3B,0xCC,0x99,0x59,0x80 } };
     template <> struct default_interface<Windows::Graphics::Display::AdvancedColorInfo>{ using type = Windows::Graphics::Display::IAdvancedColorInfo; };
     template <> struct default_interface<Windows::Graphics::Display::BrightnessOverride>{ using type = Windows::Graphics::Display::IBrightnessOverride; };
@@ -232,7 +217,6 @@ namespace winrt::impl
     template <> struct default_interface<Windows::Graphics::Display::DisplayEnhancementOverrideCapabilities>{ using type = Windows::Graphics::Display::IDisplayEnhancementOverrideCapabilities; };
     template <> struct default_interface<Windows::Graphics::Display::DisplayEnhancementOverrideCapabilitiesChangedEventArgs>{ using type = Windows::Graphics::Display::IDisplayEnhancementOverrideCapabilitiesChangedEventArgs; };
     template <> struct default_interface<Windows::Graphics::Display::DisplayInformation>{ using type = Windows::Graphics::Display::IDisplayInformation; };
-    template <> struct default_interface<Windows::Graphics::Display::LogicalDisplayReference>{ using type = Windows::Graphics::Display::ILogicalDisplayReference; };
     template <> struct abi<Windows::Graphics::Display::IAdvancedColorInfo>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -440,20 +424,6 @@ namespace winrt::impl
             virtual int32_t __stdcall remove_ColorProfileChanged(winrt::event_token) noexcept = 0;
             virtual int32_t __stdcall add_DisplayContentsInvalidated(void*, winrt::event_token*) noexcept = 0;
             virtual int32_t __stdcall remove_DisplayContentsInvalidated(winrt::event_token) noexcept = 0;
-        };
-    };
-    template <> struct abi<Windows::Graphics::Display::ILogicalDisplayReference>
-    {
-        struct __declspec(novtable) type : inspectable_abi
-        {
-        };
-    };
-    template <> struct abi<Windows::Graphics::Display::ILogicalDisplayReferenceStatics>
-    {
-        struct __declspec(novtable) type : inspectable_abi
-        {
-            virtual int32_t __stdcall FindAll(void**) noexcept = 0;
-            virtual int32_t __stdcall FindAllForWindowingEnvironment(void*, void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::Graphics::Display::DisplayPropertiesEventHandler>
@@ -741,24 +711,6 @@ namespace winrt::impl
     template <> struct consume<Windows::Graphics::Display::IDisplayPropertiesStatics>
     {
         template <typename D> using type = consume_Windows_Graphics_Display_IDisplayPropertiesStatics<D>;
-    };
-    template <typename D>
-    struct consume_Windows_Graphics_Display_ILogicalDisplayReference
-    {
-    };
-    template <> struct consume<Windows::Graphics::Display::ILogicalDisplayReference>
-    {
-        template <typename D> using type = consume_Windows_Graphics_Display_ILogicalDisplayReference<D>;
-    };
-    template <typename D>
-    struct consume_Windows_Graphics_Display_ILogicalDisplayReferenceStatics
-    {
-        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Display::LogicalDisplayReference>) FindAll() const;
-        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Display::LogicalDisplayReference>) FindAll(Windows::UI::WindowManagement::WindowingEnvironment const& environment) const;
-    };
-    template <> struct consume<Windows::Graphics::Display::ILogicalDisplayReferenceStatics>
-    {
-        template <typename D> using type = consume_Windows_Graphics_Display_ILogicalDisplayReferenceStatics<D>;
     };
     struct struct_Windows_Graphics_Display_NitRange
     {

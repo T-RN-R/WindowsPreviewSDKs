@@ -1733,10 +1733,10 @@ namespace ABI {
  *
  * Struct Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 namespace ABI {
     namespace Windows {
         namespace UI {
@@ -1752,7 +1752,7 @@ namespace ABI {
         } /* UI */
     } /* Windows */
 } /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 
 /*
  *
@@ -2279,12 +2279,12 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CInteractions_CIInterac
  *
  * Interface Windows.UI.Composition.Interactions.IInteractionTracker5
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
  *
  * Interface is a part of the implementation of type Windows.UI.Composition.Interactions.InteractionTracker
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 #if !defined(____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_Interactions_IInteractionTracker5[] = L"Windows.UI.Composition.Interactions.IInteractionTracker5";
@@ -2297,7 +2297,7 @@ namespace ABI {
                     IInteractionTracker5 : public IInspectable
                     {
                     public:
-                        virtual HRESULT STDMETHODCALLTYPE TryUpdatePositionWithOptions(
+                        virtual HRESULT STDMETHODCALLTYPE TryUpdatePositionWithOption(
                             ABI::Windows::Foundation::Numerics::Vector3 value,
                             ABI::Windows::UI::Composition::Interactions::InteractionTrackerClampingOption option,
                             ABI::Windows::UI::Composition::Interactions::InteractionTrackerPositionUpdateOption posUpdateOption,
@@ -2314,7 +2314,7 @@ namespace ABI {
 
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 
 /*
  *
@@ -5200,16 +5200,16 @@ enum __x_ABI_CWindows_CUI_CComposition_CInteractions_CInteractionTrackerClamping
  *
  * Struct Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 enum __x_ABI_CWindows_CUI_CComposition_CInteractions_CInteractionTrackerPositionUpdateOption
 {
     InteractionTrackerPositionUpdateOption_Default = 0,
     InteractionTrackerPositionUpdateOption_AllowActiveCustomScaleAnimation = 1,
 };
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 
 /*
  *
@@ -6096,12 +6096,12 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CInteractions_CIInterac
  *
  * Interface Windows.UI.Composition.Interactions.IInteractionTracker5
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
  *
  * Interface is a part of the implementation of type Windows.UI.Composition.Interactions.InteractionTracker
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 #if !defined(____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_Interactions_IInteractionTracker5[] = L"Windows.UI.Composition.Interactions.IInteractionTracker5";
@@ -6121,7 +6121,7 @@ typedef struct __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTrac
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5* This,
         TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* TryUpdatePositionWithOptions)(__x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5* This,
+    HRESULT (STDMETHODCALLTYPE* TryUpdatePositionWithOption)(__x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5* This,
         struct __x_ABI_CWindows_CFoundation_CNumerics_CVector3 value,
         enum __x_ABI_CWindows_CUI_CComposition_CInteractions_CInteractionTrackerClampingOption option,
         enum __x_ABI_CWindows_CUI_CComposition_CInteractions_CInteractionTrackerPositionUpdateOption posUpdateOption,
@@ -6155,14 +6155,14 @@ interface __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5
 #define __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#define __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_TryUpdatePositionWithOptions(This, value, option, posUpdateOption, result) \
-    ((This)->lpVtbl->TryUpdatePositionWithOptions(This, value, option, posUpdateOption, result))
+#define __x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_TryUpdatePositionWithOption(This, value, option, posUpdateOption, result) \
+    ((This)->lpVtbl->TryUpdatePositionWithOption(This, value, option, posUpdateOption, result))
 
 #endif /* COBJMACROS */
 
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CInteractions_CIInteractionTracker5_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
 
 /*
  *

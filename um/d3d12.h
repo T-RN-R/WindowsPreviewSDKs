@@ -407,6 +407,13 @@ typedef interface ID3D12Tools ID3D12Tools;
 #endif 	/* __ID3D12Tools_FWD_DEFINED__ */
 
 
+#ifndef __ID3D12SDKConfiguration_FWD_DEFINED__
+#define __ID3D12SDKConfiguration_FWD_DEFINED__
+typedef interface ID3D12SDKConfiguration ID3D12SDKConfiguration;
+
+#endif 	/* __ID3D12SDKConfiguration_FWD_DEFINED__ */
+
+
 #ifndef __ID3D12GraphicsCommandList5_FWD_DEFINED__
 #define __ID3D12GraphicsCommandList5_FWD_DEFINED__
 typedef interface ID3D12GraphicsCommandList5 ID3D12GraphicsCommandList5;
@@ -1083,6 +1090,8 @@ extern "C"{
 #define	D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES	( 0xffffffff )
 
 #define	D3D12_RS_SET_SHADING_RATE_COMBINER_COUNT	( 2 )
+
+#define	D3D12_SDK_VERSION	( 1 )
 
 #define	D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES	( 32 )
 
@@ -19755,6 +19764,110 @@ static const UUID D3D12MetaCommand = { /* C734C97E-8077-48C8-9FDC-D9D1DD31DD77 *
     0x48c8,
     { 0x9f, 0xdc, 0xd9, 0xd1, 0xdd, 0x31, 0xdd, 0x77 }
 };
+// --------------------------------------------------------------------------------------------------------------------------------
+// D3D12GetInterface
+//
+// Retrieve Global D3D12 Interface.
+//
+
+DEFINE_GUID(CLSID_D3D12Debug,                        0xf2352aeb, 0xdd84, 0x49fe, 0xb9, 0x7b, 0xa9, 0xdc, 0xfd, 0xcc, 0x1b, 0x4f);
+DEFINE_GUID(CLSID_D3D12Tools,                        0xe38216b1, 0x3c8c, 0x4833, 0xaa, 0x09, 0x0a, 0x06, 0xb6, 0x5d, 0x96, 0xc8);
+DEFINE_GUID(CLSID_D3D12DeviceRemovedExtendedData,    0x4a75bbc4, 0x9ff4, 0x4ad8, 0x9f, 0x18, 0xab, 0xae, 0x84, 0xdc, 0x5f, 0xf2);
+DEFINE_GUID(CLSID_D3D12SDKConfiguration,             0x7cda6aca, 0xa03e, 0x49c8, 0x94, 0x58, 0x03, 0x34, 0xd2, 0x0e, 0x07, 0xce);
+
+typedef HRESULT (WINAPI* PFN_D3D12_GET_INTERFACE)( _In_ REFCLSID, _In_ REFIID, _COM_Outptr_opt_ void** );
+
+HRESULT WINAPI D3D12GetInterface( _In_ REFCLSID rclsid, _In_ REFIID riid, _COM_Outptr_opt_ void** ppvDebug );
+
+
+
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0052_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0052_v0_0_s_ifspec;
+
+#ifndef __ID3D12SDKConfiguration_INTERFACE_DEFINED__
+#define __ID3D12SDKConfiguration_INTERFACE_DEFINED__
+
+/* interface ID3D12SDKConfiguration */
+/* [unique][local][object][uuid] */ 
+
+
+EXTERN_C const IID IID_ID3D12SDKConfiguration;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("e9eb5314-33aa-42b2-a718-d77f58b1f1c7")
+    ID3D12SDKConfiguration : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE SetSDKVersion( 
+            UINT SDKVersion,
+            _In_z_  LPCSTR SDKPath) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct ID3D12SDKConfigurationVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ID3D12SDKConfiguration * This,
+            REFIID riid,
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ID3D12SDKConfiguration * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ID3D12SDKConfiguration * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *SetSDKVersion )( 
+            ID3D12SDKConfiguration * This,
+            UINT SDKVersion,
+            _In_z_  LPCSTR SDKPath);
+        
+        END_INTERFACE
+    } ID3D12SDKConfigurationVtbl;
+
+    interface ID3D12SDKConfiguration
+    {
+        CONST_VTBL struct ID3D12SDKConfigurationVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ID3D12SDKConfiguration_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ID3D12SDKConfiguration_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ID3D12SDKConfiguration_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ID3D12SDKConfiguration_SetSDKVersion(This,SDKVersion,SDKPath)	\
+    ( (This)->lpVtbl -> SetSDKVersion(This,SDKVersion,SDKPath) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ID3D12SDKConfiguration_INTERFACE_DEFINED__ */
+
+
+/* interface __MIDL_itf_d3d12_0000_0053 */
+/* [local] */ 
+
 typedef 
 enum D3D12_AXIS_SHADING_RATE
     {
@@ -19792,8 +19905,8 @@ enum D3D12_SHADING_RATE_COMBINER
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0052_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0052_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0053_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0053_v0_0_s_ifspec;
 
 #ifndef __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__
 #define __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__
@@ -20549,7 +20662,7 @@ EXTERN_C const IID IID_ID3D12GraphicsCommandList5;
 #endif 	/* __ID3D12GraphicsCommandList5_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0053 */
+/* interface __MIDL_itf_d3d12_0000_0054 */
 /* [local] */ 
 
 typedef struct D3D12_DISPATCH_MESH_ARGUMENTS
@@ -20561,8 +20674,8 @@ typedef struct D3D12_DISPATCH_MESH_ARGUMENTS
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0053_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0053_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0054_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0054_v0_0_s_ifspec;
 
 #ifndef __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__
 #define __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__
@@ -21326,7 +21439,7 @@ EXTERN_C const IID IID_ID3D12GraphicsCommandList6;
 #endif 	/* __ID3D12GraphicsCommandList6_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_d3d12_0000_0054 */
+/* interface __MIDL_itf_d3d12_0000_0055 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
@@ -21383,12 +21496,13 @@ DEFINE_GUID(IID_ID3D12GraphicsCommandList4,0x8754318e,0xd3a9,0x4541,0x98,0xcf,0x
 DEFINE_GUID(IID_ID3D12ShaderCacheSession,0x28e2495d,0x0f64,0x4ae4,0xa6,0xec,0x12,0x92,0x55,0xdc,0x49,0xa8);
 DEFINE_GUID(IID_ID3D12Device9,0x4c80e962,0xf032,0x4f60,0xbc,0x9e,0xeb,0xc2,0xcf,0xa1,0xd8,0x3c);
 DEFINE_GUID(IID_ID3D12Tools,0x7071e1f0,0xe84b,0x4b33,0x97,0x4f,0x12,0xfa,0x49,0xde,0x65,0xc5);
+DEFINE_GUID(IID_ID3D12SDKConfiguration,0xe9eb5314,0x33aa,0x42b2,0xa7,0x18,0xd7,0x7f,0x58,0xb1,0xf1,0xc7);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList5,0x55050859,0x4024,0x474c,0x87,0xf5,0x64,0x72,0xea,0xee,0x44,0xea);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList6,0xc3827890,0xe548,0x4cfa,0x96,0xcf,0x56,0x89,0xa9,0x37,0x0f,0x80);
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0054_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0054_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0055_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12_0000_0055_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

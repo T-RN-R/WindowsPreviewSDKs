@@ -3061,6 +3061,14 @@ NdrOleFree (
 #endif
 #endif
 
+#ifndef DECLSPEC_XFGVIRT
+#if (_MSC_VER >= 1923)
+#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
+#else
+#define DECLSPEC_XFGVIRT(base, func)
+#endif
+#endif
+
 #define MIDL_INTERFACE(x)   struct DECLSPEC_UUID(x) DECLSPEC_NOVTABLE
 
 #if _MSC_VER >= 1100

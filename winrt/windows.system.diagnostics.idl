@@ -64,8 +64,6 @@ namespace Windows
         {
             typedef enum DiagnosticActionState DiagnosticActionState;
 
-            typedef enum ExecutionEnvironmentKind ExecutionEnvironmentKind;
-
             interface IDiagnosticActionResult;
 
             interface IDiagnosticInvoker;
@@ -74,8 +72,6 @@ namespace Windows
 
             interface IDiagnosticInvokerStatics;
 
-            interface IExecutionEnvironment;
-
             interface IProcessCpuUsage;
 
             interface IProcessCpuUsageReport;
@@ -83,8 +79,6 @@ namespace Windows
             interface IProcessDiagnosticInfo;
 
             interface IProcessDiagnosticInfo2;
-
-            interface IProcessDiagnosticInfo3;
 
             interface IProcessDiagnosticInfoStatics;
 
@@ -115,8 +109,6 @@ namespace Windows
             runtimeclass DiagnosticActionResult;
 
             runtimeclass DiagnosticInvoker;
-
-            runtimeclass ExecutionEnvironment;
 
             runtimeclass ProcessCpuUsage;
 
@@ -154,15 +146,9 @@ namespace Windows
         {
             declare
             {
-                interface Windows.Foundation.Collections.IIterable<Windows.System.Diagnostics.ExecutionEnvironment*>;
-
                 interface Windows.Foundation.Collections.IIterable<Windows.System.Diagnostics.ProcessDiagnosticInfo*>;
 
-                interface Windows.Foundation.Collections.IIterator<Windows.System.Diagnostics.ExecutionEnvironment*>;
-
                 interface Windows.Foundation.Collections.IIterator<Windows.System.Diagnostics.ProcessDiagnosticInfo*>;
-
-                interface Windows.Foundation.Collections.IVectorView<Windows.System.Diagnostics.ExecutionEnvironment*>;
 
                 interface Windows.Foundation.Collections.IVectorView<Windows.System.Diagnostics.ProcessDiagnosticInfo*>;
 
@@ -190,15 +176,8 @@ namespace Windows
                 Detecting           = 3,
                 Resolving           = 4,
                 VerifyingResolution = 5,
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)]
                 Executing           = 6
-            };
-
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            enum ExecutionEnvironmentKind
-            {
-                Other          = 0,
-                Native         = 1,
-                Win32Container = 2
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 5.0)]
@@ -234,14 +213,6 @@ namespace Windows
                 HRESULT GetDefault([out] [retval] Windows.System.Diagnostics.DiagnosticInvoker** result);
                 HRESULT GetForUser([in] Windows.System.User* user, [out] [retval] Windows.System.Diagnostics.DiagnosticInvoker** result);
                 [propget] HRESULT IsSupported([out] [retval] boolean* value);
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            [exclusiveto(Windows.System.Diagnostics.ExecutionEnvironment)]
-            [uuid(D49B283A-7AA3-4100-A5EA-7EA03ED8F10A)]
-            interface IExecutionEnvironment : IInspectable
-            {
-                [propget] HRESULT Kind([out] [retval] Windows.System.Diagnostics.ExecutionEnvironmentKind* value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -282,14 +253,6 @@ namespace Windows
             {
                 HRESULT GetAppDiagnosticInfos([out] [retval] Windows.Foundation.Collections.IVector<Windows.System.AppDiagnosticInfo*>** result);
                 [propget] HRESULT IsPackaged([out] [retval] boolean* value);
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            [exclusiveto(Windows.System.Diagnostics.ProcessDiagnosticInfo)]
-            [uuid(ED5D0634-75B8-4941-998A-45153F67E65F)]
-            interface IProcessDiagnosticInfo3 : IInspectable
-            {
-                [propget] HRESULT ExecutionEnvironmentInfo([out] [retval] Windows.System.Diagnostics.ExecutionEnvironment** value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -394,11 +357,9 @@ namespace Windows
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             [exclusiveto(Windows.System.Diagnostics.SystemDiagnosticInfo)]
-            [uuid(F6AAE5F4-F4D7-4081-9DFA-6B499CC91387)]
+            [uuid(79DED189-6AF9-4DA9-A422-15F73255B3EB)]
             interface ISystemDiagnosticInfoStatics2 : IInspectable
             {
-                [propget] HRESULT SupportedExecutionEnvironments([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.System.Diagnostics.ExecutionEnvironment*>** value);
-                HRESULT IsEnvironmentKindSupported([in] Windows.System.Diagnostics.ExecutionEnvironmentKind kind, [out] [retval] boolean* result);
                 HRESULT IsArchitectureSupported([in] Windows.System.ProcessorArchitecture type, [out] [retval] boolean* result);
                 [propget] HRESULT PreferredArchitecture([out] [retval] Windows.System.ProcessorArchitecture* value);
             }
@@ -439,14 +400,6 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.System.Diagnostics.IDiagnosticInvoker2;
             }
 
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            [marshaling_behavior(agile)]
-            [threading(both)]
-            runtimeclass ExecutionEnvironment
-            {
-                [default] interface Windows.System.Diagnostics.IExecutionEnvironment;
-            }
-
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             [marshaling_behavior(agile)]
             [threading(both)]
@@ -472,7 +425,6 @@ namespace Windows
             {
                 [default] interface Windows.System.Diagnostics.IProcessDiagnosticInfo;
                 [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.System.Diagnostics.IProcessDiagnosticInfo2;
-                [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.System.Diagnostics.IProcessDiagnosticInfo3;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
