@@ -371,6 +371,14 @@ Abstract:
 
 // begin_ntoshvp
 
+#ifndef DECLSPEC_NOSANITIZEADDRESS
+#if defined(__SANITIZE_ADDRESS__)
+#define DECLSPEC_NOSANITIZEADDRESS  __declspec(no_sanitize_address)
+#else
+#define DECLSPEC_NOSANITIZEADDRESS
+#endif
+#endif
+
 #ifndef DECLSPEC_GUARDNOCF
 #if (_MSC_FULL_VER >= 170065501) || defined(_D1VERSIONLKG171_)
 #define DECLSPEC_GUARDNOCF  __declspec(guard(nocf))
